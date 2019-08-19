@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+
+.a-form  {
+ font-family: Arial;
+ font-size: 20px;
+    padding: 50px 50px;
+}
+
+</style>
+
+<?php 
+include("menu.php");
+
+?>
+
+
+<h2>Rose</h2>
+
+
+<?php 
+include("dbinfo_susyleague.inc.php");
+echo $username;
+mysql_connect(localhost,$username,$password);
+@mysql_select_db($database) or die( "Unable to select database");
+
+
+$query="SELECT * FROM sq_fantacalcio";
+$result=mysql_query($query);
+
+$num=mysql_numrows($result); 
+
+
+
+#echo "<b><left>Squadre</center></b><br><br>";
+
+$query_generale="SELECT valore FROM generale where nome_parametro='fantamilioni'";
+#echo $query2;
+$result_generale=mysql_query($query_generale);
+$fantamilioni=mysql_result($result_generale,0,"valore");
+
+$i=0;
+
+while ($i < $num) {
+
+
+
+$id=mysql_result($result,$i,"id");
+$squadra=mysql_result($result,$i,"squadra");
+$allenatore=mysql_result($result,$i,"allenatore");
+$query2="SELECT * FROM rose where sq_fantacalcio_id=" . $id . " order by ruolo desc";
+#echo $query2;
+$result_giocatori=mysql_query($query2);
+$num_giocatori=mysql_numrows($result_giocatori);
+
+#echo $i;
+?>
+
+<h2><?php echo "$squadra";?></h2>
+<h3><?php echo "(" .$allenatore .")";?></h3>
+
+<table border="0" cellspacing="2" cellpadding="2">
+<tr> 
+
+<th><font face="Arial, Helvetica, sans-serif">Nome</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Squadra</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Ruolo</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Costo</font></th>
+</tr>
+<?php 
+
+$j=0;
+$spesi=0;
+while ($j < $num_giocatori) {
+$id_giocatore=mysql_result($result_giocatori,$j,"id_posizione");
+$nome_giocatore=mysql_result($result_giocatori,$j,"nome");
+$squadra_giocatore=mysql_result($result_giocatori,$j,"squadra");
+$ruolo_giocatore=mysql_result($result_giocatori,$j,"ruolo");
+$costo_giocatore=mysql_result($result_giocatori,$j,"costo");
+$spesi = $spesi+ $costo_giocatore;
+?>
+
+
+<tr bgcolor= <?php switch ($ruolo_giocatore) {
+    case "P":
+        echo "#66CC33";
+        break;
+    case "D":
+        echo "#33CCCC";
+        break;
+    case "C":
+        echo "#FFEF00";
+        break;
+     case "A":
+        echo "#E80000 ";
+        break;
+    default:
+        echo "#FFFFFF";
+}
+?>
+> 
+
+<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$nome_giocatore"; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$squadra_giocatore"; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$ruolo_giocatore"; ?></font></td>
+<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$costo_giocatore"; ?></font></td>
+</tr>
+
+<?php 
+++$j;
+
+} 
+echo "</table>";
+?>
+<form action="" class="a-form">
+<label for="modulo"> Fantamilioni spesi= </label>
+<label id="spesi" > <?php  echo $spesi; ?> </label><br>
+<label for="restanti" >Fantamilioni restanti= </label>
+<label id="restanti" >  <?php  echo $fantamilioni-$spesi; ?></label><br>
+</form>
+
+<?php 
+
+++$i;
+} 
+
+mysql_close();
+
+?>
+<?php 
+include("footer.html");
+
+?>
+
+</body>
+</html>

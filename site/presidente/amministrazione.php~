@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+
+ul#squadre li {
+    display:inline;
+}
+
+
+</style>
+
+<?php 
+include("menu.php");
+?>
+<body>
+<ul>	
+
+
+	<li><a href="amministra_squadre.php" >Amministra Squadre</a></li>
+	<li><a href="amministra_rose.php" >Amministra Rose</a></li>
+	<li><a href="amministra_giornate.php" >Amministra Giornate</a></li>
+	<li><a href="query_cancella_squadre.php" >Cancella squadre</a></li>
+	<li><a href="query_cancella_rose.php" >Cancella rose</a></li>
+	<li><a href="genera_calendario.php?&tipo=1" >Crea Calendario A/R</a></li>
+	<li><a href="genera_calendario.php?&tipo=0" >Crea Calendario Sprint</a></li>
+</ul>
+<?php 
+include("footer.html");
+
+?>
+
+
+</body>
+</html>

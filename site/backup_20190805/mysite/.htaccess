@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^(media/.*)$ - [L]
+RewriteRule ^(admin_media/.*)$ - [L]
+RewriteRule ^(dispatch\.wsgi/.*)$ - [L]
+RewriteRule ^(.*)$ djangotest/dispatch.wsgi/$1 [QSA,PT,L]
+

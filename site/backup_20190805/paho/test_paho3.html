@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="paho-mqtt.js" type="text/javascript"></script>
+<script type="text/javascript">
+	
+
+  // Create a client instance
+  //client = new Paho.MQTT.Client("m20.cloudmqtt.com", 35317,"client_id");
+  //client = new Paho.MQTT.Client("m20.cloudmqtt.com", 35317, "web_pippo" );
+//client = new Paho.MQTT.Client("localhost", 1883, "web_" + parseInt(Math.random() * 100, 10));
+var d = new Date();
+var t = d.getTime();
+var client_name="web_pippo"+t;
+client = new Paho.MQTT.Client("broker.mqttdashboard.com", 8000, client_name );
+
+  // set callback handlers
+  client.onConnectionLost = onConnectionLost;
+  client.onMessageArrived = onMessageArrived;
+  var options = {
+    useSSL: false,
+    //userName: "pippo",
+    //password: "baudo",
+    onSuccess:onConnect,
+    onFailure:doFail
+  }
+
+  // connect the client
+  client.connect(options);
+
+  // called when the client connects
+  function onConnect() {
+    // Once a connection has been made, make a subscription and send a message.
+    console.log("onConnect");
+    client.subscribe("temperature_pollo/#");
+
+  }
+
+  function doFail(e){
+    console.log(e);
+  }
+
+  // called when the client loses its connection
+  function onConnectionLost(responseObject) {
+    if (responseObject.errorCode !== 0) {
+      console.log("onConnectionLost:"+responseObject.errorMessage);
+    }
+  }
+
+  // called when a message arrives
+  function onMessageArrived(message) {
+    console.log("onMessageArrived:"+message.payloadString);
+    $("#risposta").val($("#risposta").val()+message.payloadString+"-"+message.destinationName+"\r");
+    //$("#risposta").val="pippo";
+
+  }
+  
+  
+  $(document).ready(function(){
+    $("#send").click(function(){
+	var msg_text=$("#msg_text").val()
+    message = new Paho.MQTT.Message(msg_text);
+    message.destinationName = "temperature_pollo/" + client_name;
+    client.send(message);
+    
+    });
+    
+});
+
+
+</script>
+
+
+
+
+<body>
+
+<form >
+Messaggio: <input type="text" name="messaggio" value="" id="msg_text"><br>
+<button type="button" id="send" >invia</button>
+</form>
+
+<textarea rows="40" cols="50" id="risposta">
+</textarea>
+
+</body>
+</html>
+
+
