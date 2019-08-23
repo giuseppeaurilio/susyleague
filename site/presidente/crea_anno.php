@@ -125,7 +125,7 @@ function aggiungi_partita($giornata, $casa, $ospite) {
     // $result=mysql_query($query);
     global $conn;
     $conn->query($query);
-	echo $query ."<br>";
+	echo $query ."<br>"; 
 }
 
 function aggiungi_giornata($giornata,$girone) {
