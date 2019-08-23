@@ -12,8 +12,13 @@ $n=12;
 
 include("menu.php");
 include("../dbinfo_susyleague.inc.php");
-mysql_connect($localhost,$username,$password);
-@mysql_select_db($database) or die( "Unable to select database");
+// mysql_connect($localhost,$username,$password);
+// @mysql_select_db($database) or die( "Unable to select database");
+$conn = new mysqli($localhost, $username, $password,$database);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 /******************************************************************************
  * Round Robin Pairing Generator
@@ -117,13 +122,17 @@ function generateRoundRobinPairings($num_players) {
 
 function aggiungi_partita($giornata, $casa, $ospite) {
     $query="INSERT INTO `calendario`(`id_giornata`, `id_sq_casa`, `id_sq_ospite`) VALUES (" . $giornata .",". $casa .",".  $ospite .")";
-    $result=mysql_query($query);
+    // $result=mysql_query($query);
+    global $conn;
+    $conn->query($query);
 	echo $query ."<br>";
 }
 
 function aggiungi_giornata($giornata,$girone) {
 	$query="INSERT INTO .`giornate` (`id_giornata`, `inizio`, `fine`,`id_girone`) VALUES (" . $giornata .", NULL, NULL," . ($girone) .")";
-	$result=mysql_query($query);
+    // $result=mysql_query($query);
+    global $conn;
+    $conn->query($query);
 	echo $query ."<br>";
 
 }
@@ -153,44 +162,54 @@ return $tabellone;
 
 $query="Truncate `giornate`";
 echo $query;
-$result=mysql_query($query);
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 $query="Truncate `calendario`";
 echo $query;
-$result=mysql_query($query);
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 $query="Truncate `formazioni`";
 echo $query;
-$result=mysql_query($query);
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 $query="Truncate `rose`";
 echo $query;
-$result=mysql_query($query);
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 $query="Truncate `vincitori`";
 echo $query;
-$result=mysql_query($query);
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 $query="Truncate `giocatori`";
 echo $query;
-$result=mysql_query($query);
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 $query="Truncate `squadre_serie_a`";
 echo $query;
-$result=mysql_query($query);
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 $query="Truncate `sondaggi`";
 echo $query;
-$result=mysql_query($query);
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 
 $query="Truncate `sondaggi_opzioni`";
 echo $query;
-$result=mysql_query($query);
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 $query="Truncate `sondaggi_risposte`";
 echo $query;
-$result=mysql_query($query);
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 
 /////////
@@ -199,12 +218,14 @@ $result=mysql_query($query);
 
 $query="UPDATE `generale` SET `valore`='" .$fantamilioni . "' WHERE `id_parametro`='2'";
 echo $query;
-$result=mysql_query($query);
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 echo "anno=" . $nuovo_anno;
 $query="UPDATE `generale` SET `valore`='" .$nuovo_anno ."' WHERE `id_parametro`='1'";
 echo $query;
-$result=mysql_query($query);
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 
 // GENERA CALENDARIO
@@ -287,7 +308,7 @@ for ($giornata = 3*($n-1)+1; $giornata <= 3*($n-1)+4; $giornata++) {
 aggiungi_giornata($giornata,"3");
 }
 
-mysql_close();
+$conn->close();
 
 ?>
 
