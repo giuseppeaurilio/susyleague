@@ -125,7 +125,7 @@ function aggiungi_partita($giornata, $casa, $ospite) {
     // $result=mysql_query($query);
     global $conn;
     $conn->query($query);
-	echo $query ."<br>"; 
+	echo $query ."<br>";
 }
 
 function aggiungi_giornata($giornata,$girone) {
@@ -234,7 +234,7 @@ $tabellone=generateRoundRobinPairings($n);
 
 
 $map=range(1, $n);
-
+$globalgiornatecounter = 0;
 /////////////////////////
 //  GENERA GIRONE ANDATA
 
@@ -266,7 +266,7 @@ for ($giornata = 1; $giornata <= 2*($n-1); $giornata++) {
 			aggiungi_partita($giornata, $partita["ospite"], $partita["casa"]);
 		}
 	}	
-	
+	$globalgiornatecounter = $giornata;
 }
 
 
@@ -292,10 +292,10 @@ for ($giornata = 2*($n-1)+1; $giornata <= 3*($n-1); $giornata++) {
 //echo "casa= ". $element[1] . "ospite= " $element[1];
 	aggiungi_giornata($giornata,"2");
 
-		foreach ($tabellone_shuffled[$giornata-2*($n-1)] as $partita) {
-			aggiungi_partita($giornata, $partita["casa"], $partita["ospite"]);
-		}
-
+    foreach ($tabellone_shuffled[$giornata-2*($n-1)] as $partita) {
+        aggiungi_partita($giornata, $partita["casa"], $partita["ospite"]);
+    }
+    $globalgiornatecounter = $giornata;
 		
 	
 }
@@ -303,10 +303,47 @@ for ($giornata = 2*($n-1)+1; $giornata <= 3*($n-1); $giornata++) {
 /////////////////////
 // GENERA GIRONE POPO
 
-for ($giornata = 3*($n-1)+1; $giornata <= 3*($n-1)+4; $giornata++) {
+// for ($giornata = 3*($n-1)+1; $giornata <= 3*($n-1)+4; $giornata++) {
+// //echo "casa= ". $element[1] . "ospite= " $element[1];
+// aggiungi_giornata($giornata,"3");
+// }
+
+/////////////////////
+// GENERA giornate per Girone Coppa Italia A
+// visto che ogni incontro della giornat apuò essere giocato in qualunque turno della serie A, devo tante giornate quanti sono  gli incontri 
+// un girone è fatto da 6 squadre, ci sono 5 giornate, ogni giornata  3 incontri. 
+//devo quindi creare 30 giornate per la fase a gironi della coppa italia
+$globalgiornatecounter++;
+for ($giornata = 1; $giornata <= 30; $giornata++) {
 //echo "casa= ". $element[1] . "ospite= " $element[1];
-aggiungi_giornata($giornata,"3");
+    aggiungi_giornata($globalgiornatecounter,"4"); // 4  coppa italia
+    $globalgiornatecounter++;
 }
+
+/////////////////////
+// GENERA giornate per Finale coppa italia 
+aggiungi_giornata($globalgiornatecounter,"5"); // 5  finale coppa italia 
+$globalgiornatecounter++;
+
+/////////////////////
+// GENERA giornate per Torneo di consolazione
+//il torneo si svolge nelle ultime due giornate di campionato, le uniche utili, e vanno  considerati solo i punteggi delle squadre, ignorando gli scontri diretti.
+for ($giornata = 1; $giornata <= 2; $giornata++) {
+//echo "casa= ". $element[1] . "ospite= " $element[1];
+    aggiungi_giornata($globalgiornatecounter,"6"); // 6  torneo di consolazione
+    $globalgiornatecounter++;
+}
+
+/////////////////////
+// GENERA giornate per Finale campionato
+aggiungi_giornata($globalgiornatecounter,"7"); // 7  finale campionato 
+$globalgiornatecounter++;
+
+/////////////////////
+// GENERA giornate per coppa delle coppe
+aggiungi_giornata($globalgiornatecounter ,"8"); // 8  coppa delle coppe
+$globalgiornatecounter++;
+
 
 $conn->close();
 
