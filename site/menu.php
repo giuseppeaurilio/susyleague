@@ -164,9 +164,11 @@ window.onclick = function(e) {
 			 <li><a href="/display_classifiche.php">Classifiche</a></li>
 			 <li><a href="#">Calendari</a>
 				<ul>
-				   <li><a href="/display_calendario.php?&id_girone=1">Calendario Apertura</a></li>
-				   <li><a href="/display_calendario.php?&id_girone=2">Calendario Chiusura</a></li>
-				   <li><a href="/display_calendario.php?&id_girone=3">Calendario Finale</a></li>
+				   <li><a href="/display_calendario.php?&id_girone=1">Apertura</a></li>
+					 <li><a href="/display_calendario.php?&id_girone=2">Chiusura</a></li>
+					 <li><a href="/display_calendario_coppaitalia.php">CoppaItalia</a></li>
+					 <li><a href="/display_calendario.php?&id_girone=6">Torneo di consolazione</a></li>
+				   <li><a href="/display_calendario_finali.php">Finali</a></li>
 				</ul>         
 			 </li>
 			 <li><a href="#">Rose</a>
