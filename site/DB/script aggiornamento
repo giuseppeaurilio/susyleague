@@ -49,3 +49,7 @@ WHERE NOT EXISTS (
 /*coppaitalia: creazione tabelle gironi_ci_squadre */
 DROP TABLE IF EXISTS `id258940_susy_league`.`gironi_ci_squadre`;
 CREATE TABLE `id258940_susy_league`.`gironi_ci_squadre` ( `id_girone` INT NOT NULL , `id_squadra` INT NOT NULL, `squadra_materasso` bit ) ENGINE = InnoDB;
+
+/*torneoconsolazione: creazione tabelle gironi_ci_squadre */
+DROP TABLE IF EXISTS `id258940_susy_league`.`gironi_tc_squadre`;
+CREATE TABLE `id258940_susy_league`.`gironi_tc_squadre` ( `id_girone` INT NOT NULL , `id_squadra` INT NOT NULL ) ENGINE = InnoDB;
