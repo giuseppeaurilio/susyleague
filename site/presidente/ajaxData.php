@@ -5,22 +5,27 @@ if(isset($_POST["sq_sa"]) && !empty($_POST["sq_sa"]) && isset($_POST["ruolo"]) &
 
 
 	include("../dbinfo_susyleague.inc.php");
+$conn = new mysqli($localhost, $username, $password,$database);
 
-	mysql_connect($localhost,$username,$password);
-	@mysql_select_db($database) or die( "Unable to select database");
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+// echo "Connected successfully";
+
     $query="SELECT * FROM giocatori  where giocatori.ruolo='". $ruolo . "' and giocatori.id_squadra=".$sq_id;
      $query="SELECT * FROM giocatori as a where a.ruolo='". $ruolo . "' and a.id_squadra=".$sq_id ."  and a.id NOT IN (SELECT id_giocatore FROM rose)";
 
      //$query="SELECT * FROM giocatori as a  natural left join rose as b where giocatori.ruolo='". $ruolo . "' and giocatori.id_squadra=".$sq_id ." and b.id_giocatore=NULL";
 
-    $result=mysql_query($query);
-    $num=mysql_numrows($result); 
+    $result=$conn->query($query);
+    $num=$result->num_rows; 
     echo '<option value="">--Seleziona Giocatore--</option>';
     // echo '<option value="">' . $query . '</option>';  
 $i=0;
-while ($i < $num) {
-	$id=mysql_result($result,$i,"id");
-    $giocatore=mysql_result($result,$i,"nome");
+while ($row=$result->fetch_assoc()) {
+	$id=$row["id"];
+    $giocatore=$row["nome"];
 	  echo '<option value=' . $id . '>'. $giocatore . '</option>';
 	++$i;
 }

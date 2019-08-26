@@ -1,2 +1,0 @@
-[27-Oct-2015 00:01:15] PHP Warning:  system() has been disabled for security reasons in /home1/susy79/public_html/mtebackup/backup.php on line 20
-[27-Oct-2015 00:01:18] PHP Warning:  unlink(susy79_league2015-10-27.sql.gz) [<a href='function.unlink'>function.unlink</a>]: No such file or directory in /home1/susy79/public_html/mtebackup/backup.php on line 40

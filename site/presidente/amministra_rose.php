@@ -133,9 +133,14 @@ $(document).ready(function(){
 	
 <?php
 include("../dbinfo_susyleague.inc.php");
-#echo $username;
-mysql_connect($localhost,$username,$password);
-@mysql_select_db($database) or die( "Unable to select database");
+$conn = new mysqli($localhost, $username, $password,$database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+// echo "Connected successfully";
+
 ?>
 
 
@@ -155,13 +160,14 @@ mysql_connect($localhost,$username,$password);
 <option value="">--Seleziona squadra--</option>	
 <?php
 $query_sa="SELECT * FROM squadre_serie_a order by squadra";
-$result_sa=mysql_query($query_sa);
+$result_sa=$conn->query($query_sa);
 
-$num_sa=mysql_numrows($result_sa); 
+$num_sa=$result_sa->num_rows; 
 $i=0;
-while ($i < $num_sa) {
-	$id=mysql_result($result_sa,$i,"id");
-    $squadra=mysql_result($result_sa,$i,"squadra_breve");
+while ($row=$result_sa->fetch_assoc()) {
+	
+	$id=$row["id"];
+    $squadra=$row["squadra_breve"];
 	  echo '<option value=' . $id . '>'. $squadra . '</option>';
 ++$i;
 }
@@ -181,13 +187,13 @@ while ($i < $num_sa) {
 	  
 <?php
 $query="SELECT * FROM sq_fantacalcio";
-$result=mysql_query($query);
+$result=$conn->query($query);
 
-$num=mysql_numrows($result); 
+$num=$result->num_rows; 
 $i=0;
-while ($i < $num) {
-	$id=mysql_result($result,$i,"id");
-    $squadra=mysql_result($result,$i,"squadra");
+while ($row=$result->fetch_assoc()) {
+	$id=$row["id"];
+    $squadra=$row["squadra"];
 	  echo '<option value=' . $id . '>'. $squadra . '</option>';
 ++$i;
 }
@@ -219,22 +225,30 @@ Costo:<input type="text" id="costo" name="costo" size="4">
 
 $query_generale="SELECT valore FROM generale where nome_parametro='fantamilioni'";
 #echo $query2;
-$result_generale=mysql_query($query_generale);
-$fantamilioni=mysql_result($result_generale,0,"valore");
+$result_generale=$conn->query($query_generale);
+while ($row=$result_generale->fetch_assoc()) {
 
+$fantamilioni=$row["valore"];
+}
 $i=0;
 
-while ($i < $num) {
+$query="SELECT * FROM sq_fantacalcio";
+$result=$conn->query($query);
+
+$num=$result->num_rows; 
+
+
+while ($row=$result->fetch_assoc()) {
 
 
 
-$id=mysql_result($result,$i,"id");
-$squadra=mysql_result($result,$i,"squadra");
-$allenatore=mysql_result($result,$i,"allenatore");
+$id=$row["id"];
+$squadra=$row["squadra"];
+$allenatore=$row["allenatore"];
 $query2="SELECT a.costo,a.id_giocatore, b.nome, b.ruolo, c.squadra_breve  FROM rose as a inner join giocatori as b inner join squadre_serie_a as c where a.id_sq_fc='" . $id ."' and a.id_giocatore=b.id and b.id_squadra=c.id order by b.ruolo desc";
 #echo $query2;
-$result_giocatori=mysql_query($query2);
-$num_giocatori=mysql_numrows($result_giocatori);
+$result_giocatori=$conn->query($query2);
+$num_giocatori=$result_giocatori->num_rows;
 
 #echo $i;
 
@@ -260,12 +274,12 @@ $portieri=0;
 $difensori=0;
 $centrocampisti=0;
 $attaccanti=0;
-while ($j < $num_giocatori) {
-$id_giocatore=mysql_result($result_giocatori,$j,"id_giocatore");
-$nome_giocatore=mysql_result($result_giocatori,$j,"nome");
-$squadra_giocatore=mysql_result($result_giocatori,$j,"squadra_breve");
-$ruolo_giocatore=mysql_result($result_giocatori,$j,"ruolo");
-$costo_giocatore=mysql_result($result_giocatori,$j,"costo");
+while ($row=$result_giocatori->fetch_assoc()) {
+	$id_giocatore=$row["id_giocatore"];
+	$nome_giocatore=$row["nome"];
+	$squadra_giocatore=$row["squadra_breve"];
+	$ruolo_giocatore=$row["ruolo"];
+	$costo_giocatore=$row["costo"];
 $spesi = $spesi+ $costo_giocatore;
 $portieri=$portieri + ($ruolo_giocatore=="P");
 $difensori=$difensori + ($ruolo_giocatore=="D");
@@ -350,7 +364,7 @@ echo "</table>";
 
 
 
-mysql_close();
+mysqli_close($conn); 
 
 
 

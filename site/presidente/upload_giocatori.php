@@ -1,8 +1,14 @@
 
 <?php
 include("../dbinfo_susyleague.inc.php");
-mysql_connect($localhost,$username,$password);
-@mysql_select_db($database) or die( "Unable to select database");
+$conn = new mysqli($localhost, $username, $password,$database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+// echo "Connected successfully";
+
 
 
 function parse_giocatori($filename) {
@@ -22,12 +28,12 @@ if (($handle = fopen($filename, "r")) !== FALSE) {
         $squadra_breve=substr($squadra,0,3);
         echo "Squadra = " . $squadra . " " . $squadra_breve;
 		$query="INSERT INTO `squadre_serie_a`(`squadra`, `squadra_breve`) VALUES ('$squadra','$squadra_breve')";
-		$result=mysql_query($query); 
+		$result=$conn->query($query); 
 		if ($result==1) echo " OK"; else echo " ERROR";
 #		echo $query ."<br>";
 		echo "<br>";
 		$query="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra` ) SELECT $data[0],'$data[1]','$data[2]',id from squadre_serie_a where `squadra_breve`='$squadra_breve'";
-		$result=mysql_query($query);
+		$result=$conn->query($query);
 		echo $data[2] ;
 		if ($result==1) echo " OK"; else echo " ERROR";
 		echo "<br>";
@@ -57,13 +63,17 @@ if ($uploadOk == 0) {
         echo "Il file ". basename( $_FILES["fileToUpload"]["name"]). " e' stato caricato.";
         $query="Truncate `giocatori`";
 		echo $query;
-		$result=mysql_query($query);
+		$result=$conn->query($query);
 
 		$query="Truncate `squadre_serie_a`";
 		echo $query;
-		$result=mysql_query($query);
+		$result=$conn->query($query);
 
 		parse_giocatori($target_file);
+		
+		$query="INSERT INTO `squadre_serie_a` (`squadra`, `squadra_breve`) VALUES ('ZVINCOLATI', 'SVI')";
+		
+		$result=$conn->query($query);		
     } else {
         echo "Errore, il file non e'stato caricato per un problema di scrittura.";
     }
