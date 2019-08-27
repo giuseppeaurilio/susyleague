@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "SusyLeagueFont";
+    src: url(../font/Champions-Bold.ttf) format("truetype");
+}
+
+header {
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    justify-content: center;
+}
+header #imghb {
+margin-left: 50%;
+transform: translateX(-50%);
+
+}
+
+body{
+    font-family: "SusyLeagueFont", sans-serif, Verdana, Tahoma;  
+}
