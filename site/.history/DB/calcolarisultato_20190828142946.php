@@ -6,6 +6,8 @@ class RisultatoSquadra
     public $mediadifesa;
     public function RisultatoSquadra($punteggio, $giocatoriconvoto, $mediadifesa)
     {
+        echo 'Risultato';
+        echo $punteggio;
         $this->punteggio = $punteggio;
         $this->giocatoriconvoto = $giocatoriconvoto;
         $this->mediadifesa = $mediadifesa;
@@ -19,31 +21,27 @@ class RisultatoPartita
     public $punteggioFattoreCasa;
     public $golCasa;
     public $punteggioTotalaCasa;
-    public $numeroVotiCasa;
 
     public $punteggioOspite;
     public $punteggioMediaDifesaAvversariaOspite;
     public $punteggioFattoreOspite;
     public $golOspite;
     public $punteggioTotalaOspite;
-    public $numeroVotiOspite;
 
-    public function RisultatoPartita($punteggioCasa, $punteggioMediaDifesaAvversariaCasa, $punteggioFattoreCasa, $golCasa, $punteggioTotalaCasa ,$numeroVotiCasa, 
-    $punteggioOspite, $punteggioMediaDifesaAvversariaOspite, $punteggioFattoreOspite, $golOspite, $punteggioTotalaOspite, $numeroVotiOspite)
+    public function RisultatoPartita($punteggioCasa, $punteggioMediaDifesaAvversariaCasa, $punteggioFattoreCasa, $golCasa, $punteggioTotalaCasa, 
+    $punteggioOspite, $punteggioMediaDifesaAvversariaOspite, $punteggioFattoreOspite, $golOspite, $punteggioTotalaOspite)
     {
         $this->punteggioCasa = $punteggioCasa;
         $this->punteggioMediaDifesaAvversariaCasa = $punteggioMediaDifesaAvversariaCasa;
         $this->punteggioFattoreCasa = $punteggioFattoreCasa;
         $this->golCasa = $golCasa;
         $this->punteggioTotalaCasa = $punteggioTotalaCasa;
-        $this->numeroVotiCasa = $numeroVotiCasa;
 
         $this->punteggioOspite = $punteggioOspite;
         $this->punteggioMediaDifesaAvversariaOspite = $punteggioMediaDifesaAvversariaOspite;
         $this->punteggioFattoreOspite = $punteggioFattoreOspite;
         $this->golOspite = $golOspite;
         $this->punteggioTotalaOspite = $punteggioTotalaOspite;
-        $this->numeroVotiOspite = $numeroVotiOspite;
     }
 }
 
@@ -88,17 +86,19 @@ class Partita
         $punteggiocasa = $this->calcolaRisultatoSquadra($this->idgiornata, $this->idcasa);
         $punteggioospite = $this->calcolaRisultatoSquadra($this->idgiornata, $this->idospite);
         include "../globalsettings.php"; 
-        // if($boolprint) print("<pre>".print_r($punteggiocasa,true)."</pre>").'<br>';
-        // if($boolprint) print("<pre>".print_r($punteggioospite,true)."</pre>").'<br>';
+        // if($boolprint) echo  print("<pre>".print_r($punteggiocasa,true)."</pre>").'<br>';
+        // if($boolprint) echo  print("<pre>".print_r($punteggioospite,true)."</pre>").'<br>';
 
-        $punteggiototalecasa = $punteggiocasa->punteggio + $this->valorefattorecasa + ($this->usamediadifesa ?  $punteggioospite->mediadifesa: 0);
-        $punteggiototaleospite = $punteggioospite->punteggio + ($this->usamediadifesa ?  $punteggiocasa->mediadifesa: 0);
+        $punteggiototalecasa = $punteggiocasa->punteggio + $this->valorefattorecasa + $this->usamediadifesa ?  $punteggioospite->mediadifesa: 0;
+        $punteggiototaleospite = $punteggioospite->punteggio + $this->usamediadifesa ?  $punteggiocasa->mediadifesa: 0;
 
         $golcasa = $this->calcolaGol($punteggiototalecasa );
         $golospite =$this->calcolaGol($punteggiototaleospite );
-     
-        return new RisultatoPartita($punteggiocasa->punteggio,$this->usamediadifesa ?  $punteggioospite->mediadifesa: 0 ,$this->valorefattorecasa, $golcasa, $punteggiototalecasa ,$punteggiocasa->giocatoriconvoto,
-        $punteggioospite->punteggio,$this->usamediadifesa ?  $punteggiocasa->mediadifesa: 0 ,0, $golospite, $punteggiototaleospite,$punteggioospite->giocatoriconvoto );
+        echo 'punteggiototalecasa ' .$punteggiototalecasa .'<br>';
+        echo 'punteggiototaleospite ' .$punteggiototaleospite.'<br>';
+
+        return new RisultatoPartita($punteggiocasa->punteggio,$this->usamediadifesa ?  $punteggioospite->mediadifesa: 0 ,$this->valorefattorecasa, $golcasa, $punteggiototalecasa ,
+        $punteggioospite->punteggio,$this->usamediadifesa ?  $punteggiocasa->mediadifesa: 0 ,0, $golospite, $punteggiototaleospite );
     }
     
     private function calcolaRisultatoSquadra($idgiornata, $idsquadra)
@@ -213,20 +213,17 @@ class Partita
 
         //calcolo il numero di sostituzione da fare considerando il numero di titolari con voto e che il max numero di sostituzione è 3
         $sostituzionidafare = 0;
-        // if($boolprint) echo 'Voti tra i titolari';
-        // if($boolprint)  print("<pre>".print_r($numvoti,true)."</pre>").'<br>';
         if($numvoti < 11)
         {
             if((11- $numvoti) >= 3 ){
                 $sostituzionidafare = 3;
             }
             else{
-                $sostituzionidafare = 11- $numvoti;
+                $sostituzionirimanenti = 11- $numvoti;
             }
         }
         $sostituzionifatte = 0;
-        // if($boolprint) echo 'Sostituzioni da fare';
-        // if($boolprint)  print("<pre>".print_r($sostituzionidafare,true)."</pre>").'<br>';
+        // if($boolprint) echo  print("<pre>".print_r($sostituzionidafare,true)."</pre>").'<br>';
         //gestisco i voti delle riserve
         if($sostituzionidafare > $sostituzionifatte && $numporcv != 1)// se manca il portiere
         {
@@ -241,7 +238,7 @@ class Partita
         }
         //se mancano difensori
         $difdasostituire = $numdif  - $numdifcv;
-        // if($boolprint) echo  print("<pre>".print_r($difdasostituire,true)."</pre>").'<br>';
+        if($boolprint) echo  print("<pre>".print_r($difdasostituire,true)."</pre>").'<br>';
         if($sostituzionidafare > $sostituzionifatte && $difdasostituire > 0 )// se devo sostituire difensori
         {
             for($index = 1; $index<= $difdasostituire; $index++)//ciclo per i difensori da sostituire 
@@ -261,40 +258,32 @@ class Partita
 
         //calcolo la media difesa 
         $mediadifesa = $this->calcolaMediaDifesa($numdifcv, $sumdifesa );
-        $cendasostituire = $numcen  - $numcencv;
-        $attdasostituire = $numatt  - $numattcv;    
+
         //se il numero di voti mancanti è superiore alle sostituzioni disponibili, scelgo le piu convenienti
-        while($sostituzionidafare > $sostituzionifatte && ($cendasostituire> 0 || $attdasostituire> 0))
+        while($sostituzionidafare > $sostituzionifatte)
         {
-            
+            $cendasostituire = $numcen  - $numcencv;
+            $attdasostituire = $numatt  - $numattcv;    
             if($sostituzionidafare > ($cendasostituire + $attdasostituire) && $cendasostituire > 0 && $attdasostituire > 0)
             {
                 //calcolo la sostituzione migliore e faccio la sostituzione
-                $cencandidate;
-                if(count($riscencv)>0) 
-                    $cencandidate = $riscencv[0];
-                $attcandidate ;
-                if(count($risattcv)>0) 
-                    $attcandidate = $risattcv[0];
-                print("<pre>".print_r($riscencv   ,true)."</pre>").'<br>';
-                print("<pre>".print_r($risattcv   ,true)."</pre>").'<br>';
-                if($cencandidate != null && $attcandidate != null){
-                    if($cencandidate->voto > $attcandidate->voto)
-                    {
-                        $votosostituto = $cencandidate;
-                        $numvoti++;
-                        $sumvoti+= $votosostituto->voto;
-                        $numcencv++;
-                        array_shift($riscencv);
-                    }
-                    else
-                    {
-                        $votosostituto = $attcandidate;
-                        $numvoti++;
-                        $sumvoti+= $votosostituto->voto;
-                        $numattcv++;
-                        array_shift($risattcv); 
-                    }
+                $cencandidate = $riscencv[0];
+                $attcandidate = $risattcv[0];
+                if($cencandidate->voto > $attcandidate->voto)
+                {
+                    $votosostituto = $cencandidate;
+                    $numvoti++;
+                    $sumvoti+= $votosostituto->voto;
+                    $numcencv++;
+                    array_shift($riscencv);
+                }
+                else
+                {
+                    $votosostituto = $attcandidate;
+                    $numvoti++;
+                    $sumvoti+= $votosostituto->voto;
+                    $numattcv++;
+                    array_shift($risattcv); 
                 }
             }
             else
@@ -321,10 +310,10 @@ class Partita
             $sostituzionifatte++;
         }
 
-        // if($boolprint) echo  print("sommavoti= ".$sumvoti).'<br>';
-        // if($boolprint) echo  print("numvoti= ".$numvoti).'<br>';
-        // if($boolprint) echo  print("mediadifesa= ".$mediadifesa).'<br>';
-        // if($boolprint) echo  '<br>';
+        if($boolprint) echo  print("sommavoti= ".$sumvoti).'<br>';
+        if($boolprint) echo  print("numvoti= ".$numvoti).'<br>';
+        if($boolprint) echo  print("mediadifesa= ".$mediadifesa).'<br>';
+        if($boolprint) echo  '<br>';
         return new RisultatoSquadra($sumvoti, $numvoti, $mediadifesa);
     }
 
@@ -487,10 +476,8 @@ class Partita
         if($sommavoti < $sogliaprimogol){$ret = 0;}
         else
         {
-            
-            $ret = floor(($sommavoti-$sogliaprimogol)/5) + 1;
+            $ret = floor(($sommavoti-$sogliaprimogol)/5);
         }
-
         return $ret;
     }
 }

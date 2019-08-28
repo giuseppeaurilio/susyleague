@@ -261,12 +261,12 @@ class Partita
 
         //calcolo la media difesa 
         $mediadifesa = $this->calcolaMediaDifesa($numdifcv, $sumdifesa );
-        $cendasostituire = $numcen  - $numcencv;
-        $attdasostituire = $numatt  - $numattcv;    
+
         //se il numero di voti mancanti è superiore alle sostituzioni disponibili, scelgo le piu convenienti
-        while($sostituzionidafare > $sostituzionifatte && ($cendasostituire> 0 || $attdasostituire> 0))
+        while($sostituzionidafare > $sostituzionifatte)
         {
-            
+            $cendasostituire = $numcen  - $numcencv;
+            $attdasostituire = $numatt  - $numattcv;    
             if($sostituzionidafare > ($cendasostituire + $attdasostituire) && $cendasostituire > 0 && $attdasostituire > 0)
             {
                 //calcolo la sostituzione migliore e faccio la sostituzione

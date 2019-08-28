@@ -97,8 +97,8 @@ class Partita
         $golcasa = $this->calcolaGol($punteggiototalecasa );
         $golospite =$this->calcolaGol($punteggiototaleospite );
      
-        return new RisultatoPartita($punteggiocasa->punteggio,$this->usamediadifesa ?  $punteggioospite->mediadifesa: 0 ,$this->valorefattorecasa, $golcasa, $punteggiototalecasa ,$punteggiocasa->giocatoriconvoto,
-        $punteggioospite->punteggio,$this->usamediadifesa ?  $punteggiocasa->mediadifesa: 0 ,0, $golospite, $punteggiototaleospite,$punteggioospite->giocatoriconvoto );
+        return new RisultatoPartita($punteggiocasa->punteggio,$this->usamediadifesa ?  $punteggioospite->mediadifesa: 0 ,$this->valorefattorecasa, $golcasa, $punteggiototalecasa ,
+        $punteggioospite->punteggio,$this->usamediadifesa ?  $punteggiocasa->mediadifesa: 0 ,0, $golospite, $punteggiototaleospite );
     }
     
     private function calcolaRisultatoSquadra($idgiornata, $idsquadra)
@@ -261,40 +261,32 @@ class Partita
 
         //calcolo la media difesa 
         $mediadifesa = $this->calcolaMediaDifesa($numdifcv, $sumdifesa );
-        $cendasostituire = $numcen  - $numcencv;
-        $attdasostituire = $numatt  - $numattcv;    
+
         //se il numero di voti mancanti è superiore alle sostituzioni disponibili, scelgo le piu convenienti
-        while($sostituzionidafare > $sostituzionifatte && ($cendasostituire> 0 || $attdasostituire> 0))
+        while($sostituzionidafare > $sostituzionifatte)
         {
-            
+            $cendasostituire = $numcen  - $numcencv;
+            $attdasostituire = $numatt  - $numattcv;    
             if($sostituzionidafare > ($cendasostituire + $attdasostituire) && $cendasostituire > 0 && $attdasostituire > 0)
             {
                 //calcolo la sostituzione migliore e faccio la sostituzione
-                $cencandidate;
-                if(count($riscencv)>0) 
-                    $cencandidate = $riscencv[0];
-                $attcandidate ;
-                if(count($risattcv)>0) 
-                    $attcandidate = $risattcv[0];
-                print("<pre>".print_r($riscencv   ,true)."</pre>").'<br>';
-                print("<pre>".print_r($risattcv   ,true)."</pre>").'<br>';
-                if($cencandidate != null && $attcandidate != null){
-                    if($cencandidate->voto > $attcandidate->voto)
-                    {
-                        $votosostituto = $cencandidate;
-                        $numvoti++;
-                        $sumvoti+= $votosostituto->voto;
-                        $numcencv++;
-                        array_shift($riscencv);
-                    }
-                    else
-                    {
-                        $votosostituto = $attcandidate;
-                        $numvoti++;
-                        $sumvoti+= $votosostituto->voto;
-                        $numattcv++;
-                        array_shift($risattcv); 
-                    }
+                $cencandidate = $riscencv[0];
+                $attcandidate = $risattcv[0];
+                if($cencandidate->voto > $attcandidate->voto)
+                {
+                    $votosostituto = $cencandidate;
+                    $numvoti++;
+                    $sumvoti+= $votosostituto->voto;
+                    $numcencv++;
+                    array_shift($riscencv);
+                }
+                else
+                {
+                    $votosostituto = $attcandidate;
+                    $numvoti++;
+                    $sumvoti+= $votosostituto->voto;
+                    $numattcv++;
+                    array_shift($risattcv); 
                 }
             }
             else
