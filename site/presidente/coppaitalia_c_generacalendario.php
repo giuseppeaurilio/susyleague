@@ -128,7 +128,9 @@ function mappa($tabellone,$map) {
     return $tabellone;
 }
 function aggiungi_partita($giornata, $casa, $ospite) {
-    include("../dbinfo_susyleague.inc.php");
+    // in caso di dati di test, usare questo codice
+    include "../torneoconsolazione_c_generacalendario.php";
+    // include("../dbinfo_susyleague.inc.php");
     $conn = new mysqli($localhost, $username, $password,$database);
     // Check connection
     if ($conn->connect_error) {

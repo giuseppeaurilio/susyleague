@@ -1,5 +1,4 @@
 <?php
-
 $queryportieri ="SELECT *
 FROM `giocatori` g
 left outer join rose r on r.id_giocatore = g.id
@@ -27,7 +26,7 @@ LIMIT 7;";
 
 
 
-include("../dbinfo_susyleague.inc.php");
+// include("../../dbinfo_susyleague.inc.php");
 $conn = new mysqli($localhost, $username, $password,$database);
 
 // Check connection
@@ -38,6 +37,8 @@ try{
 
     $querydelete = $query="Truncate `rose`";
     $result  = $conn->query($querydelete) or die($conn->error); 
+
+    print("<pre>".print_r($result,true)."</pre>").'<br>';
     for($idsquadrafc =1; $idsquadrafc<= 12; $idsquadrafc++)
     {
         $resultportieri  = $conn->query($queryportieri) or die($conn->error); 

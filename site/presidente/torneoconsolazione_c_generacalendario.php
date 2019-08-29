@@ -125,7 +125,8 @@ function mappa($tabellone,$map) {
     return $tabellone;
 }
 function aggiungi_partita($giornata, $casa, $ospite) {
-    include("../dbinfo_susyleague.inc.php");
+    // include("../dbinfo_susyleague.inc.php");
+    include ("../../dbinfo_susyleague.inc.php");
     $conn = new mysqli($localhost, $username, $password,$database);
     // Check connection
     if ($conn->connect_error) {
@@ -151,7 +152,8 @@ function aggiungi_partita($giornata, $casa, $ospite) {
 }
 
 function cancella_partite($giornata) {
-    include("../dbinfo_susyleague.inc.php");
+    // include("../dbinfo_susyleague.inc.php");
+    include ("../../dbinfo_susyleague.inc.php");
     $conn = new mysqli($localhost, $username, $password,$database);
     // Check connection
     if ($conn->connect_error) {

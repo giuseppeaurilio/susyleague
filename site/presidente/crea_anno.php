@@ -209,6 +209,18 @@ echo $query;
 $result=$conn->query($query);
 
 
+$query="Truncate `gironi_ci_squadre`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
+
+$query="Truncate `gironi_tc_squadre`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
+
 /////////
 /// AGGIORNA PARAMETRI GENERALE
 
