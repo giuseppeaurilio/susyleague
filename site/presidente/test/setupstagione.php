@@ -61,10 +61,31 @@ try{
     aggiungi_partita(67, 3, 4);
     //finale coppa coppe
     aggiungi_partita(68, 5, 6);
+    // per ogni squadra, genero una formazione per tutte le partite
+    for($i = 1; $i<= 12; $i++ )
+    {
+        //recupero le partite in casa
+        $arraypartitecasa =  array();
+        foreach($arraypartitecasa as $parita)
+        {
+            inserisciFormazione($i, $partita, generaformazione($i));
+        }
 
-    
+        //recupero le partite in casa
+        $arraypartitetrasferta =  array();
+        foreach($arraypartitecasa as $parita)
+        {
+            inserisciFormazione($i, $partita, generaformazione($i));
+        }
+    }
 
-    
+    // per ogni partita, inserisco voti randomici alla formazione
+    $arraypartite =  array();
+    foreach($arraypartite as $parita)
+    {
+        inseriscivoti($partita);
+    }
+
 }
 catch(Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -134,5 +155,75 @@ function generaCalendarioConsolazione( $idsquadre)
         'result' => "true",
         'message' => "Operazione correttamente eseguita",
     ));
+}
+
+function queryInsertGiocatoreFormazione()
+{
+    return $query ="";
+}
+
+function queryInsertGiocatoreVoto()
+{
+    return $query ="";
+}
+
+function generaFormazione($idSquadra){
+    $ret = array();
+    //recupero tutta la rosa della squadra
+
+    //decido un modulo
+    $modulo = getmModuloRandom();
+
+    //aggiungo il portiere
+
+    //aggiungo i difensori
+
+    //aggiungo i centrocampisti
+    
+    //aggiungo gli  attaccanti
+
+    return $ret;
+}
+
+function getmModuloRandom(){
+
+    $moduli = $array(
+        array("3", "5", "2" ),
+        array("3", "4", "3" ),
+        array("4", "3", "3" ),
+        array("4", "4", "2" ),
+        array("4", "5", "1" ),
+        array("5", "3", "2" ),
+        array("5", "4", "1" ),
+    );
+
+    return array_rand($moduli);
+}
+
+
+function getVotoRandom($ruolo){
+    $votiPortiere = array("","4", "5", "6","7", "5.5", "6.5");
+    $votiDifensore = array("","4", "5", "6","7", "4.5", "5.5", "6.5");
+    $votiPortiereMD = array("","4", "5", "6","7", "4.5", "5.5", "6.5");
+    $votiCentrocampista = array("","4", "5", "6","7","8","9","10","11", "4.5", "5.5", "6.5", "7.5", "8.5", "9.5", "10.5");
+    $votiCentrocampista = array("","4", "5", "6","7","8","9","10","11","12","13","14", "4.5", "5.5", "6.5", "7.5", "8.5", "9.5", "10.5", "11.5", "12.5", "13.5");
+    $ret;
+    switch ($ruolo){
+        case "P": $ret = array_rand($votiPortiere); break;
+        case "D": $ret = array_rand($votiDifensore); break;
+        case "DM":$ret =  array_rand($votiPortiereMD); break;
+        case "C":$ret = array_rand($votiCentrocampista); break;
+        case "A":$ret =  array_rand($votiAttaccante); break;
+    }
+
+    return  $ret;
+}
+
+function inserisciFormazione($idSquadra, $partita, $formazionearray)
+{
+    foreach($formazionearray as $giocatore)
+    {
+        //insert giocatore in partita
+    }
 }
 ?>
