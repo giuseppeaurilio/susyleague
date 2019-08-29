@@ -240,7 +240,7 @@ class Partita
                 $sumvoti+= $votosostituto->voto;
                 $sostituzionifatte++;
                 array_shift($risporcv);
-                // if($boolprint) echo 'sostituito portiere'.'<br>';
+                if($boolprint) echo 'sostituito portiere'.'<br>';
                 
             }
         }
@@ -261,7 +261,7 @@ class Partita
                     $numdifcv++;
                     $sostituzionifatte++;
                     array_shift($risdifcv);
-                    // if($boolprint) echo 'sostituito difensore'.'<br>';
+                    if($boolprint) echo 'sostituito difensore'.'<br>';
                 }
             }
         }
@@ -280,7 +280,7 @@ class Partita
                     $numcencv++;
                     $sostituzionifatte++;
                     array_shift($riscencv);
-                    // if($boolprint) echo 'sostituito centrocampista'.'<br>';
+                    if($boolprint) echo 'sostituito centrocampista'.'<br>';
                 }
             }
         }
@@ -298,13 +298,13 @@ class Partita
                     $numattcv++;
                     $sostituzionifatte++;
                     array_shift($risattcv);
-                    // if($boolprint) print("<pre>".print_r($sumvoti,true)."</pre>").'<br>';
-                    // if($boolprint) echo 'sostituito attaccante'.'<br>';
+                    if($boolprint) print("<pre>".print_r($sumvoti,true)."</pre>").'<br>';
+                    if($boolprint) echo 'sostituito attaccante'.'<br>';
                 }
             }
         }
-        // if($boolprint) echo 'sumvoti dopo le sostituzioni';
-        // if($boolprint) print("<pre>".print_r($sumvoti,true)."</pre>").'<br>';
+        if($boolprint) echo 'sumvoti dopo le sostituzioni';
+        if($boolprint) print("<pre>".print_r($sumvoti,true)."</pre>").'<br>';
 
         ///-------------------------------------------------------------------------------------------
         ///questa sezione è commentata perche in questo momento non serve un algoritmo così complicato.

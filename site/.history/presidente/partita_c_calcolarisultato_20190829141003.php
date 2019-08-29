@@ -64,13 +64,14 @@ foreach($arraypartite as $partita){
                      $usamediadifesa, 
                      $valorefattorecasa);
     $result = $p->calcolaRisultatoPartita();
-    // print("<pre>".print_r($result   ,true)."</pre>").'<br>';
+    print("<pre>".print_r($result   ,true)."</pre>").'<br>';
 
     $conn = new mysqli($localhost, $username, $password, $database);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
+    // $queryupdate = 'UPDATE `calendario` SET ( `gol_casa`, `gol_ospiti`, `punti_casa`, `punti_ospiti`) VALUES ('.$result->golCasa.'
+    // ,'.$result->golOspite.','.$result->punteggioCasa.','.$result->punteggioOspite.')
     $queryupdate = 'UPDATE `calendario` 
                     SET `gol_casa`='.$result->golCasa.
                     ',`gol_ospiti`='.$result->golOspite.
@@ -81,15 +82,15 @@ foreach($arraypartite as $partita){
                     ' and id_sq_casa = ' .$partita["id_sq_casa"].
                     ' and id_sq_ospite = ' .$partita["id_sq_ospite"];
 
-    // print("<pre>".print_r($queryupdate   ,true)."</pre>").'<br>';
+    print("<pre>".print_r($queryupdate   ,true)."</pre>").'<br>';
     // $result=$conn->query($query);
-    // echo  $database;
+    echo  $database;
     // print("<pre>".print_r($result   ,true)."</pre>").'<br>';
-    // if ($conn->query($queryupdate) === TRUE) {
-    //     echo "Record updated successfully <br>";
-    // } else {
-    //     echo "Error updating record: " . $conn->error. '<br>';
-    // }
+    if ($conn->query($queryupdate) === TRUE) {
+        echo "Record updated successfully <br>";
+    } else {
+        echo "Error updating record: " . $conn->error. '<br>';
+    }
     $conn->close();
 }
 

@@ -199,20 +199,20 @@ class Partita
                 }
             }
         }
-        // if($boolprint) echo        'Squadra ID='. $idsquadra .' -> voti: ';
-        // if($boolprint)   print("<pre>".print_r($arrayvoti,true)."</pre>").'<br>';
-        // if($boolprint) echo        'Riserve portieri con voto';
-        // if($boolprint)   print("<pre>".print_r($risporcv,true)."</pre>").'<br>';
-        // if($boolprint) echo        'Riserve difensori con voto';
-        // if($boolprint)   print("<pre>".print_r($risdifcv,true)."</pre>").'<br>';
-        // if($boolprint) echo        'Riserve centrocampisti con voto';
-        // if($boolprint)   print("<pre>".print_r($riscencv,true)."</pre>").'<br>';
-        // if($boolprint) echo        'Riserve attaccanti con voto';
-        // if($boolprint)   print("<pre>".print_r($risattcv,true)."</pre>").'<br>';
+        if($boolprint) echo        'Squadra ID='. $idsquadra .' -> voti: ';
+        if($boolprint)   print("<pre>".print_r($arrayvoti,true)."</pre>").'<br>';
+        if($boolprint) echo        'Riserve portieri con voto';
+        if($boolprint)   print("<pre>".print_r($risporcv,true)."</pre>").'<br>';
+        if($boolprint) echo        'Riserve difensori con voto';
+        if($boolprint)   print("<pre>".print_r($risdifcv,true)."</pre>").'<br>';
+        if($boolprint) echo        'Riserve centrocampisti con voto';
+        if($boolprint)   print("<pre>".print_r($riscencv,true)."</pre>").'<br>';
+        if($boolprint) echo        'Riserve attaccanti con voto';
+        if($boolprint)   print("<pre>".print_r($risattcv,true)."</pre>").'<br>';
         // print_r($arrayvoti);
         $sostituzionifatte = 0;
-        // if($boolprint) echo 'numvoti';
-        // if($boolprint) print("<pre>".print_r($numvoti,true)."</pre>").'<br>';
+        if($boolprint) echo 'numvoti';
+        if($boolprint) print("<pre>".print_r($numvoti,true)."</pre>").'<br>';
 
         $sostituzionidafare = 0;
         if($numvoti < 11)
@@ -225,10 +225,8 @@ class Partita
             }
         }
         $sostituzionifatte = 0;
-        // if($boolprint) echo 'sumvoti prima delle sostituzioni';
-        // if($boolprint) print("<pre>".print_r($sumvoti,true)."</pre>").'<br>';
-        // if($boolprint) echo 'sostituzionidafare';
-        // if($boolprint) print("<pre>".print_r($sostituzionidafare,true)."</pre>").'<br>';
+        if($boolprint) echo 'sostituzionidafare';
+        if($boolprint) print("<pre>".print_r($sostituzionidafare,true)."</pre>").'<br>';
         // if($boolprint) echo 'sostituzionifatte';
         // if($boolprint) print("<pre>".print_r($sostituzionifatte,true)."</pre>").'<br>';
         if($sostituzionidafare > $sostituzionifatte && $numporcv != 1)// se manca il portiere
@@ -237,10 +235,10 @@ class Partita
             {
                 $votosostituto = $risporcv[0];
                 $numvoti++;
-                $sumvoti+= $votosostituto->voto;
+                $sumvoti+= $voto->voto;
                 $sostituzionifatte++;
                 array_shift($risporcv);
-                // if($boolprint) echo 'sostituito portiere'.'<br>';
+                if($boolprint) echo 'sostituito portiere'.'<br>';
                 
             }
         }
@@ -261,7 +259,7 @@ class Partita
                     $numdifcv++;
                     $sostituzionifatte++;
                     array_shift($risdifcv);
-                    // if($boolprint) echo 'sostituito difensore'.'<br>';
+                    if($boolprint) echo 'sostituito difensore'.'<br>';
                 }
             }
         }
@@ -280,7 +278,7 @@ class Partita
                     $numcencv++;
                     $sostituzionifatte++;
                     array_shift($riscencv);
-                    // if($boolprint) echo 'sostituito centrocampista'.'<br>';
+                    if($boolprint) echo 'sostituito centrocampista'.'<br>';
                 }
             }
         }
@@ -298,13 +296,11 @@ class Partita
                     $numattcv++;
                     $sostituzionifatte++;
                     array_shift($risattcv);
-                    // if($boolprint) print("<pre>".print_r($sumvoti,true)."</pre>").'<br>';
-                    // if($boolprint) echo 'sostituito attaccante'.'<br>';
+                    if($boolprint) echo 'sostituito attaccante'.'<br>';
                 }
             }
         }
-        // if($boolprint) echo 'sumvoti dopo le sostituzioni';
-        // if($boolprint) print("<pre>".print_r($sumvoti,true)."</pre>").'<br>';
+
 
         ///-------------------------------------------------------------------------------------------
         ///questa sezione è commentata perche in questo momento non serve un algoritmo così complicato.

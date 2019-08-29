@@ -70,7 +70,8 @@ foreach($arraypartite as $partita){
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
+    // $queryupdate = 'UPDATE `calendario` SET ( `gol_casa`, `gol_ospiti`, `punti_casa`, `punti_ospiti`) VALUES ('.$result->golCasa.'
+    // ,'.$result->golOspite.','.$result->punteggioCasa.','.$result->punteggioOspite.')
     $queryupdate = 'UPDATE `calendario` 
                     SET `gol_casa`='.$result->golCasa.
                     ',`gol_ospiti`='.$result->golOspite.
