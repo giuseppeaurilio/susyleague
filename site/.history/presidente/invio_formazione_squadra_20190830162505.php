@@ -268,20 +268,11 @@ $(document).ready(function(){
  impostaFormazione = function()
  {
 	var value =$(this).val();
-	if(value!=0)
-		{
-		var giocatori= value.split('.');
-		// alert(giocatori[0]);
-		for( index = 0; index< 11; index++)
-			{
-				$("#btn_" + giocatori[index].split('_')[1]).trigger('click');
-			}
-		for( index = 11; index< 19; index++)
-			{
-				$("#btn_" + giocatori[index].split('_')[1]).trigger('click');
-				$("#btn_" + giocatori[index].split('_')[1]).trigger('click');
-			}
-	}
+	var giocatori= value.split('.');
+	alert(giocatori[0]);
+
+	$("#btn_" + giocatori[0].split('_')[1]).trigger('change');
+
  }
 </script>
 
@@ -290,7 +281,7 @@ $(document).ready(function(){
 <!-- <h3><?php echo "(" .$allenatore .")";?></h3> -->
 <select id="ddlUltimeFormazioni">
 	<option value="0">scegli...</option>
-	<option value="1_282.2_11.3_286.4_322.5_392.6_152.7_184.8_335.9_277.10_408.11_409.12_350.13_513.14_662.15_1847.16_375.17_402.18_410.19_441">I NANI- ASVenere</option>
+	<option value="1_282.2_11">I NANI- ASVenere</option>
 </select>
 <?php
 for($i = 0; $i < 4; $i++) {

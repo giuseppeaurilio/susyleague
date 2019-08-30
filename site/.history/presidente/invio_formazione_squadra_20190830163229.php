@@ -290,7 +290,7 @@ $(document).ready(function(){
 <!-- <h3><?php echo "(" .$allenatore .")";?></h3> -->
 <select id="ddlUltimeFormazioni">
 	<option value="0">scegli...</option>
-	<option value="1_282.2_11.3_286.4_322.5_392.6_152.7_184.8_335.9_277.10_408.11_409.12_350.13_513.14_662.15_1847.16_375.17_402.18_410.19_441">I NANI- ASVenere</option>
+	<option value="1_282.2_11.3_286.4_322.5_392.6_152.7_184.8_355.9_277.10_408.11_409.12_350.13_513.14_662.15_1847.16_375.17_402.18_410.19_441">I NANI- ASVenere</option>
 </select>
 <?php
 for($i = 0; $i < 4; $i++) {
