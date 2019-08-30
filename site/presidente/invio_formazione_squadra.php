@@ -144,9 +144,14 @@ function sortFunction(a, b) {
 function pushArray(arr, arr2) {
     arr.push.apply(arr, arr2);
 }
-    
+
+resetFormazione = function(){
+	$('[class^="myButton"]').css("background-color", "");
+};
 
 $(document).ready(function(){
+	$('#btnReset').click(resetFormazione);
+
     $('[class^="myButton"]').click(function(){
 
 	console.log($(this).text());
@@ -255,7 +260,8 @@ $(document).ready(function(){
 		}
 	//
 	});
-
+	//salva la formazione come default
+	//TODO
  });
  
  
@@ -267,6 +273,7 @@ $(document).ready(function(){
 
  impostaFormazione = function()
  {
+	resetFormazione();
 	var value =$(this).val();
 	if(value!=0)
 		{
@@ -282,7 +289,7 @@ $(document).ready(function(){
 				$("#btn_" + giocatori[index].split('_')[1]).trigger('click');
 			}
 	}
- }
+}
 </script>
 
 <h2>Invio fomazione</h2>
@@ -290,8 +297,10 @@ $(document).ready(function(){
 <!-- <h3><?php echo "(" .$allenatore .")";?></h3> -->
 <select id="ddlUltimeFormazioni">
 	<option value="0">scegli...</option>
-	<option value="1_282.2_11.3_286.4_322.5_392.6_152.7_184.8_335.9_277.10_408.11_409.12_350.13_513.14_662.15_1847.16_375.17_402.18_410.19_441">I NANI- ASVenere</option>
+	<option value="1">DEFAULT</option>
+	<option value="1_250.2_2160.3_2130.4_2214.5_226.6_26.7_2002.8_645.9_2610.10_2756.11_785.12_453.13_798.14_288.15_392.16_1996.17_2085.18_2531.19_608">I NANI- ASVenere</option>
 </select>
+<input type="button" id="btnReset" value="Reset Formazione"></input>
 <?php
 for($i = 0; $i < 4; $i++) {
 
@@ -355,7 +364,9 @@ for($i = 0; $i < 4; $i++) {
 <label id="modulo" >  </label><br>
 <label for="panchina" >panchina = </label>
 <label id="panchina" >  </label><br>
+<label > Salva come default </label> <input type="checkbox" id="cbDefault"/> <br/>
 Password: <input type="password" name="password" id="password">
+
 <button type="button" id="btn_invia">Invia Formazione</button>
 
 </form>

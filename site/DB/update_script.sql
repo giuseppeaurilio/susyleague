@@ -54,6 +54,8 @@ CREATE TABLE `gironi_ci_squadre` ( `id_girone` INT NOT NULL , `id_squadra` INT N
 DROP TABLE IF EXISTS `gironi_tc_squadre`;
 CREATE TABLE `gironi_tc_squadre` ( `id_girone` INT NOT NULL , `id_squadra` INT NOT NULL ) ENGINE = InnoDB;
 
+DROP PROCEDURE IF EXISTS `getClassifica`;
+
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getClassifica`(IN `pIdGirone` INT)
     NO SQL
@@ -127,6 +129,8 @@ ON cc.idsquadrac=ct.idsquadrat
 left  join sq_fantacalcio sf on sf.id = cc.idsquadrac
 order by punti desc$$
 DELIMITER ;
+
+DROP PROCEDURE IF EXISTS `getClassificaAggregate`;
 
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getClassificaAggregate`(IN `pIdGirone` INT)
@@ -202,6 +206,8 @@ left  join sq_fantacalcio sf on sf.id = cc.idsquadrac
 order by punti desc$$
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS `getClassificaAggregateAperturaChiusura`;
+
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getClassificaAggregateAperturaChiusura`()
     NO SQL
@@ -275,6 +281,8 @@ ON cc.idsquadrac=ct.idsquadrat
 left  join sq_fantacalcio sf on sf.id = cc.idsquadrac
 order by punti desc$$
 DELIMITER ;
+
+DROP PROCEDURE IF EXISTS `getClassificaGironeCoppaItalia`;
 
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getClassificaGironeCoppaItalia`(IN `pIdGirone` INT, IN `pIdGironeCI` INT)

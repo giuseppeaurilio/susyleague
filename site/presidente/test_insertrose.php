@@ -26,7 +26,7 @@ LIMIT 7;";
 
 
 
-// include("../../dbinfo_susyleague.inc.php");
+include_once "../dbinfo_susyleague.inc.php";
 $conn = new mysqli($localhost, $username, $password,$database);
 
 // Check connection

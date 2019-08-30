@@ -1,6 +1,6 @@
 <?php
-include_once ("../../dbinfo_susyleague.inc.php");
-include_once  "insertrose.php"; 
+include_once "../dbinfo_susyleague.inc.php";
+include_once  "test_insertrose.php"; 
 
 $queryportieri ="SELECT *
 FROM `sq_fantacalcio` sqf";
@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 try{
 
     // include_once "../coppaitalia_c_generacalendario.php";
-    include_once "../torneoconsolazione_c_generacalendario.php";
+    include_once "torneoconsolazione_c_generacalendario.php";
     $girone = 4;
     $idsquadre = array();
     $sqfid  = 1;
@@ -61,38 +61,38 @@ try{
     aggiungi_partita(67, 3, 4);
     //finale coppa coppe
     aggiungi_partita(68, 5, 6);
-    // per ogni squadra, genero una formazione per tutte le partite
-    for($i = 1; $i<= 12; $i++ )
-    {
-        //recupero la rosa della squadra
-        $arrayrosa =  array();
-        //recupero le partite in casa
-        $arraypartitecasa =  array();
-        foreach($arraypartitecasa as $parita)
-        {
-            inserisciFormazione($i, $partita, generaformazione($arrayrosa));
-        }
+    // // per ogni squadra, genero una formazione per tutte le partite
+    // for($i = 1; $i<= 12; $i++ )
+    // {
+    //     //recupero la rosa della squadra
+    //     $arrayrosa =  array();
+    //     //recupero le partite in casa
+    //     $arraypartitecasa =  array();
+    //     foreach($arraypartitecasa as $parita)
+    //     {
+    //         inserisciFormazione($i, $partita, generaformazione($arrayrosa));
+    //     }
 
-        //recupero le partite in trasferta
-        $arraypartitetrasferta =  array();
-        foreach($arraypartitecasa as $parita)
-        {
-            inserisciFormazione($i, $partita, generaformazione($arrayrosa));
-        }
-    }
+    //     //recupero le partite in trasferta
+    //     $arraypartitetrasferta =  array();
+    //     foreach($arraypartitecasa as $parita)
+    //     {
+    //         inserisciFormazione($i, $partita, generaformazione($arrayrosa));
+    //     }
+    // }
 
-    // per ogni partita, inserisco voti randomici alla formazione
-    $arraypartitecasa =  array();
-    foreach($arraypartite as $partita)
-    {
-        inseriscivoti($partita);
-    }
+    // // per ogni partita, inserisco voti randomici alla formazione
+    // $arraypartitecasa =  array();
+    // foreach($arraypartite as $partita)
+    // {
+    //     inseriscivoti($partita);
+    // }
 
-    $arraypartitetrasferta =  array();
-    foreach($arraypartite as $partita)
-    {
-        inseriscivoti($partita);
-    }
+    // $arraypartitetrasferta =  array();
+    // foreach($arraypartite as $partita)
+    // {
+    //     inseriscivoti($partita);
+    // }
 
 }
 catch(Exception $e) {

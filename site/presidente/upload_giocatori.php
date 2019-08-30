@@ -3,9 +3,11 @@
 function parse_giocatori($filename) {
 	
 	if (($handle = fopen($filename, "r")) !== FALSE) {
-		$data = fgetcsv($handle, 1000, ",");
-		// $counter = 1;
-		while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+		// $data = fgetcsv($handle, 1000, ",");
+		$countersquadre = 0;
+		$countergiocatori = 0;
+		while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+			// print_r($data);
 			include("../dbinfo_susyleague.inc.php");
 			$conn = new mysqli($localhost, $username, $password,$database);
 			
@@ -29,10 +31,10 @@ function parse_giocatori($filename) {
 					$queryinsertsquadra="INSERT INTO `squadre_serie_a`(`squadra`, `squadra_breve`) VALUES ('$squadra','$squadra_breve')";
 					$result=$conn->query($queryinsertsquadra) or die($conn->error);; 
 					$idsquadra = $conn->insert_id;
-					echo $idsquadra." ".$squadra;
+					// echo $idsquadra." ".$squadra;
 					
-					if ($result==1) echo " OK"; else echo " ERROR" . mysqli_error($conn) ;
-					echo "<br>";
+					if ($result==1) $countersquadre++; else echo " ERROR" . mysqli_error($conn) ;
+					// echo "<br>";
 					// $idsquadra = $counter;
 					// $counter++;
 				}
@@ -55,9 +57,9 @@ function parse_giocatori($filename) {
 					from squadre_serie_a where `squadra_breve`='$squadra_breve'";
 
 					$result=$conn->query($queryinsertgiocatore); 
-					echo $nome;
-					if ($result==1) echo " OK"; else echo " ERROR";
-					echo "<br>";
+					// echo $nome;
+					if ($result==1) $countergiocatori++; else echo " ERROR";
+					// echo "<br>";
 				}
 			}
 			catch(Exception $e) {
@@ -69,6 +71,8 @@ function parse_giocatori($filename) {
 			
 		}
 		fclose($handle);
+
+		echo " Procedura completata. Inserite " .$countersquadre. "squadre e ".$countergiocatori." giorcatori.";
 	}
 
 // inserisci squadre nel database

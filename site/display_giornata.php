@@ -53,24 +53,47 @@ $id_giornata=$_GET['id_giornata'];
 <?php
 
 
-$query2="SELECT a.id_sq_casa as id_casa, a.id_sq_ospite as id_ospite, b.squadra as sq_casa, c.squadra as sq_ospite, a.gol_casa, a.gol_ospiti, a.punti_casa, a.punti_ospiti FROM calendario as a inner join sq_fantacalcio as b on a.id_sq_casa=b.id inner join sq_fantacalcio as c on a.id_sq_ospite=c.id where a.id_giornata=".$id_giornata ." order by a.id_partita" ;
+$query2="Select *, b.squadra as sq_casa, c.squadra as sq_ospite, g.id_girone
+FROM calendario as a 
+left join sq_fantacalcio as b on a.id_sq_casa=b.id 
+left join sq_fantacalcio as c on a.id_sq_ospite=c.id 
+left join giornate as g on g.id_giornata=a.id_giornata 
+where a.id_giornata=".$id_giornata ." order by a.id_partita" ;
 #echo "<br> quesry2= " . $query2;
+$idgirone = 0;
 $result_giornata=$conn->query($query2);
 $num_giornata=$result_giornata->num_rows;
-
 $j=0;
 while ($row=$result_giornata->fetch_assoc()) {
-	$id_casa=$row["id_casa"];
-	$id_ospite=$row["id_ospite"];
-	$punti_casa=$row["punti_casa"];
-	$gol_casa=$row["gol_casa"];
+	$idgirone=$row["id_girone"];
+
+	$id_casa=$row["id_sq_casa"];
+	$id_ospite=$row["id_sq_ospite"];
 	$sq_casa=$row["sq_casa"];
 	$sq_ospite=$row["sq_ospite"];
-	$gol_ospite=$row["gol_ospiti"];
-	$punti_ospite=$row["punti_ospiti"];
+	
+	$addizionalecasa = $row["fattorecasa"];
+	$numero_giocanti_casa = $row["numero_giocanti_casa"];
+	$voto_netto_casa = $row["punti_casa"];
+	$media_difesa_avversaria_casa = $row["md_casa"];
+	$voto_totale_casa = $voto_netto_casa + $media_difesa_avversaria_casa + $addizionalecasa;//$row["tot_casa"];
+	$gol_casa = $row["gol_casa"];
+
+	$numero_giocanti_ospite  = $row["numero_giocanti_ospite"];
+	$voto_netto_ospite = $row["punti_ospiti"];
+	$media_difesa_avversaria_ospite = $row["md_ospite"];
+	$voto_totale_ospite = $voto_netto_ospite + $media_difesa_avversaria_ospite;//$row["tot_ospite"];
+	$gol_ospite = $row["gol_ospiti"];
 
 
-	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve FROM formazioni as a inner join giocatori as b inner join squadre_serie_a as c where a.id_giornata='" . $id_giornata . "' and a.id_squadra= '". $id_casa ."' and a.id_giocatore=b.id and a.id_squadra_sa=c.id ";
+	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione
+	FROM formazioni as a 
+	inner join giocatori as b 
+	inner join squadre_serie_a as c 
+	where a.id_giornata='" . $id_giornata . "' 
+	and a.id_squadra= '". $id_casa ."' 
+	and a.id_giocatore=b.id 
+	and a.id_squadra_sa=c.id ";
 	//echo "<br> query formazione casa= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
 	$num_giocatori=$result_formazione->num_rows;
@@ -110,11 +133,11 @@ while ($row=$result_giornata->fetch_assoc()) {
 >
 	<?php if ($i==0) {echo 	"<th bgcolor='#FFFFFF' rowspan='11'>Titolari</th>";  } ?>
 	<?php if ($i==11) {echo "<th bgcolor='#FFFFFF' rowspan='8'>Riserve</th>";  } ?>
-            	<td><?php echo $row["nome"]; ?></td>
-            	<td><?php echo $row["squadra_breve"]; ?></td>
-            	<td><?php echo $row["ruolo"]; ?></td>
-             	<td><?php echo $row["voto"]; ?></td>
-		<td><?php echo $row["voto_md"]; ?></td>
+		<td><?php echo $row["nome"]; ?></td>
+		<td><?php echo $row["squadra_breve"]; ?></td>
+		<td><?php echo $row["ruolo"]; ?></td>
+		<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
+		<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
 		
         </tr>
         <?php
@@ -128,61 +151,61 @@ while ($row=$result_giornata->fetch_assoc()) {
 
 
 	<?php
-	// $query_risultati="Select * from punteggio_finale where id_giornata='" . $id_giornata . "' and id_casa= '". $id_casa ."'";
-	$query_risultati="Select *, sum(punti_casa + md_casa + fattorecasa) as tot_casa from calendario where id_giornata='" . $id_giornata . "' and id_sq_casa= '". $id_casa ."'";
-	#echo "query= " . $query_risultati;
-	$risultati=$conn->query($query_risultati);
-	$num_risultati=$risultati->num_rows;
+	// // $query_risultati="Select * from punteggio_finale where id_giornata='" . $id_giornata . "' and id_casa= '". $id_casa ."'";
+	// $query_risultati="Select *, sum(punti_casa + md_casa + fattorecasa) as tot_casa from calendario where id_giornata='" . $id_giornata . "' and id_sq_casa= '". $id_casa ."'";
+	// #echo "query= " . $query_risultati;
+	// $risultati=$conn->query($query_risultati);
+	// $num_risultati=$risultati->num_rows;
 	
-	$addizionale="";
-	$voto_netto="";
-	$media_difesa="";
-	$voto_totale="";
-	$gol="";
-	$numero_giocanti="";	
+	// $addizionale="";
+	// $voto_netto="";
+	// $media_difesa="";
+	// $voto_totale="";
+	// $gol="";
+	// $numero_giocanti="";	
 	
-	if ($num_risultati>0) {	
-		$row=$risultati->fetch_assoc();
-		$addizionale=$row["fattorecasa"];
-		$voto_netto=$row["punti_casa"];
-		$media_difesa=$row["md_casa"];
-		$voto_totale=$row["tot_casa"];
-		$gol=$row["gol_casa"];
-		$numero_giocanti=$row["numero_giocanti_casa"];	
-		}
+	// if ($num_risultati>0) {	
+	// 	$row=$risultati->fetch_assoc();
+	// 	$addizionale=$row["fattorecasa"];
+	// 	$voto_netto=$row["punti_casa"];
+	// 	$media_difesa=$row["md_casa"];
+	// 	$voto_totale=$row["tot_casa"];
+	// 	$gol=$row["gol_casa"];
+	// 	$numero_giocanti=$row["numero_giocanti_casa"];	
+	// 	}
 	
-	// $query_risultati="Select * from punteggio_finale where id_giornata='" . $id_giornata . "' and id_ospite= '". $id_ospite ."'";
-	$query_risultati="Select *, sum(punti_ospiti + md_ospite) as tot_ospite from calendario where id_giornata='" . $id_giornata . "' and id_sq_ospite= '". $id_ospite ."'";
-	#echo "query= " . $query_risultati;
-	$risultati=$conn->query($query_risultati);
-	$num_risultati=$risultati->num_rows;
-	$voto_netto_ospite="";
-	$media_difesa_ospite="";
-	$voto_totale_ospite="";
-	$gol_ospite="";
-	$numero_giocanti_ospite="";
-	if ($num_risultati>0) {	
-		$row=$risultati->fetch_assoc();
-		$voto_netto_ospite=$row["punti_ospiti"];
-		$media_difesa_ospite=$row["md_ospite"];
-		$voto_totale_ospite=$row["tot_ospite"];
-		$gol_ospite=$row["gol_ospiti"];
-		$numero_giocanti_ospite=$row["numero_giocanti_ospite"];
-	}
+	// // $query_risultati="Select * from punteggio_finale where id_giornata='" . $id_giornata . "' and id_ospite= '". $id_ospite ."'";
+	// $query_risultati="Select *, sum(punti_ospiti + md_ospite) as tot_ospite from calendario where id_giornata='" . $id_giornata . "' and id_sq_ospite= '". $id_ospite ."'";
+	// #echo "query= " . $query_risultati;
+	// $risultati=$conn->query($query_risultati);
+	// $num_risultati=$risultati->num_rows;
+	// $voto_netto_ospite="";
+	// $media_difesa_ospite="";
+	// $voto_totale_ospite="";
+	// $gol_ospite="";
+	// $numero_giocanti_ospite="";
+	// if ($num_risultati>0) {	
+	// 	$row=$risultati->fetch_assoc();
+	// 	$voto_netto_ospite=$row["punti_ospiti"];
+	// 	$media_difesa_ospite=$row["md_ospite"];
+	// 	$voto_totale_ospite=$row["tot_ospite"];
+	// 	$gol_ospite=$row["gol_ospiti"];
+	// 	$numero_giocanti_ospite=$row["numero_giocanti_ospite"];
+	// }
 
 
-	?>
+	// ?>
 	
-	<p> addizionale = <?php echo $addizionale; ?> </p>
-	<p> giocatori con  voto = <?php echo $numero_giocanti; ?> </p>
-	<p> voto netto = <?php echo $voto_netto; ?> </p>
-	<p> media difesa = <?php echo $media_difesa_ospite; ?> </p>
-	<p> voto totale = <?php echo $voto_totale; ?> </p>
-	<p> gol = <?php echo $gol; ?> </p>
+	<p> addizionale = <?php echo $addizionalecasa; ?> </p>
+	<p> giocatori con  voto = <?php echo $numero_giocanti_casa; ?> </p>
+	<p> voto netto = <?php echo $voto_netto_casa; ?> </p>
+	<p> media difesa = <?php echo $media_difesa_avversaria_casa; ?> </p>
+	<p> voto totale = <?php echo $voto_totale_casa; ?> </p>
+	<p> gol = <?php echo $gol_casa; ?> </p>
 		</div>
 	<?php
 
-	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve FROM formazioni as a inner join giocatori as b inner join squadre_serie_a as c where a.id_giornata='" . $id_giornata . "' and a.id_squadra= '". $id_ospite ."' and a.id_giocatore=b.id and a.id_squadra_sa=c.id ";
+	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione FROM formazioni as a inner join giocatori as b inner join squadre_serie_a as c where a.id_giornata='" . $id_giornata . "' and a.id_squadra= '". $id_ospite ."' and a.id_giocatore=b.id and a.id_squadra_sa=c.id ";
 
 	//echo "<br> query formazione ospite= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
@@ -224,11 +247,11 @@ while ($row=$result_giornata->fetch_assoc()) {
 >
 	<?php if ($i==0) {echo 	"<th bgcolor='#FFFFFF' rowspan='11'>Titolari</th>";  } ?>
 	<?php if ($i==11) {echo "<th bgcolor='#FFFFFF' rowspan='8'>Riserve</th>";  } ?>
-            	<td><?php echo $row["nome"]; ?></td>
-            	<td><?php echo $row["squadra_breve"]; ?></td>
-            	<td><?php echo $row["ruolo"]; ?></td>
-             	<td><?php echo $row["voto"]; ?></td>
-		<td><?php echo $row["voto_md"]; ?></td>
+		<td><?php echo $row["nome"]; ?></td>
+		<td><?php echo $row["squadra_breve"]; ?></td>
+		<td><?php echo $row["ruolo"]; ?></td>
+		<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
+		<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
 		
         </tr>
         <?php
@@ -239,13 +262,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<p> addizionale = 0 </p>
 	<p> giocatori con  voto = <?php echo $numero_giocanti_ospite; ?> </p>
 	<p> voto netto = <?php echo $voto_netto_ospite; ?> </p>
-	<p> media difesa = <?php echo $media_difesa; ?> </p>
+	<p> media difesa = <?php echo $media_difesa_avversaria_ospite; ?> </p>
 	<p> voto totale = <?php echo $voto_totale_ospite; ?> </p>
-	<p> gol = <?php echo $gol_ospite; ?> </p>
-
-
-
-		</div>
+	<p> gol = <?php echo $gol_ospite; ?> </p></div>
 
 	</div>
 	<hr>

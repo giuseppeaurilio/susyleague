@@ -52,7 +52,7 @@ $id_girone=$_GET['id_girone'];
 
 
 <script>
-	
+
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
@@ -94,7 +94,9 @@ $(document).ready(function(){
 				//message_status.show();
 				//message_status.text("Aggiornato");
 				console.log("risultato query= " + result);
-				setTimeout(function(){location.reload();},3000);
+				// operationSuccess();
+				setTimeout(function(){location.reload(true);},10);
+				// location.reload(true);
 			
 			}
 
@@ -140,6 +142,12 @@ $(document).ready(function(){
 
 
 <h1> Calcolo Giornata <?php echo $id_giornata ;?> </h1>
+
+<form action="upload_voti.php?idgiornata=<?php echo $id_giornata ;?>" method="post" enctype="multipart/form-data">
+    Selziona File da inserire:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Carica File" name="submit">
+</form>
 <div data-role="main" class="ui-content">
 
 <?php
@@ -319,7 +327,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<p> media difesa = <?php echo $media_difesa_avversaria_casa; ?> </p>
 	<p> voto totale = <?php echo $voto_totale_casa; ?> </p>
 	<p> gol = <?php echo $gol_casa; ?> </p>
-<a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_squadra=<?php  echo $id_casa; ?>">Invia Formazione</a>
+	<a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_squadra=<?php  echo $id_casa; ?>">Invia Formazione</a>
 		</div>
 	<?php
 	// $query_formazione="Select * from formazioni where id_giornata='" . $id_giornata . "' and id_squadra= '". $id_ospite ."'";

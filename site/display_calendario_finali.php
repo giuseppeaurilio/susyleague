@@ -36,20 +36,22 @@ $num=$result->num_rows;
 $giornate = array();
 while ($row=$result->fetch_assoc()) {
 	echo '<div>';
-	echo '<h1>Finale Coppa Italia</h1>';
-	echo '<div>'.$row["inizio"].'-'.$row["fine"].'</div>';
-	echo '<div>StadioOlimpico di Roma</div>';
-	echo '<div>'.$row["squadracasa"].'</div>';
-	echo '<div>'.$row["squadraospite"].'</div>';
-	if(!is_null($row["gol_casa"]) && !is_null($row["gol_casa"]) )
-	{
-		echo '<div>'.$row["gol_casa"].'</div>';
-		echo '<div>'.$row["gol_ospiti"].'</div>';
-		echo '<div>'.$row["punti_casa"].'</div>';
-		echo '<div>'.$row["punti_ospiti"].'</div>';
+		echo '<h1>Finale Coppa Italia</h1>';
+		echo '<div>'.$row["inizio"].'-'.$row["fine"].'</div>';
+		echo '<div>StadioOlimpico di Roma</div>';
+		echo '<div>'.$row["squadracasa"].'</div>';
+		echo '<div>'.$row["squadraospite"].'</div>';
+		if(!is_null($row["gol_casa"]) && !is_null($row["gol_casa"]) )
+		{
+			echo '<div>'.$row["gol_casa"].'</div>';
+			echo '<div>'.$row["gol_ospiti"].'</div>';
+			echo '<div>'.$row["punti_casa"].'</div>';
+			echo '<div>'.$row["punti_ospiti"].'</div>';
 
-	}
-	echo '<div></div>';
+		}
+		$link="display_giornata.php?&id_giornata=".$row["id_giornata"];
+		echo '<a href='. $link.'>Dettaglio</a>';
+	echo '</div>';
 }
 
 $query= "SELECT giornate.*, 
@@ -73,20 +75,22 @@ $num=$result->num_rows;
 $giornate = array();
 while ($row=$result->fetch_assoc()) {
 	echo '<div>';
-	echo '<h1>Finale SusyLeague</h1>';
-	echo '<div>'.$row["inizio"].'-'.$row["fine"].'</div>';
-	echo '<div>StadioOlimpico di Roma</div>';
-	echo '<div>'.$row["squadracasa"].'</div>';
-	echo '<div>'.$row["squadraospite"].'</div>';
-	if(!is_null($row["gol_casa"]) && !is_null($row["gol_casa"]) )
-	{
-		echo '<div>'.$row["gol_casa"].'</div>';
-		echo '<div>'.$row["gol_ospiti"].'</div>';
-		echo '<div>'.$row["punti_casa"].'</div>';
-		echo '<div>'.$row["punti_ospiti"].'</div>';
+		echo '<h1>Finale SusyLeague</h1>';
+		echo '<div>'.$row["inizio"].'-'.$row["fine"].'</div>';
+		echo '<div>StadioOlimpico di Roma</div>';
+		echo '<div>'.$row["squadracasa"].'</div>';
+		echo '<div>'.$row["squadraospite"].'</div>';
+		if(!is_null($row["gol_casa"]) && !is_null($row["gol_casa"]) )
+		{
+			echo '<div>'.$row["gol_casa"].'</div>';
+			echo '<div>'.$row["gol_ospiti"].'</div>';
+			echo '<div>'.$row["punti_casa"].'</div>';
+			echo '<div>'.$row["punti_ospiti"].'</div>';
 
-	}
-	echo '<div></div>';
+		}
+		$link="display_giornata.php?&id_giornata=".$row["id_giornata"];
+		echo '<a href='. $link.'>Dettaglio</a>';
+	echo '</div>';
 }
 
 $query= "SELECT giornate.*, 
@@ -110,20 +114,22 @@ $num=$result->num_rows;
 $giornate = array();
 while ($row=$result->fetch_assoc()) {
 	echo '<div>';
-	echo '<h1>Coppa delle Coppe</h1>';
-	echo '<div>'.$row["inizio"].'-'.$row["fine"].'</div>';
-	echo '<div>StadioOlimpico di Roma</div>';
-	echo '<div>'.$row["squadracasa"].'</div>';
-	echo '<div>'.$row["squadraospite"].'</div>';
-	if(!is_null($row["gol_casa"]) && !is_null($row["gol_casa"]) )
-	{
-		echo '<div>'.$row["gol_casa"].'</div>';
-		echo '<div>'.$row["gol_ospiti"].'</div>';
-		echo '<div>'.$row["punti_casa"].'</div>';
-		echo '<div>'.$row["punti_ospiti"].'</div>';
+		echo '<h1>Coppa delle Coppe</h1>';
+		echo '<div>'.$row["inizio"].'-'.$row["fine"].'</div>';
+		echo '<div>StadioOlimpico di Roma</div>';
+		echo '<div>'.$row["squadracasa"].'</div>';
+		echo '<div>'.$row["squadraospite"].'</div>';
+		if(!is_null($row["gol_casa"]) && !is_null($row["gol_casa"]) )
+		{
+			echo '<div>'.$row["gol_casa"].'</div>';
+			echo '<div>'.$row["gol_ospiti"].'</div>';
+			echo '<div>'.$row["punti_casa"].'</div>';
+			echo '<div>'.$row["punti_ospiti"].'</div>';
 
-	}
-	echo '<div></div>';
+		}
+		$link="display_giornata.php?&id_giornata=".$row["id_giornata"];
+		echo '<a href='. $link.'>Dettaglio</a>';
+	echo '</div>';
 }
 
 

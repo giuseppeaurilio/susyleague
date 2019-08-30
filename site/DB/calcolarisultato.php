@@ -203,17 +203,17 @@ class Partita
                 }
             }
         }
-        // if($boolprint) echo        'Squadra ID='. $idsquadra .' -> voti: ';
-        // if($boolprint)   print("<pre>".print_r($arrayvoti,true)."</pre>").'<br>';
-        // if($boolprint) echo        'Riserve portieri con voto';
-        // if($boolprint)   print("<pre>".print_r($risporcv,true)."</pre>").'<br>';
-        // if($boolprint) echo        'Riserve difensori con voto';
-        // if($boolprint)   print("<pre>".print_r($risdifcv,true)."</pre>").'<br>';
-        // if($boolprint) echo        'Riserve centrocampisti con voto';
-        // if($boolprint)   print("<pre>".print_r($riscencv,true)."</pre>").'<br>';
-        // if($boolprint) echo        'Riserve attaccanti con voto';
-        // if($boolprint)   print("<pre>".print_r($risattcv,true)."</pre>").'<br>';
-        // print_r($arrayvoti);
+        if($boolprint) echo        'Squadra ID='. $idsquadra .' -> voti: ';
+        if($boolprint)   print("<pre>".print_r($arrayvoti,true)."</pre>").'<br>';
+        if($boolprint) echo        'Riserve portieri con voto';
+        if($boolprint)   print("<pre>".print_r($risporcv,true)."</pre>").'<br>';
+        if($boolprint) echo        'Riserve difensori con voto';
+        if($boolprint)   print("<pre>".print_r($risdifcv,true)."</pre>").'<br>';
+        if($boolprint) echo        'Riserve centrocampisti con voto';
+        if($boolprint)   print("<pre>".print_r($riscencv,true)."</pre>").'<br>';
+        if($boolprint) echo        'Riserve attaccanti con voto';
+        if($boolprint)   print("<pre>".print_r($risattcv,true)."</pre>").'<br>';
+        print_r($arrayvoti);
         $sostituzionifatte = 0;
         // if($boolprint) echo 'numvoti';
         // if($boolprint) print("<pre>".print_r($numvoti,true)."</pre>").'<br>';
