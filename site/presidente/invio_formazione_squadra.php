@@ -146,7 +146,17 @@ function pushArray(arr, arr2) {
 }
 
 resetFormazione = function(){
-	$('[class^="myButton"]').css("background-color", "");
+	$('[class^="myButton"]').each( function (){
+		if($(this).css("background-color") ==  "rgb(0, 255, 0)")	
+		{
+			$(this).trigger('click');
+			$(this).trigger('click');
+		}
+		else if($(this).css("background-color") ==  "rgb(255, 0, 0)")
+		{
+			$(this).trigger('click');
+		}
+	});
 };
 
 $(document).ready(function(){
@@ -276,7 +286,7 @@ $(document).ready(function(){
 	resetFormazione();
 	var value =$(this).val();
 	if(value!=0)
-		{
+	{
 		var giocatori= value.split('.');
 		// alert(giocatori[0]);
 		for( index = 0; index< 11; index++)
@@ -295,16 +305,95 @@ $(document).ready(function(){
 <h2>Invio fomazione</h2>
 <h2><?php echo $squadra . "(" .$allenatore .")";?></h2>
 <!-- <h3><?php echo "(" .$allenatore .")";?></h3> -->
+
+<label>ultime formazioni</label>
 <select id="ddlUltimeFormazioni">
 	<option value="0">scegli...</option>
-	<option value="1">DEFAULT</option>
-	<option value="1_250.2_2160.3_2130.4_2214.5_226.6_26.7_2002.8_645.9_2610.10_2756.11_785.12_453.13_798.14_288.15_392.16_1996.17_2085.18_2531.19_608">I NANI- ASVenere</option>
+	<!-- <option value="1">DEFAULT</option> -->
+<?php 
+include_once ("../dbinfo_susyleague.inc.php");
+$conn = new mysqli($localhost, $username, $password,$database);
+
+// Check connection
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
+$querypartite = 'SELECT id_giornata, sqc.squadra as casa, sqt.squadra as ospite
+FROM `calendario`  as c
+left join sq_fantacalcio as sqc on c.id_sq_casa = sqc.id
+left join sq_fantacalcio as sqt on c.id_sq_ospite = sqt.id
+WHERE (id_sq_casa = '.$id_squadra.' OR id_sq_ospite ='.$id_squadra.') and gol_casa is not null
+order by id_giornata desc
+LIMIT 5';
+
+$result_partite  = $conn->query($querypartite) or die($conn->error);
+
+while ($row = $result_partite->fetch_assoc()) {
+	$descrizionepartita = $row["casa"].'-'.$row["ospite"];
+	$formazionedadb = "";
+	$queryformaz = 'SELECT id_posizione, id_giocatore
+	FROM `formazioni` WHERE id_giornata = '.$row["id_giornata"].' and id_squadra = '.$id_squadra.'
+	order by id_posizione';
+	$formazione  = $conn->query($queryformaz) or die($conn->error);
+	while ($row = $formazione->fetch_assoc()) {
+		$formazionedadb.=$row["id_posizione"].'_'.$row["id_giocatore"].'.';
+	}
+	echo '<option value="'.$formazionedadb.'">'.$descrizionepartita.'</option> -->';
+}
+$conn->close();
+
+?>
+
+	<!-- <option value="1_250.2_2160.3_2130.4_2214.5_226.6_26.7_2002.8_645.9_2610.10_2756.11_785.12_453.13_798.14_288.15_392.16_1996.17_2085.18_2531.19_608">I NANI- ASVenere</option> -->
 </select>
+<?php
+$formazionedadb = "";
+
+$queryformaz = 'SELECT id_posizione, id_giocatore
+FROM `formazioni` WHERE id_giornata = '.$id_giornata.' and id_squadra = '.$id_squadra.'
+order by id_posizione';
+// echo $queryformaz;
+$conn = new mysqli($localhost, $username, $password,$database);
+
+// Check connection
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
+$result  = $conn->query($queryformaz) or die($conn->error);
+// print_r($result);
+while ($row = $result->fetch_assoc()) {
+	$formazionedadb.=$row["id_posizione"].'_'.$row["id_giocatore"].'.';
+}
+$conn->close();
+// echo  $formazionedadb;
+echo '<input type="hidden" id="hfSquadraInserita" value="'. $formazionedadb .'"></input>';
+?>
+<script >
+$(document).ready(function(){
+	resetFormazione();
+	var value =$("#hfSquadraInserita").val();
+	if(value!="")
+	{
+		var giocatori= value.split('.');
+		// alert(giocatori[0]);
+		console.log(giocatori);
+		for( index = 0; index< 11; index++)
+			{
+				$("#btn_" + giocatori[index].split('_')[1]).trigger('click');
+			}
+		for( index = 11; index< 19; index++)
+			{
+				$("#btn_" + giocatori[index].split('_')[1]).trigger('click');
+				$("#btn_" + giocatori[index].split('_')[1]).trigger('click');
+			}
+	}
+});
+</script>
 <input type="button" id="btnReset" value="Reset Formazione"></input>
 <?php
 for($i = 0; $i < 4; $i++) {
 
-	include("../dbinfo_susyleague.inc.php");
+	
 	$conn = new mysqli($localhost, $username, $password,$database);
 
 	// Check connection
