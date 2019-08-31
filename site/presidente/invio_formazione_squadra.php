@@ -85,6 +85,9 @@ table, th, td {
  font-size: 20px;
     padding: 50px 50px;
 }
+.container{
+	float:left;
+}
 </style>
 
 
@@ -213,7 +216,16 @@ $(document).ready(function(){
  $("#btn_invia").click(function(){
  var id_squadra= "<?php echo $id_squadra; ?>";
  var id_giornata="<?php echo $id_giornata; ?>";
- var dataString = 'id_squadra='+ id_squadra + '&id_giornata=' + id_giornata + '&titolari=';
+ 
+ var dataString = 'id_squadra='+ id_squadra + '&id_giornata=' + id_giornata ;
+ var boolammcontrollata = $("#cbAmministrazControllata").prop("checked");
+ var valammcontrollata = $("#hfAmmControllata").val();
+ if(boolammcontrollata)
+ 	valammcontrollata++;
+else 
+	valammcontrollata = 0;
+ dataString += "&ammcontrollata=" + valammcontrollata;
+ dataString += '&titolari=';
  var titolari = [];
  var panchina = [];
  for (j = 0; j < 4; j++) {
@@ -272,12 +284,15 @@ $(document).ready(function(){
 	});
 	//salva la formazione come default
 	//TODO
- });
+
+});
+
  
  
 });
 $(document).ready(function(){
 	$("#ddlUltimeFormazioni").change(impostaFormazione);
+	// window.alert(result);
 }
 );
 
@@ -300,11 +315,92 @@ $(document).ready(function(){
 			}
 	}
 }
+
+formazionerandom = function()
+{
+	var moduli =["3-5-2", "3-4-3", "4-3-3", "4-4-2", "4-5-1", "5-3-2", "5-4-1"];
+	var modulo = moduli[Math.floor(Math.random()*moduli.length)];
+	console.log(modulo);
+	resetFormazione();
+	var portieri = $("#divPortieri").find("button");
+	var portieret = portieri[Math.floor(Math.random()*portieri.length)];
+	$(portieret).trigger('click');
+	var portierer 
+	do{
+		portierer	= portieri[Math.floor(Math.random()*portieri.length)];
+	}
+	while(portieret == portierer)
+	$(portierer).trigger('click');
+	$(portierer).trigger('click');
+	var g =modulo.split("-");
+	// console.log(g[0]);
+	for(var index = 1; index <= g[0]; index++)
+	{
+		var difensori = $("#divDifensori").find("button[style='background-color: rgb(141, 194, 235);']");
+		var difensoret	= difensori[Math.floor(Math.random()*portieri.length)];
+		$(difensoret).trigger('click');
+	}
+	for(var index = 1; index <= g[1]; index++)
+	{
+		var centro = $("#divCentrocampisti").find("button[style='background-color: rgb(141, 194, 235);']");
+		var centrot	= centro[Math.floor(Math.random()*portieri.length)];
+		$(centrot).trigger('click');
+	}
+	for(var index = 1; index <= g[2]; index++)
+	{
+		var atta = $("#divAttaccanti").find("button[style='background-color: rgb(141, 194, 235);']");
+		var attat	= atta[Math.floor(Math.random()*portieri.length)];
+		$(attat).trigger('click');
+	}
+	for(var index = 1; index <= 3; index++)
+	{
+		var difensori = $("#divDifensori").find("button[style='background-color: rgb(141, 194, 235);']");
+		var difensorer	= difensori[Math.floor(Math.random()*portieri.length)];
+		$(difensorer).trigger('click');
+		$(difensorer).trigger('click');
+	}
+	for(var index = 1; index <= 2; index++)
+	{
+		var centro = $("#divCentrocampisti").find("button[style='background-color: rgb(141, 194, 235);']");
+		var centror	= centro[Math.floor(Math.random()*portieri.length)];
+		$(centror).trigger('click');
+		$(centror).trigger('click');
+	}
+	for(var index = 1; index <= 2; index++)
+	{
+		var atta = $("#divAttaccanti").find("button[style='background-color: rgb(141, 194, 235);']");
+		var attar	= atta[Math.floor(Math.random()*portieri.length)];
+		$(attar).trigger('click');
+		$(attar).trigger('click');
+	}
+}
 </script>
 
 <h2>Invio fomazione</h2>
 <h2><?php echo $squadra . "(" .$allenatore .")";?></h2>
 <!-- <h3><?php echo "(" .$allenatore .")";?></h3> -->
+<?php
+include_once ("../dbinfo_susyleague.inc.php");
+$conn = new mysqli($localhost, $username, $password,$database);
+
+// Check connection
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
+$queryselect = "select ammcontrollata from sq_fantacalcio where id=" . $id_squadra;
+
+$numammcontr =0;
+$result = mysqli_query($conn,$queryselect);
+$row = mysqli_fetch_array($result);
+$numammcontr= $row['ammcontrollata'];
+// echo '<h3>La squadra è in amministrazione controllata da '.$numammcontr.' turni</h3>';
+if($numammcontr>0)
+{
+	echo '<h3>La squadra è in amministrazione controllata da '.$numammcontr.' turni</h3>';
+	
+}
+echo '<input type="hidden" id="hfAmmControllata" value="'.$numammcontr.'"/>';
+?>
 
 <label>ultime formazioni</label>
 <select id="ddlUltimeFormazioni">
@@ -416,32 +512,50 @@ for($i = 0; $i < 4; $i++) {
 	// }
 	?>
 	
-	<div >
+	<div id="div<?php echo $ruoli_name[$i];?>" >
 	<h2><?php echo $ruoli_name[$i];?></h2>
+	<div style="display: inline-block;">
 	<?php
 
-	$j=0;
+
 		// while ($j < $num_giocatori) {
 		// $id_giocatore=mysql_result($result_giocatori,$j,"id_giocatore");
 		// $nome_giocatore=mysql_result($result_giocatori,$j,"nome");
 		// $squadra_giocatore=mysql_result($result_giocatori,$j,"squadra_breve");
 		// $ruolo_giocatore=mysql_result($result_giocatori,$j,"ruolo");
 		// $costo_giocatore=mysql_result($result_giocatori,$j,"costo");
-		while ($row = $result_giocatori->fetch_assoc()) {
-			$id_giocatore=$row["id_giocatore"];//mysql_result($result_giocatori,$j,"id_giocatore");
-			$nome_giocatore=$row["nome"];//mysql_result($result_giocatori,$j,"nome");
-			$squadra_giocatore=$row["squadra_breve"];//mysql_result($result_giocatori,$j,"squadra_breve");
-			$ruolo_giocatore=$row["ruolo"];//mysql_result($result_giocatori,$j,"ruolo");
-			$costo_giocatore=$row["costo"];//mysql_result($result_giocatori,$j,"costo");
+	while ($row = $result_giocatori->fetch_assoc()) {
+		$id_giocatore=$row["id_giocatore"];//mysql_result($result_giocatori,$j,"id_giocatore");
+		$nome_giocatore=$row["nome"];//mysql_result($result_giocatori,$j,"nome");
+		$squadra_giocatore=$row["squadra_breve"];//mysql_result($result_giocatori,$j,"squadra_breve");
+		$ruolo_giocatore=$row["ruolo"];//mysql_result($result_giocatori,$j,"ruolo");
+		$costo_giocatore=$row["costo"];//mysql_result($result_giocatori,$j,"costo");
 
-	?>
-		<button id="btn_<?php echo  $id_giocatore; ?>" type="button" class="myButton_<?php echo $i; ?>"><?php echo $nome_giocatore . " (" .$squadra_giocatore . ")";?></button>
 
-	<?php
-	++$j;
-
+		$filename = 'https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png';
+		//  'https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png';
+		// if (file_exists('https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png'))
+			// if (getimagesize($filename)) 
+			// {
+			// 	$filename = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/NO-CAMPIONCINO.png";
+				
+			// }
+		// echo '<div class="container">';
+		// echo '<img src='.$filename.'>';
+		// echo '<br>';
+		// echo '<button id="btn_'.  $id_giocatore.'" type="button" class="myButton_'. $i.' btn" >';
+		
+		// echo $nome_giocatore . " (" .$squadra_giocatore . ")";
+		// echo '</button>';
+		// echo '</div>';
+		echo '<button id="btn_'.  $id_giocatore.'" type="button" class="myButton_'. $i.' btn" style="background-color: rgb(141, 194, 235);">';
+		
+		echo $nome_giocatore . " (" .$squadra_giocatore . ")";
+		echo '</button>';
+		
 	} 
 	?>
+	</div>
 	</div>
 	<?php
 }
@@ -453,7 +567,12 @@ for($i = 0; $i < 4; $i++) {
 <label id="modulo" >  </label><br>
 <label for="panchina" >panchina = </label>
 <label id="panchina" >  </label><br>
-<label > Salva come default </label> <input type="checkbox" id="cbDefault"/> <br/>
+<!-- <label > Salva come default </label> <input type="checkbox" id="cbDefault"/> <br/> -->
+<label >Amministrazione controllata: </label>
+<input type="checkbox" id="cbAmministrazControllata" checked="checked"/>
+<!-- <input type="radio" name="ammcontrollata" value="si" required> SI<br>
+<input type="radio" name="ammcontrollata" value="azzera"> Azzera<br> -->
+<br/> 
 Password: <input type="password" name="password" id="password">
 
 <button type="button" id="btn_invia">Invia Formazione</button>

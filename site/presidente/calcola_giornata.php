@@ -243,7 +243,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 >
 	<?php if ($i==0) {echo 	"<th bgcolor='#FFFFFF' rowspan='11'>Titolari</th>";  } ?>
 	<?php if ($i==11) {echo "<th bgcolor='#FFFFFF' rowspan='8'>Riserve</th>";  } ?>
-		<td><?php echo $row["nome"]; ?></td>
+		<td>
+		<?php echo $row["nome"]; ?>
+		</td>
 		<td><?php echo $row["squadra_breve"]; ?></td>
 		<td><?php echo $row["ruolo"]; ?></td>
 		<td><?php echo $row["voto"]; ?></td>

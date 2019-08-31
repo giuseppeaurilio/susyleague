@@ -380,5 +380,6 @@ ALTER TABLE `calendario` ADD `numero_giocanti_casa` int NOT NULL DEFAULT '0' AFT
 ALTER TABLE `calendario` ADD `md_ospite` int NOT NULL DEFAULT '0' AFTER `numero_giocanti_casa`;
 ALTER TABLE `calendario` ADD `numero_giocanti_ospite` int NOT NULL DEFAULT '0' AFTER `md_ospite`;
 
+ALTER TABLE `sq_fantacalcio` ADD `ammcontrollata` int NOT NULL DEFAULT '0' AFTER `password`;
 
 

@@ -1,11 +1,23 @@
 <?php 
-include("../dbinfo_susyleague.inc.php");
 
 $id_squadra=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_squadra']);//mysql_escape_String($_POST['id_squadra']);
 $id_giornata=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_giornata']);//mysql_escape_String($_POST['id_giornata']);
 $titolari=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['titolari']);//mysql_escape_String($_POST['titolari']);
 $panchina=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['panchina']);//mysql_escape_String($_POST['panchina']);
 $password_all=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['password_all']);//mysql_escape_String($_POST['password_all']);
+
+$ammcontrollata=preg_replace("/[^0-9]/", '', $_POST['ammcontrollata']);
+
+include_once  ("../dbinfo_susyleague.inc.php");
+$conn = new mysqli($localhost, $username, $password,$database);
+
+// Check connection
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
+$queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`='.$ammcontrollata .' WHERE id=' . $id_squadra;
+
+$result  = $conn->query($queryupdate) or die($conn->error);
 
 #echo "tutto ok!";
 #echo $id_squadra;
@@ -20,13 +32,7 @@ $adesso = date('Y-m-d H:i:s');
 
 // $link = mysql_connect($localhost,$username,$password);
 // @mysql_select_db($database) or die( "Unable to select database");
-include("../dbinfo_susyleague.inc.php");
-$conn = new mysqli($localhost, $username, $password,$database);
 
-// Check connection
-if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
-}
 $query="select fine from giornate where id_giornata=" . $id_giornata  . " and fine > '" . $adesso ."'";
 #echo "<br>query_data=" . $query;
 // $result=mysql_query($query);
