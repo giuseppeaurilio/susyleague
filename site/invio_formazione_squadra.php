@@ -86,6 +86,9 @@ table, th, td {
  font-size: 20px;
     padding: 50px 50px;
 }
+.container{
+	float:left;
+}
 </style>
 
 
@@ -505,6 +508,7 @@ for($i = 0; $i < 4; $i++) {
 	?>
 	
 	<div id="div<?php echo $ruoli_name[$i];?>" >
+	<div style="display: inline-block;">
 	<h2><?php echo $ruoli_name[$i];?></h2>
 	<?php
 		while ($row=$result_giocatori->fetch_assoc()) {
@@ -514,14 +518,37 @@ for($i = 0; $i < 4; $i++) {
 		$ruolo_giocatore=$row["ruolo"];
 		$costo_giocatore=$row["costo"];
 
-	
+		// echo $nome_giocatore;
+		$nome_giocatore_pulito = preg_replace('/\s+/', '-', $nome_giocatore);
+		// echo $nome_giocatore_pulito;
+		$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png");
+
+		//  'https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png';
+		// if (file_exists('https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png'))
+			// if (getimagesize($filename)) 
+		// $headers = get_headers($filename );
+
+		// if (!stripos($headers[0], "200 OK"))
+		// {
+		// 	$filename = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/NO-CAMPIONCINO.png";
+			
+		// }
+		echo '<div class="container">';
+		echo '<img style="		height: 80px;		width: 60px;	" src='.$filename.'>';
+		echo '<br>';
 		echo '<button id="btn_'.  $id_giocatore.'" type="button" class="myButton_'. $i.' btn" style="background-color: rgb(141, 194, 235);">';
 		
 		echo $nome_giocatore . " (" .$squadra_giocatore . ")";
 		echo '</button>';
+		echo '</div>';
+		// echo '<button id="btn_'.  $id_giocatore.'" type="button" class="myButton_'. $i.' btn" style="background-color: rgb(141, 194, 235);">';
+		
+		// echo $nome_giocatore . " (" .$squadra_giocatore . ")";
+		// echo '</button>';
 	
 	} 
 	?>
+	</div>
 	</div>
 	<?php
 }

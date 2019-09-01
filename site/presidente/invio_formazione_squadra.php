@@ -538,25 +538,29 @@ for($i = 0; $i < 4; $i++) {
 
 
 		$filename = 'https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png';
+
 		//  'https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png';
 		// if (file_exists('https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png'))
 			// if (getimagesize($filename)) 
-			// {
-			// 	$filename = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/NO-CAMPIONCINO.png";
-				
-			// }
-		// echo '<div class="container">';
-		// echo '<img src='.$filename.'>';
-		// echo '<br>';
-		// echo '<button id="btn_'.  $id_giocatore.'" type="button" class="myButton_'. $i.' btn" >';
-		
-		// echo $nome_giocatore . " (" .$squadra_giocatore . ")";
-		// echo '</button>';
-		// echo '</div>';
+		$headers = get_headers($filename );
+
+		if (!stripos($headers[0], "200 OK"))
+		{
+			$filename = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/NO-CAMPIONCINO.png";
+			
+		}
+		echo '<div class="container">';
+		echo '<img src='.$filename.'>';
+		echo '<br>';
 		echo '<button id="btn_'.  $id_giocatore.'" type="button" class="myButton_'. $i.' btn" style="background-color: rgb(141, 194, 235);">';
 		
 		echo $nome_giocatore . " (" .$squadra_giocatore . ")";
 		echo '</button>';
+		echo '</div>';
+		// echo '<button id="btn_'.  $id_giocatore.'" type="button" class="myButton_'. $i.' btn" style="background-color: rgb(141, 194, 235);">';
+		
+		// echo $nome_giocatore . " (" .$squadra_giocatore . ")";
+		// echo '</button>';
 		
 	} 
 	?>

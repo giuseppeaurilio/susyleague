@@ -47,7 +47,7 @@ function parse_giocatori($filename) {
 					}
 				}
 				
-				$nome = preg_replace("/[^A-Za-z0-9 ]/", '', $data[2]);
+				$nome = preg_replace("/[^A-Za-z0-9 -]/", '', $data[2]);
 				$queryfindgiocatore = "SELECT * FROM `giocatori` WHERE nome='$nome'";
 
 				$resultfindgiocaotre  = $conn->query($queryfindgiocatore);
