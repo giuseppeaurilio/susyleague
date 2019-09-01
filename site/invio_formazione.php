@@ -31,8 +31,8 @@ $query_giornate="SELECT * from giornate where inizio <' " . $adesso ." ' and fin
 $result_giornate=$conn->query($query_giornate);
 
 $num_giornate=$result_giornate->num_rows;
-echo $adesso;
-print_r($result_giornate);
+// echo $adesso;
+// print_r($result_giornate);
 if ($num_giornate>0) {
 
 	if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
