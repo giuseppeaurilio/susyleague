@@ -25,7 +25,6 @@ if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 $queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`='.$ammcontrollata .' WHERE id=' . $id_squadra;
-
 $result  = $conn->query($queryupdate) or die($conn->error);
 
 $link = mysql_connect($localhost,$username,$password);
