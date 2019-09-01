@@ -537,20 +537,13 @@ for($i = 0; $i < 4; $i++) {
 		$costo_giocatore=$row["costo"];//mysql_result($result_giocatori,$j,"costo");
 
 
-		$filename = 'https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png';
+		// echo $nome_giocatore;
+		$nome_giocatore_pulito = preg_replace('/\s+/', '-', $nome_giocatore);
+		// echo $nome_giocatore_pulito;
+		$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png");
 
-		//  'https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png';
-		// if (file_exists('https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png'))
-			// if (getimagesize($filename)) 
-		$headers = get_headers($filename );
-
-		if (!stripos($headers[0], "200 OK"))
-		{
-			$filename = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/NO-CAMPIONCINO.png";
-			
-		}
 		echo '<div class="container">';
-		echo '<img src='.$filename.'>';
+		echo '<img style="		height: 80px;		width: 60px;	" src='.$filename.'>';
 		echo '<br>';
 		echo '<button id="btn_'.  $id_giocatore.'" type="button" class="myButton_'. $i.' btn" style="background-color: rgb(141, 194, 235);">';
 		

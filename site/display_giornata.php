@@ -104,6 +104,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<table border=1  id="squadra_casa<?php echo $j;?>">
 	<caption class="caption_style"><?php echo $sq_casa; ?></caption>
 	<th><font face="Arial, Helvetica, sans-serif"> </font></th>
+	<th><font face="Arial, Helvetica, sans-serif">&nbsp;</font></th>
 	<th><font face="Arial, Helvetica, sans-serif">Nome</font></th>
 	<th><font face="Arial, Helvetica, sans-serif">Squadra</font></th>
 	<th><font face="Arial, Helvetica, sans-serif">Ruolo</font></th>
@@ -130,9 +131,16 @@ while ($row=$result_giornata->fetch_assoc()) {
         echo "#FFFFFF";
 }
 ?>
+<?php
+		// echo $nome_giocatore;
+		$nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
+		// echo $nome_giocatore_pulito;
+		$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+?>
 >
 	<?php if ($i==0) {echo 	"<th bgcolor='#FFFFFF' rowspan='11'>Titolari</th>";  } ?>
 	<?php if ($i==11) {echo "<th bgcolor='#FFFFFF' rowspan='8'>Riserve</th>";  } ?>
+		<td><?php echo '<img style="height: 20;width: 15px;	" src='.$filename.'>';?></td>
 		<td><?php echo $row["nome"]; ?></td>
 		<td><?php echo $row["squadra_breve"]; ?></td>
 		<td><?php echo $row["ruolo"]; ?></td>
@@ -217,6 +225,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<caption class="caption_style"><?php echo $sq_ospite; ?></caption>
 
 	<th><font face="Arial, Helvetica, sans-serif"> </font></th>
+	<th><font face="Arial, Helvetica, sans-serif">&nbsp;</font></th>
 	<th><font face="Arial, Helvetica, sans-serif">Nome</font></th>
 	<th><font face="Arial, Helvetica, sans-serif">Squadra</font></th>
 	<th><font face="Arial, Helvetica, sans-serif">Ruolo</font></th>
@@ -245,8 +254,15 @@ while ($row=$result_giornata->fetch_assoc()) {
 }
 ?>
 >
+<?php
+		// echo $nome_giocatore;
+		$nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
+		// echo $nome_giocatore_pulito;
+		$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+?>
 	<?php if ($i==0) {echo 	"<th bgcolor='#FFFFFF' rowspan='11'>Titolari</th>";  } ?>
 	<?php if ($i==11) {echo "<th bgcolor='#FFFFFF' rowspan='8'>Riserve</th>";  } ?>
+		<td><?php echo '<img style="height: 20;width: 15px;	" src='.$filename.'>';?></td>
 		<td><?php echo $row["nome"]; ?></td>
 		<td><?php echo $row["squadra_breve"]; ?></td>
 		<td><?php echo $row["ruolo"]; ?></td>
