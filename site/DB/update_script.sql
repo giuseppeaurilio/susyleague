@@ -1,30 +1,30 @@
 /*creazione nuova competizioni */
 INSERT INTO `gironi` (`id_girone`, `nome`, `add_casa`)
-SELECT * FROM (SELECT 4, 'coppa italia', 0) AS tmp
+SELECT * FROM (SELECT 4, 'coppa italia', 0)  as    tmp
 WHERE NOT EXISTS (
     SELECT nome FROM `gironi` WHERE id_girone = 4
 ) LIMIT 1;
 
 INSERT INTO `gironi` (`id_girone`, `nome`, `add_casa`)
-SELECT * FROM (SELECT 5, 'finale coppa italia', 0) AS tmp
+SELECT * FROM (SELECT 5, 'finale coppa italia', 0)  as    tmp
 WHERE NOT EXISTS (
     SELECT nome FROM `gironi` WHERE id_girone = 5
 ) LIMIT 1;
 
 INSERT INTO `gironi` (`id_girone`, `nome`, `add_casa`)
-SELECT * FROM (SELECT  6, 'torneo di consolazione', 0) AS tmp
+SELECT * FROM (SELECT  6, 'torneo di consolazione', 0)  as    tmp
 WHERE NOT EXISTS (
     SELECT nome FROM `gironi` WHERE id_girone = 6
 ) LIMIT 1;
 
 INSERT INTO `gironi` (`id_girone`, `nome`, `add_casa`)
-SELECT * FROM (SELECT 7, 'finale campionato', 0) AS tmp
+SELECT * FROM (SELECT 7, 'finale campionato', 0)  as    tmp
 WHERE NOT EXISTS (
     SELECT nome FROM `gironi` WHERE id_girone = 7
 ) LIMIT 1;
 
 INSERT INTO `gironi` (`id_girone`, `nome`, `add_casa`)
-SELECT * FROM (SELECT 8, 'coppa delle  coppe', 0) AS tmp
+SELECT * FROM (SELECT 8, 'coppa delle  coppe', 0)  as    tmp
 WHERE NOT EXISTS (
     SELECT nome FROM `gironi` WHERE id_girone = 8
 ) LIMIT 1;
@@ -35,13 +35,13 @@ DROP TABLE IF EXISTS `gironi_ci`;
 CREATE TABLE `gironi_ci` ( `id` INT NOT NULL , `descrizione` VARCHAR(100) NOT NULL) ENGINE = InnoDB;
 
 INSERT INTO `gironi_ci` (`id`, `descrizione`)
-SELECT * FROM (SELECT 1, 'Girone A') AS tmp
+SELECT * FROM (SELECT 1, 'Girone A')  as    tmp
 WHERE NOT EXISTS (
     SELECT `descrizione` FROM `gironi_ci` WHERE `id` = 1
 ) LIMIT 1;
 
 INSERT INTO `gironi_ci` (`id`, `descrizione`)
-SELECT * FROM (SELECT 2, 'Girone B') AS tmp
+SELECT * FROM (SELECT 2, 'Girone B')  as    tmp
 WHERE NOT EXISTS (
     SELECT `descrizione` FROM `gironi_ci` WHERE `id` = 2
 ) LIMIT 1;
@@ -72,129 +72,53 @@ ct.marcatorit, ct.vittoriet, ct.pareggit, ct.sconfittet, ct.golfattit, ct.golsub
 from
 
 (SELECT c.id_sq_casa as idsquadrac, 
-SUM(case 
+COALESCE( SUM( case 
 	when gol_casa> gol_ospiti then 3 
     when gol_casa = gol_ospiti then 1
     when gol_casa< gol_ospiti then 0 
-end) as puntic,
-SUM(punti_casa) as marcatoric, 
-SUM(case 
+end) ,0 ) as   puntic,
+COALESCE( SUM( punti_casa) ,0 ) as   marcatoric, 
+COALESCE( SUM( case 
 	when gol_casa> gol_ospiti then 1 
     ELSE 0
-end) as vittoriec,
-SUM(case 
+end) ,0 ) as   vittoriec,
+COALESCE( SUM( case 
 	when gol_casa = gol_ospiti then 1 
     ELSE 0
-end) as pareggic,
-SUM(case 
+end) ,0 ) as   pareggic,
+COALESCE( SUM( case 
 	when gol_casa < gol_ospiti then 1 
     ELSE 0
-end) as sconfittec,
-SUM(gol_casa) as golfattic,
-SUM(gol_ospiti) as golsubitic
+end) ,0 ) as   sconfittec,
+COALESCE( SUM( gol_casa) ,0 ) as   golfattic,
+COALESCE( SUM( gol_ospiti) ,0 ) as   golsubitic
 FROM `calendario` as c
 left JOIN giornate g on g.id_giornata = c.id_giornata
 WHERE g.id_girone = pIdGirone
 group by id_sq_casa
-order by puntic desc) AS cc
+order by puntic desc)  as    cc
 JOIN  (
 SELECT c.id_sq_ospite as idsquadrat, 
-SUM(case 
+COALESCE( SUM( case 
 	when gol_ospiti > gol_casa then 3 
     when gol_ospiti = gol_casa then 1
     when gol_ospiti < gol_casa then 0 
-end) as puntit,
-SUM(punti_ospiti) as marcatorit, 
-SUM(case 
+end) ,0 ) as   puntit,
+COALESCE( SUM( punti_ospiti) ,0 ) as   marcatorit, 
+COALESCE( SUM( case 
 	when gol_ospiti > gol_casa then 1 
     ELSE 0
-end) as vittoriet,
-SUM(case 
+end) ,0 ) as   vittoriet,
+COALESCE( SUM( case 
 	when gol_ospiti = gol_casa then 1 
     ELSE 0
-end) as pareggit,
-SUM(case 
+end) ,0 ) as   pareggit,
+COALESCE( SUM( case 
 	when gol_ospiti < gol_casa then 1 
     ELSE 0
-end) as sconfittet,
-SUM(gol_casa) as golsubitit,
-SUM(gol_ospiti) as golfattit
-FROM `calendario` as c
-left JOIN giornate g on g.id_giornata = c.id_giornata
-WHERE g.id_girone = pIdGirone
-group by id_sq_ospite
-order by puntit desc)as ct
-ON cc.idsquadrac=ct.idsquadrat
-
-left  join sq_fantacalcio sf on sf.id = cc.idsquadrac
-order by punti desc$$
-DELIMITER ;
-
-DROP PROCEDURE IF EXISTS `getClassificaAggregate`;
-
-DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getClassificaAggregate`(IN `pIdGirone` INT)
-    NO SQL
-select cc.idsquadrac as idsquadra,sf.squadra, 
-cc.puntic + ct.puntit as punti,
-cc.marcatoric + ct.marcatorit as marcatori,
-cc.vittoriec + ct.vittoriet as vittorie,
-cc.pareggic + ct.pareggit as pareggi,
-cc.sconfittec + ct.sconfittet as sconfitte,
-cc.golfattic + ct.golfattit as golfatti,
-cc.golsubitic + ct.golsubitit as golsubiti,
-cc.marcatoric,  cc.vittoriec, cc.pareggic, cc.sconfittec, cc.golfattic, cc.golsubitic,
-ct.marcatorit, ct.vittoriet, ct.pareggit, ct.sconfittet, ct.golfattit, ct.golsubitit
-from
-
-(SELECT c.id_sq_casa as idsquadrac, 
-SUM(case 
-	when gol_casa> gol_ospiti then 3 
-    when gol_casa = gol_ospiti then 1
-    when gol_casa< gol_ospiti then 0 
-end) as puntic,
-SUM(punti_casa) as marcatoric, 
-SUM(case 
-	when gol_casa> gol_ospiti then 1 
-    ELSE 0
-end) as vittoriec,
-SUM(case 
-	when gol_casa = gol_ospiti then 1 
-    ELSE 0
-end) as pareggic,
-SUM(case 
-	when gol_casa < gol_ospiti then 1 
-    ELSE 0
-end) as sconfittec,
-SUM(gol_casa) as golfattic,
-SUM(gol_ospiti) as golsubitic
-FROM `calendario` as c
-left JOIN giornate g on g.id_giornata = c.id_giornata
-WHERE g.id_girone = pIdGirone
-group by id_sq_casa
-order by puntic desc) AS cc
-INNER JOIN  (
-SELECT c.id_sq_ospite as idsquadrat, 
-SUM(case 
-	when gol_ospiti > gol_casa then 3 
-    when gol_ospiti = gol_casa then 1
-    when gol_ospiti < gol_casa then 0 
-end) as puntit,
-SUM(punti_ospiti) as marcatorit, 
-SUM(case 
-	when gol_ospiti > gol_casa then 1 
-    ELSE 0
-end) as vittoriet,
-SUM(case 
-	when gol_ospiti = gol_casa then 1 
-    ELSE 0
-end) as pareggit,
-SUM(case 
-	when gol_ospiti < gol_casa then 1 
-    ELSE 0
-end) as sconfittet,
-SUM(gol_casa) as golsubitit,
-SUM(gol_ospiti) as golfattit
+end) ,0 ) as   sconfittet,
+COALESCE( SUM( gol_casa) ,0 ) as   golsubitit,
+COALESCE( SUM( gol_ospiti) ,0 ) as   golfattit
 FROM `calendario` as c
 left JOIN giornate g on g.id_giornata = c.id_giornata
 WHERE g.id_girone = pIdGirone
@@ -224,53 +148,53 @@ ct.marcatorit, ct.vittoriet, ct.pareggit, ct.sconfittet, ct.golfattit, ct.golsub
 from
 
 (SELECT c.id_sq_casa as idsquadrac, 
-SUM(case 
+COALESCE( SUM( case 
 	when gol_casa> gol_ospiti then 3 
     when gol_casa = gol_ospiti then 1
     when gol_casa< gol_ospiti then 0 
-end) as puntic,
-SUM(punti_casa) as marcatoric, 
-SUM(case 
+end) ,0 ) as   puntic,
+COALESCE( SUM( punti_casa) ,0 ) as   marcatoric, 
+COALESCE( SUM( case 
 	when gol_casa> gol_ospiti then 1 
     ELSE 0
-end) as vittoriec,
-SUM(case 
+end) ,0 ) as   vittoriec,
+COALESCE( SUM( case 
 	when gol_casa = gol_ospiti then 1 
     ELSE 0
-end) as pareggic,
-SUM(case 
+end) ,0 ) as   pareggic,
+COALESCE( SUM( case 
 	when gol_casa < gol_ospiti then 1 
     ELSE 0
-end) as sconfittec,
-SUM(gol_casa) as golfattic,
-SUM(gol_ospiti) as golsubitic
+end) ,0 ) as   sconfittec,
+COALESCE( SUM( gol_casa) ,0 ) as   golfattic,
+COALESCE( SUM( gol_ospiti) ,0 ) as   golsubitic
 FROM `calendario` as c
 left JOIN giornate g on g.id_giornata = c.id_giornata
 WHERE g.id_girone in (1,2)
 group by id_sq_casa
-order by puntic desc) AS cc
+order by puntic desc)  as    cc
 JOIN  (
 SELECT c.id_sq_ospite as idsquadrat, 
-SUM(case 
+COALESCE( SUM( case 
 	when gol_ospiti > gol_casa then 3 
     when gol_ospiti = gol_casa then 1
     when gol_ospiti < gol_casa then 0 
-end) as puntit,
-SUM(punti_ospiti) as marcatorit, 
-SUM(case 
+end) ,0 ) as   puntit,
+COALESCE( SUM( punti_ospiti) ,0 ) as   marcatorit, 
+COALESCE( SUM( case 
 	when gol_ospiti > gol_casa then 1 
     ELSE 0
-end) as vittoriet,
-SUM(case 
+end) ,0 ) as   vittoriet,
+COALESCE( SUM( case 
 	when gol_ospiti = gol_casa then 1 
     ELSE 0
-end) as pareggit,
-SUM(case 
+end) ,0 ) as   pareggit,
+COALESCE( SUM( case 
 	when gol_ospiti < gol_casa then 1 
     ELSE 0
-end) as sconfittet,
-SUM(gol_casa) as golsubitit,
-SUM(gol_ospiti) as golfattit
+end) ,0 ) as   sconfittet,
+COALESCE( SUM( gol_casa) ,0 ) as   golsubitit,
+COALESCE( SUM( gol_ospiti) ,0 ) as   golfattit
 FROM `calendario` as c
 left JOIN giornate g on g.id_giornata = c.id_giornata
 WHERE g.id_girone in (1,2)
@@ -300,55 +224,55 @@ ct.marcatorit, ct.vittoriet, ct.pareggit, ct.sconfittet, ct.golfattit, ct.golsub
 from
 
 (SELECT c.id_sq_casa as idsquadrac, 
-SUM(case 
+COALESCE( SUM( case 
 	when gol_casa> gol_ospiti then 3 
     when gol_casa = gol_ospiti then 1
     when gol_casa< gol_ospiti then 0 
-end) as puntic,
-SUM(punti_casa) as marcatoric, 
-SUM(case 
+end) ,0 ) as   puntic,
+COALESCE( SUM( punti_casa) ,0 ) as   marcatoric, 
+COALESCE( SUM( case 
 	when gol_casa> gol_ospiti then 1 
     ELSE 0
-end) as vittoriec,
-SUM(case 
+end) ,0 ) as   vittoriec,
+COALESCE( SUM( case 
 	when gol_casa = gol_ospiti then 1 
     ELSE 0
-end) as pareggic,
-SUM(case 
+end) ,0 ) as   pareggic,
+COALESCE( SUM( case 
 	when gol_casa < gol_ospiti then 1 
     ELSE 0
-end) as sconfittec,
-SUM(gol_casa) as golfattic,
-SUM(gol_ospiti) as golsubitic
+end) ,0 ) as   sconfittec,
+COALESCE( SUM( gol_casa) ,0 ) as   golfattic,
+COALESCE( SUM( gol_ospiti) ,0 ) as   golsubitic
 FROM `calendario` as c
 left JOIN giornate g on g.id_giornata = c.id_giornata
 left JOIN gironi_ci_squadre gcis on c.id_sq_casa = gcis.id_squadra
 WHERE g.id_girone = pIdGirone
 AND gcis.id_girone = pIdGironeCI
 group by id_sq_casa
-order by puntic desc) AS cc
+order by puntic desc)  as    cc
 JOIN  (
 SELECT c.id_sq_ospite as idsquadrat, 
-SUM(case 
+COALESCE( SUM( case 
 	when gol_ospiti > gol_casa then 3 
     when gol_ospiti = gol_casa then 1
     when gol_ospiti < gol_casa then 0 
-end) as puntit,
-SUM(punti_ospiti) as marcatorit, 
-SUM(case 
+end) ,0 ) as   puntit,
+COALESCE( SUM( punti_ospiti) ,0 ) as   marcatorit, 
+COALESCE( SUM( case 
 	when gol_ospiti > gol_casa then 1 
     ELSE 0
-end) as vittoriet,
-SUM(case 
+end) ,0 ) as   vittoriet,
+COALESCE( SUM( case 
 	when gol_ospiti = gol_casa then 1 
     ELSE 0
-end) as pareggit,
-SUM(case 
+end) ,0 ) as   pareggit,
+COALESCE( SUM( case 
 	when gol_ospiti < gol_casa then 1 
     ELSE 0
-end) as sconfittet,
-SUM(gol_casa) as golsubitit,
-SUM(gol_ospiti) as golfattit
+end) ,0 ) as   sconfittet,
+COALESCE( SUM( gol_casa) ,0 ) as   golsubitit,
+COALESCE( SUM( gol_ospiti) ,0 ) as   golfattit
 FROM `calendario` as c
 left JOIN giornate g on g.id_giornata = c.id_giornata
 left JOIN gironi_ci_squadre gcis on c.id_sq_casa = gcis.id_squadra

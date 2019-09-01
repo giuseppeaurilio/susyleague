@@ -59,7 +59,21 @@ table th {
         return $a->marcatori < $b->marcatori;
     }
 ?>
+<script>
+$(document).ready(function(){
+    $( "#tabs" ).tabs();
+});
+</script>
+
+<div id="tabs">
 <ul>
+    <li><a href="#tabs-1">Apertura </a></li>
+    <li><a href="#tabs-2">Chiusura </a></li>
+    <li><a href="#tabs-3">Aggregate </a></li>
+    <li><a href="#tabs-4">Coppa Girone A </a></li>
+    <li><a href="#tabs-5">Coppa Girone B </a></li>
+
+</ul>
 <?php
 include "display_classifica_apertura.php";
 include "display_classifica_chiusura.php";
@@ -67,4 +81,4 @@ include "display_classifica_aggregate.php";
 include "display_classifica_coppa_a.php";
 include "display_classifica_coppa_b.php";
 ?>
-</ul>
+</div>

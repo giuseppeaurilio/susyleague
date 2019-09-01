@@ -1,10 +1,11 @@
 <?php 
-include("dbinfo_susyleague.inc.php");
+include_once ("dbinfo_susyleague.inc.php");
 
 $id_squadra=mysql_escape_String($_POST['id_squadra']);
 $id_giornata=mysql_escape_String($_POST['id_giornata']);
 $titolari=mysql_escape_String($_POST['titolari']);
 $panchina=mysql_escape_String($_POST['panchina']);
+
 $password_all=mysql_escape_String($_POST['password_all']);
     session_start();
 	if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
@@ -15,16 +16,17 @@ $password_all=mysql_escape_String($_POST['password_all']);
 	$id_squadra_logged= $_SESSION['login'];
 	}
 	
-#echo "tutto ok!";
-#echo $id_squadra;
-#echo $id_giornata;
-#echo $titolari;
-#echo $password_all;
-
+$ammcontrollata=preg_replace("/[^0-9]/", '', $_POST['ammcontrollata']);
 
 date_default_timezone_set('Europe/Rome');
 
 $adesso = date('Y-m-d H:i:s');
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
+$queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`='.$ammcontrollata .' WHERE id=' . $id_squadra;
+
+$result  = $conn->query($queryupdate) or die($conn->error);
 
 $link = mysql_connect($localhost,$username,$password);
 @mysql_select_db($database) or die( "Unable to select database");

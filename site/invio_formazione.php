@@ -12,7 +12,7 @@ $adesso = date('Y-m-d H:i:s');
 
 #print_r($adesso);
 
-include("dbinfo_susyleague.inc.php");
+include_once ("dbinfo_susyleague.inc.php");
 
 // Create connection
 $conn = new mysqli($localhost, $username, $password,$database);

@@ -7,7 +7,7 @@ $panchina=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['panchina']);//mysql_escape
 $password_all=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['password_all']);//mysql_escape_String($_POST['password_all']);
 
 $ammcontrollata=preg_replace("/[^0-9]/", '', $_POST['ammcontrollata']);
-
+ 
 include_once  ("../dbinfo_susyleague.inc.php");
 $conn = new mysqli($localhost, $username, $password,$database);
 

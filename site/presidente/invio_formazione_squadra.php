@@ -253,7 +253,7 @@ else
  		var panchina_id = getCol(panchina_sort,1);
  		pushArray(panchina,panchina_id);
  	}
- 	titolari.forEach(function(entry) {
+ 	titolari.forEach(function(entry) { 
  	dataString += String(entry) + ",";
  	});
  	dataString = dataString.substring(0, dataString.length - 1);
@@ -315,7 +315,6 @@ $(document).ready(function(){
 			}
 	}
 }
-
 formazionerandom = function()
 {
 	var moduli =["3-5-2", "3-4-3", "4-3-3", "4-4-2", "4-5-1", "5-3-2", "5-4-1"];
@@ -325,53 +324,59 @@ formazionerandom = function()
 	var portieri = $("#divPortieri").find("button");
 	var portieret = portieri[Math.floor(Math.random()*portieri.length)];
 	$(portieret).trigger('click');
-	var portierer 
-	do{
-		portierer	= portieri[Math.floor(Math.random()*portieri.length)];
-	}
-	while(portieret == portierer)
-	$(portierer).trigger('click');
-	$(portierer).trigger('click');
+
 	var g =modulo.split("-");
 	// console.log(g[0]);
 	for(var index = 1; index <= g[0]; index++)
 	{
 		var difensori = $("#divDifensori").find("button[style='background-color: rgb(141, 194, 235);']");
-		var difensoret	= difensori[Math.floor(Math.random()*portieri.length)];
+		var difensoret	= difensori[Math.floor(Math.random()*difensori.length)];
 		$(difensoret).trigger('click');
 	}
 	for(var index = 1; index <= g[1]; index++)
 	{
 		var centro = $("#divCentrocampisti").find("button[style='background-color: rgb(141, 194, 235);']");
-		var centrot	= centro[Math.floor(Math.random()*portieri.length)];
+		var centrot	= centro[Math.floor(Math.random()*centro.length)];
 		$(centrot).trigger('click');
 	}
 	for(var index = 1; index <= g[2]; index++)
 	{
 		var atta = $("#divAttaccanti").find("button[style='background-color: rgb(141, 194, 235);']");
-		var attat	= atta[Math.floor(Math.random()*portieri.length)];
+		var attat	= atta[Math.floor(Math.random()*atta.length)];
 		$(attat).trigger('click');
+	}
+
+	for(var index = 1; index <= 1; index++)
+	{
+		var portieri = $("#divPortieri").find("button[style='background-color: rgb(141, 194, 235);']");
+		var portierer	= portieri[Math.floor(Math.random()*portieri.length)];
+		$(portierer).trigger('click');
+		$(portierer).trigger('click');
+		console.log("por"  + index);
 	}
 	for(var index = 1; index <= 3; index++)
 	{
 		var difensori = $("#divDifensori").find("button[style='background-color: rgb(141, 194, 235);']");
-		var difensorer	= difensori[Math.floor(Math.random()*portieri.length)];
+		var difensorer	= difensori[Math.floor(Math.random()*difensori.length)];
 		$(difensorer).trigger('click');
 		$(difensorer).trigger('click');
+		console.log("dif"  + index);
 	}
 	for(var index = 1; index <= 2; index++)
 	{
 		var centro = $("#divCentrocampisti").find("button[style='background-color: rgb(141, 194, 235);']");
-		var centror	= centro[Math.floor(Math.random()*portieri.length)];
+		var centror	= centro[Math.floor(Math.random()*centro.length)];
 		$(centror).trigger('click');
 		$(centror).trigger('click');
+		console.log("cen"  + index);
 	}
 	for(var index = 1; index <= 2; index++)
 	{
 		var atta = $("#divAttaccanti").find("button[style='background-color: rgb(141, 194, 235);']");
-		var attar	= atta[Math.floor(Math.random()*portieri.length)];
+		var attar	= atta[Math.floor(Math.random()*atta.length)];
 		$(attar).trigger('click');
 		$(attar).trigger('click');
+		console.log("att"  + index);
 	}
 }
 </script>

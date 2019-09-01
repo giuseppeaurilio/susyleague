@@ -31,12 +31,15 @@ font-size:25px;
 		<li><a href="coppaitalia_gironi.php" >Gironi </a></li>
 		<li><a href="coppaitalia_calendario.php" >Calendario Incontri</a></li>
 	</ul>
+	<h2>Torneo delle pippe </h2>
+	<ul class="lista">	
+		<li><a href="torneoconsolazione_girone.php" >Girone</a></li>
+	</ul>
 	<h2>Finali</h2>
 	<ul class="lista">	
 		<li><a href="finale_campionato.php" >Finale Campionato</a></li>
 		<li><a href="finale_coppaitalia.php" >Finale CoppaItalia</a></li>
 		<li><a href="finale_coppacoppe.php" >Coppa delle Coppe</a></li>
-		<li><a href="torneoconsolazione_girone.php" >Torneo di consolazione</a></li>
 	</ul>
 <h2>Nuovo Anno</h2>
 <ul class="lista">	

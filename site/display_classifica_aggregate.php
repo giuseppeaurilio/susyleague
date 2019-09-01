@@ -47,10 +47,26 @@ $conn->close();
 
 // print("<pre>".print_r($arraysquadre,true)."</pre>").'<br>';
 ?>
-<li>Aggregate </li>
+<div id="tabs-3">
 
 <h2>Classifica Punti</h2>
 <table >
+<thead>
+<tr>
+<th>
+&nbsp;
+</th>
+<th colspan="7">
+TOTALI
+</th>
+<th colspan="6">
+CASA
+</th>
+<th colspan="6">
+TRASFERTA
+</th>
+</tr>
+</thead>
 <tr>
 
 <th>Squadra</th>
@@ -124,3 +140,4 @@ foreach($arraysquadre as $squadra){
 }
 ?>
 </table>
+</div>
