@@ -1,6 +1,6 @@
 <?php
 
-include_once ('send_message_post.php');
+// include_once ('send_message_post.php');
 
 function send_telegram_update() {
 
@@ -11,7 +11,7 @@ function send_telegram_update() {
 	$adesso=date('Y-m-d H:i:s');
 	$adesso_date = strtotime($adesso);
 
-	include ("dbinfo_susyleague.inc.php");
+	include_once ("dbinfo_susyleague.inc.php");
 	// mysql_connect($localhost,$username,$password);
 	// @mysql_select_db($database) or die( "Unable to select database");
 	$conn = new mysqli($localhost, $username, $password,$database);

@@ -1,5 +1,5 @@
 <?php
-// echo "pippo";
+echo "pippo";
 $name_loc='db_backup.sql';
 $name_remote='db_backup' .date('m-d-Y_hia').'.sql';
 
