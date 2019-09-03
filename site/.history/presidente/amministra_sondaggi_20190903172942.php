@@ -85,7 +85,7 @@ echo print_r($row);
 		echo 'Anno:<input type="text" name="a_fine" size="5" value="'. $fine_a['year'] .'">';
 		echo 'Ore:<input type="text" name="h_fine" size="5" value="'. $fine_a['hour'] .'">';
 		echo 'Minuti:<input type="text" name="min_fine" size="5" value="'.$fine_a['minute'] .'"><br>';
-		echo 'Risposta multipla: <input type="checkbox" name="risp_multipla" ' .($risp_multipla == 1 ? "checked": "").' /><br>';
+		echo 'Risposta multipla: <input type="checkbox" name="risp_multipla" '.$risp_multipla == 1 ? "checked='checked'": "" .'><br>';
 		echo '<div class="input_fields_wrap" id="wrapper_add_button_'.$id_sondaggio.'" >';
 		echo '<button type="button" class="add_field_button" id="add_button_'.$id_sondaggio .'">Aggiungi opzioni</button>';
 

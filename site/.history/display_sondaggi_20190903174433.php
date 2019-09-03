@@ -56,7 +56,10 @@ if ($conn->connect_error) {
 
 
 
-
+$query_squadre='select squadra, id from sq_fantacalcio order by id';
+// $result_squadre=mysql_query($query_squadre);
+// $num_squadre=mysql_numrows($result_squadre);
+$result_squadre=$conn->query($query_squadre); 
 #echo "num squadre=".$num_squadre;	
 	
 $query="SELECT * FROM sondaggi order by id";
@@ -93,11 +96,9 @@ while ($row=$result->fetch_assoc()) {
 	$opzioni_testo=array();
 
 	#echo($num_sondaggio);
-	// while($id_opzione<$num_sondaggio){
-	while ($row_sond=$result_sondaggio->fetch_assoc()) {
-		// echo print_r($row_sond);
-		$array_opzioni[$id_opzione]=strval($row_sond["id_opzione"]). "_" .strval($row_sond["id_squadra"]);
-		$opzioni_testo[$row_sond["id_opzione"]]=$row_sond["opzione"];
+	while($id_opzione<$num_sondaggio){
+		$array_opzioni[$id_opzione]=strval(mysql_result($result_sondaggio,$id_opzione,"id_opzione")). "_" .strval(mysql_result($result_sondaggio,$id_opzione,"id_squadra"));
+		$opzioni_testo[mysql_result($result_sondaggio,$id_opzione,"id_opzione")]=mysql_result($result_sondaggio,$id_opzione,"opzione");
 		++$id_opzione;
 	}
 	#print_r($array_opzioni);
@@ -135,6 +136,16 @@ while ($row=$result->fetch_assoc()) {
   	?>
   	<h3>Scadenza:<?php echo $scadenza;?> </h3>
 </form>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
     <table id="example" class="dataTable display" cellspacing="0" width="100%">
 	<thead>
 	<tr> 
@@ -143,16 +154,10 @@ while ($row=$result->fetch_assoc()) {
 	<?php
 	echo '<th ><div class="rotate">Totale</div></th>';
 
-	$query_squadre='select squadra, id from sq_fantacalcio order by id';
-	// $result_squadre=mysql_query($query_squadre);
-	// $num_squadre=mysql_numrows($result_squadre);
-	$result_squadre=$conn->query($query_squadre); 
-	$num_squadre=$result_squadre->num_rows;
 	$id_squadra=0;
-	// while ($id_squadra < $num_squadre) {
-	while ($row_sq=$result_squadre->fetch_assoc()) {
+	while ($id_squadra < $num_squadre) {
 		#echo '<th><div class="rotate">Fisrt Number Second Number</div></th>';
-		echo '<th ><div class="rotate">'.$row_sq["squadra"].'</div></th>';
+		echo '<th ><div class="rotate">' . mysql_result($result_squadre,$id_squadra,"squadra") .'</div></th>';
 		++$id_squadra;
     }
     ?>
@@ -190,6 +195,6 @@ while ($row=$result->fetch_assoc()) {
 	</div>
 
 	<?php
-// ++$i;
+++$i;
 }
 ?>

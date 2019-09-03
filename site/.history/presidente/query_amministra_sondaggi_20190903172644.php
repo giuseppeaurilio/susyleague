@@ -60,7 +60,7 @@ foreach ($opzioni as $value) {
 
 // mysql_close();
 $conn->close();
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+// header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 
 

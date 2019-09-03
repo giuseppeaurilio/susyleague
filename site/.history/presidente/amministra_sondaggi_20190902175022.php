@@ -70,26 +70,27 @@ while ($row=$result->fetch_assoc()) {
 		$fine=$row["scadenza"];//mysql_result($result,$i,"scadenza");
 		$testo=$row["testo"];//mysql_result($result,$i,"testo");
 		$fine_a=date_parse($fine);
+}
 
-echo print_r($row);
+?>
 
-		echo '<form action="query_amministra_sondaggi.php" method="post" class="a-form" target="formSending">';
+<form action="query_amministra_sondaggi.php" method="post" class="a-form" target="formSending">
 
-		echo '<label for="sondaggio">Sondaggio '. $id_sondaggio .'</label><br>';
-		echo '<input type="hidden" name="id_sondaggio" value="'.$id_sondaggio.'>">';
+<label for="sondaggio">Sondaggio <?php echo $id_sondaggio; ?></label><br>
+<input type="hidden" name="id_sondaggio" value="<?php echo $id_sondaggio; ?>">
 
-		echo 'Testo:<input type="text" name="testo" size="120" value="'. $testo .'" ><br>';
-		echo 'Fine:';
-		echo 'Giorno:<input type="text" name="g_fine" size="5" value="'. $fine_a['day'] .'" >';
-		echo 'Mese:<input type="text" name="m_fine" size="5" value="'. $fine_a['month'] .'" >';
-		echo 'Anno:<input type="text" name="a_fine" size="5" value="'. $fine_a['year'] .'">';
-		echo 'Ore:<input type="text" name="h_fine" size="5" value="'. $fine_a['hour'] .'">';
-		echo 'Minuti:<input type="text" name="min_fine" size="5" value="'.$fine_a['minute'] .'"><br>';
-		echo 'Risposta multipla: <input type="checkbox" name="risp_multipla" ' .($risp_multipla == 1 ? "checked": "").' /><br>';
-		echo '<div class="input_fields_wrap" id="wrapper_add_button_'.$id_sondaggio.'" >';
-		echo '<button type="button" class="add_field_button" id="add_button_'.$id_sondaggio .'">Aggiungi opzioni</button>';
+Testo:<input type="text" name="testo" size="120" value="<?php echo $testo ?>" ><br>
+Fine:
+Giorno:<input type="text" name="g_fine" size="5" value="<?php echo $fine_a['day'] ?>" >
+Mese:<input type="text" name="m_fine" size="5" value="<?php echo $fine_a['month'] ?>" >
+Anno:<input type="text" name="a_fine" size="5" value="<?php echo $fine_a['year'] ?>">
+Ore:<input type="text" name="h_fine" size="5" value="<?php echo $fine_a['hour'] ?>">
+Minuti:<input type="text" name="min_fine" size="5" value="<?php echo $fine_a['minute'] ?>"><br>
+Risposta multipla: <input type="checkbox" name="risp_multipla" value="risp_multipla"><br>
+<div class="input_fields_wrap" id="wrapper_add_button_<?php echo $id_sondaggio; ?>" >
+<button type="button" class="add_field_button" id="add_button_<?php echo $id_sondaggio; ?>">Aggiungi opzioni</button>
 
-
+<?php
 	$query_opzioni='SELECT * FROM sondaggi_opzioni where id_sondaggio=' .$id_sondaggio . ' order by id ASC';
 	// $result_opzioni=mysql_query($query_opzioni);
 	// $num_opzioni=mysql_numrows($result_opzioni);
@@ -107,29 +108,20 @@ echo print_r($row);
 		// ++$j;
 		
 	}
-
-echo '</div>';
-echo '<input type="submit" value="Invia">';
-echo '</form>';
-echo '<a href="cancella_sondaggio.php?&id_sondaggio=<?php echo $id_sondaggio ?>" >Cancella Sondaggio</a>';
-}
-echo '<hr>';
-
 ?>
-<form action="query_amministra_sondaggi_nuovo.php" method="post" class="a-form" target="formSending">
-<label for="sondaggio">Nuovo sondaggio</label><br>
-Testo:<input type="text" name="testo" size="120" value="" ><br>
-Fine:
-Giorno:<input type="text" name="g_fine" size="5" value="" >
-Mese:<input type="text" name="m_fine" size="5" value="" >
-Anno:<input type="text" name="a_fine" size="5" value="">
-Ore:<input type="text" name="h_fine" size="5" value="">
-Minuti:<input type="text" name="min_fine" size="5" value=""><br>
+    </div>
+	<input type="submit" value="Invia">
+	</form>
+	<a href="cancella_sondaggio.php?&id_sondaggio=<?php echo $id_sondaggio ?>" >Cancella Sondaggio</a>
+	<hr>
 
-<input type="submit" value="Invia">
-</form>
 <?php
 	// ++$i;
+}
+
+$conn->close();
 include("footer.html");
+
+
 
 ?>

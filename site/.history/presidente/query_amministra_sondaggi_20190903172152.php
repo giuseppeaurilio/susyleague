@@ -45,7 +45,7 @@ $query="DELETE FROM `sondaggi_opzioni` WHERE `id_sondaggio`='$id_sondaggio'";
 // mysql_query($query);
 $result=$conn->query($query);
 
-$j=1;	
+// $j=1;	
 foreach ($opzioni as $value) {
 
 		
@@ -54,13 +54,13 @@ foreach ($opzioni as $value) {
 	// mysql_query($query);
 	$result=$conn->query($query);
 	#echo $query;
-	++$j;
+	// ++$j;
 }
 
 
 // mysql_close();
 $conn->close();
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+// header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 
 

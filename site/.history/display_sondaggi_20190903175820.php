@@ -56,7 +56,11 @@ if ($conn->connect_error) {
 
 
 
-
+$query_squadre='select squadra, id from sq_fantacalcio order by id';
+// $result_squadre=mysql_query($query_squadre);
+// $num_squadre=mysql_numrows($result_squadre);
+$result_squadre=$conn->query($query_squadre); 
+$num_squadre=$result_squadre->num_rows;
 #echo "num squadre=".$num_squadre;	
 	
 $query="SELECT * FROM sondaggi order by id";
@@ -143,11 +147,6 @@ while ($row=$result->fetch_assoc()) {
 	<?php
 	echo '<th ><div class="rotate">Totale</div></th>';
 
-	$query_squadre='select squadra, id from sq_fantacalcio order by id';
-	// $result_squadre=mysql_query($query_squadre);
-	// $num_squadre=mysql_numrows($result_squadre);
-	$result_squadre=$conn->query($query_squadre); 
-	$num_squadre=$result_squadre->num_rows;
 	$id_squadra=0;
 	// while ($id_squadra < $num_squadre) {
 	while ($row_sq=$result_squadre->fetch_assoc()) {

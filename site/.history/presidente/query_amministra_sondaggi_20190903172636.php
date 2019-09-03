@@ -19,7 +19,7 @@ $testo=$conn->real_escape_string($_POST["testo"]);
 $opzioni=$_POST["mytext"];
 $risp_multipla=$_POST["risp_multipla"];
 
-print_r($risp_multipla);
+print_r($opzioni);
 
 $g_fine=$conn->real_escape_string($_POST['g_fine']);
 $m_fine=$conn->real_escape_string($_POST['m_fine']);

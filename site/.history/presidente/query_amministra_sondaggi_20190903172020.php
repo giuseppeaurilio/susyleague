@@ -19,8 +19,6 @@ $testo=$conn->real_escape_string($_POST["testo"]);
 $opzioni=$_POST["mytext"];
 $risp_multipla=$_POST["risp_multipla"];
 
-print_r($risp_multipla);
-
 $g_fine=$conn->real_escape_string($_POST['g_fine']);
 $m_fine=$conn->real_escape_string($_POST['m_fine']);
 $a_fine=$conn->real_escape_string($_POST['a_fine']);
@@ -45,7 +43,7 @@ $query="DELETE FROM `sondaggi_opzioni` WHERE `id_sondaggio`='$id_sondaggio'";
 // mysql_query($query);
 $result=$conn->query($query);
 
-$j=1;	
+// $j=1;	
 foreach ($opzioni as $value) {
 
 		
@@ -54,7 +52,7 @@ foreach ($opzioni as $value) {
 	// mysql_query($query);
 	$result=$conn->query($query);
 	#echo $query;
-	++$j;
+	// ++$j;
 }
 
 
