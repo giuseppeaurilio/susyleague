@@ -72,7 +72,7 @@ $(document).ready(function(){
     <li><a href="#tabs-3">Aggregate </a></li>
     <li><a href="#tabs-4">Coppa Girone A </a></li>
     <li><a href="#tabs-5">Coppa Girone B </a></li>
-    <li><a href="#tabs-6">Torneo di consolazione</a></li>
+    <li><a href="#tabs-5">Torneo di consolazione</a></li>
 
 </ul>
 <?php
