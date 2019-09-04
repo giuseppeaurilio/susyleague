@@ -331,18 +331,17 @@ for ($giornata = 1; $giornata <= 30; $giornata++) {
 
 /////////////////////
 // GENERA giornate per tabellone coppa italia: quarti andata/ritorno Semifinali andata/ritorno Finale secca 
-//ogni incontro della giornata può essere giocato in qualunque turno della serie A, devo tante giornate quanti sono  gli incontri
 for ($giornata = 1; $giornata <= 13; $giornata++) {
     aggiungi_giornata($globalgiornatecounter,"5"); // 5  tabellone coppa italia 
     $globalgiornatecounter++;
 }
 
 /////////////////////
-// GENERA giornate per coppa delle coppe - ex torneo di consolazione
+// GENERA giornate per Torneo di consolazione
 //il torneo si svolge nelle ultime due giornate di campionato, le uniche utili, e vanno  considerati solo i punteggi delle squadre, ignorando gli scontri diretti.
 for ($giornata = 1; $giornata <= 2; $giornata++) {
 //echo "casa= ". $element[1] . "ospite= " $element[1];
-    aggiungi_giornata($globalgiornatecounter,"6"); // 6  coppa delle coppe - ex torneo di consolazione
+    aggiungi_giornata($globalgiornatecounter,"6"); // 6  torneo di consolazione
     $globalgiornatecounter++;
 }
 
@@ -352,7 +351,7 @@ aggiungi_giornata($globalgiornatecounter,"7"); // 7  finale campionato
 $globalgiornatecounter++;
 
 /////////////////////
-// GENERA giornate per supercoppa
+// GENERA giornate per coppa delle coppe
 aggiungi_giornata($globalgiornatecounter ,"8"); // 8  coppa delle coppe
 $globalgiornatecounter++;
 

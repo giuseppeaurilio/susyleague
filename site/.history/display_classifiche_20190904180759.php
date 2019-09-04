@@ -83,7 +83,7 @@ include "display_classifica_chiusura.php";
 include "display_classifica_aggregate.php";
 include "display_classifica_finale.php";
 include "display_classifica_coppaitalia_gironi.php";
-include "display_classifica_coppaitalia_tabellone.php";
+// include "display_classifica_coppaitalia_tabellone.php";
 include "display_classifica_coppacoppe.php";
 include "display_classifica_supercoppa.php";
 ?>

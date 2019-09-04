@@ -115,7 +115,7 @@ echo '</select>';
 echo '</div>';
 
 // echo '<input type="hidden" id="hfa'.$index.'"/>';
-echo '<div> Vincente chiusura: ';
+echo '<div> Vincente calusura: ';
 echo '<select id="sq_finalista2" name="squadra_fantacalcio">';
 echo '<option value="">--Seleziona squadra fantacalcio--</option>';
    

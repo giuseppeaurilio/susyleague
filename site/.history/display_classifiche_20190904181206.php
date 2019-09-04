@@ -60,9 +60,9 @@ table th {
     }
 ?>
 <script>
-$(document).ready(function(){
-    $( "#tabs" ).tabs();
-});
+// $(document).ready(function(){
+//     $( "#tabs" ).tabs();
+// });
 </script>
 
 <div id="tabs">
@@ -72,7 +72,7 @@ $(document).ready(function(){
     <li><a href="#tabs-3">Aggregate </a></li>
     <li><a href="#tabs-4">FINALE</a></li>
     <li><a href="#tabs-5">Coppa Italia - Gironi</a></li>
-    <li><a href="#tabs-6">Coppa Italia - Tabellone</a></li>
+    <!-- <li><a href="#tabs-6">Coppa Italia - Tabellone</a></li> -->
     <li><a href="#tabs-7">Coppa delle coppe</a></li>
     <li><a href="#tabs-8">Supercoppa</a></li>
 
@@ -84,7 +84,7 @@ include "display_classifica_aggregate.php";
 include "display_classifica_finale.php";
 include "display_classifica_coppaitalia_gironi.php";
 include "display_classifica_coppaitalia_tabellone.php";
-include "display_classifica_coppacoppe.php";
-include "display_classifica_supercoppa.php";
+// include "display_classifica_coppacoppe.php";
+// include "display_classifica_supercoppa.php";
 ?>
 </div>

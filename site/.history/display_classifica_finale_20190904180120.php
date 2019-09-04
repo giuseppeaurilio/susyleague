@@ -8,9 +8,9 @@ $conn = new mysqli($localhost, $username, $password, $database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
+$idgirone=6;
 // echo "Connected successfully";
-$queryclassifica='CALL getClassificaAggregateAperturaChiusura()';
+$queryclassifica='CALL getClassifica('.$idgirone.')';
 // print_r($queryclassifica);
 $result_girone = $conn->query($queryclassifica) or die($conn->error);
 // print_r($result_girone);
@@ -47,84 +47,16 @@ $conn->close();
 
 // print("<pre>".print_r($arraysquadre,true)."</pre>").'<br>';
 ?>
-<div id="tabs-3">
 
-<h2>Aggregate</h2>
-<h3>Classifica Punti</h3>
-<table >
-<thead>
-<tr>
-<th>
-&nbsp;
-</th>
-<th colspan="7">
-TOTALI
-</th>
-<th colspan="6">
-CASA
-</th>
-<th colspan="6">
-TRASFERTA
-</th>
-</tr>
-</thead>
-<tr>
 
-<th>Squadra</th>
-<th>Punti</th>
-<th>Voti</th>
-<th>V</th>
-<th>N</th>
-<th>P</th>
-<th>GF</th>
-<th>GS</th>
-<th>Voti</th>
-<th>V</th>
-<th>N</th>
-<th>P</th>
-<th>GF</th>
-<th>GS</th>
-<th>Voti</th>
-<th>V</th>
-<th>N</th>
-<th>P</th>
-<th>GF</th>
-<th>GS</th>
-
-</tr>
+<div id="tabs-4">
 <?php 
-foreach($arraysquadre as $squadra){
-    echo '<tr>';
-        echo '<td>'.$squadra->squadra.'</td>';
-        echo '<td>'.$squadra->punti.'</td>';
-        echo '<td>'.$squadra->marcatori.'</td>';
-        echo '<td>'.$squadra->vittorie.'</td>';
-        echo '<td>'.$squadra->pareggi.'</td>';
-        echo '<td>'.$squadra->sconfitte.'</td>';
-        echo '<td>'.$squadra->golfatti.'</td>';
-        echo '<td>'.$squadra->golsubiti.'</td>';
-        echo '<td>'.$squadra->marcatoricasa.'</td>';
-        echo '<td>'.$squadra->vittoriecasa.'</td>';
-        echo '<td>'.$squadra->pareggicasa.'</td>';
-        echo '<td>'.$squadra->sconfittecasa.'</td>';
-        echo '<td>'.$squadra->golfatticasa.'</td>';
-        echo '<td>'.$squadra->golsubiticasa.'</td>';
-        echo '<td>'.$squadra->marcatoritrasf.'</td>';
-        echo '<td>'.$squadra->vittorietrasf.'</td>';
-        echo '<td>'.$squadra->pareggitrasf.'</td>';
-        echo '<td>'.$squadra->sconfittetrasf.'</td>';
-        echo '<td>'.$squadra->golfattitrasf.'</td>';
-        echo '<td>'.$squadra->golsubititrasf.'</td>';
-    echo '</tr>';
-}
-?>
-</table>
 
-<?php 
+
 usort($arraysquadre, "cmp");
 ?>
 
-<h3>Classifica marcatori</h3>
+<h2>Classifica marcatori</h2>
 <table >
 <tr>
 <th>Squadra</th>

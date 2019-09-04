@@ -32,15 +32,15 @@ font-size:25px;
 		<li><a href="coppaitalia_calendario.php" >Calendario Incontri</a></li>
 		<li><a href="coppaitalia_calendario.php" >Incontri Tabellone</a></li>
 	</ul>
-	<h2>Coppa delle Coppe</h2>
+	<h2>Torneo delle pippe </h2>
 	<ul class="lista">	
-		<li><a href="coppacoppe_girone.php" >Girone</a></li>
+		<li><a href="torneoconsolazione_girone.php" >Girone</a></li>
 	</ul>
 	<h2>Finali</h2>
 	<ul class="lista">	
 		<li><a href="finale_campionato.php" >Finale Campionato</a></li>
-		<!-- <li><a href="finale_coppaitalia.php" >Finale CoppaItalia</a></li> -->
-		<li><a href="finale_supercoppa.php" >Supercoppa</a></li>
+		<li><a href="finale_coppaitalia.php" >Finale CoppaItalia</a></li>
+		<li><a href="finale_coppacoppe.php" >Coppa delle Coppe</a></li>
 	</ul>
 <h2>Nuovo Anno</h2>
 <ul class="lista">	

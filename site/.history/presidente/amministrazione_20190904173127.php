@@ -34,7 +34,7 @@ font-size:25px;
 	</ul>
 	<h2>Coppa delle Coppe</h2>
 	<ul class="lista">	
-		<li><a href="coppacoppe_girone.php" >Girone</a></li>
+		<li><a href="torneoconsolazione_girone.php" >Girone</a></li>
 	</ul>
 	<h2>Finali</h2>
 	<ul class="lista">	

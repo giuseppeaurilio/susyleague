@@ -7,7 +7,7 @@ include("menu.php");
 <html>
 <head>
 
-<h1>Finale Campionato</h2>
+<h1>TAbellone Coppa Italia</h2>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -18,12 +18,12 @@ $(document).ready(function(){
         var giornata = $("#hfgiornata").val();
         if(id1 == null || id1 == "")
         {
-            alert('selezionare la squadra vincente dell\'apertura');
+            alert('selezionare la squadra vincente Girone A');
             return false;
         }
         if(id2 == null || id2 == "")
         {
-            alert('selezionare la squadra vincente della clausura');
+            alert('selezionare la squadra vincente Girone B');
             return false;
         }
 
@@ -36,7 +36,7 @@ $(document).ready(function(){
 
         $.ajax({
                 type:'POST',
-                url:'match_c_salvasquadre.php',
+                url:'finale_c_salvasquadre.php',
                 data: {"idgiornata": giornata, "idsquadre": JSON.stringify(idsquadre)},
                 success:function(data){
                    //debugger;
@@ -68,7 +68,7 @@ $conn = new mysqli($localhost, $username, $password,$database);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$idgirone = 7; //7 finale campionato
+$idgirone = 5; //5 finale coppaitalia 
 include("../dbinfo_susyleague.inc.php");
 $query= "SELECT giornate.*, 
         calendario.id_sq_casa, sq1.squadra as squadracasa,
@@ -92,7 +92,7 @@ while ($row=$result->fetch_assoc()) {
 };
 
 // echo '<input type="hidden" id="hfa'.$index.'"/>';
-echo '<div> Vincente apertura: ';
+echo '<div> Vincente Girone A: ';
 echo '<select id="sq_finalista1" name="squadra_fantacalcio">';
 echo '<option value="">--Seleziona squadra fantacalcio--</option>';
    
@@ -115,7 +115,7 @@ echo '</select>';
 echo '</div>';
 
 // echo '<input type="hidden" id="hfa'.$index.'"/>';
-echo '<div> Vincente chiusura: ';
+echo '<div>  Vincente Girone B: ';
 echo '<select id="sq_finalista2" name="squadra_fantacalcio">';
 echo '<option value="">--Seleziona squadra fantacalcio--</option>';
    

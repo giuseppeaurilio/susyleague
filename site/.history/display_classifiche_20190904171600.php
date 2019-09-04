@@ -70,21 +70,17 @@ $(document).ready(function(){
     <li><a href="#tabs-1">Apertura </a></li>
     <li><a href="#tabs-2">Chiusura </a></li>
     <li><a href="#tabs-3">Aggregate </a></li>
-    <li><a href="#tabs-4">FINALE</a></li>
-    <li><a href="#tabs-5">Coppa Italia - Gironi</a></li>
-    <li><a href="#tabs-6">Coppa Italia - Tabellone</a></li>
-    <li><a href="#tabs-7">Coppa delle coppe</a></li>
-    <li><a href="#tabs-8">Supercoppa</a></li>
+    <li><a href="#tabs-4">Coppa Italia </a></li>
+    <!-- <li><a href="#tabs-5">Coppa Girone B </a></li> -->
+    <li><a href="#tabs-6">Coppa delle coppe</a></li>
 
 </ul>
 <?php
 include "display_classifica_apertura.php";
 include "display_classifica_chiusura.php";
 include "display_classifica_aggregate.php";
-include "display_classifica_finale.php";
-include "display_classifica_coppaitalia_gironi.php";
-include "display_classifica_coppaitalia_tabellone.php";
+include "display_classifica_coppa_italia.php";
+// include "display_classifica_coppa_b.php";
 include "display_classifica_coppacoppe.php";
-include "display_classifica_supercoppa.php";
 ?>
 </div>
