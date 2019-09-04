@@ -36,7 +36,7 @@ $(document).ready(function(){
 
         $.ajax({
                 type:'POST',
-                url:'match_c_salvasquadre.php',
+                url:'finale_c_salvasquadre.php',
                 data: {"idgiornata": giornata, "idsquadre": JSON.stringify(idsquadre)},
                 success:function(data){
                    //debugger;
