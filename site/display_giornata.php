@@ -23,6 +23,43 @@ table, th, td {
     padding: 50px 50px;
 }
 
+@media screen and (max-width: 719px) {
+	.ui-grid-a>.ui-block-a, .ui-grid-a>.ui-block-b {
+		width:auto;
+    /* display: none; —- remove the menu, perhaps */
+  	}
+	.truncate {
+		max-width: 120px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+@media screen and (min-width: 720px) {
+	.ui-grid-a>.ui-block-a, .ui-grid-a>.ui-block-b {
+		width:50%;
+		/* display: none; —- remove the menu, perhaps */
+	}
+	.truncate {
+	}
+}
+
+.rotate {
+	transform: rotate(-90deg);
+	/* Legacy vendor prefixes that you probably don't need... */
+	/* Safari */
+	-webkit-transform: rotate(-90deg);
+	/* Firefox */
+	-moz-transform: rotate(-90deg);
+	/* IE */
+	-ms-transform: rotate(-90deg);
+	/* Opera */
+	-o-transform: rotate(-90deg);
+	/* Internet Explorer */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
 </style>
 
 
@@ -103,13 +140,13 @@ while ($row=$result_giornata->fetch_assoc()) {
 		<div class="ui-block-a">
 	<table border=1  id="squadra_casa<?php echo $j;?>">
 	<caption class="caption_style"><?php echo $sq_casa; ?></caption>
-	<th><font face="Arial, Helvetica, sans-serif"> </font></th>
-	<th><font face="Arial, Helvetica, sans-serif">&nbsp;</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Nome</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Squadra</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Ruolo</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Voto</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Voto MD</font></th>
+	<th>&nbsp;</th>
+	<th>&nbsp;</th>
+	<th>Nome</th>
+	<th>S</th>
+	<th>R</th>
+	<th>V</th>
+	<th>VN</th>
 	<?php
 	while ($row=$result_formazione->fetch_assoc()) {
 		$ruolo_giocatore=$row["ruolo"];
@@ -138,10 +175,10 @@ while ($row=$result_giornata->fetch_assoc()) {
 		$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 ?>
 >
-	<?php if ($i==0) {echo 	"<th bgcolor='#FFFFFF' rowspan='11'>Titolari</th>";  } ?>
-	<?php if ($i==11) {echo "<th bgcolor='#FFFFFF' rowspan='8'>Riserve</th>";  } ?>
+	<?php if ($i==0) {echo 	"<th bgcolor='#FFFFFF' rowspan='11'><div class='rotate'> Titolari</div></th>";  } ?>
+	<?php if ($i==11) {echo "<th bgcolor='#FFFFFF' rowspan='8'><div class='rotate'> Riserve </div></th>";  } ?>
 		<td><?php echo '<img style="height: 20;width: 15px;	" src='.$filename.'>';?></td>
-		<td><?php echo $row["nome"]; ?></td>
+		<td ><div class="truncate"><?php echo $row["nome"]; ?></div></td>
 		<td><?php echo $row["squadra_breve"]; ?></td>
 		<td><?php echo $row["ruolo"]; ?></td>
 		<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
@@ -224,13 +261,13 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<table border=1  id="squadra_ospite<?php echo $j;?>">
 	<caption class="caption_style"><?php echo $sq_ospite; ?></caption>
 
-	<th><font face="Arial, Helvetica, sans-serif"> </font></th>
-	<th><font face="Arial, Helvetica, sans-serif">&nbsp;</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Nome</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Squadra</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Ruolo</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Voto</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Voto MD</font></th>
+	<th>&nbsp;</th>
+	<th>&nbsp;</th>
+	<th>Nome</th>
+	<th>S</th>
+	<th>R</th>
+	<th>V</th>
+	<th>VN</th>
 
 	<?php
 	while ($row=$result_formazione->fetch_assoc()) {
@@ -260,10 +297,10 @@ while ($row=$result_giornata->fetch_assoc()) {
 		// echo $nome_giocatore_pulito;
 		$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 ?>
-	<?php if ($i==0) {echo 	"<th bgcolor='#FFFFFF' rowspan='11'>Titolari</th>";  } ?>
-	<?php if ($i==11) {echo "<th bgcolor='#FFFFFF' rowspan='8'>Riserve</th>";  } ?>
+	<?php if ($i==0) {echo 	"<th bgcolor='#FFFFFF' rowspan='11'><div class='rotate'> Titolari</div></th>";  } ?>
+	<?php if ($i==11) {echo "<th bgcolor='#FFFFFF' rowspan='8'><div class='rotate'> Riserve </div></th>";  } ?>
 		<td><?php echo '<img style="height: 20;width: 15px;	" src='.$filename.'>';?></td>
-		<td><?php echo $row["nome"]; ?></td>
+		<td ><div class="truncate"><?php echo $row["nome"]; ?></div></td>
 		<td><?php echo $row["squadra_breve"]; ?></td>
 		<td><?php echo $row["ruolo"]; ?></td>
 		<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
