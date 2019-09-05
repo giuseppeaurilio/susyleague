@@ -127,7 +127,7 @@ while($row = $result->fetch_assoc()){
 }
 
 foreach($giornate as $giornata){
-    // print_r($giornata);
+    print_r($giornata);
     // echo "<br><br><br>";
 
     $index = $giornata["id_giornata"];
@@ -257,6 +257,8 @@ foreach($giornate as $giornata){
         echo '<a href="calcola_giornata.php?&id_giornata='.$id_giornata .'&id_girone='.$idgirone.'">Calcola Giornata</a>';        
         echo '<br>';
 
+        echo '<a href="calcola_giornata.php?&id_giornata='.$giornata["id_giornata"] .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
+        echo '<br>';
         echo '<input type="submit" value="Salva date" name="dateritorno'.$giornata["id_giornata"].'">';
         echo '</form>';
         echo '<br>';
@@ -326,7 +328,7 @@ foreach($giornate as $giornata){
         echo 'Minuti:<input type="text" name="min_fine" size="5" value="'.  $giornata['fine_a']['minute'] .'"><br>';
         echo '<a href="calcola_giornata.php?&id_giornata='.$id_giornata .'&id_girone='.$idgirone.'">Calcola Giornata</a>';        
         echo '<br>';
-
+        
         echo '<a href="calcola_giornata.php?&id_giornata='.$giornata["id_giornata"] .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
         echo '<br>';
         echo '<input type="submit" value="Salva date" name="dateritorno'.$giornata["id_giornata"].'">';

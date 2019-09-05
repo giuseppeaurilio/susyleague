@@ -199,7 +199,7 @@ foreach($giornate as $giornata){
         // echo 'Andata <br>';
         // echo 'inizio: <input type="text" name="dataAndataDa" class="datetime_class" size="12" value="'. $date_string_da .'" id="txtDataAndataDa'.$giornata["id_giornata"].'">';
         // echo 'fine: <input type="text" name="dataAndataA" class="datetime_class" size="12" value="'. $date_string_a .'" id="txtDataAndataA'.$giornata["id_giornata"].'">';
-        echo '<input type="hidden" name="giornata" value="'.$giornata["id_giornata"].'">';
+
         echo 'Inizio: <br>';
         echo 'Giorno:<input type="text" name="g_inizio" size="5" value="'. $giornata['inizio_a']['day'] .'" >';
         echo 'Mese:<input type="text" name="m_inizio" size="5" value="'. $giornata['inizio_a']['month'] .'" >';
@@ -227,36 +227,23 @@ foreach($giornate as $giornata){
 
         echo '<form action="query_amministra_giornate.php" method="post" class="a-form" target="formSending">';
 
-        // $date_string_da = "";
-        // if($giornata['inizio_a']["year"] != 0)
-        // // print_r($giornata['inizio_a']);
-        // $date_string_da =  date('Y-m-d H:i:s', mktime($giornata['inizio_a']['hour'], $giornata['inizio_a']['minute'], $giornata['inizio_a']['second'], $giornata['inizio_a']['month'], $giornata['inizio_a']['day'], $giornata['inizio_a']['year']));
+        $date_string_da = "";
+        if($giornata['inizio_a']["year"] != 0)
+        // print_r($giornata['inizio_a']);
+        $date_string_da =  date('Y-m-d H:i:s', mktime($giornata['inizio_a']['hour'], $giornata['inizio_a']['minute'], $giornata['inizio_a']['second'], $giornata['inizio_a']['month'], $giornata['inizio_a']['day'], $giornata['inizio_a']['year']));
         
         
-        // $date_string_a = "";
-        // if($giornata['fine_a']["year"] != 0)
-        // // print_r($giornata['inizio_a']);
-        // $date_string_a =  date('Y-m-d H:i:s', mktime($giornata['fine_a']['hour'], $giornata['fine_a']['minute'], $giornata['fine_a']['second'], $giornata['fine_a']['month'], $giornata['fine_a']['day'], $giornata['fine_a']['year']));
+        $date_string_a = "";
+        if($giornata['fine_a']["year"] != 0)
+        // print_r($giornata['inizio_a']);
+        $date_string_a =  date('Y-m-d H:i:s', mktime($giornata['fine_a']['hour'], $giornata['fine_a']['minute'], $giornata['fine_a']['second'], $giornata['fine_a']['month'], $giornata['fine_a']['day'], $giornata['fine_a']['year']));
 
-        // echo 'Ritorno <br>';
-        // echo 'inizio: <input type="text" name="dataRitornoDa" class="datetime_class" size="12" value="'. $date_string_da .'" id="txtDataRitornoDa'.$giornata["id_giornata"].'">';
-        // echo 'fine: <input type="text" name="dataRitornoA" class="datetime_class" size="12" value="'. $date_string_a .'" id="txtDataRitornoA'.$giornata["id_giornata"].'">';
-        echo '<input type="hidden" name="giornata" value="'.$giornata["id_giornata"].'">';
-        echo 'Inizio: <br>';
-        echo 'Giorno:<input type="text" name="g_inizio" size="5" value="'. $giornata['inizio_a']['day'] .'" >';
-        echo 'Mese:<input type="text" name="m_inizio" size="5" value="'. $giornata['inizio_a']['month'] .'" >';
-        echo 'Anno:<input type="text" name="a_inizio" size="5" value="'. $giornata['inizio_a']['year'] .'">';
-        echo 'Ore:<input type="text" name="h_inizio" size="5" value="'. $giornata['inizio_a']['hour'] .'">';
-        echo 'Minuti:<input type="text" name="min_inizio" size="5" value="'. $giornata['inizio_a']['minute'] .'"><br>';
-        echo 'Fine: <br>';
-        echo 'Giorno:<input type="text" name="g_fine" size="5" value="'. $giornata['fine_a']['day'] .'" >';
-        echo 'Mese:<input type="text" name="m_fine" size="5" value="'. $giornata['fine_a']['month'] .'" >';
-        echo 'Anno:<input type="text" name="a_fine" size="5" value="'. $giornata['fine_a']['year'] .'">';
-        echo 'Ore:<input type="text" name="h_fine" size="5" value="'. $giornata['fine_a']['hour'] .'">';
-        echo 'Minuti:<input type="text" name="min_fine" size="5" value="'.  $giornata['fine_a']['minute'] .'"><br>';
-        echo '<a href="calcola_giornata.php?&id_giornata='.$id_giornata .'&id_girone='.$idgirone.'">Calcola Giornata</a>';        
+        echo 'Ritorno <br>';
+        echo 'inizio: <input type="text" name="dataRitornoDa" class="datetime_class" size="12" value="'. $date_string_da .'" id="txtDataRitornoDa'.$giornata["id_giornata"].'">';
+        echo 'fine: <input type="text" name="dataRitornoA" class="datetime_class" size="12" value="'. $date_string_a .'" id="txtDataRitornoA'.$giornata["id_giornata"].'">';
+        
+        echo '<a href="calcola_giornata.php?&id_giornata='.$giornata["id_giornata"] .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
         echo '<br>';
-
         echo '<input type="submit" value="Salva date" name="dateritorno'.$giornata["id_giornata"].'">';
         echo '</form>';
         echo '<br>';
@@ -296,37 +283,21 @@ foreach($giornate as $giornata){
         echo '<br>';
         echo '<form action="query_amministra_giornate.php" method="post" class="a-form" target="formSending">';
 
-        // $date_string_da = "";
-        // if($giornata['inizio_a']["year"] != 0)
-        // // print_r($giornata['inizio_a']);
-        // $date_string_da =  date('Y-m-d H:i:s', mktime($giornata['inizio_a']['hour'], $giornata['inizio_a']['minute'], $giornata['inizio_a']['second'], $giornata['inizio_a']['month'], $giornata['inizio_a']['day'], $giornata['inizio_a']['year']));
+        $date_string_da = "";
+        if($giornata['inizio_a']["year"] != 0)
+        // print_r($giornata['inizio_a']);
+        $date_string_da =  date('Y-m-d H:i:s', mktime($giornata['inizio_a']['hour'], $giornata['inizio_a']['minute'], $giornata['inizio_a']['second'], $giornata['inizio_a']['month'], $giornata['inizio_a']['day'], $giornata['inizio_a']['year']));
         
         
-        // $date_string_a = "";
-        // if($giornata['fine_a']["year"] != 0)
-        // // print_r($giornata['inizio_a']);
-        // $date_string_a =  date('Y-m-d H:i:s', mktime($giornata['fine_a']['hour'], $giornata['fine_a']['minute'], $giornata['fine_a']['second'], $giornata['fine_a']['month'], $giornata['fine_a']['day'], $giornata['fine_a']['year']));
+        $date_string_a = "";
+        if($giornata['fine_a']["year"] != 0)
+        // print_r($giornata['inizio_a']);
+        $date_string_a =  date('Y-m-d H:i:s', mktime($giornata['fine_a']['hour'], $giornata['fine_a']['minute'], $giornata['fine_a']['second'], $giornata['fine_a']['month'], $giornata['fine_a']['day'], $giornata['fine_a']['year']));
 
-        // echo 'Ritorno <br>';
-        // echo 'inizio: <input type="text" name="dataRitornoDa" class="datetime_class" size="12" value="'. $date_string_da .'" id="txtDataRitornoDa'.$giornata["id_giornata"].'">';
-        // echo 'fine: <input type="text" name="dataRitornoA" class="datetime_class" size="12" value="'. $date_string_a .'" id="txtDataRitornoA'.$giornata["id_giornata"].'">';
+        echo 'Ritorno <br>';
+        echo 'inizio: <input type="text" name="dataRitornoDa" class="datetime_class" size="12" value="'. $date_string_da .'" id="txtDataRitornoDa'.$giornata["id_giornata"].'">';
+        echo 'fine: <input type="text" name="dataRitornoA" class="datetime_class" size="12" value="'. $date_string_a .'" id="txtDataRitornoA'.$giornata["id_giornata"].'">';
         
-        echo '<input type="hidden" name="giornata" value="'.$giornata["id_giornata"].'">';
-        echo 'Inizio: <br>';
-        echo 'Giorno:<input type="text" name="g_inizio" size="5" value="'. $giornata['inizio_a']['day'] .'" >';
-        echo 'Mese:<input type="text" name="m_inizio" size="5" value="'. $giornata['inizio_a']['month'] .'" >';
-        echo 'Anno:<input type="text" name="a_inizio" size="5" value="'. $giornata['inizio_a']['year'] .'">';
-        echo 'Ore:<input type="text" name="h_inizio" size="5" value="'. $giornata['inizio_a']['hour'] .'">';
-        echo 'Minuti:<input type="text" name="min_inizio" size="5" value="'. $giornata['inizio_a']['minute'] .'"><br>';
-        echo 'Fine: <br>';
-        echo 'Giorno:<input type="text" name="g_fine" size="5" value="'. $giornata['fine_a']['day'] .'" >';
-        echo 'Mese:<input type="text" name="m_fine" size="5" value="'. $giornata['fine_a']['month'] .'" >';
-        echo 'Anno:<input type="text" name="a_fine" size="5" value="'. $giornata['fine_a']['year'] .'">';
-        echo 'Ore:<input type="text" name="h_fine" size="5" value="'. $giornata['fine_a']['hour'] .'">';
-        echo 'Minuti:<input type="text" name="min_fine" size="5" value="'.  $giornata['fine_a']['minute'] .'"><br>';
-        echo '<a href="calcola_giornata.php?&id_giornata='.$id_giornata .'&id_girone='.$idgirone.'">Calcola Giornata</a>';        
-        echo '<br>';
-
         echo '<a href="calcola_giornata.php?&id_giornata='.$giornata["id_giornata"] .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
         echo '<br>';
         echo '<input type="submit" value="Salva date" name="dateritorno'.$giornata["id_giornata"].'">';

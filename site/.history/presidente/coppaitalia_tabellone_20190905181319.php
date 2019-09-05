@@ -257,6 +257,8 @@ foreach($giornate as $giornata){
         echo '<a href="calcola_giornata.php?&id_giornata='.$id_giornata .'&id_girone='.$idgirone.'">Calcola Giornata</a>';        
         echo '<br>';
 
+        echo '<a href="calcola_giornata.php?&id_giornata='.$giornata["id_giornata"] .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
+        echo '<br>';
         echo '<input type="submit" value="Salva date" name="dateritorno'.$giornata["id_giornata"].'">';
         echo '</form>';
         echo '<br>';
