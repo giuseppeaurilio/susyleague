@@ -35,7 +35,7 @@
         <?php include("./login.php"); ?>
     </div>
 </div>
-<!-- <script type="text/javascript" src="./plugin/menu/js/stellarnav.js"></script>
+<script type="text/javascript" src="./plugin/menu/js/stellarnav.js"></script>
 <link rel="stylesheet" type="text/css" media="all" href="./plugin/menu/css/stellarnav.css">
 <script type="text/javascript">
     $(document).ready(function($) {
@@ -46,4 +46,4 @@
             // mobileMode: true
         });
     });
-</script> -->
+</script>

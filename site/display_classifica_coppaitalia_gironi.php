@@ -51,6 +51,7 @@ $conn->close();
 <h2>Coppa italia - fase a gironi</h2>
 <h3>Girone A</h3>
 <h4>Classifica Punti</h5>
+<div class="scrollmenu">
 <table >
 <thead>
 <tr>
@@ -119,6 +120,7 @@ foreach($arraysquadre as $squadra){
 }
 ?>
 </table>
+</div>
 
 <?php 
 usort($arraysquadre, "cmp");
@@ -196,6 +198,7 @@ $conn->close();
 
 <h3>Girone B</h3>
 <h4>Classifica Punti</h5>
+<div class="scrollmenu">
     <table >
         <thead>
         <tr>
@@ -264,7 +267,7 @@ $conn->close();
         }
         ?>
     </table>
-
+</div>
 <?php 
 usort($arraysquadre, "cmp");
 ?>

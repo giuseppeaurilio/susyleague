@@ -52,10 +52,11 @@ $conn->close();
 <div id="tabs-1">
 <h2>Torneo Apertura</h2>
 <h3>Classifica Punti</h3>
-<table >
+<div class="scrollmenu">
+<table>
 <thead>
 <tr>
-<th>
+<th >
 &nbsp;
 </th>
 <th colspan="7">
@@ -71,7 +72,7 @@ TRASFERTA
 </thead>
 <tr>
 
-<th>Squadra</th>
+<th >Squadra</th>
 <th>Punti</th>
 <th>Voti</th>
 <th>V</th>
@@ -120,7 +121,7 @@ foreach($arraysquadre as $squadra){
 }
 ?>
 </table>
-
+</div>
 <?php 
 
 

@@ -51,6 +51,7 @@ $conn->close();
 
 <h2>Torneo Chiusura</h2>
 <h3>Classifica Punti</h3>
+<div class="scrollmenu">
 <table >
 <thead>
 <tr>
@@ -119,7 +120,7 @@ foreach($arraysquadre as $squadra){
 }
 ?>
 </table>
-
+</div>
 <?php 
 usort($arraysquadre, "cmp");
 ?>

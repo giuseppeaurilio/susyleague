@@ -29,6 +29,12 @@ table th {
 	background-color: #4CAF50;
 	color: white;
 }
+div.scrollmenu {
+  /* background-color: #333; */
+  overflow: auto;
+  white-space: nowrap;
+}
+
 </style>
 <?php
     class RigaClassifica{
@@ -61,12 +67,17 @@ table th {
 ?>
 <script>
 $(document).ready(function(){
-    $( "#tabs" ).tabs();
+    $( "#tabs" ).tabs(
+
+        {
+            // collapsible: true
+        }
+    );
 });
 </script>
 
 <div id="tabs">
-<ul>
+<ul >
     <li><a href="#tabs-1">Apertura </a></li>
     <li><a href="#tabs-2">Chiusura </a></li>
     <li><a href="#tabs-3">Aggregate </a></li>

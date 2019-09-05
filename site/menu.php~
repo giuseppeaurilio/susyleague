@@ -32,10 +32,6 @@ footer {
 
 body {padding: 0; margin: 0;}
 
-.navbar	{
-	z-index:1;
-}
-
 /* #wrap	{
 		width: 100%;
 		height: 50px; 
@@ -101,12 +97,12 @@ body {padding: 0; margin: 0;}
 									
 
 </style>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="https://kit.fontawesome.com/c4dd1e8c85.js"></script>
+
 </head>
 
 <body>
@@ -148,55 +144,66 @@ $anno=$row["valore"];
 
 </header>
 
-<script type="text/javascript" src="/plugin/menu/js/stellarnav.js"></script>
-<link rel="stylesheet" type="text/css" media="all" href="/plugin/menu/css/stellarnav.css">
-<script type="text/javascript">
-    $(document).ready(function($) {
-        $('.stellarnav').stellarNav({
-            theme: 'dark',
-            breakpoint: 800,
-            position: 'left',
-            // mobileMode: true
-        });
-    });
+<link rel="stylesheet" type="text/css" href="/struttura2019/plugin/slimmenu.min.css">
+<style>
+    body {
+        /* font-family: 'Lucida Sans Unicode', 'Lucida Console', sans-serif; */
+        /* padding: 0; */
+    }
+    nav a, nav a:active { text-decoration: none }
+</style>
+
+<script src="/struttura2019/plugin/jquery.slimmenu.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
+
+<script>
+$(document).ready(function(){
+	$('.slimmenu').slimmenu(
+	{
+		resizeWidth: '800',
+		collapserTitle: '',
+		animSpeed:'medium',
+		indentChildren: true,
+		childrenIndenter: '&raquo;'
+	});
+});
 </script>
 
-<div class="stellarnav">
-		  <ul class="navbar">
-			 <li><a href="/homepage/home.php">Home</a></li>
-			 <li><a href="/display_classifiche.php">Classifiche</a></li>
-			 <li><a href="#">Calendari</a>
-				<ul>
-				   <li><a href="/display_calendario.php?&id_girone=1">Apertura</a></li>
-					 <li><a href="/display_calendario.php?&id_girone=2">Chiusura</a></li>
-					 <li><a href="/display_calendario_coppaitalia_gironi.php">CoppaItalia-Gironi</a></li>
-					 <li><a href="/display_calendario_coppaitalia_tabellone.php">CoppaItalia-Tabellone</a></li>
-					 <li><a href="/display_calendario.php?&id_girone=6">Coppa delle coppe</a></li>
-				   <li><a href="/display_calendario_finali.php">Finali</a></li>
-				</ul>         
-			 </li>
-			 <li><a href="#">Rose</a>
-				<ul>
-				   <li><a href="/display_rose.php" >Susy League</a></li>
-				   <li><a href="/display_giocatori.php">Serie A</a></li>
-				   <li><a href="/display_asta.php">Asta</a></li>
-				</ul>         
-			 </li>
-			 <li><a href="/invio_formazione.php">Invio formazione</a></li>
-			 <li><a href="#">Social</a>
-				<ul>
-				   <li><a href="/display_sondaggi.php">Sondaggi</a></li>
-				   <li><a href="/display_mercato.php">Mercato</a></li>
+<nav>
+	 <ul class="slimmenu">	
+		<li><a href="/homepage/home.php">Home</a></li>
+		<li><a href="/display_classifiche.php">Classifiche</a></li>
+		<li><a href="#">Calendari</a>
+			<ul>
+				<li><a href="/display_calendario.php?&id_girone=1">Apertura</a></li>
+					<li><a href="/display_calendario.php?&id_girone=2">Chiusura</a></li>
+					<li><a href="/display_calendario_coppaitalia_gironi.php">CoppaItalia-Gironi</a></li>
+					<li><a href="/display_calendario_coppaitalia_tabellone.php">CoppaItalia-Tabellone</a></li>
+					<li><a href="/display_calendario.php?&id_girone=6">Coppa delle coppe</a></li>
+				<li><a href="/display_calendario_finali.php">Finali</a></li>
+			</ul>         
+		</li>
+		<li><a href="#">Rose</a>
+		<ul>
+			<li><a href="/display_rose.php" >Susy League</a></li>
+			<li><a href="/display_giocatori.php">Serie A</a></li>
+			<li><a href="/display_asta.php">Asta</a></li>
+		</ul>         
+		</li>
+		<li><a href="/invio_formazione.php">Invio formazione</a></li>
+		<li><a href="#">Social</a>
+		<ul>
+			<li><a href="/display_sondaggi.php">Sondaggi</a></li>
+			<li><a href="/display_mercato.php">Mercato</a></li>
 
-				</ul>         
-			 </li>
-			 <li><a href="/cambia_password.php" >Password</a></li>
-			 <li><a href="/homepage/regolamento.pdf" >Regolamento</a></li>
-			 <li><a href="/presidente/amministrazione.php" >Amministrazione</a></li>
-		  </ul>
-		 </div>
-
-
+		</ul>         
+		</li>
+		<li><a href="/cambia_password.php" >Password</a></li>
+		<li><a href="/homepage/regolamento.pdf" >Regolamento</a></li>
+		<li><a href="/presidente/amministrazione.php" >Amministrazione</a></li>
+	</ul>
+</nav>
 <?php
 if (!(isset($allenatore) && $allenatore != '')) {
 	echo '<p align="right"><a align="right" href="/login.php" >Login</a></p>';
@@ -205,3 +212,4 @@ else {
 	echo '<p align="right" >Benvenuto ' . $allenatore . ',<a class="login" href="/logout.php" >Logout</a></p>';
 }
 ?>
+
