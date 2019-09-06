@@ -71,13 +71,13 @@ if ($num_giornate>0) {
 		<?php
 		$descrizioneGiornata = "";
 		if($id <= 22)
-		{ $descrizioneGiornata ="Campionato - Girone di Apertura. Giornata ". $id;}
+		{ $descrizioneGiornata ="Campionato - Girone di Apertura. Giornata". $id;}
 		else if ($id>22 && $id<= 33)
-		{ $descrizioneGiornata ="Campionato - Girone di clausura. Giornata ". $id - 22;}
+		{ $descrizioneGiornata ="Campionato - Girone di clausura. Giornata". $id - 22;}
 		else if ($id>33 && $id<= 48)
-		{ $descrizioneGiornata ="Coppa Italia ".$id." - Girone A. Giornata ". (($id-33)/3 > 5 ? floor(($id-33)/3) - 4 : floor(($id-33)/3) +1 );}
+		{ $descrizioneGiornata ="Coppa Italia - Girone A. Giornata". (($id-33)/3 > 5 ? floor(($id-33)/3) - 4 : floor($id/3) +1 );}
 		else if ($id>48 && $id<= 63)
-		{ $descrizioneGiornata ="Coppa Italia  ".$id."- Girone B. Giornata ". (($id-48)/3 > 5 ? floor(($id-48)/3) - 4 : floor(($id-48)/3) +1 );}
+		{ $descrizioneGiornata ="Coppa Italia - Girone B. Giornata". (($id-48)/3 > 5 ? floor(($id-33)/3) - 4 : floor(($id-33)/3) +1 );}
 		else if ($id == 64 )
 		{ $descrizioneGiornata ="Coppa Italia - Quarto 1 - Andata";}
 		else if ($id == 65 )
@@ -109,18 +109,8 @@ if ($num_giornate>0) {
 		{ $descrizioneGiornata ="Coppa Italia - Semifinale 2 - Ritorno";}
 
 		else if ($id == 76 )
-		{ $descrizioneGiornata ="Finale COPPA ITALIA";}
-		else if ($id == 77 || $id == 78)
-		{ $descrizioneGiornata ="Coppa delle coppe - Giornata" . ($id-76);}
+		{ $descrizioneGiornata ="Coppa Italia - FINALE";}
 
-		else if ($id == 79)
-		{ $descrizioneGiornata ="Finale CAMPIONATO";}
-
-		else if ($id == 79)
-		{ $descrizioneGiornata ="SUPERCOPPA";}
-
-		else
-		{ $descrizioneGiornata ="mancante ".$id ;}
 
 
 

@@ -337,9 +337,6 @@ for ($giornata = 1; $giornata <= 12; $giornata++) {
     $globalgiornatecounter++;
 }
 
-aggiungi_giornata($globalgiornatecounter ,"9"); // 8  finale coppa italia
-$globalgiornatecounter++;
-
 /////////////////////
 // GENERA giornate per coppa delle coppe - ex torneo di consolazione
 //il torneo si svolge nelle ultime due giornate di campionato, le uniche utili, e vanno  considerati solo i punteggi delle squadre, ignorando gli scontri diretti.
@@ -359,7 +356,8 @@ $globalgiornatecounter++;
 aggiungi_giornata($globalgiornatecounter ,"8"); // 8  supercoppa
 $globalgiornatecounter++;
 
-
+aggiungi_giornata($globalgiornatecounter ,"9"); // 8  finale coppa italia
+$globalgiornatecounter++;
 
 
 $conn->close();

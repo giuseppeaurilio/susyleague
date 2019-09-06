@@ -31,7 +31,7 @@ font-size:25px;
 		<li><a href="coppaitalia_gironi.php" >Gironi </a></li>
 		<li><a href="coppaitalia_calendario.php" >Calendario Incontri</a></li>
 		<li><a href="coppaitalia_tabellone.php" >Incontri Tabellone</a></li>
-		<li><a href="finale_coppaitalia.php" >Finale</a></li>
+		<li><a href="finale_coppaitalia.php" >Finale Campionato</a></li>
 	</ul>
 	<h2>Coppa delle Coppe</h2>
 	<ul class="lista">	
