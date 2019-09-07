@@ -1,22 +1,16 @@
 <?php
 include("menu.php");
 $id_girone=$_GET['id_girone'];
+$strCampionato = "";
+if($id_girone == 1) $strCampionato = "Apertura";
+if($id_girone == 2) $strCampionato = "Chiusura";
+if($id_girone == 6) $strCampionato = "Coppa delle coppe";
 ?>
-<h2>Calendario</h2>
+
+<h2>Calendario <?php echo  $strCampionato ?></h2>
 
 
 <?php
-
-include("dbinfo_susyleague.inc.php");
-#echo $username;
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
 
 $time_start=microtime(true);
 
@@ -75,7 +69,7 @@ while ($row=$result->fetch_assoc()) {
 
 
 
-	<h2>Giornata <?php  echo $id; ?>
+	<h2>Giornata <?php  echo $id> 76? $id-76: $id; ?>
 	 <a href="<?php  echo $link.$id; ?>">(dettaglio giornata)</a></h2>
 
 	<h3><?php echo $inizio ."  -->  " .$fine ;?></h3>
@@ -149,13 +143,9 @@ while ($row=$result->fetch_assoc()) {
 } 
 
 // mysql_close();
-$conn->close();
+
 
 ?>
-<?php
-include("footer.html");
-
+<?php 
+include("footer.php");
 ?>
-
-</body>
-</html>

@@ -3,18 +3,6 @@ include("menu.php");
 ?>
 <h2>Calendario FINALI</h2>
 <?php
-
-include("dbinfo_susyleague.inc.php");
-
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
-
 $query= "SELECT giornate.*, 
 calendario.id_sq_casa, sq1.squadra as squadracasa,
 calendario.id_sq_ospite,  sq2.squadra as squadraospite ,
@@ -96,11 +84,6 @@ while ($row=$result->fetch_assoc()) {
 
 
 ?>
-
-<?php
-include("footer.html");
-
+<?php 
+include("footer.php");
 ?>
-
-</body>
-</html>

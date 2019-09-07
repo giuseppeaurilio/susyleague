@@ -1,14 +1,4 @@
 <?php
-include "dbinfo_susyleague.inc.php";
-#echo $username;
-// Create connection
-$conn = new mysqli($localhost, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 // echo "Connected successfully";
 $queryclassifica='CALL getClassificaAggregateAperturaChiusura()';
 // print_r($queryclassifica);
@@ -43,8 +33,9 @@ while ($row = $result_girone->fetch_assoc()) {
     $temp->golsubititrasf = $row["golsubitit"];
     array_push($arraysquadre,$temp);
 }
-$conn->close();
-
+// $conn->close();
+$result_girone->close();
+$conn->next_result();
 // print("<pre>".print_r($arraysquadre,true)."</pre>").'<br>';
 ?>
 <div id="tabs-3">

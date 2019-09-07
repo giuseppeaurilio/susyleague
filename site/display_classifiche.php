@@ -67,10 +67,6 @@ include "display_classifica_coppacoppe.php";
 ?>
 </div>
 
-<?php
-include("footer.html");
-
+<?php 
+include("footer.php");
 ?>
-
-</body>
-</html>

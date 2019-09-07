@@ -1,32 +1,10 @@
 <?php
 include("menu.php");
 ?>
-
-
-<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script>
-$(document).ready(function(){
-	$('table').DataTable();
-});
-</script> -->
-
 <h2>Calendario Coppa Italia</h2>
 
 
 <?php
-
-include("dbinfo_susyleague.inc.php");
-
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
-
 
 $query= "SELECT giornate.*, 
 calendario.id_sq_casa, sq1.squadra as squadracasa,
@@ -76,6 +54,7 @@ while ($row=$result->fetch_assoc()) {
         )
     );
 }
+
 $counter = 0;
 
 foreach($giornate as $giornata){
@@ -100,7 +79,7 @@ foreach($giornate as $giornata){
 				echo '<th>Gol</th>';
 				echo '<th>	Punti</th>';
 				echo '<th>Punti</th>';
-				echo '<th<Dettaglio</th>';
+				echo '<th>&nbsp;</th>';
 			echo '</tr>';
 	}
 	echo '<tr>';
@@ -124,10 +103,6 @@ foreach($giornate as $giornata){
 }
 ?>
 
-<?php
-include("footer.html");
-
+<?php 
+include("footer.php");
 ?>
-
-</body>
-</html>
