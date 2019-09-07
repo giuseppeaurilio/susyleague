@@ -16,7 +16,7 @@ include("../menu.php");
 ?>
 
 <style>
-table, th, td {
+/* table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
@@ -38,9 +38,6 @@ table, th, td {
 }
 
 .aggiungi {
-    //float:left; /*force into block level for dimensions*/
-    //width:400px;
-    //height:150px;
     background:yellow;
     color:#000;
     margin:20px 20px 0 0;
@@ -52,5 +49,5 @@ table, th, td {
 
 .summary td{
        border:0;
-	}
+	} */
 </style>

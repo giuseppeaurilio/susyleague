@@ -1,25 +1,6 @@
 <?php
 include("menu.php");
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
-.a-form  {
- font-family: Arial;
- font-size: 20px;
-    padding: 50px 50px;
-}
-
-</style>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
     var max_fields      = 10; //maximum input boxes allowed
@@ -45,17 +26,6 @@ $(document).ready(function() {
 
 <?php
 
-include_once ("../dbinfo_susyleague.inc.php");
-
-// Create connection 
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-
 $query="SELECT * FROM sondaggi order by id ASC";
 $result=$conn->query($query);
 
@@ -71,7 +41,7 @@ while ($row=$result->fetch_assoc()) {
 		$testo=$row["testo"];//mysql_result($result,$i,"testo");
 		$fine_a=date_parse($fine);
 
-echo print_r($row);
+// echo print_r($row);
 
 		echo '<form action="query_amministra_sondaggi.php" method="post" class="a-form" target="formSending">';
 
@@ -128,8 +98,6 @@ Minuti:<input type="text" name="min_fine" size="5" value=""><br>
 
 <input type="submit" value="Invia">
 </form>
-<?php
-	// ++$i;
-include("footer.html");
-
+<?php 
+include("../footer.php");
 ?>

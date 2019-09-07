@@ -1,77 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<style>
-@media screen and (max-width: 719px) {
-	.ui-grid-a>.ui-block-a, .ui-grid-a>.ui-block-b {
-		width:auto;
-    /* display: none; —- remove the menu, perhaps */
-  	}
-	.truncate {
-		max-width: 120px;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-}
-
-@media screen and (min-width: 720px) {
-	.ui-grid-a>.ui-block-a, .ui-grid-a>.ui-block-b {
-		width:50%;
-		/* display: none; —- remove the menu, perhaps */
-	}
-	.truncate {
-	}
-}
-
-.rotate {
-	transform: rotate(-90deg);
-	/* Legacy vendor prefixes that you probably don't need... */
-	/* Safari */
-	-webkit-transform: rotate(-90deg);
-	/* Firefox */
-	-moz-transform: rotate(-90deg);
-	/* IE */
-	-ms-transform: rotate(-90deg);
-	/* Opera */
-	-o-transform: rotate(-90deg);
-	/* Internet Explorer */
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-}
-
-
-</style>
-
-
-
-
 <?php
 include("menu.php");
-
-
-
-include("../dbinfo_susyleague.inc.php");
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
-
-
 $id_giornata=$_GET['id_giornata'];
 $id_girone=$_GET['id_girone'];
-
 ?>
-
-
-
-
-
 <script>
 
 function isNumeric(n) {
@@ -161,10 +94,6 @@ $(document).ready(function(){
 	})//end function $("#btn_commento").click
 })
 </script>
-
-
-
-
 
 <h1> Calcolo Giornata <?php echo $id_giornata ;?> </h1>
 
@@ -294,58 +223,6 @@ while ($row=$result_giornata->fetch_assoc()) {
 	?>
 	
 	</table>
-
-
-
-
-	<?php
-	// $query_risultati="Select * from punteggio_finale where id_giornata='" . $id_giornata . "' and id_casa= '". $id_casa ."'";
-	// $query_risultati="Select *, sum(punti_casa + md_casa + fattorecasa) as tot_casa from calendario 
-	// where id_giornata='" . $id_giornata . "' and id_sq_casa= '". $id_casa ."'";
-	#echo "query= " . $query_risultati;
-	// $risultati=$conn->query($query_risultati);
-	
-	// $num_risultati=$risultati->num_rows;
-	
-	// $addizionale="";
-	// $voto_netto="";
-	// $media_difesa="";
-	// $voto_totale="";
-	// $gol="";
-	// $numero_giocanti="";	
-	
-	// if ($num_risultati>0) {	
-	// 	$row=$risultati->fetch_assoc();
-	// 	$addizionale=$row["fattorecasa"];
-	// 	$voto_netto=$row["punti_casa"];
-	// 	$media_difesa=$row["md_casa"];
-	// 	$voto_totale=$row["tot_casa"];
-	// 	$gol=$row["gol_casa"];
-	// 	$numero_giocanti=$row["numero_giocanti_casa"];
-	// }
-
-	// $query_risultati="Select * from punteggio_finale where id_giornata='" . $id_giornata . "' and id_ospite= '". $id_ospite ."'";
-	// $query_risultati="Select *, sum(punti_ospiti + md_ospite) as tot_ospite from calendario where id_giornata='" . $id_giornata . "' and id_sq_ospite= '". $id_ospite ."'";
-	#echo "query= " . $query_risultati;
-	// $risultati=$conn->query($query_risultati);
-	// $num_risultati=$risultati->num_rows;
-	
-	// $voto_netto_ospite="";
-	// $media_difesa_ospite="";
-	// $voto_totale_ospite="";
-	// $gol_ospite="";
-	// $numero_giocanti_ospite="";
-	
-	// if ($num_risultati>0) {	
-	// 	$row=$risultati->fetch_assoc();
-	// 	$voto_netto_ospite=$row["punti_ospiti"];
-	// 	$media_difesa_ospite=$row["md_ospite"];
-	// 	$voto_totale_ospite=$row["tot_ospite"];
-	// 	$gol_ospite=$row["gol_ospiti"];
-	// 	$numero_giocanti_ospite=$row["numero_giocanti_ospite"];
-	// }
-
-	?>
 	<p> addizionale = <?php echo $addizionalecasa; ?> </p>
 	<p> giocatori con  voto = <?php echo $numero_giocanti_casa; ?> </p>
 	<p> voto netto = <?php echo $voto_netto_casa; ?> </p>
@@ -355,7 +232,6 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_squadra=<?php  echo $id_casa; ?>">Invia Formazione</a>
 		</div>
 	<?php
-	// $query_formazione="Select * from formazioni where id_giornata='" . $id_giornata . "' and id_squadra= '". $id_ospite ."'";
 	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione 
 	FROM formazioni as a 
 	left join giocatori as b on  a.id_giocatore=b.id 
@@ -428,13 +304,6 @@ while ($row=$result_giornata->fetch_assoc()) {
 	}#end giocatori ospiti
 	?>
 	</table>
-	<!-- <p> addizionale = 0 </p>
-	<p> giocatori con  voto = <?php echo $numero_giocanti_ospite; ?> </p>
-	<p> voto netto = <?php echo $voto_netto_ospite; ?> </p>
-	<p> media difesa = <?php echo $media_difesa; ?> </p>
-	<p> voto totale = <?php echo $voto_totale_ospite; ?> </p>
-	<p> gol = <?php echo $gol_ospite; ?> </p> -->
-
 	<p> addizionale = 0 </p>
 	<p> giocatori con  voto = <?php echo $numero_giocanti_ospite; ?> </p>
 	<p> voto netto = <?php echo $voto_netto_ospite; ?> </p>
@@ -488,9 +357,7 @@ $commento=$result_commento->fetch_assoc()["commento"];
 <input type="hidden" name="id_giornata" value=<?php echo $id_giornata;?> />
  <input type="submit" value="Submit">
 </form> 
-
-
-
-
-
-</html>
+    
+<?php 
+include("../footer.php");
+?>

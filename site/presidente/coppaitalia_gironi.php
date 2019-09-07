@@ -3,7 +3,7 @@ include("menu.php");
 
 ?>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 <script>
     SalvaGirone = function(){
         // alert($(this).attr('id'));
@@ -146,26 +146,9 @@ include("menu.php");
     })
 </script>
 
-
-<?php
-include("../dbinfo_susyleague.inc.php");
-#echo $username;
-// mysql_connect($localhost,$username,$password);
-// @mysql_select_db($database) or die( "Unable to select database");
-// $link = mysqli_connect($localhost,$username,$password);
-// mysqli_select_db($link, $database);
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-?>
-
-
-<div class="aggiungi">
+<div style=" padding: 10px; display:inline-block;">
 <h2>Girone A </h2>
-<div style="width:50%; padding 10%">
+<div >
 <?php
 $index =1;
 while ($index <= 6){
@@ -198,9 +181,11 @@ while ($index <= 6){
 <input type="button" id="salvagironeA" value="Salva"/>
 <input type="button" id="generacalendariogironeA" value="Genera Calendario"/>
 </div>
+</div>
 
+<div style=" padding: 10px; display:inline-block;">
 <h2>Girone B </h2>
-<div style="width:50%; padding 10%; ">
+<div >
 <?php
 $index =1;
 while ($index <= 6){
@@ -232,16 +217,12 @@ while ($index <= 6){
 <input type="button" id="salvagironeB" value="Salva"/>
 <input type="button" id="generacalendariogironeB" value="Genera Calendario"/>
 </div>
+</div>
 
-<?php
-// mysqli_close($link);
-$conn->close();
-?>
-<div>
+<div class="mainaction">
     <a href="coppaitalia_calendario.php" >Calendario Incontri</a>
 </div>
 <?php 
-include("footer.html");
+include("../footer.php");
 ?>
-</body>
-</html>
+

@@ -2,8 +2,6 @@
 include("menu.php");
 
 ?>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     SalvaGirone = function(){
         // alert($(this).attr('id'));
@@ -124,25 +122,8 @@ include("menu.php");
 </script>
 
 
-<?php
-include("../dbinfo_susyleague.inc.php");
-#echo $username;
-// mysql_connect($localhost,$username,$password);
-// @mysql_select_db($database) or die( "Unable to select database");
-// $link = mysqli_connect($localhost,$username,$password);
-// mysqli_select_db($link, $database);
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-?>
-
-
-<div >
 <h2>Girone A </h2>
-<div style="width:50%; padding 10%">
+<div >
 <?php
 $index =1;
 while ($index <= 10){
@@ -175,14 +156,10 @@ while ($index <= 10){
 <input type="button" id="generacalendariogirone" value="Genera Calendario"/>
 </div>
 
-<?php
-$conn->close();
-?>
-<div>
+<div class="mainaction">
     <a href="coppacoppe_calendario.php" >Calendario Incontri</a>
 </div>
+    
 <?php 
-include("footer.html");
+include("../footer.php");
 ?>
-</body>
-</html>

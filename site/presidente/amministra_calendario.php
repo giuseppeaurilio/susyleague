@@ -1,51 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
-</style>
-
 <?php
 include("menu.php");
 
 ?>
-
-
 <h2>Calendario</h2>
-
-
 <?
-include("../dbinfo_susyleague.inc.php");
-mysql_connect($localhost,$username,$password);
-@mysql_select_db($database) or die( "Unable to select database");
-
+// include("../dbinfo_susyleague.inc.php");
+// mysql_connect($localhost,$username,$password);
+// @mysql_select_db($database) or die( "Unable to select database");
 
 $query="SELECT * FROM giornate";
 $result=mysql_query($query);
-
 $num=mysql_numrows($result); 
-
-
-
-#echo "<b><left>Squadre</center></b><br><br>";
-
 
 $i=0;
 while ($i < $num) {
-
-
 
 $id=mysql_result($result,$i,"id_giornata");
 $inizio=mysql_result($result,$i,"inizio");
 $fine=mysql_result($result,$i,"fine");
 
-
 $query2="SELECT b.squadra as sq_casa, c.squadra as sq_ospite, a.gol_casa, a.gol_ospiti, a.punti_casa, a.punti_ospiti FROM calendario as a inner join sq_fantacalcio as b on a.id_sq_casa=b.id inner join sq_fantacalcio as c on a.id_sq_ospite=c.id where a.id_giornata=".$id ." order by a.id_partita" ;
-
 
 #echo $query2;
 $result_giornata=mysql_query($query2);
@@ -66,14 +40,14 @@ Ora inizio: <input type="text" id="timepicker.<?php echo $id ?>"></p>
 <table border="0" cellspacing="2" cellpadding="2">
 <tr> 
 
-<th><font face="Arial, Helvetica, sans-serif">Casa</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Ospite</font></th>
+<th>Casa</th>
+<th>Ospite</th>
 
-<th><font face="Arial, Helvetica, sans-serif">gol</font></th>
+<th>gol</th>
 
-<th><font face="Arial, Helvetica, sans-serif">gol</font></th>
-<th><font face="Arial, Helvetica, sans-serif">punti</font></th>
-<th><font face="Arial, Helvetica, sans-serif">punti</font></th>
+<th>gol</th>
+<th>punti</th>
+<th>punti</th>
 </tr>
 <?php
 
@@ -92,13 +66,13 @@ $punti_ospite=mysql_result($result_giornata,$j,"punti_ospiti");
 
 <tr> 
 
-<td><font face="Arial, Helvetica, sans-serif"><?php echo "$sq_casa"; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo "$sq_ospite"; ?></font></td>
+<td><?php echo "$sq_casa"; ?></td>
+<td><?php echo "$sq_ospite"; ?></td>
 
-<td><font face="Arial, Helvetica, sans-serif"><?php echo "$gol_casa"; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo "$gol_ospite"; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo "$punti_casa"; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php echo "$punti_ospite"; ?></font></td>
+<td><?php echo "$gol_casa"; ?></td>
+<td><?php echo "$gol_ospite"; ?></td>
+<td><?php echo "$punti_casa"; ?></td>
+<td><?php echo "$punti_ospite"; ?></td>
 </tr>
 
 <?php
@@ -109,13 +83,9 @@ echo "</table>";
 ++$i;
 } 
 
-mysql_close();
+// mysql_close();
 
 ?>
-<?php
-include("footer.html");
-
+<?php 
+include("../footer.php");
 ?>
-
-</body>
-</html>

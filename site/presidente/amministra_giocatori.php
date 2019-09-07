@@ -2,15 +2,6 @@
 include("menu.php");
 
 ?>
-
-<style>
-
-
-</style>
-
-
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
-
 <script>
 
 function load_data(id_sq, ruolo) {
@@ -135,7 +126,7 @@ while ($row=$result->fetch_assoc()) {
 	#echo $i;
 
 	?>
-	<div >
+	<div class="rosegiocatoriseriea">
 	<h2><?php echo "$squadra";?></h2>
 
 
@@ -143,7 +134,7 @@ while ($row=$result->fetch_assoc()) {
 	<tr> 
 	<th>id</th>
 	<th>Nome</th>
-	<th>Ruolo</th>
+	<th>R</th>
 	<th>Squadra</th>
     <th>Costo</th>
     <th>&nbsp;</th>
@@ -205,21 +196,7 @@ echo "</table>";
 
 ++$i;
 } 
-
-
-
-
-
 ?>
-
-
-
-
-
 <?php 
-include("footer.html");
-
+include("../footer.php");
 ?>
-
-</body>
-</html>

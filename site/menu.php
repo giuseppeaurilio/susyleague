@@ -11,84 +11,38 @@ else {
 }
 ?>
 
+<!DOCTYPE html>
+<html>
 <head>
 <title>Susy League</title>
-<style type="text/css">	
-@font-face {
-    font-family: "SusyLeagueFont";
-    src: url(../font/Champions-Bold.ttf) format("truetype");
-}
-header {
-    background-color:green;
-    color:white;
-    text-align:center;
-    padding:5px;	 
-}
-
-footer {
-    background-color:black;
-    color:white;
-    clear:both;
-    text-align:center;
-    padding:5px;	 	 
-}
-
-body {
-	padding: 0; 
-	margin: 0;
-	font-family: "SusyLeagueFont","Trebuchet MS","Trebuchet MS", Arial, Helvetica, sans-serif;
-}
-
-.navbar	{
-	z-index:1;
-}
-
-table{
-	border-collapse: collapse;
-	width: 100%;
-}
-table th, table td{
-	border: 1px solid #ddd;
-	padding: 8px;
-	}
-table tr:nth-child(even){
-	background-color: #f2f2f2;
-	}
-table tr:hover {
-	background-color: #ddd;
-	}
-table th {
-	padding-top: 12px;
-	padding-bottom: 12px;
-	text-align: left;
-	background-color: #366b82;
-	color: white;
-}
-div.scrollmenu {
-  /* background-color: #333; */
-  overflow: auto;
-  white-space: nowrap;
-}
-
-</style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<!-- <script src="/js/jquery.datetimepicker.js"></script> -->
 <script src="https://kit.fontawesome.com/c4dd1e8c85.js"></script>
 
+<!-- <script src="css/jquery.datetimepicker.min.css"></script> -->
 <link href="/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
 <?php 
-include("dbinfo_susyleague.inc.php");
 
-#echo "username = " . $username;
+// include("dbinfo_susyleague.inc.php");
+
+// #echo "username = " . $username;
+
+include_once ("dbinfo_susyleague.inc.php");
+// Create connection
+$conn = new mysqli($localhost, $username, $password,$database);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 $con=mysqli_connect($localhost,$username,$password,$database) or die( "Unable to select database");;
-
 
 $query="SELECT * FROM sq_fantacalcio";
 $result=mysqli_query($con,$query);

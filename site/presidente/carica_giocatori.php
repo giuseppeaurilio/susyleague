@@ -1,13 +1,6 @@
 <?php 
 include("menu.php");
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-
-
-<body>
 <h1>Carica Giocatori</h1>
 
 
@@ -41,12 +34,7 @@ include("menu.php");
 
 </p>
 <br>
-
+    
 <?php 
-include("footer.html");
-
+include("../footer.php");
 ?>
-
-
-</body>
-</html>

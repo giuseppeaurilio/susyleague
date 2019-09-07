@@ -2,13 +2,7 @@
 include("menu.php");
 
 ?>
-
-
-
-
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
 <script>
 
 function load_data(id_sq, ruolo) {
@@ -89,22 +83,6 @@ $(document).ready(function(){
 });
 </script>
 	
-	
-	
-	
-	
-<?php
-include("../dbinfo_susyleague.inc.php");
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
-
-?>
-
 
 <div class="aggiungi">
 <h2>Aggiungi Giocatore</h2>
@@ -215,7 +193,7 @@ $num_giocatori=$result_giocatori->num_rows;
 #echo $i;
 
 ?>
-<div class="floatbox">
+<div class="rosegiocatoriseriea">
 <h2><?php echo "$squadra";?></h2>
 <h3><?php echo "(" .$allenatore .")";?></h3>
 
@@ -323,21 +301,7 @@ echo "</table>";
 
 ++$i;
 } 
-
-
-
-mysqli_close($conn); 
-
-
-
 ?>
-
-
-
 <?php 
-include("footer.html");
-
+include("../footer.php");
 ?>
-
-</body>
-</html>

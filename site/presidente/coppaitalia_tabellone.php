@@ -3,14 +3,10 @@ include("menu.php");
 
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-
 <h1>Tabellone Coppa Italia</h2>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/jquery.datetimepicker.min.css"/>
-<script src="../js/jquery.datetimepicker.full.min.js"></script>
+<script src="../js/jquery.datetimepicker.full.min.js"></script> -->
 <script>
 $(document).ready(function(){
 
@@ -100,14 +96,15 @@ $(document).ready(function(){
 
 <?php
 // Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
+// $conn = new mysqli($localhost, $username, $password,$database);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$idgirone = 5; //5 tabellone coppaitalia 
-include("../dbinfo_susyleague.inc.php");
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+// include("../dbinfo_susyleague.inc.php");
+
+$idgirone = 5;//tabellone coppaitalia
 $query= "SELECT giornate.*, 
         calendario.id_sq_casa, sq1.squadra as squadracasa,
         calendario.id_sq_ospite,  sq2.squadra as squadraospite 
@@ -361,12 +358,8 @@ foreach($giornate as $giornata){
         break;
     }
 }
-
+?>
     
-$conn->close();
-?>
 <?php 
-include("footer.html");
+include("../footer.php");
 ?>
-</body>
-</html>

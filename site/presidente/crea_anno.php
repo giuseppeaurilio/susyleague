@@ -208,6 +208,10 @@ echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
+$query="Truncate `mercato`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 $query="Truncate `gironi_ci_squadre`";
 echo $query;

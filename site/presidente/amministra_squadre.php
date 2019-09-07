@@ -1,28 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-div.fixed {
-    position: fixed;
-    top: 500px;
-    left: 500px;
-    width: 300px;
-    border: 3px solid #8AC007;
-}
-.a-form  {
- font-family: Arial;
- font-size: 20px;
-    padding: 50px 50px;
-}
-</style>
-
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
 <script>
 $(document).ready(function()
 {
@@ -68,19 +43,6 @@ $(document).ready(function()
 
 include("menu.php");
 
-
-include("../dbinfo_susyleague.inc.php");
-
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
-
-
 $query="SELECT * FROM sq_fantacalcio";
 $result=$conn->query($query);
 
@@ -93,11 +55,11 @@ echo "<b><left>Squadre</center></b><br><br>";
 <table border="0" cellspacing="2" cellpadding="2">
 <tr> 
 
-<th><font face="Arial, Helvetica, sans-serif">Squadra</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Allenatore</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Telefono</font></th>
-<th><font face="Arial, Helvetica, sans-serif">E-mail</font></th>
-<th><font face="Arial, Helvetica, sans-serif">password</font></th>
+<th>Squadra</th>
+<th>Allenatore</th>
+<th>Telefono</th>
+<th>E-mail</th>
+<th>password</th>
 </tr>
 
 <?php 
@@ -116,26 +78,18 @@ while ($i<12) {
 ?>
 
 <tr height="50" id="<?php  echo "squadra_". $id ; ?>"  contenteditable="true" > 
-<td    ><font face="Arial, Helvetica, sans-serif"   ><?php  echo "$squadra"; ?></font></td>
-<td ><font face="Arial, Helvetica, sans-serif"   ><?php  echo "$allenatore"; ?></font></td>
-<td   ><font face="Arial, Helvetica, sans-serif"  ><?php  echo "$telefono"; ?></font></td>
-<td  ><font face="Arial, Helvetica, sans-serif"  ><?php  echo "$email"; ?></font></td>
-<td ><font face="Arial, Helvetica, sans-serif"  ><?php  echo "$passwor"; ?></font></td>
+<td ><?php  echo "$squadra"; ?></td>
+<td ><?php  echo "$allenatore"; ?></td>
+<td ><?php  echo "$telefono"; ?></td>
+<td ><?php  echo "$email"; ?></td>
+<td ><?php  echo "$passwor"; ?></td>
 
 </tr>
 <?php 
 ++$i;
 }
-
-
-
 echo "</table>";
-
-
-
-include("footer.html");
-
 ?>
-
-</body>
-</html>
+<?php 
+include("../footer.php");
+?>

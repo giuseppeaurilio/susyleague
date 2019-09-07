@@ -2,13 +2,8 @@
 include("menu.php");
 
 ?>
+<h1>SUPERCOPPA</h2>
 
-<!DOCTYPE html>
-<html>
-<head>
-
-<h1>Coppa delle Coppe</h2>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
 
@@ -61,15 +56,7 @@ $(document).ready(function(){
 </script>
 
 <?php
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 $idgirone = 8; //5 coppa delle coppe 
-include("../dbinfo_susyleague.inc.php");
 $query= "SELECT giornate.*, 
         calendario.id_sq_casa, sq1.squadra as squadracasa,
         calendario.id_sq_ospite,  sq2.squadra as squadraospite 
@@ -90,53 +77,49 @@ while ($row=$result->fetch_assoc()) {
     $inizio_a=date_parse($inizio);
     $fine_a=date_parse($fine);
 };
-
-// echo '<input type="hidden" id="hfa'.$index.'"/>';
-echo '<div> Selezione Squadra A: ';
-echo '<select id="sq_finalista1" name="squadra_fantacalcio">';
-echo '<option value="">--Seleziona squadra fantacalcio--</option>';
-   
 $query="SELECT * FROM sq_fantacalcio order by squadra";
 
 $result=$conn->query($query);
-
+$squadre = array();
 while($row = $result->fetch_assoc()){
     // $id=mysql_result($result,$i,"id");
     $id=$row["id"];
     $squadra=$row["squadra"];
-    if($id ==$id_sq1 ){
-        echo '<option value=' . $id . ' selected>'. $squadra . '</option>';    
-    }
-    else{
-        echo '<option value=' . $id . '>'. $squadra . '</option>';
-    }
+    array_push($squadre, array(
+        "id"=>$id,
+        "squadra"=>$squadra
+        )
+    );
 }
-echo '</select>';
-echo '</div>';
+echo '<fieldset>';
+echo '<legend>Coppa Italia FINALE</legend>';
 
-// echo '<input type="hidden" id="hfa'.$index.'"/>';
-echo '<div> Seleziona Squadra B: ';
-echo '<select id="sq_finalista2" name="squadra_fantacalcio">';
-echo '<option value="">--Seleziona squadra fantacalcio--</option>';
-   
-$query="SELECT * FROM sq_fantacalcio order by squadra";
-$result=$conn->query($query);
-while($row = $result->fetch_assoc()){
-    // $id=mysql_result($result,$i,"id");
-    $id=$row["id"];
-    $squadra=$row["squadra"];
-    if($id ==$id_sq2 ){
-        echo '<option value=' . $id . ' selected>'. $squadra . '</option>';    
+echo '<select id="sq_finalista1" name="squadra_fantacalcio_1">';
+echo '<option value="">--Vincente Campionato--</option>';
+foreach($squadre as $squadra)
+{
+    if($squadra["id"] ==$id_sq1 ){
+        echo '<option value=' . $squadra["id"] . ' selected>'. $squadra["squadra"] . '</option>';    
     }
     else{
-        echo '<option value=' . $id . '>'. $squadra . '</option>';
+        echo '<option value=' . $squadra["id"] . '>'. $squadra["squadra"] . '</option>';
     }
 }
 echo '</select>';
-echo '</div>';
-echo '<input type="button" id="salvasquadre" value="Salva Squadre"/>';
+echo '<select id="sq_finalista2" name="squadra_fantacalcio_2">';
+echo '<option value="">--Vincente Coppa Italia--</option>';
+foreach($squadre as $squadra)
+{
+    if($squadra["id"] ==$id_sq2 ){
+        echo '<option value=' . $squadra["id"] . ' selected>'. $squadra["squadra"] . '</option>';    
+    }
+    else{
+        echo '<option value=' . $squadra["id"] . '>'. $squadra["squadra"] . '</option>';
+    }
+}
+echo '</select>';
+echo '<input type="button" class="btn_salvasquadre" id="salvasquadre" value="Salva Squadre" name="'.$id_giornata.'"/>';
 echo '<br>';
-
 
 echo '<form action="query_amministra_giornate.php" method="post" class="a-form" target="formSending">';
 echo '<input type="hidden" id="hfgiornata" name="giornata" value="'.$id_giornata.'">';
@@ -155,7 +138,12 @@ echo 'Minuti:<input type="text" name="min_fine" size="5" value="'.  $fine_a['min
 echo '<input type="submit" value="Invia">';
 echo '</form>';
 echo '<br>';
+echo '<div class="mainaction">';
 echo '<a href="calcola_giornata.php?&id_giornata='.$id_giornata .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
-    
-$conn->close();
+echo '</div>';
+echo '</fieldset>'; 
+?>
+   
+<?php 
+include("../footer.php");
 ?>

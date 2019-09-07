@@ -2,27 +2,8 @@
 include("menu.php");
 
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-
 <h1>Calendario Coppa Italia</h2>
-
-
 <?php
-
-include("../dbinfo_susyleague.inc.php");
-
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
-
 $id_girone = 4;
 $query= "SELECT giornate.*, 
         calendario.id_sq_casa, sq1.squadra as squadracasa,
@@ -96,4 +77,8 @@ foreach($giornate as $giornata){
         echo '</fieldset>';
     }
 }
+?>
+    
+<?php 
+include("../footer.php");
 ?>

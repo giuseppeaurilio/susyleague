@@ -1,3 +1,11 @@
+<?php 
+if(isset($conn))
+{$conn->close();}
+if(isset($con))
+{$con->close();}
+
+?>
+
 <footer>
 <!-- webmaster webmaster@susy-league.heliohost.org -->
 <span style="float:left; display: block">

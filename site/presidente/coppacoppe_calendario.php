@@ -3,24 +3,8 @@ include("menu.php");
 
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-
 <h1>Calendario Torneo di consolazione</h2>
-
-
 <?php
-
-include("../dbinfo_susyleague.inc.php");
-
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 // echo "Connected successfully";
 $id_girone = 6;
 
@@ -90,4 +74,8 @@ foreach($giornate as $giornata){
     echo '</fieldset>';
     $counter++;
 }
+?>
+    
+<?php 
+include("../footer.php");
 ?>
