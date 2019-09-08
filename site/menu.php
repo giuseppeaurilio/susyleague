@@ -23,6 +23,11 @@ else {
 <!-- <script src="/js/jquery.datetimepicker.js"></script> -->
 <script src="https://kit.fontawesome.com/c4dd1e8c85.js"></script>
 
+<script type="text/javascript" src="/plugin/menu/js/stellarnav.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="/plugin/menu/css/stellarnav.css">
+
+<script type="text/javascript" src="/plugin/jquery.connections.js"></script>
+
 <!-- <script src="css/jquery.datetimepicker.min.css"></script> -->
 <link href="/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -74,8 +79,7 @@ $anno=$row["valore"];
 
 </header>
 
-<script type="text/javascript" src="/plugin/menu/js/stellarnav.js"></script>
-<link rel="stylesheet" type="text/css" media="all" href="/plugin/menu/css/stellarnav.css">
+
 <script type="text/javascript">
     $(document).ready(function($) {
         $('.stellarnav').stellarNav({
