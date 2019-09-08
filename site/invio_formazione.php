@@ -1,4 +1,8 @@
 <?php
+include("menu.php");
+
+?>
+<?php
 
 if(!isset($_SESSION)) 
 {
@@ -29,7 +33,7 @@ if ($num_giornate>0) {
 	$id_squadra= $_SESSION['login'];
 	}
 	
-	include("menu.php");
+	// include("menu.php");
     
     ?>
     <style>
@@ -167,7 +171,7 @@ if ($num_giornate>0) {
 }
 else
 {
-	include("menu.php");
+	// include("menu.php");
 	echo 'nessuna partita in programma';
 }
 

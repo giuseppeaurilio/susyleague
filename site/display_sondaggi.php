@@ -42,22 +42,7 @@ th.rotate {
 
 
 <?php
-// include("dbinfo_susyleague.inc.php");
-// mysql_connect($localhost,$username,$password);
-// @mysql_select_db($database) or die( "Unable to select database");
-include_once ("dbinfo_susyleague.inc.php");
-$conn = new mysqli($localhost, $username, $password,$database);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-
-
-
-
-#echo "num squadre=".$num_squadre;	
 	
 $query="SELECT * FROM sondaggi order by id";
 // $result=mysql_query($query);
