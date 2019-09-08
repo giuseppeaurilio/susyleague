@@ -26,6 +26,7 @@ $num_ultimi=$result_ultimi->num_rows;
 
 if($num_ultimi >0){
 echo '<h2>Ultimi risultati</h2>';
+
 }
 
 
