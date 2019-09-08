@@ -229,7 +229,7 @@ foreach($giornate as $incontro)
 	// echo '</tr>';
 	// echo '</thead>';
 	echo '<tbody>';
-	echo '<tr>';
+	echo '<tr>'; 
 	echo '<th ></th><th  >
 	'.$incontro->squadraA.'</th><th> - </th><th>'.$incontro->squadraB.'</th>';
 	echo '</tr>';
@@ -282,7 +282,7 @@ foreach($giornate as $incontro)
 		$("#element72").appendTo(".semifinale1");
 		$("#element74").appendTo(".semifinale2");
 
-		$("#element76").appendTo(".finale");
+		$("#element76").appendTo(".finaleci");
 
 
 		// $("div.quarto1").connections({ to: 'div.semifinale1' });
@@ -317,7 +317,7 @@ foreach($giornate as $incontro)
 		</div>
 	</div>
   	<div class="grid-column">
-		<div class="grid-item  finale">
+		<div class="grid-item  finaleci">
 			
 		</div>
 	</div> 

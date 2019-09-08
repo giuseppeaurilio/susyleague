@@ -72,7 +72,7 @@ $anno=$row["valore"];
 <header>
 <div style="width: 100%; overflow: hidden;">
     	<div style="width: 50%; float: left;"> <h1>Susy League <?php  echo $anno; ?> </h1> </div>
-    	<div style="width:50%; float: left;">
+    	<div style="width:50%; float: left; text-align:right;">
 		<figure><img src="/Logo_sponsor_small.png" syle="object-fit: fitcontent;"></figure> 
 	</div>
 </div>
@@ -109,7 +109,7 @@ $anno=$row["valore"];
 				<ul>
 				   <li><a href="/display_rose.php" >Susy League</a></li>
 				   <li><a href="/display_giocatori.php">Serie A</a></li>
-				   <li><a href="/display_asta.php">Asta</a></li>
+				   <!-- <li><a href="/display_asta.php">Asta</a></li> -->
 				</ul>         
 			 </li>
 			 <li><a href="/invio_formazione.php"><i class="fas fa-futbol"></i> Invio formazione</a></li>

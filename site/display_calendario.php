@@ -68,13 +68,13 @@ while ($row=$result->fetch_assoc()) {
 
 
 
-
-	<h2>Giornata <?php  echo $id> 76? $id-76: $id; ?>
-	 <a href="<?php  echo $link.$id; ?>">(dettaglio giornata)</a></h2>
-
-	<h3><?php echo $inizio ."  -->  " .$fine ;?></h3>
-
-
+<div class="calendario_giornata">
+	<h3>Giornata <?php  echo $id> 76? $id-76: $id; ?>
+	
+	<?php echo "(". (($inizio!= "") ? date('d/m H:i', strtotime($inizio)) : "") ."  -  " .(($fine!= "") ? date('d/m H:i', strtotime($fine)) : ""). ")" ;?>
+	
+	</h3>
+	<h4><a href="<?php  echo $link.$id; ?>"> Formazioni <i class="fas fa-list-ol"></i></a></h4>
 	<table>
 	<tr> 
 
@@ -127,11 +127,11 @@ while ($row=$result->fetch_assoc()) {
 	?>
 	</table>
 
-
-	<textarea readonly rows="10" style="width:100%;">Il punto del presidente:
+	<!--  -->
+	<textarea readonly rows="10" style='<?php echo( $commento=="" ?  "display:none;" : "") ?> ' >Il punto del presidente:
 	<?php echo $commento; ?>
 	</textarea> 
-
+	</div>
 
 	<?php
 
@@ -143,9 +143,8 @@ while ($row=$result->fetch_assoc()) {
 } 
 
 // mysql_close();
-
-
 ?>
+
 <?php 
 include("footer.php");
 ?>

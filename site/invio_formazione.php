@@ -71,13 +71,13 @@ if ($num_giornate>0) {
 		<?php
 		$descrizioneGiornata = "";
 		if($id <= 22)
-		{ $descrizioneGiornata ="Campionato - Girone di Apertura. Giornata ". $id;}
+		{ $descrizioneGiornata ="Campionato - Apertura. Giornata ". $id;}
 		else if ($id>22 && $id<= 33)
-		{ $descrizioneGiornata ="Campionato - Girone di clausura. Giornata ". $id - 22;}
+		{ $descrizioneGiornata ="Campionato - Chiusura. Giornata ". $id - 22;}
 		else if ($id>33 && $id<= 48)
-		{ $descrizioneGiornata ="Coppa Italia ".$id." - Girone A. Giornata ". (($id-33)/3 > 5 ? floor(($id-33)/3) - 4 : floor(($id-33)/3) +1 );}
+		{ $descrizioneGiornata ="Coppa Italia - Girone A. Giornata ". (($id-33)/3 > 5 ? floor(($id-33)/3) - 4 : floor(($id-33)/3) +1 );}
 		else if ($id>48 && $id<= 63)
-		{ $descrizioneGiornata ="Coppa Italia  ".$id."- Girone B. Giornata ". (($id-48)/3 > 5 ? floor(($id-48)/3) - 4 : floor(($id-48)/3) +1 );}
+		{ $descrizioneGiornata ="Coppa Italia - Girone B. Giornata ". (($id-48)/3 > 5 ? floor(($id-48)/3) - 4 : floor(($id-48)/3) +1 );}
 		else if ($id == 64 )
 		{ $descrizioneGiornata ="Coppa Italia - Quarto 1 - Andata";}
 		else if ($id == 65 )
@@ -125,9 +125,10 @@ if ($num_giornate>0) {
 
 
 		?>
-		<h2><?php echo $descrizioneGiornata;?></h2>
-		<h3><?php echo $inizio ."  -->  " .$fine ;?></h3>
-		<table>
+		<div class="giornata">
+		<h2 style=""><?php echo $descrizioneGiornata;?></h2>
+		<h3><?php echo (($inizio!= "") ? date('d/m H:i', strtotime($inizio)) : "") ."  ->  " .(($fine!= "") ? date('d/m H:i', strtotime($fine)) : "") ;?></h3>
+		<table style="width:100%">
 					<tr>
 						<th style="width:50%">CASA</th>
 						<th style="width:50%">TRASFERTA</th>
@@ -174,6 +175,7 @@ if ($num_giornate>0) {
 			++$j;
 		} 
 		echo "</table>";
+		echo '</div>';
 		++$i;
 		} 
 

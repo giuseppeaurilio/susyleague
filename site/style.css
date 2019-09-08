@@ -6,12 +6,32 @@
   font-family: "SusyLeagueFont";
   src: url(../font/Champions-Bold.ttf) format("truetype");
 }
+
 header {
+  overflow: hidden;
+  color: white;
+  justify-content: center;
+  background: #000000 url('../images/header.png') 100% 100% no-repeat;
+  background-position: center; 
+}
+header h1{
+  width: 100%;
+  vertical-align: middle;
+  height: auto;
+  text-align: center;
+}
+
+/* header figure{
+  width: 30%;
+  text-align: center;
+} */
+
+/* header {
   background-color:green;
   color:white;
   text-align:center;
   padding:5px;	 
-}
+} */
 
 footer {
   background-color:black;
@@ -236,4 +256,100 @@ li.game{
 connection {
   border: 1px dotted black;
   border-radius: 0px;
+}
+
+.calendario_giornata{
+  display: inline-block;
+  margin: 10px;
+}
+.calendario_giornata a{
+  text-decoration: none;
+}
+
+.calendario_giornata table
+{
+  max-width: 450px;
+}
+.coppaitalia table 
+{
+  max-width: 650px;
+}
+
+
+.calendario_giornata textarea
+{
+  /* max-width: 450px; */
+  display: inline;
+  width: 98%;
+}
+
+.calendario_giornata .data
+{
+  font-size: 1em;
+}
+.finale{
+  text-align: center;
+  overflow: hidden;
+  color: white;
+  /* justify-content: center; */
+  background: white url('../images/Allianz_Stadium_49_3.jpg') 100% 100% no-repeat;
+  background-position: center; 
+}
+.finale div{
+  padding: 20px 10px;
+}
+.finale .squadre,
+.finale .score,
+.finale .formazioni
+{
+  font-size: 25px;
+  background-color:rgb(0,0,0, 0.8);
+  /* opacity: 0.8; */
+  /* display: inline; */
+}
+
+.finale .squadre div,
+.finale .score div
+{
+  display: inline;
+  
+}
+.finale .squadra1
+{
+  text-align: right;
+}
+.finale .squadra2
+{
+  text-align: left;
+}
+.finale .score .punti{
+  font-size: 1em;
+  padding: 10px;
+  opacity: 0.8;
+}
+.finale .score .gol{
+  font-size: 3em;
+  padding: 3%;
+}
+
+.giornata
+{
+  display: inline-block;
+  margin: 10px 20px;
+  /* max-width: 33%; */
+}
+
+.finale .formazioni a{
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+.finale .commento
+{
+  min-height: 100px;
+}
+
+.finale textarea
+{
+  width: 50%;
 }

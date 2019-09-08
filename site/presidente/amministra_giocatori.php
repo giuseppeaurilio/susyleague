@@ -128,7 +128,7 @@ while ($row=$result->fetch_assoc()) {
 	?>
 	<div class="rosegiocatoriseriea">
 	<h2><?php echo "$squadra";?></h2>
-
+    
 
 	<table border="0" cellspacing="2" cellpadding="2">
 	<tr> 

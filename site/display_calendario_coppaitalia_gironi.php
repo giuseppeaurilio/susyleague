@@ -68,11 +68,11 @@ foreach($giornate as $giornata){
     if($counter %3  == 0){
         // echo '<fieldset>';
         // echo '<legend>Giornata:'.($counter/3 > 5 ? $counter/3 - 4 : $counter/3 +1 ).'</legend>';
-    
+		echo '<div class="calendario_giornata coppaitalia">';
 		echo '<h3>Giornata:'.($counter/3 > 5 ? $counter/3 - 4 : $counter/3 +1 ).'<h3>';
 		echo '<table >';
 			echo '<tr>';
-				echo '<th>Data</th>';
+				echo '<th class="data">Data</th>';
 				echo '<th>Casa</th>';
 				echo '<th>Ospite</th>';
 				echo '<th>Gol</th>';
@@ -83,19 +83,20 @@ foreach($giornate as $giornata){
 			echo '</tr>';
 	}
 	echo '<tr>';
-		echo '<td>'.$giornata['inizio_a'].'->'.$giornata['fine_a'].' </td>';
+		echo '<td > '. (($giornata['inizio_a']!= "") ? date('d/m H:i', strtotime($giornata['inizio_a'])) : "") .'  <br>  ' .(($giornata['fine_a']!= "") ? date('d/m H:i', strtotime($giornata['fine_a'])) : ""). '</td>';
 		echo '<td>'.$giornata["sq1"].'</td>';
 		echo '<td>'.$giornata["sq2"].'</td>';
 		echo '<td>'.$giornata["gol_casa"].'</td>';
 		echo '<td>'.$giornata["gol_ospiti"].'</td>';
 		echo '<td>'.$giornata["punti_casa"].'</td>';
 		echo '<td>'.$giornata["punti_ospiti"].'</td>';
-		echo '<td><a href="display_giornata.php?&id_giornata='. $giornata["id_giornata"] .'" >Dettaglio</a></td>';
+		echo '<td><a href="display_giornata.php?&id_giornata='. $giornata["id_giornata"] .'" ><i class="fas fa-list-ol"></i></a></td>';
 	echo '</tr>';
 	$counter++;
 	if($counter %3  == 0){
 		echo '</table >';
 	}
+	echo '</div>';
     // if($counter %3  == 0){
     //     echo '</fieldset>';
 	// }

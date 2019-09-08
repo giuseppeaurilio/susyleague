@@ -2,88 +2,8 @@
 include("menu.php");
 
 ?>
-
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
-
-.a-form  {
- font-family: Arial;
- font-size: 20px;
-    padding: 50px 50px;
-}
-div.scroll {
-    background-color: #00FFFF;
-    width: 1000px;
-    height: 1000px;
-    margin:0 auto;
-    overflow: auto; 
-    
-}
-
-div.inner {
-    margin-right:-999em;
-    padding-left:20px
-    }
-    
-#wrapper {
-    width:100%;
-    margin: 30px auto;
-    border:1px solid #000;
-    background:#EEF;
-    padding:10px 0 25px 0;
-}
-
-#outer-wrap {
-    width: 90%; 
-    height: 256px;
-    margin:0 auto;
-    overflow: auto; 
-    background:#BCC5E1;
-    border:1px solid #000; 
-}
-#inner-wrap {
-    float:left;
-    margin-right:-999em;
-    padding-left:20px;
-}
-.floatbox {
-    float:left; /*force into block level for dimensions*/
-    //width:400px;
-    height:900px;
-    //background:blue;
-    color:#000;
-    margin:20px 20px 0 0;
-}
-
-
-
-</style>
-
-
-
-
 <h2>Rose</h2>
-
-
-
 <?php 
-
-include("dbinfo_susyleague.inc.php");
-#echo $username;
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
-
-
 
 $query="SELECT * FROM squadre_serie_a order by squadra";
 $result=$conn->query($query);
@@ -107,18 +27,18 @@ while ($row=$result->fetch_assoc()) {
 	#echo $i;
 
 	?>
-	<div class="floatbox">
+	<div class="rosegiocatoriseriea">
 	<h2><?php echo "$squadra";?></h2>
 
 
 	<table border="0" cellspacing="2" cellpadding="2">
 	<tr> 
-	<th><font face="Arial, Helvetica, sans-serif">id</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Nome</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Ruolo</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Squadra</font></th>
+	<th>id</th>
+	<th>Nome</th>
+	<th>Ruolo</th>
+	<th>Squadra</th>
 
-	<th><font face="Arial, Helvetica, sans-serif">Costo</font></th>
+	<th>Costo</th>
 	</tr>
 	<?php 
 
@@ -135,7 +55,7 @@ while ($row=$result->fetch_assoc()) {
 		?>
 
 
-		<tr bgcolor= <?php switch ($ruolo_giocatore) {
+		<tr style="background-color: <?php switch ($ruolo_giocatore) {
 			case "P":
 				echo "#66CC33";
 				break;
@@ -145,20 +65,20 @@ while ($row=$result->fetch_assoc()) {
 			case "C":
 				echo "#FFEF00";
 				break;
-			 case "A":
+			case "A":
 				echo "#E80000 ";
 				break;
 			default:
 				echo "#FFFFFF";
 		}
 		?>
-		> 
-		<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$id_giocatore"; ?></font></td>
-		<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$nome_giocatore"; ?></font></td>
-		<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$ruolo_giocatore"; ?></font></td>
-		<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$squadra_giocatore"; ?></font></td>
+		"> 
+		<td><?php  echo "$id_giocatore"; ?></td>
+		<td><?php  echo "$nome_giocatore"; ?></td>
+		<td><?php  echo "$ruolo_giocatore"; ?></td>
+		<td><?php  echo "$squadra_giocatore"; ?></td>
 
-		<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$costo_giocatore"; ?></font></td>
+		<td><?php  echo "$costo_giocatore"; ?></td>
 		</tr>
 
 		<?php 

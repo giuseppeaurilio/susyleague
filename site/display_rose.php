@@ -3,55 +3,10 @@ include("menu.php");
 
 ?>
 
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
-
-.a-form  {
- font-family: Arial;
- font-size: 20px;
-    padding: 50px 50px;
-}
-
-.floatbox {
-    float:left; /*force into block level for dimensions*/
-    //width:400px;
-    height:900px;
-    //background:blue;
-    color:#000;
-    margin:20px 20px 0 0;
-}
-</style>
-
-
-
-
 <h2>Rose</h2>
 
 
 <?php 
-include("dbinfo_susyleague.inc.php");
-// //echo $username;
-// $con=mysqli_connect($host,$username,$password,$database) or die( "Unable to select database");
-
-
-// $query="SELECT * FROM sq_fantacalcio";
-// //echo $query;
-// $result=mysqli_query($con,$query);
-// $num=mysqli_num_rows($result);
-
-// //echo "<br>" . "num= " . $num;
-$con = new mysqli($localhost, $username, $password, $database);
-
-// Check connection
-if ($con->connect_error) {
-    die("Connection failed: " . $con->connect_error);
-}
-// echo "Connected successfully";
-
 
 $query="SELECT * FROM sq_fantacalcio";
 //echo $query;
@@ -83,17 +38,17 @@ $num_giocatori=mysqli_num_rows($result_giocatori);
 //echo "num giocatori=" . $num_giocatori;
 
 ?>
-<div class="floatbox">
+<div class="rosegiocatoriseriea">
 <h2><?php echo "$squadra";?></h2>
 <h3><?php echo "(" .$allenatore .")";?></h3>
 
 <table border="0" cellspacing="2" cellpadding="2">
 <tr> 
 
-<th><font face="Arial, Helvetica, sans-serif">Nome</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Squadra</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Ruolo</font></th>
-<th><font face="Arial, Helvetica, sans-serif">Costo</font></th>
+<th>Nome</th>
+<th>Squadra</th>
+<th>Ruolo</th>
+<th>Costo</th>
 </tr>
 <?php 
 
@@ -111,7 +66,7 @@ $spesi = $spesi+ $costo_giocatore;
 ?>
 
 
-<tr bgcolor= <?php switch ($ruolo_giocatore) {
+<tr style="background-color: <?php switch ($ruolo_giocatore) {
     case "P":
         echo "#66CC33";
         break;
@@ -128,12 +83,13 @@ $spesi = $spesi+ $costo_giocatore;
         echo "#FFFFFF";
 }
 ?>
-> 
+"> 
 
-<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$nome_giocatore"; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$squadra_giocatore"; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$ruolo_giocatore"; ?></font></td>
-<td><font face="Arial, Helvetica, sans-serif"><?php  echo "$costo_giocatore"; ?></font></td>
+
+<td><?php  echo "$nome_giocatore"; ?></td>
+<td><?php  echo "$squadra_giocatore"; ?></td>
+<td><?php  echo "$ruolo_giocatore"; ?></td>
+<td><?php  echo "$costo_giocatore"; ?></td>
 </tr>
 
 <?php 
