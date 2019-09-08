@@ -114,16 +114,11 @@ echo "</table>";
 
 
 // mysqli_close();
-$con->close();
+// $con->close();
 
 ?>
-
 
 
 <?php 
-include("footer.html");
-
+include("footer.php");
 ?>
-
-</body>
-</html>

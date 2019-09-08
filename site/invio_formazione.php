@@ -10,21 +10,6 @@ date_default_timezone_set('Europe/Rome');
 
 $adesso = date('Y-m-d H:i:s');
 
-#print_r($adesso);
-
-include_once ("dbinfo_susyleague.inc.php");
-
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
-
-
-
 $query_giornate="SELECT * from giornate where inizio <' " . $adesso ." ' and fine >'" . $adesso . "'";
 
 
@@ -188,10 +173,6 @@ else
 
 
 ?>
-<?php
-include("footer.html");
-
+<?php 
+include("footer.php");
 ?>
-
-</body>
-</html>

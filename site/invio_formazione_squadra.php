@@ -101,20 +101,6 @@ $id_squadra=$_GET['id_squadra'];
 $ruoli = array("P","D","C","A");
 $ruoli_name = array("Portieri","Difensori","Centrocampisti","Attaccanti");
 
-
-
-include_once ("dbinfo_susyleague.inc.php");
-
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
-
-
 $i=0;
 
 $query="SELECT squadra, allenatore FROM sq_fantacalcio where id=" . $id_squadra;
@@ -569,10 +555,6 @@ for($i = 0; $i < 4; $i++) {
 <a href="<?php echo "display_giornata.php?&id_giornata=" . $id_giornata ; ?>"><?php echo "Formazioni Giornata " . $id_giornata ?></a>
 <br>
 
-<?php
-include("footer.html");
-$conn->close();
+<?php 
+include("footer.php");
 ?>
-
-</body>
-</html>

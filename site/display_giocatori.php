@@ -98,18 +98,9 @@ while ($row=$result->fetch_assoc()) {
 
 
 // mysql_close();
-$conn->close();
+// $conn->close();
 
 ?>
-
-
-
-
-
 <?php 
-include("footer.html");
-
+include("footer.php");
 ?>
-
-</body>
-</html>
