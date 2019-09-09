@@ -157,7 +157,7 @@ li.game{
   display: inline-block;
   /* display: none; —- remove the menu, perhaps */
   }
-@media screen and (max-width: 720) {
+@media screen and (max-width: 600px) {
   .ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b {
     width: auto;
   }  

@@ -200,7 +200,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<hr style="display: inline-block;width: 100%;">
 <?php
 ++$j;
-echo '</div>';
+echo </div>
 } # end incontri
 ?>
 
