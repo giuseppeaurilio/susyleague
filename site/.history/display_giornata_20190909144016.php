@@ -23,13 +23,11 @@ include("menu.php");
     padding: 50px 50px;
 } */
 
-.ui-grid-a>.ui-block-a, .ui-grid-a>.ui-block-b {
-		width: 49%;
-		display: inline-block;
+@media screen and (max-width: 799px) {
+	.ui-grid-a>.ui-block-a, .ui-grid-a>.ui-block-b {
+		width:auto;
     /* display: none; —- remove the menu, perhaps */
   	}
-@media screen and (max-width: 799px) {
-	
 	.truncate {
 		max-width: 120px;
 		white-space: nowrap;
@@ -38,10 +36,18 @@ include("menu.php");
 	}
 }
 
-/* @media screen and (min-width: 800px) {
+@media screen and (min-width: 800px) {
+	.ui-grid-a>.ui-block-a, .ui-grid-a>.ui-block-b {
+		width:48%;
+		display: inline;
+		/* display: none; —- remove the menu, perhaps */
+	}
+	/* .ui-grid-a>.ui-block-middle {
+		width:40%;
+	} */
 	.truncate {
 	}
-} */
+}
 
 .rotate {
 	transform: rotate(-90deg);
@@ -65,6 +71,20 @@ include("menu.php");
 
 
 <?php
+include("dbinfo_susyleague.inc.php");
+
+// Create connection
+$conn = new mysqli($localhost, $username, $password,$database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+// echo "Connected successfully";
+
+
+
+
 $id_giornata=$_GET['id_giornata'];
 
 ?>
@@ -259,9 +279,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<p> gol = <?php echo $gol_ospite; ?> </p></div>
 
 	</div>
-	<hr style="
-    display: inline-block;
-    width: 100%;>
+	<hr>
 	<?php
 	
 ++$j;

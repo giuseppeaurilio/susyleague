@@ -65,6 +65,20 @@ include("menu.php");
 
 
 <?php
+include("dbinfo_susyleague.inc.php");
+
+// Create connection
+$conn = new mysqli($localhost, $username, $password,$database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+// echo "Connected successfully";
+
+
+
+
 $id_giornata=$_GET['id_giornata'];
 
 ?>
