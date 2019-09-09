@@ -152,19 +152,26 @@ li.game{
   background-color: yellow
 }
 
-.ui-grid-a>.ui-block-a, .ui-grid-a>.ui-block-b {
-  width: 49%;
-  display: inline-block;
-  /* display: none; —- remove the menu, perhaps */
-  }
-@media screen and (max-width: 799px) {
-
-.truncate {
-  max-width: 120px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+@media screen and (max-width: 719px) {
+	/* .ui-grid-a>.ui-block-a, .ui-grid-a>.ui-block-b {
+		width:auto;
+    
+  	} */
+	.truncate {
+		max-width: 120px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 }
+
+@media screen and (min-width: 720px) {
+	/* .ui-grid-a>.ui-block-a, .ui-grid-a>.ui-block-b {
+		width:50%;
+		
+	} */
+	/* .truncate {
+	} */
 }
 
 .rotate {
