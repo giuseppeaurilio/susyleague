@@ -45,7 +45,7 @@ $num_giocatori=mysqli_num_rows($result_giocatori);
 <table border="0" cellspacing="2" cellpadding="2">
 <tr> 
 
-<th class="nome">Nome</th>
+<th>Nome</th>
 <th>Squadra</th>
 <th>Ruolo</th>
 <th>Costo</th>
@@ -101,11 +101,11 @@ echo "</table>";
 ?>
 <table >
   <tr>
-    <th>Fantamilioni spesi</th>
+    <th>Fantamilioni spesi=</th>
     <th><?php  echo $spesi; ?></th>
   </tr >
   <tr>
-    <th>Fantamilioni restanti</th>
+    <th>Fantamilioni restanti=</th>
     <th><?php  echo $fantamilioni-$spesi; ?></th>
   </tr >
 </table>

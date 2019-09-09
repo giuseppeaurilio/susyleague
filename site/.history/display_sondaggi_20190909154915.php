@@ -118,7 +118,7 @@ while ($row=$result->fetch_assoc()) {
 		echo '<input type="submit" value="Invia">';
 	}
   	?>
-  	<h4>Scadenza:<?php echo $scadenza;?> </h4>
+  	<h3>Scadenza:<?php echo $scadenza;?> </h3>
 </form>
     <table id="example" class="dataTable display" cellspacing="0" width="100%">
 	<thead>

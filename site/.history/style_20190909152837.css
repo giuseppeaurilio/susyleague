@@ -66,7 +66,6 @@ h4{
   color: white;
   padding: 10px;
   margin:0;
-  text-align: right;
 }
 .navbar	{
 z-index:1;
@@ -154,12 +153,8 @@ li.game{
     border-top:1px solid #aaa;
   }
 .rosegiocatoriseriea{
-  margin: 2px;
+  margin: 20px;
   display: inline-block
-}
-
-.rosegiocatoriseriea .nome{
-  width:130px;
 }
 .mainaction{
   /* width: 100%; */
@@ -173,8 +168,7 @@ li.game{
 }
 
 .aggiungi{
-  background-color: yellow;
-  padding: 20px 10px;
+  background-color: yellow
 }
 
 .ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b {
@@ -280,12 +274,11 @@ connection {
 
 .calendario_giornata{
   display: inline-block;
-  margin-top: 10px;
+  margin: 10px;
   vertical-align: top;
 }
 .calendario_giornata a{
   text-decoration: none;
-  color: white;
 }
 
 .calendario_giornata table
@@ -374,12 +367,4 @@ connection {
 .finale textarea
 {
   width: 50%;
-}
-
-.ui-tabs .ui-tabs-panel {
-padding: 0;
-}
-.classifica tbody tr:nth-child(2) 
-{
-  background-color: #00cc99
 }

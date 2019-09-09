@@ -97,7 +97,7 @@ while ($row=$result->fetch_assoc()) {
 	?>
 	
 	<div style="">
-	<h3><?php echo $testo;?> </h3>
+	<h2><?php echo $testo;?> </h2>
 	<?php
 	date_default_timezone_set('Europe/Rome');
 	$adesso = date('Y-m-d H:i:s');
@@ -118,7 +118,7 @@ while ($row=$result->fetch_assoc()) {
 		echo '<input type="submit" value="Invia">';
 	}
   	?>
-  	<h4>Scadenza:<?php echo $scadenza;?> </h4>
+  	<h3>Scadenza:<?php echo $scadenza;?> </h3>
 </form>
     <table id="example" class="dataTable display" cellspacing="0" width="100%">
 	<thead>

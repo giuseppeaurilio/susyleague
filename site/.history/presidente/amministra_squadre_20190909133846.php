@@ -49,7 +49,7 @@ $result=$conn->query($query);
 $num=$result->num_rows; 
 
 
-echo "<h2>Squadre</center></h2>";
+echo "<b><left>Squadre</center></b><br><br>";
 
 ?>
 <table border="0" cellspacing="2" cellpadding="2">

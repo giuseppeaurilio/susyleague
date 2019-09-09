@@ -3,7 +3,7 @@ include("menu.php");
 
 ?>
 
-<h2>Calendario Coppa delle Coppe</h2>
+<h1>Calendario Coppa delle Coppe</h2>
 <?php
 // echo "Connected successfully";
 $id_girone = 6;

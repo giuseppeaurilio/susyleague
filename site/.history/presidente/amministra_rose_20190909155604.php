@@ -85,6 +85,7 @@ $(document).ready(function(){
 	
 <h2>Aggiungi Giocatore</h2>
 <div class="aggiungi">
+
 <form action="aggiungi_a_rosa.php" method="get">
 <select name="Ruolo" id="ruolo">
   <option value="">--Seleziona ruolo--</option>	

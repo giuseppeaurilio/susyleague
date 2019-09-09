@@ -45,7 +45,7 @@ $num_giocatori=mysqli_num_rows($result_giocatori);
 <table border="0" cellspacing="2" cellpadding="2">
 <tr> 
 
-<th class="nome">Nome</th>
+<th class="mome">Nome</th>
 <th>Squadra</th>
 <th>Ruolo</th>
 <th>Costo</th>

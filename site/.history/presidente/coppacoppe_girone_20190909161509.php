@@ -122,7 +122,7 @@ include("menu.php");
 </script>
 
 
-<h2>Girone Coppa delle Coppe </h2>
+<h2>Girone COPPA COPPE </h2>
 <div >
 <?php
 $index =1;

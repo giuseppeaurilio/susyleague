@@ -2,7 +2,8 @@
 include("menu.php");
 
 ?>
-<h2>Finale Coppa Italia</h2>
+<h1>Finale Campionato</h2>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 <script>
 $(document).ready(function(){
 
@@ -12,12 +13,12 @@ $(document).ready(function(){
         var giornata = $("#hfgiornata").val();
         if(id1 == null || id1 == "")
         {
-            alert('selezionare la squadra di uno');
+            alert('selezionare la squadra vincente dell\'apertura');
             return false;
         }
         if(id2 == null || id2 == "")
         {
-            alert('selezionare la squadra due');
+            alert('selezionare la squadra vincente della clausura');
             return false;
         }
 
@@ -55,8 +56,8 @@ $(document).ready(function(){
 </script>
 
 <?php
-$idgirone = 9; //finale coppa italia
-
+// Create connection
+$idgirone = 7; //7 finale campionato
 $query= "SELECT giornate.*, 
         calendario.id_sq_casa, sq1.squadra as squadracasa,
         calendario.id_sq_ospite,  sq2.squadra as squadraospite 
@@ -93,10 +94,10 @@ while($row = $result->fetch_assoc()){
     );
 }
 echo '<fieldset>';
-// echo '<legend>Coppa Italia FINALE</legend>';
+echo '<legend>Finale CAMPIONATO</legend>';
 
 echo '<select id="sq_finalista1" name="squadra_fantacalcio_1">';
-echo '<option value="">--Vincente Semifinale 2--</option>';
+echo '<option value="">--Vincente Apertura--</option>';
 foreach($squadre as $squadra)
 {
     if($squadra["id"] ==$id_sq1 ){
@@ -108,7 +109,7 @@ foreach($squadre as $squadra)
 }
 echo '</select>';
 echo '<select id="sq_finalista2" name="squadra_fantacalcio_2">';
-echo '<option value="">--Vincente Semifinale 1--</option>';
+echo '<option value="">--Vincente Chiusura--</option>';
 foreach($squadre as $squadra)
 {
     if($squadra["id"] ==$id_sq2 ){
@@ -144,7 +145,7 @@ echo '<a href="calcola_giornata.php?&id_giornata='.$id_giornata .'&id_girone='.$
 echo '</div>';
 echo '</fieldset>'; 
 ?>
-    
 <?php 
 include("../footer.php");
 ?>
+
