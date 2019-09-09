@@ -261,6 +261,7 @@ connection {
 .calendario_giornata{
   display: inline-block;
   margin: 10px;
+  vertical-align: top;
 }
 .calendario_giornata a{
   text-decoration: none;

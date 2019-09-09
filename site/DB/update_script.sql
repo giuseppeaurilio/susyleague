@@ -63,7 +63,7 @@ CREATE TABLE `gironi_tc_squadre` ( `id_girone` INT NOT NULL , `id_squadra` INT N
 DROP PROCEDURE IF EXISTS `getClassifica`;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getClassifica`(IN `pIdGirone` INT)
+CREATE PROCEDURE `getClassifica`(IN `pIdGirone` INT)
     NO SQL
 select cc.idsquadrac as idsquadra,sf.squadra, 
 cc.puntic + ct.puntit as punti,
@@ -139,7 +139,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS `getClassificaAggregateAperturaChiusura`;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getClassificaAggregateAperturaChiusura`()
+CREATE PROCEDURE `getClassificaAggregateAperturaChiusura`()
     NO SQL
 select cc.idsquadrac as idsquadra,sf.squadra, 
 cc.puntic + ct.puntit as punti,
@@ -215,7 +215,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS `getClassificaGironeCoppaItalia`;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `getClassificaGironeCoppaItalia`(IN `pIdGirone` INT, IN `pIdGironeCI` INT)
+CREATE PROCEDURE `getClassificaGironeCoppaItalia`(IN `pIdGirone` INT, IN `pIdGironeCI` INT)
     NO SQL
 select cc.idsquadrac as idsquadra,sf.squadra, 
 cc.puntic + ct.puntit as punti,
