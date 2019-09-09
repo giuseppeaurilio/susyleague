@@ -159,7 +159,7 @@ li.game{
   }
 @media screen and (max-width: 720px) {
   .ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b {
-    width: auto !important;
+    width: auto;
   }  
   .truncate {
     max-width: 120px;

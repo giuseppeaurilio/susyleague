@@ -157,9 +157,9 @@ li.game{
   display: inline-block;
   /* display: none; —- remove the menu, perhaps */
   }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 720) {
   .ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b {
-    width: auto !important;
+    width: auto;
   }  
   .truncate {
     max-width: 120px;
@@ -181,8 +181,7 @@ li.game{
 	/* Opera */
 	-o-transform: rotate(-90deg);
 	/* Internet Explorer */
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-  width: 10px;
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 .ci_tabellone{

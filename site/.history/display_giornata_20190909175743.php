@@ -65,7 +65,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	?>
 	 <div class="ui-grid-a">
 		<div class="ui-block-a" style="float:left;">
-			<h3 class="caption_style" style="text-align: center; margin: 0 1px;"><?php echo $sq_casa; ?></h3>
+			<h3 class="caption_style"><?php echo $sq_casa; ?></h3>
 			<table border=1  id="squadra_casa<?php echo $j;?>">
 				<!-- <caption class="caption_style"><?php echo $sq_casa; ?></caption> -->
 				<tr>
@@ -139,7 +139,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<!-- <div class="ui-block-middle">&nbsp;</div> -->
 		<div class="ui-block-b" style="float:right;">
 			
-			<h3 class="caption_style" style="text-align: center; margin: 0 1px;"><?php echo $sq_ospite; ?></h3>
+			<h3 class="caption_style"><?php echo $sq_ospite; ?></h3>
 			<table border=1  id="squadra_ospite<?php echo $j;?>">
 				<!-- <caption class="caption_style"><?php echo $sq_ospite; ?></caption> -->
 
