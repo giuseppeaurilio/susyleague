@@ -102,7 +102,7 @@ foreach($giornate as $giornata){
 	if($counter %3  == 0){
 		echo '</table >';
 		echo '</div>';
-		echo '<div><textarea readonly rows="10" style="'.( $commento=="" ?  "display:none;" : "") . '" >Il punto del presidente:
+		echo '<div><textarea readonly rows="10" style="'.'">Il punto del presidente:
 			'.$commento .'</textarea> </div>';
 		echo '</div>';
 	}

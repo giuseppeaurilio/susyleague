@@ -79,7 +79,10 @@ if ((isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 </div>
 <?php
 }
+
+include("footer.html");
+
 ?>
-<?php 
-include("footer.php");
-?>
+
+</body>
+</html>

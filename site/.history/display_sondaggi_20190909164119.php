@@ -120,7 +120,6 @@ while ($row=$result->fetch_assoc()) {
   	?>
   	<h4>Scadenza:<?php echo $scadenza;?> </h4>
 </form>
-<div class="scrollmenu">
     <table id="example" class="dataTable display" cellspacing="0" width="100%">
 	<thead>
 	<tr> 
@@ -173,7 +172,6 @@ while ($row=$result->fetch_assoc()) {
 	
 	?>
 	</table>
-	</div>
 	</div>
 
 	<?php

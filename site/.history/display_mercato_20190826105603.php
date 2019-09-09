@@ -10,9 +10,28 @@ session_start();
 include("menu.php");
 
 ?>
+
+
+
+
+
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    
+max-width: 1000px;
+}
+
+</style>
 <h2>Mercato</h2>
 
+
 <?php 
+include("dbinfo_susyleague.inc.php");
+//echo $username;
+$con=mysqli_connect($localhost,$username,$password,$database) or die( "Unable to select database");
+
 
 $query="SELECT a.id_annuncio,a.testo, b.squadra, b.id, a.data_annuncio  FROM mercato as a inner join  sq_fantacalcio as b where a.id_squadra=b.id ; ";
 //echo $query;
@@ -23,10 +42,10 @@ $num=mysqli_num_rows($result);
 <table border="0" cellspacing="2" cellpadding="2">
 <tr> 
 
-<th>Data</th>
-<th>Squadra</th>
-<th>Annuncio</th>
-<th>&nbsp;</th>
+<th><font face="Arial, Helvetica, sans-serif">Data</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Squadra</font></th>
+<th><font face="Arial, Helvetica, sans-serif">Annuncio</font></th>
+
 </tr>
 
 <?php
@@ -42,17 +61,16 @@ $id_squadra=$annuncio["id"];
 $data_annuncio=$annuncio["data_annuncio"];
 ?>
 <tr>
-	<td><?php  echo $data_annuncio; ?></td>
-	<td><?php  echo $squadra; ?></td>
-	<td><?php  echo $testo ; ?></td>
-	
+<td><?php  echo $data_annuncio; ?></td>
+<td><?php  echo $squadra; ?></td>
+<td><?php  echo $testo ; ?></td>
 <?php
 
 //echo "id_squadra=$id_squadra";
 //echo "id_squadra_logged=$id_squadra_logged";
 //echo "id_annuncio=$id_annuncio";
 if ($id_squadra_logged==$id_squadra) {
-	echo '<td><a style="color:black;" href="query_delete_annuncio.php?id_annuncio=' . $id_annuncio . '"><i class="far fa-trash-alt"></i></a></td>';
+	echo '<td><a href="query_delete_annuncio.php?id_annuncio=' . $id_annuncio . '">Cancella</a></td>';
 	}
 	else
 	{echo '<td></td>'; }
@@ -69,17 +87,18 @@ mysqli_close($con);
 
 if ((isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 ?>
-<br/>
-<div >
-<h3> Nuovo Annuncio</h3>
-<form action="/query_add_annuncio.php">
-	<textarea style="width:100%;" name="testo_annuncio"  rows="10" maxlength="255"></textarea>
-  	<input type="submit" value="Invia">
+<div style="height: 200px;">
+<form action="/query_add_annuncio.php"     style="width: 80%;margin-top: 2%;">
+    testo: <textarea name="testo_annuncio" cols="64" rows="4" maxlength="255"></textarea>
+  <input type="submit" value="Invia">
 </form>
 </div>
 <?php
 }
+
+include("footer.html");
+
 ?>
-<?php 
-include("footer.php");
-?>
+
+</body>
+</html>

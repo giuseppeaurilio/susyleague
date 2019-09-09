@@ -72,7 +72,7 @@ foreach($giornate as $giornata){
         // echo '<fieldset>';
         // echo '<legend>Giornata:'.($counter/3 > 5 ? $counter/3 - 4 : $counter/3 +1 ).'</legend>';
 		echo '<div class="calendario_giornata coppaitalia ">';
-		echo '<h4>Giornata:'.($counter/3 > 5 ? $counter/3 - 4 : $counter/3 +1 ).'</h4>';
+		echo '<span>Giornata:'.($counter/3 > 5 ? $counter/3 - 4 : $counter/3 +1 ).'</span>';
 		echo '<div class="scrollmenu">';
 		echo '<table >';
 			echo '<tr>';
@@ -102,7 +102,7 @@ foreach($giornate as $giornata){
 	if($counter %3  == 0){
 		echo '</table >';
 		echo '</div>';
-		echo '<div><textarea readonly rows="10" style="'.( $commento=="" ?  "display:none;" : "") . '" >Il punto del presidente:
+		echo '<div><textarea readonly rows="10" style="'.'">Il punto del presidente:
 			'.$commento .'</textarea> </div>';
 		echo '</div>';
 	}

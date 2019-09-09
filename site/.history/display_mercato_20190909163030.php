@@ -26,7 +26,7 @@ $num=mysqli_num_rows($result);
 <th>Data</th>
 <th>Squadra</th>
 <th>Annuncio</th>
-<th>&nbsp;</th>
+
 </tr>
 
 <?php
@@ -42,17 +42,16 @@ $id_squadra=$annuncio["id"];
 $data_annuncio=$annuncio["data_annuncio"];
 ?>
 <tr>
-	<td><?php  echo $data_annuncio; ?></td>
-	<td><?php  echo $squadra; ?></td>
-	<td><?php  echo $testo ; ?></td>
-	
+<td><?php  echo $data_annuncio; ?></td>
+<td><?php  echo $squadra; ?></td>
+<td><?php  echo $testo ; ?></td>
 <?php
 
 //echo "id_squadra=$id_squadra";
 //echo "id_squadra_logged=$id_squadra_logged";
 //echo "id_annuncio=$id_annuncio";
 if ($id_squadra_logged==$id_squadra) {
-	echo '<td><a style="color:black;" href="query_delete_annuncio.php?id_annuncio=' . $id_annuncio . '"><i class="far fa-trash-alt"></i></a></td>';
+	echo '<td><a href="query_delete_annuncio.php?id_annuncio=' . $id_annuncio . '">Cancella</a></td>';
 	}
 	else
 	{echo '<td></td>'; }
@@ -69,17 +68,18 @@ mysqli_close($con);
 
 if ((isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 ?>
-<br/>
 <div >
-<h3> Nuovo Annuncio</h3>
 <form action="/query_add_annuncio.php">
-	<textarea style="width:100%;" name="testo_annuncio"  rows="10" maxlength="255"></textarea>
+	<textarea name="testo_annuncio"  rows="10" maxlength="255"></textarea>
   	<input type="submit" value="Invia">
 </form>
 </div>
 <?php
 }
+
+include("footer.html");
+
 ?>
-<?php 
-include("footer.php");
-?>
+
+</body>
+</html>

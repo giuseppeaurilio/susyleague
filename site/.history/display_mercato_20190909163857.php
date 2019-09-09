@@ -52,7 +52,7 @@ $data_annuncio=$annuncio["data_annuncio"];
 //echo "id_squadra_logged=$id_squadra_logged";
 //echo "id_annuncio=$id_annuncio";
 if ($id_squadra_logged==$id_squadra) {
-	echo '<td><a style="color:black;" href="query_delete_annuncio.php?id_annuncio=' . $id_annuncio . '"><i class="far fa-trash-alt"></i></a></td>';
+	echo '<td><a style="color:balck;" href="query_delete_annuncio.php?id_annuncio=' . $id_annuncio . '"><i class="far fa-trash-alt"></i></a></td>';
 	}
 	else
 	{echo '<td></td>'; }
@@ -79,7 +79,10 @@ if ((isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 </div>
 <?php
 }
+
+include("footer.html");
+
 ?>
-<?php 
-include("footer.php");
-?>
+
+</body>
+</html>

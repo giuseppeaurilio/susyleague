@@ -61,19 +61,17 @@ foreach($giornate as $giornata){
 	// print_r ($giornata);
     if($counter == 0 ){
 		echo '<h3>Girone A</h3>';    
-		echo '<div class=" ">';
+		echo '<div class="scrollmenu ">';
     }
     else if($counter == 15 ){
 		echo '<h3>Girone B</h3>';    
-		echo '<div class=" ">';
-	}
-	$commento ="";
+		echo '<div class="scrollmenu ">';
+    }
     if($counter %3  == 0){
         // echo '<fieldset>';
         // echo '<legend>Giornata:'.($counter/3 > 5 ? $counter/3 - 4 : $counter/3 +1 ).'</legend>';
 		echo '<div class="calendario_giornata coppaitalia ">';
-		echo '<h4>Giornata:'.($counter/3 > 5 ? $counter/3 - 4 : $counter/3 +1 ).'</h4>';
-		echo '<div class="scrollmenu">';
+		echo '<h3>Giornata:'.($counter/3 > 5 ? $counter/3 - 4 : $counter/3 +1 ).'</h3>';
 		echo '<table >';
 			echo '<tr>';
 				echo '<th class="data">Data</th>';
@@ -85,7 +83,6 @@ foreach($giornate as $giornata){
 				echo '<th>Punti</th>';
 				echo '<th>&nbsp;</th>';
 			echo '</tr>';
-		$commento ="";
 	}
 	echo '<tr>';
 		echo '<td > '. (($giornata['inizio_a']!= "") ? date('d/m H:i', strtotime($giornata['inizio_a'])) : "") .'  <br>  ' .(($giornata['fine_a']!= "") ? date('d/m H:i', strtotime($giornata['fine_a'])) : ""). '</td>';
@@ -97,13 +94,9 @@ foreach($giornate as $giornata){
 		echo '<td>'.$giornata["punti_ospiti"].'</td>';
 		echo '<td><a href="display_giornata.php?&id_giornata='. $giornata["id_giornata"] .'" ><i class="fas fa-list-ol"></i></a></td>';
 	echo '</tr>';
-	$commento .= $commento;
 	$counter++;
 	if($counter %3  == 0){
 		echo '</table >';
-		echo '</div>';
-		echo '<div><textarea readonly rows="10" style="'.( $commento=="" ?  "display:none;" : "") . '" >Il punto del presidente:
-			'.$commento .'</textarea> </div>';
 		echo '</div>';
 	}
 	if($counter == 15 || $counter == 30){

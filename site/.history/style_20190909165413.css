@@ -21,6 +21,18 @@ header h1{
   text-align: center;
 }
 
+/* header figure{
+  width: 30%;
+  text-align: center;
+} */
+
+/* header {
+  background-color:green;
+  color:white;
+  text-align:center;
+  padding:5px;	 
+} */
+
 footer {
   background-color:black;
   color:white;
@@ -82,7 +94,7 @@ background-color: #366b82;
 color: white;
 }
 div.scrollmenu {
-
+/* background-color: #333; */
 overflow: auto;
 white-space: nowrap;
 }
@@ -106,6 +118,19 @@ main{
     flex-grow:1;
   }
 
+/*
+ *  General Styles
+*/
+
+/*
+body{
+  font-family:sans-serif;
+  font-size:small;
+  padding:10px;
+  line-height:1.4em;
+}
+
+*/
 li.game{
   padding-left:20px;
 }
@@ -270,17 +295,8 @@ connection {
 
 .coppaitalia
 {
-  margin: 2px;
-  width: 99%;
-}
-.coppaitalia h4
-{
-  text-align: left;
-}
-
-.calendario_giornata a{
-  
-  color: black;
+  margin: 10px;
+  width: 400px;
 }
 .coppaitalia table 
 {
