@@ -86,57 +86,102 @@ $anno=$row["valore"];
     $(document).ready(function($) {
         $('.stellarnav').stellarNav({
             theme: 'dark',
-            breakpoint: 800,
-            position: 'left',
+            breakpoint: 650,
+			position: 'left',
+			// sticky: true,
+			// scrollbarFix: true
+
             // mobileMode: true
         });
     });
 </script>
+<div style="background:#366b82;">
+	<div class="stellarnav">
+		<ul class="navbar">
+			<li><a href="/homepage/home.php"> <i class="fas fa-home"></i> Home</a></li>
+			<li><a href="/display_classifiche.php"><i class="fas fa-chart-line"></i> Classifiche</a></li>
+			<li><a href="#"><i class="fas fa-calendar-alt"></i> Calendari</a>
+			<ul>
+				<li><a href="/display_calendario.php?&id_girone=1">Apertura</a></li>
+					<li><a href="/display_calendario.php?&id_girone=2">Chiusura</a></li>
+					<li><a href="/display_calendario_coppaitalia_gironi.php">CoppaItalia-Gironi</a></li>
+					<li><a href="/display_calendario_coppaitalia_tabellone.php">CoppaItalia-Tabellone</a></li>
+					<li><a href="/display_calendario.php?&id_girone=6">Coppa delle coppe</a></li>
+				<li><a href="/display_calendario_finali.php">Finale campionato</a></li>
+			</ul>         
+			</li>
+			<li><a href="#"><i class="fas fa-users"></i> Rose</a>
+			<ul>
+				<li><a href="/display_rose.php" >Susy League</a></li>
+				<li><a href="/display_giocatori.php">Serie A</a></li>
+				<!-- <li><a href="/display_asta.php">Asta</a></li> -->
+			</ul>         
+			</li>
+			<li><a href="/invio_formazione.php"><i class="fas fa-futbol"></i> Invio formazione</a></li>
+			<li><a href="#"><i class="far fa-thumbs-up"></i> Social</a>
+			<ul>
+				<li><a href="/display_sondaggi.php">Sondaggi</a></li>
+				<li><a href="/display_mercato.php">Mercato</a></li>
 
-<div class="stellarnav">
-		  <ul class="navbar">
-			 <li><a href="/homepage/home.php"> <i class="fas fa-home"></i> Home</a></li>
-			 <li><a href="/display_classifiche.php"><i class="fas fa-chart-line"></i> Classifiche</a></li>
-			 <li><a href="#"><i class="fas fa-calendar-alt"></i> Calendari</a>
-				<ul>
-				   <li><a href="/display_calendario.php?&id_girone=1">Apertura</a></li>
-					 <li><a href="/display_calendario.php?&id_girone=2">Chiusura</a></li>
-					 <li><a href="/display_calendario_coppaitalia_gironi.php">CoppaItalia-Gironi</a></li>
-					 <li><a href="/display_calendario_coppaitalia_tabellone.php">CoppaItalia-Tabellone</a></li>
-					 <li><a href="/display_calendario.php?&id_girone=6">Coppa delle coppe</a></li>
-				   <li><a href="/display_calendario_finali.php">Finale campionato</a></li>
-				</ul>         
-			 </li>
-			 <li><a href="#"><i class="fas fa-users"></i> Rose</a>
-				<ul>
-				   <li><a href="/display_rose.php" >Susy League</a></li>
-				   <li><a href="/display_giocatori.php">Serie A</a></li>
-				   <!-- <li><a href="/display_asta.php">Asta</a></li> -->
-				</ul>         
-			 </li>
-			 <li><a href="/invio_formazione.php"><i class="fas fa-futbol"></i> Invio formazione</a></li>
-			 <li><a href="#"><i class="far fa-thumbs-up"></i> Social</a>
-				<ul>
-				   <li><a href="/display_sondaggi.php">Sondaggi</a></li>
-				   <li><a href="/display_mercato.php">Mercato</a></li>
+			</ul>         
+			</li>
+			<!-- <li><a href="/cambia_password.php" ><i class="fas fa-lock"></i> Password</a></li> -->
+			<li><a href="/homepage/regolamento.pdf" ><i class="fas fa-pencil-alt"></i> Regolamento</a></li>
+			<?php if ((isset($_SESSION['login'])  && ($_SESSION['login'] == '0'))) {
+			echo '<li><a href="/presidente/amministrazione.php" ><i class="fas fa-tools"></i> Amministrazione</a></li>';
+			}
+			?>
+			<!-- <li><a href="#" >			
+				LOGIN
+				</a>
+			</li> -->
+		</ul>
+	</div>
+	<div class="loginsection">
 
-				</ul>         
-			 </li>
-			 <li><a href="/cambia_password.php" ><i class="fas fa-lock"></i> Password</a></li>
-			 <li><a href="/homepage/regolamento.pdf" ><i class="fas fa-pencil-alt"></i> Regolamento</a></li>
-			 <?php if ((isset($_SESSION['login'])  && ($_SESSION['login'] == '0'))) {
-			 echo '<li><a href="/presidente/amministrazione.php" ><i class="fas fa-tools"></i> Amministrazione</a></li>';
-			 }
-			 ?>
-		  </ul>
-		 </div>
-
-
-<?php
-if (!(isset($allenatore) && $allenatore != '')) {
-	echo '<p align="right"><a align="right" href="/login.php" >Login</a></p>';
+	<?php
+	if (!(isset($_SESSION['allenatore']) && $_SESSION['allenatore'] != '')) {
+		echo '
+		<a href="#" style="text-decoration:none; color:white;" id="btnShowLogin">Login</a>';
+	}
+	else { 
+		echo '<span>Benvenuto ' . $allenatore . '</span><a id="btnLogout" style="text-decoration:none; color:white;" class="login" href="#" ><i class="fas fa-sign-out-alt"></i> </a>';
+	}
+	// echo $_SESSION['allenatore'];
+	?>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+	
+	$("#btnShowLogin").off("click").bind("click", showLogin);
+	$("#btnLogout").off("click").bind("click", callLogout);
+})
+showLogin=function(){
+	$( "#loginDialog" ).dialog({modal:true});
 }
-else { 
-	echo '<p align="right" >Benvenuto ' . $allenatore . ',<a class="login" href="/logout.php" >Logout</a></p>';
+callLogout=function(){
+    var action ="logout";
+    $.ajax({
+            type:'POST',
+            url:'/login_popup_controller.php',
+            data: {
+                "action": action
+            },
+            success:function(data){
+                // debugger;
+                var resp=$.parseJSON(data)
+                if(resp.result == "true"){
+					// alert(resp.message);
+					window.location.href = '/home.php';
+                }
+                else{
+                    alert(resp.error.msg);
+                }
+                
+                
+            }
+    }); 
 }
-?>
+</script>
+

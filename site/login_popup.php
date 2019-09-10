@@ -1,4 +1,54 @@
+<script>
+$(document).ready(function(){
+    $("#btnLogin").off("click").bind("click", callLogin);
+    $(".toggle-password").off("click").bind("click", togglePassowrd);
+})
 
+callLogin = function()
+{
+    $(" #loginDialog #result").hide();
+    var uname = $("#ddlSquadra option:selected").val()
+    var pword = $("#txtPassword").val()
+    var action ="login";    
+    // console.log(dati);
+    $.ajax({
+            type:'POST',
+            url:'/login_popup_controller.php',
+            data: {
+                "squadra": uname,
+                "password": pword,
+                "action": action
+            },
+            success:function(data){
+                // debugger;
+                var resp=$.parseJSON(data)
+                if(resp.result == "true"){
+                    // alert(resp.message);
+                    setTimeout(function(){location.reload(true);},10);
+                }
+                else{
+                    // alert(resp.error.msg);
+                    $(" #loginDialog #result").show();
+                    $(" #loginDialog #result .message").html(resp.error.msg)
+                }
+                
+                
+            }
+    }); 
+}
+togglePassowrd = function() {
+// alert("passa");
+    // $(this).toggleClass("fa-eye fa-eye-slash");
+    // var input = $($(this).attr("toggle"));
+    var input = $("#txtPassword");
+    if (input.attr("type") == "password") {
+        input.attr("type", "text");
+    } else {
+        input.attr("type", "password");
+    }
+}
+
+</script>
 <span>Squadra:	</span>
 <?php
 include_once ("dbinfo_susyleague.inc.php");
@@ -16,7 +66,7 @@ $result=$conn->query($query);
 $num=$result->num_rows; 
 #print_r($result);
 #echo "num=" . $num;
-echo '<select name="squadra">'; 
+echo '<select id="ddlSquadra" name="squadra" style="width:100%">'; 
 echo "<option value='0' size =30 >Presidente</option>";
 while($row = $result->fetch_assoc()) 
 {        
@@ -27,7 +77,17 @@ echo "</select>";
 
 
 ?>
-<span>Password:</span> <input type="password" Name ='password'  value="">
+<span>Password:</span> <input type="password" Name ='password' id="txtPassword" value="" style="width:99%">
+<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 <!-- style="display:none" -->
-<div id="result" class="result" >login fallita</div>
-<div id="btnLogin" class="bottone">Loggin</div>
+<!-- <div id="result" class="result" style="display:none;"></div> -->
+<div class="ui-widget" id="result" style="display:none;">
+    <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> 
+        <p>
+            <span class="ui-icon ui-icon-alert" 
+                style="float: left; margin-right: .3em;"></span>
+            <span class="message"> Sample ui-state-error style.</span>
+        </p>
+    </div>
+</div>
+<div class="button" ><a href="#" id="btnLogin" class="button">Login</a></div>

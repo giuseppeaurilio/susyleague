@@ -8,7 +8,6 @@ include($path);
 include("home.html");
 // include("homecontent.php");
 
-include("../footer.html");
-
+include("../footer.php");
 
 ?>

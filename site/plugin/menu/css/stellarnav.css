@@ -37,7 +37,7 @@
 .stellarnav.dark { background: #366b82; }
 .stellarnav.dark a { color: #FFF; }
 .stellarnav.dark ul ul { background: #366b82; }
-.stellarnav.dark li a { color: #FFF; }
+.stellarnav.dark li a { color: #FFF; border-right: 1px solid rgba(255, 255, 255, .15);}
 /* sticky nav */
 .stellarnav.fixed { position: fixed; width: 100%; top: 0; left: 0; z-index: 9999; }
 

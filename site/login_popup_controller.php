@@ -2,6 +2,7 @@
 $uname = "";
 $pword = "";
 $errorMessage = "";
+$action ="";
 include_once ("dbinfo_susyleague.inc.php");
 // Create connection
 $conn = new mysqli($localhost, $username, $password,$database);
@@ -10,12 +11,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-	$uname = $_POST['squadra'];
-    $pword = $_POST['password'];
+
     $action = $_POST['action'];
 
     if($action=="login")
     {
+        $uname = $_POST['squadra'];
+        $pword = $_POST['password'];
+        session_start();
         $uname = htmlspecialchars($uname);
         $pword = htmlspecialchars($pword);
         if ($uname=='0') 
@@ -40,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 #header ("Location: ". $_POST['referer']);
                 // $errorMessage = "allenatore $allenatore - Login eseguito";
                 
-                $_SERVER["HTTP_REFERER"]=$_POST['referer'];
+                // $_SERVER["HTTP_REFERER"]=$_POST['referer'];
                 echo json_encode(array(
                     'result' => "true",
                     'message' => "Login eseguito",
@@ -74,7 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         session_start();
         $_SESSION = array();
         session_destroy();
-        // header("Location: " .$_SERVER["HTTP_REFERER"] );
+        echo json_encode(array(
+            'result' => "true",
+            'message' => "Logout eseguito",
+        ));
     }
 }
 ?>
