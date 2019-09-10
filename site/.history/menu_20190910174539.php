@@ -95,7 +95,7 @@ $anno=$row["valore"];
 
 <div class="stellarnav">
 		  <ul class="navbar">
-			 <li><a href="/homepage/home.php"> <i class="fas fa-home"></i> Home</a></li>
+			 <li><a href="/homepage/home.php"> <i class="fas fa-home"></i> </a></li>
 			 <li><a href="/display_classifiche.php"><i class="fas fa-chart-line"></i> Classifiche</a></li>
 			 <li><a href="#"><i class="fas fa-calendar-alt"></i> Calendari</a>
 				<ul>
@@ -124,10 +124,7 @@ $anno=$row["valore"];
 			 </li>
 			 <li><a href="/cambia_password.php" ><i class="fas fa-lock"></i> Password</a></li>
 			 <li><a href="/homepage/regolamento.pdf" ><i class="fas fa-pencil-alt"></i> Regolamento</a></li>
-			 <?php if ((isset($_SESSION['login'])  && ($_SESSION['login'] == '0'))) {
-			 echo '<li><a href="/presidente/amministrazione.php" ><i class="fas fa-tools"></i> Amministrazione</a></li>';
-			 }
-			 ?>
+			 <li><a href="/presidente/amministrazione.php" ><i class="fas fa-tools"></i> Amministrazione</a></li>
 		  </ul>
 		 </div>
 

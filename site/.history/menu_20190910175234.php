@@ -95,7 +95,7 @@ $anno=$row["valore"];
 
 <div class="stellarnav">
 		  <ul class="navbar">
-			 <li><a href="/homepage/home.php"> <i class="fas fa-home"></i> Home</a></li>
+			 <li><a href="/homepage/home.php"> <i class="fas fa-home"></i> </a></li>
 			 <li><a href="/display_classifiche.php"><i class="fas fa-chart-line"></i> Classifiche</a></li>
 			 <li><a href="#"><i class="fas fa-calendar-alt"></i> Calendari</a>
 				<ul>

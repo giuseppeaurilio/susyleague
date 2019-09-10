@@ -132,11 +132,4 @@ $anno=$row["valore"];
 		 </div>
 
 
-<?php
-if (!(isset($allenatore) && $allenatore != '')) {
-	echo '<p align="right"><a align="right" href="/login.php" >Login</a></p>';
-}
-else { 
-	echo '<p align="right" >Benvenuto ' . $allenatore . ',<a class="login" href="/logout.php" >Logout</a></p>';
-}
-?>
+

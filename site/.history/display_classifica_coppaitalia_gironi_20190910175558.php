@@ -41,8 +41,8 @@ $conn->next_result();
 ?>
 <div id="tabs-5">
 <h2>Coppa italia - fase a gironi</h2>
-<h3 style="text-align:center;">Girone Narpini</h3>
-<h4 style="text-align:left;">Classifica Punti</h4>
+<h3>Girone Narpini</h3>
+<h4 style="float:left;">Classifica Punti</h4>
 <div class="scrollmenu">
 <table class="classifica">
 <thead>
@@ -181,7 +181,7 @@ $conn->next_result();
 ?>
 
 
-<h3 style="text-align:center;">Girone Gianluca</h3>
+<h3>Girone Gianluca</h3>
 <h4 style="text-align:left;">Classifica Punti</h4>
 <div class="scrollmenu">
 <table class="classifica">
