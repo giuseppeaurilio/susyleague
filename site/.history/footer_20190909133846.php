@@ -1,0 +1,18 @@
+<?php 
+if(isset($conn))
+{$conn->close();}
+if(isset($con))
+{$con->close();}
+
+?>
+
+<footer>
+<!-- webmaster webmaster@susy-league.heliohost.org -->
+<span style="float:left; display: block">
+    powered by: susyleague plc.
+    </span>
+    <span style="float:right; display: block"> web site V1.1</span>
+</footer>
+
+</body>
+</html>
