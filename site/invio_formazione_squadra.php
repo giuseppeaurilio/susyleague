@@ -365,18 +365,18 @@ formazionerandom = function()
 	}
 }
 </script>
+<h2><?php echo $squadra . "(" .$allenatore .")";?> - Invio formazione</h2>
+<!-- <h2></h2> -->
 
-<h2>Invio formazione</h2>
-<h2><?php echo $squadra . "(" .$allenatore .")";?></h2>
 <!-- <h3><?php echo "(" .$allenatore .")";?></h3> -->
 <?php
-include_once ("dbinfo_susyleague.inc.php");
-$conn = new mysqli($localhost, $username, $password,$database);
+// include_once ("dbinfo_susyleague.inc.php");
+// $conn = new mysqli($localhost, $username, $password,$database);
 
-// Check connection
-if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
-}
+// // Check connection
+// if ($conn->connect_error) {
+// 	die("Connection failed: " . $conn->connect_error);
+// }
 $queryselect = "select ammcontrollata from sq_fantacalcio where id=" . $id_squadra;
 
 $numammcontr =0;
@@ -386,7 +386,16 @@ $numammcontr= $row['ammcontrollata'];
 // echo '<h3>La squadra è in amministrazione controllata da '.$numammcontr.' turni</h3>';
 if($numammcontr>0)
 {
-	echo '<h3>Allenatore!!!! Non hai inviato la formazione per '.$numammcontr.' volta/e!!!</h3>';
+	// echo '<h3>Allenatore!!!! Non hai inviato la formazione per '.$numammcontr.' volta/e!!!</h3>';
+	echo '<div class="ui-widget" id="result" >';
+    echo '<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> ';
+	echo '<p>';
+	echo '   <span class="ui-icon ui-icon-alert" ';
+	echo '      style="float: left; margin-right: .3em;"></span>';
+	echo '  <span class="message"> Allenatore!!!! Non hai inviato la formazione per '.$numammcontr.' volta/e!!!</span>';
+	echo '</p>';
+    echo '</div>';
+	echo '</div>';
 	
 }
 // echo '<input type="hidden" id="hfAmmControllata" value="'.$numammcontr.'"/>';
@@ -397,13 +406,7 @@ if($numammcontr>0)
 	<option value="0">scegli...</option>
 	<!-- <option value="1">DEFAULT</option> -->
 <?php 
-include_once ("dbinfo_susyleague.inc.php");
-$conn = new mysqli($localhost, $username, $password,$database);
 
-// Check connection
-if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
-}
 $querypartite = 'SELECT id_giornata, sqc.squadra as casa, sqt.squadra as ospite
 FROM `calendario`  as c
 left join sq_fantacalcio as sqc on c.id_sq_casa = sqc.id
@@ -427,7 +430,7 @@ while ($row = $result_partite->fetch_assoc()) {
 	echo '<option value="'.$formazionedadb.'">'.$descrizionepartita.'</option> -->';
 }
 
-$conn->close();
+// $conn->close();
 ?>
 
 	<!-- <option value="1_250.2_2160.3_2130.4_2214.5_226.6_26.7_2002.8_645.9_2610.10_2756.11_785.12_453.13_798.14_288.15_392.16_1996.17_2085.18_2531.19_608">I NANI- ASVenere</option> -->
@@ -439,19 +442,13 @@ $formazionedadb = "";
 $queryformaz = 'SELECT id_posizione, id_giocatore
 FROM `formazioni` WHERE id_giornata = '.$id_giornata.' and id_squadra = '.$id_squadra.'
 order by id_posizione';
-// echo $queryformaz;
-$conn = new mysqli($localhost, $username, $password,$database);
 
-// Check connection
-if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
-}
 $result  = $conn->query($queryformaz) or die($conn->error);
 // print_r($result);
 while ($row = $result->fetch_assoc()) {
 	$formazionedadb.=$row["id_posizione"].'_'.$row["id_giocatore"].'.';
 }
-$conn->close();
+// $conn->close();
 // echo  $formazionedadb;
 echo '<input type="hidden" id="hfSquadraInserita" value="'. $formazionedadb .'"></input>';
 ?>
@@ -479,10 +476,10 @@ $(document).ready(function(){
 <input type="button" id="btnReset" value="Reset Formazione"></input>
 <?php
 for($i = 0; $i < 4; $i++) {
-	$conn = new mysqli($localhost, $username, $password,$database);
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
+	// $conn = new mysqli($localhost, $username, $password,$database);
+	// if ($conn->connect_error) {
+	// 	die("Connection failed: " . $conn->connect_error);
+	// }
 	//$query2="SELECT * FROM rose where sq_fantacalcio_id=" . $id_squadra . " AND ruolo = '" . $ruoli[$i] ."'";
 	$query2="SELECT * FROM rose as a inner join giocatori as b inner join squadre_serie_a as c where a.id_sq_fc=". $id_squadra ." AND a.id_giocatore=b.id and b.ruolo='" . $ruoli[$i] ."' and b.id_squadra=c.id";
 
@@ -494,8 +491,8 @@ for($i = 0; $i < 4; $i++) {
 	?>
 	
 	<div id="div<?php echo $ruoli_name[$i];?>" >
-	<div style="display: inline-block;">
-	<h2><?php echo $ruoli_name[$i];?></h2>
+	<div style="display: inline-block; width:100%;">
+	<h3><?php echo $ruoli_name[$i];?></h3>
 	<?php
 		while ($row=$result_giocatori->fetch_assoc()) {
 		$id_giocatore=$row["id_giocatore"];

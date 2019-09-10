@@ -11,13 +11,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 // echo "Connected successfully";
+ 
 
+$id_squadra=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_squadra']);//mysql_escape_String($_POST['id_squadra']);
+$id_giornata=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_giornata']);//mysql_escape_String($_POST['id_giornata']);
+$titolari=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['titolari']);//mysql_escape_String($_POST['titolari']);
+$panchina=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['panchina']);//mysql_escape_String($_POST['panchina']);
+$password_all=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['password_all']);//mysql_escape_String($_POST['password_all']);
 
-$id_squadra=mysqli_escape_String($conn,$_POST['id_squadra']);
-$id_giornata=mysqli_escape_String($conn,$_POST['id_giornata']);
-$titolari=mysqli_escape_String($conn,$_POST['titolari']);
-$panchina=mysqli_escape_String($conn,$_POST['panchina']);
-$password_all=mysqli_escape_String($conn,$_POST['password_all']);
+$ammcontrollata=preg_replace("/[^0-9]/", '', $_POST['ammcontrollata']);
     session_start();
 	if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 	$allenatore="";
@@ -60,6 +62,8 @@ function readback($id_giornata,$id_squadra)
 		array_push($a,$row["id_giocatore"]);
 
 	}
+
+
 	//$a[3]="5";
 	//print_r($a);
 
@@ -72,6 +76,9 @@ $adesso = date('Y-m-d H:i:s');
 $nl="%0D%0";
 $nl="\n";
 
+$queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`='.$ammcontrollata .' WHERE id=' . $id_squadra;
+
+$result  = $conn->query($queryupdate) or die($conn->error);	
 
 $query="select fine from giornate where id_giornata=" . $id_giornata  . " and fine > '" . $adesso ."'";
 #echo "<br>query_data=" . $query;

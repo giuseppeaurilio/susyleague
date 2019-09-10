@@ -24,15 +24,24 @@ $num_giornate=$result_giornate->num_rows;
 // print_r($result_giornate);
 if ($num_giornate>0) {
 
-	if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
-	$allenatore="";
-	header ("Location: login.php?&caller=invio_formazione.php");
-	}
-	else { 
-	$allenatore= $_SESSION['allenatore'];
-	$id_squadra= $_SESSION['login'];
-	}
-	
+	// if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+	// $allenatore="";
+	// header ("Location: login.php?&caller=invio_formazione.php");
+	// }
+	// else { 
+	// $allenatore= $_SESSION['allenatore'];
+	// $id_squadra= $_SESSION['login'];
+	// }
+	$allenatore= "";
+	$id_squadra= "";
+	 if (isset($_SESSION['login']) && isset($_SESSION['allenatore']))
+	 {
+		$allenatore= $_SESSION['allenatore'];
+		$id_squadra= $_SESSION['login'];
+	 }
+	// echo $allenatore;
+	// echo "<br/>";
+	// echo $id_squadra;
 	// include("menu.php");
     
     ?>
@@ -139,7 +148,7 @@ if ($num_giornate>0) {
 				
 			<tr>
 				<?php
-				if ($id_squadra==$id_casa) {
+				if ($id_squadra != "" && $id_squadra==$id_casa) {
 					// echo '<li><a href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_casa . '">'. $sq_casa .'</a></li>';
 					echo '<td><a href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_casa . '">'. $sq_casa .'</a></td>';
 				}
@@ -148,7 +157,7 @@ if ($num_giornate>0) {
 					echo '<td>' .$sq_casa .'</td>';
 				}
 				
-				if ($id_squadra==$id_ospite) {
+				if ($id_squadra != "" && $id_squadra==$id_ospite) {
 					// echo '<li><a href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_ospite . '">'. $sq_ospite .'</a></li>';
 					echo '<td><a href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_ospite . '">'. $sq_ospite .'</a></td>';
 				}

@@ -1,8 +1,13 @@
 Aggiungere un loader su tutte le richieste
-Rifare sezione login e cambio password
-Inserire il modal puopup con bottoni dove possibile
+Rifare sezione cambio password con modal puopup
+Inserire menu contestuale per presidente loggato per permettere:
+cambio password
+logout
+
 
 Storico degli scambi
+
+Inserire il modal puopup con bottoni dove possibile
 
 Rifare home page con 
     - annunci del presidente
@@ -10,7 +15,7 @@ Rifare home page con
     - prossimo turno
     - annunci
     - sondaggi
-Eliminare sezione annunci e sondaggi
+
 
 Fare sezione Lega con
     - organi direttivo
@@ -19,3 +24,4 @@ Fare sezione Lega con
 Ridisegnare pagina invio formazioni
 Ridisegnare pagina risultati partita
 
+Eliminare sezione annunci e sondaggi
