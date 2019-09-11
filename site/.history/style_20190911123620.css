@@ -296,7 +296,6 @@ li.game{
   background-color:transparent;
 }
 
-
 .tabellonecoppa table tr:nth-child(even),
 .tabellonecoppa table tr:nth-child(odd){
   background-color: #f2f2f2;
@@ -332,10 +331,6 @@ li.game{
 ,.ci_tabellone th:nth-child(4) {
   width:100px;
   text-align: left;
-}
-
-.ci_tabellone a{
-  color:black;
 }
 
 .grid-container {
@@ -477,12 +472,6 @@ connection {
   display: inline-block;
   margin: 10px 20px;
   /* max-width: 33%; */
-}
-
-.giornata .link
-{
-  color: darkred;
-  text-decoration: none;
 }
 
 .finale .formazioni a{

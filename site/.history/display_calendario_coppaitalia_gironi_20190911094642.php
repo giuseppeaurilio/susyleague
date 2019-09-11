@@ -72,7 +72,7 @@ foreach($giornate as $giornata){
         // echo '<fieldset>';
         // echo '<legend>Giornata:'.($counter/3 > 5 ? $counter/3 - 4 : $counter/3 +1 ).'</legend>';
 		echo '<div class="calendario_giornata coppaitalia ">';
-		echo '<h4>Giornata:'.($counter/3 > 4 ? $counter/3 - 4 : $counter/3 +1 ).'</h4>';
+		echo '<h4>Giornata:'.($counter/3 > 5 ? $counter/3 - 5 : $counter/3 +1 ).'</h4>';
 		echo '<div class="scrollmenu">';
 		echo '<table >';
 			echo '<tr>';

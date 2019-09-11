@@ -4,26 +4,7 @@ include("menu.php");
 ?>
 
 <h2>Rose</h2>
-<script>
-    $(document).ready(function(){
 
-        var time = 1000;
-        var strurl = "/display_giocatori.php?autoscroll";
-        var url_string = window.location.href;
-        var url = new URL(url_string);
-        var c = url.searchParams.get("autoscroll");
-        // console.log(c);
-        // console.log($(document).height());
-        time = $(document).height() *10;
-        console.log(time);
-        if(c != null)
-		{
-            $('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, time,"linear", function() {
-                $(this).animate({ scrollTop: 0 }, time,"linear",  function(){window.location.href="/display_giocatori.php?autoscroll"});
-            });
-        }
-    });
-</script>
 
 <?php 
 
@@ -58,7 +39,22 @@ $num_giocatori=mysqli_num_rows($result_giocatori);
 
 ?>
 
+<script>
+		$(document).ready(function(){
 
+			var time = 1000;
+			var strurl = "/display_giocatori.php?autoscroll";
+			var url_string = window.location.href;
+			var url = new URL(url_string);
+			var c = url.searchParams.get("autoscroll");
+			// console.log(c);
+			$('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, time, function() {
+				$(this).animate({ scrollTop: 0 }, time function() {
+                    window.location.href = strurl;
+                });	);
+			});	
+		});
+	</script>
 <div class="rosegiocatoriseriea">
 <h2><?php echo "$squadra";?></h2>
 <h3><?php echo "(" .$allenatore .")";?></h3>

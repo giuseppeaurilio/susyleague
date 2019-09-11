@@ -11,15 +11,13 @@ include("menu.php");
 		var url_string = window.location.href;
 		var url = new URL(url_string);
 		var c = url.searchParams.get("autoscroll");
-		// console.log(c);
+		console.log(c);
 		// console.log($(document).height());
 		time = $(document).height() *10;
-		if(c != null)
-		{
-			$('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, time,"linear", function() {
-				$(this).animate({ scrollTop: 0 }, time,"linear",  function(){window.location.href="/display_rose.php?autoscroll"});
-			});
-		}
+		
+		$('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, time,"linear", function() {
+			$(this).animate({ scrollTop: 0 }, time,"linear",  function(){window.location.href="/display_rose.php?autoscroll"});
+		});
 	});
 </script>
 <?php 

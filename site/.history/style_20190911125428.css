@@ -481,8 +481,7 @@ connection {
 
 .giornata .link
 {
-  color: darkred;
-  text-decoration: none;
+  color: red;
 }
 
 .finale .formazioni a{

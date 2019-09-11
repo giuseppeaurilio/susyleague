@@ -75,7 +75,7 @@ $anno=$row["valore"];
 	<div style="width: 100%; overflow: hidden; vertical-align: middle;background-color: rgb(0,0,0, 0.3);">
 			<div style="width: 60%; float: left;"> <h1 style="margin: 10px 0 0 0;">Serie A Centro Tim di NG</h1>
 			<h2 style="padding: 0; background-color: transparent;"> SusyLeague <?php  echo $anno; ?></h2> </div>
-			<div style="width:40%; float: left; text-align:center;">
+			<div style="width:40%; float: left; text-align:right;">
 			<figure style="margin: 10px 0;"><img src="/Logo_sponsor_small.png" syle="object-fit: fitcontent;"></figure> 
 		</div>
 	</div>

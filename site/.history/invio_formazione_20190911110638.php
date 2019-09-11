@@ -73,9 +73,9 @@ if ($num_giornate>0) {
 		else if ($id>22 && $id<= 33)
 		{ $descrizioneGiornata ="Campionato - Chiusura. Giornata ". $id - 22;}
 		else if ($id>33 && $id<= 48)
-		{ $descrizioneGiornata ="Coppa Italia - Girone Narpini. Giornata ".(ceil (($id-33) /3));}
+		{ $descrizioneGiornata ="Coppa Italia - Girone Narpini. Giornata ".$id . ' ' .(floor($id-33) /3);}
 		else if ($id>48 && $id<= 63)
-		{ $descrizioneGiornata ="Coppa Italia - Girone Gianluca. Giornata ".(ceil (($id-48) /3));}//(floor(($id-48)/3) + 1);}
+		{ $descrizioneGiornata ="Coppa Italia - Girone Gianluca. Giornata ".$id . ' ' . (floor($id-48) /3);}//(floor(($id-48)/3) + 1);}
 		else if ($id == 64 )
 		{ $descrizioneGiornata ="Coppa Italia - Quarto 1 - Andata";}
 		else if ($id == 65 )
@@ -150,7 +150,7 @@ if ($num_giornate>0) {
 				<?php
 				if ($id_squadra != "" && $id_squadra==$id_casa) {
 					// echo '<li><a href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_casa . '">'. $sq_casa .'</a></li>';
-					echo '<td style="background: lightgoldenrodyellow;"><a class="link" href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_casa . '">'. $sq_casa .'</a></td>';
+					echo '<td><a href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_casa . '">'. $sq_casa .'</a></td>';
 				}
 				else {
 					// echo '<li>' .$sq_casa .'</li>';
@@ -159,7 +159,7 @@ if ($num_giornate>0) {
 				
 				if ($id_squadra != "" && $id_squadra==$id_ospite) {
 					// echo '<li><a href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_ospite . '">'. $sq_ospite .'</a></li>';
-					echo '<td style="background: lightgoldenrodyellow;"><a class="link" href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_ospite . '">'. $sq_ospite .'</a></td>';
+					echo '<td><a href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_ospite . '">'. $sq_ospite .'</a></td>';
 				}
 				else {
 					// echo '<li>' .$sq_ospite .'</li>';

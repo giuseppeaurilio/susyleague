@@ -12,7 +12,7 @@ include("menu.php");
         var url_string = window.location.href;
         var url = new URL(url_string);
         var c = url.searchParams.get("autoscroll");
-        // console.log(c);
+        console.log(c);
         // console.log($(document).height());
         time = $(document).height() *10;
         console.log(time);

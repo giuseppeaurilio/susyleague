@@ -335,7 +335,7 @@ li.game{
 }
 
 .ci_tabellone a{
-  color:black;
+  color:black
 }
 
 .grid-container {
@@ -477,12 +477,6 @@ connection {
   display: inline-block;
   margin: 10px 20px;
   /* max-width: 33%; */
-}
-
-.giornata .link
-{
-  color: darkred;
-  text-decoration: none;
 }
 
 .finale .formazioni a{

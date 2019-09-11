@@ -150,7 +150,7 @@ if ($num_giornate>0) {
 				<?php
 				if ($id_squadra != "" && $id_squadra==$id_casa) {
 					// echo '<li><a href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_casa . '">'. $sq_casa .'</a></li>';
-					echo '<td style="background: lightgoldenrodyellow;"><a class="link" href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_casa . '">'. $sq_casa .'</a></td>';
+					echo '<td><a href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_casa . '">'. $sq_casa .'</a></td>';
 				}
 				else {
 					// echo '<li>' .$sq_casa .'</li>';
@@ -159,7 +159,7 @@ if ($num_giornate>0) {
 				
 				if ($id_squadra != "" && $id_squadra==$id_ospite) {
 					// echo '<li><a href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_ospite . '">'. $sq_ospite .'</a></li>';
-					echo '<td style="background: lightgoldenrodyellow;"><a class="link" href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_ospite . '">'. $sq_ospite .'</a></td>';
+					echo '<td><a href="'. $link . '?&id_giornata=' .$id . '&id_squadra=' . $id_ospite . '">'. $sq_ospite .'</a></td>';
 				}
 				else {
 					// echo '<li>' .$sq_ospite .'</li>';

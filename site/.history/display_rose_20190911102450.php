@@ -12,16 +12,16 @@ include("menu.php");
         var url_string = window.location.href;
         var url = new URL(url_string);
         var c = url.searchParams.get("autoscroll");
-        // console.log(c);
+        console.log(c);
         // console.log($(document).height());
-        time = $(document).height() *10;
+        time = $(document).height()/10 *1000;
         console.log(time);
-        if(c != null)
-		{
-            $('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, time,"linear", function() {
-                $(this).animate({ scrollTop: 0 }, time,"linear",  function(){window.location.href="/display_giocatori.php?autoscroll"});
-            });
-        }
+        // $('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, time, function() {
+        // 	$(this).animate({ scrollTop: 0 }, time );	
+        // });	
+        $('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, time, function() {
+            $(this).animate({ scrollTop: 0 }, time, function(){window.location.href="/display_giocatori.php?autoscroll"});
+        });
     });
 </script>
 

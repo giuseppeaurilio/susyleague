@@ -4,24 +4,24 @@ include("menu.php");
 ?>
 <h2>Rose</h2>
 <script>
-	$(document).ready(function(){
+		$(document).ready(function(){
 
-		var time = 1000;
-		var strurl = "/display_rose.php?autoscroll";
-		var url_string = window.location.href;
-		var url = new URL(url_string);
-		var c = url.searchParams.get("autoscroll");
-		// console.log(c);
-		// console.log($(document).height());
-		time = $(document).height() *10;
-		if(c != null)
-		{
-			$('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, time,"linear", function() {
-				$(this).animate({ scrollTop: 0 }, time,"linear",  function(){window.location.href="/display_rose.php?autoscroll"});
+			var time = 1000;
+			var strurl = "/display_rose.php?autoscroll";
+			var url_string = window.location.href;
+			var url = new URL(url_string);
+			var c = url.searchParams.get("autoscroll");
+			// console.log(c);
+			console.log($(document).height());
+			time = $(document).height() *10;
+			// $('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, time, function() {
+			// 	$(this).animate({ scrollTop: 0 }, time );	
+			// });	
+			$('html, body').animate({ scrollTop: $(document).height() - $(window).height() }, time, function() {
+				$(this).animate({ scrollTop: 0 }, time, function(){window.location.href="/display_rose.php?autoscroll"});
 			});
-		}
-	});
-</script>
+		});
+	</script>
 <?php 
 
 $query="SELECT * FROM squadre_serie_a order by squadra";
