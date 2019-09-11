@@ -22,10 +22,7 @@ Fare sezione Lega con
     - organi direttivo
     - regolamento
     - albo d'oro
-    - Statistche
 Ridisegnare pagina invio formazioni
 Ridisegnare pagina risultati partita
-
-Loghi e banner delle squadre.
 
 Eliminare sezione annunci e sondaggi

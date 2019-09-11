@@ -19,8 +19,8 @@ caricagiocatori = function()
                 // debugger;
                 var resp=$.parseJSON(data)
                 if(resp.result == "true"){
-                    alert(resp.giocatori);
-                   $("#divGiocatoriSq1").html(resp.giocatori + "");
+                    // alert(resp.message);
+                   $("#dvdgiocatorisq1").html( resp.giocatori);
                 }
                 else{
                     alert(resp.error.msg);
@@ -61,7 +61,7 @@ while($row = $result->fetch_assoc()){
 <div id="divNuovoScambio">
     <h3>Nuovo Scambio</h3>
     <div id="divContentNuovoScambio">
-        <div id="divsq1">
+        <div id="dvdsq1">
         <?php
             echo '<select id="sq_1" name="squadra_fantacalcio_1">';
             echo '<option value="">--seleziona Squadra1--</option>';
@@ -77,7 +77,7 @@ while($row = $result->fetch_assoc()){
             echo '</select>';
         ?>
         </div>
-        <div id="divGiocatoriSq1">
+        <div id="dvdgiocatorisq1">
         </div>
     </div>
 </div>

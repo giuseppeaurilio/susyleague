@@ -7,30 +7,8 @@ include("menu.php");
 caricagiocatori = function()
 {
     var idsquadra = $(this).find("option:selected").val();
-    var action ="loadrosa";
-    $.ajax({
-            type:'POST',
-            url:'amministra_scambi_controller.php',
-            data: {
-                "action": action,
-                "idsquadra": idsquadra
-            },
-            success:function(data){
-                // debugger;
-                var resp=$.parseJSON(data)
-                if(resp.result == "true"){
-                    alert(resp.giocatori);
-                   $("#divGiocatoriSq1").html(resp.giocatori + "");
-                }
-                else{
-                    alert(resp.error.msg);
-                }
-                
-                
-            }
-    }); 
 
-    // alert(idsquadra);
+    alert
 }
 $(document).ready(function(){
     $("#sq_1").off("change").bind("change", caricagiocatori);
@@ -61,7 +39,7 @@ while($row = $result->fetch_assoc()){
 <div id="divNuovoScambio">
     <h3>Nuovo Scambio</h3>
     <div id="divContentNuovoScambio">
-        <div id="divsq1">
+        <div id="dvdsq1">
         <?php
             echo '<select id="sq_1" name="squadra_fantacalcio_1">';
             echo '<option value="">--seleziona Squadra1--</option>';
@@ -77,7 +55,7 @@ while($row = $result->fetch_assoc()){
             echo '</select>';
         ?>
         </div>
-        <div id="divGiocatoriSq1">
+        <div id="dvdgiocatorisq1">
         </div>
     </div>
 </div>

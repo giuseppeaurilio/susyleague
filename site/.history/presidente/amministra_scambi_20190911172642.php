@@ -20,7 +20,7 @@ caricagiocatori = function()
                 var resp=$.parseJSON(data)
                 if(resp.result == "true"){
                     alert(resp.giocatori);
-                   $("#divGiocatoriSq1").html(resp.giocatori + "");
+                   $("#divGiocatoriSq1").html(resp.giocatori);
                 }
                 else{
                     alert(resp.error.msg);
