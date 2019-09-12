@@ -58,9 +58,14 @@ $saved_password= $row['password'];
 		// echo "<br> num panchina= " . $panchina_array;
 		if (($num_titolari==11) and ($num_panchina==8)){
 			$giocatori=array_merge ($titolari_array, $panchina_array);
-			#print_r($giocatori);
-			$i=1;
-			$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) VALUES (" . $id_giornata .",". $id_squadra . "," ;
+			// foreach ($giocatori as $value) {
+			// 	$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) VALUES (" . $id_giornata .",". $id_squadra . "," ;
+			
+			// }
+			print_r($giocatori);
+			// $i=1;
+			// $query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) VALUES (" . $id_giornata .",". $id_squadra . "," ;
+
 
 			foreach ($giocatori as $value) {
 				
@@ -77,7 +82,7 @@ $saved_password= $row['password'];
 				$i=$i+1;
 				#echo $query;
 			}# end foreach
-		echo "Formazione inviata in data " . $adesso;
+			echo "Formazione inviata in data " . $adesso;
 		} #end if numero giocatori
 		else echo "La formazione deve includere necessariamente 11 titolari e 8 riserve";
 	#}# end if password corretta
@@ -85,11 +90,3 @@ $saved_password= $row['password'];
 #}# end if data corretta
 #else echo "E' troppo tardi per inviare la formazione";
 ?> 
-
-<?php 
-if(isset($conn))
-{$conn->close();}
-if(isset($con))
-// {$con->close();}
-
-?>
