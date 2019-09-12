@@ -7,6 +7,7 @@ include("menu.php");
 		<li><a href="amministra_squadre.php" >Amministra Squadre</a></li>
 		<li><a href="amministra_rose.php" >Amministra Rose</a></li>
 		<li><a href="amministra_giocatori.php" >Amministra Giocatori</a></li>	
+		<li><a href="amministra_scambi.php" >Amministra Scambi</a></li>	
 	</ul>
 	<h2>Campionato</h2>
 	<ul class="lista">	

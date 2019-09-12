@@ -507,3 +507,34 @@ padding: 0;
 {
   color: #00cc99
 }
+
+#divContentNuovoScambio{
+  /* display: grid;
+  grid-template-columns: auto; */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* .grid-column {
+  background-color: rgba(255, 255, 255, 0.5);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+} */
+
+#divContentNuovoScambio .grid-item {
+  text-align: center;
+  margin: 0;
+}
+

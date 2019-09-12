@@ -13,7 +13,7 @@
 <?php include_once "login_popup.php";?>
 
 </div>
-<div id="dialog" title="Login" style="display:none;">
+<div id="dialog" title="Info" style="display:none;">
   <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
 </div>
 
