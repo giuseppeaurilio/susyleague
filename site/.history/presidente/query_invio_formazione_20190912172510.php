@@ -85,11 +85,3 @@ $saved_password= $row['password'];
 #}# end if data corretta
 #else echo "E' troppo tardi per inviare la formazione";
 ?> 
-
-<?php 
-if(isset($conn))
-{$conn->close();}
-if(isset($con))
-// {$con->close();}
-
-?>

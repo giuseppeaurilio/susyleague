@@ -43,7 +43,8 @@ $query="SELECT password FROM sq_fantacalcio where id='" . $id_squadra . "'";
 // $result=mysql_query($query);
 // $saved_password=mysql_result($result,0,"password");
 // $result  = $conn->query($query) or die($conn->error);
-$result = mysqli_query($conn,$query);
+// $result = mysqli_query($conn,$query);
+$result  = $conn->query($query) or die($conn->error);
 $row = mysqli_fetch_array($result);
 $saved_password= $row['password'];
 
@@ -58,9 +59,14 @@ $saved_password= $row['password'];
 		// echo "<br> num panchina= " . $panchina_array;
 		if (($num_titolari==11) and ($num_panchina==8)){
 			$giocatori=array_merge ($titolari_array, $panchina_array);
-			#print_r($giocatori);
-			$i=1;
+			// foreach ($giocatori as $value) {
+			// 	$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) VALUES (" . $id_giornata .",". $id_squadra . "," ;
+			
+			// }
+			// print_r($giocatori);
+			// $i=1;
 			$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) VALUES (" . $id_giornata .",". $id_squadra . "," ;
+
 
 			foreach ($giocatori as $value) {
 				
@@ -68,16 +74,20 @@ $saved_password= $row['password'];
 				#echo $query_nome;
 				// $result=mysql_query($query_squadra);
 				// $id_squadra=mysql_result($result,0,"id_squadra");
-				$result = mysqli_query($conn,$query_squadra);
+				// $result = mysqli_query($conn,$query_squadra);
+				$result =$conn->query($query_squadra) or die($conn->error);
 				$row = mysqli_fetch_array($result);
 				$id_squadra= $row['id_squadra'];
 
 				$query=$query_ini . $i . ",'" .$value . "','" . $id_squadra . "')" ;
-				$result = mysqli_query($conn,$query);
+				// $result = mysqli_query($conn,$query);
+				$result =$conn->query($query) or die($conn->error);
+				// print_r($query);
+				print_r($result);
 				$i=$i+1;
 				#echo $query;
 			}# end foreach
-		echo "Formazione inviata in data " . $adesso;
+			echo "Formazione inviata in data " . $adesso;
 		} #end if numero giocatori
 		else echo "La formazione deve includere necessariamente 11 titolari e 8 riserve";
 	#}# end if password corretta
@@ -85,11 +95,3 @@ $saved_password= $row['password'];
 #}# end if data corretta
 #else echo "E' troppo tardi per inviare la formazione";
 ?> 
-
-<?php 
-if(isset($conn))
-{$conn->close();}
-if(isset($con))
-// {$con->close();}
-
-?>

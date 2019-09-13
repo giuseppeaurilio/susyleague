@@ -553,5 +553,5 @@ for($i = 0; $i < 4; $i++) {
 <br>
 
 <?php 
-include("footer.php");
+include("../footer.php");
 ?>
