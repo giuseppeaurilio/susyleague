@@ -1,0 +1,5 @@
+{
+    "phpfmt.detect_indent": true,
+    "phpfmt.cakephp": true,
+    "phpfmt.enable_auto_align": true
+}

@@ -98,6 +98,12 @@ $(document).ready(function(){
 <h1> Calcolo Giornata <?php echo $id_giornata ;?> </h1>
 
 <form action="upload_voti.php?idgiornata=<?php echo $id_giornata ;?>" method="post" enctype="multipart/form-data">
+<section>
+	<h1>Istruzioni</h1>
+	Importare un fils CSV. <br>
+	Il separatore di valori deve essere il carattere ";" (punto e virgole). <br>
+	il separatore di decimali deve essere il carattere "," (virgola).
+</section>
     Selziona File da inserire:
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Carica File" name="submit">
@@ -195,8 +201,8 @@ while ($row=$result_giornata->fetch_assoc()) {
 }
 ?>
 ">
-	<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: white;'><div class='rotate'> Titolari</div></td>";  } ?>
-	<?php if ($i==11) {echo "<td rowspan='8' style='background-color: white;'><div class='rotate'> Riserve </div></td>";  } ?>
+	<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: white;'><div class='rotate' style='width: auto;'> Titolari</div></td>";  } ?>
+	<?php if ($i==11) {echo "<td rowspan='8' style='background-color: white;'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>
 		<td><?php echo $row["nome"]; ?></td>
 		<td><?php echo $row["squadra_breve"]; ?></td>
 		<td><?php echo $row["ruolo"]; ?></td>
@@ -278,8 +284,8 @@ while ($row=$result_giornata->fetch_assoc()) {
 }
 ?>
 ">
-	<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: white;'><div class='rotate'> Titolari</div></td>";  } ?>
-	<?php if ($i==11) {echo "<td rowspan='8' style='background-color: white;'><div class='rotate'> Riserve </div></td>";  } ?>
+	<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: white;'><div class='rotate'style='width: auto;'> Titolari</div></td>";  } ?>
+	<?php if ($i==11) {echo "<td rowspan='8' style='background-color: white;'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>
 			<td><?php echo $row["nome"]; ?></td>
 			<td><?php echo $row["squadra_breve"]; ?></td>
 			<td><?php echo $row["ruolo"]; ?></td>
@@ -350,10 +356,10 @@ $commento=$result_commento->fetch_assoc()["commento"];
 
  <form action="send_message_giornata.php" method="post">
 
-<input type="checkbox" name="calcolo" value='1' /> Calcolo fatto</br>
-<input type="checkbox" name="risultati" value='1' /> Risultati</br>
-<input type="checkbox" name="classifiche" value='1' /> Classifica</br>
-<input type="checkbox" name="commento" value='1' /> Commento</br>
+<input type="checkbox" name="calcolo" value='1' /> Calcolo fatto<br>
+<input type="checkbox" name="risultati" value='1' /> Risultati<br>
+<input type="checkbox" name="classifiche" value='1' /> Classifica<br>
+<input type="checkbox" name="commento" value='1' /> Commento<br>
 <input type="hidden" name="id_giornata" value=<?php echo $id_giornata;?> />
  <input type="submit" value="Submit">
 </form> 
