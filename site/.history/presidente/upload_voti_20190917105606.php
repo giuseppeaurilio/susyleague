@@ -22,8 +22,8 @@ function parse_voti($filename, $idgiornata) {
 			$result=$conn->query($queryresetVoti);// or die($conn->error);
 			if(!$result)
 			{
-				echo 'Reset voti fallito: <br>';
-				throw new Exception($conn->error);
+				// echo 'Reset voti fallito: ' .$conn->error.'<br/>';
+				throw new Exception('Reset voti fallito: ' .$conn->error);
 			}
 			else
 				echo 'Reset voti ok.<br/>';
@@ -35,13 +35,10 @@ function parse_voti($filename, $idgiornata) {
 			numero_giocanti_casa = 0, numero_giocanti_ospite = 0,
 			fattorecasa = null
 			where id_giornata = '.$idgiornata;
-			$result=$conn->query($queryresetrisultati); //or die($conn->error);
+			$result=$conn->query($queryresetrisultati) or die($conn->error);
 			if(!$result)
-			{
 				// echo 'Reset risultati fallito: ' .$conn->error .'<br/>';
-				echo 'Reset risultati fallito: <br>';
-				throw new Exception($conn->error);
-			}
+				throw new Exception('Reset risultati fallito: ' .$conn->error);
 			else
 				echo 'Reset risultati ok. <br/>';
 
@@ -53,67 +50,58 @@ function parse_voti($filename, $idgiornata) {
 				$int_value = ctype_digit($data[0]) ? intval($data[0]) : null;
 				if ($int_value !== null)
 				{
-					//[0]>Cod.	[1]>Ruolo	[2]>Nome	[3]>Voto	[4]>Gf	
-					//[5]>Gs	[6]>Rp	[7]>Rs	[8]>Rf	[9]>Au	[10]>Amm	
-					//[11]>Esp	[12]>Ass	[13]>Asf	[14]>Gdv	[15]>Gdp
-					$cod = $data[0];
-					// $voto = str_replace(',', '.', preg_replace("/[^0-9,]/", '',  $data[3]));
-					$voto = str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[3]));
-					// echo $data[3] ." ".$voto;
-					// echo "<br>";
-					switch($data[1])
-					{
-						// + (3*$data[4]) //gol fatti
-						// 	- (1*$data[5]) //gol subiti
-						// 	+ (3*$data[6]) //rigori parati
-						// 	- (3*$data[7]) //rigori sbagliati
-						// 	+ (3*$data[8]) //gol su rigore
-						// 	- (3*$data[9]) //autogol
-						// 	- (0.5*$data[10])//ammonizioni
-						// 	- (0.5*$data[11])//espulsioni
-						// 	+ (1*$data[12]) //assisst
-						case "P":
-						case "D":
-						case "C":
-						case "A":
-						$votof = $voto 
-						+ (3 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[4])) )
-						- (1 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[5])) )
-						+ (3 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[6])) )
-						- (3 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[7])) )
-						+ (3 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[8])) )
-						- (2 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[9]))  )
-						- (0.5 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[10]))) 
-						- (1 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[11])) )
-						+ (1 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[12])) )
-							;
-							break;
-					}
-					// echo print_r($data) .'<br>'; 
-					if( $voto != 0 && $votof != '' ){
-						$query = 'UPDATE `formazioni` 
-						SET `voto`="'.$votof.'",`voto_md`="'.$voto.'"
-						WHERE id_giornata= '.$idgiornata.' and id_giocatore = '.$cod.' '; 
-								//  print_r ($query);
-								//  echo '<br/> '; 
-						$result=$conn->query($query) ;//or die($conn->error);
-						if($result) {
-							$countervoti++; 
-							// echo $query .'<br>';
-							// echo $result .'<br>';
-							// echo $cod . '-'.$data[2] . '; voto: ' . $voto. ' fantavoto:  ' .$votof . '<br/> '; 
-						}
-						else {
-							echo " ERROR ". $cod . '-'.$data[2]  . ($conn->error) .'<br>';
-						}
-					}
-					else{
-						echo "ERRORE: ". $cod . '-'.$data[2] .' . Il voto non è stato importato.<br>';
-					}
+				//[0]>Cod.	[1]>Ruolo	[2]>Nome	[3]>Voto	[4]>Gf	
+				//[5]>Gs	[6]>Rp	[7]>Rs	[8]>Rf	[9]>Au	[10]>Amm	
+				//[11]>Esp	[12]>Ass	[13]>Asf	[14]>Gdv	[15]>Gdp
+				$cod = $data[0];
+				// $voto = str_replace(',', '.', preg_replace("/[^0-9,]/", '',  $data[3]));
+				$voto = str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[3]));
+				// echo $data[3] ." ".$voto;
+				// echo "<br>";
+				switch($data[1])
+				{
+					// + (3*$data[4]) //gol fatti
+					// 	- (1*$data[5]) //gol subiti
+					// 	+ (3*$data[6]) //rigori parati
+					// 	- (3*$data[7]) //rigori sbagliati
+					// 	+ (3*$data[8]) //gol su rigore
+					// 	- (3*$data[9]) //autogol
+					// 	- (0.5*$data[10])//ammonizioni
+					// 	- (0.5*$data[11])//espulsioni
+					// 	+ (1*$data[12]) //assisst
+					case "P":
+					case "D":
+					case "C":
+					case "A":
+					$votof = $voto 
+					+ (3 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[4])) )
+					- (1 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[5])) )
+					+ (3 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[6])) )
+					- (3 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[7])) )
+					+ (3 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[8])) )
+					- (2 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[9]))  )
+					- (0.5 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[10]))) 
+					- (1 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[11])) )
+					+ (1 *  str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[12])) )
+						;
+						break;
+				}
+				// echo print_r($data) .'<br>'; 
+				echo $cod . '-'.$data[2] . '; voto: ' . $voto. ' fantavoto:  ' .$votof . '<br/> '; 
+				$query = 'UPDATE `formazioni` 
+				SET `voto`="'.$votof.'",`voto_md`="'.$voto.'"
+				WHERE id_giornata= '.$idgiornata.' and id_giocatore = '.$cod.' '; 
+						//  print_r ($query);
+						//  echo '<br/> '; 
+				$result=$conn->query($query) or die($conn->error);
+				if ($result==1)
+					 $countervoti++; 
+				else 
+					$errormessage .= " ERROR" . mysqli_error($conn) ;
 				}
 			}
 			echo " Procedura completata.<br/>";
-			// echo " Si sono verificati i seguenti errori: " .$errormessage ."<br/>";
+			echo " Si sono verificati i seguenti errori: " .$errormessage ."<br/>";
 			echo " Inseriti " .$countervoti. " voti.";
 		}
 		catch(Exception $e) {

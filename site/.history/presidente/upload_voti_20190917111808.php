@@ -90,25 +90,21 @@ function parse_voti($filename, $idgiornata) {
 							break;
 					}
 					// echo print_r($data) .'<br>'; 
-					if( $voto != 0 && $votof != '' ){
-						$query = 'UPDATE `formazioni` 
-						SET `voto`="'.$votof.'",`voto_md`="'.$voto.'"
-						WHERE id_giornata= '.$idgiornata.' and id_giocatore = '.$cod.' '; 
-								//  print_r ($query);
-								//  echo '<br/> '; 
-						$result=$conn->query($query) ;//or die($conn->error);
-						if($result) {
-							$countervoti++; 
-							// echo $query .'<br>';
-							// echo $result .'<br>';
-							// echo $cod . '-'.$data[2] . '; voto: ' . $voto. ' fantavoto:  ' .$votof . '<br/> '; 
-						}
-						else {
-							echo " ERROR ". $cod . '-'.$data[2]  . ($conn->error) .'<br>';
-						}
+					
+					$query = 'UPDATE `formazioni` 
+					SET `voto`="'.$votof.'",`voto_md`="'.$voto.'"
+					WHERE id_giornata= '.$idgiornata.' and id_giocatore = '.$cod.' '; 
+							//  print_r ($query);
+							//  echo '<br/> '; 
+					$result=$conn->query($query) ;//or die($conn->error);
+					if($result) {
+						$countervoti++; 
+						// echo $query .'<br>';
+						// echo $result .'<br>';
+						// echo $cod . '-'.$data[2] . '; voto: ' . $voto. ' fantavoto:  ' .$votof . '<br/> '; 
 					}
-					else{
-						echo "ERRORE: ". $cod . '-'.$data[2] .' . Il voto non è stato importato.<br>';
+					else {
+						echo " ERROR ". $cod . '-'.$data[2]  . ($conn->error) .'<br>';
 					}
 				}
 			}

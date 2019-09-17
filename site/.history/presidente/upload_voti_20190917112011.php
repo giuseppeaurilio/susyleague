@@ -108,7 +108,7 @@ function parse_voti($filename, $idgiornata) {
 						}
 					}
 					else{
-						echo "ERRORE: ". $cod . '-'.$data[2] .' . Il voto non è stato importato.<br>';
+						echo "Si è verificato un errore con il seguente giocatore ". $cod . '-'.$data[2] .' Il voto non è stato importato.<br>';
 					}
 				}
 			}
