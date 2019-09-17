@@ -276,7 +276,7 @@ else
                                 text: "Ok",
                                 // icon: "ui-icon-heart",
                                 click: function() {
-                                        window.location.replace(document.referrer);
+                                        window.location.reload();
                                     }
                                 }
                             ]

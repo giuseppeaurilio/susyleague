@@ -2,7 +2,7 @@
 include("menu.php");
 ?>
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <style>
 table, th, td {
     border: 1px solid black;
@@ -276,7 +276,7 @@ else
                                 text: "Ok",
                                 // icon: "ui-icon-heart",
                                 click: function() {
-                                        window.location.replace(document.referrer);
+                                        window.location.reload();
                                     }
                                 }
                             ]
