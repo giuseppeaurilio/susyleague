@@ -193,19 +193,19 @@ $(document).ready(function(){
 
 <script id="tmplScambi" type="x-tmpl-mustache">
     
-    <table border="0" cellspacing="2" cellpadding="2">
-        <tbody>
-            <tr> 
-                <th>Id</th>
-                <th>Data</th>
-                <th>Nome</th>
-                <th>Ruolo</th>
-                <th>Squadra</th>
-                <th>Origine</th>
-                <th>Destinazione</th>
-                <th>Note</th>
-            </tr>
-            {{#scambi}}
+<table border="0" cellspacing="2" cellpadding="2">
+    <tbody>
+        <tr> 
+            <th>Id</th>
+            <th>Data</th>
+            <th>Nome</th>
+            <th>Ruolo</th>
+            <th>Squadra</th>
+            <th>Origine</th>
+            <th>Destinazione</th>
+            <th>Note</th>
+        </tr>
+        {{#scambi}}
             <tr > 
                 <td>{{ id }}</td>
                 <td>{{ data }}</td>
@@ -216,7 +216,7 @@ $(document).ready(function(){
                 <td>{{ sqdestinazione }}</td>
                 <td>{{ note }}</td>
             </tr>
-            {{/scambi}}
+        {{/scambi}}
              
     </tbody>
 </table>

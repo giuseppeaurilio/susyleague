@@ -20,7 +20,7 @@ else {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<!-- <script src="/js/jquery.datetimepicker.js"></script> -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.3/mustache.min.js"></script>
 <script src="https://kit.fontawesome.com/c4dd1e8c85.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.js"></script>
@@ -29,10 +29,12 @@ else {
 <script type="text/javascript" src="/plugin/menu/js/stellarnav.js"></script>
 <link rel="stylesheet" type="text/css" media="all" href="/plugin/menu/css/stellarnav.css">
 
-<script type="text/javascript" src="/plugin/jquery.connections.js"></script>
+<!-- <script type="text/javascript" src="/plugin/jquery.connections.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script type="text/javascript" src="/js/global.js"></script>
 
-<!-- <script src="css/jquery.datetimepicker.min.css"></script> -->
+
 <link href="/style.css" rel="stylesheet" type="text/css">
 </head>
 

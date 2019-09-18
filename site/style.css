@@ -114,9 +114,22 @@ div.stellarnav
   z-index: 2;
 }
 .maincontent{
-  display: flex;
+  /* display: flex;
   justify-content: center;
   flex-wrap: wrap;
+   */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+body .widget{
+  width: 500px;
+  
 }
 table{
 border-collapse: collapse;
@@ -239,6 +252,24 @@ li.game{
 .mainaction  a{
   color:  white;
 }
+#actioncontainer{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-around;
+}
+.buttonaction{
+  max-width: 500px;
+  display: block;
+  background-color: rgb(54, 107, 130);
+  text-align: center;
+  padding: 10px;
+  color:  white;
+  cursor: pointer;
+}
+
 
 .mainaction.asabutton{
   color:  white;
@@ -660,3 +691,12 @@ padding: 0;
 
 
 
+#divContentNuovoAnnuncio div{
+ 
+  margin: 5px;
+}
+#divContentNuovoAnnuncio div input,
+#divContentNuovoAnnuncio div textarea
+{
+  width: 98%;
+}

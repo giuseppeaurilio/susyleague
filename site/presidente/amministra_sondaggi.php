@@ -45,7 +45,7 @@ while ($row=$result->fetch_assoc()) {
 
 		echo '<form action="query_amministra_sondaggi.php" method="post" class="a-form" target="formSending">';
 
-		echo '<label for="sondaggio">Sondaggio '. $id_sondaggio .'</label><br>';
+		echo '<h3 for="sondaggio">Sondaggio '. $id_sondaggio .'</h3><br>';
 		echo '<input type="hidden" name="id_sondaggio" value="'.$id_sondaggio.'>">';
 
 		echo 'Testo:<input type="text" name="testo" size="120" value="'. $testo .'" ><br>';
@@ -81,13 +81,16 @@ while ($row=$result->fetch_assoc()) {
 echo '</div>';
 echo '<input type="submit" value="Invia">';
 echo '</form>';
+echo '<div class="mainaction">';
 echo '<a href="cancella_sondaggio.php?&id_sondaggio=<?php echo $id_sondaggio ?>" >Cancella Sondaggio</a>';
-}
+echo '</div>';
 echo '<hr>';
+}
+
 
 ?>
 <form action="query_amministra_sondaggi_nuovo.php" method="post" class="a-form" target="formSending">
-<label for="sondaggio">Nuovo sondaggio</label><br>
+<h3 for="sondaggio">Nuovo sondaggio</h3><br>
 Testo:<input type="text" name="testo" size="120" value="" ><br>
 Fine:
 Giorno:<input type="text" name="g_fine" size="5" value="" >

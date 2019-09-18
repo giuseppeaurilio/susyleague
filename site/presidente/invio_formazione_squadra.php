@@ -2,7 +2,7 @@
 include("menu.php");
 ?>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <style>
 table, th, td {
     border: 1px solid black;
@@ -267,10 +267,23 @@ else
 		url: "query_invio_formazione.php",
 		data: dataString,
 		cache: false,
-		success: function(result)
+		success: function(result) 
 		{
-		console.log(result);
-		window.alert(result);
+		// console.log(result);
+		// window.alert(result);
+					var  buttons= [
+                                {
+                                text: "Ok",
+                                // icon: "ui-icon-heart",
+                                click: function() {
+                                        window.location.replace(document.referrer);
+                                    }
+                                }
+                            ]
+                    // $( "#dialog" ).dialog('destroy');
+                    $( "#dialog" ).prop('title', "Info");
+                    $( "#dialog p" ).html(result);
+                    $( "#dialog" ).dialog({modal:true, buttons: buttons});
 	//		message_status.show();
 	//		message_status.text("Aggiornato");
 	//		#hide the message

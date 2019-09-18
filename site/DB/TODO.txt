@@ -1,14 +1,13 @@
 Aggiungere un loader su tutte le richieste
-Rifare sezione cambio password con modal puopup
+Rifare sezione cambio password con modal popup
 Inserire menu contestuale per presidente loggato per permettere:
 cambio password
 logout
 
-Storico degli scambi
 In amministrazione, pulsante per eseguire un backup del DB.
 Cambiare la politica di backup del database.
 
-Inserire il modal puopup con bottoni dove possibile
+Inserire il modal popup con bottoni dove possibile
 
 Rifare home page con 
     - annunci del presidente
