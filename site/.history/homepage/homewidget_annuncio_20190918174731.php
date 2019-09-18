@@ -19,7 +19,7 @@
             // echo $num_ultimi;
             // print_r($annunci);
             // echo '<br>';
-            echo '<h3>'.$annuncio["titolo"].'</h3>';
+            echo '<h5>'.$annuncio["titolo"].'</h5>';
             
             echo '<div>'.$annuncio["testo"].'</div>';
             echo '<hr>';

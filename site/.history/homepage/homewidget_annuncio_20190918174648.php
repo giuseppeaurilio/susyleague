@@ -19,10 +19,9 @@
             // echo $num_ultimi;
             // print_r($annunci);
             // echo '<br>';
-            echo '<h3>'.$annuncio["titolo"].'</h3>';
-            
-            echo '<div>'.$annuncio["testo"].'</div>';
+            echo '<h4>'.$annuncio["titolo"].'</h4>'
             echo '<hr>';
+            echo '<div>'.$annuncio["testo"].'</div>';
         }   
         
         $conn->next_result();
