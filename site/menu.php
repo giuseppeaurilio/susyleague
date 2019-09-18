@@ -23,6 +23,8 @@ else {
 <!-- <script src="/js/jquery.datetimepicker.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.3/mustache.min.js"></script>
 <script src="https://kit.fontawesome.com/c4dd1e8c85.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.js"></script>
+
 
 <script type="text/javascript" src="/plugin/menu/js/stellarnav.js"></script>
 <link rel="stylesheet" type="text/css" media="all" href="/plugin/menu/css/stellarnav.css">

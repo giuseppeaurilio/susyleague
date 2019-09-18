@@ -56,6 +56,12 @@ h4{
   margin:0;
   text-align: right;
 }
+h5{
+  background-color: #1f3c47;
+  color: white;
+  padding: 5px;
+  margin:0;
+}
 .navbar	{
 z-index:1;
 }
@@ -234,6 +240,11 @@ li.game{
   color:  white;
 }
 
+.mainaction.asabutton{
+  color:  white;
+  cursor: pointer;
+}
+
 .aggiungi{
   background-color: yellow;
   padding: 20px 10px;
@@ -282,9 +293,11 @@ li.game{
   background-size:100% 100%; */
   
   /* justify-content: center; */
-  background: #000000 url('../images/coppa_italia.jpg') 100% 100% no-repeat;
-  /* background-position: center;  */
-  background-size: 100% 100%;
+  background-image: url('../images/coppa_italia.jpg');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center; 
+  /* background-size: 100% 100%; */
   
 }
 .tabellonecoppa .grid-column
@@ -535,6 +548,115 @@ padding: 0;
 
 #divContentNuovoScambio .grid-item {
   text-align: center;
-  margin: 0;
+  /* margin: 0; */
 }
+ 
+.containerFormazione 
+{
+  
+  
+}
+.containerFormazione .giocatori, 
+.containerFormazione .formazione {
+  /* width: 49%; */
+  display: inline-block;
+  vertical-align: top;
+}
+
+.containerFormazione .giocatorecontainer 
+{
+    width:80px;
+		vertical-align:top;
+		display: inline-block;
+		text-align: center;
+		margin: 5px;
+		background-color: rgba(0,0,0,0.3);
+		padding: 5px;
+		border: solid 1px darkgray;
+		border-radius: 10px;
+		cursor: pointer;
+}
+.containerFormazione .titolare
+{
+  background-color : rgb(0, 255, 0);
+}
+
+.containerFormazione .riserva
+{
+  background-color : rgb(255, 0, 0);
+}
+
+.containerFormazione .titolare .badge,
+.containerFormazione .riserva .badge
+{
+  position: relative;
+  background-color: rgba(0,0,0,0.3);
+  text-align: center;
+  border-radius: 30px 30px 30px 30px;
+  color: black;
+}
+.containerFormazione  .giocatorecontainer img
+{
+  height: 80px;	width: 60px;
+}
+.containerFormazione .giocatorecontainer .textcontainer{
+  word-wrap: break-word; 
+  height:30px;
+  overflow: hidden;
+}
+
+.containerFormazione .formazione .soccerfield
+{
+  background-image: url('/images/soccer_field_2.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /* background-position: center;  */
+  /* width: 500px;
+  height: 1000px; */
+}
+
+.containerFormazione .formazione .soccerfield {
+
+  display: grid;
+  /* grid-gap: 50px; */
+  grid-template-columns: 90% 1fr 25%;
+  /* grid-template-rows: auto auto auto auto; */
+  /* background-color: #2196F3; */
+  /* padding: 10px; */
+}
+
+
+.containerFormazione .formazione .soccerfield .titolari {
+  /* display: block; */
+  /* width: 100%; */
+  background-color: yellow;
+  /* width: 90%; */
+  /* float: left; */
+}
+
+.containerFormazione .formazione .soccerfield .riserve {
+  /* display: inline-block; */
+  /* width: 10%; */
+  /* height: 100%; */
+  background-color: red;
+  /* float: right; */
+  grid-column: last-col / span 1;
+  grid-row: 1 / last-line;
+  grid-row-start: span 9000;
+}
+
+#divRiepilogo #titolari
+{
+  padding: 15px;
+  font-size: 20px;
+  text-align: center; 
+}
+#divRiepilogo #riserve
+{
+  padding: 10px;
+  font-size: 15px;
+  text-align: center; 
+}
+
+
 
