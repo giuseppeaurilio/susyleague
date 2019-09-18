@@ -9,9 +9,12 @@
     order by fine
     limit 1";
     $result=$conn->query($querylastdate) or die($conn->error);
-    $lastdate = $result->fetch_object()->fine;
+    $res = $result->fetch_object();
+    // print_r("res".$res);
+    $lastdate = $res == "" ? "": $res->fine;
     $result_ultimi = 0;
     $num_ultimi = 0;
+    $counter = 0;
     for ($girone = 1; $girone <= 10; $girone++) {
         $queryultimi="SELECT sqf1.squadra as sq_casa, sqf2.squadra as sq_ospite, 
         c.gol_casa, c.gol_ospiti as gol_ospite, c.punti_casa as voto_casa, c.punti_ospiti as voto_ospite
@@ -41,6 +44,7 @@
         $conn->next_result();
         // $num_ultimi=$result_ultimi->num_rows; 
         if(count($risultati) >0){
+            $counter +=count($risultati);
             print_r($girone);
             echo '<br>';
             print_r($lastdate);
@@ -52,5 +56,11 @@
                 }
         }   
     }
+    if($counter ==0)
+    {
+        echo "<div>Non sono state giocate partite recentemente.</div>";
+        echo '<hr>';
+    }
+    
     ?>
 </div>

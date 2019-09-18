@@ -17,12 +17,20 @@
         // $num_ultimi=$annunci->num_rows; 
         if(count($sondaggi) >0){
             // echo $num_ultimi;
-            print_r($sondaggi);
-            echo '<br>';
-        }   
+            // print_r($sondaggi);
+            // echo '<br>';
+        
+        }  
+        else
+        {
+            echo "<div>Non ci sono sondaggi al momento</div>";
+            echo '<hr>';
+        } 
         
         foreach($sondaggi as $sondaggio)
         {
+            echo '<h3>'.$sondaggio["testo"].'. scadenza:'.date('d/m/Y', strtotime($sondaggio["scadenza"])).'</h3>';
+            $resultsondaggio = array();
             $queryopzioni='CALL getRisposteSondaggio('.$sondaggio["id"].')';
             $resultOpzioni = $conn->query($queryopzioni) or die($conn->error);
             $opzioni = array();
@@ -35,32 +43,88 @@
             }
             $resultOpzioni->close();
             $conn->next_result();
-            if(count($opzioni) >0){
-                // echo $num_ultimi;
-                print_r($opzioni);
-                echo '<br>';
-            } 
-
+            // if(count($opzioni) >0){
+            //     // echo $num_ultimi;
+            //     print_r($opzioni);
+            //     echo '<br>';
+            // } 
+            $counter = 0;
             foreach($opzioni as $opzione)
             {
+                
                 $query='CALL getRisposteSquadreSondaggio('.$sondaggio["id"].', '.$opzione["id"].')';
                 $resultvoti = $conn->query($query) or die($conn->error);
-                $voti = array();
+                // $voti = array();
                 while($row = $resultvoti->fetch_assoc()){
-                    array_push($voti, array(
+                    array_push($resultsondaggio, array(
+                        "id" => $opzione["id"],
+                        "opzione" => $opzione["opzione"],
                         "count"=>$row["num"],
                         )
                     );
+                    $counter  +=$row["num"];
                 }
                 $resultvoti->close();
                 $conn->next_result();
-                if(count($voti) >0){
-                    // echo $num_ultimi;
-                    print_r($voti);
-                    echo '<br>';
-                } 
+                
             }
+            if(count($resultsondaggio) >0){
+                // echo $num_ultimi;
+                // print_r($resultsondaggio);
+                // echo '<br>';
+                
             
+                // echo 'TOT:'. $counter;
+                echo '<canvas id="myChart'.$sondaggio["id"].'" style="background-color: rgba(255,255,255,0.8)"></canvas>';
+                echo "<script>
+                        var ctx = document.getElementById('myChart".$sondaggio["id"]."').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: [";
+                                foreach($resultsondaggio as $result)
+                                echo "'".$result["opzione"]."',";
+                                echo "],
+                                datasets: [{
+                                    label: '# di voti',
+                                    data: [";
+                                    foreach($resultsondaggio as $result)
+                                    echo "'".$result["count"]."',";
+                                    echo "],
+                                    backgroundColor: [
+                                        'rgba(255, 159, 64, 0.2)',
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 159, 64, 1)',
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                        </script>";
+                echo '<hr>';    
+            } 
         }
         $conn->next_result();
     ?>

@@ -32,6 +32,8 @@ else {
 <!-- <script type="text/javascript" src="/plugin/jquery.connections.js"></script> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+
 <script type="text/javascript" src="/js/global.js"></script>
 
 

@@ -16,10 +16,39 @@
         $result->close();
         // $num_ultimi=$annunci->num_rows; 
         if(count($annunci) >0){
+            foreach($annunci as $annuncio)
+            {
+                echo '<div>'.$annuncio["squadra"].':'.$annuncio["testo"].'.('.date('d/m/Y', strtotime($annuncio["data"])).')</div>';
+                echo '<hr>'; 
+            }
+            
+            // echo '<div>'.$annuncio["testo"].'</div>';
             // echo $num_ultimi;
-            print_r($annunci);
-            echo '<br>';
+            // print_r($annunci);
+            // echo '<br>';
+        //     echo '<table >';
+        //     echo '<tr> ';
+
+        //     echo '<th>Data</th>';
+        //     echo '<th>Squadra</th>';
+        //     echo '<th>Annuncio</th>';
+        //     echo '</tr>';
+        //     foreach($annunci as $annuncio)
+        //     {
+        //         echo '<tr> ';
+        //             echo '<td>'. date('d/m/Y', strtotime($annuncio["data"])).'</td>';
+        //             echo '<td>'.$annuncio["squadra"].'</td>';
+        //             echo '<td>'.$annuncio["testo"].'</td>';
+        //         echo '</tr>';
+        //     }
+        //     echo "</table>";
+        //     echo '<hr>';    
         }   
+        else
+        {
+            echo "<div>Non ci annunci di mercato</div>";
+            echo '<hr>';
+        }
         
         $conn->next_result();
     ?> 

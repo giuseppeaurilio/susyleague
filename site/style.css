@@ -126,10 +126,26 @@ div.stellarnav
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
+
+  background: rgba(255, 255, 255, 0.3);
 }
+.background
+{
+  background-image: url('../images/4c58a14a-ed39-4ae0-bf1a-78a8544dddcc.jpg');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center; 
+}
+
 body .widget{
-  width: 500px;
-  
+  width: 400px;
+}
+body .widget div,
+
+body .widget table tr
+{
+  padding: 5px;
+  background-color: rgba(211,211,211, 0.7)
 }
 table{
 border-collapse: collapse;
