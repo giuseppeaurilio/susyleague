@@ -2,6 +2,23 @@
     <h2>Ultimi risultati</h2>
 
     <?php
+
+    //tantativo di query per ultimi risultati
+//     SELECT g.id_giornata, sqf1.squadra as sq_casa, sqf2.squadra as sq_ospite, 
+//     c.gol_casa, c.gol_ospiti as gol_ospite, c.punti_casa as voto_casa, c.punti_ospiti as voto_ospite
+//     FROM giornate as g 
+//     left join calendario as c on g.id_giornata =  c.id_giornata
+//     left  join sq_fantacalcio as sqf1 on sqf1.id=c.id_sq_casa 
+//     LEFT join sq_fantacalcio as sqf2 on sqf2.id=c.id_sq_ospite
+//     where c.gol_casa is not null
+//     and fine =(
+//     SELECT fine
+// FROM `giornate` as g 
+// left join calendario as c on g.id_giornata =  c.id_giornata
+// where g.fine < CURRENT_DATE
+// order by fine desc
+//     Limit 1)
+//     order by fine desc
     $querylastdate   = "SELECT fine
     FROM `giornate` as g 
     left join calendario as c on g.id_giornata =  c.id_giornata

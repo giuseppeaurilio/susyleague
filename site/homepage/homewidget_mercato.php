@@ -18,7 +18,7 @@
         if(count($annunci) >0){
             foreach($annunci as $annuncio)
             {
-                echo '<div>'.$annuncio["squadra"].':'.$annuncio["testo"].'.('.date('d/m/Y', strtotime($annuncio["data"])).')</div>';
+                echo '<div>'.$annuncio["squadra"].': '.$annuncio["testo"].'.('.date('d/m/Y', strtotime($annuncio["data"])).')</div>';
                 echo '<hr>'; 
             }
             
@@ -47,9 +47,10 @@
         else
         {
             echo "<div>Non ci annunci di mercato</div>";
-            echo '<hr>';
+            
         }
-        
+        echo '<div><a href="/display_mercato.php">Pubblica il tuo annuncio.</a></div>';
+        echo '<hr>';
         $conn->next_result();
     ?> 
 </div>

@@ -123,6 +123,7 @@
                             }
                         });
                         </script>";
+                echo '<div><a href="/display_sondaggi.php"> Esprimi la tua opinione</a></div>';
                 echo '<hr>';    
             } 
         }
