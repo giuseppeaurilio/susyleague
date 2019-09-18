@@ -47,7 +47,7 @@
             echo '<br>';
             foreach($risultati as $risultato){
                 // echo $num_ultimi;
-                print_r($risultato);
+                print_r($risultati);
                 echo '<br>';
                 }
         }   

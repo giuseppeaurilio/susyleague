@@ -26,30 +26,24 @@
         // echo '<br>';
         $result_ultimi=$conn->query($queryultimi);
         $risultati = array();
-        while($row = $result_ultimi->fetch_assoc()){
+        while($row = $result->fetch_assoc()){
             array_push($risultati, array(
                 "sq_casa"=>$row["sq_casa"],
                 "sq_ospite"=>$row["sq_ospite"],
                 "gol_casa"=>$row["gol_casa"],
-                "gol_ospite"=>$row["gol_ospite"],
+                "gol_ospiti"=>$row["gol_ospiti"],
                 "voto_casa"=>$row["voto_casa"],
                 "voto_ospite"=>$row["voto_ospite"],
                 )
             );
         }
-        $result_ultimi->close();
+        $result->close();
         $conn->next_result();
         // $num_ultimi=$result_ultimi->num_rows; 
-        if(count($risultati) >0){
-            print_r($girone);
+        if($num_ultimi >0){
+            // echo $num_ultimi;
+            print_r($risultati);
             echo '<br>';
-            print_r($lastdate);
-            echo '<br>';
-            foreach($risultati as $risultato){
-                // echo $num_ultimi;
-                print_r($risultato);
-                echo '<br>';
-                }
         }   
     }
     ?>

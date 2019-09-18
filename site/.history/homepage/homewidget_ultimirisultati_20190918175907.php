@@ -31,7 +31,7 @@
                 "sq_casa"=>$row["sq_casa"],
                 "sq_ospite"=>$row["sq_ospite"],
                 "gol_casa"=>$row["gol_casa"],
-                "gol_ospite"=>$row["gol_ospite"],
+                "gol_ospiti"=>$row["gol_ospiti"],
                 "voto_casa"=>$row["voto_casa"],
                 "voto_ospite"=>$row["voto_ospite"],
                 )
@@ -40,16 +40,14 @@
         $result_ultimi->close();
         $conn->next_result();
         // $num_ultimi=$result_ultimi->num_rows; 
-        if(count($risultati) >0){
+        if($num_ultimi >0){
             print_r($girone);
             echo '<br>';
             print_r($lastdate);
             echo '<br>';
-            foreach($risultati as $risultato){
-                // echo $num_ultimi;
-                print_r($risultato);
-                echo '<br>';
-                }
+            // echo $num_ultimi;
+            print_r($risultati);
+            echo '<br>';
         }   
     }
     ?>

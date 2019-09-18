@@ -45,11 +45,9 @@
             echo '<br>';
             print_r($lastdate);
             echo '<br>';
-            foreach($risultati as $risultato){
-                // echo $num_ultimi;
-                print_r($risultato);
-                echo '<br>';
-                }
+            // echo $num_ultimi;
+            print_r($risultati);
+            echo '<br>';
         }   
     }
     ?>
