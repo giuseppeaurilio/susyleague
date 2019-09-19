@@ -125,18 +125,13 @@
             
             // print_r($lastdate);
             // echo '<br>';
-            $index=0;
             foreach($risultati as $risultato){
                 // echo $num_ultimi;
                 // print_r($risultato);
                 // echo '<br>';
-                $index++;
-                if($index%2== 0)
-                echo '<div class="result">';
-                else
-                echo '<div class="result alternate">';
-                echo '<div>'. $risultato["sq_casa"].' <span class="punti">('.$risultato["voto_casa"].')</span><span class="gol" >'.$risultato["gol_casa"].'</span></div>';
-                echo '<div>'. $risultato["sq_ospite"].' <span class="punti">('.$risultato["voto_ospite"].')</span><span class="gol">'.$risultato["gol_ospite"].'</span></div>';
+                echo '<div>';
+                echo '<div>'. $risultato["sq_casa"].' <span>('.$risultato["voto_casa"].')</span><span style="float:right;">'.$risultato["gol_casa"].'</span></div>';
+                echo '<div>'. $risultato["sq_ospite"].' <span>(('.$risultato["voto_ospite"].')</span><span style="float:right;">'.$risultato["gol_ospite"].'</span></div>';
                 echo '</div>';
                 }
             echo '</div>';

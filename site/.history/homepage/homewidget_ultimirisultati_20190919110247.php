@@ -65,7 +65,7 @@
             echo '<div>';
             $counter +=count($risultati);
 
-            $id= $risultati[0]["id_giornata"];
+            $id= 
             $descrizioneGiornata = "";
             if($id <= 22)
             { $descrizioneGiornata ="Campionato - Apertura. Giornata ". $id;}
@@ -119,25 +119,14 @@
             else
             { $descrizioneGiornata ="mancante ".$id ;}
         
-            // print_r($girone);
-            // echo '<br>';
-            echo '<h3>'.$descrizioneGiornata.'</h3>';
-            
-            // print_r($lastdate);
-            // echo '<br>';
-            $index=0;
+            print_r($girone);
+            echo '<br>';
+            print_r($lastdate);
+            echo '<br>';
             foreach($risultati as $risultato){
                 // echo $num_ultimi;
-                // print_r($risultato);
-                // echo '<br>';
-                $index++;
-                if($index%2== 0)
-                echo '<div class="result">';
-                else
-                echo '<div class="result alternate">';
-                echo '<div>'. $risultato["sq_casa"].' <span class="punti">('.$risultato["voto_casa"].')</span><span class="gol" >'.$risultato["gol_casa"].'</span></div>';
-                echo '<div>'. $risultato["sq_ospite"].' <span class="punti">('.$risultato["voto_ospite"].')</span><span class="gol">'.$risultato["gol_ospite"].'</span></div>';
-                echo '</div>';
+                print_r($risultato);
+                echo '<br>';
                 }
             echo '</div>';
             echo '<div class="footer">';

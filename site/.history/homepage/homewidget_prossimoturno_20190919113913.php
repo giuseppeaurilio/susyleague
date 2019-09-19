@@ -1,71 +1,62 @@
 <div class="widget">
-    <h2>Ultimi risultati</h2>
-
+    <h2>Prossimo turno</h2>
     <?php
+    // $querylastdate   = "SELECT fine
+    // FROM `giornate` as g 
+    // left join calendario as c on g.id_giornata =  c.id_giornata
+    // where c.gol_casa is not null
+    // order by fine
+    // limit 1";
+    // $result=$conn->query($querylastdate) or die($conn->error);
+    // $res = $result->fetch_object();
+    // // print_r("res".$res);
+    // $lastdate = $res == "" ? "": $res->fine;
 
-    //tantativo di query per ultimi risultati
-//     SELECT g.id_giornata, sqf1.squadra as sq_casa, sqf2.squadra as sq_ospite, 
-//     c.gol_casa, c.gol_ospiti as gol_ospite, c.punti_casa as voto_casa, c.punti_ospiti as voto_ospite
-//     FROM giornate as g 
-//     left join calendario as c on g.id_giornata =  c.id_giornata
-//     left  join sq_fantacalcio as sqf1 on sqf1.id=c.id_sq_casa 
-//     LEFT join sq_fantacalcio as sqf2 on sqf2.id=c.id_sq_ospite
-//     where c.gol_casa is not null
-//     and fine =(
-//     SELECT fine
-// FROM `giornate` as g 
-// left join calendario as c on g.id_giornata =  c.id_giornata
-// where g.fine < CURRENT_DATE
-// order by fine desc
-//     Limit 1)
-//     order by fine desc
-    $querylastdate   = "SELECT fine
-    FROM `giornate` as g 
-    left join calendario as c on g.id_giornata =  c.id_giornata
-    where c.gol_casa is not null
-    order by fine
-    limit 1";
-    $result=$conn->query($querylastdate) or die($conn->error);
-    $res = $result->fetch_object();
-    // print_r("res".$res);
-    $lastdate = $res == "" ? "": $res->fine;
-    $result_ultimi = 0;
-    $num_ultimi = 0;
+    $result_prox = 0;
+    $num_prox = 0;
     $counter = 0;
     for ($girone = 1; $girone <= 10; $girone++) {
-        $queryultimi="SELECT g.id_giornata, sqf1.squadra as sq_casa, sqf2.squadra as sq_ospite, 
-        c.gol_casa, c.gol_ospiti as gol_ospite, c.punti_casa as voto_casa, c.punti_ospiti as voto_ospite
+
+        echo $girone;
+        $queryprox="SELECT g.id_giornata, sqf1.squadra as sq_casa, sqf2.squadra as sq:ospite
         FROM giornate as g 
         left join calendario as c on g.id_giornata =  c.id_giornata
         left  join sq_fantacalcio as sqf1 on sqf1.id=c.id_sq_casa 
         LEFT join sq_fantacalcio as sqf2 on sqf2.id=c.id_sq_ospite
-        where c.gol_casa is not null
-        and fine='" .$lastdate. "'
+        where fine > current_date()
+        AND inizio < current_date()
         and id_girone = ".$girone ;
-        // echo $queryultimi;
+        // echo $queryprox;
         // echo '<br>';
-        $result_ultimi=$conn->query($queryultimi);
-        $risultati = array();
-        while($row = $result_ultimi->fetch_assoc()){
-            array_push($risultati, array(
+        $result_prox=$conn->query($queryprox);
+
+        // $num_prox=$result_prox->num_rows; 
+        // if($num_prox >0){
+        //     echo '<div>';
+        //     $counter +=$num_prox;
+        //     // echo $num_prox;
+        //     print_r($result_prox);
+        //     echo '<br>';
+        //     echo '</div>';
+        // }
+        $partite = array();
+        while($row = $result_prox->fetch_assoc()){
+            array_push($partite, array(
                 "id_giornata" =>$row["id_giornata"],
                 "sq_casa"=>$row["sq_casa"],
                 "sq_ospite"=>$row["sq_ospite"],
-                "gol_casa"=>$row["gol_casa"],
-                "gol_ospite"=>$row["gol_ospite"],
-                "voto_casa"=>$row["voto_casa"],
-                "voto_ospite"=>$row["voto_ospite"],
                 )
             );
         }
-        $result_ultimi->close();
+        $result_prox->close();
         $conn->next_result();
-        // $num_ultimi=$result_ultimi->num_rows; 
-        if(count($risultati) >0){
-            echo '<div>';
-            $counter +=count($risultati);
 
-            $id= $risultati[0]["id_giornata"];
+
+        if(count($partite) >0){
+            echo '<div>';
+            $counter +=count($partite);
+
+            $id= $partite[0]["id_giornata"];
             $descrizioneGiornata = "";
             if($id <= 22)
             { $descrizioneGiornata ="Campionato - Apertura. Giornata ". $id;}
@@ -126,7 +117,7 @@
             // print_r($lastdate);
             // echo '<br>';
             $index=0;
-            foreach($risultati as $risultato){
+            foreach($partite as $partita){
                 // echo $num_ultimi;
                 // print_r($risultato);
                 // echo '<br>';
@@ -135,42 +126,22 @@
                 echo '<div class="result">';
                 else
                 echo '<div class="result alternate">';
-                echo '<div>'. $risultato["sq_casa"].' <span class="punti">('.$risultato["voto_casa"].')</span><span class="gol" >'.$risultato["gol_casa"].'</span></div>';
-                echo '<div>'. $risultato["sq_ospite"].' <span class="punti">('.$risultato["voto_ospite"].')</span><span class="gol">'.$risultato["gol_ospite"].'</span></div>';
+                echo '<div>'. $partita["sq_casa"].'-'. $partita["sq_ospite"].'</div>';
+                
                 echo '</div>';
                 }
             echo '</div>';
-            echo '<div class="footer">';
-            switch ($girone)
-            {
-                case 1:
-                case 2:
-                case 6:
-                    echo '<a href="/display_calendario.php?id_girone='.$girone.'">Consulta il calendario.</a>';    
-                break;
-                case 4:
-                    echo '<a href="/display_calendario_coppaitalia_gironi.php">Consulta il calendario.</a>';    
-                break;
-                case 5:
-                    echo '<a href="/display_calendario_coppaitalia_tabellone.php">Consulta il calendario.</a>';    
-                break;
-                case 7:
-                case 8:
-                    echo '<a href="/display_calendario_finali.php">Consulta il calendario.</a>';    
-                break;
-            }
-            echo '</div>';
-            
-        }   
-       
-       
-    }
-    if($counter ==0)
-    {
-        echo "<div>Non sono state giocate partite recentemente.</div>";
-        echo '<<div class="footer">><a href="/display_calendario.php?id_girone=1">Consulta il calendario.</a></div>';    
+        } 
     }
     
+    
+    if($counter ==0)
+    {
+        echo "<div>Non ci sono partite in programma</div>";
+     
+    }
+    echo '<div class="footer"><a href="/invio_formazione.php">Invia la formazione</a></div>';
     echo '<hr>';
     ?>
+
 </div>

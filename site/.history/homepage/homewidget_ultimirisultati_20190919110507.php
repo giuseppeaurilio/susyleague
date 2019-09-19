@@ -121,23 +121,13 @@
         
             // print_r($girone);
             // echo '<br>';
-            echo '<h3>'.$descrizioneGiornata.'</h3>';
-            
-            // print_r($lastdate);
-            // echo '<br>';
-            $index=0;
+        echo '<div class="giornata"><h2 style="">'.$descrizioneGiornata.'/h2><h3>'.(($inizio!= "") ? date('d/m H:i', strtotime($inizio)) : "") ."  ->  " .(($fine!= "") ? date('d/m H:i', strtotime($fine)) : "") .'</h3>';
+            print_r($lastdate);
+            echo '<br>';
             foreach($risultati as $risultato){
                 // echo $num_ultimi;
-                // print_r($risultato);
-                // echo '<br>';
-                $index++;
-                if($index%2== 0)
-                echo '<div class="result">';
-                else
-                echo '<div class="result alternate">';
-                echo '<div>'. $risultato["sq_casa"].' <span class="punti">('.$risultato["voto_casa"].')</span><span class="gol" >'.$risultato["gol_casa"].'</span></div>';
-                echo '<div>'. $risultato["sq_ospite"].' <span class="punti">('.$risultato["voto_ospite"].')</span><span class="gol">'.$risultato["gol_ospite"].'</span></div>';
-                echo '</div>';
+                print_r($risultato);
+                echo '<br>';
                 }
             echo '</div>';
             echo '<div class="footer">';

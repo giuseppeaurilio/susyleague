@@ -140,40 +140,12 @@ div.stellarnav
 body .widget{
   width: 400px;
 }
-body .widget>div,
+body .widget div,
 body .widget table tr
 {
   padding: 5px;
-  /*  */
+  /* background-color: rgba(211,211,211, 0.7) */
   background-color: rgba(255,255,255,0.8)
-}
-body .widget .result
-{
-  padding: 5px;
-
-}
-body .widget .result.alternate
-{
-  background-color:rgba(176,196,222 ,0.5 );
-
-}
-
-body .widget .result .punti
-{
-  
-}
-
-body .widget .result .gol
-{
-  font-weight: bold;
-  float: right;
-  background-color: #274b59;
-  padding: 0 10px;
-  color: white;
-}
-body .widget div.footer
-{
-  background-color: rgba(211,211,211, 0.7)
 }
 table{
 border-collapse: collapse;

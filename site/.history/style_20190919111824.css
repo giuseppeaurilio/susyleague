@@ -149,13 +149,7 @@ body .widget table tr
 }
 body .widget .result
 {
-  padding: 5px;
-
-}
-body .widget .result.alternate
-{
-  background-color:rgba(176,196,222 ,0.5 );
-
+  margin: 5px;
 }
 
 body .widget .result .punti
@@ -167,9 +161,6 @@ body .widget .result .gol
 {
   font-weight: bold;
   float: right;
-  background-color: #274b59;
-  padding: 0 10px;
-  color: white;
 }
 body .widget div.footer
 {

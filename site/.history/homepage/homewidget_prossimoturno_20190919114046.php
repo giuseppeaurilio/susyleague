@@ -18,7 +18,7 @@
     for ($girone = 1; $girone <= 10; $girone++) {
 
         
-        $queryprox="SELECT g.id_giornata, sqf1.squadra as sq_casa, sqf2.squadra as sq_ospite
+        $queryprox="SELECT g.id_giornata, sqf1.squadra as sq_casa, sqf2.squadra as sq:ospite
         FROM giornate as g 
         left join calendario as c on g.id_giornata =  c.id_giornata
         left  join sq_fantacalcio as sqf1 on sqf1.id=c.id_sq_casa 
@@ -35,21 +35,21 @@
         //     echo '<div>';
         //     $counter +=$num_prox;
         //     // echo $num_prox;
-        //      print_r($result_prox);
+        print_r($result_prox);
         //     echo '<br>';
         //     echo '</div>';
         // }
         $partite = array();
-        while($row = $result_prox->fetch_assoc()){
-            array_push($partite, array(
-                "id_giornata" =>$row["id_giornata"],
-                "sq_casa"=>$row["sq_casa"],
-                "sq_ospite"=>$row["sq_ospite"],
-                )
-            );
-        }
-        $result_prox->close();
-        $conn->next_result();
+        // while($row = $result_prox->fetch_assoc()){
+        //     array_push($partite, array(
+        //         "id_giornata" =>$row["id_giornata"],
+        //         "sq_casa"=>$row["sq_casa"],
+        //         "sq_ospite"=>$row["sq_ospite"],
+        //         )
+        //     );
+        // }
+        // $result_prox->close();
+        // $conn->next_result();
 
 
         if(count($partite) >0){
@@ -125,11 +125,8 @@
                 if($index%2== 0)
                 echo '<div class="result">';
                 else
-                echo '<div class="result alternate" >';
-                echo '<div style="text-align:center;"><div style="width:40%; display:inline-block;">'. $partita["sq_casa"].'</div>
-                <div style="width:10%; display:inline-block;">-</div>
-                <div style="width:40%; display:inline-block;">'. $partita["sq_ospite"].'</div>
-                </div>';
+                echo '<div class="result alternate">';
+                echo '<div>'. $partita["sq_casa"].'-'. $partita["sq_ospite"].'</div>';
                 
                 echo '</div>';
                 }

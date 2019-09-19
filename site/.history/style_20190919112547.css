@@ -167,9 +167,8 @@ body .widget .result .gol
 {
   font-weight: bold;
   float: right;
-  background-color: #274b59;
+  background-color: gray;
   padding: 0 10px;
-  color: white;
 }
 body .widget div.footer
 {

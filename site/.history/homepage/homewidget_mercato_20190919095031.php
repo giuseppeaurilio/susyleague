@@ -49,7 +49,7 @@
             echo "<div>Non ci annunci di mercato</div>";
             
         }
-        echo '<div class="footer"><a href="/display_mercato.php">Pubblica il tuo annuncio.</a></div>';
+        echo '<div><a href="/display_mercato.php">Pubblica il tuo annuncio.</a></div>';
         echo '<hr>';
         $conn->next_result();
     ?> 

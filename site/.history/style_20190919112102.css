@@ -154,7 +154,7 @@ body .widget .result
 }
 body .widget .result.alternate
 {
-  background-color:rgba(176,196,222 ,0.5 );
+  background-color: lightsteelblue;
 
 }
 
@@ -167,9 +167,8 @@ body .widget .result .gol
 {
   font-weight: bold;
   float: right;
-  background-color: #274b59;
-  padding: 0 10px;
-  color: white;
+  background-color: gray;
+  /* padding: 10px; */
 }
 body .widget div.footer
 {
