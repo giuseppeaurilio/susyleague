@@ -10,7 +10,16 @@ var numRiserve = 8;
 // var modulo = [0, 0, 0, 0];
 
 imgError = function(img){
-	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
+	// var imgs=$(".giocatorecontainer  img");
+	console.log(img);
+	// $(imgs).each(function(index){
+	// 	if(this.naturalWidth == 0)
+	// 	{
+	// 		console.log(this.src)
+	// 		console.log(this);
+	// 		// this.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png"
+	// 	}
+	// });
 };
 	
 resetFormazione = function(){
@@ -424,7 +433,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 						data-ruolo="P"
 						>';
 					
-					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);">';
+					echo '<img src='.$giocatore["filename"].'>';
 					echo "<div class='textcontainer'>".$giocatore["nome"] . " (" .$giocatore["squadra"] . ")</div>";
 					echo '<div class="badge">&nbsp;</div>';
 				echo '</div>';
@@ -460,7 +469,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 						data-id="'.$giocatore["id"].'"
 						data-ruolo="C"
 						>';
-					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);">';
+					echo '<img src='.$giocatore["filename"].'>';
 					echo "<div class='textcontainer'>".$giocatore["nome"] . " (" .$giocatore["squadra"] . ")</div>";
 					echo '<div class="badge">&nbsp;</div>';
 				echo '</div>';
@@ -478,7 +487,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 						data-id="'.$giocatore["id"].'"
 						data-ruolo="A"
 						>';
-					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);">';
+					echo '<img src='.$giocatore["filename"].'>';
 					echo "<div class='textcontainer '>".$giocatore["nome"] . " (" .$giocatore["squadra"] . ")</div>";
 					echo '<div class="badge">&nbsp;</div>';
 				echo '</div>';

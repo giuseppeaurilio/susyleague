@@ -521,7 +521,7 @@ for($i = 0; $i < 4; $i++) {
 			
 		// }
 		echo '<div class="container">';
-		echo '<img style="		height: 80px;		width: 60px;	" src='.$filename.' onerror="imgError(this);">';
+		echo '<img style="		height: 80px;		width: 60px;	" src='.$filename.' onerror="imgError(this);>';
 		echo '<br>';
 		echo '<button id="btn_'.  $id_giocatore.'" type="button" class="myButton_'. $i.' btn" style="background-color: rgb(141, 194, 235);">';
 		

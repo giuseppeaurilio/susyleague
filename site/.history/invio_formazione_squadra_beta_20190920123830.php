@@ -9,10 +9,7 @@ var numRiserve = 8;
 // var pconto = [0, 0, 0, 0];
 // var modulo = [0, 0, 0, 0];
 
-imgError = function(img){
-	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
-};
-	
+    
 resetFormazione = function(){
 	$('.giocatorecontainer').each( function (){
 		if($(this).hasClass("titolare"))	
@@ -424,7 +421,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 						data-ruolo="P"
 						>';
 					
-					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);">';
+					echo '<img src='.$giocatore["filename"].'>';
 					echo "<div class='textcontainer'>".$giocatore["nome"] . " (" .$giocatore["squadra"] . ")</div>";
 					echo '<div class="badge">&nbsp;</div>';
 				echo '</div>';
@@ -442,7 +439,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 						data-id="'.$giocatore["id"].'"
 						data-ruolo="D"
 						>';
-					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);">';
+					echo '<img src='.$giocatore["filename"].'>';
 					echo "<div class='textcontainer'>".$giocatore["nome"] . " (" .$giocatore["squadra"] . ")</div>";
 					echo '<div class="badge">&nbsp;</div>';
 				echo '</div>';
@@ -460,7 +457,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 						data-id="'.$giocatore["id"].'"
 						data-ruolo="C"
 						>';
-					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);">';
+					echo '<img src='.$giocatore["filename"].'>';
 					echo "<div class='textcontainer'>".$giocatore["nome"] . " (" .$giocatore["squadra"] . ")</div>";
 					echo '<div class="badge">&nbsp;</div>';
 				echo '</div>';
@@ -478,7 +475,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 						data-id="'.$giocatore["id"].'"
 						data-ruolo="A"
 						>';
-					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);">';
+					echo '<img src='.$giocatore["filename"].'>';
 					echo "<div class='textcontainer '>".$giocatore["nome"] . " (" .$giocatore["squadra"] . ")</div>";
 					echo '<div class="badge">&nbsp;</div>';
 				echo '</div>';
@@ -525,7 +522,18 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 	<p> Le formazioni inviate dagli allenatori possono essere consultate nella sezione CALENDARIO facendo click sul nome della giornata </p>
 	<a href="<?php echo "display_giornata.php?&id_giornata=" . $id_giornata ; ?>"><?php echo "Formazioni Giornata " . $id_giornata ?></a>
 </div>
-
+<script>
+		$(document).ready(function(){
+			// var imgs=$(".giocatorecontainer  img");
+			// console.log("qui ok");
+			// $(imgs).each(function(index){
+			// 	if(this.naturalWidth == 0)
+			// 	{
+			// 		this.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png"
+			// 	}
+			// });
+		});
+	</script>
 <?php 
 include("footer.php");
 ?>

@@ -424,7 +424,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 						data-ruolo="P"
 						>';
 					
-					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);">';
+					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);>';
 					echo "<div class='textcontainer'>".$giocatore["nome"] . " (" .$giocatore["squadra"] . ")</div>";
 					echo '<div class="badge">&nbsp;</div>';
 				echo '</div>';
@@ -460,7 +460,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 						data-id="'.$giocatore["id"].'"
 						data-ruolo="C"
 						>';
-					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);">';
+					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);>';
 					echo "<div class='textcontainer'>".$giocatore["nome"] . " (" .$giocatore["squadra"] . ")</div>";
 					echo '<div class="badge">&nbsp;</div>';
 				echo '</div>';
@@ -478,7 +478,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 						data-id="'.$giocatore["id"].'"
 						data-ruolo="A"
 						>';
-					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);">';
+					echo '<img src='.$giocatore["filename"].' onerror="imgError(this);>';
 					echo "<div class='textcontainer '>".$giocatore["nome"] . " (" .$giocatore["squadra"] . ")</div>";
 					echo '<div class="badge">&nbsp;</div>';
 				echo '</div>';

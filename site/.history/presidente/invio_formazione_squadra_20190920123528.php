@@ -2,7 +2,7 @@
 include("menu.php");
 ?>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <style>
 table, th, td {
     border: 1px solid black;
@@ -90,29 +90,36 @@ table, th, td {
 	float:left;
 }
 </style>
-
-
-
 <?php
-
 $id_giornata=$_GET['id_giornata'];
 $id_squadra=$_GET['id_squadra'];
 
 $ruoli = array("P","D","C","A");
 $ruoli_name = array("Portieri","Difensori","Centrocampisti","Attaccanti");
 
-$i=0;
+
+
+// include("../dbinfo_susyleague.inc.php");
+// $conn = new mysqli($localhost, $username, $password,$database);
+
+// // Check connection
+// if ($conn->connect_error) {
+// 	die("Connection failed: " . $conn->connect_error);
+// }
+
 
 $query="SELECT squadra, allenatore FROM sq_fantacalcio where id=" . $id_squadra;
-$result=$conn->query($query);
+// $result=mysql_query($query);
+$result  = $conn->query($query) or die($conn->error);
 
-$row=$result->fetch_assoc();
 
-$squadra=$row["squadra"];
-$allenatore=$row["allenatore"];
+// $squadra=mysqli_result($result,$i,"squadra");
+// $allenatore=mysqli_result($result,$i,"allenatore");
+while ($row = $result->fetch_assoc()) {
+	$squadra = $row["squadra"];
+	$allenatore = $row["allenatore"];
+}
 ?>
-
-
 <script>
 
 var pconto = [0, 0, 0, 0];
@@ -137,7 +144,7 @@ function sortFunction(a, b) {
 function pushArray(arr, arr2) {
     arr.push.apply(arr, arr2);
 }
-    
+
 resetFormazione = function(){
 	$('[class^="myButton"]').each( function (){
 		if($(this).css("background-color") ==  "rgb(0, 255, 0)")	
@@ -152,17 +159,12 @@ resetFormazione = function(){
 	});
 };
 
-imgError = function(img){
-	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
-};
-
 $(document).ready(function(){
-
 	$('#btnReset').click(resetFormazione);
 
     $('[class^="myButton"]').click(function(){
 
-	console.log($(this).text());
+	// console.log($(this).text());
 	//var a = $(this).attr('id').split("_");
 	var myClass = $(this).attr("class");
 	var a = myClass.split("_");
@@ -211,9 +213,14 @@ $(document).ready(function(){
  $("#btn_invia").click(function(){
  var id_squadra= "<?php echo $id_squadra; ?>";
  var id_giornata="<?php echo $id_giornata; ?>";
+ 
  var dataString = 'id_squadra='+ id_squadra + '&id_giornata=' + id_giornata ;
  var boolammcontrollata = $("#cbAmministrazControllata").prop("checked");
- var valammcontrollata = 0;
+ var valammcontrollata = $("#hfAmmControllata").val();
+ if(boolammcontrollata)
+ 	valammcontrollata++;
+else 
+	valammcontrollata = 0;
  dataString += "&ammcontrollata=" + valammcontrollata;
  dataString += '&titolari=';
  var titolari = [];
@@ -243,7 +250,7 @@ $(document).ready(function(){
  		var panchina_id = getCol(panchina_sort,1);
  		pushArray(panchina,panchina_id);
  	}
- 	titolari.forEach(function(entry) {
+ 	titolari.forEach(function(entry) { 
  	dataString += String(entry) + ",";
  	});
  	dataString = dataString.substring(0, dataString.length - 1);
@@ -260,10 +267,23 @@ $(document).ready(function(){
 		url: "query_invio_formazione.php",
 		data: dataString,
 		cache: false,
-		success: function(result)
+		success: function(result) 
 		{
-		console.log(result);
-		window.alert(result);
+		// console.log(result);
+		// window.alert(result);
+					var  buttons= [
+                                {
+                                text: "Ok",
+                                // icon: "ui-icon-heart",
+                                click: function() {
+                                        window.location.replace(document.referrer);
+                                    }
+                                }
+                            ]
+                    // $( "#dialog" ).dialog('destroy');
+                    $( "#dialog" ).prop('title', "Info");
+                    $( "#dialog p" ).html(result);
+                    $( "#dialog" ).dialog({modal:true, buttons: buttons});
 	//		message_status.show();
 	//		message_status.text("Aggiornato");
 	//		#hide the message
@@ -272,12 +292,14 @@ $(document).ready(function(){
 		}
 	//
 	});
+	//salva la formazione come default
+	//TODO
 
- });
+});
+
  
  
 });
-
 $(document).ready(function(){
 	$("#ddlUltimeFormazioni").change(impostaFormazione);
 	// window.alert(result);
@@ -303,7 +325,6 @@ $(document).ready(function(){
 			}
 	}
 }
-
 formazionerandom = function()
 {
 	var moduli =["3-5-2", "3-4-3", "4-3-3", "4-4-2", "4-5-1", "5-3-2", "5-4-1"];
@@ -369,12 +390,12 @@ formazionerandom = function()
 	}
 }
 </script>
-<h2><?php echo $squadra . "(" .$allenatore .")";?> - Invio formazione</h2>
-<!-- <h2></h2> -->
 
+<h2>Invio fomazione</h2>
+<h2><?php echo $squadra . "(" .$allenatore .")";?></h2>
 <!-- <h3><?php echo "(" .$allenatore .")";?></h3> -->
 <?php
-// include_once ("dbinfo_susyleague.inc.php");
+// include_once ("../dbinfo_susyleague.inc.php");
 // $conn = new mysqli($localhost, $username, $password,$database);
 
 // // Check connection
@@ -390,19 +411,10 @@ $numammcontr= $row['ammcontrollata'];
 // echo '<h3>La squadra è in amministrazione controllata da '.$numammcontr.' turni</h3>';
 if($numammcontr>0)
 {
-	// echo '<h3>Allenatore!!!! Non hai inviato la formazione per '.$numammcontr.' volta/e!!!</h3>';
-	echo '<div class="ui-widget" id="result" >';
-    echo '<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> ';
-	echo '<p>';
-	echo '   <span class="ui-icon ui-icon-alert" ';
-	echo '      style="float: left; margin-right: .3em;"></span>';
-	echo '  <span class="message"> Allenatore!!!! Non hai inviato la formazione per '.$numammcontr.' volta/e!!!</span>';
-	echo '</p>';
-    echo '</div>';
-	echo '</div>';
+	echo '<h3>La squadra è in amministrazione controllata da '.$numammcontr.' turni</h3>';
 	
 }
-// echo '<input type="hidden" id="hfAmmControllata" value="'.$numammcontr.'"/>';
+echo '<input type="hidden" id="hfAmmControllata" value="'.$numammcontr.'"/>';
 ?>
 
 <label>ultime formazioni</label>
@@ -410,7 +422,13 @@ if($numammcontr>0)
 	<option value="0">scegli...</option>
 	<!-- <option value="1">DEFAULT</option> -->
 <?php 
+// include_once ("../dbinfo_susyleague.inc.php");
+// $conn = new mysqli($localhost, $username, $password,$database);
 
+// // Check connection
+// if ($conn->connect_error) {
+// 	die("Connection failed: " . $conn->connect_error);
+// }
 $querypartite = 'SELECT id_giornata, sqc.squadra as casa, sqt.squadra as ospite
 FROM `calendario`  as c
 left join sq_fantacalcio as sqc on c.id_sq_casa = sqc.id
@@ -433,26 +451,31 @@ while ($row = $result_partite->fetch_assoc()) {
 	}
 	echo '<option value="'.$formazionedadb.'">'.$descrizionepartita.'</option> -->';
 }
-
 // $conn->close();
+
 ?>
 
 	<!-- <option value="1_250.2_2160.3_2130.4_2214.5_226.6_26.7_2002.8_645.9_2610.10_2756.11_785.12_453.13_798.14_288.15_392.16_1996.17_2085.18_2531.19_608">I NANI- ASVenere</option> -->
 </select>
-
 <?php
 $formazionedadb = "";
 
 $queryformaz = 'SELECT id_posizione, id_giocatore
 FROM `formazioni` WHERE id_giornata = '.$id_giornata.' and id_squadra = '.$id_squadra.'
 order by id_posizione';
+// echo $queryformaz;
+// $conn = new mysqli($localhost, $username, $password,$database);
 
+// // Check connection
+// if ($conn->connect_error) {
+// 	die("Connection failed: " . $conn->connect_error);
+// }
 $result  = $conn->query($queryformaz) or die($conn->error);
 // print_r($result);
 while ($row = $result->fetch_assoc()) {
 	$formazionedadb.=$row["id_posizione"].'_'.$row["id_giocatore"].'.';
 }
-// $conn->close();
+
 // echo  $formazionedadb;
 echo '<input type="hidden" id="hfSquadraInserita" value="'. $formazionedadb .'"></input>';
 ?>
@@ -480,7 +503,11 @@ $(document).ready(function(){
 <input type="button" id="btnReset" value="Reset Formazione"></input>
 <?php
 for($i = 0; $i < 4; $i++) {
+
+	
 	// $conn = new mysqli($localhost, $username, $password,$database);
+
+	// // Check connection
 	// if ($conn->connect_error) {
 	// 	die("Connection failed: " . $conn->connect_error);
 	// }
@@ -488,40 +515,45 @@ for($i = 0; $i < 4; $i++) {
 	$query2="SELECT * FROM rose as a inner join giocatori as b inner join squadre_serie_a as c where a.id_sq_fc=". $id_squadra ." AND a.id_giocatore=b.id and b.ruolo='" . $ruoli[$i] ."' and b.id_squadra=c.id";
 
 	//echo $query2;
-	$result_giocatori=$conn->query($query2);
-	$num_giocatori=$result_giocatori->num_rows;
+	// $result_giocatori=mysql_query($query2);
+	// $num_giocatori=mysql_numrows($result_giocatori);
 	#echo $num_giocatori;
 	#echo $i;
+	$result_giocatori  = $conn->query($query2) or die($conn->error);
+	$num_giocatori=$result_giocatori->num_rows;
+	// while ($row = $result_giocatori->fetch_assoc()) {
+	// 	$squadra = $row["squadra"];
+	// 	$allenatore = $row["allenatore"];
+	// }
 	?>
 	
 	<div id="div<?php echo $ruoli_name[$i];?>" >
-	<div style="display: inline-block; width:100%;">
-	<h3><?php echo $ruoli_name[$i];?></h3>
+	<h2><?php echo $ruoli_name[$i];?></h2>
+	<div style="display: inline-block;">
 	<?php
-		while ($row=$result_giocatori->fetch_assoc()) {
-		$id_giocatore=$row["id_giocatore"];
-		$nome_giocatore=$row["nome"];
-		$squadra_giocatore=$row["squadra_breve"];
-		$ruolo_giocatore=$row["ruolo"];
-		$costo_giocatore=$row["costo"];
+
+
+		// while ($j < $num_giocatori) {
+		// $id_giocatore=mysql_result($result_giocatori,$j,"id_giocatore");
+		// $nome_giocatore=mysql_result($result_giocatori,$j,"nome");
+		// $squadra_giocatore=mysql_result($result_giocatori,$j,"squadra_breve");
+		// $ruolo_giocatore=mysql_result($result_giocatori,$j,"ruolo");
+		// $costo_giocatore=mysql_result($result_giocatori,$j,"costo");
+	while ($row = $result_giocatori->fetch_assoc()) {
+		$id_giocatore=$row["id_giocatore"];//mysql_result($result_giocatori,$j,"id_giocatore");
+		$nome_giocatore=$row["nome"];//mysql_result($result_giocatori,$j,"nome");
+		$squadra_giocatore=$row["squadra_breve"];//mysql_result($result_giocatori,$j,"squadra_breve");
+		$ruolo_giocatore=$row["ruolo"];//mysql_result($result_giocatori,$j,"ruolo");
+		$costo_giocatore=$row["costo"];//mysql_result($result_giocatori,$j,"costo");
+
 
 		// echo $nome_giocatore;
 		$nome_giocatore_pulito = preg_replace('/\s+/', '-', $nome_giocatore);
 		// echo $nome_giocatore_pulito;
 		$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png");
 
-		//  'https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png';
-		// if (file_exists('https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png'))
-			// if (getimagesize($filename)) 
-		// $headers = get_headers($filename );
-
-		// if (!stripos($headers[0], "200 OK"))
-		// {
-		// 	$filename = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/NO-CAMPIONCINO.png";
-			
-		// }
 		echo '<div class="container">';
-		echo '<img style="		height: 80px;		width: 60px;	" src='.$filename.' onerror="imgError(this);">';
+		echo '<img style="		height: 80px;		width: 60px;	" src='.$filename.'>';
 		echo '<br>';
 		echo '<button id="btn_'.  $id_giocatore.'" type="button" class="myButton_'. $i.' btn" style="background-color: rgb(141, 194, 235);">';
 		
@@ -532,10 +564,23 @@ for($i = 0; $i < 4; $i++) {
 		
 		// echo $nome_giocatore . " (" .$squadra_giocatore . ")";
 		// echo '</button>';
-	
+		
 	} 
 	?>
 	</div>
+	<script>
+		$(document).ready(function(){
+			var imgs=$(".container img");
+			console.log("qui ok");
+			$(imgs).each(function(index){
+				if(this.naturalWidth == 0)
+				{
+					this.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png"
+				}
+			});
+		});
+	</script>
+
 	</div>
 	<?php
 }
@@ -547,6 +592,13 @@ for($i = 0; $i < 4; $i++) {
 <label id="modulo" >  </label><br>
 <label for="panchina" >panchina = </label>
 <label id="panchina" >  </label><br>
+<!-- <label > Salva come default </label> <input type="checkbox" id="cbDefault"/> <br/> -->
+<label >Amministrazione controllata: </label>
+<input type="checkbox" id="cbAmministrazControllata" checked="checked"/>
+<!-- <input type="radio" name="ammcontrollata" value="si" required> SI<br>
+<input type="radio" name="ammcontrollata" value="azzera"> Azzera<br> -->
+<br/> 
+Password: <input type="password" name="password" id="password">
 
 <button type="button" id="btn_invia">Invia Formazione</button>
 
@@ -555,6 +607,7 @@ for($i = 0; $i < 4; $i++) {
 <p> Le formazioni inviate dagli allenatori possono essere consultate nella sezione CALENDARIO facendo click sul nome della giornata </p>
 <a href="<?php echo "display_giornata.php?&id_giornata=" . $id_giornata ; ?>"><?php echo "Formazioni Giornata " . $id_giornata ?></a>
 <br>
+
 <?php 
-include("footer.php");
+include("../footer.php");
 ?>
