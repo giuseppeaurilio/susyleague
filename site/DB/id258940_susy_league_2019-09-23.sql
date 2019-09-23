@@ -26,13 +26,13 @@ DELIMITER $$
 --
 -- Procedure
 --
-CREATE  PROCEDURE `getAnnunciAttivi` ()  NO SQL
+CREATE DEFINER=`id258940_susy79`@`%` PROCEDURE `getAnnunciAttivi` ()  NO SQL
 select * from annunci where CURRENT_DATE() >= dal and CURRENT_DATE() < al$$
 
-CREATE  PROCEDURE `getAnnunciMercato` ()  NO SQL
+CREATE DEFINER=`id258940_susy79`@`%` PROCEDURE `getAnnunciMercato` ()  NO SQL
 select id, testo, squadra, data_annuncio from mercato as m left join sq_fantacalcio as sqf on m.id_squadra= sqf.id order by m.data_annuncio DESC limit 5$$
 
-CREATE  PROCEDURE `getClassifica` (IN `pIdGirone` INT)  NO SQL
+CREATE DEFINER=`id258940_susy79`@`%` PROCEDURE `getClassifica` (IN `pIdGirone` INT)  NO SQL
 select cc.idsquadrac as idsquadra,sf.squadra, 
 cc.puntic + ct.puntit as punti,
 cc.marcatoric + ct.marcatorit as marcatori,
@@ -103,7 +103,7 @@ ON cc.idsquadrac=ct.idsquadrat
 left join sq_fantacalcio sf on sf.id = cc.idsquadrac
 order by punti desc$$
 
-CREATE  PROCEDURE `getClassificaAggregateAperturaChiusura` ()  NO SQL
+CREATE DEFINER=`id258940_susy79`@`%` PROCEDURE `getClassificaAggregateAperturaChiusura` ()  NO SQL
 select cc.idsquadrac as idsquadra,sf.squadra, 
 cc.puntic + ct.puntit as punti,
 cc.marcatoric + ct.marcatorit as marcatori,
@@ -174,7 +174,7 @@ ON cc.idsquadrac=ct.idsquadrat
 left join sq_fantacalcio sf on sf.id = cc.idsquadrac
 order by punti desc$$
 
-CREATE  PROCEDURE `getClassificaGironeCoppaItalia` (IN `pIdGirone` INT, IN `pIdGironeCI` INT)  NO SQL
+CREATE DEFINER=`id258940_susy79`@`%` PROCEDURE `getClassificaGironeCoppaItalia` (IN `pIdGirone` INT, IN `pIdGironeCI` INT)  NO SQL
 select cc.idsquadrac as idsquadra,sf.squadra, 
 cc.puntic + ct.puntit as punti,
 cc.marcatoric + ct.marcatorit as marcatori,
@@ -248,13 +248,13 @@ ON cc.idsquadrac=ct.idsquadrat
 left join sq_fantacalcio sf on sf.id = cc.idsquadrac
 order by punti desc$$
 
-CREATE  PROCEDURE `getRisposteSondaggio` (IN `idSondaggio` INT)  NO SQL
+CREATE DEFINER=`id258940_susy79`@`%` PROCEDURE `getRisposteSondaggio` (IN `idSondaggio` INT)  NO SQL
 select * from sondaggi_opzioni where id_sondaggio = idSondaggio$$
 
-CREATE  PROCEDURE `getRisposteSquadreSondaggio` (IN `idSondaggio` INT, IN `idOpzione` INT)  NO SQL
+CREATE DEFINER=`id258940_susy79`@`%` PROCEDURE `getRisposteSquadreSondaggio` (IN `idSondaggio` INT, IN `idOpzione` INT)  NO SQL
 select count(*) as num from sondaggi_risposte where id_sondaggio = idSondaggio and id_opzione = idOpzione$$
 
-CREATE  PROCEDURE `getSondaggiAttivi` ()  NO SQL
+CREATE DEFINER=`id258940_susy79`@`%` PROCEDURE `getSondaggiAttivi` ()  NO SQL
 SELECT * from sondaggi where scadenza > CURRENT_DATE()$$
 
 DELIMITER ;

@@ -5,11 +5,7 @@ include("menu.php");
 
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>
-imgError = function(img){
-	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
-};
-</script>
+
 <?php
 $id_giornata=$_GET['id_giornata'];
 
@@ -73,7 +69,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 			<table border=1  id="squadra_casa<?php echo $j;?>">
 				<!-- <caption class="caption_style"><?php echo $sq_casa; ?></caption> -->
 				<tr>
-					<th width="10%" >CASA</th>
+					<th style='background-color: white;' width="10%" >&nbsp;</th>
 					<!-- <th width="5%">&nbsp;</th> -->
 					<th width="50%" colspan="2">Nome</th>
 					<th width="10%">&nbsp;</th>
@@ -110,7 +106,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 						?>
 						<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: white;'><div class='rotate'> Titolari</div></td>";  } ?>
 						<?php if ($i==11) {echo "<td rowspan='8' style='background-color: white;'><div class='rotate'> Riserve </div></td>";  } ?>
-						<td style="padding:0; width:3%"><?php echo '<img  onerror="imgError(this);" style="width:20px; height:27px;" src='.$filename.'>';?></td>
+						<td style="padding:0; width:3%"><?php echo '<img style="width:20px; height:27px;" src='.$filename.'>';?></td>
 						<td ><div class="truncate"><?php echo $row["nome"]; ?></div></td>
 						<td><?php echo $row["squadra_breve"]; ?></td>
 						<td><?php echo $row["ruolo"]; ?></td>
@@ -154,7 +150,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 				<th width="10%">R</th>
 				<th width="10%">V</th>
 				<th width="10%">VN</th>
-				<th >OSP.</th>
+				<th style='background-color: white;' >&nbsp;</th>
 
 				<?php
 				while ($row=$result_formazione->fetch_assoc()) {
@@ -184,14 +180,14 @@ while ($row=$result_giornata->fetch_assoc()) {
 						$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 				?>
 				
-					<td style="padding:0; width:3%"><?php echo '<img  onerror="imgError(this);" style="width:20px; height:27px;" src='.$filename.'>';?></td>
+					<td style="padding:0; width:3%"><?php echo '<img style="width:20px; height:27px;" src='.$filename.'>';?></td>
 					<td ><div class="truncate"><?php echo $row["nome"]; ?></div></td>
 					<td><?php echo $row["squadra_breve"]; ?></td>
 					<td><?php echo $row["ruolo"]; ?></td>
 					<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
 					<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
-				<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: white;'><div class='rotate2'> Titolari</div></td>";  } ?>
-				<?php if ($i==11) {echo "<td rowspan='8' style='background-color: white;'><div class='rotate2'> Riserve </div></td>";  } ?>	
+				<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: white;'><div class='rotate'> Titolari</div></td>";  } ?>
+				<?php if ($i==11) {echo "<td rowspan='8' style='background-color: white;'><div class='rotate'> Riserve </div></td>";  } ?>	
 				</tr>
 					<?php
 					++$i;
