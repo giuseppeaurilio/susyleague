@@ -142,9 +142,9 @@ selezionaGiocatore = function(){
 	cen = $('#divCentrocampisti .giocatorecontainer.titolare');
 	att = $('#divAttaccanti .giocatorecontainer.titolare');
 
-	$('#divPortieri .giocatorecontainer.riserva').each(function( index ){
+	$('#divPortieri .giocatorecontainer.riserva').each(function( index )
 		porris.push(b.data('id'));
-	});
+	);
 	
 	difris = $('#divDifensori .giocatorecontainer.riserva');
 	cenris = $('#divCentrocampisti .giocatorecontainer.riserva');

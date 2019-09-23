@@ -116,7 +116,6 @@ formazionerandom = function()
 
 removeItem = function (array, item)
 {
-	debugger;
 	for( var i = 0; i < array.length; i++){ 
 		if (array[i] === item) {
 			array.splice(i, 1); 
@@ -135,17 +134,12 @@ selezionaGiocatore = function(){
 	
 	var b = $(this);
 	// console.log(b);
-	$('#divPortieri .giocatorecontainer.titolare').each(function( index ){
-		por.push(b.data('id'));
-	});
+	por = $('#divPortieri .giocatorecontainer.titolare');
 	dif = $('#divDifensori .giocatorecontainer.titolare');
 	cen = $('#divCentrocampisti .giocatorecontainer.titolare');
 	att = $('#divAttaccanti .giocatorecontainer.titolare');
 
-	$('#divPortieri .giocatorecontainer.riserva').each(function( index ){
-		porris.push(b.data('id'));
-	});
-	
+	porris = $('#divPortieri .giocatorecontainer.riserva');
 	difris = $('#divDifensori .giocatorecontainer.riserva');
 	cenris = $('#divCentrocampisti .giocatorecontainer.riserva');
 	attris = $('#divAttaccanti .giocatorecontainer.riserva');
@@ -179,45 +173,43 @@ selezionaGiocatore = function(){
 	var ruolo = b.data('ruolo');
 	// console.log(ruolo);
 	// console.log(ruolo);
-	var element  = b.data('id');
+	var id = b.data('ruolo');
 	switch(ruolo){
 		case "P": 
 			if(action ==0)
 			{
 				
-				removeItem(por, element);
-				removeItem(porris, element);
+				removeItem(por, id);
+				removeItem(porris, id);
 			}
 			else if(action ==1)
 			{
-				removeItem(porris, element);
-				por.push(element);
+				removeItem(porris, id);
+				por.push(id);
 			}
 			else if(action ==2)
 			{
-				removeItem(por, element);
-				porris.push(element);
+				removeItem(por, id);
+				porris.push(id);
 			}
-			console.log("titolari");
 			console.log(por);
-			console.log("riserve");
 			console.log(porris);
 		break;
 		case "D": 
 			if(action ==0)
 			{
-				removeItem(dif, element);
-				removeItem(difres, element);
+				removeItem(dif, id);
+				removeItem(difres, id);
 			}
 			else if(action ==1)
 			{
-				removeItem(difres, element);
-				dif.push(element);
+				removeItem(difres, id);
+				dif.push(id);
 			}
 			else if(action ==2)
 			{
-				removeItem(dif, element);
-				difris.push(element);
+				removeItem(dif, id);
+				difris.push(id);
 			}
 			console.log(dif);
 			console.log(difris);

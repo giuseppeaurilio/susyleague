@@ -136,15 +136,15 @@ selezionaGiocatore = function(){
 	var b = $(this);
 	// console.log(b);
 	$('#divPortieri .giocatorecontainer.titolare').each(function( index ){
-		por.push(b.data('id'));
-	});
+		por.push(b.data('id'));}
+	);
 	dif = $('#divDifensori .giocatorecontainer.titolare');
 	cen = $('#divCentrocampisti .giocatorecontainer.titolare');
 	att = $('#divAttaccanti .giocatorecontainer.titolare');
 
-	$('#divPortieri .giocatorecontainer.riserva').each(function( index ){
+	$('#divPortieri .giocatorecontainer.riserva').each(function( index )
 		porris.push(b.data('id'));
-	});
+	);
 	
 	difris = $('#divDifensori .giocatorecontainer.riserva');
 	cenris = $('#divCentrocampisti .giocatorecontainer.riserva');

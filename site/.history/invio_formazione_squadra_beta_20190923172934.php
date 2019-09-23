@@ -135,17 +135,12 @@ selezionaGiocatore = function(){
 	
 	var b = $(this);
 	// console.log(b);
-	$('#divPortieri .giocatorecontainer.titolare').each(function( index ){
-		por.push(b.data('id'));
-	});
+	por = $('#divPortieri .giocatorecontainer.titolare');
 	dif = $('#divDifensori .giocatorecontainer.titolare');
 	cen = $('#divCentrocampisti .giocatorecontainer.titolare');
 	att = $('#divAttaccanti .giocatorecontainer.titolare');
 
-	$('#divPortieri .giocatorecontainer.riserva').each(function( index ){
-		porris.push(b.data('id'));
-	});
-	
+	porris = $('#divPortieri .giocatorecontainer.riserva');
 	difris = $('#divDifensori .giocatorecontainer.riserva');
 	cenris = $('#divCentrocampisti .giocatorecontainer.riserva');
 	attris = $('#divAttaccanti .giocatorecontainer.riserva');
@@ -179,7 +174,7 @@ selezionaGiocatore = function(){
 	var ruolo = b.data('ruolo');
 	// console.log(ruolo);
 	// console.log(ruolo);
-	var element  = b.data('id');
+	var element  = $("#div" +b.data('id'));
 	switch(ruolo){
 		case "P": 
 			if(action ==0)
@@ -198,9 +193,7 @@ selezionaGiocatore = function(){
 				removeItem(por, element);
 				porris.push(element);
 			}
-			console.log("titolari");
 			console.log(por);
-			console.log("riserve");
 			console.log(porris);
 		break;
 		case "D": 
