@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			catch (Exception $e) {
 				echo json_encode(array(
 					'error' => array(
-						'message' => $e->getMessage(),
+						'message' => $e->getMessage()
 						// 'code' => $e->getCode(),
 					),
 				));
