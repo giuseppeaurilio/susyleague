@@ -93,19 +93,19 @@ while ($row=$result_giornata->fetch_assoc()) {
 								echo "rgba(102, 204, 51, 0.5)";
 							break;
 						case "D":
-							if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+							if($i<11)
 								echo "rgba(51, 204, 204, 1)";
 							else
 								echo "rgba(51, 204, 204, 0.5)";
 							break;
 						case "C":
-							if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+							if($i<11)
 								echo "rgba(255, 239, 0, 1)";
 							else
 								echo "rgba(255, 239, 0, 0.5)";
 							break;
 						 case "A":
-						 	if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+							 if($i<11)
 								echo "rgba(232, 0, 0, 1)";
 							else
 								echo "rgba(232, 0, 0, 0.5)";
@@ -173,26 +173,26 @@ while ($row=$result_giornata->fetch_assoc()) {
 					$ruolo_giocatore=$row["ruolo"];
 				?>
 					<tr id=row_<?php  echo $id_ospite  . "_" . ($i+1);?> style="background-color: <?php switch ($ruolo_giocatore) {
-				case "P":
-					if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+					case "P":
+					if($i<11)
 						echo "rgba(102, 204, 51, 1)";
 					else
 						echo "rgba(102, 204, 51, 0.5)";
 					break;
 				case "D":
-					if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+					if($i<11)
 						echo "rgba(51, 204, 204, 1)";
 					else
 						echo "rgba(51, 204, 204, 0.5)";
 					break;
 				case "C":
-					if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+					if($i<11)
 						echo "rgba(255, 239, 0, 1)";
 					else
 						echo "rgba(255, 239, 0, 0.5)";
 					break;
 				 case "A":
-				 	if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+					 if($i<11)
 						echo "rgba(232, 0, 0, 1)";
 					else
 						echo "rgba(232, 0, 0, 0.5)";

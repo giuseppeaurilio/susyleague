@@ -184,37 +184,25 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$ruolo_giocatore=$row["ruolo"];
 	?>
         <tr contenteditable='true' id=row_<?php  echo $id_casa  . "_" . ($i+1);?> style="background-color: <?php switch ($ruolo_giocatore) {
-   	case "P":
-	   if($i<11)
-		   echo "rgba(102, 204, 51, 1)";
-	   else
-		   echo "rgba(102, 204, 51, 0.5)";
-	   break;
-   case "D":
-	   if($i<11)
-		   echo "rgba(51, 204, 204, 1)";
-	   else
-		   echo "rgba(51, 204, 204, 0.5)";
-	   break;
-   case "C":
-	   if($i<11)
-		   echo "rgba(255, 239, 0, 1)";
-	   else
-		   echo "rgba(255, 239, 0, 0.5)";
-	   break;
-	case "A":
-		if($i<11)
-		   echo "rgba(232, 0, 0, 1)";
-	   else
-		   echo "rgba(232, 0, 0, 0.5)";
-	   break;
-   default:
-	   echo "#FFFFFF";
+    case "P":
+        echo "#66CC33";
+        break;
+    case "D":
+        echo "#33CCCC";
+        break;
+    case "C":
+        echo "#FFEF00";
+        break;
+     case "A":
+        echo "#E80000 ";
+        break;
+    default:
+        echo "#FFFFFF";
 }
 ?>
 ">
-	<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate'style='width: auto;'> Titolari</div></td>";  } ?>
-	<?php if ($i==11) {echo "<td rowspan='8' style='background-color: rgba(51,102,255,0.2);'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>
+	<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: white;'><div class='rotate' style='width: auto;'> Titolari</div></td>";  } ?>
+	<?php if ($i==11) {echo "<td rowspan='8' style='background-color: white;'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>
 		<td><?php echo $row["nome"]; ?></td>
 		<td><?php echo $row["squadra_breve"]; ?></td>
 		<td><?php echo $row["ruolo"]; ?></td>
@@ -282,35 +270,26 @@ while ($row=$result_giornata->fetch_assoc()) {
 		switch ($ruolo_giocatore) {
 	case "P":
 		if($i<11)
-			echo "rgba(102, 204, 51, 1)";
+			echo "rgba(255,0,0,1))";
 		else
-			echo "rgba(102, 204, 51, 0.5)";
-		break;
-	case "D":
-		if($i<11)
-			echo "rgba(51, 204, 204, 1)";
-		else
-			echo "rgba(51, 204, 204, 0.5)";
-		break;
+			echo "rgba(255,0,0,0.2))";
+        break;
+    case "D":
+        echo "#33CCCC";
+        break;
     case "C":
-		if($i<11)
-			echo "rgba(255, 239, 0, 1)";
-		else
-			echo "rgba(255, 239, 0, 0.5)";
-		break;
-	 case "A":
-		 if($i<11)
-			echo "rgba(232, 0, 0, 1)";
-		else
-			echo "rgba(232, 0, 0, 0.5)";
-		break;
+        echo "#FFEF00";
+        break;
+     case "A":
+        echo "#E80000 ";
+        break;
     default:
         echo "#FFFFFF";
 }
 ?>
 ">
-	<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate'style='width: auto;'> Titolari</div></td>";  } ?>
-	<?php if ($i==11) {echo "<td rowspan='8' style='background-color: rgba(51,102,255,0.2);'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>
+	<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: white;'><div class='rotate'style='width: auto;'> Titolari</div></td>";  } ?>
+	<?php if ($i==11) {echo "<td rowspan='8' style='background-color: white;'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>
 			<td><?php echo $row["nome"]; ?></td>
 			<td><?php echo $row["squadra_breve"]; ?></td>
 			<td><?php echo $row["ruolo"]; ?></td>
