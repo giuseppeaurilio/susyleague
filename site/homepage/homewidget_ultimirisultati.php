@@ -135,8 +135,10 @@
                 echo '<div class="result">';
                 else
                 echo '<div class="result alternate">';
+                echo '<a style="text-decoration: none;color: black;" href="/display_giornata.php?&id_giornata='.$id.'">';  
                 echo '<div>'. $risultato["sq_casa"].' <span class="punti">('.$risultato["voto_casa"].')</span><span class="gol" >'.$risultato["gol_casa"].'</span></div>';
                 echo '<div>'. $risultato["sq_ospite"].' <span class="punti">('.$risultato["voto_ospite"].')</span><span class="gol">'.$risultato["gol_ospite"].'</span></div>';
+                echo '</a>';  
                 echo '</div>';
                 }
             echo '</div>';
@@ -159,7 +161,7 @@
             //         echo '<a href="/display_calendario_finali.php">Consulta il calendario.</a>';    
             //     break;
             // }
-            echo '<a href="/display_classifiche.php">Classifiche.</a>';  
+            echo '<a href="/display_classifiche.php">Classifiche</a>';  
             echo '</div>';
             
         }   

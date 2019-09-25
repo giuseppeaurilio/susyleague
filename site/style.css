@@ -183,6 +183,11 @@ table th, table td{
 border: 1px solid #ddd;
 padding: 6px 4px;
 }
+
+/* table th:nth-child(1), table td:nth-child(1){
+  width:10px;
+  display: block; 
+} */
 table tr:nth-child(even){
 background-color: #f2f2f2;
 }
@@ -194,7 +199,7 @@ background-color: #ddd;
 table th {
 padding-top: 12px;
 padding-bottom: 12px;
-text-align: left;
+/* text-align: left; */
 background-color: #366b82;
 color: white;
 }

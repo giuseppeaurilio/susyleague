@@ -3,8 +3,8 @@ include("menu.php");
 
 ?>
 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <script>
 imgError = function(img){
 	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
@@ -69,17 +69,17 @@ while ($row=$result_giornata->fetch_assoc()) {
 	?>
 	 <div class="ui-grid-a">
 		<div class="ui-block-a" style="float:left;">
-			<h3 class="caption_style" style="text-align: center; margin: 0 1px;"><?php echo $sq_casa; ?></h3>
+			<h3 class="caption_style" style="text-align: center;"><?php echo $sq_casa; ?></h3>
 			<table border=1  id="squadra_casa<?php echo $j;?>">
 				<!-- <caption class="caption_style"><?php echo $sq_casa; ?></caption> -->
 				<tr>
-					<th width="10%" >CASA</th>
+					<th >H</th>
 					<!-- <th width="5%">&nbsp;</th> -->
-					<th width="50%" colspan="2">Nome</th>
-					<th width="10%">&nbsp;</th>
-					<th width="10%">R</th>
-					<th width="10%">V</th>
-					<th width="10%">VN</th>
+					<th colspan="3">Nome</th>
+					<!-- <th >&nbsp;</th> -->
+					<th >R</th>
+					<th >V</th>
+					<th >VN</th>
 				</tr>
 				<?php
 				while ($row=$result_formazione->fetch_assoc()) {
@@ -128,6 +128,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 						<td><?php echo $row["ruolo"]; ?></td>
 						<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
 						<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
+						
 					</tr>
 					<?php
 					++$i;
@@ -155,18 +156,18 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<!-- <div class="ui-block-middle">&nbsp;</div> -->
 		<div class="ui-block-b" style="float:right;">
 			
-			<h3 class="caption_style" style="text-align: center; margin: 0 1px;"><?php echo $sq_ospite; ?></h3>
+			<h3 class="caption_style" style="text-align: center;"><?php echo $sq_ospite; ?></h3>
 			<table border=1  id="squadra_ospite<?php echo $j;?>">
 				<!-- <caption class="caption_style"><?php echo $sq_ospite; ?></caption> -->
 
 				
 				<!-- <th width="5%">&nbsp;</th> -->
-				<th width="50%" colspan="2">Nome</th>
-				<th width="10%">&nbsp;</th>
+				<th colspan="3" >Nome</th>
+				<!-- <th width="10%">&nbsp;</th> -->
 				<th width="10%">R</th>
 				<th width="10%">V</th>
 				<th width="10%">VN</th>
-				<th >OSP.</th>
+				<th width="5%">A</th>
 
 				<?php
 				while ($row=$result_formazione->fetch_assoc()) {
@@ -227,9 +228,10 @@ while ($row=$result_giornata->fetch_assoc()) {
 			<p> voto netto = <?php echo $voto_netto_ospite; ?> </p>
 			<p> media difesa = <?php echo $media_difesa_avversaria_ospite; ?> </p>
 			<p> voto totale = <?php echo $voto_totale_ospite; ?> </p>
-			<p> gol = <?php echo $gol_ospite; ?> </p></div>
+			<p> gol = <?php echo $gol_ospite; ?> </p>
 		</div>
-	<hr style="display: inline-block;width: 100%;">
+	
+<hr style="display: inline-block;width: 100%;">
 <?php
 ++$j;
 echo '</div>';
