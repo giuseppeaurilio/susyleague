@@ -19,71 +19,61 @@ if ($conn->connect_error) {
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$action = $_POST['action'];
-
     switch($action)
     {
 		case("inviaformazione"):
-			
 			try{
-				$id_squadra=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_squadra']);//mysql_escape_String($_POST['id_squadra']);
-				$id_giornata=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_giornata']);//mysql_escape_String($_POST['id_giornata']);
-				$titolari=$_POST['titolari'];//mysql_escape_String($_POST['titolari']);
-				$panchina= $_POST['panchina'];//mysql_escape_String($_POST['panchina']);
+			$id_squadra=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_squadra']);//mysql_escape_String($_POST['id_squadra']);
+			$id_giornata=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_giornata']);//mysql_escape_String($_POST['id_giornata']);
+			$titolari=$_POST['titolari'];//mysql_escape_String($_POST['titolari']);
+			$panchina= $_POST['panchina'];//mysql_escape_String($_POST['panchina']);
 
-				date_default_timezone_set('Europe/Rome');
-				$adesso = date('Y-m-d H:i:s');
-				$query="select fine from giornate where id_giornata=" . $id_giornata  . " and fine > '" . $adesso ."'";
-				$result=$conn->query($query);
-				if ($result->num_rows == 0){
-					throw new Exception("E' troppo tardi per inviare la formazione");
+			date_default_timezone_set('Europe/Rome');
+			$adesso = date('Y-m-d H:i:s');
+			$query="select fine from giornate where id_giornata=" . $id_giornata  . " and fine > '" . $adesso ."'";
+			$result=$conn->query($query);
+			if ($result->num_rows == 0){
+				"E' troppo tardi per inviare la formazione",
+			}
+			if ($id_squadra!=$id_squadra_logged){ 
+			"Non si è autenticati per iviare la formazione";
+			}
+			if (count($titolari)!=11 || count($titolari)|=8){
+			
+			"La formazione deve includere necessariamente 11 titolari e 8 riserve";
+			}
 					
-				}
-				if ($id_squadra!=$id_squadra_logged){ 
-					throw new Exception("Non si è autenticati per inviare la formazione");
-				}
-				if (count($titolari)!=11 || count($titolari)!=8){
-					throw new Exception("La formazione deve includere necessariamente 11 titolari e 8 riserve");
-				}
-						
-						
-				$message = "";
+					
+			$message = "";
 
-				//se salvo la formazione 
-				
-				$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n". "TITOLARI \n\n";
-				foreach ($giocatori as $value) 
-				{
-					$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) VALUES (" . $id_giornata .",". $id_squadra . "," ;
-					$query=$query_ini . $i . ",'" .$value . "','" . $id_squadra_sa . "')" ;
-					$result=$conn->query($query);	
-				}
-				$message .= "Formazione inviata\n";
-
-				//se invio il messaggio telegram 
-				$message .= "Messaggio telegram inviato \n";
-
-
-				$queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`=0 WHERE id=' . $id_squadra;
-				$result  = $conn->query($queryupdate) or die($conn->error);	
-
-				$message .= $adesso ;
-				echo json_encode(array(
-					'result' => "true",
-					'message' => $message
-				));
+			//se salvo la formazione 
+			
+			$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n". "TITOLARI \n\n";
+			foreach ($giocatori as $value) 
+			{
+				$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) VALUES (" . $id_giornata .",". $id_squadra . "," ;
+				$query=$query_ini . $i . ",'" .$value . "','" . $id_squadra_sa . "')" ;
+				$result=$conn->query($query);	
 			}
-			catch (Exception $e) {
-				echo json_encode(array(
-					'error' => array(
-						'message' => $e->getMessage();
-						// 'code' => $e->getCode(),
-					),
-				));
-			}
-			finally {
-				if(isset($conn))
-					{$conn->close();}
-			}
+			$message .= "Formazione inviata\n";
+
+			//se invio il messaggio telegram 
+			$message .= "Messaggio telegram inviato \n";
+
+
+			$queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`=0 WHERE id=' . $id_squadra;
+			$result  = $conn->query($queryupdate) or die($conn->error);	
+
+			$message .= $adesso ;
+			echo json_encode(array(
+				'result' => "true",
+				'message' => $message
+			));
+		}
+		catch($ex)
+		{
+			
+		}
 		
 		// else{
 		// 	echo json_encode(array(

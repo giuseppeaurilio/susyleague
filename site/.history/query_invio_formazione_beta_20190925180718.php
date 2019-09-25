@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     switch($action)
     {
 		case("inviaformazione"):
-			
+			$errormessage = "";
 			try{
 				$id_squadra=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_squadra']);//mysql_escape_String($_POST['id_squadra']);
 				$id_giornata=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_giornata']);//mysql_escape_String($_POST['id_giornata']);
@@ -35,14 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$query="select fine from giornate where id_giornata=" . $id_giornata  . " and fine > '" . $adesso ."'";
 				$result=$conn->query($query);
 				if ($result->num_rows == 0){
-					throw new Exception("E' troppo tardi per inviare la formazione");
-					
+					$errormessage = "E' troppo tardi per inviare la formazione";
 				}
 				if ($id_squadra!=$id_squadra_logged){ 
-					throw new Exception("Non si è autenticati per inviare la formazione");
+					$errormessage = "Non si è autenticati per iviare la formazione";
 				}
 				if (count($titolari)!=11 || count($titolari)!=8){
-					throw new Exception("La formazione deve includere necessariamente 11 titolari e 8 riserve");
+					$errormessage="La formazione deve includere necessariamente 11 titolari e 8 riserve";
 				}
 						
 						
@@ -75,14 +74,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			catch (Exception $e) {
 				echo json_encode(array(
 					'error' => array(
-						'message' => $e->getMessage();
+						'msg' => "Method not allowed",
 						// 'code' => $e->getCode(),
 					),
 				));
 			}
 			finally {
-				if(isset($conn))
-					{$conn->close();}
+				
 			}
 		
 		// else{

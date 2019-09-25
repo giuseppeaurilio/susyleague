@@ -35,14 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$query="select fine from giornate where id_giornata=" . $id_giornata  . " and fine > '" . $adesso ."'";
 				$result=$conn->query($query);
 				if ($result->num_rows == 0){
-					throw new Exception("E' troppo tardi per inviare la formazione");
-					
+					$errormessage = "E' troppo tardi per inviare la formazione";
+					tr
 				}
 				if ($id_squadra!=$id_squadra_logged){ 
-					throw new Exception("Non si è autenticati per inviare la formazione");
+					$errormessage = "Non si è autenticati per inviare la formazione";
 				}
 				if (count($titolari)!=11 || count($titolari)!=8){
-					throw new Exception("La formazione deve includere necessariamente 11 titolari e 8 riserve");
+					$errormessage="La formazione deve includere necessariamente 11 titolari e 8 riserve";
 				}
 						
 						
