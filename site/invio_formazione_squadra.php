@@ -551,9 +551,10 @@ for($i = 0; $i < 4; $i++) {
 <button type="button" id="btn_invia">Invia Formazione</button>
 
 </form>
-
+<p> Vuoi provare la nuova pagina di invio formazione? </p>
+<a href="<?php echo "invio_formazione_squadra_beta.php?&id_giornata=" . $id_giornata ."&id_squadra=".$id_squadra ; ?>"><?php echo "Clicca qui>>>> Invio formazioni BETA" ?></a>
 <p> Le formazioni inviate dagli allenatori possono essere consultate nella sezione CALENDARIO facendo click sul nome della giornata </p>
-<a href="<?php echo "display_giornata.php?&id_giornata=" . $id_giornata ; ?>"><?php echo "Formazioni Giornata " . $id_giornata ?></a>
+<a href="<?php echo "display_giornata.php?&id_giornata=" . $id_giornata; ?>"><?php echo "Formazioni Giornata " . $id_giornata ?></a>
 <br>
 <?php 
 include("footer.php");
