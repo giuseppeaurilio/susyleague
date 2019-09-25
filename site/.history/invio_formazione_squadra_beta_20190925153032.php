@@ -219,7 +219,17 @@ selezionaGiocatore = function(){
 		b.addClass("titolare");
 		action = 1// add titolare
 	}
-
+	// var numPortieriTit = $('#divPortieri .giocatorecontainer.titolare').length;
+	// var numPortieriRis = $('#divPortieri .giocatorecontainer.riserva').length;
+	// var numDifensoriTit = $('#divDifensori .giocatorecontainer.titolare').length;
+	// var numDifensoriRis = $('#divDifensori .giocatorecontainer.riserva').length;
+	// var numCentrocampistiTit = $('#divCentrocampisti .giocatorecontainer.titolare').length;
+	// var numCentrocampistiRis = $('#divCentrocampisti .giocatorecontainer.riserva').length;
+	// var numAttaccantiTit = $('#divAttaccanti .giocatorecontainer.titolare').length;
+	// var numAttaccantiRis = $('#divAttaccanti .giocatorecontainer.riserva').length;
+	// console.log(b.data('id'));
+	// console.log(ruolo);
+	// console.log(ruolo);
 	var element  = b.data('id');
 	var ruolo = b.data('ruolo');
 
@@ -232,7 +242,6 @@ selezionaGiocatore = function(){
 				reassignOrder(por);
 				reassignOrder(porris);
 				b.data('order', -1);
-				$("#div" + element).find('.badge').html("&nbsp;");
 			}
 			else if(action ==1)
 			{
@@ -259,7 +268,6 @@ selezionaGiocatore = function(){
 				reassignOrder(dif);
 				reassignOrder(difris);
 				b.data('order', -1);
-				$("#div" + element).find('.badge').html("&nbsp;");
 			}
 			else if(action ==1)
 			{
@@ -286,7 +294,6 @@ selezionaGiocatore = function(){
 				reassignOrder(cen);
 				reassignOrder(cenris);
 				b.data('order', -1);
-				$("#div" + element).find('.badge').html("&nbsp;");
 			}
 			else if(action ==1)
 			{
@@ -313,7 +320,6 @@ selezionaGiocatore = function(){
 				reassignOrder(att);
 				reassignOrder(attris);
 				b.data('order', -1);
-				$("#div" + element).find('.badge').html("&nbsp;");
 			}
 			else if(action ==1)
 			{
@@ -367,7 +373,7 @@ selezionaGiocatore = function(){
 	});
 
 	$(attris).each(function( index ){
-		start = por.length + dif.length+cen.length + att.length + porris.length + difris.length + cenris.length + 1;
+		start = por.length + dif.length+cen.length + att.length + porris.length + difris.length + cenris + 1;
 		$("#div" + this.obj).find('.badge').html(start + this.o);
 	});
 	

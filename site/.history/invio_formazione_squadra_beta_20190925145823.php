@@ -186,22 +186,12 @@ selezionaGiocatore = function(){
 	$('#divDifensori .giocatorecontainer.riserva').each(function( index ){
 		addItem(difris, $(this).data('id'), $(this).data('order'))
 	});
+	
+	cen = $('#divCentrocampisti .giocatorecontainer.titolare');
+	cenris = $('#divCentrocampisti .giocatorecontainer.riserva');
+	att = $('#divAttaccanti .giocatorecontainer.titolare');	
+	attris = $('#divAttaccanti .giocatorecontainer.riserva');
 
-	$('#divCentrocampisti .giocatorecontainer.titolare').each(function( index ){
-		// por.push(b.data('id'));
-		addItem(cen, $(this).data('id'), $(this).data('order'))
-	});
-	$('#divCentrocampisti .giocatorecontainer.riserva').each(function( index ){
-		addItem(cenris, $(this).data('id'), $(this).data('order'))
-	});
-
-	$('#divAttaccanti .giocatorecontainer.titolare').each(function( index ){
-		// por.push(b.data('id'));
-		addItem(att, $(this).data('id'), $(this).data('order'))
-	});
-	$('#divAttaccanti .giocatorecontainer.riserva').each(function( index ){
-		addItem(attris, $(this).data('id'), $(this).data('order'))
-	});
 	// console.log(b.data('order'));
 	var action = 0;
 	if (b.hasClass("titolare")){
@@ -219,7 +209,17 @@ selezionaGiocatore = function(){
 		b.addClass("titolare");
 		action = 1// add titolare
 	}
-
+	// var numPortieriTit = $('#divPortieri .giocatorecontainer.titolare').length;
+	// var numPortieriRis = $('#divPortieri .giocatorecontainer.riserva').length;
+	// var numDifensoriTit = $('#divDifensori .giocatorecontainer.titolare').length;
+	// var numDifensoriRis = $('#divDifensori .giocatorecontainer.riserva').length;
+	// var numCentrocampistiTit = $('#divCentrocampisti .giocatorecontainer.titolare').length;
+	// var numCentrocampistiRis = $('#divCentrocampisti .giocatorecontainer.riserva').length;
+	// var numAttaccantiTit = $('#divAttaccanti .giocatorecontainer.titolare').length;
+	// var numAttaccantiRis = $('#divAttaccanti .giocatorecontainer.riserva').length;
+	// console.log(b.data('id'));
+	// console.log(ruolo);
+	// console.log(ruolo);
 	var element  = b.data('id');
 	var ruolo = b.data('ruolo');
 
@@ -232,7 +232,6 @@ selezionaGiocatore = function(){
 				reassignOrder(por);
 				reassignOrder(porris);
 				b.data('order', -1);
-				$("#div" + element).find('.badge').html("&nbsp;");
 			}
 			else if(action ==1)
 			{
@@ -248,8 +247,8 @@ selezionaGiocatore = function(){
 				b.data('order', porris.length);
 				addItem(porris, element, porris.length);
 			}
-			// console.log(por);
-			// console.log(porris);
+			console.log(por);
+			console.log(porris);
 		break;
 		case "D": 
 			if(action ==0)
@@ -259,7 +258,6 @@ selezionaGiocatore = function(){
 				reassignOrder(dif);
 				reassignOrder(difris);
 				b.data('order', -1);
-				$("#div" + element).find('.badge').html("&nbsp;");
 			}
 			else if(action ==1)
 			{
@@ -275,105 +273,41 @@ selezionaGiocatore = function(){
 				b.data('order', difris.length);
 				addItem(difris, element, difris.length);
 			}
-			// console.log(dif);
-			// console.log(difris);
-		break;
-		case "C": 
-			if(action ==0)
-			{
-				removeItem(cen, element);
-				removeItem(cenris, element);
-				reassignOrder(cen);
-				reassignOrder(cenris);
-				b.data('order', -1);
-				$("#div" + element).find('.badge').html("&nbsp;");
-			}
-			else if(action ==1)
-			{
-				removeItem(cenris, element);
-				reassignOrder(cenris);
-				b.data('order', cen.length);
-				addItem(cen, element, cen.length);
-			}
-			else if(action ==2)
-			{
-				removeItem(cen, element);
-				reassignOrder(cen);
-				b.data('order', cenris.length);
-				addItem(cenris, element, cenris.length);
-			}
-			// console.log(cen);
-			// console.log(cenris);
-		break;
-		case "A": 
-			if(action ==0)
-			{
-				removeItem(att, element);
-				removeItem(attris, element);
-				reassignOrder(att);
-				reassignOrder(attris);
-				b.data('order', -1);
-				$("#div" + element).find('.badge').html("&nbsp;");
-			}
-			else if(action ==1)
-			{
-				removeItem(attris, element);
-				reassignOrder(attris);
-				b.data('order', att.length);
-				addItem(att, element, att.length);
-			}
-			else if(action ==2)
-			{
-				removeItem(att, element);
-				reassignOrder(att);
-				b.data('order', attris.length);
-				addItem(attris, element, attris.length);
-			}
-			// console.log(att);
-			// console.log(attris);
+			console.log(dif);
+			console.log(difris);
 		break;
 	}
+	// 	$('#divPortieri .giocatorecontainer.titolare').each(function( index ){
+	// 		index++;
+	// 		$(this).data('order', index);
+	// 		$(this).find('.badge').html(index);
+	// 	});
+	// 	$('#divDifensori .giocatorecontainer.titolare').each(function( index ){
+	// 		index++;
+	// 		$(this).data('order', index);
+	// 		$(this).find('.badge').html(index);
+	// 	});
+	// 	$('#divCentrocampisti .giocatorecontainer.titolare').each(function( index ){
+	// 		index++;
+	// 		$(this).data('order', index);
+	// 		$(this).find('.badge').html(index);
+	// 	});
+	// 	$('#divAttaccanti .giocatorecontainer.titolare').each(function( index ){
+	// 		index++;
+	// 		$(this).data('order', index);
+	// 		$(this).find('.badge').html(index);
+	// 	});
+
 	
-	$(por).each(function( index ){
-		var start = 1;
-		$("#div" + this.obj).find('.badge').html(start + this.o);
-	});
-	$(dif).each(function( index ){
-		start = por.length + 1;
-		console.log(start);
-		$("#div" + this.obj).find('.badge').html(start + this.o);
-	});
-	$(cen).each(function( index ){
-		start = por.length + dif.length + 1 ;
-		$("#div" + this.obj).find('.badge').html(start + this.o);
-	});
+	// else if (previous == 1){
 
-	$(att).each(function( index ){
-		start = por.length + dif.length+cen.length + 1;
-		$("#div" + this.obj).find('.badge').html(start + this.o);
-	});
+	// }
+	// else if (previous == 2){
 
-	$(porris).each(function( index ){
-		start = por.length + dif.length+cen.length + att.length + 1;
-		$("#div" + this.obj).find('.badge').html(start + this.o);
-	});
-	$(difris).each(function( index ){
-		start = por.length + dif.length+cen.length + att.length + porris.length + 1;
-		$("#div" + this.obj).find('.badge').html(start + this.o);
-	});
-	$(cenris).each(function( index ){
-		start = por.length + dif.length+cen.length + att.length + porris.length + difris.length + 1;
-		$("#div" + this.obj).find('.badge').html(start + this.o);
-	});
-
-	$(attris).each(function( index ){
-		start = por.length + dif.length+cen.length + att.length + porris.length + difris.length + cenris.length + 1;
-		$("#div" + this.obj).find('.badge').html(start + this.o);
-	});
-	
-	var curModule = dif.length + '-' + cen.length + '-' + att.length;
-	var curReserve  = porris.length + '-' + difris.length + '-' + cenris.length + '-' + attris.length;
-	var numcurReserve = porris.length + difris.length + cenris.length + attris.length;
+	// }
+	var curModule = numDifensoriTit + '-' + numCentrocampistiTit + '-' + numAttaccantiTit;
+	var curReserve  = numPortieriTit + '-' + numDifensoriRis + '-' + numCentrocampistiRis + '-' + numAttaccantiRis;
+	var numcurReserve = numPortieriTit  + numDifensoriRis  + numCentrocampistiRis + numAttaccantiRis;
 	// "ui-state-error ui-corner-all"
 
 	$('#divRiepilogo #modulo').html(curModule);
@@ -383,7 +317,7 @@ selezionaGiocatore = function(){
 	var ris = $('#divRiepilogo #riserve');
 	// console.log(moduli);
 	// console.log($.inArray(curModule, moduli));
-	if(por.length != 1 || $.inArray(curModule, moduli)<0)
+	if($.inArray(curModule, moduli)<0)
 	{
 		if (!tit.hasClass("ui-state-error"))
 		tit.addClass("ui-state-error");

@@ -232,7 +232,7 @@ selezionaGiocatore = function(){
 				reassignOrder(por);
 				reassignOrder(porris);
 				b.data('order', -1);
-				$("#div" + element).find('.badge').html("&nbsp;");
+				$("#div" + element).find('.badge').html("");
 			}
 			else if(action ==1)
 			{
@@ -259,7 +259,7 @@ selezionaGiocatore = function(){
 				reassignOrder(dif);
 				reassignOrder(difris);
 				b.data('order', -1);
-				$("#div" + element).find('.badge').html("&nbsp;");
+				$("#div" + element).find('.badge').html("");
 			}
 			else if(action ==1)
 			{
@@ -286,7 +286,7 @@ selezionaGiocatore = function(){
 				reassignOrder(cen);
 				reassignOrder(cenris);
 				b.data('order', -1);
-				$("#div" + element).find('.badge').html("&nbsp;");
+				$("#div" + element).find('.badge').html("");
 			}
 			else if(action ==1)
 			{
@@ -313,7 +313,7 @@ selezionaGiocatore = function(){
 				reassignOrder(att);
 				reassignOrder(attris);
 				b.data('order', -1);
-				$("#div" + element).find('.badge').html("&nbsp;");
+				$("#div" + element).find('.badge').html("");
 			}
 			else if(action ==1)
 			{
