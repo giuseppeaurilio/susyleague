@@ -67,9 +67,74 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$num_giocatori=$result_formazione->num_rows;
 	$i=0;
 	?>
+	<!-- <h3 class="caption_style" style="text-align: center;">
+		<div style="width:40%; display:inline-block;"><?php echo $sq_casa; ?> </div>
+		<div style="width:10%; display:inline-block;">-</div> 
+		<div style="width:40%; display:inline-block;"><?php echo $sq_ospite; ?></div>
+	</h3> -->
+	<div id="tabellino">
+		<table>
+			<tr>
+				<th style="width:45%"><?php echo $sq_casa; ?></th>
+				<th><?php echo $gol_casa; ?> - <?php echo $gol_ospite; ?></th>
+				<th style="width:45%"><?php echo $sq_ospite; ?></th>
+			</tr>
+			<tr>
+				<td><?php echo $gol_casa; ?> </td>
+				<td>GOL</td>
+				<td><?php echo $gol_ospite; ?> </td>
+			</tr>
+			<tr>
+				<td><?php echo $voto_netto_casa; ?> </td>
+				<td>VOTO NETTO</td>
+				<td><?php echo $voto_netto_ospite; ?> </td>
+			</tr>
+			<tr>
+				<td><?php echo $addizionalecasa; ?> </td>
+				<td>FATTORE CASA</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td><?php echo $media_difesa_avversaria_casa; ?> </td>
+				<td>MEDIA DIFESA</td>
+				<td><?php echo $media_difesa_avversaria_ospite; ?></td>
+			</tr>
+			<tr>
+				<td><?php echo $voto_totale_casa; ?> </td>
+				<td>VOTO TOTALE</td>
+				<td><?php echo $voto_totale_ospite; ?></td>
+			</tr>
+			<tr>
+				<td><?php echo $numero_giocanti_casa; ?> </td>
+				<td># GIOCATORI</td>
+				<td><?php echo $numero_giocanti_ospite; ?></td>
+			</tr>
+		</table>
+		
+		<!-- <div style="width:40%; display:inline-block;">
+			<p> addizionale = <?php echo $addizionalecasa; ?> </p>
+			<p> giocatori con  voto = <?php echo $numero_giocanti_casa; ?> </p>
+			<p> voto netto = <?php echo $voto_netto_casa; ?> </p>
+			<p> media difesa = <?php echo $media_difesa_avversaria_casa; ?> </p>
+			<p> voto totale = <?php echo $voto_totale_casa; ?> </p>
+			<p> gol = <?php echo $gol_casa; ?> </p>
+		</div>
+		<div style="width:10%; display:inline-block;">&nbsp;</div> 
+		<div style="width:40%; display:inline-block;">
+			<p> addizionale = 0 </p>
+			<p> giocatori con  voto = <?php echo $numero_giocanti_ospite; ?> </p>
+			<p> voto netto = <?php echo $voto_netto_ospite; ?> </p>
+			<p> media difesa = <?php echo $media_difesa_avversaria_ospite; ?> </p>
+			<p> voto totale = <?php echo $voto_totale_ospite; ?> </p>
+			<p> gol = <?php echo $gol_ospite; ?> </p>
+		</div> -->
+	</div>
+	
+	
 	 <div class="ui-grid-a">
+		
 		<div class="ui-block-a" style="float:left;">
-			<h3 class="caption_style" style="text-align: center;"><?php echo $sq_casa; ?></h3>
+		<!-- <h3 class="caption_style" style="text-align: center;"><?php echo $sq_casa; ?></h3> -->
 			<table border=1  id="squadra_casa<?php echo $j;?>">
 				<!-- <caption class="caption_style"><?php echo $sq_casa; ?></caption> -->
 				<tr>
@@ -136,13 +201,6 @@ while ($row=$result_giornata->fetch_assoc()) {
 				?>
 	
 			</table>
-
-			<p> addizionale = <?php echo $addizionalecasa; ?> </p>
-			<p> giocatori con  voto = <?php echo $numero_giocanti_casa; ?> </p>
-			<p> voto netto = <?php echo $voto_netto_casa; ?> </p>
-			<p> media difesa = <?php echo $media_difesa_avversaria_casa; ?> </p>
-			<p> voto totale = <?php echo $voto_totale_casa; ?> </p>
-			<p> gol = <?php echo $gol_casa; ?> </p>
 		</div>
 
 	<?php
@@ -153,10 +211,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$num_giocatori=$result_formazione->num_rows;
 	$i=0;
 	?>
-	<!-- <div class="ui-block-middle">&nbsp;</div> -->
+		
 		<div class="ui-block-b" style="float:right;">
-			
-			<h3 class="caption_style" style="text-align: center;"><?php echo $sq_ospite; ?></h3>
+		<!-- <h3 class="caption_style" style="text-align: center;"><?php echo $sq_ospite; ?></h3> -->
 			<table border=1  id="squadra_ospite<?php echo $j;?>">
 				<!-- <caption class="caption_style"><?php echo $sq_ospite; ?></caption> -->
 
@@ -223,12 +280,6 @@ while ($row=$result_giornata->fetch_assoc()) {
 				}#end giocatori ospiti
 				?>
 			</table>
-			<p> addizionale = 0 </p>
-			<p> giocatori con  voto = <?php echo $numero_giocanti_ospite; ?> </p>
-			<p> voto netto = <?php echo $voto_netto_ospite; ?> </p>
-			<p> media difesa = <?php echo $media_difesa_avversaria_ospite; ?> </p>
-			<p> voto totale = <?php echo $voto_totale_ospite; ?> </p>
-			<p> gol = <?php echo $gol_ospite; ?> </p>
 		</div>
 	
 <hr style="display: inline-block;width: 100%;">

@@ -191,8 +191,21 @@ padding: 6px 4px;
 table tr:nth-child(even){
 background-color: #f2f2f2;
 }
-
-
+#tabellino table  th:nth-child(1),
+#tabellino table td:nth-child(1){
+  text-align: right;
+}
+#tabellino table  th{
+ padding:3px 6px;
+ font-size:30px;
+}
+#tabellino table  td:nth-child(2){
+  text-align: center;
+}
+#tabellino table  th:nth-child(3),
+#tabellino table td:nth-child(3){
+  text-align: left;
+}
 table tr:hover {
 background-color: #ddd;
 }
