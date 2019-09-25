@@ -453,10 +453,9 @@ inviaFormazione = function(){
 		url: "query_invio_formazione_beta.php",
 		data: {
                 "action": action,
-                "id_squadra": id_squadra,
-				"id_giornata": id_giornata,
-                "titolari": titolari,
-                "panchina": panchina,
+                "id_squadra": idsquadra1,
+                "titolari": arr1,
+                "panchina": idsquadra2,
                 
             },
 		cache: false,
@@ -475,7 +474,7 @@ inviaFormazione = function(){
                             ]
                     // $( "#dialog" ).dialog('destroy');
                     $( "#dialog" ).prop('title', "Info");
-                    $( "#dialog p" ).html(resp.message);
+                    $( "#dialog p" ).html("Operazione eseguita.");
                     $( "#dialog" ).dialog({modal:true, buttons: buttons});
                     // resp.result => "Login eseguito",
                 }

@@ -415,82 +415,41 @@ selezionaGiocatore = function(){
 
 }
 inviaFormazione = function(){
-	var id_squadra= "<?php echo $_GET['id_squadra']; ?>";
- 	var id_giornata="<?php echo $_GET['id_giornata']; ?>";
 	var titolari = [];
  	var panchina = [];
 	 $('#divPortieri .giocatorecontainer.titolare').each(function( index ){
-		titolari.push({ id: $(this).data('id'), o: parseInt($(this).find('.badge').html()) , r: $(this).data('ruolo')});
+		// por.push(b.data('id'));
+		addItem(titolari, $(this).data('id'), $(this).data('order'))
 	});
-	$('#divDifensori .giocatorecontainer.titolare').each(function( index ){
-		titolari.push({ id: $(this).data('id'), o: parseInt($(this).find('.badge').html()) , r: $(this).data('ruolo')});
-	});
-	$('#divCentrocampisti .giocatorecontainer.titolare').each(function( index ){
-		titolari.push({ id: $(this).data('id'), o: parseInt($(this).find('.badge').html()) , r: $(this).data('ruolo')});
-	});
-	$('#divAttaccanti .giocatorecontainer.titolare').each(function( index ){
-		titolari.push({ id: $(this).data('id'), o: parseInt($(this).find('.badge').html()) , r: $(this).data('ruolo')});
+	$('#divPortieri .giocatorecontainer.riserva').each(function( index ){
+		addItem(panchina, $(this).data('id'), $(this).data('order'))
 	});
 
-	$('#divPortieri .giocatorecontainer.riserva').each(function( index ){
-		panchina.push({ id: $(this).data('id'), o: parseInt($(this).find('.badge').html()) , r: $(this).data('ruolo')});
+	$('#divDifensori .giocatorecontainer.titolare').each(function( index ){
+		// por.push(b.data('id'));
+		addItem(titolari, $(this).data('id'), $(this).data('order'))
 	});
 	$('#divDifensori .giocatorecontainer.riserva').each(function( index ){
-		panchina.push({ id: $(this).data('id'), o: parseInt($(this).find('.badge').html()) , r: $(this).data('ruolo')});
-	});
-	$('#divCentrocampisti .giocatorecontainer.riserva').each(function( index ){
-		panchina.push({ id: $(this).data('id'), o: parseInt($(this).find('.badge').html()) , r: $(this).data('ruolo')});
-	});
-	$('#divAttaccanti .giocatorecontainer.riserva').each(function( index ){
-		panchina.push({ id: $(this).data('id'), o: parseInt($(this).find('.badge').html()) , r: $(this).data('ruolo')});
-	});
-	titolari.sort( compare );
-	panchina.sort( compare );
-	var action ="inviaformazione";
-	$.ajax(
-	{
-		type: "POST",
-		url: "query_invio_formazione_beta.php",
-		data: {
-                "action": action,
-                "id_squadra": id_squadra,
-				"id_giornata": id_giornata,
-                "titolari": titolari,
-                "panchina": panchina,
-                
-            },
-		cache: false,
-		success:function(data){
-                // debugger;
-                var resp=$.parseJSON(data)
-                if(resp.result == "true"){
-                   var  buttons= [
-                                {
-                                text: "Ok",
-                                // icon: "ui-icon-heart",
-                                click: function() {
-                                        window.location.reload();
-                                    }
-                                }
-                            ]
-                    // $( "#dialog" ).dialog('destroy');
-                    $( "#dialog" ).prop('title', "Info");
-                    $( "#dialog p" ).html(resp.message);
-                    $( "#dialog" ).dialog({modal:true, buttons: buttons});
-                    // resp.result => "Login eseguito",
-                }
-                else{
-                    // $( "#dialog" ).dialog('destroy');
-                    $( "#dialog" ).prop('title', "ERROR");                
-                    $( "#dialog p" ).html(resp.error.msg);
-                    $( "#dialog" ).dialog({modal:true});
-                }
-                
-                
-            }
-	//
+		addItem(panchina, $(this).data('id'), $(this).data('order'))
 	});
 
+	$('#divCentrocampisti .giocatorecontainer.titolare').each(function( index ){
+		// por.push(b.data('id'));
+		addItem(titolari, $(this).data('id'), $(this).data('order'))
+	});
+	$('#divCentrocampisti .giocatorecontainer.riserva').each(function( index ){
+		addItem(panchina, $(this).data('id'), $(this).data('order'))
+	});
+
+	$('#divAttaccanti .giocatorecontainer.titolare').each(function( index ){
+		// por.push(b.data('id'));
+		addItem(titolari, $(this).data('id'), $(this).data('order'))
+	});
+	$('#divAttaccanti .giocatorecontainer.riserva').each(function( index ){
+		addItem(panchina, $(this).data('id'), $(this).data('order'))
+	});
+	consolo.log(titolari);
+	consolo.log(panchina);
 }
 
 $(document).ready(function(){

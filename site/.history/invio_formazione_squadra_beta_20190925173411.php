@@ -475,7 +475,7 @@ inviaFormazione = function(){
                             ]
                     // $( "#dialog" ).dialog('destroy');
                     $( "#dialog" ).prop('title', "Info");
-                    $( "#dialog p" ).html(resp.message);
+                    $( "#dialog p" ).html("Operazione eseguita.");
                     $( "#dialog" ).dialog({modal:true, buttons: buttons});
                     // resp.result => "Login eseguito",
                 }

@@ -415,8 +415,6 @@ selezionaGiocatore = function(){
 
 }
 inviaFormazione = function(){
-	var id_squadra= "<?php echo $_GET['id_squadra']; ?>";
- 	var id_giornata="<?php echo $_GET['id_giornata']; ?>";
 	var titolari = [];
  	var panchina = [];
 	 $('#divPortieri .giocatorecontainer.titolare').each(function( index ){
@@ -446,51 +444,8 @@ inviaFormazione = function(){
 	});
 	titolari.sort( compare );
 	panchina.sort( compare );
-	var action ="inviaformazione";
-	$.ajax(
-	{
-		type: "POST",
-		url: "query_invio_formazione_beta.php",
-		data: {
-                "action": action,
-                "id_squadra": id_squadra,
-				"id_giornata": id_giornata,
-                "titolari": titolari,
-                "panchina": panchina,
-                
-            },
-		cache: false,
-		success:function(data){
-                // debugger;
-                var resp=$.parseJSON(data)
-                if(resp.result == "true"){
-                   var  buttons= [
-                                {
-                                text: "Ok",
-                                // icon: "ui-icon-heart",
-                                click: function() {
-                                        window.location.reload();
-                                    }
-                                }
-                            ]
-                    // $( "#dialog" ).dialog('destroy');
-                    $( "#dialog" ).prop('title', "Info");
-                    $( "#dialog p" ).html(resp.message);
-                    $( "#dialog" ).dialog({modal:true, buttons: buttons});
-                    // resp.result => "Login eseguito",
-                }
-                else{
-                    // $( "#dialog" ).dialog('destroy');
-                    $( "#dialog" ).prop('title', "ERROR");                
-                    $( "#dialog p" ).html(resp.error.msg);
-                    $( "#dialog" ).dialog({modal:true});
-                }
-                
-                
-            }
-	//
-	});
-
+	console.log(titolari);
+	console.log(panchina);
 }
 
 $(document).ready(function(){
