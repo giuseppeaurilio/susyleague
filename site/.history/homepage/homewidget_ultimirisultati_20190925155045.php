@@ -141,25 +141,24 @@
                 }
             echo '</div>';
             echo '<div class="footer">';
-            // switch ($girone)
-            // {
-            //     case 1:
-            //     case 2:
-            //     case 6:
-            //         echo '<a href="/display_calendario.php?id_girone='.$girone.'">Consulta il calendario.</a>';    
-            //     break;
-            //     case 4:
-            //         echo '<a href="/display_calendario_coppaitalia_gironi.php">Consulta il calendario.</a>';    
-            //     break;
-            //     case 5:
-            //         echo '<a href="/display_calendario_coppaitalia_tabellone.php">Consulta il calendario.</a>';    
-            //     break;
-            //     case 7:
-            //     case 8:
-            //         echo '<a href="/display_calendario_finali.php">Consulta il calendario.</a>';    
-            //     break;
-            // }
-            echo '<a href="/display_classifiche.php">Classifiche.</a>';  
+            switch ($girone)
+            {
+                case 1:
+                case 2:
+                case 6:
+                    echo '<a href="/display_calendario.php?id_girone='.$girone.'">Consulta il calendario.</a>';    
+                break;
+                case 4:
+                    echo '<a href="/display_calendario_coppaitalia_gironi.php">Consulta il calendario.</a>';    
+                break;
+                case 5:
+                    echo '<a href="/display_calendario_coppaitalia_tabellone.php">Consulta il calendario.</a>';    
+                break;
+                case 7:
+                case 8:
+                    echo '<a href="/display_calendario_finali.php">Consulta il calendario.</a>';    
+                break;
+            }
             echo '</div>';
             
         }   

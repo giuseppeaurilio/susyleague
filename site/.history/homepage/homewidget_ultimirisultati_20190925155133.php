@@ -159,7 +159,7 @@
             //         echo '<a href="/display_calendario_finali.php">Consulta il calendario.</a>';    
             //     break;
             // }
-            echo '<a href="/display_classifiche.php">Classifiche.</a>';  
+            
             echo '</div>';
             
         }   

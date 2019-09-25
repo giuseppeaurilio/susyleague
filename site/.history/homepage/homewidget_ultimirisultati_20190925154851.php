@@ -159,7 +159,8 @@
             //         echo '<a href="/display_calendario_finali.php">Consulta il calendario.</a>';    
             //     break;
             // }
-            echo '<a href="/display_classifiche.php">Classifiche.</a>';  
+            echo '<a href="//display_classifiche.php">Classifiche.</a>';    
+            
             echo '</div>';
             
         }   
@@ -169,7 +170,7 @@
     if($counter ==0)
     {
         echo "<div>Non sono state giocate partite recentemente.</div>";
-        // echo '<div class="footer"><a href="/display_calendario.php?id_girone=1">Consulta il calendario.</a></div>';    
+        echo '<h4><a style="text-decoration: none;color: white;" href="/display_giornata.php?&id_giornata='.$id.'">Formazioni <i class="fas fa-list-ol" aria-hidden="true"></i></a></h4>';
     }
     
     echo '<hr>';
