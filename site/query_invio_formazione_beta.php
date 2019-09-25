@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			try{
 				$id_squadra=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_squadra']);//mysql_escape_String($_POST['id_squadra']);
 				$id_giornata=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_giornata']);//mysql_escape_String($_POST['id_giornata']);
-				$titolari=$_POST['titolari'];//mysql_escape_String($_POST['titolari']);
-				$panchina= $_POST['panchina'];//mysql_escape_String($_POST['panchina']);
+				$titolari=(!empty($_POST['titolari']))? $_POST['titolari'] : array();
+				$panchina=(!empty($_POST['panchina']))? $_POST['panchina'] : array();
 
 				date_default_timezone_set('Europe/Rome');
 				$adesso = date('Y-m-d H:i:s');
@@ -36,37 +36,91 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$result=$conn->query($query);
 				if ($result->num_rows == 0){
 					throw new Exception("E' troppo tardi per inviare la formazione");
-					
 				}
 				if ($id_squadra!=$id_squadra_logged){ 
 					throw new Exception("Non si è autenticati per inviare la formazione");
 				}
-				if (count($titolari)!=11 || count($titolari)!=8){
+				if (count($titolari)!=11 || count($panchina)!=8){
 					throw new Exception("La formazione deve includere necessariamente 11 titolari e 8 riserve");
 				}
 						
-						
+				$formazione=array_merge ($titolari, $panchina);		
+				
 				$message = "";
 
+				
+				$giocatoriformazione = array();
+				foreach ($formazione as $value) 
+				{
+					$queryformazione = "SELECT a.*, b.squadra_breve 
+										from giocatori as a 
+										inner join squadre_serie_a as b on  a.id_squadra=b.id 
+										where  a.id = " .$value["id"] ;
+					// echo $queryformazione;
+					$result_giocatoriformazione=$conn->query($queryformazione);
+					$row=$result_giocatoriformazione->fetch_assoc();
+					// print_r($row);
+					array_push($giocatoriformazione, array(
+							"id"=>$row["id"],
+							"id_squadra"=>$row["id_squadra"],
+							"nome"=>$row["nome"],
+							"ruolo"=>$row["ruolo"],
+							"squadra_breve"=>$row["squadra_breve"]
+						)
+					);
+				}
+				// print_r($giocatoriformazione);
+				
 				//se salvo la formazione 
 				
-				$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n". "TITOLARI \n\n";
-				foreach ($giocatori as $value) 
+				$query = "";
+				$index =0;
+				foreach ($giocatoriformazione as $value) 
 				{
-					$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) VALUES (" . $id_giornata .",". $id_squadra . "," ;
-					$query=$query_ini . $i . ",'" .$value . "','" . $id_squadra_sa . "')" ;
-					$result=$conn->query($query);	
+					$index++;
+					// print_r($value);
+					$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
+					VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
+					 $query .=$query_ini;
 				}
+				//  echo $query;
+				$resultmq=$conn->multi_query($query);
+				// $resultmq->close();
+				while(mysqli_next_result($conn)){;}
+				// print_r($result);
 				$message .= "Formazione inviata\n";
 
+				$query="SELECT * FROM sq_fantacalcio where id=$id_squadra";
+				$result=$conn->query($query);
+				$row=$result->fetch_assoc();
+				$allenatore_nome = $row["allenatore"];
+				$squadrafc_nome = $row["squadra"];
+				$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n". "TITOLARI \n\n";
 				//se invio il messaggio telegram 
+				$index =0;
+				foreach ($giocatoriformazione as $value) 
+				{
+					$index++;
+					$text .= $index . '.'. $value["nome"].'('.$value["squadra_breve"].')' ;
+					if ($index!=11){
+						$text .= "\n";
+						}
+	
+					if ($index==11) {
+	
+						$text .= "\n\n" ."A DISPOSIZIONE \n\n";
+					}
+				}
+				// print_r($text);
+				$a=send_message_post($text);
 				$message .= "Messaggio telegram inviato \n";
 
 
 				$queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`=0 WHERE id=' . $id_squadra;
-				$result  = $conn->query($queryupdate) or die($conn->error);	
-
-				$message .= $adesso ;
+				$resultac  = $conn->query($queryupdate) or die($conn->error);	
+				// $result->close();
+				// $conn->next_result();
+				$message .= date('d/m H:i:s', strtotime($adesso))  ;
 				echo json_encode(array(
 					'result' => "true",
 					'message' => $message

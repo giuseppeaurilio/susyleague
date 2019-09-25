@@ -416,7 +416,7 @@ selezionaGiocatore = function(){
 }
 inviaFormazione = function(){
 	var id_squadra= "<?php echo $_GET['id_squadra']; ?>";
- 	var id_giornata="<?php echo $_GET['id_giornata']; ?>";
+ 	var id_giornata= "<?php echo $_GET['id_giornata']; ?>";
 	var titolari = [];
  	var panchina = [];
 	 $('#divPortieri .giocatorecontainer.titolare').each(function( index ){
@@ -482,7 +482,7 @@ inviaFormazione = function(){
                 else{
                     // $( "#dialog" ).dialog('destroy');
                     $( "#dialog" ).prop('title', "ERROR");                
-                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog p" ).html(resp.error.message);
                     $( "#dialog" ).dialog({modal:true});
                 }
                 
@@ -508,12 +508,12 @@ $(document).ready(function(){
 		console.log(giocatori);
 		for( index = 0; index< 11; index++)
 			{
-				$("#btn_" + giocatori[index].split('_')[1]).trigger('click');
+				$("#div" + giocatori[index].split('_')[1]).trigger('click');
 			}
 		for( index = 11; index< 19; index++)
 			{
-				$("#btn_" + giocatori[index].split('_')[1]).trigger('click');
-				$("#btn_" + giocatori[index].split('_')[1]).trigger('click');
+				$("#div" + giocatori[index].split('_')[1]).trigger('click');
+				$("#div" + giocatori[index].split('_')[1]).trigger('click');
 			}
 	}
 });
