@@ -197,8 +197,9 @@ background-color: #f2f2f2;
 }
 #tabellino table  th{
  padding:3px 6px;
- font-size:30px;
+ font-size: 30px;
 }
+
 #tabellino table  td:nth-child(2){
   text-align: center;
 }
@@ -362,6 +363,10 @@ li.game{
   { width:65%}
   .loginsection
   { width:30%}
+  #tabellino table  th:nth-child(1),
+  #tabellino table  th:nth-child(3){
+    font-size: 6vw;
+ }
 }
 
 .rotate {
