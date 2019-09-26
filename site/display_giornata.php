@@ -79,32 +79,32 @@ while ($row=$result_giornata->fetch_assoc()) {
 				<th><?php echo $gol_casa; ?> - <?php echo $gol_ospite; ?></th>
 				<th style="width:45%"><?php echo $sq_ospite; ?></th>
 			</tr>
-			<tr>
+			<tr style=" <?php echo ($gol_casa != "" && $gol_ospite != "") ? "": "display:none" ?>">
 				<td><?php echo $gol_casa; ?> </td>
 				<td>GOL</td>
 				<td><?php echo $gol_ospite; ?> </td>
 			</tr>
-			<tr>
+			<tr style=" <?php echo ($gol_casa != "" && $gol_ospite != "") ? "": "display:none" ?>">
 				<td><?php echo $voto_netto_casa; ?> </td>
 				<td>VOTO NETTO</td>
 				<td><?php echo $voto_netto_ospite; ?> </td>
 			</tr>
-			<tr>
+			<tr style=" <?php echo ($gol_casa != "" && $gol_ospite != "") ? "": "display:none" ?>">
 				<td><?php echo $addizionalecasa; ?> </td>
 				<td>FATTORE CASA</td>
 				<td>&nbsp;</td>
 			</tr>
-			<tr>
+			<tr style=" <?php echo ($gol_casa != "" && $gol_ospite != "") ? "": "display:none" ?>">
 				<td><?php echo $media_difesa_avversaria_casa; ?> </td>
 				<td>MEDIA DIFESA</td>
 				<td><?php echo $media_difesa_avversaria_ospite; ?></td>
 			</tr>
-			<tr>
+			<tr style=" <?php echo ($gol_casa != "" && $gol_ospite != "") ? "": "display:none" ?>">
 				<td><?php echo $voto_totale_casa; ?> </td>
 				<td>VOTO TOTALE</td>
 				<td><?php echo $voto_totale_ospite; ?></td>
 			</tr>
-			<tr>
+			<tr style=" <?php echo ($gol_casa != "" && $gol_ospite != "") ? "": "display:none" ?>">
 				<td><?php echo $numero_giocanti_casa; ?> </td>
 				<td># GIOCATORI</td>
 				<td><?php echo $numero_giocanti_ospite; ?></td>
