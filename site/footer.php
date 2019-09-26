@@ -24,7 +24,7 @@
 if(isset($conn))
 {$conn->close();}
 if(isset($con))
-// {$con->close();}
+{$con->close();}
 
 ?>
 
