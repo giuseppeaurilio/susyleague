@@ -533,7 +533,12 @@ $allenatore=$row["allenatore"];
 ?>
 
 <h2><?php echo $squadra . "(" .$allenatore .")";?> - Invio formazione</h2>
-
+<div>
+	<p> Vuoi tornare alla vecchia pagina di invio formazione? </p>
+	<a href="<?php echo "invio_formazione_squadra
+	.php?&id_giornata=" . $id_giornata ."&id_squadra=".$id_squadra ; ?>"><?php echo "Clicca qui" ?></a>
+</div>
+<hr>
 <div id="divAmministrazioneControllata">
 <?php
 $queryselect = "select ammcontrollata from sq_fantacalcio where id=" . $id_squadra;
@@ -794,9 +799,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 	</div> -->
 </div>
 <div>
-	<p> Vuoi tornare alla vecchia pagina di invio formazione? </p>
-	<a href="<?php echo "invio_formazione_squadra
-	.php?&id_giornata=" . $id_giornata ."&id_squadra=".$id_squadra ; ?>"><?php echo "Clicca qui" ?></a>
+	
 
 	<p> Le formazioni inviate dagli allenatori possono essere consultate nella sezione CALENDARIO facendo click sul nome della giornata </p>
 	<a href="<?php echo "display_giornata.php?&id_giornata=" . $id_giornata ; ?>"><?php echo "Formazioni Giornata " . $id_giornata ?></a>
