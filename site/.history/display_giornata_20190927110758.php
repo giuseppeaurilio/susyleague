@@ -148,32 +148,46 @@ while ($row=$result_giornata->fetch_assoc()) {
 				while ($row=$result_formazione->fetch_assoc()) {
 						$ruolo_giocatore=$row["ruolo"];
 					?>
-				
-					<tr id=row_<?php  echo $id_casa  . "_" . ($i+1);?> style="background-color: <?php 
-					switch ($ruolo_giocatore) {
+					<tr id=row_<?php  echo $id_casa  . "_" . ($i+1);?> style="background-color: <?php switch ($ruolo_giocatore) {
 						case "P":
 							echo "rgba(102, 204, 51, 1);";
+							// if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+							// 	echo "rgba(102, 204, 51, 1)";
+							// else 
+							// 	echo "rgba(102, 204, 51, 0.5)";
 							break;
 						case "D":
 							echo "rgba(51, 204, 204, 1);";
+							// if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+							// 	echo "rgba(51, 204, 204, 1)";
+							// else
+							// 	echo "rgba(51, 204, 204, 0.5)";
 							break;
 						case "C":
 							echo "rgba(255, 239, 0, 1);";
+							// if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+							// 	echo "rgba(255, 239, 0, 1)";
+							// else
+							// 	echo "rgba(255, 239, 0, 0.5)";
 							break;
-						case "A":
-							echo "rgba(232, 0, 0, 1);";
+						 case "A":
+						 	echo "rgba(232, 0, 0, 1);";
+						 	// if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+							// 	echo "rgba(232, 0, 0, 1)";
+							// else
+							// 	echo "rgba(232, 0, 0, 0.5)";
 							break;
 						default:
 							echo "#FFFFFF;";
 							break;
 						}
-					$disable = false;
-					if(($gol_casa != "" && $gol_ospite != "") && (($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1)))
-						$disable = false;
-					else if (($gol_casa == "" && $gol_ospite == "") && ($i<11))
-						$disable = false;
-					else
-						$disable = true;
+						// if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+						if(($gol_casa != "" && $gol_ospite != "") && (($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1)))
+							echo "opacity: 1;";
+						else if (($gol_casa == "" && $gol_ospite == "") && ($i>=11))
+							echo "opacity: 0.5;";
+						else
+							echo "opacity: 0.5;";
 					?>">
 						<?php
 							// echo $nome_giocatore;
@@ -181,14 +195,15 @@ while ($row=$result_giornata->fetch_assoc()) {
 							// echo $nome_giocatore_pulito;
 							$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 						?>
-						<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate'> Titolari</div></td>";  } ?>
-						<?php if ($i==11) {echo "<td rowspan='8' style='background-color: rgba(51,102,255,0.4);'><div class='rotate' > Riserve </div></td>";  } ?>	
-						<td style="padding:0; width:3%" class="<?php echo ($disable)? "disable": "" ?>"><?php echo '<img  onerror="imgError(this);" style="width:20px; height:27px;" src='.$filename.'>';?></td>
-						<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
-						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
-						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
-						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
-						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
+						<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate'style='width: auto;'> Titolari</div></td>";  } ?>
+						<?php if ($i==11) {echo "<td rowspan='8' style='background-color: rgba(51,102,255,0.2);'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>	
+						<td style="padding:0; width:3%"><?php echo '<img  onerror="imgError(this);" style="width:20px; height:27px;" src='.$filename.'>';?></td>
+						<td ><div class="truncate"><?php echo $row["nome"]; ?></div></td>
+						<td><?php echo $row["squadra_breve"]; ?></td>
+						<td><?php echo $row["ruolo"]; ?></td>
+						<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
+						<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
+						
 					</tr>
 					<?php
 					++$i;
@@ -221,31 +236,34 @@ while ($row=$result_giornata->fetch_assoc()) {
 				while ($row=$result_formazione->fetch_assoc()) {
 					$ruolo_giocatore=$row["ruolo"];
 				?>
-					<tr id=row_<?php  echo $id_ospite  . "_" . ($i+1);?> style="background-color: <?php 
-					switch ($ruolo_giocatore) {
-						case "P":
-							echo "rgba(102, 204, 51, 1);";
-							break;
-						case "D":
-							echo "rgba(51, 204, 204, 1);";
-							break;
-						case "C":
-							echo "rgba(255, 239, 0, 1);";
-							break;
-						case "A":
-							echo "rgba(232, 0, 0, 1);";
-							break;
-						default:
-							echo "#FFFFFF;";
-							break;
-						}
-					$disable = false;
-					if(($gol_casa != "" && $gol_ospite != "") && (($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1)))
-						$disable = false;
-					else if (($gol_casa == "" && $gol_ospite == "") && ($i<11))
-						$disable = false;
+					<tr id=row_<?php  echo $id_ospite  . "_" . ($i+1);?> style="background-color: <?php switch ($ruolo_giocatore) {
+				case "P":
+					if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+						echo "rgba(102, 204, 51, 1)";
 					else
-						$disable = true;
+						echo "rgba(102, 204, 51, 0.5)";
+					break;
+				case "D":
+					if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+						echo "rgba(51, 204, 204, 1)";
+					else
+						echo "rgba(51, 204, 204, 0.5)";
+					break;
+				case "C":
+					if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+						echo "rgba(255, 239, 0, 1)";
+					else
+						echo "rgba(255, 239, 0, 0.5)";
+					break;
+				 case "A":
+				 	if(($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1))
+						echo "rgba(232, 0, 0, 1)";
+					else
+						echo "rgba(232, 0, 0, 0.5)";
+					break;
+				default:
+					echo "#FFFFFF";
+				}
 				?>">
 				<?php
 						// echo $nome_giocatore;
@@ -254,14 +272,14 @@ while ($row=$result_giornata->fetch_assoc()) {
 						$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 				?>
 				
-					<td style="padding:0; width:3%" class="<?php echo ($disable)? "disable": "" ?>"><?php echo '<img  onerror="imgError(this);" style="width:20px; height:27px;" src='.$filename.'>';?></td>
-					<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
-					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
-					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
-					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
-					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
-					<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate2'> Titolari</div></td>";  } ?>
-					<?php if ($i==11) {echo "<td rowspan='8' style='background-color: rgba(51,102,255,0.4);'><div class='rotate2'> Riserve </div></td>";  } ?>
+					<td style="padding:0; width:3%"><?php echo '<img  onerror="imgError(this);" style="width:20px; height:27px;" src='.$filename.'>';?></td>
+					<td ><div class="truncate"><?php echo $row["nome"]; ?></div></td>
+					<td><?php echo $row["squadra_breve"]; ?></td>
+					<td><?php echo $row["ruolo"]; ?></td>
+					<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
+					<td><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
+					<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate2'style='width: auto;'> Titolari</div></td>";  } ?>
+					<?php if ($i==11) {echo "<td rowspan='8' style='background-color: rgba(51,102,255,0.2);'><div class='rotate2' style='width: auto;'> Riserve </div></td>";  } ?>
 				</tr>
 					<?php
 					++$i;

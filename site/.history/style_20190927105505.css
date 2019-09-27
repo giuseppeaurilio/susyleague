@@ -383,7 +383,6 @@ li.game{
 	/* Internet Explorer */
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   width: 10px;
-  margin: 0 7px;
 }
 
 .rotate2 {
@@ -400,12 +399,6 @@ li.game{
 	/* Internet Explorer */
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   width: 10px;
-  margin: 0 7px;
-}
-
-.disable
-{
-  opacity: 0.5; 
 }
 .tabellonecoppa
 {
