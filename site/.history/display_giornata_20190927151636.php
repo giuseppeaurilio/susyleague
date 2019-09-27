@@ -193,10 +193,10 @@ while ($row=$result_giornata->fetch_assoc()) {
 			
 			<table  id="squadra_casa_mobile<?php echo $j;?>" class="mobile">
 				<!-- <caption class="caption_style"><?php echo $sq_casa; ?></caption> -->
-				<!-- <tr> 
+				<tr> 
 					<th >Giocatore</th>
 					<th width="15%">VOTO</th> 
-				</tr> -->
+				</tr>
 				<?php
 				$i=0;
 				foreach ($giocatoricasa as $row){	
@@ -242,7 +242,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 						?>
 						</div>
 					</td>
-					<td class="<?php echo ($disable)? "disable": "" ?>" style="width:10%">
+					<td class="<?php echo ($disable)? "disable": "" ?>">
 						<?php 
 							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : ""); 
 						?>
@@ -341,10 +341,10 @@ while ($row=$result_giornata->fetch_assoc()) {
 			<table  id="squadra_ospite_mobile<?php echo $j;?>" class="mobile">
 				<!-- <caption class="caption_style"><?php echo $sq_ospite; ?></caption> -->
 				
-				<!-- <tr> 
+				<tr> 
 					<th >Giocatore</th>
 					<th width="15%">VOTO</th> 
-				</tr> -->
+				</tr>
 
 				<?php
 				$i=0;
@@ -383,14 +383,14 @@ while ($row=$result_giornata->fetch_assoc()) {
 						// echo $nome_giocatore_pulito;
 						$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 				?>
-					<td class="<?php echo ($disable)? "disable": "" ?>" >
+					<td class="<?php echo ($disable)? "disable": "" ?>">
 						<div class="truncate">
 						<?php 
 							echo $row["nome"] .'('.$row["squadra_breve"] .")"
 						?>
 						</div>
 					</td>
-					<td class="<?php echo ($disable)? "disable": "" ?>" style="width:10%"> 
+					<td class="<?php echo ($disable)? "disable": "" ?>">
 						<?php 
 							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : ""); 
 						?>

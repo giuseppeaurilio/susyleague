@@ -374,6 +374,7 @@ li.game{
     /* max-width: 120px; */
     /* max-width: 6em; */
     overflow: hidden;
+    white-space:nowrap
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

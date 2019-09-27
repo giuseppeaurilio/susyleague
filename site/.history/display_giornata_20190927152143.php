@@ -235,14 +235,14 @@ while ($row=$result_giornata->fetch_assoc()) {
 							// echo $nome_giocatore_pulito;
 							$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 						?>
-						<td class="<?php echo ($disable)? "disable": "" ?>">
+						<td class="<?php echo ($disable)? "disable": "" ?>" style="width:85%">
 						<div class="truncate">
 						<?php 
 							echo $row["nome"] .'('.$row["squadra_breve"] .")"
 						?>
 						</div>
 					</td>
-					<td class="<?php echo ($disable)? "disable": "" ?>" style="width:10%">
+					<td class="<?php echo ($disable)? "disable": "" ?>" style="width:15%">
 						<?php 
 							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : ""); 
 						?>
@@ -383,14 +383,14 @@ while ($row=$result_giornata->fetch_assoc()) {
 						// echo $nome_giocatore_pulito;
 						$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 				?>
-					<td class="<?php echo ($disable)? "disable": "" ?>" >
+					<td class="<?php echo ($disable)? "disable": "" ?>" style="width:80%">
 						<div class="truncate">
 						<?php 
 							echo $row["nome"] .'('.$row["squadra_breve"] .")"
 						?>
 						</div>
 					</td>
-					<td class="<?php echo ($disable)? "disable": "" ?>" style="width:10%"> 
+					<td class="<?php echo ($disable)? "disable": "" ?>" style="width:20%"> 
 						<?php 
 							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : ""); 
 						?>
