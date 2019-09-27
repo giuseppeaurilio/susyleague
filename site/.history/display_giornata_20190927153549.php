@@ -83,7 +83,6 @@ while ($row=$result_giornata->fetch_assoc()) {
 		<div style="width:10%; display:inline-block;">-</div> 
 		<div style="width:40%; display:inline-block;"><?php echo $sq_ospite; ?></div>
 	</h3> -->
-	<?php $ritultatocalcolato = ($gol_casa != "" && $gol_ospite != "") ? true: false ?>
 	<div id="tabellino">
 		<table>
 			<tr>
@@ -91,32 +90,32 @@ while ($row=$result_giornata->fetch_assoc()) {
 				<th><?php echo $gol_casa; ?> - <?php echo $gol_ospite; ?></th>
 				<th style="width:35%"><?php echo $sq_ospite; ?></th>
 			</tr>
-			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
+			<tr style=" <?php echo ($gol_casa != "" && $gol_ospite != "") ? "": "display:none" ?>">
 				<td><?php echo $gol_casa; ?> </td>
 				<td>GOL</td>
 				<td><?php echo $gol_ospite; ?> </td>
 			</tr>
-			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
+			<tr style=" <?php echo ($gol_casa != "" && $gol_ospite != "") ? "": "display:none" ?>">
 				<td><?php echo $voto_netto_casa; ?> </td>
 				<td>VOTO NETTO</td>
 				<td><?php echo $voto_netto_ospite; ?> </td>
 			</tr>
-			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
+			<tr style=" <?php echo ($gol_casa != "" && $gol_ospite != "") ? "": "display:none" ?>">
 				<td><?php echo $addizionalecasa; ?> </td>
 				<td>FATTORE CASA</td>
 				<td>&nbsp;</td>
 			</tr>
-			<tr style=" <?php echo ($ritultatocalcolato)? "": "display:none" ?>">
+			<tr style=" <?php echo ($gol_casa != "" && $gol_ospite != "") ? "": "display:none" ?>">
 				<td><?php echo $media_difesa_avversaria_casa; ?> </td>
 				<td>MEDIA DIFESA</td>
 				<td><?php echo $media_difesa_avversaria_ospite; ?></td>
 			</tr>
-			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
+			<tr style=" <?php echo ($gol_casa != "" && $gol_ospite != "") ? "": "display:none" ?>">
 				<td><?php echo $voto_totale_casa; ?> </td>
 				<td>VOTO TOTALE</td>
 				<td><?php echo $voto_totale_ospite; ?></td>
 			</tr>
-			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
+			<tr style=" <?php echo ($gol_casa != "" && $gol_ospite != "") ? "": "display:none" ?>">
 				<td><?php echo $numero_giocanti_casa; ?> </td>
 				<td># GIOCATORI</td>
 				<td><?php echo $numero_giocanti_ospite; ?></td>
@@ -182,8 +181,8 @@ while ($row=$result_giornata->fetch_assoc()) {
 						<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
 						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
 						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
-						<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
-						<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
+						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
+						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
 					</tr>
 					<?php
 					++$i;
@@ -236,23 +235,14 @@ while ($row=$result_giornata->fetch_assoc()) {
 							// echo $nome_giocatore_pulito;
 							$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 						?>
-						<td >
-					<?php 
-							// echo  ($row["sostituzione"] == 1  ? '<i class="fas fa-arrow-left" style="color:springgreen"></i>' : ""); 
-					?>	
-						<div class="<?php echo ($disable)? "disable": "" ?>">
-							<div class="<?php echo ($ritultatocalcolato) ? "truncate": "" ?> ">
-							<?php 
-								echo $row["nome"] .'('.$row["squadra_breve"] .")"
-							?>
-							</div>
-					</div>
-
-					<?php 
-							// echo ($row["voto"] == "" &&  $i < 11 ? '<i class="fas fa-arrow-right" style="color:red"></i>' : ""); 
-					?>
+						<td class="<?php echo ($disable)? "disable": "" ?>">
+						<div class="truncate">
+						<?php 
+							echo $row["nome"] .'('.$row["squadra_breve"] .")"
+						?>
+						</div>
 					</td>
-					<td style="width:10%"> 
+					<td class="<?php echo ($disable)? "disable": "" ?>" style="width:10%">
 						<?php 
 							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : ""); 
 						?>
@@ -337,8 +327,8 @@ while ($row=$result_giornata->fetch_assoc()) {
 					<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
 					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
 					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
-					<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
-					<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
+					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
+					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
 					<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate2'> Titolari</div></td>";  } ?>
 					<?php if ($i==11) {echo "<td rowspan='8' style='background-color: rgba(51,102,255,0.4);'><div class='rotate2'> Riserve </div></td>";  } ?>
 				</tr>
@@ -393,23 +383,14 @@ while ($row=$result_giornata->fetch_assoc()) {
 						// echo $nome_giocatore_pulito;
 						$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 				?>
-					<td >
-					<?php 
-							// echo  ($row["sostituzione"] == 1  ? '<i class="fas fa-arrow-left" style="color:springgreen"></i>' : ""); 
-					?>	
-						<div class="<?php echo ($disable)? "disable": "" ?>">
-							<div class="<?php echo ($ritultatocalcolato) ? "truncate": "" ?> ">
-							<?php 
-								echo $row["nome"] .'('.$row["squadra_breve"] .")"
-							?>
-							</div>
-					</div>
-
-					<?php 
-							// echo ($row["voto"] == "" &&  $i < 11 ? '<i class="fas fa-arrow-right" style="color:red"></i>' : ""); 
-					?>
+					<td class="<?php echo ($disable)? "disable": "" ?>" >
+						<div class="truncate">
+						<?php 
+							echo $row["nome"] .'('.$row["squadra_breve"] .")"
+						?>
+						</div>
 					</td>
-					<td style="width:10%"> 
+					<td class="<?php echo ($disable)? "disable": "" ?>" style="width:10%"> 
 						<?php 
 							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : ""); 
 						?>

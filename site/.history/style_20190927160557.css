@@ -429,6 +429,8 @@ li.game{
 .disable
 {
   opacity: 0.5; 
+  display: inline-block;
+
 }
 .tabellonecoppa
 {
