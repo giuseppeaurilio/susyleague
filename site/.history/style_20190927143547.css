@@ -353,26 +353,25 @@ li.game{
   /* display: none; —- remove the menu, perhaps */
   }
 
-  .ui-grid-a .ui-block-a .mobile, 
+  /* .ui-grid-a .ui-block-a .mobile, 
   .ui-grid-a .ui-block-b .mobile{
     display:none;
-  }
+  } */
 @media screen and (max-width: 720px) {
   .ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b {
-    width: 50%; 
+     width: 50%; 
     font-size: 1em;
   }  
-  .ui-grid-a .ui-block-a .desktop, 
+  /* .ui-grid-a .ui-block-a .desktop, 
   .ui-grid-a .ui-block-b .desktop{
     display:none;
-  }
-  .ui-grid-a .ui-block-a .mobile, 
+  } */
+  /* .ui-grid-a .ui-block-a .mobile, 
   .ui-grid-a .ui-block-b .mobile{
     display:block;
-  }
+  } */
   .truncate {
-    /* max-width: 120px; */
-    max-width: 6em;
+    max-width: 120px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -387,8 +386,8 @@ li.game{
  }
  #tabellino table td
  {
-   padding: 0 5px;
-   font-size: 15px;
+   padding: 0 6px;
+   font-size: 17px;
  }
 }
 

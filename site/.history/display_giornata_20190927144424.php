@@ -64,19 +64,8 @@ while ($row=$result_giornata->fetch_assoc()) {
 	and a.id_squadra_sa=c.id ";
 	//echo "<br> query formazione casa= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
-	$giocatoricasa = array();
-	while ($row=$result_formazione->fetch_assoc()) {
-		array_push($giocatoricasa, array(
-			"nome"=> $row["nome"],
-			"squadra_breve"=>$row["squadra_breve"],
-			"ruolo"=>$row["ruolo"],
-			"voto"=>$row["voto"],
-			"voto_md"=>$row["voto_md"],
-			"sostituzione"=>$row["sostituzione"]
-			)
-		);
-	}
 	
+	$i=0;
 	?>
 	<!-- <h3 class="caption_style" style="text-align: center;">
 		<div style="width:40%; display:inline-block;"><?php echo $sq_casa; ?> </div>
@@ -121,6 +110,24 @@ while ($row=$result_giornata->fetch_assoc()) {
 				<td><?php echo $numero_giocanti_ospite; ?></td>
 			</tr>
 		</table>
+		
+		<!-- <div style="width:40%; display:inline-block;">
+			<p> addizionale = <?php echo $addizionalecasa; ?> </p>
+			<p> giocatori con  voto = <?php echo $numero_giocanti_casa; ?> </p>
+			<p> voto netto = <?php echo $voto_netto_casa; ?> </p>
+			<p> media difesa = <?php echo $media_difesa_avversaria_casa; ?> </p>
+			<p> voto totale = <?php echo $voto_totale_casa; ?> </p>
+			<p> gol = <?php echo $gol_casa; ?> </p>
+		</div>
+		<div style="width:10%; display:inline-block;">&nbsp;</div> 
+		<div style="width:40%; display:inline-block;">
+			<p> addizionale = 0 </p>
+			<p> giocatori con  voto = <?php echo $numero_giocanti_ospite; ?> </p>
+			<p> voto netto = <?php echo $voto_netto_ospite; ?> </p>
+			<p> media difesa = <?php echo $media_difesa_avversaria_ospite; ?> </p>
+			<p> voto totale = <?php echo $voto_totale_ospite; ?> </p>
+			<p> gol = <?php echo $gol_ospite; ?> </p>
+		</div> -->
 	</div>
 	
 	
@@ -128,7 +135,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 		
 		<div class="ui-block-a" style="float:left;">
 		<!-- <h3 class="caption_style" style="text-align: center;"><?php echo $sq_casa; ?></h3> -->
-			<table  id="squadra_casa_desk<?php echo $j;?>" class="desktop">
+			<table border=1  id="squadra_casa_desk<?php echo $j;?>" class="desktop">
 				<!-- <caption class="caption_style"><?php echo $sq_casa; ?></caption> -->
 				<tr>
 					<th width="3%">CAS</th>
@@ -138,8 +145,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 					<th width="10%">VN</th>
 				</tr>
 				<?php
-				$i=0;
-				foreach ($giocatoricasa as $row){	
+				while ($row=$result_formazione->fetch_assoc()) {
 						$ruolo_giocatore=$row["ruolo"];
 					?>
 				
@@ -190,16 +196,15 @@ while ($row=$result_giornata->fetch_assoc()) {
 				?>
 	
 			</table>
-			
-			<table  id="squadra_casa_mobile<?php echo $j;?>" class="mobile">
+
+			<table border=1  id="squadra_casa_mobile<?php echo $j;?>" class="mobile">
 				<!-- <caption class="caption_style"><?php echo $sq_casa; ?></caption> -->
-				<tr> 
+				<!-- <tr> 
 					<th >Giocatore</th>
 					<th width="15%">VOTO</th> 
-				</tr>
+				</tr> -->
 				<?php
-				$i=0;
-				foreach ($giocatoricasa as $row){	
+				while ($row=$result_formazione->fetch_assoc()) {
 						$ruolo_giocatore=$row["ruolo"];
 					?>
 				
@@ -261,23 +266,26 @@ while ($row=$result_giornata->fetch_assoc()) {
 
 	//echo "<br> query formazione ospite= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
-	$giocatoritraferta = array();
+	$giocatoricasa = array();
 	while ($row=$result_formazione->fetch_assoc()) {
-		array_push($giocatoritraferta, array(
-			"nome"=> $row["nome"],
-			"squadra_breve"=>$row["squadra_breve"],
+		array_push($giocatoricasa, array(
 			"ruolo"=>$row["ruolo"],
+			"sostituzione"=>$row["sostituzione"],
 			"voto"=>$row["voto"],
+			"nome"=> $row["nome"],
 			"voto_md"=>$row["voto_md"],
-			"sostituzione"=>$row["sostituzione"]
+			"squadra_breve"=>$row["squadra_breve"]
 			)
 		);
 	}
+
+	
+	$i=0;
 	?>
 		
 		<div class="ui-block-b" style="float:right;">
 		<!-- <h3 class="caption_style" style="text-align: center;"><?php echo $sq_ospite; ?></h3> -->
-			<table id="squadra_ospite_desk<?php echo $j;?>" class="desktop">
+			<table border=1  id="squadra_ospite_desk<?php echo $j;?>" class="desktop">
 				<!-- <caption class="caption_style"><?php echo $sq_ospite; ?></caption> -->
 				<th colspan="3" >Nome</th>
 				<th width="10%">R</th>
@@ -286,8 +294,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 				<th width="3%">OSP</th>
 
 				<?php
-				$i=0;
-				foreach ($giocatoritraferta as $row){	
+				foreach ($giocatoricasa as $row){	
 					$ruolo_giocatore=$row["ruolo"];
 				?>
 					<tr id=row_<?php  echo $id_ospite  . "_" . ($i+1);?> style="background-color: <?php 
@@ -338,17 +345,16 @@ while ($row=$result_giornata->fetch_assoc()) {
 				?>
 			</table>
 
-			<table  id="squadra_ospite_mobile<?php echo $j;?>" class="mobile">
+			<table border=1  id="squadra_ospite_mobile<?php echo $j;?>" class="mobile">
 				<!-- <caption class="caption_style"><?php echo $sq_ospite; ?></caption> -->
 				
-				<tr> 
+				<!-- <tr> 
 					<th >Giocatore</th>
 					<th width="15%">VOTO</th> 
-				</tr>
+				</tr> -->
 
 				<?php
-				$i=0;
-				foreach ($giocatoritraferta as $row){	
+				foreach ($giocatoricasa as $row){
 					$ruolo_giocatore=$row["ruolo"];
 				?>
 					<tr id=row_<?php  echo $id_ospite  . "_" . ($i+1);?> style="background-color: <?php 

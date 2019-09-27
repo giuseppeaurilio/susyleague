@@ -74,9 +74,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 			"voto_md"=>$row["voto_md"],
 			"sostituzione"=>$row["sostituzione"]
 			)
-		);
 	}
 	
+	$i=0;
 	?>
 	<!-- <h3 class="caption_style" style="text-align: center;">
 		<div style="width:40%; display:inline-block;"><?php echo $sq_casa; ?> </div>
@@ -128,7 +128,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 		
 		<div class="ui-block-a" style="float:left;">
 		<!-- <h3 class="caption_style" style="text-align: center;"><?php echo $sq_casa; ?></h3> -->
-			<table  id="squadra_casa_desk<?php echo $j;?>" class="desktop">
+			<table border=1  id="squadra_casa_desk<?php echo $j;?>" class="desktop">
 				<!-- <caption class="caption_style"><?php echo $sq_casa; ?></caption> -->
 				<tr>
 					<th width="3%">CAS</th>
@@ -138,7 +138,6 @@ while ($row=$result_giornata->fetch_assoc()) {
 					<th width="10%">VN</th>
 				</tr>
 				<?php
-				$i=0;
 				foreach ($giocatoricasa as $row){	
 						$ruolo_giocatore=$row["ruolo"];
 					?>
@@ -190,15 +189,14 @@ while ($row=$result_giornata->fetch_assoc()) {
 				?>
 	
 			</table>
-			
-			<table  id="squadra_casa_mobile<?php echo $j;?>" class="mobile">
+
+			<table border=1  id="squadra_casa_mobile<?php echo $j;?>" class="mobile">
 				<!-- <caption class="caption_style"><?php echo $sq_casa; ?></caption> -->
-				<tr> 
+				<!-- <tr> 
 					<th >Giocatore</th>
 					<th width="15%">VOTO</th> 
-				</tr>
+				</tr> -->
 				<?php
-				$i=0;
 				foreach ($giocatoricasa as $row){	
 						$ruolo_giocatore=$row["ruolo"];
 					?>
@@ -273,11 +271,14 @@ while ($row=$result_giornata->fetch_assoc()) {
 			)
 		);
 	}
+
+	
+	$i=0;
 	?>
 		
 		<div class="ui-block-b" style="float:right;">
 		<!-- <h3 class="caption_style" style="text-align: center;"><?php echo $sq_ospite; ?></h3> -->
-			<table id="squadra_ospite_desk<?php echo $j;?>" class="desktop">
+			<table border=1  id="squadra_ospite_desk<?php echo $j;?>" class="desktop">
 				<!-- <caption class="caption_style"><?php echo $sq_ospite; ?></caption> -->
 				<th colspan="3" >Nome</th>
 				<th width="10%">R</th>
@@ -286,7 +287,6 @@ while ($row=$result_giornata->fetch_assoc()) {
 				<th width="3%">OSP</th>
 
 				<?php
-				$i=0;
 				foreach ($giocatoritraferta as $row){	
 					$ruolo_giocatore=$row["ruolo"];
 				?>
@@ -338,16 +338,15 @@ while ($row=$result_giornata->fetch_assoc()) {
 				?>
 			</table>
 
-			<table  id="squadra_ospite_mobile<?php echo $j;?>" class="mobile">
+			<table border=1  id="squadra_ospite_mobile<?php echo $j;?>" class="mobile">
 				<!-- <caption class="caption_style"><?php echo $sq_ospite; ?></caption> -->
 				
-				<tr> 
+				<!-- <tr> 
 					<th >Giocatore</th>
 					<th width="15%">VOTO</th> 
-				</tr>
+				</tr> -->
 
 				<?php
-				$i=0;
 				foreach ($giocatoritraferta as $row){	
 					$ruolo_giocatore=$row["ruolo"];
 				?>

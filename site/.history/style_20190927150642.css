@@ -371,8 +371,7 @@ li.game{
     display:block;
   }
   .truncate {
-    /* max-width: 120px; */
-    max-width: 6em;
+    max-width: 120px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -387,7 +386,7 @@ li.game{
  }
  #tabellino table td
  {
-   padding: 0 5px;
+   padding: 0 6px;
    font-size: 15px;
  }
 }

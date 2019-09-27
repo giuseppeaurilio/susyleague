@@ -193,10 +193,10 @@ while ($row=$result_giornata->fetch_assoc()) {
 			
 			<table  id="squadra_casa_mobile<?php echo $j;?>" class="mobile">
 				<!-- <caption class="caption_style"><?php echo $sq_casa; ?></caption> -->
-				<tr> 
+				<!-- <tr> 
 					<th >Giocatore</th>
 					<th width="15%">VOTO</th> 
-				</tr>
+				</tr> -->
 				<?php
 				$i=0;
 				foreach ($giocatoricasa as $row){	
@@ -341,10 +341,10 @@ while ($row=$result_giornata->fetch_assoc()) {
 			<table  id="squadra_ospite_mobile<?php echo $j;?>" class="mobile">
 				<!-- <caption class="caption_style"><?php echo $sq_ospite; ?></caption> -->
 				
-				<tr> 
+				<!-- <tr> 
 					<th >Giocatore</th>
 					<th width="15%">VOTO</th> 
-				</tr>
+				</tr> -->
 
 				<?php
 				$i=0;

@@ -352,27 +352,12 @@ li.game{
   /* display: inline-block; */
   /* display: none; —- remove the menu, perhaps */
   }
-
-  .ui-grid-a .ui-block-a .mobile, 
-  .ui-grid-a .ui-block-b .mobile{
-    display:none;
-  }
 @media screen and (max-width: 720px) {
   .ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b {
-    width: 50%; 
-    font-size: 1em;
+    /* width: auto !important; */
   }  
-  .ui-grid-a .ui-block-a .desktop, 
-  .ui-grid-a .ui-block-b .desktop{
-    display:none;
-  }
-  .ui-grid-a .ui-block-a .mobile, 
-  .ui-grid-a .ui-block-b .mobile{
-    display:block;
-  }
   .truncate {
-    /* max-width: 120px; */
-    max-width: 6em;
+    max-width: 120px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -384,11 +369,6 @@ li.game{
   #tabellino table  th:nth-child(1),
   #tabellino table  th:nth-child(3){
     font-size: 6vw;
- }
- #tabellino table td
- {
-   padding: 0 5px;
-   font-size: 15px;
  }
 }
 
