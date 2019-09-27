@@ -234,9 +234,7 @@ color: white;
   width:      100%;
   background: rgba( 255, 255, 255, .8 ) 
               /* url('http://i.stack.imgur.com/FhHRx.gif')  */
-              /* url('https://www.footballtipster.net//assets/images/live_loader.gif') */
-              url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/2a451af0-8632-426a-8de9-b1a8649ca548/d518u1w-23778107-953e-4716-b691-fa56b8125f67.gif')
-              /* url('https://media.giphy.com/media/WvuTFk2IN7jxoLVDkP/giphy.gif') */
+              url('https://www.footballtipster.net//assets/images/live_loader.gif')
               50% 50% 
               no-repeat;
 }
