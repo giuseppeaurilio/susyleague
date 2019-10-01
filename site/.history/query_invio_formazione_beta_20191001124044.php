@@ -75,25 +75,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				//se salvo la formazione 
 				
 				$query = "";
-				$query="SELECT * FROM sq_fantacalcio where id=$id_squadra";
-				
-				$result2=$conn->query($query);
-				
-				$row=$result2->fetch_assoc();
-				$allenatore_nome = $row["allenatore"];
-				$squadrafc_nome = $row["squadra"];
-				
 				$index =0;
 				
-				$query = "";
 				foreach ($giocatoriformazione as $value) 
-				{	
-					
+				{
 					$index++;
 					// print_r($value);
 					$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
 					VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
-					$query .=$query_ini;
+					 $query .=$query_ini;
 				}
 				//  echo $query;
 				$resultmq=$conn->multi_query($query);
@@ -103,12 +93,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				// print_r($result);
 				$message .= "Formazione inviata\n";
 				// echo $message;	
+				$query="SELECT * FROM sq_fantacalcio where id=$id_squadra";
 				
+				$result2=$conn->query($query);
+				
+				$row=$result2->fetch_assoc();
+				// $allenatore_nome = $row["allenatore"];
+				// $squadrafc_nome = $row["squadra"];
+				// $text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n". "TITOLARI \n\n";
 				//se invio il messaggio telegram 
 				$index =0;
 				// echo "secondo";
 				// print_r($giocatoriformazione);
-				$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n". "TITOLARI \n\n";
 				foreach ($giocatoriformazione as $value) 
 				{
 					$index++;
@@ -124,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				}
 				// echo $text;
 				// print_r($text);
-				$a=send_message_post($text);
+				//$a=send_message_post($text);
 
 				$message .= "Messaggio telegram inviato \n";
 

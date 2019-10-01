@@ -82,18 +82,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$row=$result2->fetch_assoc();
 				$allenatore_nome = $row["allenatore"];
 				$squadrafc_nome = $row["squadra"];
-				
+				$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n". "TITOLARI \n\n";
 				$index =0;
 				
-				$query = "";
 				foreach ($giocatoriformazione as $value) 
-				{	
-					
+				{
 					$index++;
 					// print_r($value);
 					$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
 					VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
-					$query .=$query_ini;
+					 $query .=$query_ini;
 				}
 				//  echo $query;
 				$resultmq=$conn->multi_query($query);
@@ -101,14 +99,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				// $resultmq->close();
 				while(mysqli_next_result($conn)){;}
 				// print_r($result);
-				$message .= "Formazione inviata\n";
+				// $message .= "Formazione inviata\n";
 				// echo $message;	
 				
 				//se invio il messaggio telegram 
 				$index =0;
 				// echo "secondo";
 				// print_r($giocatoriformazione);
-				$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n". "TITOLARI \n\n";
 				foreach ($giocatoriformazione as $value) 
 				{
 					$index++;

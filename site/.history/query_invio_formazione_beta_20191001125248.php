@@ -124,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				}
 				// echo $text;
 				// print_r($text);
-				$a=send_message_post($text);
+				// $a=send_message_post($text);
 
 				$message .= "Messaggio telegram inviato \n";
 

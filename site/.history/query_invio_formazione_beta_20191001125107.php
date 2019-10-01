@@ -85,15 +85,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				
 				$index =0;
 				
-				$query = "";
 				foreach ($giocatoriformazione as $value) 
-				{	
-					
+				{
 					$index++;
 					// print_r($value);
 					$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
 					VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
-					$query .=$query_ini;
+					 $query .=$query_ini;
 				}
 				//  echo $query;
 				$resultmq=$conn->multi_query($query);

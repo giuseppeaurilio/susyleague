@@ -85,15 +85,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				
 				$index =0;
 				
-				$query = "";
 				foreach ($giocatoriformazione as $value) 
 				{	
-					
+					$query = "";
 					$index++;
 					// print_r($value);
 					$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
 					VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
-					$query .=$query_ini;
+					 $query .=$query_ini;
 				}
 				//  echo $query;
 				$resultmq=$conn->multi_query($query);
@@ -124,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				}
 				// echo $text;
 				// print_r($text);
-				$a=send_message_post($text);
+				// $a=send_message_post($text);
 
 				$message .= "Messaggio telegram inviato \n";
 
