@@ -7,7 +7,7 @@ include_once ("../send_message_post.php");
 include_once  ("../dbinfo_susyleague.inc.php");
 
 $conn = new mysqli($localhost, $username, $password,$database);
-$conn->set_charset("utf8");
+$conn->set_charset("utf8")
 // Check connection
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
@@ -69,7 +69,7 @@ if(isset($_POST['risultati']) && $_POST['risultati'] == '1')
 
 			$testo.= "$sq_casa $gol_casa ($punti_casa) \n$sq_ospite $gol_ospite ($punti_ospite)\n";
 			
-			$testo .= "____________________________\n";
+			// $testo .= "____________________________\n";
 			// ++$j;
 		}
 		$testo.=  "\nI risultati della giornata $id_giornata sono disponibili qui http://susyleague.000webhostapp.com/display_giornata.php?&id_giornata=$id_giornata";

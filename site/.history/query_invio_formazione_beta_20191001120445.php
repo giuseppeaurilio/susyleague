@@ -13,7 +13,6 @@ else {
 }
 
 $conn = new mysqli($localhost, $username, $password,$database);
-$conn->set_charset("utf8");
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -77,14 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				
 				$query = "";
 				$index =0;
-				$query="SELECT * FROM sq_fantacalcio where id=$id_squadra";
 				
-				$result2=$conn->query($query);
-				
-				$row=$result2->fetch_assoc();
-				$allenatore_nome = $row["allenatore"];
-				$squadrafc_nome = $row["squadra"];
-
 				foreach ($giocatoriformazione as $value) 
 				{
 					$index++;
@@ -101,7 +93,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				// print_r($result);
 				$message .= "Formazione inviata\n";
 				// echo $message;	
+				$query="SELECT * FROM sq_fantacalcio where id=$id_squadra";
 				
+				$result2=$conn->query($query);
+				
+				$row=$result2->fetch_assoc();
+				$allenatore_nome = $row["allenatore"];
+				$squadrafc_nome = $row["squadra"];
 				$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n". "TITOLARI \n\n";
 				//se invio il messaggio telegram 
 				$index =0;

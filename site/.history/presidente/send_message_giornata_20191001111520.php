@@ -1,9 +1,16 @@
 
 <?php
-include("../send_message_post.php");
-include("../dbinfo_susyleague.inc.php");
-mysql_connect($localhost,$username,$password);
-@mysql_select_db($database) or die( "Unable to select database");
+include_once ("../send_message_post.php");
+// include("../dbinfo_susyleague.inc.php");
+// mysql_connect($localhost,$username,$password);
+// @mysql_select_db($database) or die( "Unable to select database");ù
+include_once  ("../dbinfo_susyleague.inc.php");
+$conn = new mysqli($localhost, $username, $password,$database);
+
+// Check connection
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
 
 
 if (isset($_POST['id_giornata']))
@@ -21,10 +28,15 @@ if(isset($_POST['calcolo']) && $_POST['calcolo'] == '1')
 	
 if(isset($_POST['risultati']) && $_POST['risultati'] == '1') 
 	{
-		$query2="SELECT b.squadra as sq_casa, c.squadra as sq_ospite, d.gol_casa, d.gol_ospite, d.voto_casa, d.voto_ospite  FROM calendario as a inner join sq_fantacalcio as b on a.id_sq_casa=b.id inner join sq_fantacalcio as c on a.id_sq_ospite=c.id left join punteggio_finale as d on a.id_giornata=d.id_giornata and a.id_partita=d.id_partita where a.id_giornata=". $id_giornata ." order by a.id_partita";
+		$query2="SELECT b.squadra as sq_casa, c.squadra as sq_ospite, d.gol_casa, d.gol_ospite, d.voto_casa, d.voto_ospite  
+		FROM calendario as a 
+		inner join sq_fantacalcio as b on a.id_sq_casa=b.id inner join sq_fantacalcio as c on a.id_sq_ospite=c.id 
+		left join punteggio_finale as d on a.id_giornata=d.id_giornata and a.id_partita=d.id_partita where a.id_giornata=". $id_giornata ." order by a.id_partita";
 //		echo $query2;
-		$result_giornata=mysql_query($query2);
-		$num_giornata=mysql_numrows($result_giornata);
+		// $result_giornata=mysql_query($query2);
+		$result_giornata  = $conn->query($query2) or die($conn->error);
+		// $num_giornata=mysql_numrows($result_giornata);
+		$num_giornata=$result_giornata->count();
 		$j=0;
 		$testo="RISULTATI GIORNATA $id_giornata\n\n";
 		while ($j < $num_giornata) 

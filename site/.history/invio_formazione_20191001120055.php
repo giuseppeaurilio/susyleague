@@ -67,7 +67,7 @@ if ($num_giornate>0) {
 
 		?>
 		<?php
-		include_once "DB/calendario.php";
+		include_once "/DB/calendario.php";
 		$descrizioneGiornata = getDescrizioneGiornata($id);
 		// $descrizioneGiornata = "";
 		// if($id <= 22)

@@ -5,9 +5,8 @@ include_once ("../send_message_post.php");
 // mysql_connect($localhost,$username,$password);
 // @mysql_select_db($database) or die( "Unable to select database");ù
 include_once  ("../dbinfo_susyleague.inc.php");
-
 $conn = new mysqli($localhost, $username, $password,$database);
-$conn->set_charset("utf8");
+
 // Check connection
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
@@ -29,15 +28,10 @@ if(isset($_POST['calcolo']) && $_POST['calcolo'] == '1')
 	
 if(isset($_POST['risultati']) && $_POST['risultati'] == '1') 
 	{
-		// $query2="SELECT b.squadra as sq_casa, c.squadra as sq_ospite, d.gol_casa, d.gol_ospite, d.voto_casa, d.voto_ospite  
-		// FROM calendario as a 
-		// inner join sq_fantacalcio as b on a.id_sq_casa=b.id inner join sq_fantacalcio as c on a.id_sq_ospite=c.id 
-		// left join punteggio_finale as d on a.id_giornata=d.id_giornata and a.id_partita=d.id_partita where a.id_giornata=". $id_giornata ." order by a.id_partita";
-		$query2=" SELECT b.squadra as sq_casa, c.squadra as sq_ospite, a.gol_casa, a.gol_ospiti, a.punti_casa, a.punti_ospiti 
+		$query2="SELECT b.squadra as sq_casa, c.squadra as sq_ospite, d.gol_casa, d.gol_ospite, d.voto_casa, d.voto_ospite  
 		FROM calendario as a 
-		inner join sq_fantacalcio as b on a.id_sq_casa=b.id 
-        inner join sq_fantacalcio as c on a.id_sq_ospite=c.id 
-		where a.id_giornata=". $id_giornata ." order by a.id_partita";
+		inner join sq_fantacalcio as b on a.id_sq_casa=b.id inner join sq_fantacalcio as c on a.id_sq_ospite=c.id 
+		left join punteggio_finale as d on a.id_giornata=d.id_giornata and a.id_partita=d.id_partita where a.id_giornata=". $id_giornata ." order by a.id_partita";
 //		echo $query2;
 		// $result_giornata=mysql_query($query2);
 		$result_giornata  = $conn->query($query2) or die($conn->error);
@@ -62,10 +56,10 @@ if(isset($_POST['risultati']) && $_POST['risultati'] == '1')
 
 			$sq_casa=$row["sq_casa"];
 			$sq_ospite=$row["sq_ospite"];//mysql_result($row,$j,"sq_ospite");
-			$punti_casa=$row["punti_casa"];//mysql_result($row,$j,"voto_casa");
+			$punti_casa=$row["voto_casa"];//mysql_result($row,$j,"voto_casa");
 			$gol_casa=$row["gol_casa"];//mysql_result($row,$j,"gol_casa");
-			$gol_ospite=$row["gol_ospiti"];//mysql_result($row,$j,"gol_ospite");
-			$punti_ospite=$row["punti_ospiti"];//mysql_result($row,$j,"gol_ospite");
+			$gol_ospite=$row["gol_ospite"];//mysql_result($row,$j,"gol_ospite");
+			$punti_ospite=$row["gol_ospite"];//mysql_result($row,$j,"gol_ospite");
 
 			$testo.= "$sq_casa $gol_casa ($punti_casa) \n$sq_ospite $gol_ospite ($punti_ospite)\n";
 			
@@ -73,9 +67,8 @@ if(isset($_POST['risultati']) && $_POST['risultati'] == '1')
 			// ++$j;
 		}
 		$testo.=  "\nI risultati della giornata $id_giornata sono disponibili qui http://susyleague.000webhostapp.com/display_giornata.php?&id_giornata=$id_giornata";
-		
 		send_message_post($testo);
-		echo "messaggio $testo \n";
+//		echo "messaggio $testo \n";
 		echo "messaggio risultati invato";
 		echo "</br>";
 
@@ -86,7 +79,7 @@ if(isset($_POST['classifiche']) && $_POST['classifiche'] == '1')
 		echo "messaggio con link alle classifiche inviato";
 		echo "</br>";
 	}
-// mysql_set_charset("UTF8");
+mysql_set_charset("UTF8");
 	
 if(isset($_POST['commento']) && $_POST['commento'] == '1') 
 	{
@@ -103,7 +96,7 @@ if(isset($_POST['commento']) && $_POST['commento'] == '1')
 		{
 
 			$testo = "Commento del presidente:\n$commento";
-			echo $testo;
+//			echo $testo;
 			send_message_post($testo);
 			echo "Messaggio con commento inviato";
 		}	

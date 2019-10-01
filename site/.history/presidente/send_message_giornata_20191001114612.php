@@ -5,9 +5,8 @@ include_once ("../send_message_post.php");
 // mysql_connect($localhost,$username,$password);
 // @mysql_select_db($database) or die( "Unable to select database");ù
 include_once  ("../dbinfo_susyleague.inc.php");
-
 $conn = new mysqli($localhost, $username, $password,$database);
-$conn->set_charset("utf8");
+
 // Check connection
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
@@ -67,15 +66,16 @@ if(isset($_POST['risultati']) && $_POST['risultati'] == '1')
 			$gol_ospite=$row["gol_ospiti"];//mysql_result($row,$j,"gol_ospite");
 			$punti_ospite=$row["punti_ospiti"];//mysql_result($row,$j,"gol_ospite");
 
-			$testo.= "$sq_casa $gol_casa ($punti_casa) \n$sq_ospite $gol_ospite ($punti_ospite)\n";
+			$testo.= "$sq_casa";// $gol_casa ($punti_casa)" ;
+			// $testo.= "\n$sq_ospite $gol_ospite ($punti_ospite)\n";
 			
 			$testo .= "____________________________\n";
 			// ++$j;
 		}
 		$testo.=  "\nI risultati della giornata $id_giornata sono disponibili qui http://susyleague.000webhostapp.com/display_giornata.php?&id_giornata=$id_giornata";
 		
-		send_message_post($testo);
-		echo "messaggio $testo \n";
+		  send_message_post($testo);
+//		echo "messaggio $testo \n";
 		echo "messaggio risultati invato";
 		echo "</br>";
 
@@ -104,7 +104,7 @@ if(isset($_POST['commento']) && $_POST['commento'] == '1')
 
 			$testo = "Commento del presidente:\n$commento";
 			echo $testo;
-			send_message_post($testo);
+			// send_message_post($testo);
 			echo "Messaggio con commento inviato";
 		}	
 

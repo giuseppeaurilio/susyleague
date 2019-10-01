@@ -38,7 +38,7 @@ $CHAT_ID=$GROUP_CHAT_ID_SUSYLEAGUE;
 //     )
 // );
 
-// $context  = stream_context_create($opts);
+$context  = stream_context_create($opts);
 
 $http_string="https://api.telegram.org/bot$BOT_TOKEN/sendmessage?";
 $http_string.="chat_id=" . $CHAT_ID;

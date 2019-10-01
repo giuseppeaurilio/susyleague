@@ -13,7 +13,6 @@ else {
 }
 
 $conn = new mysqli($localhost, $username, $password,$database);
-$conn->set_charset("utf8");
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -84,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$row=$result2->fetch_assoc();
 				$allenatore_nome = $row["allenatore"];
 				$squadrafc_nome = $row["squadra"];
-
+				
 				foreach ($giocatoriformazione as $value) 
 				{
 					$index++;
