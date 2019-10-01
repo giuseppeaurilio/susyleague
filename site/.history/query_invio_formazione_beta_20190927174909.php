@@ -95,9 +95,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				// echo $message;	
 				$query="SELECT * FROM sq_fantacalcio where id=$id_squadra";
 				
-				$result2=$conn->query($query);
+				$result=$conn->query($query);
 				
-				$row=$result2->fetch_assoc();
+				$row=$result->fetch_assoc();
 				// $allenatore_nome = $row["allenatore"];
 				// $squadrafc_nome = $row["squadra"];
 				// $text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n". "TITOLARI \n\n";

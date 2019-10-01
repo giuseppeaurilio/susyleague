@@ -76,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				
 				$query = "";
 				$index =0;
-				
 				foreach ($giocatoriformazione as $value) 
 				{
 					$index++;
@@ -94,19 +93,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$message .= "Formazione inviata\n";
 				// echo $message;	
 				$query="SELECT * FROM sq_fantacalcio where id=$id_squadra";
-				
-				$result2=$conn->query($query);
-				
-				$row=$result2->fetch_assoc();
-				// $allenatore_nome = $row["allenatore"];
-				// $squadrafc_nome = $row["squadra"];
-				// $text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n". "TITOLARI \n\n";
+				$result=$conn->query($query);
+				$row=$result->fetch_assoc();
+				$allenatore_nome = $row["allenatore"];
+				$squadrafc_nome = $row["squadra"];
+				$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n". "TITOLARI \n\n";
 				//se invio il messaggio telegram 
 				$index =0;
-				// echo "secondo";
-				// print_r($giocatoriformazione);
+				print_r($giocatoriformazione);
 				foreach ($giocatoriformazione as $value) 
 				{
+					
 					$index++;
 					$text .= $index . '.'. $value["nome"].'('.$value["squadra_breve"].')' ;
 					if ($index!=11){
@@ -120,13 +117,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				}
 				echo $text;
 				// print_r($text);
-				//$a=send_message_post($text);
+				// $a=send_message_post($text);
 
-				$message .= "Messaggio telegram inviato \n";
+				// $message .= "Messaggio telegram inviato \n";
+				// $message = $a;
 
-				$queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`=0 WHERE id=' . $id_squadra;
-				$resultac  = $conn->query($queryupdate) ;
-				
+
+				// $queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`=0 WHERE id=' . $id_squadra;
+				// $resultac  = $conn->query($queryupdate) or die($conn->error);	
 				// $result->close();
 				// $conn->next_result();
 				$message .= date('d/m H:i:s', strtotime($adesso))  ;

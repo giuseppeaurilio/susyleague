@@ -64,11 +64,10 @@
         if(count($risultati) >0){
             echo '<div>';
             $counter +=count($risultati);
-
             $index=0;
             $prev = "";
             foreach($risultati as $risultato){
-                $id= $risultato["id_giornata"];
+                $id= $partita["id_giornata"];
                 include_once "../DB/calendario.php";
                 $descrizioneGiornata = getDescrizioneGiornata($id);
                 if($prev != $descrizioneGiornata)

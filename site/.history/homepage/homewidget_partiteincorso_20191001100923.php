@@ -1,5 +1,5 @@
 <div class="widget">
-    <h2>Prossimo turno</h2>
+    
     <?php
     // $querylastdate   = "SELECT fine
     // FROM `giornate` as g 
@@ -15,20 +15,22 @@
     $result_prox = 0;
     $num_prox = 0;
     $counter = 0;
+    echo '<h2>Partite in corso</h2>';
     for ($girone = 1; $girone <= 10; $girone++) {
 
         
-        $queryprox="SELECT g.id_giornata, sqf1.squadra as sq_casa, sqf2.squadra as sq_ospite
+        $query="SELECT g.id_giornata, sqf1.squadra as sq_casa, sqf2.squadra as sq_ospite, 
+        c.gol_casa, c.gol_ospiti as gol_ospite, c.punti_casa as voto_casa, c.punti_ospiti as voto_ospite
         FROM giornate as g 
         left join calendario as c on g.id_giornata =  c.id_giornata
         left  join sq_fantacalcio as sqf1 on sqf1.id=c.id_sq_casa 
         LEFT join sq_fantacalcio as sqf2 on sqf2.id=c.id_sq_ospite
-        where fine > DATE_ADD(NOW(), INTERVAL 2 HOUR)
-        AND inizio < DATE_ADD(NOW(), INTERVAL 2 HOUR)
+		where fine < DATE_ADD(NOW(), INTERVAL 2 HOUR)
+		and gol_casa is null
         and id_girone = ".$girone ;
         // echo $queryprox;
         // echo '<br>';
-        $result_prox=$conn->query($queryprox);
+        $result=$conn->query($query);
 
         // $num_prox=$result_prox->num_rows; 
         // if($num_prox >0){
@@ -40,7 +42,7 @@
         //     echo '</div>';
         // }
         $partite = array();
-        while($row = $result_prox->fetch_assoc()){
+        while($row = $result->fetch_assoc()){
             array_push($partite, array(
                 "id_giornata" =>$row["id_giornata"],
                 "sq_casa"=>$row["sq_casa"],
@@ -48,25 +50,32 @@
                 )
             );
         }
-        $result_prox->close();
+        $result->close();
         $conn->next_result();
 
 
         if(count($partite) >0){
+           echo $girone .'<br>';
+            print_r($partite);
+            echo $girone .'<hr>';
             echo '<div>';
             $counter +=count($partite);
 
+            $id= $partite[0]["id_giornata"];
+            include_once "../DB/calendario.php";
+            $descrizioneGiornata = getDescrizioneGiornata($id);
+        
+            // print_r($girone);
+            // echo '<br>';
+            echo '<h3>'.$descrizioneGiornata.'</h3>';
+            
+            // print_r($lastdate);
+            // echo '<br>';
             $index=0;
-            $prev = "";
             foreach($partite as $partita){
-                $id= $partita["id_giornata"];
-                include_once "../DB/calendario.php";
-                $descrizioneGiornata = getDescrizioneGiornata($id);
-                if($prev != $descrizioneGiornata)
-                {
-                    echo '<h3>'.$descrizioneGiornata.'</h3>';
-                    $prev = $descrizioneGiornata;
-                }
+                // echo $num_ultimi;
+                // print_r($risultato);
+                // echo '<br>';
                 $index++;
                 if($index%2== 0)
                 echo '<div class="result">';
@@ -79,18 +88,11 @@
                 
                 echo '</div>';
                 }
+            echo '<h4><a style="text-decoration: none;color: white;" href="/display_giornata.php?&id_giornata='.$id.'">Formazioni <i class="fas fa-list-ol" aria-hidden="true"></i></a></h4>';
             echo '</div>';
         } 
+        
     }
-    
-    
-    if($counter ==0)
-    {
-        echo "<div>Non ci sono partite in programma</div>";
-     
-    }
-    echo '<div class="footer"><a href="/invio_formazione.php">Invia la formazione</a></div>';
     echo '<hr>';
     ?>
-
 </div>

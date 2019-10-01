@@ -3,7 +3,7 @@
 
 
 function send_message_post($testo) {
-	try{
+	
 $BOT_TOKEN='270744877:AAHCXrPHvHJgWOXEsO_hCuTpR17K2R-l5Wk';
 $USER_CHAT_ID='311291453';
 $GROUP_CHAT_ID_PAOLA='-152656922';
@@ -32,21 +32,7 @@ $context  = stream_context_create($opts);
 
  $http_string="https://api.telegram.org/bot$BOT_TOKEN/sendmessage";
 $response = file_get_contents($http_string, false, $context);
-}
-catch (Exception $e) {
-    echo json_encode(array(
-        'error' => array(
-            'message' => $e->getMessage(),
-            // 'code' => $e->getCode(),
-        ),
-    ));
-}
-finally {
-    return $response;
-    if(isset($conn))
-        {$conn->close();}
-}
-
+return $response;
 
 // echo $http_string;
 // echo $response;

@@ -372,9 +372,7 @@ formazionerandom = function()
 <h2><?php echo $squadra . "(" .$allenatore .")";?> - Invio formazione</h2>
 <!-- <h2></h2> -->
 <!-- <p> Vuoi provare la nuova pagina di invio formazione? </p>
-<a href="<?php 
-// echo "invio_formazione_squadra_beta.php?&id_giornata=" . $id_giornata ."&id_squadra=".$id_squadra ; ?>"><?php echo "Clicca qui>>>> Invio formazioni BETA" 
-?></a> -->
+<a href="<?php echo "invio_formazione_squadra_beta.php?&id_giornata=" . $id_giornata ."&id_squadra=".$id_squadra ; ?>"><?php echo "Clicca qui>>>> Invio formazioni BETA" ?></a> -->
 <hr>
 <!-- <h3><?php echo "(" .$allenatore .")";?></h3> -->
 <?php

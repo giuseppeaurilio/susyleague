@@ -55,7 +55,8 @@
         if(count($partite) >0){
             echo '<div>';
             $counter +=count($partite);
-
+            // print_r($lastdate);
+            // echo '<br>';
             $index=0;
             $prev = "";
             foreach($partite as $partita){
@@ -79,6 +80,7 @@
                 
                 echo '</div>';
                 }
+            echo '<h4><a style="text-decoration: none;color: white;" href="/display_giornata.php?&id_giornata='.$id.'">Formazioni <i class="fas fa-list-ol" aria-hidden="true"></i></a></h4>';
             echo '</div>';
         } 
     }

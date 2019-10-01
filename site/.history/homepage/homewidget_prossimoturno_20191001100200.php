@@ -56,17 +56,21 @@
             echo '<div>';
             $counter +=count($partite);
 
+            $id= $partite[0]["id_giornata"];
+            include_once "../DB/calendario.php";
+            $descrizioneGiornata = getDescrizioneGiornata($id);
+        
+            // print_r($girone);
+            // echo '<br>';
+            echo '<h3>'.$descrizioneGiornata.'</h3>';
+            
+            // print_r($lastdate);
+            // echo '<br>';
             $index=0;
-            $prev = "";
             foreach($partite as $partita){
-                $id= $partita["id_giornata"];
-                include_once "../DB/calendario.php";
-                $descrizioneGiornata = getDescrizioneGiornata($id);
-                if($prev != $descrizioneGiornata)
-                {
-                    echo '<h3>'.$descrizioneGiornata.'</h3>';
-                    $prev = $descrizioneGiornata;
-                }
+                // echo $num_ultimi;
+                // print_r($risultato);
+                // echo '<br>';
                 $index++;
                 if($index%2== 0)
                 echo '<div class="result">';
