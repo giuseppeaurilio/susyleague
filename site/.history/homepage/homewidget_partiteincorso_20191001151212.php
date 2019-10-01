@@ -93,8 +93,8 @@
     {
         echo '<script>
             $(document).ready(function(){
-                $(".widget.incorso").hide()
-            });
+                alert("vuoto");
+            };);
         </script>';
     }
     ?>

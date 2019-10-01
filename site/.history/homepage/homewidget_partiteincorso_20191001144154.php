@@ -1,5 +1,5 @@
-<div class="widget incorso">
-    <h2>Partite in corso</h2>
+<div class="widget">
+    
     <?php
     // $querylastdate   = "SELECT fine
     // FROM `giornate` as g 
@@ -15,7 +15,7 @@
     $result_prox = 0;
     $num_prox = 0;
     $counter = 0;
-    
+    echo '<h2>Partite in corso</h2>';
     for ($girone = 1; $girone <= 10; $girone++) {
 
         
@@ -89,13 +89,5 @@
         
     }
     echo '<hr>';
-    if($counter == 0)
-    {
-        echo '<script>
-            $(document).ready(function(){
-                $(".widget.incorso").hide()
-            });
-        </script>';
-    }
     ?>
 </div>

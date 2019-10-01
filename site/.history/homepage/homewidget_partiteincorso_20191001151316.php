@@ -93,7 +93,7 @@
     {
         echo '<script>
             $(document).ready(function(){
-                $(".widget.incorso").hide()
+                $('.widget.incorso').hide()
             });
         </script>';
     }

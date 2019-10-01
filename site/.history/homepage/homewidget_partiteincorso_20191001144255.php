@@ -1,4 +1,4 @@
-<div class="widget incorso">
+<div class="widget">
     <h2>Partite in corso</h2>
     <?php
     // $querylastdate   = "SELECT fine
@@ -89,13 +89,5 @@
         
     }
     echo '<hr>';
-    if($counter == 0)
-    {
-        echo '<script>
-            $(document).ready(function(){
-                $(".widget.incorso").hide()
-            });
-        </script>';
-    }
     ?>
 </div>

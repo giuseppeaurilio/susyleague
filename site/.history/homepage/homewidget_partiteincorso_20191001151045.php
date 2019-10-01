@@ -89,13 +89,5 @@
         
     }
     echo '<hr>';
-    if($counter == 0)
-    {
-        echo '<script>
-            $(document).ready(function(){
-                $(".widget.incorso").hide()
-            });
-        </script>';
-    }
     ?>
 </div>
