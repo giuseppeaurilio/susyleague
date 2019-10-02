@@ -37,22 +37,21 @@ $valorefattorecasa;
 
 switch($idgirone)
 {
-    case 1:
+    case 1://apertura
+    case 5://tabellone coppa italia
+    case 7://finale campionato
         $usamediadifesa = true;
-        $valorefattorecasa = 1;
+        $valorefattorecasa = 1;//non deve essere utilizzato nella finale
         break;
-    case 2:
-    case 3:
+    case 2://chiusura
+    case 3://play off play out
+    case 4://coppa italia - girone
+    case 8://supercoppa
+    case 9://finale coppa italia - turno secco
         $usamediadifesa = true;
         $valorefattorecasa = 0;
         break;
-    case 5:
-    case 7:
-    case 8:
-        $usamediadifesa = true;
-        $valorefattorecasa = 0;
-        break;
-    case 6:
+    case 6://coppa delle coppe
         $usamediadifesa = false;
         $valorefattorecasa = 0;
         break;
@@ -64,7 +63,7 @@ foreach($arraypartite as $partita){
                      $usamediadifesa, 
                      $valorefattorecasa);
     $result = $p->calcolaRisultatoPartita();
-    // print("<pre>".print_r($result   ,true)."</pre>").'<br>';
+    print("<pre>".print_r($result   ,true)."</pre>").'<br>';
 
     $conn = new mysqli($localhost, $username, $password, $database);
     if ($conn->connect_error) {
@@ -89,7 +88,7 @@ foreach($arraypartite as $partita){
     // print("<pre>".print_r($queryupdate   ,true)."</pre>").'<br>';
     $result=$conn->query($query);
     // echo  $database;
-    print("<pre>".print_r($result   ,true)."</pre>").'<br>';
+    // print("<pre>".print_r($result   ,true)."</pre>").'<br>';
     if ($conn->query($queryupdate) === TRUE) {
         echo "Record updated successfully <br>";
     } else {

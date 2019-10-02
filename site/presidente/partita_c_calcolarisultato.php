@@ -45,12 +45,12 @@ switch($idgirone)
         break;
     case 2://chiusura
     case 3://play off play out
+    case 4://coppa italia - girone
     case 8://supercoppa
     case 9://finale coppa italia - turno secco
         $usamediadifesa = true;
         $valorefattorecasa = 0;
         break;
-    case 4://coppa italia - girone
     case 6://coppa delle coppe
         $usamediadifesa = false;
         $valorefattorecasa = 0;
