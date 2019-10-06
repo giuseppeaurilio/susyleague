@@ -82,7 +82,7 @@ echo '</div>';
 echo '<input type="submit" value="Invia">';
 echo '</form>';
 echo '<div class="mainaction">';
-echo '<a href="cancella_sondaggio.php?&id_sondaggio=<?php echo $id_sondaggio ?>" >Cancella Sondaggio</a>';
+echo '<a href="cancella_sondaggio.php?&id_sondaggio='.$id_sondaggio.'" >Cancella Sondaggio</a>';
 echo '</div>';
 echo '<hr>';
 }
