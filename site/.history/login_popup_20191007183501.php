@@ -1,7 +1,7 @@
 <script>
 $(document).ready(function(){
     $("#btnLogin").off("click").bind("click", callLogin);
-    $("#loginDialog .toggle-password").off("click").bind("click", togglePassword);
+    $(".toggle-password").off("click").bind("click", togglePassword2);
 })
 
 callLogin = function()
@@ -36,7 +36,7 @@ callLogin = function()
             }
     }); 
 }
-togglePassword = function() {
+togglePassword2 = function() {
 // alert("passa");
     // $(this).toggleClass("fa-eye fa-eye-slash");
     // var input = $($(this).attr("toggle"));

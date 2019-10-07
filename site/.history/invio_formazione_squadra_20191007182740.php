@@ -535,7 +535,7 @@ $allenatore=$row["allenatore"];
 <h2><?php echo $squadra . "(" .$allenatore .")";?> - Invio formazione</h2>
 <div>
 	<p> Vuoi tornare alla vecchia pagina di invio formazione? </p>
-	<a href="<?php echo "invio_formazione_squadra
+	<a href="<?php echo "invio_formazione_squadra_old
 	.php?&id_giornata=" . $id_giornata ."&id_squadra=".$id_squadra ; ?>"><?php echo "Clicca qui" ?></a>
 </div>
 <hr>

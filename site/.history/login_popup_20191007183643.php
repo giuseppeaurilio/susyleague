@@ -1,7 +1,7 @@
 <script>
 $(document).ready(function(){
     $("#btnLogin").off("click").bind("click", callLogin);
-    $("#loginDialog .toggle-password").off("click").bind("click", togglePassword);
+    $(".toggle-password").off("click").bind("click", togglePassword);
 })
 
 callLogin = function()

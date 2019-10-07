@@ -1,7 +1,7 @@
 
 <script>
 $(document).ready(function(){
-    $("#cambioPasswordDialog .toggle-password").off("click").bind("click", togglePassword2);
+    $(".toggle-password").off("click").bind("click", togglePassword2);
     $("#btnSalvaPassword").off("click").bind("click", callSalvaPassword);
 })
 

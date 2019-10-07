@@ -1,7 +1,7 @@
 
 <script>
 $(document).ready(function(){
-    $("#cambioPasswordDialog .toggle-password").off("click").bind("click", togglePassword2);
+    $(".toggle-password").off("click").bind("click", togglePassword);
     $("#btnSalvaPassword").off("click").bind("click", callSalvaPassword);
 })
 
@@ -71,17 +71,17 @@ callSalvaPassword = function()
         }); 
     }
 }
-togglePassword2 = function() {
-// alert("passa");
-    // $(this).toggleClass("fa-eye fa-eye-slash");
-    // var input = $($(this).attr("toggle"));
-    var input = $(".password");
-    if (input.attr("type") == "password") {
-        input.attr("type", "text");
-    } else {
-        input.attr("type", "password");
-    }
-}
+// togglePassowrd = function() {
+// // alert("passa");
+//     // $(this).toggleClass("fa-eye fa-eye-slash");
+//     // var input = $($(this).attr("toggle"));
+//     var input = $(".password");
+//     if (input.attr("type") == "password") {
+//         input.attr("type", "text");
+//     } else {
+//         input.attr("type", "password");
+//     }
+// }
 
 </script>
 
