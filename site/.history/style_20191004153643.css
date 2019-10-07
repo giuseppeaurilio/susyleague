@@ -98,14 +98,12 @@ div.stellarnav
   line-height: normal;
 }
 
-
-
 .loginsection a {
   padding: 5px;
   text-decoration: none;
   word-wrap: break-word;
   color: #FFF;
-  /* border-left: 1px solid rgba(255, 255, 255, .15); */
+  border-left: 1px solid rgba(255, 255, 255, .15);
   display: block;
   
   font-size: inherit;
@@ -115,19 +113,6 @@ div.stellarnav
   -moz-transition: all .3s ease-out;
   transition: all .3s ease-out;
   
-}
-.loginsection ul.submenu{
-  top: auto;
-  width: 100%;
-  position: absolute;
-  z-index: 9900;
-  text-align: left;
-  display: none;
-  background: #366b82;
-}
-
-.loginsection ul.submenu a {
-  padding: 15px 5px;
 }
 
 .loginsection .result{

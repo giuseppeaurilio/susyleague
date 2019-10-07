@@ -174,18 +174,12 @@ $(document).ready(function(){
 	$("#btnShowLogin").off("click").bind("click", showLogin);
 	$("#btnLogout").off("click").bind("click", callLogout);
 	$("#presidenteloggato").off("click").bind("click", showSubMenu);
-	$("#btnCambioPassword").off("click").bind("click", showCambioPassword);
 })
 showSubMenu=function(){
 	$( ".loginsection .submenu" ).toggle();
 }
 showLogin=function(){
 	$( "#loginDialog" ).dialog({modal:true});
-}
-
-showCambioPassword=function(){
-	$( "#cambioPasswordDialog" ).dialog({modal:true});
-	$( ".loginsection .submenu" ).toggle();
 }
 callLogout=function(){
     var action ="logout";

@@ -29,7 +29,7 @@
         
         foreach($sondaggi as $sondaggio)
         {
-            echo '<h3>'.$sondaggio["testo"].' Scadenza: '.date('d/m/Y', strtotime($sondaggio["scadenza"])).'</h3>';
+            echo '<h3>'.$sondaggio["testo"].' Scadenza:'.date('d/m/Y', strtotime($sondaggio["scadenza"])).'</h3>';
             $resultsondaggio = array();
             $queryopzioni='CALL getRisposteSondaggio('.$sondaggio["id"].')';
             $resultOpzioni = $conn->query($queryopzioni) or die($conn->error);

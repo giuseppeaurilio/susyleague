@@ -14,14 +14,14 @@ if ($conn->connect_error) {
 }
 
 $id_sondaggio=$_POST["id_sondaggio"];
-
+echo "eccomi <br>";
 $testo=$conn->real_escape_string($_POST["testo"]);
-
+echo "eccomi 2<br>";
 $opzioni=$_POST["mytext"];
 $risp_multipla=$_POST["risp_multipla"];
-
-// print_r($risp_multipla);
-
+echo "eccomi 3<br>";
+print_r($risp_multipla);
+echo "eccomi 4<br> ".$risp_multipla  ;
 $g_fine=$conn->real_escape_string($_POST['g_fine']);
 $m_fine=$conn->real_escape_string($_POST['m_fine']);
 $a_fine=$conn->real_escape_string($_POST['a_fine']);
@@ -36,13 +36,13 @@ $min_fine=$conn->real_escape_string($_POST['min_fine']);
 #echo "risp_mult=". $risp_multipla;
 
 $query="REPLACE INTO `sondaggi` (`id`, `testo`, `scadenza`, `risposta_multipla`) VALUES ('$id_sondaggio', '$testo', '" .$a_fine . "-" . $m_fine . "-" . $g_fine . " " . $h_fine . ":" . $min_fine ."', '" .($risp_multipla!="") . "')";
-// echo $query;
+#echo $query;
 
 // mysql_query($query);
 $result=$conn->query($query);
 
 $query="DELETE FROM `sondaggi_opzioni` WHERE `id_sondaggio`='$id_sondaggio'";
-// echo $query;
+#echo $query;
 // mysql_query($query);
 $result=$conn->query($query);
 
@@ -54,12 +54,15 @@ foreach ($opzioni as $value) {
 	$query="INSERT INTO `sondaggi_opzioni` (`id`, `id_sondaggio`, `opzione`) VALUES ('$j', '$id_sondaggio', '$opzione')";
 	// mysql_query($query);
 	$result=$conn->query($query);
-	// echo $query;
+	#echo $query;
 	++$j;
 }
 
 
 // mysql_close();
 $conn->close();
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+// header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+
+
 ?>

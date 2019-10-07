@@ -79,7 +79,6 @@ div.stellarnav
   float: right;
   /* vertical-align: middle; */
   padding: 0;
-  text-align: center;
 }
 
 
@@ -89,23 +88,15 @@ div.stellarnav
   margin: 0;
 }
 .loginsection ul li {
-  display: inline-block;
-  list-style: none;
-  display: block;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  line-height: normal;
+  
 }
 
-
-
 .loginsection a {
-  padding: 5px;
+  padding: 15px 5px;
   text-decoration: none;
   word-wrap: break-word;
   color: #FFF;
-  /* border-left: 1px solid rgba(255, 255, 255, .15); */
+  border-left: 1px solid rgba(255, 255, 255, .15);
   display: block;
   
   font-size: inherit;
@@ -115,19 +106,6 @@ div.stellarnav
   -moz-transition: all .3s ease-out;
   transition: all .3s ease-out;
   
-}
-.loginsection ul.submenu{
-  top: auto;
-  width: 100%;
-  position: absolute;
-  z-index: 9900;
-  text-align: left;
-  display: none;
-  background: #366b82;
-}
-
-.loginsection ul.submenu a {
-  padding: 15px 5px;
 }
 
 .loginsection .result{

@@ -70,7 +70,7 @@ echo '<select id="ddlSquadra" name="squadra" style="width:100%">';
 echo "<option value='0' size =30 >Presidente</option>";
 while($row = $result->fetch_assoc()) 
 {        
-// print_r($row);
+print_r($row);
 echo "<option value='".$row['id']."'>".$row['squadra']."</option>"; 
 }
 echo "</select>";

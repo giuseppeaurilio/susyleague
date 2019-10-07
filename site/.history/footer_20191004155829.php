@@ -14,7 +14,7 @@
 
 </div>
 
-<div id="cambioPasswordDialog" title="Cambio Password" style="display:none;">
+<div id="loginDialog" title="Login" style="display:none;">
 <?php include_once "cambiopassword_popup.php";?>
 
 </div>

@@ -105,7 +105,7 @@ div.stellarnav
   text-decoration: none;
   word-wrap: break-word;
   color: #FFF;
-  /* border-left: 1px solid rgba(255, 255, 255, .15); */
+  border-left: 1px solid rgba(255, 255, 255, .15);
   display: block;
   
   font-size: inherit;
@@ -118,7 +118,7 @@ div.stellarnav
 }
 .loginsection ul.submenu{
   top: auto;
-  width: 100%;
+  /* width: 220px; */
   position: absolute;
   z-index: 9900;
   text-align: left;

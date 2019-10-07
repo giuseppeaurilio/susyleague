@@ -155,9 +155,9 @@ $anno=$row["valore"];
 	else { 
 		
 		echo '	<ul>
-					<li><a id="presidenteloggato" href="#">Benvenuto ' . $allenatore . ' <i class="fas fa-sort-down"></i></a>
+					<li><a href="#">Benvenuto ' . $allenatore . ' <i class="fas fa-sort-down"></i></a>
 						<ul class="submenu">
-							<li><a id="btnCambioPassword" style="text-decoration:none; color:white;" class="login" href="#" >Cambio Password</a></li>
+							<li><a id="btnCambioPassword" style="text-decoration:none; color:white;" class="login" href="#" >Cambio Passowrd</a></li>
 							<li><a id="btnLogout" style="text-decoration:none; color:white;" class="login" href="#" >Logout <i class="fas fa-sign-out-alt"></i> </a></li>
 						</ul>
 					</li>
@@ -173,19 +173,9 @@ $(document).ready(function(){
 	
 	$("#btnShowLogin").off("click").bind("click", showLogin);
 	$("#btnLogout").off("click").bind("click", callLogout);
-	$("#presidenteloggato").off("click").bind("click", showSubMenu);
-	$("#btnCambioPassword").off("click").bind("click", showCambioPassword);
 })
-showSubMenu=function(){
-	$( ".loginsection .submenu" ).toggle();
-}
 showLogin=function(){
 	$( "#loginDialog" ).dialog({modal:true});
-}
-
-showCambioPassword=function(){
-	$( "#cambioPasswordDialog" ).dialog({modal:true});
-	$( ".loginsection .submenu" ).toggle();
 }
 callLogout=function(){
     var action ="logout";

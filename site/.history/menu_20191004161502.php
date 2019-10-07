@@ -185,7 +185,6 @@ showLogin=function(){
 
 showCambioPassword=function(){
 	$( "#cambioPasswordDialog" ).dialog({modal:true});
-	$( ".loginsection .submenu" ).toggle();
 }
 callLogout=function(){
     var action ="logout";
