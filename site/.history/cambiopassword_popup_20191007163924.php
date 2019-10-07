@@ -9,7 +9,7 @@ $(document).ready(function(){
 callSalvaPassword = function()
 {
     var uname = '<?php 
-                    if ((isset($_SESSION['allenatore']) && $_SESSION['allenatore'] != '')) { 
+                    if (!(isset($_SESSION['allenatore']) && $_SESSION['allenatore'] != '')) { 
                         echo $_SESSION['allenatore'];
                     }
                     ?>';
@@ -58,14 +58,14 @@ callSalvaPassword = function()
                                 ]
                         // $( "#dialog" ).dialog('destroy');
                         $( "#dialog" ).prop('title', "Info");
-                        $( "#dialog p" ).html(resp.message);
+                        $( "#dialog p" ).html("Operazione eseguita.");
                         $( "#dialog" ).dialog({modal:true, buttons: buttons});
                         // resp.result => "Login eseguito",
                     }
                     else{
                         // $( "#dialog" ).dialog('destroy');
                         $( "#dialog" ).prop('title', "ERROR");                
-                        $( "#dialog p" ).html(resp.message);
+                        $( "#dialog p" ).html(resp.error.msg);
                         $( "#dialog" ).dialog({modal:true});
                     } 
                 }

@@ -26,9 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         //verifico che non sia il presidente
 
         $message = "";
-        if($message  == "" && $uname == "Presidente")
+        if($message  == "" && $uname == "presidente")
         {
-            $message = "Il presidente non può cambiare password.";
+            $message = "Il presidente non può cambiare password." .$uname ;
         }
 
        // verifico che i dati siano corretti
@@ -45,39 +45,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $query = "SELECT id FROM `sq_fantacalcio` WHERE allenatore = '".$uname."' and password ='".$pwordold."'";
         $result = $conn->query($query);
         
-        if($message  == "" && ((!$result) || mysqli_fetch_assoc($result)["id"] == 0 ))
+        if($message  == "" && (!$result) || mysqli_fetch_assoc($result)["id"] == 0 )
         {
             $message="Password non valida.";
         }
         //se tutto ok, faccio il cambio password
-        if($message  == "")
-        {
 
-            $query2 = "UPDATE `sq_fantacalcio` SET password='$pwordnew' WHERE allenatore='$uname'";
-            $result2 = $conn->query($query2);
-            if($result2)
-            {
-                echo json_encode(array(
-                    'result' => "true",
-                    'message' => "Password aggiornata",
-                ));
-            }
 
-            else
-            {
-                echo json_encode(array(
-                    'result' => "false",
-                    'message' =>  $conn->error,
-                ));
-            }
-        }
-        else
-        {
-            echo json_encode(array(
-                'result' => "false",
-                'message' => $message,
-            ));
-        }
+        echo json_encode(array(
+            'error' => array(
+                'msg' => $message,
+            ),
+        ));
         
         // if ($result) {
         //     if ($num_rows > 0) {

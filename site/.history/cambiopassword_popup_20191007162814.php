@@ -9,7 +9,7 @@ $(document).ready(function(){
 callSalvaPassword = function()
 {
     var uname = '<?php 
-                    if ((isset($_SESSION['allenatore']) && $_SESSION['allenatore'] != '')) { 
+                    if (!(isset($_SESSION['allenatore']) && $_SESSION['allenatore'] != '')) { 
                         echo $_SESSION['allenatore'];
                     }
                     ?>';
@@ -33,43 +33,41 @@ callSalvaPassword = function()
     else
     {
         // console.log(dati);
-        
-        $.ajax({
-                type:'POST',
-                url:'/cambiopassword_popup_controller.php',
-                data: {
-                    "squadra": uname,
-                    "passwordvecchia": pwordold,
-                    "passwordnuova": pwordnew,
-                    "action": action
-                },
-                success:function(data){
-                    $( "#cambioPasswordDialog" ).dialog("destroy");
-                    var resp=$.parseJSON(data)
-                    if(resp.result == "true"){
-                    var  buttons= [
-                                    {
-                                    text: "Ok",
-                                    // icon: "ui-icon-heart",
-                                    click: function() {
-                                            window.location.reload();
-                                        }
-                                    }
-                                ]
-                        // $( "#dialog" ).dialog('destroy');
-                        $( "#dialog" ).prop('title', "Info");
-                        $( "#dialog p" ).html(resp.message);
-                        $( "#dialog" ).dialog({modal:true, buttons: buttons});
-                        // resp.result => "Login eseguito",
-                    }
-                    else{
-                        // $( "#dialog" ).dialog('destroy');
-                        $( "#dialog" ).prop('title', "ERROR");                
-                        $( "#dialog p" ).html(resp.message);
-                        $( "#dialog" ).dialog({modal:true});
-                    } 
-                }
-        }); 
+        // $.ajax({
+        //         type:'POST',
+        //         url:'/cambiopassword_popup_controller.php',
+        //         data: {
+        //             "squadra": uname,
+        //             "passwordvecchia": pwordold,
+        //             "passwordnuova": pwordnew,
+        //             "action": action
+        //         },
+        //         success:function(data){
+        //             var resp=$.parseJSON(data)
+        //             if(resp.result == "true"){
+        //             var  buttons= [
+        //                             {
+        //                             text: "Ok",
+        //                             // icon: "ui-icon-heart",
+        //                             click: function() {
+        //                                     window.location.reload();
+        //                                 }
+        //                             }
+        //                         ]
+        //                 // $( "#dialog" ).dialog('destroy');
+        //                 $( "#dialog" ).prop('title', "Info");
+        //                 $( "#dialog p" ).html("Operazione eseguita.");
+        //                 $( "#dialog" ).dialog({modal:true, buttons: buttons});
+        //                 // resp.result => "Login eseguito",
+        //             }
+        //             else{
+        //                 // $( "#dialog" ).dialog('destroy');
+        //                 $( "#dialog" ).prop('title', "ERROR");                
+        //                 $( "#dialog p" ).html(resp.error.msg);
+        //                 $( "#dialog" ).dialog({modal:true});
+        //             } 
+        //         }
+        // }); 
     }
 }
 togglePassowrd = function() {

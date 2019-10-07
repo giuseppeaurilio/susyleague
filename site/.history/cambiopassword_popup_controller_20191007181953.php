@@ -53,9 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($message  == "")
         {
 
-            $query2 = "UPDATE `sq_fantacalcio` SET password='$pwordnew' WHERE allenatore='$uname'";
-            $result2 = $conn->query($query2);
-            if($result2)
+            $query = "UPDATE `sq_fantacalcio` SET password=$pwordnew WHERE allenatore=$uname";
+            $result = $conn->query($query);
+            if($result)
             {
                 echo json_encode(array(
                     'result' => "true",
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             {
                 echo json_encode(array(
                     'result' => "false",
-                    'message' =>  $conn->error,
+                    'message' => $message,
                 ));
             }
         }

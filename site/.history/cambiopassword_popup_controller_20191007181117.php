@@ -52,30 +52,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         //se tutto ok, faccio il cambio password
         if($message  == "")
         {
-
-            $query2 = "UPDATE `sq_fantacalcio` SET password='$pwordnew' WHERE allenatore='$uname'";
-            $result2 = $conn->query($query2);
-            if($result2)
-            {
-                echo json_encode(array(
-                    'result' => "true",
-                    'message' => "Password aggiornata",
-                ));
-            }
-
-            else
-            {
-                echo json_encode(array(
-                    'result' => "false",
-                    'message' =>  $conn->error,
-                ));
-            }
+            echo json_encode(array(
+                'result' => "true",
+                'message' => "Password aggiornata.",
+            ));
         }
         else
         {
             echo json_encode(array(
-                'result' => "false",
-                'message' => $message,
+                'error' => array(
+                    'msg' => $message,
+                ),
             ));
         }
         
