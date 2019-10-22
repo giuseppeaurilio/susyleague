@@ -113,9 +113,7 @@ function parse_voti($filename, $idgiornata) {
 				}
 				else 
 				{
-					echo "Row skipped:";
-					print_r($data);
-					echo '<br>';
+					echo print_r($data).'<br>';
 				}
 			}
 			echo " Procedura completata.<br/>";

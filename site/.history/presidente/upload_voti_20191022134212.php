@@ -51,7 +51,7 @@ function parse_voti($filename, $idgiornata) {
 			
 			while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 				$int_value = ctype_digit($data[0]) ? intval($data[0]) : null;
-				if ($int_value !== null && is_numeric($data[3]))
+				if ($int_value !== null )
 				{
 					//[0]>Cod.	[1]>Ruolo	[2]>Nome	[3]>Voto	[4]>Gf	
 					//[5]>Gs	[6]>Rp	[7]>Rs	[8]>Rf	[9]>Au	[10]>Amm	
@@ -110,12 +110,6 @@ function parse_voti($filename, $idgiornata) {
 					else{
 						echo "ERRORE: ". $cod . '-'.$data[2] .' . Il voto non è stato importato.<br>';
 					}
-				}
-				else 
-				{
-					echo "Row skipped:";
-					print_r($data);
-					echo '<br>';
 				}
 			}
 			echo " Procedura completata.<br/>";

@@ -111,12 +111,6 @@ function parse_voti($filename, $idgiornata) {
 						echo "ERRORE: ". $cod . '-'.$data[2] .' . Il voto non è stato importato.<br>';
 					}
 				}
-				else 
-				{
-					echo "Row skipped:";
-					print_r($data);
-					echo '<br>';
-				}
 			}
 			echo " Procedura completata.<br/>";
 			// echo " Si sono verificati i seguenti errori: " .$errormessage ."<br/>";
