@@ -51,7 +51,7 @@ function parse_voti($filename, $idgiornata) {
 			
 			while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 				$int_value = ctype_digit($data[0]) ? intval($data[0]) : null;
-				if ($int_value !== null)
+				if ($int_value !== null && is_numeric($data[3]))
 				{
 					//[0]>Cod.	[1]>Ruolo	[2]>Nome	[3]>Voto	[4]>Gf	
 					//[5]>Gs	[6]>Rp	[7]>Rs	[8]>Rf	[9]>Au	[10]>Amm	
@@ -90,19 +90,25 @@ function parse_voti($filename, $idgiornata) {
 							break;
 					}
 					// echo print_r($data) .'<br>'; 
-					
-					$query = 'UPDATE `formazioni` 
-					SET `voto`="'.$votof.'",`voto_md`="'.$voto.'"
-					WHERE id_giornata= '.$idgiornata.' and id_giocatore = '.$cod.' '; 
-							//  print_r ($query);
-							//  echo '<br/> '; 
-					$result=$conn->query($query) ;//or die($conn->error);
-					if($result) {
-						$countervoti++; 
-						echo $cod . '-'.$data[2] . '; voto: ' . $voto. ' fantavoto:  ' .$votof . '<br/> '; 
+					if( $voto != 0 && $votof != '' ){
+						$query = 'UPDATE `formazioni` 
+						SET `voto`="'.$votof.'",`voto_md`="'.$voto.'"
+						WHERE id_giornata= '.$idgiornata.' and id_giocatore = '.$cod.' '; 
+								//  print_r ($query);
+								//  echo '<br/> '; 
+						$result=$conn->query($query) ;//or die($conn->error);
+						if($result) {
+							$countervoti++; 
+							// echo $query .'<br>';
+							// echo $result .'<br>';
+							// echo $cod . '-'.$data[2] . '; voto: ' . $voto. ' fantavoto:  ' .$votof . '<br/> '; 
+						}
+						else {
+							echo " ERROR ". $cod . '-'.$data[2]  . ($conn->error) .'<br>';
+						}
 					}
-					else {
-						echo " ERROR ". $cod . '-'.$data[2]  . ($conn->error) ;
+					else{
+						echo "ERRORE: ". $cod . '-'.$data[2] .' . Il voto non è stato importato.<br>';
 					}
 				}
 			}
