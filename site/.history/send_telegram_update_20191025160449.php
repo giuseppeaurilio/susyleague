@@ -27,7 +27,7 @@ function send_telegram_update() {
 	// $result=mysql_query($query);
 	// $num=mysql_numrows($result); 
 	$result=$conn->query($query);
-	// echo $query;
+	echo $query;
 
 	// $i=0;
 	// while ($i < $num) {

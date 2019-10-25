@@ -4,7 +4,7 @@ include_once ('send_message_post.php');
 
 function send_telegram_update() {
 
-	$avvisi=[24,6,1];
+	$avvisi=[24,6,5,4,3,2,1];
 	//$avvisi=range(0,150);
 
 	date_default_timezone_set('Europe/Rome');
@@ -27,7 +27,6 @@ function send_telegram_update() {
 	// $result=mysql_query($query);
 	// $num=mysql_numrows($result); 
 	$result=$conn->query($query);
-	// echo $query;
 
 	// $i=0;
 	// while ($i < $num) {
@@ -47,8 +46,8 @@ function send_telegram_update() {
 				//echo "trovato";
 				include_once "DB/calendario.php";
 				$descrizioneGiornata = getDescrizioneGiornata($giornata);
-				$testo="AVVISO: Mancano meno di $value ore alla chiusura delle partite $descrizioneGiornata. \n\n";
-				// $testo="AVVISO: Mancano meno di $value ore alla chiusura della giornata $giornata. \n\n";
+				// $testo="AVVISO: Mancano meno di $value ore alla chiusura delle partite $descrizioneGiornata. \n\n";
+				$testo="AVVISO: Mancano meno di $value ore alla chiusura della giornata $giornata. \n\n";
 
 				$query_ni="SELECT * FROM sq_fantacalcio 
 				where id  in (
