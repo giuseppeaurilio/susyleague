@@ -43,12 +43,11 @@ function send_telegram_update() {
 			//echo "check $value";
 			if (($diff<$value) and ($diff>$value-1))
 			{
-				//echo "trovato";
 				include_once "DB/calendario.php";
-				$descrizioneGiornata = getDescrizioneGiornata($giornata);
-				$testo="AVVISO: Mancano meno di $value ore alla chiusura delle partite $descrizioneGiornata. \n\n";
+				$descrizioneGiornata = getDescrizioneGiornata($id_giornata);
+				//echo "trovato";
 				// $testo="AVVISO: Mancano meno di $value ore alla chiusura della giornata $giornata. \n\n";
-
+				$testo="AVVISO: Mancano meno di $value ore alla chiusura delle partite $descrizioneGiornata. \n\n";
 				$query_ni="SELECT * FROM sq_fantacalcio 
 				where id  in (
 					select distinct id_sq_casa from calendario where id_giornata=$giornata

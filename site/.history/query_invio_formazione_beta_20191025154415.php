@@ -110,9 +110,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				// print_r($giocatoriformazione);
 
 				include_once "DB/calendario.php";
-				$descrizioneGiornata = getDescrizioneGiornata($id_giornata);
+				$descrizioneGiornata = getDescrizioneGiornata($id);
+
 				$text="$squadrafc_nome ha appena inviato la formazione per $descrizioneGiornata \n\n";
-				// $text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n";
 
 				$textformazione = "";
 				$textmodulo = "";
