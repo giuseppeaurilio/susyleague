@@ -1,6 +1,6 @@
 <?php
 
-// include_once ('send_message_post.php');
+include_once ('send_message_post.php');
 
 function send_telegram_update() {
 
@@ -11,7 +11,7 @@ function send_telegram_update() {
 	$adesso=date('Y-m-d H:i:s');
 	$adesso_date = strtotime($adesso);
 
-	include_once ("dbinfo_susyleague.inc.php");
+	include ("dbinfo_susyleague.inc.php");
 	// mysql_connect($localhost,$username,$password);
 	// @mysql_select_db($database) or die( "Unable to select database");
 	$conn = new mysqli($localhost, $username, $password,$database);
@@ -45,7 +45,15 @@ function send_telegram_update() {
 			{
 				//echo "trovato";
 				$testo="AVVISO: Mancano meno di $value ore alla chiusura della giornata $giornata. \n\n";
-				$query_ni="SELECT * FROM sq_fantacalcio where id not in (select id_squadra from formazioni where id_giornata=$giornata)";
+				$query_ni="SELECT * FROM sq_fantacalcio 
+				where id  in (
+					select distinct id_sq_casa from calendario where id_giornata=$giornata
+					union 
+					select distinct id_sq_ospite from calendario where id_giornata=$giornata
+				) 
+				and id not in (select distinct id_squadra from formazioni where id_giornata=$giornata)
+				-- SELECT * FROM sq_fantacalcio where id not in (select id_squadra from formazioni where id_giornata=$giornata)
+				";
 				// $result_ni=mysql_query($query_ni);
 				// $num_ni=mysql_numrows($result_ni); 
 				$result_ni=$conn->query($query_ni);
