@@ -4,9 +4,9 @@
 
 function send_message_post($testo) {
 	try{
+//$BOT_TOKEN='270744877:AAHCXrPHvHJgWOXEsO_hCuTpR17K2R-l5Wk';//official
 
-
-
+$BOT_TOKEN='904128728:AAHJSnL1otOg7LycKyyRFlChVSaiGyIqLks';//peppe
 
 //https://api.telegram.org/bot904128728:AAHJSnL1otOg7LycKyyRFlChVSaiGyIqLks/getUpdates
 // {"ok":true,"result":[{"update_id":567112134,
@@ -16,12 +16,8 @@ function send_message_post($testo) {
 
 // $USER_CHAT_ID='311291453';
 // $GROUP_CHAT_ID_PAOLA='-152656922';
-
-$BOT_TOKEN='270744877:AAHCXrPHvHJgWOXEsO_hCuTpR17K2R-l5Wk';//official
-$GROUP_CHAT_ID_SUSYLEAGUE='-181841313';//official
-
-// $BOT_TOKEN='904128728:AAHJSnL1otOg7LycKyyRFlChVSaiGyIqLks';//peppe
-// $GROUP_CHAT_ID_SUSYLEAGUE='-227538077';//peppe
+//$GROUP_CHAT_ID_SUSYLEAGUE='-181841313';//official
+$GROUP_CHAT_ID_SUSYLEAGUE='-227538077';//peppe
 
 $CHAT_ID=$GROUP_CHAT_ID_SUSYLEAGUE;
 //$CHAT_ID=$USER_CHAT_ID;

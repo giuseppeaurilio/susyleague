@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				foreach ($giocatoriformazione as $value) 
 				{
 					$index++;
-					$txtgiocatore = $index . '.'. $value["nome"].'('.$value["squadra_breve"].')' ."\n" ;
+					$txtgiocatore .= $index . '.'. $value["nome"].'('.$value["squadra_breve"].')' ;
 					if ($index<=11){
 						$textformazione .=$txtgiocatore;
 						switch($value["ruolo"])
@@ -147,9 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 						}
 					}
 				}
-				$textmodulo = $diftit . "-" . $centit . "-" . $atttit;
-				$textmodulopanchina = $porris . "-" . $difris . "-" . $cenris . "-" . $attris;
-				$text .= "TITOLARI (" . $textmodulo .")\n". $textformazione . "\n" ."A DISPOSIZIONE (" . $textmodulopanchina . ")\n". $textformazionepanchina;
+				$text .= "TITOLARI \n\n" . $textmodulo ."\n". $textformazione . "\n\n" ."A DISPOSIZIONE \n\n" . $textmodulopanchina . "\n". $textformazionepanchina;
 				// echo $text;
 				// print_r($text);
 				$a=send_message_post($text);

@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				}
 				$textmodulo = $diftit . "-" . $centit . "-" . $atttit;
 				$textmodulopanchina = $porris . "-" . $difris . "-" . $cenris . "-" . $attris;
-				$text .= "TITOLARI (" . $textmodulo .")\n". $textformazione . "\n" ."A DISPOSIZIONE (" . $textmodulopanchina . ")\n". $textformazionepanchina;
+				$text .= "TITOLARI " . $textmodulo ."\n". $textformazione . "\n" ."A DISPOSIZIONE " . $textmodulopanchina . "\n". $textformazionepanchina;
 				// echo $text;
 				// print_r($text);
 				$a=send_message_post($text);

@@ -110,46 +110,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				// print_r($giocatoriformazione);
 				$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n";
 
-				$textformazione = "";
+				$textformazione = "TITOLARI \n\n";
 				$textmodulo = "";
+				$textmodulopanchina = "\n\n" ."A DISPOSIZIONE \n\n";
 				$textformazionepanchina = "";
-				$textmodulopanchina = "";
-
-				$diftit= 0;
-				$centit= 0;
-				$atttit= 0;
-				$porris= 0;
-				$difris= 0;
-				$cenris= 0;
-				$attris= 0;
 				foreach ($giocatoriformazione as $value) 
 				{
 					$index++;
-					$txtgiocatore = $index . '.'. $value["nome"].'('.$value["squadra_breve"].')' ."\n" ;
-					if ($index<=11){
-						$textformazione .=$txtgiocatore;
-						switch($value["ruolo"])
-						{
-							case("P"): break;
-							case("D"): $diftit++; break;
-							case("C"): $centit++; break;
-							case("A"): $atttit++; break;
-						}
+					$txtgiocatore .= $index . '.'. $value["nome"].'('.$value["squadra_breve"].')' ;
+					if ($index!=11){
 					}
-					else {
-						$textformazionepanchina .=$txtgiocatore;
-						switch($value["ruolo"])
-						{
-							case("P"): $porris++; break;
-							case("D"): $difris++; break;
-							case("C"): $cenris++; break;
-							case("A"): $attris++; break;
-						}
+					if ($index==11) {
 					}
 				}
-				$textmodulo = $diftit . "-" . $centit . "-" . $atttit;
-				$textmodulopanchina = $porris . "-" . $difris . "-" . $cenris . "-" . $attris;
-				$text .= "TITOLARI (" . $textmodulo .")\n". $textformazione . "\n" ."A DISPOSIZIONE (" . $textmodulopanchina . ")\n". $textformazionepanchina;
 				// echo $text;
 				// print_r($text);
 				$a=send_message_post($text);

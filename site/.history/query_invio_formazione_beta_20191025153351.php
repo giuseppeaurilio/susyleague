@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$index =0;
 				// echo "secondo";
 				// print_r($giocatoriformazione);
-				$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n";
+				$text=" <b>$squadrafc_nome</b> ha appena inviato la formazione per la giornata  <b>$id_giornata</b> \n\n";
 
 				$textformazione = "";
 				$textmodulo = "";
@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				}
 				$textmodulo = $diftit . "-" . $centit . "-" . $atttit;
 				$textmodulopanchina = $porris . "-" . $difris . "-" . $cenris . "-" . $attris;
-				$text .= "TITOLARI (" . $textmodulo .")\n". $textformazione . "\n" ."A DISPOSIZIONE (" . $textmodulopanchina . ")\n". $textformazionepanchina;
+				$text .= " <b>TITOLARI (" . $textmodulo .")</b>\n". $textformazione . "\n" ." <i>A DISPOSIZIONE (" . $textmodulopanchina . ")</i>\n". $textformazionepanchina;
 				// echo $text;
 				// print_r($text);
 				$a=send_message_post($text);

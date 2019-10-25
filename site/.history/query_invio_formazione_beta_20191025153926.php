@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$index =0;
 				// echo "secondo";
 				// print_r($giocatoriformazione);
-				$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n\n";
+				$text="$squadrafc_nome ha appena inviato la formazione per la giornata $id_giornata \n";
 
 				$textformazione = "";
 				$textmodulo = "";
