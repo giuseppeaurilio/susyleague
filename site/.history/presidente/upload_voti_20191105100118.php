@@ -72,7 +72,7 @@ function parse_voti($filename, $idgiornata) {
 						// 	- (0.5*$data[10])//ammonizioni
 						// 	- (0.5*$data[11])//espulsioni
 						// 	+ (1*$data[12]) //assist
-						// 	+ (1*$data[13]) //assist da fermo
+						// 	+ (1*$data[13]) //assistdafermo
 						case "P":
 						case "D":
 						case "C":
