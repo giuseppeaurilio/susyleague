@@ -32,7 +32,7 @@ footer {
 
 body {
 padding: 0; 
-margin: 0;
+margin: 0 2px;
 font-family: "SusyLeagueFont","Trebuchet MS","Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
@@ -78,17 +78,58 @@ div.stellarnav
   color: white;
   float: right;
   /* vertical-align: middle; */
-  padding: 5px 0;
+  padding: 0;
+  text-align: center;
 }
-.loginsection span{
-  word-wrap: break-word;
+
+
+.loginsection ul{
+  list-style: none;
+  padding:0;
+  margin: 0;
 }
-.loginsection a{
+.loginsection ul li {
+  display: inline-block;
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  line-height: normal;
+}
+
+
+
+.loginsection a {
   padding: 5px;
-  /* display: block; */
-  /* text-align: center; */
-  /* color: white; */
+  text-decoration: none;
+  word-wrap: break-word;
+  color: #FFF;
+  /* border-left: 1px solid rgba(255, 255, 255, .15); */
+  display: block;
+  
+  font-size: inherit;
+  font-family: inherit;
+  box-sizing: border-box;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  
 }
+.loginsection ul.submenu{
+  top: auto;
+  width: 100%;
+  position: absolute;
+  z-index: 9900;
+  text-align: left;
+  display: none;
+  background: #366b82;
+}
+
+.loginsection ul.submenu a {
+  padding: 15px 5px;
+}
+
 .loginsection .result{
   color: red;
 }
@@ -235,7 +276,8 @@ color: white;
   background: rgba( 255, 255, 255, .8 ) 
               /* url('http://i.stack.imgur.com/FhHRx.gif')  */
               /* url('https://www.footballtipster.net//assets/images/live_loader.gif') */
-              url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/2a451af0-8632-426a-8de9-b1a8649ca548/d518u1w-23778107-953e-4716-b691-fa56b8125f67.gif')
+              /* url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/2a451af0-8632-426a-8de9-b1a8649ca548/d518u1w-23778107-953e-4716-b691-fa56b8125f67.gif') */
+              url('https://i.pinimg.com/originals/cd/c0/80/cdc080b56fd1249b96d5edb7b2c43d5e.gif')
               /* url('https://media.giphy.com/media/WvuTFk2IN7jxoLVDkP/giphy.gif') */
               50% 50% 
               no-repeat;
@@ -353,25 +395,26 @@ li.game{
   /* display: none; —- remove the menu, perhaps */
   }
 
-  /* .ui-grid-a .ui-block-a .mobile, 
+  .ui-grid-a .ui-block-a .mobile, 
   .ui-grid-a .ui-block-b .mobile{
     display:none;
-  } */
+  }
 @media screen and (max-width: 720px) {
   .ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b {
-     width: 50%; 
+    width: 50%; 
     font-size: 1em;
   }  
   .ui-grid-a .ui-block-a .desktop, 
   .ui-grid-a .ui-block-b .desktop{
     display:none;
   }
-  /* .ui-grid-a .ui-block-a .mobile, 
+  .ui-grid-a .ui-block-a .mobile, 
   .ui-grid-a .ui-block-b .mobile{
     display:block;
-  } */
+  }
   .truncate {
-    max-width: 120px;
+    /* max-width: 120px; */
+    max-width: 6em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -386,8 +429,8 @@ li.game{
  }
  #tabellino table td
  {
-   padding: 0 6px;
-   font-size: 17px;
+   padding: 0 5px;
+   font-size: 15px;
  }
 }
 
@@ -811,4 +854,8 @@ padding: 0;
 #divContentNuovoAnnuncio div textarea
 {
   width: 98%;
+}
+
+.maincontent .riepilogo{
+  min-width: 350px;
 }
