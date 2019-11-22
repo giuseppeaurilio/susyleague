@@ -115,7 +115,7 @@
         // $result_prox->close();
         // $conn->next_result();
 
-        // print_r ($partite);
+        print_r ($partite);
         if(count($partite) >0){
             echo '<div>';
             $counter +=count($partite);
@@ -137,15 +137,9 @@
                 else
                 echo '<div class="result alternate" >';
                 echo '<div style="text-align:center;">
-                <div style="width:40%; display:inline-block;">'
-                . $partita["sq_casa"]
-                . ($partita["luc"] != 1 ? '<i class="far fa-times-circle" style="color:red"></i>' : '<i class="far fa-check-circle" style="color:green"></i>').
-                '
-                </div>
+                <div style="width:40%; display:inline-block;" class="'. $partita["luc"] == "0" ? "missing" :"sent".'">'. $partita["sq_casa"].'</div>
                 <div style="width:10%; display:inline-block;">-</div>
-                <div style="width:40%; display:inline-block;">'
-                . ($partita["luo"] != 1 ? '<i class="far fa-times-circle" style="color:red"></i>' : '<i class="far fa-check-circle" style="color:green"></i>')
-                . $partita["sq_ospite"].'</div>
+                <div style="width:40%; display:inline-block;" class="'. $partita["luo"] == "0" ? "missing" :"sent".'">'. $partita["sq_ospite"].'</div>
                 </div>';
                 
                 echo '</div>';

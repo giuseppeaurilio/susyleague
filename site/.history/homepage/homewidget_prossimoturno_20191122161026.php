@@ -26,7 +26,7 @@
         // where fine > DATE_ADD(NOW(), INTERVAL 2 HOUR)
         // AND inizio < DATE_ADD(NOW(), INTERVAL 2 HOUR)
         // and id_girone = ".$girone ;
-        $queryprox="
+        $queryprox = "
         CREATE TEMPORARY TABLE formazioni_inviate
         select count(*) as lineup,  id_giornata ,id_squadra  from formazioni 
         group by id_giornata, id_squadra;
@@ -46,36 +46,13 @@
         AND inizio < DATE_ADD(NOW(), INTERVAL 2 HOUR)
 		
         and id_girone = ".$girone ."
-        order by id_partita;
+        order by id_partita
         ";
-        $partite = array();
+
         // echo $queryprox;
         // echo '<br>';
-        // $result_prox=$conn->multi_query($queryprox);
-        if ($conn->multi_query($queryprox)) {
-            do {
-                /* store first result set */
-                if ($result = $conn->store_result()) {
-                    while ($row = $result->fetch_row()) {
-                        // printf("%s\n", $row[0]);
-                        // print_r($row);
-                        array_push($partite, array(
-                            "id_giornata" =>$row[0],
-                            "sq_casa"=>$row[1],
-                            "luc"=>$row[3],
-                            "sq_ospite"=>$row[2],
-                            "luo"=>$row[4]
-                            )
-                        );
-                    }
-                    $result->free();
-                }
-                // /* print divider */
-                // if ($conn->more_results()) {
-                //     printf("-----------------\n");
-                // }
-            } while ($conn->next_result());
-        }
+        $result_prox=$conn->query($queryprox);
+
         // $num_prox=$result_prox->num_rows; 
         // if($num_prox >0){
         //     echo '<div>';
@@ -85,37 +62,21 @@
         //     echo '<br>';
         //     echo '</div>';
         // }
+        $partite = array();
+        while($row = $result_prox->fetch_assoc()){
+            array_push($partite, array(
+                "id_giornata" =>$row["id_giornata"],
+                "sq_casa"=>$row["sq_casa"],
+                "luc"=>$row["luc"],
+                "sq_ospite"=>$row["sq_ospite"],
+                "luo"=>$row["luo"],
+                )
+            );
+        }
+        $result_prox->close();
+        $conn->next_result();
 
-        // print_r($result_prox);
-        
-        // while($row = $result_prox->fetch_assoc()){
-        //     array_push($partite, array(
-        //         "id_giornata" =>$row["id_giornata"],
-        //         "sq_casa"=>$row["sq_casa"],
-        //         // "luc"=>$row["luc"],
-        //         "sq_ospite"=>$row["sq_ospite"],
-        //         // "luo"=>$row["luo"]
-        //         )
-        //     );
-        // }
-        // do {
-        //     /* store first result set */
-        //     if ($result = $result_prox->store_result()) {
-        //         while ($row = $result->fetch_row()) {
-        //             printf("%s\n", $row[0]);
-        //         }
-        //         $result->free();
-        //     }
-        //     /* print divider */
-        //     if ($result_prox->more_results()) {
-        //         printf("-----------------\n");
-        //     }
-        // } while ($mysqli->next_result());
 
-        // $result_prox->close();
-        // $conn->next_result();
-
-        // print_r ($partite);
         if(count($partite) >0){
             echo '<div>';
             $counter +=count($partite);
@@ -136,16 +97,9 @@
                 echo '<div class="result">';
                 else
                 echo '<div class="result alternate" >';
-                echo '<div style="text-align:center;">
-                <div style="width:40%; display:inline-block;">'
-                . $partita["sq_casa"]
-                . ($partita["luc"] != 1 ? '<i class="far fa-times-circle" style="color:red"></i>' : '<i class="far fa-check-circle" style="color:green"></i>').
-                '
-                </div>
+                echo '<div style="text-align:center;"><div style="width:40%; display:inline-block;">'. $partita["sq_casa"].'</div>
                 <div style="width:10%; display:inline-block;">-</div>
-                <div style="width:40%; display:inline-block;">'
-                . ($partita["luo"] != 1 ? '<i class="far fa-times-circle" style="color:red"></i>' : '<i class="far fa-check-circle" style="color:green"></i>')
-                . $partita["sq_ospite"].'</div>
+                <div style="width:40%; display:inline-block;">'. $partita["sq_ospite"].'</div>
                 </div>';
                 
                 echo '</div>';

@@ -139,12 +139,12 @@
                 echo '<div style="text-align:center;">
                 <div style="width:40%; display:inline-block;">'
                 . $partita["sq_casa"]
-                . ($partita["luc"] != 1 ? '<i class="far fa-times-circle" style="color:red"></i>' : '<i class="far fa-check-circle" style="color:green"></i>').
+                . ($partita["luc"] != 1 ? '<i class="far fa-times-circle" style="color:red"></i>' : '<i class="far fa-check-circle"></i>').
                 '
                 </div>
                 <div style="width:10%; display:inline-block;">-</div>
                 <div style="width:40%; display:inline-block;">'
-                . ($partita["luo"] != 1 ? '<i class="far fa-times-circle" style="color:red"></i>' : '<i class="far fa-check-circle" style="color:green"></i>')
+                . ($partita["luo"] != 1 ? '<i class="far fa-times-circle"></i>' : '<i class="far fa-check-circle"></i>')
                 . $partita["sq_ospite"].'</div>
                 </div>';
                 

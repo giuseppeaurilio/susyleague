@@ -137,15 +137,20 @@
                 else
                 echo '<div class="result alternate" >';
                 echo '<div style="text-align:center;">
-                <div style="width:40%; display:inline-block;">'
-                . $partita["sq_casa"]
-                . ($partita["luc"] != 1 ? '<i class="far fa-times-circle" style="color:red"></i>' : '<i class="far fa-check-circle" style="color:green"></i>').
-                '
+                <div style="width:40%; display:inline-block;" class="'. ($partita["luc"] != 1 ?   'missing' :'sent') .'">'. $partita["sq_casa"].'
+                <i class="far fa-times-circle"></i>
+                <i class="far fa-check-circle"></i>
                 </div>
                 <div style="width:10%; display:inline-block;">-</div>
-                <div style="width:40%; display:inline-block;">'
-                . ($partita["luo"] != 1 ? '<i class="far fa-times-circle" style="color:red"></i>' : '<i class="far fa-check-circle" style="color:green"></i>')
-                . $partita["sq_ospite"].'</div>
+                <div style="width:40%; display:inline-block;">
+                'if($partita["luo"] != 1)
+                {
+                    '<i class="far fa-times-circle"></i>';
+                }
+                else{
+                    '<i class="far fa-check-circle"></i>';
+                }
+                '. $partita["sq_ospite"].'</div>
                 </div>';
                 
                 echo '</div>';
