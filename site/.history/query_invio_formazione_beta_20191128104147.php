@@ -96,10 +96,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 					$query .=$query_ini;
 				}
 
-				$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_casa =$id_squadra ;";
-				$query.=$queryformazioneinviatacasa;
-				$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_ospite =$id_squadra ;";
-				$query.=$queryformazioneinviataospite;
+				$queryformazioneinviata="";
+				$query.=$queryformazioneinviata;
 				//  echo $query;
 				$resultmq=$conn->multi_query($query);
 				
