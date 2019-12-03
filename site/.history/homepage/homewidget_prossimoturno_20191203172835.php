@@ -133,15 +133,15 @@
                 else
                 echo '<div class="result alternate" >';
                 echo '<div style="text-align:center;">
-                <div style="width:46%; display:inline-block; text-align:right;">'
-                . $partita["sq_casa"] . '&nbsp;'
+                <div style="width:45%; display:inline-block; text-align:right;">'
+                . $partita["sq_casa"]
                 . ($partita["luc"] != 1 ? ' <i class="far fa-times-circle" style="color:red; float:right;"></i>' : ' <i class="far fa-check-circle" style="color:green; float:right;"></i>').
                 '
                 </div>
                 <div style="width:5%; display:inline-block;">-</div>
-                <div style="width:46%; display:inline-block; text-align:left;">'
+                <div style="width:45%; display:inline-block; text-align:left;">'
                 . ($partita["luo"] != 1 ? '<i class="far fa-times-circle" style="color:red;float:left;"></i> ' : '<i class="far fa-check-circle" style="color:green;float:left;"></i> ')
-                . '&nbsp;' . $partita["sq_ospite"].'</div>
+                . $partita["sq_ospite"].'</div>
                 </div>';
                 
                 echo '</div>';
