@@ -92,36 +92,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 					
 					$index++;
 					// print_r($value);
-					if($index == 20)
-					{						
-						$query_ini = "REPLACE INTO `formazioni`(`dasdsa`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
+					if($index != 5)
+					{
+						$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
 						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
 					}
 					else
 					{
-						$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
-						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;						
+						$query_ini = "REPLACE INTO `formazioni`(`dasdsa`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
+						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
 					}
 					// $query .=$query_ini;
 					if(!$conn->query($query_ini))
 					{
-							// $message .="passako" .$index++."<br>";
-							// $message .=$result;
-							// $message .=$conn->error;
-							throw new Exception($conn->error);
+							$message .="passako" .$index++."<br>";
+							$message .=$result;
+							$message .=$conn->error;
 					}
 				}
 				$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_casa =$id_squadra ;";
-				if(!$conn->query($queryformazioneinviatacasa))
-				{
-						throw new Exception($conn->error);
-				}
+				// $query.=$queryformazioneinviatacasa;
 				$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_ospite =$id_squadra ;";
-				if(!$conn->query($queryformazioneinviataospite))
-				{
-						throw new Exception($conn->error);
-				}
-				$message .= "Formazione inviata\n";
+				// $query.=$queryformazioneinviataospite;
+				
 				// //  echo $query;
 				// $resultmq=$conn->multi_query($query);
 				

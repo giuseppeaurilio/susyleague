@@ -86,75 +86,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$index =0;
 				
 				$query = "";
-
+				$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_casa =$id_squadra ;";
+				$query.=$queryformazioneinviatacasa;
+				$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_ospite =$id_squadra ;";
+				$query.=$queryformazioneinviataospite;
 				foreach ($giocatoriformazione as $value) 
 				{	
 					
 					$index++;
 					// print_r($value);
-					if($index == 20)
-					{						
-						$query_ini = "REPLACE INTO `formazioni`(`dasdsa`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
-						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
-					}
-					else
-					{
-						$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
-						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;						
-					}
-					// $query .=$query_ini;
-					if(!$conn->query($query_ini))
-					{
-							// $message .="passako" .$index++."<br>";
-							// $message .=$result;
-							// $message .=$conn->error;
-							throw new Exception($conn->error);
-					}
+					$query_ini = "REPLACE INTO `formazioni`(`id giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
+					VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
+					$query .=$query_ini;
 				}
-				$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_casa =$id_squadra ;";
-				if(!$conn->query($queryformazioneinviatacasa))
-				{
-						throw new Exception($conn->error);
-				}
-				$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_ospite =$id_squadra ;";
-				if(!$conn->query($queryformazioneinviataospite))
-				{
-						throw new Exception($conn->error);
-				}
-				$message .= "Formazione inviata\n";
+
+				
 				// //  echo $query;
 				// $resultmq=$conn->multi_query($query);
 				
 				// // $resultmq->close();
 				// while(mysqli_next_result($conn)){;}
 
-				// if ($conn->multi_query($query)) {
+				if ($conn->multi_query($query)) {
 					
-				// 	$i=0;
-				// 	$message .="passa" .$i++."<br>";
-				// 	do {
-				// 		/* store first result set */
-				// 		if ($result = $conn->store_result()) {
-				// 			// while ($row = $result->fetch_row()) {
-				// 			// 	// printf("%s\n", $row[0]);
-				// 			// }
-				// 			$message .="passaok" .$i++ ."<br>";
-				// 			$message .=$result;
-				// 			$result->free();
-				// 		}
-				// 		else
-				// 		{
-				// 			$message .="passako" .$i++."<br>";
-				// 			$message .=$result;
-				// 			$message .=$conn->error;
-				// 		}
-				// 	} while ($conn->next_result());
-				// 	$message .= "Formazione inviata\n";
-				// }
-				// else
-				// {
-				// 	$message .=$conn->error;	
-				// }
+					$i=0;
+					$message .="passa" .$i++;
+					do {
+						/* store first result set */
+						if ($result = $conn->store_result()) {
+							// while ($row = $result->fetch_row()) {
+							// 	// printf("%s\n", $row[0]);
+							// }
+							$message .="passaok" .$i++;
+							$message .=$result;
+							$result->free();
+						}
+						else
+						{
+							$message .="passako" .$i++;
+							$message .=$result;
+							$message .=$conn->error;
+						}
+					} while ($conn->next_result());
+					$message .= "Formazione inviata\n";
+				}
+				else
+				{
+					$message .=$conn->error;	
+				}
 				// print_r($result);
 				
 				// echo $message;	

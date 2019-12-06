@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				{
 						throw new Exception($conn->error);
 				}
-				$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_ospite =$id_squadra ;";
+				$queryformazioneinviataospite="UPDATE `calendario` SET `dasdsa`=1 WHERE id_giornata = $id_giornata and id_sq_ospite =$id_squadra ;";
 				if(!$conn->query($queryformazioneinviataospite))
 				{
 						throw new Exception($conn->error);

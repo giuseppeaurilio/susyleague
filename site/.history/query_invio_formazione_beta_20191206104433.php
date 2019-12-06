@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				{
 						throw new Exception($conn->error);
 				}
-				$message .= "Formazione inviata\n";
+				
 				// //  echo $query;
 				// $resultmq=$conn->multi_query($query);
 				

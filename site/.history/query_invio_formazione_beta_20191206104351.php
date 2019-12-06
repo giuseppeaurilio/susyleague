@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 					
 					$index++;
 					// print_r($value);
-					if($index == 20)
+					if($index == 2)
 					{						
 						$query_ini = "REPLACE INTO `formazioni`(`dasdsa`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
 						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				{
 						throw new Exception($conn->error);
 				}
-				$message .= "Formazione inviata\n";
+				
 				// //  echo $query;
 				// $resultmq=$conn->multi_query($query);
 				
