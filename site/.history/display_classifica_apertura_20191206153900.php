@@ -1,5 +1,5 @@
 <?php
-$idgirone=2;
+$idgirone=1;
 // echo "Connected successfully";
 $queryclassifica='CALL getClassifica('.$idgirone.')';
 // print_r($queryclassifica);
@@ -39,15 +39,16 @@ $result_girone->close();
 $conn->next_result();
 // print("<pre>".print_r($arraysquadre,true)."</pre>").'<br>';
 ?>
-<div id="tabs-2">
 
-<h2>Torneo Chiusura</h2>
+
+<div id="tabs-1">
+<h2>Torneo Apertura</h2>
 <h3>Classifica Punti</h3>
 <div class="scrollmenu">
 <table class="classifica">
 <thead>
 <tr>
-<th>
+<th >
 &nbsp;
 </th>
 <th colspan="7">
@@ -63,7 +64,7 @@ TRASFERTA
 </thead>
 <tr>
 
-<th>Squadra</th>
+<th >Squadra</th>
 <th>Punti</th>
 <th>Voti</th>
 <th>V</th>
@@ -114,6 +115,8 @@ foreach($arraysquadre as $squadra){
 </table>
 </div>
 <?php 
+
+
 usort($arraysquadre, "cmp");
 ?>
 
@@ -135,69 +138,5 @@ foreach($arraysquadre as $squadra){
 ?>
 </table>
 
-<?php
-$querystatistichemd='CALL statistiche_mediadifesa('.$idgirone.');';
-$resultstats=$conn->query($querystatistichemd);
-$stats = array();
-while ($row=$resultstats->fetch_assoc()) {
-    array_push($stats, array(
-        "id"=>$row["id_sq_casa"],
-        "squadra"=>$row["squadra"],
-        "md_f_c"=>$row["md_f_c"],
-        "md_f_t"=>$row["md_f_t"],
-        "md_f"=>$row["md_f"],
-        "md_c_c"=>$row["md_c_c"],
-        "md_c_t"=>$row["md_c_t"],
-        "md_c"=>$row["md_c"],
-        "md"=>$row["md"],
-        )
-    );
-}
-$resultstats->close();
-$conn->next_result();
-// echo print_r($stats);
-?>
-<h3>Statistiche Media Difesa</h3>
-    <div class="scrollmenu">
-    <table class="classifica">
-    <thead>
-    <tr>
-        <th >
-        &nbsp;
-        </th>
-        <th colspan="3">
-        Media difesa applicata
-        </th>
-        <th colspan="3">
-        Media difesa subita
-        </th>
-        <th rowspan="2">FATTORE <br>CULO</th>
-    </tr>
-    </thead>
-    <tr>
-        <th >Squadra</th>
-        <th>Casa</th>
-        <th>Traf</th>
-        <th>TOT</th>
-        <th>Casa</th>
-        <th>Traf</th>
-        <th>TOT</th>
-        <th>&nbsp;</th>
-    </tr>
-    <?php 
-    foreach($stats as $squadra){
-        echo '<tr>';
-            echo '<td>'.$squadra["squadra"].'</td>';
-            echo '<td>'.$squadra["md_f_c"].'</td>';
-            echo '<td>'.$squadra["md_f_t"].'</td>';
-            echo '<td>'.$squadra["md_f"].'</td>';
-            echo '<td>'.$squadra["md_c_c"].'</td>';
-            echo '<td>'.$squadra["md_c_t"].'</td>';
-            echo '<td>'.$squadra["md_c"].'</td>';
-            echo '<td>'.$squadra["md"].'</td>';
-        echo '</tr>';
-    }
-    ?>
-    </table>
-    </div>
+
 </div>

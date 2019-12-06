@@ -1,19 +1,10 @@
 <?php
-include "dbinfo_susyleague.inc.php";
-#echo $username;
-// Create connection
-$conn = new mysqli($localhost, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 $idgirone=1;
 // echo "Connected successfully";
 $queryclassifica='CALL getClassifica('.$idgirone.')';
 // print_r($queryclassifica);
 $result_girone = $conn->query($queryclassifica) or die($conn->error);
-print_r($result_girone);
+// print_r($result_girone);
 $arraysquadre = array();
     //recupero i dati dal DB e li trasferisco nell'array di oggetti
 while ($row = $result_girone->fetch_assoc()) {
@@ -43,18 +34,37 @@ while ($row = $result_girone->fetch_assoc()) {
     $temp->golsubititrasf = $row["golsubitit"];
     array_push($arraysquadre,$temp);
 }
-$conn->close();
-
+// $conn->close();
+$result_girone->close();
+$conn->next_result();
 // print("<pre>".print_r($arraysquadre,true)."</pre>").'<br>';
 ?>
-<ul>
-<li>Apertura </li>
 
-<h2>Classifica Punti</h2>
-<table >
+
+<div id="tabs-1">
+<h2>Torneo Apertura</h2>
+<h3>Classifica Punti</h3>
+<div class="scrollmenu">
+<table class="classifica">
+<thead>
+<tr>
+<th >
+&nbsp;
+</th>
+<th colspan="7">
+TOTALI
+</th>
+<th colspan="6">
+CASA
+</th>
+<th colspan="6">
+TRASFERTA
+</th>
+</tr>
+</thead>
 <tr>
 
-<th>Squadra</th>
+<th >Squadra</th>
 <th>Punti</th>
 <th>Voti</th>
 <th>V</th>
@@ -103,15 +113,15 @@ foreach($arraysquadre as $squadra){
 }
 ?>
 </table>
-
+</div>
 <?php 
 
 
 usort($arraysquadre, "cmp");
 ?>
 
-<h2>Classifica marcatori</h2>
-<table >
+<h3>Classifica marcatori</h3>
+<table class="classifica">
 <tr>
 <th>Squadra</th>
 <th>Punti</th>
@@ -127,3 +137,18 @@ foreach($arraysquadre as $squadra){
 }
 ?>
 </table>
+</div>
+<?php
+$querystatistichemd='CALL statistiche_mediadifesa('.$idgirone.')';
+$resultstats=$conn->query($querystatistichemd);
+$stats = array();
+while ($row=$resultstats->fetch_assoc()) {
+    array_push($stats, array(
+        "id"=>$id_giocatore,
+        "nome"=>$nome_giocatore,
+        "squadra"=>$squadra_giocatore,
+        "filename"=>$filename
+        )
+    );
+}
+?>
