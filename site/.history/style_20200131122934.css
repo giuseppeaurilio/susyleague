@@ -217,34 +217,27 @@ body .widget div.footer
   background-color: rgba(211,211,211, 0.7)
 }
 
-body .widget div.fustiassegnaticontent
+body .widget div.fustiassegnati
 {
-  background-image: url('https://image.freepik.com/vettori-gratuito/banner-di-beer-barrel-oktoberfest-festival-holiday-decoration_48369-5864.jpg');
+  /* background-image: url('https://steamuserimages-a.akamaihd.net/ugc/921422768047804536/1EB6B3711464925CC59D4ECE667A55B2228EA69C/'); */
+  /* background-image: url('https://gifimage.net/wp-content/uploads/2017/09/animated-beer-gif-4.gif'); */
+  /* background-image: url('https://image.freepik.com/vettori-gratuito/banner-di-beer-barrel-oktoberfest-festival-holiday-decoration_48369-5864.jpg'); 
   background-repeat: no-repeat;
   background-size: auto 100%;
-  background-position: center;
+  background-position: center;  */
+  /* height: 200px; */
+  /* text-align: center;
+  vertical-align: middle; */
+
+  background: rgba( 255, 255, 255, 0.5 ) 
+              url('https://image.freepik.com/vettori-gratuito/banner-di-beer-barrel-oktoberfest-festival-holiday-decoration_48369-5864.jpg')
+              50% 50% 
+              no-repeat;
+  /* text-align: center; */
 }
 body .widget div.fustiassegnati .fustiassegnaticontent
 {
-    text-align: center;
-}
-body .widget div.fustiassegnati .fustiassegnaticontent #count-example
-{
   background: rgba(255, 255, 255, 0.3);
-}
-body .widget div.fustiassegnati ul{
-  
-  margin: 0px;
-  padding: 0px;
-  text-decoration: none;
-  list-style: none;
-}
-body .widget div.fustiassegnati ul li{
-  padding: 2px ;
-  text-align: center;
-}
-body .widget div.fustiassegnati ul li.alternate{
-  background-color: rgba(176,196,222 ,0.5 );
 }
 body .widget div.fustiassegnati #count-example{
     /* height: 100%; */
@@ -261,12 +254,9 @@ body .widget div.fusticoming
   background-image: url('https://treatycitybrewery.ie/cms_files/wp-content/uploads/2017/04/gif2.gif');
   background-repeat: no-repeat;
   background-size: auto 100%;
-  background-position: center;  
-}
-body .widget div.fusticoming .fusticomingcontent
-{
-  background: rgba(255, 255, 255, 0.3);
+  background-position: center; 
   height: 200px;
+  
 }
 table{
 border-collapse: collapse;
