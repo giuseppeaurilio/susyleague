@@ -271,21 +271,8 @@ body .widget div.fusticoming .fusticomingcontent
   vertical-align: middle;
 
 }
-/* body .widget div.fusticoming .fusticomingcontent span {
+body .widget div.fusticoming .fusticomingcontent span {
 line-height: 200px;    background-color: rgba(176,196,222 ,0.8 );    font-size: 20px;    padding: 2px;
-} */
-body .widget div.fusticoming .fusticomingcontent ul {
-margin: 0px;
-padding: 0px;
-text-decoration: none;
-list-style: none;
-}
-body .widget div.fusticoming .fusticomingcontent ul li{
-  padding: 2px ;
-  text-align: center;
-}
-body .widget div.fusticoming .fusticomingcontent ul li.alternate{
-  background-color: rgba(176,196,222 ,0.5 );
 }
 table{
 border-collapse: collapse;

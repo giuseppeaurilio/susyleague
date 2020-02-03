@@ -18,7 +18,7 @@
     <h3>Fusti in preparazione</h3>
     <div class="fusticoming">
         <div class=fusticomingcontent>
-            <ul style="padding: 20% 0">
+            <ul>
                 <li class="alternate">Giuseppe Aurilio</li>
                 <li class="">Daniele Rotondo</li>
             </ul>
@@ -31,7 +31,7 @@
     <script>
         $('#count-example').jQuerySimpleCounter({
             start:  30,
-            end:    4,
+            end:    5,
             easing:'easeOutExpo',
             // easing:'swing',
             duration: 5000

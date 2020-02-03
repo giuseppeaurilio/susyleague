@@ -280,13 +280,6 @@ padding: 0px;
 text-decoration: none;
 list-style: none;
 }
-body .widget div.fusticoming .fusticomingcontent ul li{
-  padding: 2px ;
-  text-align: center;
-}
-body .widget div.fusticoming .fusticomingcontent ul li.alternate{
-  background-color: rgba(176,196,222 ,0.5 );
-}
 table{
 border-collapse: collapse;
 width: 100%;

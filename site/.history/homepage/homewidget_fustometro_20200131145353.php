@@ -8,20 +8,15 @@
         <div class="lista">
             <ul>
                 <li class="alternate">Andrea Rotondo</li>
-                <li class="">Filippo Pagliarella</li>
-                <li class="alternate">Andrea Rotondo</li>
-                <li class="">Andrea Rotondo</li>
-                <li class="alternate">Daniele Rotondo</li>
+                <li>Filippo Pagliarella</li>
             </ul>
         </div>
     </div>
     <h3>Fusti in preparazione</h3>
     <div class="fusticoming">
         <div class=fusticomingcontent>
-            <ul style="padding: 20% 0">
-                <li class="alternate">Giuseppe Aurilio</li>
-                <li class="">Daniele Rotondo</li>
-            </ul>
+            <span >Giuseppe Aurilio </span>
+            
         </div>
     </div>
     <?php 
@@ -31,7 +26,7 @@
     <script>
         $('#count-example').jQuerySimpleCounter({
             start:  30,
-            end:    4,
+            end:    1,
             easing:'easeOutExpo',
             // easing:'swing',
             duration: 5000
