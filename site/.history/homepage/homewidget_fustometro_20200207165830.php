@@ -41,7 +41,7 @@
                     {
                         echo ': ' .$v["Motivazione"] ;
                     }
-                    // echo '('.date('d/m/Y', strtotime($v["DataUM"])).')';
+                    echo '('.date('d/m/Y', strtotime($v["DataUM"])).')';
                     echo'</li>';
                 }
             ?>

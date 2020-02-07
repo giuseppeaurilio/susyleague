@@ -3,7 +3,7 @@ include("dbinfo_susyleague.inc.php");
 date_default_timezone_set('Europe/Rome');
 $date = date('Y-m-d');
 
-$id_annuncio=$_GET['id_annuncio'];
+$id_annuncio=($_GET['id_annuncio']);
 
     session_start();
 	if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {

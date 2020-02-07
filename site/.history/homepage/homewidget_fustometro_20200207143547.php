@@ -41,7 +41,7 @@
                     {
                         echo ': ' .$v["Motivazione"] ;
                     }
-                    // echo '('.date('d/m/Y', strtotime($v["DataUM"])).')';
+                    echo '('.date('d/m/Y', strtotime($v["DataUM"])).')';
                     echo'</li>';
                 }
             ?>
@@ -69,7 +69,7 @@
         );
     }
     $result->close();
-    // echo print_r($fustiinprep);
+    echo print_r($fustiinprep);
     ?>
     <div class="fusticoming">
         <div class=fusticomingcontent>
@@ -88,7 +88,7 @@
                     {
                         echo ': ' .$v["Motivazione"] ;
                     }
-                    // echo '('.date('d/m/Y', strtotime($v["DataUM"])).')';
+                    echo '('.date('d/m/Y', strtotime($v["DataUM"])).')';
                     echo'</li>';
                 }
             ?>

@@ -28,21 +28,8 @@
         <div class="lista">
             <ul>
             <?php
-                foreach($fustiassegnati as $k => $v){
-                    if ($k % 2 == 0) {
-                        echo '<li class="alternate">';
-                    }
-                    else
-                    {
-                        echo '<li class="">';
-                    }
-                    echo $v["Presidente"];
-                    if($v["Motivazione"] != "")
-                    {
-                        echo ': ' .$v["Motivazione"] ;
-                    }
-                    // echo '('.date('d/m/Y', strtotime($v["DataUM"])).')';
-                    echo'</li>';
+                foreach($fustiassegnati as $fusto){
+                    echo '<li class="alternate">Andrea Rotondo</li>';
                 }
             ?>
                 <!-- <li class="alternate">Andrea Rotondo</li>
@@ -69,40 +56,22 @@
         );
     }
     $result->close();
-    // echo print_r($fustiinprep);
+    echo print_r($fustiinprep);
     ?>
-    <div class="fusticoming">
+    <!-- <div class="fusticoming">
         <div class=fusticomingcontent>
             <ul style="padding: 20% 0">
-            <?php
-                foreach($fustiinprep as $k => $v){
-                    if ($k % 2 == 0) {
-                        echo '<li class="alternate">';
-                    }
-                    else
-                    {
-                        echo '<li class="">';
-                    }
-                    echo $v["Presidente"];
-                    if($v["Motivazione"] != "")
-                    {
-                        echo ': ' .$v["Motivazione"] ;
-                    }
-                    // echo '('.date('d/m/Y', strtotime($v["DataUM"])).')';
-                    echo'</li>';
-                }
-            ?>
-                <!-- <li class="alternate">Giuseppe Aurilio</li>
+                <li class="alternate">Giuseppe Aurilio</li>
                 <li class="">Daniele Rotondo</li>
-                <li class="alternate">Giorgio "Coppi"</li> -->
+                <li class="alternate">Giorgio "Coppi"</li>
             </ul>
         </div>
-    </div>
+    </div> -->
     <?php 
        
        
     ?>
-    <!-- <script>
+    <script>
         $('#count-example').jQuerySimpleCounter({
             start:  30,
             end:    <?php echo count($fustiassegnati) ?>,
@@ -110,7 +79,7 @@
             // easing:'swing',
             duration: 5000
         });
-    </script> -->
+    </script>
     <!-- <script>
         (function($) {
             $.fn.countTo = function(options) {

@@ -3,7 +3,7 @@
 <span style="float:left; display: block">
     powered by: susyleague plc.
     </span>
-    <span style="float:right; display: block"> web site V1.6</span>
+    <span style="float:right; display: block"> web site V1.5</span>
 </footer>
 
 
@@ -28,8 +28,8 @@
 <?php 
 if(isset($conn))
 {$conn->close();}
-// if(isset($con))
-// {$con->close();}
+if(isset($con))
+{$con->close();}
 
 ?>
 
