@@ -89,8 +89,8 @@ $(document).ready(function(){
     
     
 
-    $.datetimepicker.setLocale('it');
-    $('.datetime_class').datetimepicker();
+    // $.datetimepicker.setLocale('it');
+    // $('.datetime_class').datetimepicker();
 })
 </script>
 
