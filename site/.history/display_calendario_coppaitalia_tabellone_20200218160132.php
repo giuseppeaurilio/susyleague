@@ -225,7 +225,7 @@ array_push($giornate,$incontroCoppa);
 
 
 
-// print_r($giornate);
+print_r($giornate);
 foreach($giornate as $incontro)
 {
 	// print_r($incontro);
@@ -270,7 +270,7 @@ foreach($giornate as $incontro)
 	'</td>';
 	echo 	'<td>-</td>';
 	echo 	'<td>'
-	.(($incontro->puntiTrasfertaAndata != "") ? $incontro->golTrasfertaAndata.'('.$incontro->puntiTrasfertaAndata.')' : "").
+	.(($incontro->puntiTrasfertaAndata != "") ? '('.$incontro->puntiTrasfertaAndata.')'.$incontro->golTrasfertaAndata : "").
 	'</td>';
 	echo '<td><a href="display_giornata.php?&id_giornata='. $incontro->idGiornataAndata  .'" ><i class="fas fa-list-ol"></i></a></td>';
 	echo '</tr>';
@@ -287,7 +287,7 @@ foreach($giornate as $incontro)
 	'</td>';
 	echo 	'<td>-</td>';
 	echo 	'<td>'
-	.(($incontro->puntiTrasfertaRitorno != "") ? $incontro->golTrasfertaRitorno .'('.$incontro->puntiTrasfertaRitorno.')' : "").
+	.(($incontro->puntiTrasfertaRitorno != "") ? '('.$incontro->puntiTrasfertaRitorno.')'.$incontro->golTrasfertaRitorno : "").
 	'</td>';
 	echo '<td><a href="display_giornata.php?&id_giornata='. $incontro->idGiornataRitorno  .'" ><i class="fas fa-list-ol"></i></a></td>';
 	echo '</tr>';

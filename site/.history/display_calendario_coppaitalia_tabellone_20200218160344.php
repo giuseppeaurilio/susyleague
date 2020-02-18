@@ -89,6 +89,13 @@ while ($row=$result->fetch_assoc()) {
 			$punti_ospiti_andata=$row["punti_ospiti"];
 			$commentoAndata = $row["commento"];
 		}
+		else
+		{
+			$gol_casa_andata='';
+			$gol_ospiti_andata='';
+			$punti_casa_andata='';
+			$punti_ospiti_andata='';
+		}
 		$index =1;
 	}
 	else
@@ -120,16 +127,16 @@ while ($row=$result->fetch_assoc()) {
 		$incontroCoppa->dataInizioAndata = $inizio_a_andata;
 		$incontroCoppa->dataFineAndata = $fine_a_andata;
 		$incontroCoppa->golCasaAndata = $gol_casa_andata;
-		$incontroCoppa->puntiCasaAndata = $gol_ospiti_andata;
-		$incontroCoppa->golTrasfertaAndata = $punti_casa_andata;
+		$incontroCoppa->puntiCasaAndata = $punti_casa_andata;
+		$incontroCoppa->golTrasfertaAndata = $gol_ospiti_andata;
 		$incontroCoppa->puntiTrasfertaAndata = $punti_ospiti_andata;
 
 		$incontroCoppa->idGiornataRitorno = $id_giornata_ritorno;
 		$incontroCoppa->dataInizioRitorno = $inizio_a_ritorno;
 		$incontroCoppa->dataFineRitorno = $fine_a_ritorno;
 		$incontroCoppa->golCasaRitorno = $gol_casa_ritorno;
-		$incontroCoppa->puntiCasaRitorno = $gol_ospiti_ritorno;
-		$incontroCoppa->golTrasfertaRitorno = $punti_casa_ritorno;
+		$incontroCoppa->puntiCasaRitorno = $punti_casa_ritorno;
+		$incontroCoppa->golTrasfertaRitorno = $gol_ospiti_ritorno;
 		$incontroCoppa->puntiTrasfertaRitorno = $punti_ospiti_ritorno;
 
 		$incontroCoppa->commentoAndata = $commentoAndata;
@@ -178,6 +185,13 @@ while ($row=$resultfinale->fetch_assoc()) {
 		$punti_casa_andata=$row["punti_casa"];
 		$punti_ospiti_andata=$row["punti_ospiti"];
 	}
+	else
+	{
+		$gol_casa_andata='';
+		$gol_ospiti_andata='';
+		$punti_casa_andata='';
+		$punti_ospiti_andata='';
+	}
 		 
 }
 $resultfinale->close();
@@ -193,16 +207,16 @@ $incontroCoppa->idGiornataAndata = $id_giornata_andata;
 $incontroCoppa->dataInizioAndata = $inizio_a_andata;
 $incontroCoppa->dataFineAndata = $fine_a_andata;
 $incontroCoppa->golCasaAndata = $gol_casa_andata;
-$incontroCoppa->puntiCasaAndata = $gol_ospiti_andata;
-$incontroCoppa->golTrasfertaAndata = $punti_casa_andata;
+$incontroCoppa->puntiCasaAndata = $punti_casa_andata;
+$incontroCoppa->golTrasfertaAndata = $gol_ospiti_andata;
 $incontroCoppa->puntiTrasfertaAndata = $punti_ospiti_andata;
 
 $incontroCoppa->idGiornataRitorno = $id_giornata_ritorno;
 $incontroCoppa->dataInizioRitorno = $inizio_a_ritorno;
 $incontroCoppa->dataFineRitorno = $fine_a_ritorno;
 $incontroCoppa->golCasaRitorno = $gol_casa_ritorno;
-$incontroCoppa->puntiCasaRitorno = $gol_ospiti_ritorno;
-$incontroCoppa->golTrasfertaRitorno = $punti_casa_ritorno;
+$incontroCoppa->puntiCasaRitorno = $punti_casa_ritorno;
+$incontroCoppa->golTrasfertaRitorno = $gol_ospiti_ritorno;
 $incontroCoppa->puntiTrasfertaRitorno = $punti_ospiti_ritorno;
 
 array_push($giornate,$incontroCoppa);
@@ -258,6 +272,7 @@ foreach($giornate as $incontro)
 	echo 	'<td>'
 	.(($incontro->puntiTrasfertaAndata != "") ? '('.$incontro->puntiTrasfertaAndata.')'.$incontro->golTrasfertaAndata : "").
 	'</td>';
+	echo '<td><a href="display_giornata.php?&id_giornata='. $incontro->idGiornataAndata  .'" ><i class="fas fa-list-ol"></i></a></td>';
 	echo '</tr>';
 	echo '<tr>';
 	echo 	'<td >'
@@ -272,15 +287,16 @@ foreach($giornate as $incontro)
 	'</td>';
 	echo 	'<td>-</td>';
 	echo 	'<td>'
-	.(($incontro->puntiTrasfertaRitorno != "") ? '('.$incontro->puntiTrasfertaRitorno.')'.$incontro->golTrasfertaRitorno : "").
+	.(($incontro->puntiTrasfertaRitorno != "") ? $incontro->golTrasfertaRitorno .'('.$incontro->puntiTrasfertaRitorno.')' : "").
 	'</td>';
-	echo '<td><a href="display_giornata.php?&id_giornata='. $incontro->idGiornataAndata  .'" ><i class="fas fa-list-ol"></i></a></td>';
+	echo '<td><a href="display_giornata.php?&id_giornata='. $incontro->idGiornataRitorno  .'" ><i class="fas fa-list-ol"></i></a></td>';
 	echo '</tr>';
 	
 	echo '</tbody>';
 	echo '</table>';
 	// echo '</fieldset>';
 	echo '</div>';
+	
 }
 ?>
 <script>
@@ -297,12 +313,12 @@ foreach($giornate as $incontro)
 		$("#element76").appendTo(".finaleci");
 
 
-		// $("div.quarto1").connections({ to: 'div.semifinale1' });
-		// $("div.quarto2").connections({ to: 'div.semifinale1' });
-		// $("div.quarto3").connections({ to: 'div.semifinale2' });
-		// $("div.quarto4").connections({ to: 'div.semifinale2' });
-		// $("div.semifinale1").connections({ to: 'div.finale' });
-		// $("div.semifinale2").connections({ to: 'div.finale' });
+		$("div.quarto1").connections({ to: 'div.semifinale1' });
+		$("div.quarto2").connections({ to: 'div.semifinale1' });
+		$("div.quarto3").connections({ to: 'div.semifinale2' });
+		$("div.quarto4").connections({ to: 'div.semifinale2' });
+		$("div.semifinale1").connections({ to: 'div.finale' });
+		$("div.semifinale2").connections({ to: 'div.finale' });
 	});
 	</script>
 <div class="grid-container scrollmenu tabellonecoppa">

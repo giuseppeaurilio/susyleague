@@ -89,6 +89,13 @@ while ($row=$result->fetch_assoc()) {
 			$punti_ospiti_andata=$row["punti_ospiti"];
 			$commentoAndata = $row["commento"];
 		}
+		else
+		{
+			$gol_casa_andata='';
+			$gol_ospiti_andata='';
+			$punti_casa_andata='';
+			$punti_ospiti_andata='';
+		}
 		$index =1;
 	}
 	else
@@ -178,6 +185,13 @@ while ($row=$resultfinale->fetch_assoc()) {
 		$punti_casa_andata=$row["punti_casa"];
 		$punti_ospiti_andata=$row["punti_ospiti"];
 	}
+	else
+	{
+		$gol_casa_andata='';
+		$gol_ospiti_andata='';
+		$punti_casa_andata='';
+		$punti_ospiti_andata='';
+	}
 		 
 }
 $resultfinale->close();
@@ -258,6 +272,7 @@ foreach($giornate as $incontro)
 	echo 	'<td>'
 	.(($incontro->puntiTrasfertaAndata != "") ? '('.$incontro->puntiTrasfertaAndata.')'.$incontro->golTrasfertaAndata : "").
 	'</td>';
+	echo '<td><a href="display_giornata.php?&id_giornata='. $incontro->idGiornataAndata  .'" ><i class="fas fa-list-ol"></i></a></td>';
 	echo '</tr>';
 	echo '<tr>';
 	echo 	'<td >'
@@ -274,6 +289,7 @@ foreach($giornate as $incontro)
 	echo 	'<td>'
 	.(($incontro->puntiTrasfertaRitorno != "") ? '('.$incontro->puntiTrasfertaRitorno.')'.$incontro->golTrasfertaRitorno : "").
 	'</td>';
+	echo '<td><a href="display_giornata.php?&id_giornata='. $incontro->idGiornataRitorno  .'" ><i class="fas fa-list-ol"></i></a></td>';
 	echo '</tr>';
 	
 	echo '</tbody>';
