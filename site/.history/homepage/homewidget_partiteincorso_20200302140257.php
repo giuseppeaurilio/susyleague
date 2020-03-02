@@ -65,11 +65,11 @@
                 $id= $partita["id_giornata"];
                 include_once "../DB/calendario.php";
                 $descrizioneGiornata = getDescrizioneGiornata($id);
-                if($prev != $descrizioneGiornata)
-                {
-                    echo '<h3>'.$descrizioneGiornata.'</h3>';
-                    $prev = $descrizioneGiornata;
-                }
+                // if($prev != $descrizioneGiornata)
+                // {
+                //     echo '<h3>'.$descrizioneGiornata.'</h3>';
+                //     $prev = $descrizioneGiornata;
+                // }
                 $index++;
                 if($index%2== 0)
                 echo '<div class="result">';
@@ -93,7 +93,7 @@
     {
         echo '<script>
             $(document).ready(function(){
-                $('.widget.incorso').hide()
+                $(".widget.incorso").hide()
             });
         </script>';
     }

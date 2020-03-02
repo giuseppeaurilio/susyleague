@@ -5,7 +5,10 @@ function getDescrizioneGiornata($id)
     if($id <= 22)
     { $descrizioneGiornata ="Campionato - Apertura. Giornata ". $id;}
     else if ($id>22 && $id<= 33)
-    { $descrizioneGiornata ="Campionato - Chiusura. Giornata ". ($id - 22);}
+    { 
+        // $descrizioneGiornata ="Campionato - Chiusura. Giornata ". $id         - 22;
+        $id
+    }
     else if ($id>33 && $id<= 48)
     { $descrizioneGiornata ="Coppa Italia - Girone Narpini. Giornata ".(ceil (($id-33) /3));}
     else if ($id>48 && $id<= 63)

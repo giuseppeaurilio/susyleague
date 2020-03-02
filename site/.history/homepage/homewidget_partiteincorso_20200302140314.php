@@ -1,4 +1,4 @@
-<div class="widget">
+<div class="widget incorso">
     <h2>Partite in corso</h2>
     <?php
     // $querylastdate   = "SELECT fine
@@ -15,6 +15,7 @@
     $result_prox = 0;
     $num_prox = 0;
     $counter = 0;
+    
     for ($girone = 1; $girone <= 10; $girone++) {
 
         
@@ -56,22 +57,20 @@
         if(count($partite) >0){
             echo '<div>';
             $counter +=count($partite);
-
-            $id= $partite[0]["id_giornata"];
-            include_once "../DB/calendario.php";
-            $descrizioneGiornata = getDescrizioneGiornata($id);
-        
-            // print_r($girone);
-            // echo '<br>';
-            echo '<h3>'.$descrizioneGiornata.'</h3>';
-            
             // print_r($lastdate);
             // echo '<br>';
             $index=0;
+            $prev = "";
             foreach($partite as $partita){
-                // echo $num_ultimi;
-                // print_r($risultato);
-                // echo '<br>';
+                echo $partita["id_giornata"];
+                $id= $partita["id_giornata"];
+                include_once "../DB/calendario.php";
+                $descrizioneGiornata = getDescrizioneGiornata($id);
+                if($prev != $descrizioneGiornata)
+                {
+                    echo '<h3>'.$descrizioneGiornata.'</h3>';
+                    $prev = $descrizioneGiornata;
+                }
                 $index++;
                 if($index%2== 0)
                 echo '<div class="result">';
@@ -86,8 +85,18 @@
                 }
             echo '<h4><a style="text-decoration: none;color: white;" href="/display_giornata.php?&id_giornata='.$id.'">Formazioni <i class="fas fa-list-ol" aria-hidden="true"></i></a></h4>';
             echo '</div>';
+            $counter++;
         } 
-        echo '<hr>';
+        
+    }
+    echo '<hr>';
+    if($counter == 0)
+    {
+        echo '<script>
+            $(document).ready(function(){
+                $(".widget.incorso").hide()
+            });
+        </script>';
     }
     ?>
 </div>
