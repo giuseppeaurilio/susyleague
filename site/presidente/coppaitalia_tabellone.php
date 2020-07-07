@@ -34,8 +34,8 @@ $(document).ready(function(){
             return false;
         }
         var idsquadre = [id1, id2];
-        console.log(giornata);
-        console.log(idsquadre);
+        // console.log(giornata);
+        // console.log(idsquadre);
         $.ajax({
                 type:'POST',
                 url:'match_c_salvasquadre.php',
@@ -60,8 +60,8 @@ $(document).ready(function(){
             {
                 idsquadre = [id2, id1];
                 giornata= parseInt(giornata)+1;
-                console.log(giornata);
-                console.log(idsquadre);
+                // console.log(giornata);
+                // console.log(idsquadre);
                 $.ajax({
                     type:'POST',
                     url:'match_c_salvasquadre.php',
