@@ -3,7 +3,10 @@ Fustometro
 Aggiornamento rose serie a da file CSV.
 
 In amministrazione, pulsante per eseguire un backup del DB.
-Cambiare la politica di backup del database.-> c'e' un problema con il file send_telegram_update.php che manda il reminder di invio delle formazioni.
+Cambiare la politica di backup del database.-> 
+c'e' un problema con il file send_telegram_update.php che manda il reminder di invio delle formazioni.
+
+Creare widget per tenere conto del numero totale e parziale delle volte in cui un allenatore non ha inviato la formazione
 
 Fare sezione Lega con
     - organi direttivo

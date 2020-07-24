@@ -201,6 +201,13 @@ while ($row=$resultfinale->fetch_assoc()) {
 		$punti_casa_andata='';
 		$punti_ospiti_andata='';
 	}
+	$inizio_a_ritorno='';//date_parse($inizio_ritorno);
+	$fine_a_ritorno='';//date_parse($fine_ritorno);
+	$gol_casa_ritorno='';
+	$gol_ospiti_ritorno='';
+	$punti_casa_ritorno='';
+	$punti_ospiti_ritorno='';
+	$commentoRitorno = "";
 		 
 }
 $resultfinale->close();
@@ -282,26 +289,28 @@ foreach($giornate as $incontro)
 	'</td>';
 	echo '<td><a href="display_giornata.php?&id_giornata='. $incontro->idGiornataAndata  .'" ><i class="fas fa-list-ol"></i></a></td>';
 	echo '</tr>';
-	echo '<tr>';
-	echo 	'<td >'
-	.(($incontro->dataInizioRitorno != "") ? date('d/m H:i', strtotime($incontro->dataInizioRitorno)) : "").
-	
-	' <br> '
-	.(($incontro->dataFineRitorno != "") ? date('d/m H:i', strtotime($incontro->dataFineRitorno)) : "").
-	
-	'</td>';
-	echo 	'<td>'
-	.(($incontro->puntiTrasfertaRitorno != "") ? '('.$incontro->puntiTrasfertaRitorno.')' . $incontro->golTrasfertaRitorno  : "").
-	// . print_r($incontro->idGiornataAndata) . "<br>". 
-	'</td>';
-	echo 	'<td>-</td>';
-	echo 	'<td >'
-	.(($incontro->puntiCasaRitorno != "") ? $incontro->golCasaRitorno . '('.$incontro->puntiCasaRitorno.')': "").
-	// . print_r($incontro->idGiornataAndata) . "<br>".
-	'</td>';
-	echo '<td><a href="display_giornata.php?&id_giornata='. $incontro->idGiornataRitorno  .'" ><i class="fas fa-list-ol"></i></a></td>';
-	echo '</tr>';
-	
+	if($incontro->idGiornataAndata != 76)
+	{
+		echo '<tr>';
+		echo 	'<td >'
+		.(($incontro->dataInizioRitorno != "") ? date('d/m H:i', strtotime($incontro->dataInizioRitorno)) : "").
+		
+		' <br> '
+		.(($incontro->dataFineRitorno != "") ? date('d/m H:i', strtotime($incontro->dataFineRitorno)) : "").
+		
+		'</td>';
+		echo 	'<td>'
+		.(($incontro->puntiTrasfertaRitorno != "") ? '('.$incontro->puntiTrasfertaRitorno.')' . $incontro->golTrasfertaRitorno  : "").
+		// . print_r($incontro->idGiornataAndata) . "<br>". 
+		'</td>';
+		echo 	'<td>-</td>';
+		echo 	'<td >'
+		.(($incontro->puntiCasaRitorno != "") ? $incontro->golCasaRitorno . '('.$incontro->puntiCasaRitorno.')': "").
+		// . print_r($incontro->idGiornataAndata) . "<br>".
+		'</td>';
+		echo '<td><a href="display_giornata.php?&id_giornata='. $incontro->idGiornataRitorno  .'" ><i class="fas fa-list-ol"></i></a></td>';
+		echo '</tr>';
+	}
 	echo '</tbody>';
 	echo '</table>';
 	// echo '</fieldset>';
