@@ -45,10 +45,12 @@ function getDescrizioneGiornata($id)
     else if ($id == 77 || $id == 78)
     { $descrizioneGiornata ="Coppa delle coppe - Giornata" . ($id-76);}
 
-    else if ($id == 79)
-    { $descrizioneGiornata ="Finale CAMPIONATO";}
+    else if ($id == 80)
+    { $descrizioneGiornata ="Finale CAMPIONATO - Andata";}
+    else if ($id == 81)
+    { $descrizioneGiornata ="Finale CAMPIONATO - Ritorno";}
 
-    else if ($id == 79)
+    else if ($id == 82)
     { $descrizioneGiornata ="SUPERCOPPA";}
 
     else
