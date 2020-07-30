@@ -1,6 +1,28 @@
 
-Fustometro
+Modifcare il DB in modo che sia multistagione.
 Aggiornamento rose serie a da file CSV.
+
+Creare sezione SFIDE:
+un allenatore puo sfidare un'altra squadra e decidere il premio.
+L'allenatore decide se fare gara secca o andata e ritorno, se applicare media difesa, fattore casa.
+Un allenatore può avere al massimo XX sfide lanciate contemporaneamente e al max una verso una specifica squadra.
+Un allenatore può cancellare una sfida se non è stata accettata
+un allenatore può accettare le sfide che ha ricevuto
+tutti possono vedere le sfide lanciate, le sfide attive e l'archivio delle sfide.
+Il sistema deve registrare l'esito delle sfide concluse.
+Il presidente deve avere la possibilità di creare sfide tra tutte le squadre, o di cancellarle.
+Il presidente deve poter calcolare il risultato di una sfida.
+Il presidente deve decidere la data (giornata) in cui la/e partita/e della sfida si svolge/ono.
+Il presidente deve poter inserire la formazione per una squadra in una sfida
+I widget di home page
+-prossime partite
+-partite in corso
+-risultati
+devono mostrare le partite delle sfide
+
+Creare un widget che visualizza le sfide lanciate e accettate
+
+Modificare nome della giornata nel messaggio telegram di reminder formazione e risultati.
 
 In amministrazione, pulsante per eseguire un backup del DB.
 Cambiare la politica di backup del database.-> 
@@ -8,12 +30,12 @@ c'e' un problema con il file send_telegram_update.php che manda il reminder di i
 
 Creare widget per tenere conto del numero totale e parziale delle volte in cui un allenatore non ha inviato la formazione
 
+In caso il presidente invii la formazione prima della chiusura del tempo, nel widget di home page deve comparire la spunta blu.
+
 Fare sezione Lega con
     - organi direttivo
     - regolamento
     - albo d'oro
-    - Statistche
+    - Statistche e curiosità
 
 Loghi e banner delle squadre.
-
-Eliminare sezione annunci e sondaggi

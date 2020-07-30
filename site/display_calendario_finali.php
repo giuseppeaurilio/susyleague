@@ -120,16 +120,16 @@ while ($row=$result->fetch_assoc()) {
 		$incontroCoppa->dataInizioAndata = $inizio_a_andata;
 		$incontroCoppa->dataFineAndata = $fine_a_andata;
 		$incontroCoppa->golCasaAndata = $gol_casa_andata;
-		$incontroCoppa->puntiCasaAndata = $gol_ospiti_andata;
-		$incontroCoppa->golTrasfertaAndata = $punti_casa_andata;
+		$incontroCoppa->puntiCasaAndata = $punti_casa_andata;
+		$incontroCoppa->golTrasfertaAndata = $gol_ospiti_andata;
 		$incontroCoppa->puntiTrasfertaAndata = $punti_ospiti_andata;
 
 		$incontroCoppa->idGiornataRitorno = $id_giornata_ritorno;
 		$incontroCoppa->dataInizioRitorno = $inizio_a_ritorno;
 		$incontroCoppa->dataFineRitorno = $fine_a_ritorno;
 		$incontroCoppa->golCasaRitorno = $gol_casa_ritorno;
-		$incontroCoppa->puntiCasaRitorno = $gol_ospiti_ritorno;
-		$incontroCoppa->golTrasfertaRitorno = $punti_casa_ritorno;
+		$incontroCoppa->puntiCasaRitorno = $punti_casa_ritorno;
+		$incontroCoppa->golTrasfertaRitorno = $gol_ospiti_ritorno;
 		$incontroCoppa->puntiTrasfertaRitorno = $punti_ospiti_ritorno;
 
 		$incontroCoppa->commentoAndata = $commentoAndata;
