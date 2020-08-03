@@ -187,6 +187,10 @@ echo 'Ore:<input type="text" name="h_fine" size="5" value="'. $giornate[0]["fine
 echo 'Minuti:<input type="text" name="min_fine" size="5" value="'.  $giornate[0]["fine_a"]['minute'] .'"><br>';
 echo '<input type="submit" value="Invia">';
 echo '</form>';
+echo '<div class="mainaction">';
+echo '<a href="calcola_giornata.php?&id_giornata='.$giornate[0]["id_giornata"] .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
+echo '</div>';
+
 echo '<br>';
 
 echo '<form action="query_amministra_giornate.php" method="post" class="a-form" target="formSending">';
@@ -209,7 +213,7 @@ echo '<br>';
 
 
 echo '<div class="mainaction">';
-echo '<a href="calcola_giornata.php?&id_giornata='.$giornate[0]["id_giornata"] .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
+echo '<a href="calcola_giornata.php?&id_giornata='.$giornate[1]["id_giornata"] .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
 echo '</div>';
 echo '</fieldset>'; 
 ?>
