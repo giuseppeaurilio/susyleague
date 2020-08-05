@@ -382,7 +382,7 @@ CREATE TABLE `calendario` (
   `formazione_casa_inviata` tinyint(1) NOT NULL DEFAULT 0,
   `id_sq_ospite` int(11) NOT NULL,
   `formazione_ospite_inviata` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `calendario`
@@ -642,7 +642,7 @@ CREATE TABLE `contafusti` (
   `Motivazione` varchar(100) DEFAULT NULL,
   `Stato` tinyint(4) NOT NULL,
   `DataUM` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `contafusti`
@@ -681,7 +681,7 @@ CREATE TABLE `formazioni` (
   `voto` float DEFAULT NULL,
   `voto_md` float DEFAULT NULL,
   `id_giocatore` int(4) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `formazioni`
@@ -9615,7 +9615,7 @@ CREATE TABLE `generale` (
   `nome_parametro` text NOT NULL,
   `valore` text NOT NULL,
   `id_parametro` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `generale`
@@ -9638,7 +9638,7 @@ CREATE TABLE `giocatori` (
   `ruolo` varchar(1) DEFAULT NULL,
   `nome` varchar(30) DEFAULT NULL,
   `id_squadra` int(2) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `giocatori`
@@ -10240,7 +10240,7 @@ CREATE TABLE `giornate` (
   `fine` datetime DEFAULT NULL,
   `id_girone` int(11) NOT NULL DEFAULT 1,
   `commento` text DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `giornate`
@@ -10339,7 +10339,7 @@ CREATE TABLE `gironi` (
   `id_girone` int(11) NOT NULL,
   `nome` text DEFAULT NULL,
   `add_casa` int(11) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `gironi`
@@ -10463,7 +10463,7 @@ CREATE TABLE `rose` (
   `id_sq_fc` int(2) NOT NULL,
   `costo` float DEFAULT NULL,
   `id_giocatore` int(5) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `rose`
@@ -10912,7 +10912,7 @@ CREATE TABLE `sondaggi` (
   `testo` varchar(120) NOT NULL,
   `scadenza` datetime DEFAULT NULL,
   `risposta_multipla` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `sondaggi`
@@ -10931,7 +10931,7 @@ CREATE TABLE `sondaggi_opzioni` (
   `id` int(11) NOT NULL,
   `id_sondaggio` int(11) NOT NULL,
   `opzione` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `sondaggi_opzioni`
@@ -10952,7 +10952,7 @@ CREATE TABLE `sondaggi_risposte` (
   `id_squadra` int(2) NOT NULL,
   `id_sondaggio` int(11) NOT NULL,
   `id_opzione` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `sondaggi_risposte`
@@ -10977,7 +10977,7 @@ CREATE TABLE `squadre_serie_a` (
   `squadra` varchar(10) DEFAULT NULL,
   `squadra_breve` varchar(3) DEFAULT NULL,
   `id` int(2) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `squadre_serie_a`
@@ -11021,7 +11021,7 @@ CREATE TABLE `sq_fantacalcio` (
   `email` varchar(50) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
   `ammcontrollata` int(11) NOT NULL DEFAULT 0
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dump dei dati per la tabella `sq_fantacalcio`
@@ -11050,7 +11050,7 @@ INSERT INTO `sq_fantacalcio` (`id`, `squadra`, `allenatore`, `telefono`, `email`
 CREATE TABLE `vincitori` (
   `competizione` varchar(45) NOT NULL,
   `id_vincitore` int(11) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Indici per le tabelle scaricate

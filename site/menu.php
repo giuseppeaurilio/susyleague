@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=ISO-8859-1');
 if(!isset($_SESSION)) 
 {
 	session_start();
@@ -17,6 +18,9 @@ else {
 <title>Susy League</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> -->
+<meta charset="utf-8">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>

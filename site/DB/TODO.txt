@@ -32,6 +32,11 @@ Creare widget per tenere conto del numero totale e parziale delle volte in cui u
 
 In caso il presidente invii la formazione prima della chiusura del tempo, nel widget di home page deve comparire la spunta blu.
 
+permettere al presidente di inserire i vincitori di ogni competizione e visualizzarlo nelle diverse pagine di classifica.
+Creare widget vincitori
+Gestire classifiche in ex aequeo(sezione presidente)
+
+
 Fare sezione Lega con
     - organi direttivo
     - regolamento
