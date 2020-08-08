@@ -49,7 +49,11 @@ $http_string.="chat_id=" . $CHAT_ID;
 $http_string.="&text=" . urlencode($testo);
 
 // $response = file_get_contents($http_string, false, $context);
-$response = file_get_contents($http_string);
+
+/**************************************************************************************/
+//disabilito l'invio dei mesaggi telegram perche il provider 000webhost non li permette
+/**************************************************************************************/
+// $response = file_get_contents($http_string);
 }
 catch (Exception $e) {
     echo json_encode(array(
