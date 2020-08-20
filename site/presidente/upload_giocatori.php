@@ -132,9 +132,9 @@ function update_giocatori($filename) {
 						$nome = preg_replace("/[^A-Za-z0-9 -]/", '', $data[2]);
 						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra` ) values ($data[0],'$data[1]', '$nome', $idsquadra ";
 
-						// $result=$conn->query($queryinsertgiocatore); 
+						$result=$conn->query($queryinsertgiocatore); 
 						if ($result==1) $countergiocatori++; else echo " ERROR";
-						echo $queryinsertgiocatore . "<br/>";
+						// echo $queryinsertgiocatore . "<br/>";
 						// echo "<br>";
 					}
 					//se ho trovato il giocatore faccio l'update della squadra_serie_a
