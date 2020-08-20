@@ -381,12 +381,12 @@ $commento=$result_commento->fetch_assoc()["commento"];
 
  <form action="send_message_giornata.php" method="post">
 
-<input type="checkbox" name="calcolo" value='1' /> Calcolo fatto<br>
-<input type="checkbox" name="risultati" value='1' /> Risultati<br>
-<input type="checkbox" name="classifiche" value='1' /> Classifica<br>
-<input type="checkbox" name="commento" value='1' /> Commento<br>
-<input type="hidden" name="id_giornata" value=<?php echo $id_giornata;?> />
- <input type="submit" value="Submit">
+	<input type="checkbox" name="calcolo" value='1' /> Calcolo fatto<br>
+	<input type="checkbox" name="risultati" value='1' /> Risultati<br>
+	<input type="checkbox" name="classifiche" value='1' /> Classifica<br>
+	<input type="checkbox" name="commento" value='1' /> Commento<br>
+	<input type="hidden" name="id_giornata" value=<?php echo $id_giornata;?> />
+	<input type="submit" value="Submit">
 </form> 
     
 <?php 
