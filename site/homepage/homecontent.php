@@ -15,6 +15,7 @@
             include("homewidget_prossimoturno.php");
             include("homewidget_sondaggi.php");
             include("homewidget_mercato.php");
+            include("homewidget_presidenti_fannulloni.php");
         
         ?>
     </div>
