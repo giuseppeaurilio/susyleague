@@ -1,0 +1,1 @@
+ALTER TABLE `sq_fantacalcio` ADD `ammcontrollata_anno` INT NOT NULL DEFAULT '0' AFTER `ammcontrollata`;
