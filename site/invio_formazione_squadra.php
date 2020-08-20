@@ -533,11 +533,11 @@ $allenatore=$row["allenatore"];
 ?>
 
 <h2><?php echo $squadra . "(" .$allenatore .")";?> - Invio formazione</h2>
-<div>
+<!-- <div>
 	<p> Vuoi tornare alla vecchia pagina di invio formazione? </p>
 	<a href="<?php echo "invio_formazione_squadra_old
 	.php?&id_giornata=" . $id_giornata ."&id_squadra=".$id_squadra ; ?>"><?php echo "Clicca qui" ?></a>
-</div>
+</div> -->
 <hr>
 <div id="divAmministrazioneControllata">
 <?php
@@ -593,7 +593,7 @@ while ($row = $result_partite->fetch_assoc()) {
 	<!-- <option value="1_250.2_2160.3_2130.4_2214.5_226.6_26.7_2002.8_645.9_2610.10_2756.11_785.12_453.13_798.14_288.15_392.16_1996.17_2085.18_2531.19_608">I NANI- ASVenere</option> -->
 	</select>
 
-	<?php
+<?php
 	$formazionedadb = "";
 
 	$queryformaz = 'SELECT id_posizione, id_giocatore
@@ -639,16 +639,6 @@ while ($row=$result_giocatori->fetch_assoc()) {
 	// echo $nome_giocatore_pulito;
 	$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png");
 
-	//  'https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png';
-	// if (file_exists('https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png'))
-		// if (getimagesize($filename)) 
-	// $headers = get_headers($filename );
-
-	// if (!stripos($headers[0], "200 OK"))
-	// {
-	// 	$filename = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/NO-CAMPIONCINO.png";
-		
-	// }
 	if($ruolo_giocatore == "P")
 	array_push($portieri, array(
 		"id"=>$id_giocatore,
@@ -776,27 +766,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 
 		</div>
 	</div>
-	<!-- <div  id="divContainerFormazione" class="formazione">
-		<div class="soccerfield">
-		<div class="titolari">
-			<div id="divSFPortieri" class="formtitolare">&nbsp;</div>
-			<div id="divSFdifensori" class="formtitolare">&nbsp;</div>
-			<div id="divSFcentrocampisti" class="formtitolare">&nbsp;</div>
-			<div id="divSFAttaccanti" class="formtitolare" >&nbsp;</div>
-		</div>
-		<div class="riserve">
-			<div id="divSFriserve" class="formriserve">&nbsp;</div>	
-			</div>	
-		</div>
-		<form action="" class="a-form">
-			<label for="modulo"> modulo = </label>
-			<label id="modulo" >  </label><br>
-			<label for="panchina" >panchina = </label>
-			<label id="panchina" >  </label><br>
-			<button type="button" id="btn_invia">Invia Formazione</button>
 
-		</form>
-	</div> -->
 </div>
 <div>
 	

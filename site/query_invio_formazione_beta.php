@@ -213,7 +213,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				// print_r($text);
 				$a=send_message_post($text);
 
-				$message .= "Messaggio telegram inviato \n";
+				// $message .= "Messaggio telegram inviato \n";
 
 				$queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`=0 WHERE id=' . $id_squadra;
 				$resultac  = $conn->query($queryupdate) ;

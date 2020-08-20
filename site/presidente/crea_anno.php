@@ -258,6 +258,11 @@ echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
+$query="UPDATE `sq_fantacalcio` SET `ammcontrollata`=0";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
 
 // GENERA CALENDARIO
 $tabellone=generateRoundRobinPairings($n);

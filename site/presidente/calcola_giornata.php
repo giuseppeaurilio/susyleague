@@ -247,7 +247,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<p> media difesa = <?php echo $media_difesa_avversaria_casa; ?> </p>
 	<p> voto totale = <?php echo $voto_totale_casa; ?> </p>
 	<p> gol = <?php echo $gol_casa; ?> </p>
-	<a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_squadra=<?php  echo $id_casa; ?>">Invia Formazione</a>
+	<a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_girone=<?php  echo $id_girone; ?>&id_squadra=<?php  echo $id_casa; ?>">Invia Formazione</a>
 		</div>
 	<?php
 	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione 
@@ -341,7 +341,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<p> media difesa = <?php echo $media_difesa_avversaria_ospite; ?> </p>
 	<p> voto totale = <?php echo $voto_totale_ospite; ?> </p>
 	<p> gol = <?php echo $gol_ospite; ?> </p>
- 	<a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_squadra=<?php  echo $id_ospite; ?>">Invia Formazione</a> 
+ 	<a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_girone=<?php  echo $id_girone; ?>&id_squadra=<?php  echo $id_ospite; ?>">Invia Formazione</a> 
 
 		</div>
 

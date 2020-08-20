@@ -28,6 +28,7 @@ try {
     //disabilito l'invio dei mesaggi telegram perche il provider 000webhost non li permette
     /**************************************************************************************/
     // $response = file_get_contents($http_string);
+        $response = "";
     }
     catch (Exception $e) {
         echo json_encode(array(

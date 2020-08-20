@@ -135,12 +135,22 @@
                 echo '<div style="text-align:center;">
                 <div style="width:46%; display:inline-block; text-align:right;">'
                 . $partita["sq_casa"] . '&nbsp;'
-                . ($partita["luc"] != 1 ? ' <i class="far fa-times-circle" style="color:red; float:right;"></i>' : ' <i class="far fa-check-circle" style="color:green; float:right;"></i>').
+                . ($partita["luc"] == 1 ? 
+                    '<i class="far fa-check-circle" style="color:green;float:left;"></i> '
+                    : (($partita["luc"] == 2 ? 
+                    '<i class="far fa-check-circle" style="color:yellow;float:left;"></i> '
+                    : '<i class="far fa-times-circle" style="color:red;float:left;"></i> ') )
+                ).
                 '
                 </div>
                 <div style="width:5%; display:inline-block;">-</div>
                 <div style="width:46%; display:inline-block; text-align:left;">'
-                . ($partita["luo"] != 1 ? '<i class="far fa-times-circle" style="color:red;float:left;"></i> ' : '<i class="far fa-check-circle" style="color:green;float:left;"></i> ')
+                . ($partita["luo"] == 1 ? 
+                    '<i class="far fa-check-circle" style="color:green;float:left;"></i> '
+                    : (($partita["luo"] == 2 ? 
+                    '<i class="far fa-check-circle" style="color:yellow;float:left;"></i> '
+                    : '<i class="far fa-times-circle" style="color:red;float:left;"></i> ') )
+                )
                 . '&nbsp;' . $partita["sq_ospite"].'</div>
                 </div>';
                 

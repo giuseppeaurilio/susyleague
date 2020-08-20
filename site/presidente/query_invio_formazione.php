@@ -1,95 +1,170 @@
 <?php 
+$action ="";
+include_once ("..\dbinfo_susyleague.inc.php");
 
-$id_squadra=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_squadra']);//mysql_escape_String($_POST['id_squadra']);
-$id_giornata=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_giornata']);//mysql_escape_String($_POST['id_giornata']);
-$titolari=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['titolari']);//mysql_escape_String($_POST['titolari']);
-$panchina=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['panchina']);//mysql_escape_String($_POST['panchina']);
-$password_all=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['password_all']);//mysql_escape_String($_POST['password_all']);
+session_start();
+if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+	$allenatore="";
+}
+else { 
 
-$ammcontrollata=preg_replace("/[^0-9]/", '', $_POST['ammcontrollata']);
- 
-include_once  ("../dbinfo_susyleague.inc.php");
+	$allenatore= $_SESSION['allenatore'];
+	$id_squadra_logged= $_SESSION['login'];
+}
+
 $conn = new mysqli($localhost, $username, $password,$database);
-
 // Check connection
 if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
-$queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`='.$ammcontrollata .' WHERE id=' . $id_squadra;
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+	$action = $_POST['action'];
 
-$result  = $conn->query($queryupdate) or die($conn->error);
-
-#echo "tutto ok!";
-#echo $id_squadra;
-#echo $id_giornata;
-#echo $titolari;
-#echo $password_all;
-
-
-date_default_timezone_set('Europe/Rome');
-
-$adesso = date('Y-m-d H:i:s');
-
-// $link = mysql_connect($localhost,$username,$password);
-// @mysql_select_db($database) or die( "Unable to select database");
-
-$query="select fine from giornate where id_giornata=" . $id_giornata  . " and fine > '" . $adesso ."'";
-#echo "<br>query_data=" . $query;
-// $result=mysql_query($query);
-// $num=mysql_numrows($result); 
-$result  = $conn->query($query) or die($conn->error);
-$query="SELECT password FROM sq_fantacalcio where id='" . $id_squadra . "'";
-#echo $query;
-// $result=mysql_query($query);
-// $saved_password=mysql_result($result,0,"password");
-// $result  = $conn->query($query) or die($conn->error);
-$result = mysqli_query($conn,$query);
-$row = mysqli_fetch_array($result);
-$saved_password= $row['password'];
-
-
-#if ($num>0){
-	#if ($saved_password==$password_all){ 
-		$titolari_array=explode("," , $titolari);
-		$panchina_array=explode("," , $panchina);
-		$num_titolari=count($titolari_array);
-		$num_panchina=count($panchina_array);
-		// echo "<br> num titolari= " .$titolari;
-		// echo "<br> num panchina= " . $panchina_array;
-		if (($num_titolari==11) and ($num_panchina==8)){
-			$giocatori=array_merge ($titolari_array, $panchina_array);
-			#print_r($giocatori);
-			$i=1;
-			$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) VALUES (" . $id_giornata .",". $id_squadra . "," ;
-
-			foreach ($giocatori as $value) {
+    switch($action)
+    {
+		case("inviaformazione"):
+			
+			try{
 				
-				$query_squadra="SELECT id_squadra FROM giocatori where  id=" .$value ;
-				#echo $query_nome;
-				// $result=mysql_query($query_squadra);
-				// $id_squadra=mysql_result($result,0,"id_squadra");
-				$result = mysqli_query($conn,$query_squadra);
-				$row = mysqli_fetch_array($result);
-				$id_squadra= $row['id_squadra'];
+				$id_squadra=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_squadra']);//mysql_escape_String($_POST['id_squadra']);
+				$id_giornata=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_giornata']);//mysql_escape_String($_POST['id_giornata']);
+				$titolari=(!empty($_POST['titolari']))? $_POST['titolari'] : array();
+				$panchina=(!empty($_POST['panchina']))? $_POST['panchina'] : array();
+				
+				$ammcontrollata=preg_replace("/[^0-9]/", '', $_POST['ammcontrollata']);
 
-				$query=$query_ini . $i . ",'" .$value . "','" . $id_squadra . "')" ;
-				$result = mysqli_query($conn,$query);
-				$i=$i+1;
-				#echo $query;
-			}# end foreach
-		echo "Formazione inviata in data " . $adesso;
-		} #end if numero giocatori
-		else echo "La formazione deve includere necessariamente 11 titolari e 8 riserve";
-	#}# end if password corretta
-	#else echo "La password inserita e' sbagliata";
-#}# end if data corretta
-#else echo "E' troppo tardi per inviare la formazione";
+				date_default_timezone_set('Europe/Rome');
+				$adesso = date('Y-m-d H:i:s');
+				$query="select fine from giornate where id_giornata=" . $id_giornata  . " and fine > '" . $adesso ."'";
+				$result=$conn->query($query);
+				if ($result->num_rows == 0){
+					throw new Exception("E' troppo tardi per inviare la formazione");
+				}
+				if ($allenatore != "Presidente"){ 
+					throw new Exception("Non si è autenticati per inviare la formazione");
+				}
+				if (count($titolari)!=11 || count($panchina)!=8){
+					throw new Exception("La formazione deve includere necessariamente 11 titolari e 8 riserve");
+				}
+				
+				$formazione=array_merge ($titolari, $panchina);		
+				
+				$message = "";
+
+				
+				$giocatoriformazione = array();
+				foreach ($formazione as $value) 
+				{
+					$queryformazione = "SELECT a.*, b.squadra_breve 
+										from giocatori as a 
+										inner join squadre_serie_a as b on  a.id_squadra=b.id 
+										where  a.id = " .$value["id"] ;
+					// echo $queryformazione;
+					$result_giocatoriformazione=$conn->query($queryformazione);
+					$row=$result_giocatoriformazione->fetch_assoc();
+					// print_r($row);
+					array_push($giocatoriformazione, array(
+							"id"=>$row["id"],
+							"id_squadra"=>$row["id_squadra"],
+							"nome"=>$row["nome"],
+							"ruolo"=>$row["ruolo"],
+							"squadra_breve"=>$row["squadra_breve"]
+						)
+					);
+				}
+				
+				//se salvo la formazione 
+				$query = "";
+				$query="SELECT * FROM sq_fantacalcio where id=$id_squadra";
+				
+				$result2=$conn->query($query);
+				
+				$row=$result2->fetch_assoc();
+				$allenatore_nome = $row["allenatore"];
+				$squadrafc_nome = $row["squadra"];
+				
+				$index =0;
+				
+				$query = "";
+
+				foreach ($giocatoriformazione as $value) 
+				{	
+					
+					$index++;
+					// print_r($value);
+					if($index == 20)
+					{						
+						$query_ini = "REPLACE INTO `formazioni`(`dasdsa`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
+						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
+					}
+					else
+					{
+						$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
+						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;						
+					}
+					// $query .=$query_ini;
+					if(!$conn->query($query_ini))
+					{
+							// $message .="passako" .$index++."<br>";
+							// $message .=$result;
+							// $message .=$conn->error;
+							throw new Exception($conn->error);
+					}
+				}
+				$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=2 WHERE id_giornata = $id_giornata and id_sq_casa =$id_squadra ;";
+				if(!$conn->query($queryformazioneinviatacasa))
+				{
+						throw new Exception($conn->error);
+				}
+				$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=2 WHERE id_giornata = $id_giornata and id_sq_ospite =$id_squadra ;";
+				if(!$conn->query($queryformazioneinviataospite))
+				{
+						throw new Exception($conn->error);
+				}
+				$queryselect =  "SELECT * FROM `sq_fantacalcio` WHERE id =".$id_squadra;
+				$resultfindsquadra  = $conn->query($queryselect) or die($conn->error);
+				//devo aggiornare i contatori dell'amministrazione controllata
+				if($resultfindsquadra->num_rows != 0)
+				{
+					while ($row = $resultfindsquadra->fetch_assoc()) {
+						// print_r ($row);
+						$queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`= '.($row["ammcontrollata"] + 1).', `ammcontrollata_anno`= '.($row["ammcontrollata_anno"] + 1).'  WHERE id=' . $id_squadra;
+					}
+				}
+		
+				$resultac  = $conn->query($queryupdate) ;
+				$message .= "Formazione inviata\n";
+				
+				// $result->close();
+				// $conn->next_result();
+				$message .= date('d/m H:i:s', strtotime($adesso))  ;
+				echo json_encode(array(
+					'result' => "true",
+					'message' => $message
+				));
+			}
+			catch (Exception $e) {
+				echo json_encode(array(
+					'error' => array(
+						'message' => $e->getMessage(),
+						// 'code' => $e->getCode(),
+					),
+				));
+			}
+			finally {
+				if(isset($conn))
+					{$conn->close();}
+			}
+		
+		break;
+	}
+}
+else{
+    echo json_encode(array(
+        'error' => array(
+            'msg' => "Method not allowed",
+            // 'code' => $e->getCode(),
+        ),
+    ));
+}
 ?> 
-
-<?php 
-if(isset($conn))
-{$conn->close();}
-if(isset($con))
-// {$con->close();}
-
-?>
