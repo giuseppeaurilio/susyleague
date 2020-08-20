@@ -116,18 +116,19 @@ $anno=$row["valore"];
 			<li><a href="#"><i class="fas fa-calendar-alt"></i> Calendari</a>
 			<ul>
 				<li><a href="/display_calendario.php?&id_girone=1">Apertura</a></li>
-					<li><a href="/display_calendario.php?&id_girone=2">Chiusura</a></li>
-					<li><a href="/display_calendario_coppaitalia_gironi.php">CoppaItalia-Gironi</a></li>
-					<li><a href="/display_calendario_coppaitalia_tabellone.php">CoppaItalia-Tabellone</a></li>
-					<li><a href="/display_calendario.php?&id_girone=6">Coppa delle coppe</a></li>
+				<li><a href="/display_calendario.php?&id_girone=2">Chiusura</a></li>
+				<li><a href="/display_calendario_coppaitalia_gironi.php">CoppaItalia-Gironi</a></li>
+				<li><a href="/display_calendario_coppaitalia_tabellone.php">CoppaItalia-Tabellone</a></li>
+				<li><a href="/display_calendario.php?&id_girone=6">Coppa delle coppe</a></li>
 				<li><a href="/display_calendario_finali.php">Finale campionato</a></li>
+				<!-- <li><a href="/display_calendario_supercoppa.php">Supercoppa</a></li> -->
 			</ul>         
 			</li>
 			<li><a href="#"><i class="fas fa-users"></i> Rose</a>
 			<ul>
 				<li><a href="/display_rose.php" >Susy League</a></li>
 				<li><a href="/display_giocatori.php">Serie A</a></li>
-				<!-- <li><a href="/display_asta.php">Asta</a></li> -->
+				<li><a href="/display_riepilogoasta.php">Riepilogo asta</a></li>
 			</ul>         
 			</li>
 			<li><a href="/invio_formazione.php"><i class="fas fa-futbol"></i> Invio formazione</a></li>
