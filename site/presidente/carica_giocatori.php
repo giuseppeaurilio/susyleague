@@ -5,8 +5,11 @@ include("menu.php");
 
 
 <form action="upload_giocatori.php" method="post" enctype="multipart/form-data">
+    <input type="checkbox" name="cbCancella" value="si">Cancellare squadre e giocatori</input>
+    <br>
     Selziona File da inserire:
-    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="file" name="fileToUpload" >
+
     <input type="submit" value="Carica File" name="submit">
 </form>
 <h2><a href="spiegazione_creazione_file_csv.pdf">File di Spiegazione</a></h2>

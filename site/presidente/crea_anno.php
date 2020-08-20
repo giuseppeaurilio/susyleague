@@ -177,10 +177,10 @@ echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
-$query="Truncate `vincitori`";
-echo $query;
-// $result=mysql_query($query);
-$result=$conn->query($query);
+// $query="Truncate `vincitori`";
+// echo $query;
+// // $result=mysql_query($query);
+// $result=$conn->query($query);
 
 $query="Truncate `giocatori`";
 echo $query;
@@ -224,11 +224,29 @@ echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
+$query="Truncate `contafusti`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
+$query="Truncate `annunci`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
+$query="Truncate `scambi`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
+$query="Truncate `annunci_dettagli`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
 
 /////////
 /// AGGIORNA PARAMETRI GENERALE
-
-
 $query="UPDATE `generale` SET `valore`='" .$fantamilioni . "' WHERE `id_parametro`='2'";
 echo $query;
 // $result=mysql_query($query);
@@ -242,16 +260,12 @@ $result=$conn->query($query);
 
 
 // GENERA CALENDARIO
-
 $tabellone=generateRoundRobinPairings($n);
-
 
 $map=range(1, $n);
 $globalgiornatecounter = 0;
 /////////////////////////
 //  GENERA GIRONE ANDATA
-
-
 shuffle($map);
 //echo "<br> mappa <br>";
 //print_r($map);
@@ -323,9 +337,10 @@ for ($giornata = 2*($n-1)+1; $giornata <= 3*($n-1); $giornata++) {
 
 /////////////////////
 // GENERA giornate per Girone Coppa Italia A
-// visto che ogni incontro della giornat apuò essere giocato in qualunque turno della serie A, devo tante giornate quanti sono  gli incontri 
+// visto che ogni incontro della giornata apuò essere giocato in qualunque turno della serie A, devo generare tante giornate 
+// quanti sono  gli incontri 
 // un girone è fatto da 6 squadre, ci sono 5 giornate, ogni giornata  3 incontri. 
-//devo quindi creare 30 giornate per la fase a gironi della coppa italia
+// devo quindi creare 30 giornate per la fase a gironi della coppa italia
 $globalgiornatecounter++;
 for ($giornata = 1; $giornata <= 30; $giornata++) {
 //echo "casa= ". $element[1] . "ospite= " $element[1];
@@ -366,9 +381,6 @@ for ($giornata = 1; $giornata <= 2; $giornata++) {
 // GENERA giornate per supercoppa
 aggiungi_giornata($globalgiornatecounter ,"8"); // 8  supercoppa
 $globalgiornatecounter++;
-
-
-
 
 $conn->close();
 

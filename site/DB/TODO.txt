@@ -1,6 +1,11 @@
+Supercoppa
 
-Modifcare il DB in modo che sia multistagione.
-Aggiornamento rose serie a da file CSV.
+Creare widget per tenere conto del numero totale e parziale delle volte in cui un allenatore non ha inviato la formazione
+In caso il presidente invii la formazione prima della chiusura del tempo, nel widget di home page deve comparire la spunta blu.
+
+permettere al presidente di inserire i vincitori di ogni competizione e visualizzarlo nelle diverse pagine di classifica.
+Creare widget vincitori
+Gestire classifiche in ex aequeo(sezione presidente)
 
 Creare sezione SFIDE:
 un allenatore puo sfidare un'altra squadra e decidere il premio.
@@ -22,21 +27,6 @@ devono mostrare le partite delle sfide
 
 Creare un widget che visualizza le sfide lanciate e accettate
 
-Modificare nome della giornata nel messaggio telegram di reminder formazione e risultati.
-
-In amministrazione, pulsante per eseguire un backup del DB.
-Cambiare la politica di backup del database.-> 
-c'e' un problema con il file send_telegram_update.php che manda il reminder di invio delle formazioni.
-
-Creare widget per tenere conto del numero totale e parziale delle volte in cui un allenatore non ha inviato la formazione
-
-In caso il presidente invii la formazione prima della chiusura del tempo, nel widget di home page deve comparire la spunta blu.
-
-permettere al presidente di inserire i vincitori di ogni competizione e visualizzarlo nelle diverse pagine di classifica.
-Creare widget vincitori
-Gestire classifiche in ex aequeo(sezione presidente)
-
-
 Fare sezione Lega con
     - organi direttivo
     - regolamento
@@ -44,3 +34,10 @@ Fare sezione Lega con
     - Statistche e curiosità
 
 Loghi e banner delle squadre.
+
+In amministrazione, pulsante per eseguire un backup del DB.
+Cambiare la politica di backup del database.-> 
+c'e' un problema con il file send_telegram_update.php che manda il reminder di invio delle formazioni.
+
+Modifcare il DB in modo che sia multistagione.
+Modificare nome della giornata nel messaggio telegram di reminder formazione e risultati.
