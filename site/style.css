@@ -712,11 +712,17 @@ connection {
 .finale div{
   padding: 10px;
 }
-.finale h1,
+.finale .vincitore,
+.finale .titolo,
 .finale .data,
-.finale .location
+.finale .location,
+.coppaitalia.vincitore
 {
   background-color:rgb(0,0,0, 0.5);
+}
+.coppaitalia.vincitore
+{
+  text-align: center;
 }
 .finale .squadre,
 .finale .score,

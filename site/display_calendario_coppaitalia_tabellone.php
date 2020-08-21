@@ -340,6 +340,30 @@ foreach($giornate as $incontro)
 		$("div.semifinale2").connections({ to: 'div.finale' });
 	});
 	</script>
+	<?php
+	$query='SELECT v.`id` as id, v.`competizione_id` as idc, v.`desc_competizione` as descc, 
+	v.`posizione` as pos, v.`sq_id` as ids, sqf.squadra, sqf.allenatore 
+	FROM `vincitori` as v
+	left join sq_fantacalcio as sqf on sqf.id = v.sq_id
+	where v.`competizione_id` = 9
+	order by posizione';
+	$result=$conn->query($query) or die($conn->error);
+	$vincitori = array();
+	while($row = $result->fetch_assoc()){
+		array_push($vincitori, array(
+			"Competizione"=>$row["descc"],
+			"Squadra"=>$row["squadra"],
+			"Allenatore"=>$row["allenatore"],
+			"Posizione"=>$row["pos"],
+			)
+		);
+	}
+	$result->close();
+	$conn->next_result();
+	if(count($vincitori) > 0){
+		echo '<h1 class="vincitore">'.$vincitori[0]["Squadra"].' è il Vincitore!</h1>';
+	}
+?>
 <div class="grid-container scrollmenu tabellonecoppa">
 	<div class="grid-column">
 		<div class="grid-item quarto1">
@@ -369,6 +393,7 @@ foreach($giornate as $incontro)
 		</div>
 	</div> 
 </div>
+<h1>&nbsp:</h1>
 <?php 
 include("footer.php");
 ?>

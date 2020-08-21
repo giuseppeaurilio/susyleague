@@ -154,7 +154,10 @@ $conn->next_result();
 // print_r($giornate);
 foreach ($giornate as $partita) {
 	echo '<div class="finale supercoppa">'; 
-		echo '<h1>Supercoppa SusyLeague</h1>';
+		echo '<h1 class="titolo" >Supercoppa SusyLeague</h1>';
+		if(count($vincitori) > 0){
+			echo '<h1 class="vincitore">'.$vincitori[0]["Squadra"].' è il Vincitore!</h1>';
+		}
 		// (($incontro->dataInizioAndata != "") ? date('d/m H:i', strtotime($incontro->dataInizioAndata)) : "")
 		echo '<div class="data">'
 		.(($partita->dataInizioAndata != "") ? date('d/m H:i', strtotime($partita->dataInizioAndata)) : "").
@@ -188,13 +191,7 @@ foreach ($giornate as $partita) {
 		.$partita->commentoAndata.'</textarea> ';
 		echo '</div>';
 
-		if(count($vincitori) == 0){
-			echo '<h1 class="vincitore">&nbsp;</h1>';
-		}  
-		else
-		{
-			echo '<h1 class="vincitore">'.$vincitori[0]["Squadra"].' è il Vincitore!</h1>';
-		}
+		echo '<h1>&nbsp;</h1>';
 		
 	echo '</div>';
 }

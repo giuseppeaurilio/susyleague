@@ -28,26 +28,6 @@
         else
         {
             echo "<div>";
-            // echo '<h3>
-            //         <div style="width:40%; display: inline-block; text-align: center;">Competizione</div>
-            //         <div style="width:44%; display: inline-block;text-align: center;">Squadra</div>
-            //         <div style="width:13%; display: inline-block;text-align: center;">Pos</div>
-            //     </h3>';
-            // $index=0;
-            // foreach($vincitori as $vincitore)
-            // {
-            //     $index++;
-            //     if($index%2== 0)
-            //         echo "<div class='result'>";
-            //     else
-            //         echo '<div class="result alternate" >';
-            //     echo '
-            //         <div style="width:40%; display: inline-block; text-align: center;">'.$vincitore["Competizione"].'</div>
-            //         <div style="width:44%; display: inline-block;text-align: center;">'.$vincitore["Squadra"].' ('.$vincitore["Allenatore"].')</div>
-            //         <div style="width:13%; display: inline-block;text-align: center;">'.$vincitore["Posizione"].'</div>';
-            //     echo "</div>";
-               
-            // }
             $competizionecurrent = "";
             $index=0;
             foreach($vincitori as $vincitore)

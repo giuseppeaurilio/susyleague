@@ -141,9 +141,32 @@ while ($row=$result->fetch_assoc()) {
 	}
   
 }
+
+$query='SELECT v.`id` as id, v.`competizione_id` as idc, v.`desc_competizione` as descc, 
+v.`posizione` as pos, v.`sq_id` as ids, sqf.squadra, sqf.allenatore 
+FROM `vincitori` as v
+left join sq_fantacalcio as sqf on sqf.id = v.sq_id
+where v.`competizione_id` = 7
+order by posizione';
+$result=$conn->query($query) or die($conn->error);
+$vincitori = array();
+while($row = $result->fetch_assoc()){
+	array_push($vincitori, array(
+		"Competizione"=>$row["descc"],
+		"Squadra"=>$row["squadra"],
+		"Allenatore"=>$row["allenatore"],
+		"Posizione"=>$row["pos"],
+		)
+	);
+}
+$result->close();
+$conn->next_result();
 foreach ($giornate as $partita) {
 	echo '<div class="finale">'; 
-		echo '<h1>Finale SusyLeague</h1>';
+		echo '<h1 class="titolo" >Finale SusyLeague</h1>';
+		if(count($vincitori) > 0){
+			echo '<h1 class="vincitore">'.$vincitori[0]["Squadra"].' è il Vincitore!</h1>';
+		}
 		// (($incontro->dataInizioAndata != "") ? date('d/m H:i', strtotime($incontro->dataInizioAndata)) : "")
 		echo '<div class="data">'
 		.(($partita->dataInizioAndata != "") ? date('d/m H:i', strtotime($partita->dataInizioAndata)) : "").
@@ -197,47 +220,10 @@ foreach ($giornate as $partita) {
 		.$partita->commentoRitorno.'</textarea> ';
 		echo '</div>';
 		echo '<h1>&nbsp;</h1>';
+		
 	echo '</div>';
 }
 
-// $query= "SELECT giornate.*, 
-// calendario.id_sq_casa, sq1.squadra as squadracasa,
-// calendario.id_sq_ospite,  sq2.squadra as squadraospite ,
-// calendario.gol_casa,
-// calendario.gol_ospiti,
-// calendario.punti_casa,
-// calendario.punti_ospiti
-
-
-// FROM `giornate` 
-// left join `calendario` on `giornate`.`id_giornata` =  `calendario`.`id_giornata` 
-// left join `sq_fantacalcio` sq1 on `calendario`.`id_sq_casa` =  `sq1`.`id`
-// left join `sq_fantacalcio` sq2 on `calendario`.`id_sq_ospite` =  `sq2`.`id`
-// WHERE id_girone = 8 order by id_giornata ASC";
-// $result=$conn->query($query);
-
-// $num=$result->num_rows; 
-
-// $giornate = array();
-// while ($row=$result->fetch_assoc()) {
-// 	echo '<div>';
-// 		echo '<h1>Supercoppa</h1>';
-// 		echo '<div>'.$row["inizio"].'-'.$row["fine"].'</div>';
-// 		echo '<div>StadioOlimpico di Roma</div>';
-// 		echo '<div>'.$row["squadracasa"].'</div>';
-// 		echo '<div>'.$row["squadraospite"].'</div>';
-// 		if(!is_null($row["gol_casa"]) && !is_null($row["gol_casa"]) )
-// 		{
-// 			echo '<div>'.$row["gol_casa"].'</div>';
-// 			echo '<div>'.$row["gol_ospiti"].'</div>';
-// 			echo '<div>'.$row["punti_casa"].'</div>';
-// 			echo '<div>'.$row["punti_ospiti"].'</div>';
-
-// 		}
-// 		$link="display_giornata.php?&id_giornata=".$row["id_giornata"];
-// 		echo '<a href='. $link.'>Dettaglio</a>';
-// 	echo '</div>';
-// }
 
 
 
