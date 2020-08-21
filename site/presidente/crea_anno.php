@@ -244,6 +244,35 @@ echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
+$query="Truncate `vincitori`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
+$query="INSERT INTO `vincitori`(`id_girone`) VALUES (1) ";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+$query="INSERT INTO `vincitori`(`id_girone`) VALUES (2) ";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+$query="INSERT INTO `vincitori`(`id_girone`) VALUES (6) ";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+$query="INSERT INTO `vincitori`(`id_girone`) VALUES (7) ";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+$query="INSERT INTO `vincitori`(`id_girone`) VALUES (8) ";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+$query="INSERT INTO `vincitori`(`id_girone`) VALUES (9) ";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 /////////
 /// AGGIORNA PARAMETRI GENERALE

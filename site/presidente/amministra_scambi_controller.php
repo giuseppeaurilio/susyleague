@@ -1,4 +1,5 @@
 <?php 
+header('Content-Type: text/html; charset=ISO-8859-1');
 $action ="";
 include_once ("../dbinfo_susyleague.inc.php");
 // Create connection
@@ -26,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             while ($row=$result_giocatori->fetch_assoc()) {
                 array_push($giocatori, array(
                     "id"=>$row["id_giocatore"],
-                    "nome"=>$row["nome"],
+                    "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"], 
                     "ispor"=>$row["ruolo"] == "P",
@@ -122,12 +123,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     "id"=>$row["id"],
                     "data"=>$row["data"],
-                    "note"=>empty($row["note"])? "":$row["note"] ,
-                    "nome"=>empty($row["nome"])? "":$row["nome"],
+                    "note"=>empty($row["note"])? "":utf8_encode($row["note"]),
+                    "nome"=>empty($row["nome"])? "":utf8_encode($row["nome"]),
                     "ruolo"=>empty($row["ruolo"])? "":$row["ruolo"],
                     "squadra_breve"=>empty($row["squadra_breve"])? "":$row["squadra_breve"],
-                    "sqorigine"=>empty($row["sqorigine"])? "":$row["sqorigine"],
-                    "sqdestinazione"=>empty($row["sqdestinazione"])? "":$row["sqdestinazione"]
+                    "sqorigine"=>empty($row["sqorigine"])? "":utf8_encode($row["sqorigine"]),
+                    "sqdestinazione"=>empty($row["sqdestinazione"])? "":utf8_encode($row["sqdestinazione"])
                     )
                 );
             };

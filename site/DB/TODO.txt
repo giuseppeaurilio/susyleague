@@ -1,11 +1,5 @@
+
 Supercoppa
-
-Creare widget per tenere conto del numero totale e parziale delle volte in cui un allenatore non ha inviato la formazione
-In caso il presidente invii la formazione prima della chiusura del tempo, nel widget di home page deve comparire la spunta blu.
-
-permettere al presidente di inserire i vincitori di ogni competizione e visualizzarlo nelle diverse pagine di classifica.
-Creare widget vincitori
-Gestire classifiche in ex aequeo(sezione presidente)
 
 Creare sezione SFIDE:
 un allenatore puo sfidare un'altra squadra e decidere il premio.
@@ -33,11 +27,18 @@ Fare sezione Lega con
     - albo d'oro
     - Statistche e curiosità
 
-Loghi e banner delle squadre.
+Visualizzare i vincitori nelle diverse parti del sito.
+
+Gestire classifiche in ex aequeo(sezione presidente)
+Modifcare il DB in modo che sia multistagione.
 
 In amministrazione, pulsante per eseguire un backup del DB.
 Cambiare la politica di backup del database.-> 
 c'e' un problema con il file send_telegram_update.php che manda il reminder di invio delle formazioni.
 
-Modifcare il DB in modo che sia multistagione.
 Modificare nome della giornata nel messaggio telegram di reminder formazione e risultati.
+
+GRAFICA
+Rivedere la grafica dei widget di home page per farli essere piu ordinati (gni widget deve avere una dimensione predefinita)
+rivedere pagina finale campionato
+Loghi e banner delle squadre.

@@ -56,7 +56,7 @@ else {
 include_once ("dbinfo_susyleague.inc.php");
 // Create connection
 $conn = new mysqli($localhost, $username, $password,$database);
-// Check connection
+// $conn->set_charset("ISO-8859-1");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

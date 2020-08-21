@@ -1,18 +1,19 @@
 <div class="widget">
     <h2>Vincitori</h2>
     <?php 
-        $query='SELECT g.nome as "Competizione", sqf.squadra as "Squadra", sqf.allenatore as "Allenatore"
-        FROM `vincitori` as v 
-        left join gironi as g on v.id_girone = g.id_girone 
-        left join sq_fantacalcio as sqf on sqf.id = v.id_vincitore 
-        order by g.id_girone desc';
+        $query='SELECT v.`id` as id, v.`competizione_id` as idc, v.`desc_competizione` as descc, 
+        v.`posizione` as pos, v.`sq_id` as ids, sqf.squadra, sqf.allenatore 
+        FROM `vincitori` as v
+        left join sq_fantacalcio as sqf on sqf.id = v.sq_id
+        order by competizione_id, desc_competizione, posizione';
         $result=$conn->query($query) or die($conn->error);
         $vincitori = array();
         while($row = $result->fetch_assoc()){
             array_push($vincitori, array(
-                "Competizione"=>$row["Competizione"],
-                "Squadra"=>$row["Squadra"],
-                "Allenatore"=>$row["Allenatore"],
+                "Competizione"=>$row["descc"],
+                "Squadra"=>$row["squadra"],
+                "Allenatore"=>$row["allenatore"],
+                "Posizione"=>$row["pos"],
                 )
             );
         }
@@ -27,23 +28,47 @@
         else
         {
             echo "<div>";
-            echo '<h3>
-                    <div style="width:49%; display: inline-block; text-align: center;">Competizione</div>
-                    <div style="width:49%; display: inline-block;text-align: center;">Squadra</div>
-                </h3>';
+            // echo '<h3>
+            //         <div style="width:40%; display: inline-block; text-align: center;">Competizione</div>
+            //         <div style="width:44%; display: inline-block;text-align: center;">Squadra</div>
+            //         <div style="width:13%; display: inline-block;text-align: center;">Pos</div>
+            //     </h3>';
+            // $index=0;
+            // foreach($vincitori as $vincitore)
+            // {
+            //     $index++;
+            //     if($index%2== 0)
+            //         echo "<div class='result'>";
+            //     else
+            //         echo '<div class="result alternate" >';
+            //     echo '
+            //         <div style="width:40%; display: inline-block; text-align: center;">'.$vincitore["Competizione"].'</div>
+            //         <div style="width:44%; display: inline-block;text-align: center;">'.$vincitore["Squadra"].' ('.$vincitore["Allenatore"].')</div>
+            //         <div style="width:13%; display: inline-block;text-align: center;">'.$vincitore["Posizione"].'</div>';
+            //     echo "</div>";
+               
+            // }
+            $competizionecurrent = "";
             $index=0;
             foreach($vincitori as $vincitore)
             {
                 $index++;
+                if($competizionecurrent == "" OR $competizionecurrent != $vincitore["Competizione"])
+                {
+                    $competizionecurrent = $vincitore["Competizione"];
+                    $index=0;
+                    echo '<h3>
+                            <div >'.$vincitore["Competizione"].'</div>
+                        </h3>';
+                }
                 if($index%2== 0)
-                    echo "<div class='result'>";
-                else
-                    echo '<div class="result alternate" >';
-                echo '
-                    <div style="width:49%; display: inline-block; text-align: center;">'.$vincitore["Competizione"].'</div>
-                    <div style="width:49%; display: inline-block;text-align: center;">'.$vincitore["Squadra"].'</div>';
-                echo "</div>";
-               
+                        echo "<div class='result'>";
+                    else
+                        echo '<div class="result alternate" >';
+                    echo '
+                        <div style="width:85%; display: inline-block;text-align: center;">'.$vincitore["Squadra"].' ('.$vincitore["Allenatore"].')</div>
+                        <div style="width:14%; display: inline-block;text-align: center;">'.$vincitore["Posizione"].'</div>';
+                    echo "</div>";
             }
             echo "</div>";
         }

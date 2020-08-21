@@ -13,15 +13,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $action = $_POST['action'];
     switch($action)
     {
-        case("nuovo"):
+        case("aggiungi"):
 
-            $presidente = $_POST['presidente'];
-            $motivazione = $_POST['motivazione']  = '' ? null :$_POST['motivazione'];
-            $stato = $_POST['stato'];
-            $data = date('Y-m-d H:i:s');
+            $idCompetizione = $_POST['idCompetizione']  = '' ? null :$_POST['idCompetizione'];
+            $competizione = $_POST['competizione'];
+            $posizione = $_POST['posizione']  = '' ? null :$_POST['posizione'];
+            $idSquadra = $_POST['idCompetizione']  = '' ? null :$_POST['idSquadra'];
 
-            $query= "INSERT INTO `contafusti` (`Id`, `Presidente`, `Motivazione`, `Stato`, `DataUM`)
-                    VALUES (null,'$presidente','$motivazione',$stato, '$data')";
+            $query= "INSERT INTO `vincitori`(`id`, `competizione_id`, `desc_competizione`, `posizione`, `sq_id`)
+                    VALUES (null,'$idCompetizione','$competizione',$posizione, '$idSquadra')";
 
             if ($conn->query($query) === FALSE) {
                 //throw exception
@@ -32,12 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 'message' => $action." eseguito",
             ));
             break;
-        case("aggiorna"):
+        case("cancella"):
             $id = $_POST['id'];
-            $stato = $_POST['stato'];
-            $data = date('Y-m-d H:i:s');
 
-            $query= "UPDATE `contafusti` SET `Stato`=$stato,`DataUM`='$data'
+            $query= "DELETE FROM `vincitori`
                     where `Id`=$id";
 
             if ($conn->query($query) === FALSE) {
@@ -50,37 +48,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             ));
             break;
         break;
-        case("get"):
-
-            $stato = $_POST['stato']  = '' ? null : $_POST['stato'];
-            if($stato == '')
-            {
-                $query= "SELECT `Id`, `Presidente`, `Motivazione`, `Stato`, `DataUM` FROM `contafusti` order by Id Desc";
-            }
-            else
-            {
-                $query= "SELECT `Id`, `Presidente`, `Motivazione`, `Stato`, `DataUM` FROM `contafusti` where stato = $stato order by Id Desc";
-            }
+        case("carica"):
+            $query= "SELECT v.`id` as id, v.`competizione_id` as idc, v.`desc_competizione` as descc, v.`posizione` as pos, v.`sq_id` as ids, sqf.squadra, sqf.allenatore 
+            FROM `vincitori` as v
+            left join sq_fantacalcio as sqf on sqf.id = v.sq_id
+            order by competizione_id, desc_competizione, posizione";
+            
             $result=$conn->query($query);
-            $fusti = array();
+            $vincitori = array();
             while ($row=$result->fetch_assoc()) {
                 // print_r($row);
-                array_push($fusti, array(
-                    "Id"=>$row["Id"],
-                    "Presidente"=>utf8_encode($row["Presidente"]),
-                    "Motivazione"=>utf8_encode($row["Motivazione"]),
-                    "Stato"=>$row["Stato"] == '0' ? "in preparazione": ($row["Stato"] == '1' ? "assegnato": "annullato"),
-                    // "Stato"=>$row["Stato"] ,
-                    "DataUM"=>$row["DataUM"]
+                array_push($vincitori, array(
+
+                    "id"=>$row["id"],
+                    "idc"=>$row["idc"],
+                    "descc"=>utf8_encode($row["descc"]),
+                    "pos"=>$row["pos"],
+                    "ids"=>$row["ids"],
+                    "squadra"=>utf8_encode($row["squadra"]),
+                    "allenatore"=>utf8_encode($row["allenatore"]),
                     )
                 );
             };
-
-            echo json_encode(array(
+            $response = array(
                 'result' => "true",
                 'message' => $action." eseguito",
-                'fusti' => $fusti
-            ));
+                'vincitori' => $vincitori
+            );
+            // print_r($response);
+            echo json_encode($response);
+            // echo json_last_error_msg();
             break;
         default:
             echo json_encode(array(

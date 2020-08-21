@@ -8,6 +8,7 @@ include("menu.php");
 		<li><a href="amministra_scambi.php" >Amministra Scambi</a></li>	
 		<li><a href="amministra_sondaggi.php" >Sondaggi</a></li>
 		<li><a href="amministra_fustometro.php" >Fustometro</a></li>
+		<li><a href="amministra_vincitori.php" >Vincitori</a></li>
 	</ul>
 	<h2>Campionato</h2>
 	<ul class="lista">	
