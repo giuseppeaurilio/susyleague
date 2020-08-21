@@ -9,6 +9,11 @@ include("menu.php");
 		<li><a href="amministra_sondaggi.php" >Sondaggi</a></li>
 		<li><a href="amministra_fustometro.php" >Fustometro</a></li>
 		<li><a href="amministra_vincitori.php" >Vincitori</a></li>
+		<li><a href="carica_giocatori.php">Database giocatori</a></li>
+		<li><a href="amministra_squadre.php" >Fantasquadre</a></li>
+		<li><a href="amministra_rose.php" >Amministra Rose</a></li>
+		<li><a href="amministra_giocatori.php" >Amministra Giocatori</a></li>	
+		<li><a href="genera_nuovo_anno.php">Genera nuovo anno</a></li>
 	</ul>
 	<h2>Campionato</h2>
 	<ul class="lista">	
@@ -31,19 +36,9 @@ include("menu.php");
 	<ul class="lista">	
 		<li><a href="finale_supercoppa.php" >Supercoppa</a></li>
 	</ul>
-	<h2>Nuovo Anno</h2>
-	<ul class="lista">	
-		<li><a href="genera_nuovo_anno.php">Genera nuovo anno</a></li>
-		<li><a href="carica_giocatori.php">Carica Giocatori</a></li>
-	</ul>
-	<h2>Database</h2>
-	<ul class="lista">	
-		<li><a href="amministra_squadre.php" >Amministra Squadre</a></li>
-		<li><a href="amministra_rose.php" >Amministra Rose</a></li>
-		<li><a href="amministra_giocatori.php" >Amministra Giocatori</a></li>	
-	</ul>
 
-<h2>Homepage (home.html oppure .zip) e regolamento (regolamento.pdf)</h2>
+
+<h2>Regolamento (regolamento.pdf)</h2>
 
 <form action="upload.php" method="post" enctype="multipart/form-data">
     Selziona File da inserire:

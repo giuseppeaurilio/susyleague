@@ -694,19 +694,29 @@ connection {
   text-align: center;
   overflow: hidden;
   color: white;
-  /* justify-content: center; */
-  /* background: white url('../images/Allianz_Stadium_49_3.jpg') 100% 100% no-repeat;
-  background-position: top;  */
-  
-
   overflow: hidden;
-  /* color: white; */
-  /* justify-content: center; */
-  background: url('../images/Allianz_Stadium_49_3.jpg') 100% 100%;
-  background-size:100% 100%;
+  background: url('../images/Allianz_Stadium_49_4.jpg');
+  /* background-size:100% 100%; */
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center; 
+
+}
+.finale.supercoppa{
+  background: url('../images/san_siro_vuoto_lapresse.jpg');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center; 
+  /* background-size: contain; */
 }
 .finale div{
   padding: 10px;
+}
+.finale h1,
+.finale .data,
+.finale .location
+{
+  background-color:rgb(0,0,0, 0.5);
 }
 .finale .squadre,
 .finale .score,

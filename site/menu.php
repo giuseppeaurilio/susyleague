@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/html; charset=ISO-8859-1');
+// header('Content-Type: text/html; charset=ISO-8859-1');
 if(!isset($_SESSION)) 
 {
 	session_start();
@@ -121,7 +121,7 @@ $anno=$row["valore"];
 				<li><a href="/display_calendario_coppaitalia_tabellone.php">CoppaItalia-Tabellone</a></li>
 				<li><a href="/display_calendario.php?&id_girone=6">Coppa delle coppe</a></li>
 				<li><a href="/display_calendario_finali.php">Finale campionato</a></li>
-				<!-- <li><a href="/display_calendario_supercoppa.php">Supercoppa</a></li> -->
+				<li><a href="/display_calendario_supercoppa.php">Supercoppa</a></li>
 			</ul>         
 			</li>
 			<li><a href="#"><i class="fas fa-users"></i> Rose</a>
