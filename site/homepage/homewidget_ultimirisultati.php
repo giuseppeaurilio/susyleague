@@ -116,7 +116,8 @@
     }
     if($counter ==0)
     {
-        echo "<div>Non sono state giocate partite recentemente.</div>";
+        echo "<h3> &nbsp;</h3>";
+        echo "<div class='widgetcontent ultimirisultati'>Non sono state giocate partite recentemente.</div>";
         // echo '<div class="footer"><a href="/display_calendario.php?id_girone=1">Consulta il calendario.</a></div>';    
     }
     

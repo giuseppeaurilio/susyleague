@@ -163,7 +163,8 @@
     
     if($counter ==0)
     {
-        echo "<div>Non ci sono partite in programma</div>";
+        echo "<h3> &nbsp;</h3>";
+        echo "<div class='widgetcontent2 prossimoturno'>Non ci sono partite in programma</div>";
      
     }
     echo '<div class="footer"><a href="/invio_formazione.php">Invia la formazione</a></div>';

@@ -23,7 +23,8 @@
         }  
         else
         {
-            echo "<div>Non ci sono sondaggi al momento</div>";
+            echo "<h3> &nbsp;</h3>";
+            echo "<div class='widgetcontent sondaggi'>Non ci sono sondaggi al momento</div>";
             echo '<hr>';
         } 
         

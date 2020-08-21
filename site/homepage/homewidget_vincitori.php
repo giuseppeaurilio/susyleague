@@ -21,7 +21,8 @@
         $conn->next_result();
         
         if(count($vincitori) == 0){
-            echo "<div>Non sono ancora stati assegnati premi!</div>";
+            echo "<h3> &nbsp;</h3>";
+            echo "<div class='widgetcontent vincitori'>Non sono ancora stati assegnati premi!</div>";
             echo '<hr>';
         
         }  
@@ -41,6 +42,8 @@
                             <div >'.$vincitore["Competizione"].'</div>
                         </h3>';
                 }
+
+                echo "<div class='widgetcontent'>";
                 if($index%2== 0)
                         echo "<div class='result'>";
                     else
@@ -49,6 +52,7 @@
                         <div style="width:85%; display: inline-block;text-align: center;">'.$vincitore["Squadra"].' ('.$vincitore["Allenatore"].')</div>
                         <div style="width:14%; display: inline-block;text-align: center;">'.$vincitore["Posizione"].'</div>';
                     echo "</div>";
+                echo "</div>";
             }
             echo "</div>";
         }

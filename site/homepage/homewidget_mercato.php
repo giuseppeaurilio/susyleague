@@ -46,7 +46,8 @@
         }   
         else
         {
-            echo "<div>Non ci annunci di mercato</div>";
+            echo "<h3> &nbsp;</h3>";
+            echo "<div class='widgetcontent2 mercato'>Non ci annunci di mercato</div>";
             
         }
         echo '<div class="footer"><a href="/display_mercato.php">Pubblica il tuo annuncio.</a></div>';

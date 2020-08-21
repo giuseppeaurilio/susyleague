@@ -22,7 +22,7 @@
             // echo '<br>';
             echo '<h3>'.$annuncio["titolo"].'</h3>';
             
-            echo '<div>'.$annuncio["testo"].'</div>';
+            echo '<div class="widgetcontent annunciodelpresidente">'.$annuncio["testo"].'</div>';
             echo '<hr>';
         }
         echo '</div>   ';

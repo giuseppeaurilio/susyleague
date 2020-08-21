@@ -11,6 +11,7 @@
             include("homewidget_partiteincorso.php");
             include("homewidget_annuncio.php");
             include("homewidget_fustometro.php");
+            include("homewidget_fustometro_inpreparazione.php");
             include("homewidget_ultimirisultati.php");
             include("homewidget_prossimoturno.php");
             include("homewidget_sondaggi.php");

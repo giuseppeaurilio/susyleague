@@ -55,7 +55,7 @@
 
 
         if(count($partite) >0){
-            echo '<div>';
+            echo "<div class='widgetcontent2 partiteincorso'>";
             $counter +=count($partite);
             // print_r($lastdate);
             // echo '<br>';

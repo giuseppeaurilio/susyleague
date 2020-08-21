@@ -16,7 +16,8 @@
         $conn->next_result();
         
         if(count($presidenti) == 0){
-            echo "<div>Abbiamo solo bravi presidenti!</div>";
+            echo "<h3> &nbsp;</h3>";
+            echo "<div class='widgetcontent fannulloni'>Abbiamo solo bravi presidenti!</div>";
             echo '<hr>';
         
         }  
