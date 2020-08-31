@@ -1,4 +1,4 @@
-<div class="widget">
+<div class="widget ">
     <h2>Prossimo turno</h2>
     <?php
     // $querylastdate   = "SELECT fine
@@ -113,7 +113,7 @@
 
         // print_r ($partite);
         if(count($partite) >0){
-            echo '<div>';
+            echo '<div class="widgetcontent2 prossimoturno">';
             $counter +=count($partite);
 
             $index=0;
@@ -136,10 +136,10 @@
                 <div style="width:46%; display:inline-block; text-align:right;">'
                 . $partita["sq_casa"] . '&nbsp;'
                 . ($partita["luc"] == 1 ? 
-                    '<i class="far fa-check-circle" style="color:green;float:left;"></i> '
+                    '<i class="far fa-check-circle" style="color:green;float:right;"></i> '
                     : (($partita["luc"] == 2 ? 
-                    '<i class="far fa-check-circle" style="color:yellow;float:left;"></i> '
-                    : '<i class="far fa-times-circle" style="color:red;float:left;"></i> ') )
+                    '<i class="far fa-check-circle" style="color:yellow;float:right;"></i> '
+                    : '<i class="far fa-times-circle" style="color:red;float:right;"></i> ') )
                 ).
                 '
                 </div>
