@@ -6,9 +6,10 @@ include("menu.php");
 <style>
 .dataTable th {
     word-wrap: break-word;
-    height:200px;
+	height:200px;
+	vertical-align: bottom;
 }
-	td, th {
+td, th {
     border: 1px solid #000;
 }
 th.opzione {
