@@ -1,43 +1,41 @@
 <?php 
 include("menu.php");
 ?>
-<h1>Carica Giocatori</h1>
-
-
+<h2>Carica Giocatori</h2>
+<div class="">
+    <span>
+        In questa pagina è possibile caricare e aggiornare le rose delle squadre di serie A.
+        <br>
+        Il file deve essere un formato .csv ovvero un file di testo i cui dati sono separati da virgole.<br>
+        Nel file ci devono essere 4 colonne:Id,R,Nome,Squadra
+        <ol>
+            <li>Id=numero intero univoco assegnato al giocatore da Fantagazzetta</li>
+            <li>R=ruolo. Puo' assumere i valori P,D,C,A per indicare Portiere,Difensore,Centrocampista e Attaccante rispettivamente</li>
+            <li>Nome=Nome del giocatore</li>
+            <li>Squadra=Nome della squadra di serie A di appartenenza del Giocatore. Si verifichi che non ci siano errori nella digitazione del nome delle squadre e ce ogni squadra compaia sempre con la stessa denominazione</li>
+        </ol>
+        Ad esempio:<br>
+        <span >
+        Id,R,Nome,Squadra<br>
+        408,A,HIGUAIN,Juventu0<br>
+        441,A,BELOTTI,Torino<br></span>
+        Un esempio funzionante di file corretto puo' essere scaricato <a href="giocatori_esempio.csv">qui</a><br>
+        <hr> 
+        Spuntando la casella "Primo caricamento", vengono importate tutte le squadre e i giocatori presenti nel file. Squadre o giocatori gia nel sistema vengono ignorari<br>
+        Se invece si effettua un import del file senza aver selezionato "Primo Caricamento", viene fatto un update di giocatori: i gicoatori che hanno cambiato squadra sono aggiornati; i giocatori non presenti vengono importati.
+</span>
+</div>
+<hr>
 <form action="upload_giocatori.php" method="post" enctype="multipart/form-data">
-    <input type="checkbox" name="cbCancella" value="si">Cancellare squadre e giocatori</input>
+    <span>Primo caricamento</span><input type="checkbox" name="cbCancella" value="si"></input>
     <br>
     Selziona File da inserire:
     <input type="file" name="fileToUpload" >
 
     <input type="submit" value="Carica File" name="submit">
 </form>
-<h2><a href="spiegazione_creazione_file_csv.pdf">File di Spiegazione</a></h2>
-<p>Un esempio funzionante di file corretto puo' essere scaricato <a href="giocatori_esempio.csv">qui</a>
-<p>Il file deve essere un formato .csv ovvero un file di testo i cui dati sono separati da virgole.</p>
-<p>Questo file puo' essere creato da una tabella excel, salvando il file come .csv</p>
-<p>Nel file ci devono essere 4 colonne:Id,R,Nome,Squadra</p>
-<p>Id=numero intero univoco assegnato al giocatore da Fantagazzetta</p>
-<p>R=ruolo. Puo' assumere i valori P,D,C,A per indicare Portiere,Difensore,Centrocampista e Attaccante rispettivamente.</p>
-<p>Nome=Nome del giocatore.</p>
-<p>Squadra=Nome della squadra di serie A di appartenenza del Giocatore. Si verifichi che non ci siano errori nella digitazione del nome delle squadre e ce ogni squadra compaia sempre con la stessa denominazione.</p>
-<p>Esempio di formato valido del file e':"</p>
-
-<p>Id,R,Nome,Squadra</p>
-<p>408,A,HIGUAIN,Juventus</p>
-<p>441,A,BELOTTI,Torino</p>
-<p>277,A,ICARDI,Inter</p>
-<p>410,A,MERTENS,Napoli</p>
-<p>647,A,DZEKO,Roma</p>
-<p>409,A,INSIGNE,Napoli</p>
-<p>785,A,IMMOBILE,Lazio</p>
-<p>309,A,DYBALA,Juventus</p>
-
-<p>Un esempio funzionante di file corretto puo' essere scaricato <a href="giocatori_esempio.csv">qui</a>
-
-</p>
-<br>
-    
+<hr>
+<!-- <a href="spiegazione_creazione_file_csv.pdf">File di Spiegazione</a>     -->
 <?php 
 include("../footer.php");
 ?>
