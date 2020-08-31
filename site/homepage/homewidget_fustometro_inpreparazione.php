@@ -20,7 +20,7 @@
     ?>
     <div class="fusticoming widgetcontent">
         <div class="fusticomingcontent">
-            <ul style="padding: 20% 0">
+            <ul>
             <?php
                 foreach($fustiinprep as $k => $v){
                     if ($k % 2 == 0) {

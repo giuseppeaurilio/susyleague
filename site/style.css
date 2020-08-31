@@ -190,11 +190,11 @@ body .widget table tr
 }
 body .widget .widgetcontent
 {
-  height: 227px;
+  min-height: 227px;
 }
 body .widget .widgetcontent2
 {
-  height: 200px;
+  min-height: 200px;
 }
 body .widget .result
 {
@@ -236,7 +236,7 @@ body .widget div.annunciodelpresidente
 
 body .widget div.partiteincorso
 {
-  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('https://lh3.googleusercontent.com/proxy/WR9Ba_H9CkXmVatRu8T7LwCgA8OtrBNS4VyL-u3gHHAspKi4VFASDzMWKDvJfmssFpR4SLq9sEhErA_8MUTRRt1vm_qIPiMtXTi8tWf133h9KXGk9S2W3O6rHvKh3ZVhyaumzLRLTKtgTrO1GsoLDVw4xw');
+  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('https://www.primapaginaonline.it/wp-content/uploads/2020/01/Tutto-il-Calcio-minuto-per-minuto-640x250.jpg?x87416');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -312,10 +312,13 @@ body .widget div.fannulloni
 body .widget div.fustiassegnati .fustiassegnaticontent
 {
     text-align: center;
+    position: relative;
 }
 body .widget div.fustiassegnati .fustiassegnaticontent #count-example
 {
   background: rgba(255, 255, 255, 0.3);
+  z-index: 9;
+  height: 100%;
 }
 body .widget div.fustiassegnati ul{
   
@@ -332,17 +335,18 @@ body .widget div.fustiassegnati ul li.alternate{
   background-color: rgba(176,196,222 ,0.5 );
 }
 body .widget div.fustiassegnati #count-example{
-    /* height: 100%; */
-    /* vertical-align: middle; */
-    /* padding: 36%; */
-    /* display: block; */
-    line-height: 200px;
-    font-size: 100px;
-    /* color: white; */
-  }
+  line-height: 227px;
+  font-size: 100px;
+}
+body .widget div.fustiassegnaticontent .lista{
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  width: 100%;
+height: 100%;
+}
 body .widget div.fusticoming
 {
-  /* background-image: url('https://cdn.dribbble.com/users/1878498/screenshots/3795124/beer-anim_slower.gif'); */
   background-image: url('https://treatycitybrewery.ie/cms_files/wp-content/uploads/2017/04/gif2.gif');
   background-repeat: no-repeat;
   background-size: auto 100%;
@@ -356,9 +360,7 @@ body .widget div.fusticoming .fusticomingcontent
   vertical-align: middle;
 
 }
-/* body .widget div.fusticoming .fusticomingcontent span {
-line-height: 200px;    background-color: rgba(176,196,222 ,0.8 );    font-size: 20px;    padding: 2px;
-} */
+
 body .widget div.fusticoming .fusticomingcontent ul {
 margin: 0px;
 padding: 0px;

@@ -24,33 +24,34 @@
             <div id="count-example">
             <?php echo count($fustiassegnati) ?>
             </div>
-        </div>    
-        <div class="lista">
-            <ul>
-            <?php
-                foreach($fustiassegnati as $k => $v){
-                    if ($k % 2 == 0) {
-                        echo '<li class="alternate">';
+            
+            <div class="lista">
+                <ul>
+                <?php
+                    foreach($fustiassegnati as $k => $v){
+                        if ($k % 2 == 0) {
+                            echo '<li class="alternate">';
+                        }
+                        else
+                        {
+                            echo '<li class="">';
+                        }
+                        echo $v["Presidente"];
+                        if($v["Motivazione"] != "")
+                        {
+                            echo ': ' .$v["Motivazione"] ;
+                        }
+                        // echo '('.date('d/m/Y', strtotime($v["DataUM"])).')';
+                        echo'</li>';
                     }
-                    else
-                    {
-                        echo '<li class="">';
-                    }
-                    echo $v["Presidente"];
-                    if($v["Motivazione"] != "")
-                    {
-                        echo ': ' .$v["Motivazione"] ;
-                    }
-                    // echo '('.date('d/m/Y', strtotime($v["DataUM"])).')';
-                    echo'</li>';
-                }
-            ?>
-                <!-- <li class="alternate">Andrea Rotondo</li>
-                <li class="">Filippo Pagliarella</li>
-                <li class="alternate">Andrea Rotondo</li>
-                <li class="">Andrea Rotondo</li>
-                <li class="alternate">Daniele Rotondo</li> -->
-            </ul>
+                ?>
+                    <!-- <li class="alternate">Andrea Rotondo</li>
+                    <li class="">Filippo Pagliarella</li>
+                    <li class="alternate">Andrea Rotondo</li>
+                    <li class="">Andrea Rotondo</li>
+                    <li class="alternate">Daniele Rotondo</li> -->
+                </ul>
+            </div>
         </div>
     </div>
    
