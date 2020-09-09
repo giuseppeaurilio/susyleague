@@ -139,8 +139,13 @@ $anno=$row["valore"];
 
 			</ul>         
 			</li>
-			<!-- <li><a href="/cambia_password.php" ><i class="fas fa-lock"></i> Password</a></li> -->
-			<li><a href="/homepage/regolamento.pdf" ><i class="fas fa-pencil-alt"></i> Regolamento</a></li>
+			<li><a href="#"><i class="fas fa-crown"></i> Lega</a>
+			<ul>
+				<!-- <li><a href="/display_OrganoDirettivo.php" ><i class="fas fa-sitemap"></i> Organo direttivo</a></li>
+				<li><a href="/display_albodoro.php" ><i class="fas fa-book-open"></i> Albo D'oro</a></li>
+				<li><a href="/display_record.php" ><i class="fas fa-poll"></i> Statistiche e curiosità</a></li> -->
+				<li><a href="/homepage/regolamento.pdf" ><i class="fas fa-pencil-alt"></i> Regolamento</a></li>
+			</ul>
 			<?php if ((isset($_SESSION['login'])  && ($_SESSION['login'] == '0'))) {
 				echo '<li><a href="/presidente/amministrazione.php" ><i class="fas fa-tools"></i> Amministrazione</a></li>';
 			}
