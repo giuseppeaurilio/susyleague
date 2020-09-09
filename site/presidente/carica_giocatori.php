@@ -21,7 +21,7 @@ include("menu.php");
         441,A,BELOTTI,Torino<br></span>
         Un esempio funzionante di file corretto puo' essere scaricato <a href="giocatori_esempio.csv">qui</a><br>
         <hr> 
-        Spuntando la casella "Primo caricamento", vengono importate tutte le squadre e i giocatori presenti nel file. Squadre o giocatori gia nel sistema vengono ignorari<br>
+        Spuntando la casella <strong>"Primo caricamento"</strong>, vengono importate tutte le squadre e i giocatori presenti nel file. Squadre o giocatori gia nel sistema vengono <strong>CANCELLATI</strong><br>
         Se invece si effettua un import del file senza aver selezionato "Primo Caricamento", viene fatto un update di giocatori: i gicoatori che hanno cambiato squadra sono aggiornati; i giocatori non presenti vengono importati.
 </span>
 </div>

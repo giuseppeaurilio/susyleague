@@ -76,7 +76,9 @@
                 
             
                 // echo 'TOT:'. $counter;
+                echo "<div class='widgetcontent2 '>";
                 echo '<canvas id="myChart'.$sondaggio["id"].'" style="background-color: rgba(255,255,255,0.8)"></canvas>';
+                echo "</div>";
                 echo "<script>
                         var ctx = document.getElementById('myChart".$sondaggio["id"]."').getContext('2d');
                         var myChart = new Chart(ctx, {
