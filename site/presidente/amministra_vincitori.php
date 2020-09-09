@@ -244,7 +244,7 @@ while($row = $result->fetch_assoc()){
             {
                 echo '<option value=' . $squadra["id"] . '>'. $squadra["squadra"] . '</option>';
             }
-            echo '<option value="0">Altro</option>';
+            // echo '<option value="0">Altro</option>';
             ?>
         </select>
         
