@@ -16,9 +16,9 @@ include("menu.php");
         </ol>
         Ad esempio:<br>
         <span >
-        Id,R,Nome,Squadra<br>
-        408,A,HIGUAIN,Juventu0<br>
-        441,A,BELOTTI,Torino<br></span>
+        Id,R,Nome,Squadra,Quotazioen<br>
+        408,A,HIGUAIN,Juventus, 10<br>
+        441,A,BELOTTI,Torino, 9<br></span>
         Un esempio funzionante di file corretto puo' essere scaricato <a href="giocatori_esempio.csv">qui</a><br>
         <hr> 
         Spuntando la casella <strong>"Primo caricamento"</strong>, vengono importate tutte le squadre e i giocatori presenti nel file. Squadre o giocatori gia nel sistema vengono <strong>CANCELLATI</strong><br>

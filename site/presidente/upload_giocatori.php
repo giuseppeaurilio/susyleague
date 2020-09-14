@@ -53,7 +53,7 @@ function parse_giocatori($filename) {
 					$resultfindgiocaotre  = $conn->query($queryfindgiocatore);
 					if($resultfindgiocaotre->num_rows == 0)
 					{
-						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra` ) SELECT $data[0],'$data[1]','$nome',$idsquadra 
+						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione` ) SELECT $data[0],'$data[1]','$nome',$idsquadra, $data[4]
 						from squadre_serie_a where `squadra_breve`='$squadra_breve'";
 
 						$result=$conn->query($queryinsertgiocatore); 
@@ -130,7 +130,7 @@ function update_giocatori($filename) {
 					if($resultfindgiocaotre->num_rows == 0)
 					{
 						$nome = preg_replace("/[^A-Za-z0-9 -]/", '', $data[2]);
-						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra` ) values ($data[0],'$data[1]', '$nome', $idsquadra ";
+						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione` ) values ($data[0],'$data[1]', '$nome', $idsquadra, $data[4] ";
 
 						$result=$conn->query($queryinsertgiocatore); 
 						if ($result==1) $countergiocatori++; else echo " ERROR";
@@ -170,7 +170,7 @@ function update_giocatori($filename) {
 					$resultfindgiocaotre  = $conn->query($queryfindgiocatore);
 					if($resultfindgiocaotre->num_rows == 0)
 					{
-						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra` ) SELECT $data[0],'$data[1]','$nome',$idsquadra 
+						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione` ) SELECT $data[0],'$data[1]','$nome',$idsquadra, $data[4]
 						from squadre_serie_a where `squadra_breve`='$squadra_breve'";
 
 						$result=$conn->query($queryinsertgiocatore); 
@@ -190,7 +190,7 @@ function update_giocatori($filename) {
 		}
 		fclose($handle);
 
-		echo " Procedura completata. Inserite " .$countersquadre. "squadre e ".$countergiocatori." giorcatori.";
+		echo " Procedura completata. Inserite " .$countersquadre. " squadre e ".$countergiocatori." giorcatori.";
 	}
 
 // inserisci squadre nel database
