@@ -2,10 +2,186 @@
 include("menu.php");
 
 ?>
+<script>
+var noimage = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/no-campioncino.png";
+imgError = function(img){
+	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/no-campioncino.png";
+};
+var astaincorso = false;
+loadUltimoGiocatore = function(id)
+{
+    var action ="ultimogiocatore";
+    $.ajax({
+        type:'POST',
+            url:'display_riepilogoasta_controller.php',
+            data: {
+                "action": action,
+                // "id": id,
+            },
+            success:function(data){
+                // debugger;
+                var resp=$.parseJSON(data)
+                
+                if(resp.result == "true"){
+                    if(resp.giocatori.length> 0){
+                        //show data
+                        var template = $('#tmplAstaprecedente').html();
+                        Mustache.parse(template);   // optional, speeds up future uses
+                        var rendered = Mustache.render(template, resp.giocatori[0]);
+                        $("#divAstaprecedente").html(rendered);
+                    }
+                    else{
+                        var giocatore = {nome: "NO DATA", ruolo: "-", imgurl: noimage, squadra_breve: "--", costo:"-", fantasquadra : "--"}
+                        //
+                        resp.giocatori.push(giocatore);
+                        var template = $('#tmplAstaprecedente').html();
+                        Mustache.parse(template);   // optional, speeds up future uses
+                        var rendered = Mustache.render(template, resp.giocatori[0]);
+                        $("#divAstaprecedente").html(rendered);
+                    }
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    }); 
+}
 
-<h2>Riepilogo ASTA</h2>
+loadAstaInCorso = function(id)
+{
+    var action ="astaincorso";
+    $.ajax({
+        type:'POST',
+            url:'display_riepilogoasta_controller.php',
+            data: {
+                "action": action,
+                // "id": id,
+            },
+            success:function(data){
+                // debugger;
+                var resp=$.parseJSON(data)
+                if(resp.result == "true"){
+                    if(resp.giocatori.length> 0){
+                        //show data
+                        var template = $('#tmplAstaInCorso').html();
+                        Mustache.parse(template);   // optional, speeds up future uses
+                        var rendered = Mustache.render(template, resp.giocatori[0]);
+                        $("#divAstaAttuale").html(rendered);
+                        astaincorso = true;
+                    }
+                    else{
+                        var giocatore = {nome: "Nessuna giocatore in asta", ruolo: "-", imgurl: noimage, squadra_breve: "--"}
+                        //
+                        resp.giocatori.push(giocatore);
+                        var template = $('#tmplAstaInCorso').html();
+                        Mustache.parse(template);   // optional, speeds up future uses
+                        var rendered = Mustache.render(template, resp.giocatori[0]);
+                        $("#divAstaAttuale").html(rendered);
+                        
+                        if(astaincorso == true)
+                        {
+                            location.reload();
+                        }
+                    }
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    }); 
+}
+$(document).ready(function(){
+    //ogni 5 secondi 
+        //mostro l'ultimo giocatore venduto, a chi e a che prezzo.
+        //verifico se c'e' un giocatore in vendita.
+            //se non c'era e lo trovo mostro il nuovo giocatore in vendita.
+            //se c'era e non c'è vuol dire che è stato venduto, reload della pagina
+    loadUltimoGiocatore();
+    loadAstaInCorso();
+    window.setInterval(function(){
+        loadUltimoGiocatore();
+        loadAstaInCorso();
+     }, 5000);
+
+})
+$(document).on({
+    ajaxStart: function() { 
+        $("body").removeClass("loading");
+    },
+});
+
+</script>
+
+<script id="tmplAstaInCorso" type="x-tmpl-mustache">
+    
+<table border="0" cellspacing="2" cellpadding="2">
+    <h3> Adesso in asta</h3>
+    <div class="widgetastacontent incorso" >
+        <div class="left">
+            <img src='{{ imgurl }}' onerror='imgError(this);'> </img> 
+        </div>
+        <div  class="right">
+            <div class="nome"> {{ nome }} ({{ squadra_breve }})</div>
+            <div class="ruolo"> Ruolo: {{ ruolo }} </div>
+        </div>
+    </div>
+</table>
+</script>
+
+<script id="tmplAstaprecedente" type="x-tmpl-mustache">
+    
+<table border="0" cellspacing="2" cellpadding="2">
+    <h3>Ultimo Aggiudicato</h3>
+    <div class="widgetastacontent precedente" >
+    <div class="left">
+            <img src='{{ imgurl }}' onerror='imgError(this);'> </img> 
+        </div>
+        <div  class="right">
+            <div class="nome"> {{ nome }} ({{ squadra_breve }})</div>
+            <div class="ruolo"> Ruolo: {{ ruolo }} </div>
+            <div > Costo: {{ costo }}</div>
+            <div > Fantasquadra: <br><span class="fantasquadra">{{ fantasquadra }}<span></div>
+        </div>
+    </div>
+</table>
+</script>
+
+
+<h2>ASTA LIVE</h2>
 <div class="maincontent">
-
+    <div class="rigacompleta">
+        <div class="widgetasta " id="divAstaAttuale">
+        <!-- <h3> Adesso in asta</h3>
+    <div class="widgetastacontent incorso" >
+        <div class="left">
+            <img src='https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/BUFFON.png' onerror='imgError(this);'> </img> 
+        </div>
+        <div  class="right">
+            <div class="nome"> Buffon (JUV)</div>
+            <div class="ruolo"> Ruolo: P </div>
+        </div>
+        
+    </div> -->
+        </div>
+        <div class="widgetasta " id="divAstaprecedente">
+        <!-- <h3>Ultimo Aggiudicato</h3>
+    <div class="widgetastacontent precedente" >
+    <div class="left">
+            <img src='https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/PERIN.png' onerror='imgError(this);'> </img> 
+        </div>
+        <div  class="right">
+            <div class="nome"> PERIN (GEN)</div>
+            <div > Ruolo: P </div>
+            <div > Costo: 20</div>
+            <div > Fantasquadra: <br><span class="fantasquadra">Nuova Romanina<span></div>
+        </div>
+    </div> -->
+        </div>
+    </div>
 <?php 
 //load squadre fantacalcio
 $query="SELECT * FROM sq_fantacalcio order by squadra";

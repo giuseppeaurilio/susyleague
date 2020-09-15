@@ -26,3 +26,5 @@ ALTER TABLE `sq_fantacalcio` ADD `ammcontrollata_anno` INT NOT NULL DEFAULT '0' 
 DROP TABLE `vincitori`;
 CREATE TABLE `vincitori` ( `id` INT NOT NULL AUTO_INCREMENT , `competizione_id` INT NULL, `desc_competizione` VARCHAR(50) NOT NULL , `posizione` INT NULL , `sq_id` INT NULL , PRIMARY KEY (`id`))
 ALTER TABLE `giocatori` ADD `quotazione` INT NOT NULL DEFAULT '0' AFTER `id_squadra`;
+ALTER TABLE `rose` ADD `ordine` INT NOT NULL AUTO_INCREMENT AFTER `id_giocatore`, ADD UNIQUE `unique_ordine` (`ordine`);
+

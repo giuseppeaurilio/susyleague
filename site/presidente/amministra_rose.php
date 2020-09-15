@@ -5,14 +5,16 @@ include("menu.php");
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
 <script>
 
-function load_data(id_sq, ruolo) {
+function load_data(id_sq, ruolo, id) {
             $.ajax({
                 type:'POST',
                 url:'ajaxData.php',
                 data:'sq_sa='+id_sq+"&"+"ruolo="+ruolo,
                 success:function(html){
                     $('#giocatore').html(html);
-                    //$('#city').html('<option value="">Select state first</option>'); 
+                    $("#ruolo").val(ruolo)
+                    $("#sq_sa").val(id_sq)
+                    $("#giocatore").val(id)
                 }
             }); 
 }
@@ -105,7 +107,174 @@ $(document).ready(function(){
     }
 });
 </script>
-	
+
+<script>
+imgError = function(img){
+	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/no-campioncino.png";
+};
+estraiGiocatore = function()
+{
+    $("#sq_sa").val("");
+    $("#giocatore").val("");
+    var ruolo = $( "#ruolo option:selected" ).val();
+    var min = $( "#txtMin" ).val();
+    var max = $( "#txtMax" ).val();
+    var idsquadra = $( "#sq_sa option:selected" ).val();
+    var message = ""
+    
+    if (message != "")
+    {
+        // alert (message);
+        $( "#dialog" ).prop('title', "ERROR");                
+        $( "#dialog p" ).html(message);
+        $( "#dialog" ).dialog({modal:true});
+        return false;
+    }
+
+
+    var action ="estrai";
+    $.ajax({
+            type:'POST',
+            url:'amministra_rose_controller.php',
+            data: {
+                "action": action,
+                "ruolo": ruolo,
+                "min": min,
+                "max": max,
+                "idsquadra": idsquadra,
+            },
+            success:function(data){
+                // debugger;
+                var resp=$.parseJSON(data)
+                if(resp.result == "true" ){
+                    if(resp.giocatori.length> 0){
+                    var  buttons= [
+                                    {
+                                    text: "annulla",
+                                    click: function() {
+                                        annullaGiocatoreEstrazione(resp.giocatori[0].id);
+                                        $( "#dialog" ).dialog('close');
+                                        }
+                                    }, 
+                                    {
+                                    text: "conferma",
+                                    click: function() {
+                                        confermaGiocatoreEstratto(resp.giocatori[0].ruolo, resp.giocatori[0].ids, resp.giocatori[0].id);
+                                        $( "#dialog" ).dialog('close');
+                                        }
+                                    }
+                                ];
+                        // preg_replace('/\s+/', '-', $nome_giocatore);
+                        // str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png")
+                        var res = resp.giocatori[0].nome.replace("/\s+/", "-");
+                        var filename = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/" + res + ".png";
+                    
+                        var content = "<div style='text-align: center;'>";
+                        content += "<h3> " + resp.giocatori[0].nome + " (" + resp.giocatori[0].squadra_breve + ")" + "</h3>";
+                        content += "<img src='" + filename + "' onerror='imgError(this);'> </img> ";
+                        content +="<div> Ruolo: " + resp.giocatori[0].ruolo + "</div>";
+                        content += "<div> Quotazione: " + resp.giocatori[0].quotazione + "</div>",
+                        content +="</div>";
+                        $( "#dialog" ).prop('title', "Info");
+                        $( "#dialog p" ).html(content);
+                        $( "#dialog" ).dialog({modal:true, buttons: buttons});
+                    }
+                    else
+                    {
+                        var  buttons= [
+                                    {
+                                    text: "OK",
+                                    click: function() {
+                                        $( "#dialog" ).dialog('close');
+                                        }
+                                    }];
+                        var content = "Nessun giocatore trovato";
+                        $( "#dialog" ).prop('title', "Info");
+                        $( "#dialog p" ).html(content);
+                        $( "#dialog" ).dialog({modal:true, buttons: buttons});
+                    }
+
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+                
+                
+            }
+    }); 
+}
+
+confermaGiocatoreEstratto = function(ruolo, ids, id)
+{
+    load_data(ids,ruolo, id);
+
+    // //alert("conferma " +id);
+    var action ="conferma";
+    $.ajax({
+        type:'POST',
+            url:'amministra_rose_controller.php',
+            data: {
+                "action": action,
+                "id": id,
+            },
+            success:function(data){
+                // debugger;
+                var resp=$.parseJSON(data)
+                if(resp.result == "true"){
+                   // t
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+                
+                
+            }
+    }); 
+}
+
+annullaGiocatoreEstrazione = function(id)
+{
+    $("#sq_sa").val("");
+    $("#giocatore").val("");
+    var action ="annulla";
+    $.ajax({
+        type:'POST',
+            url:'amministra_rose_controller.php',
+            data: {
+                "action": action,
+                // "id": id,
+            },
+            success:function(data){
+                // debugger;
+                var resp=$.parseJSON(data)
+                if(resp.result == "true"){
+                   // t
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+                
+                
+            }
+    }); 
+}
+function inizializzaControlli(){
+    $("#btnEstraiRandom").click(estraiGiocatore);
+    $("#btnAnnullaAstaCorrente").click(annullaGiocatoreEstrazione);
+}
+$(document).ready(function(){
+     inizializzaControlli();
+    // caricaVincitori();
+
+})
+</script>
+
 <h2>Aggiungi Giocatore</h2>
 <div class="aggiungi">
 <form action="aggiungi_a_rosa.php" method="get">
@@ -162,7 +331,7 @@ while ($row=$result->fetch_assoc()) {
 ?>
 </select>
 
-Costo:<input type="text" id="costo" name="costo" size="4">
+Costo:<input type="number" id="costo" name="costo" style="width:80px;">
 
 
 <input  type="hidden" id="sommario" name="sommario" value="">
@@ -171,18 +340,17 @@ Costo:<input type="text" id="costo" name="costo" size="4">
 <input type="submit" id="submit" value="Aggiungi" disabled>
 </form> 
 
+<div>
+Estrazione automatica:
+<input type="number" id="txtMin" name="min" placeholder="min" style="width:80px;">
+<input type="number" id="txtMax" name="MAX" placeholder="MAX" style="width:80px;">
+<input type="button" value="estrai un giocatore" id="btnEstraiRandom">
+<input type="button" value="annulla" id="btnAnnullaAstaCorrente">
 </div>
 
-
-
+</div>
 <h2>Rose</h2>
-
-
 <?php 
-
-
-
-
 #echo "<b><left>Squadre</center></b><br><br>";
 
 $query_generale="SELECT valore FROM generale where nome_parametro='fantamilioni'";

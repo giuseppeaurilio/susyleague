@@ -41,7 +41,7 @@ h2{
   text-align: center;
   color: white;
   padding: 10px;
-  margin: 5px 0;
+  margin: 5px 0 0 0 ;
 }
 h3{
   background-color: #1f3c47;
@@ -1032,4 +1032,62 @@ padding: 0;
 
 .maincontent .riepilogo{
   min-width: 350px;
+}
+
+.maincontent .rigacompleta{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.maincontent .widgetasta{
+  width: 350px;
+  /* float: left; */
+  margin: 5px auto
+}
+
+.maincontent .widgetastacontent{
+  text-align: center;
+  border: 1px solid;
+  height: 170px;
+  padding: 5px;
+
+}
+
+.maincontent .widgetastacontent.precedente{
+  background: lightgrey; 
+}
+
+.maincontent .widgetastacontent.incorso{
+  background: lightcoral; 
+}
+
+.maincontent .widgetastacontent .left{
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+.maincontent .widgetastacontent .right{
+  float: left;
+  width: 50%;
+  text-align: left;
+  height: 100%;
+    
+}
+
+.maincontent .widgetastacontent .right .nome{
+  font-size: 1.5em;
+  padding: 2px 0;
+}
+
+.maincontent .widgetastacontent .right div
+{
+  padding: 2px 0;
+}
+
+.maincontent .widgetastacontent .right .fantasquadra
+{
+  font-size: 1.3em;
 }

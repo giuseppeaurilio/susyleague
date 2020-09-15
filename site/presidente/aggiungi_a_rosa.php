@@ -134,7 +134,8 @@ if( $costo > $offertamassima )
 }
 
 if($esito != "error"){
-    $query="INSERT INTO `rose` (`id_sq_fc`, `id_giocatore`, `costo`) VALUES ('" . $id_sq_fc ."', '". $id_giocatore ."', '". $costo . "')";
+    // $query="INSERT INTO `rose` (`id_sq_fc`, `id_giocatore`, `costo`) VALUES ('" . $id_sq_fc ."', '". $id_giocatore ."', '". $costo . "')";
+    $query="UPDATE `rose` SET `id_sq_fc`=$id_sq_fc,`costo`=$costo where `id_giocatore`=$id_giocatore";
     $result=$conn->query($query);
 }
 

@@ -128,7 +128,7 @@ $anno=$row["valore"];
 			<ul>
 				<li><a href="/display_rose.php" >Susy League</a></li>
 				<li><a href="/display_giocatori.php">Serie A</a></li>
-				<li><a href="/display_riepilogoasta.php">Riepilogo asta</a></li>
+				<li><a href="/display_riepilogoasta.php">Asta Live! <i class="fas fa-satellite-dish"></i></a></li>
 			</ul>         
 			</li>
 			<li><a href="/invio_formazione.php"><i class="fas fa-futbol"></i> Invio formazione</a></li>
