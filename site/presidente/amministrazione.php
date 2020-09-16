@@ -9,11 +9,14 @@ include("menu.php");
 		<li><a href="amministra_sondaggi.php" >Sondaggi</a></li>
 		<li><a href="amministra_fustometro.php" >Fustometro</a></li>
 		<li><a href="amministra_vincitori.php" >Vincitori</a></li>
-		<li><a href="carica_giocatori.php">Database giocatori</a></li>
+	</ul>
+	<h2>Asta</h2>
+	<ul class="lista">
 		<li><a href="amministra_squadre.php" >Fantasquadre</a></li>
+		<li><a href="genera_nuovo_anno.php">Genera nuovo anno</a></li>
+		<li><a href="carica_giocatori.php">Database giocatori</a></li>
 		<li><a href="amministra_rose.php" >Amministra Rose</a></li>
 		<li><a href="amministra_giocatori.php" >Amministra Giocatori</a></li>	
-		<li><a href="genera_nuovo_anno.php">Genera nuovo anno</a></li>
 	</ul>
 	<h2>Campionato</h2>
 	<ul class="lista">	

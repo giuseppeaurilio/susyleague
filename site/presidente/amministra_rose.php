@@ -44,43 +44,6 @@ $(document).ready(function(){
             //$('#city').html('<option value="">Select state first</option>'); 
         }
     });
-
-   $('#giocatore').on('change',function(){
-        var sq_sa_ID = $('#sq_sa').val();
-        var ruolo = $('#ruolo').val();
-        var giocatore_ID=$('#giocatore').val();
-        var sq_fc = $('#sq_fc').val();
-        var costo=$('#costo').val();
-        var disabled=!(sq_sa_ID  && giocatore_ID && sq_fc && $.isNumeric(costo))
-		$("#submit").prop('disabled', disabled);
-        $("#sommario").val(giocatore_ID + "_" + sq_fc + "_" + ruolo)
-        
-    });
-    
-    $('#sq_fc').on('change',function(){
-        var sq_sa_ID = $('#sq_sa').val();
-        var ruolo = $('#ruolo').val();
-        var giocatore_ID=$('#giocatore').val();
-        var sq_fc = $('#sq_fc').val();
-        var costo=$('#costo').val();
-        var disabled=!(sq_sa_ID  && giocatore_ID && sq_fc && $.isNumeric(costo))
-		$("#submit").prop('disabled', disabled);
-        $("#sommario").val(giocatore_ID + "_" + sq_fc + "_" + ruolo)
-        
-    });   
-
-    $('#costo').on('keyup',function(){
-        var sq_sa_ID = $('#sq_sa').val();
-        var ruolo = $('#ruolo').val();
-        var giocatore_ID=$('#giocatore').val();
-        var sq_fc = $('#sq_fc').val();
-        var costo=$('#costo').val();
-        var disabled=!(sq_sa_ID  && giocatore_ID && sq_fc && $.isNumeric(costo))
-		$("#submit").prop('disabled', disabled);
-        $("#sommario").val(giocatore_ID + "_" + sq_fc + "_" + ruolo)
-        
-    });  
-    
     var url = new URL(window.location);
     var c = url.searchParams.get("ruolo");
     $("select#ruolo").val(c);
@@ -205,7 +168,14 @@ estraiGiocatore = function()
             }
     }); 
 }
-
+confermaGiocatore = function()
+{
+    var ruolo = $("#ruolo").val();
+    var ids = $("#sq_sa").val();
+    var id = $("#giocatore").val();
+    
+    confermaGiocatoreEstratto(ruolo, ids, id);
+}
 confermaGiocatoreEstratto = function(ruolo, ids, id)
 {
     load_data(ids,ruolo, id);
@@ -264,14 +234,52 @@ annullaGiocatoreEstrazione = function(id)
             }
     }); 
 }
+giocatoreInAsta = function()
+{
+    var sq_sa_ID = $('#sq_sa').val();
+    var ruolo = $('#ruolo').val();
+    var giocatore_ID=$('#giocatore').val();
+    if( ruolo != "" &&  sq_sa_ID != "" && giocatore_ID != ""){
+        confermaGiocatoreEstratto(ruolo, sq_sa_ID, giocatore_ID);
+    }
+}
+enablebutton = function()
+{
+    // debugger;
+
+    var sq_sa_ID = $('#sq_sa').val();
+    var ruolo = $('#ruolo').val();
+    var giocatore_ID=$('#giocatore').val();
+    var sq_fc = $('#sq_fc').val();
+    var costo=$('#costo').val();
+    var disabled=!(sq_sa_ID  && giocatore_ID && sq_fc && $.isNumeric(costo))
+    $("#submit").prop('disabled', disabled);
+    $("#sommario").val(giocatore_ID + "_" + sq_fc + "_" + ruolo)
+    
+    // if( ruolo != "" &&  sq_sa_ID != "" && giocatore_ID != ""){
+    //     $('#btnInAsta').removeAttr("disabled");
+    //     $("#btnInAsta").unbind().bind('click', confermaGiocatore);
+    // }
+    // else{
+    //     $("#btnInAsta").attr("disabled", true);
+    // }
+    
+}
 function inizializzaControlli(){
+    enablebutton();
     $("#btnEstraiRandom").click(estraiGiocatore);
     $("#btnAnnullaAstaCorrente").click(annullaGiocatoreEstrazione);
+    $("#ruolo").on('change', enablebutton);
+    $("#sq_sa").on('change', enablebutton)
+    $("#giocatore").on('change', enablebutton)
+    $("#giocatore").on('change', giocatoreInAsta)
+    $("#sq_fc").on('change', enablebutton)
+    $("#costo").on('change', enablebutton)
+
+    // $("#btnInAsta").click(confermaGiocatore);
 }
 $(document).ready(function(){
      inizializzaControlli();
-    // caricaVincitori();
-
 })
 </script>
 
@@ -309,6 +317,8 @@ while ($row=$result_sa->fetch_assoc()) {
 <select name="giocatore" id="giocatore">
 		<option value="">--Seleziona giocatore--</option>	
 </select>
+<!-- <input type="button" value="in asta" id="btnInAsta"> -->
+<input type="button" value="annulla asta" id="btnAnnullaAstaCorrente">
 
 &#8658;
 
@@ -335,9 +345,9 @@ Costo:<input type="number" id="costo" name="costo" style="width:80px;">
 
 
 <input  type="hidden" id="sommario" name="sommario" value="">
- 
- 
 <input type="submit" id="submit" value="Aggiungi" disabled>
+<br/>
+
 </form> 
 
 <div>
@@ -345,7 +355,7 @@ Estrazione automatica:
 <input type="number" id="txtMin" name="min" placeholder="min" style="width:80px;">
 <input type="number" id="txtMax" name="MAX" placeholder="MAX" style="width:80px;">
 <input type="button" value="estrai un giocatore" id="btnEstraiRandom">
-<input type="button" value="annulla" id="btnAnnullaAstaCorrente">
+
 </div>
 
 </div>
