@@ -20,6 +20,7 @@ include("menu.php");
 	</ul>
 	<h2>Campionato</h2>
 	<ul class="lista">	
+		<li><a href="genera_calendario_campionato.php" >Genera Calendario</a></li>
 		<li><a href="amministra_giornate.php" >Amministra Giornate</a></li>
 		<li><a href="finale_campionato.php" >Finale Campionato</a></li>
 		<!-- <li><a href="amministra_popo.php" >Amministrazione Calendario Play-off Play-out</a></li> -->
