@@ -186,7 +186,7 @@ body .widget table tr
 {
   padding: 5px;
   /*  */
-  background-color: rgba(255,255,255,0.8)
+  background-color: rgba(220,220,220,.7)
 }
 body .widget .widgetcontent
 {
@@ -227,7 +227,7 @@ body .widget div.footer
 
 body .widget div.annunciodelpresidente
 {
-  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('https://image.freepik.com/vettori-gratuito/microfono-realistico-realistico-disegnato-a-mano_23-2148152405.jpg');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('https://image.freepik.com/vettori-gratuito/microfono-realistico-realistico-disegnato-a-mano_23-2148152405.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -236,7 +236,7 @@ body .widget div.annunciodelpresidente
 
 body .widget div.partiteincorso
 {
-  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('https://www.primapaginaonline.it/wp-content/uploads/2020/01/Tutto-il-Calcio-minuto-per-minuto-640x250.jpg?x87416');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('https://www.primapaginaonline.it/wp-content/uploads/2020/01/Tutto-il-Calcio-minuto-per-minuto-640x250.jpg?x87416');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -244,7 +244,7 @@ body .widget div.partiteincorso
 
 body .widget div.ultimirisultati
 {
-  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('//upload.wikimedia.org/wikipedia/it/thumb/5/50/Images90minuto.jpg/260px-Images90minuto.jpg');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('//upload.wikimedia.org/wikipedia/it/thumb/5/50/Images90minuto.jpg/260px-Images90minuto.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -253,7 +253,7 @@ body .widget div.ultimirisultati
 
 body .widget div.prossimoturno
 {
-  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('https://s.yimg.com/ny/api/res/1.2/D9lQqkH18yEGW7J.5fmC5w--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/http://media.zenfs.com/it_IT/News/TMNews/20200730_181503_8AF3E689.jpg');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('https://s.yimg.com/ny/api/res/1.2/D9lQqkH18yEGW7J.5fmC5w--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/http://media.zenfs.com/it_IT/News/TMNews/20200730_181503_8AF3E689.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -262,7 +262,7 @@ body .widget div.prossimoturno
 
 body .widget div.sondaggi
 {
-  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('https://image.freepik.com/vettori-gratuito/sfondo-rotonda-con-persona-compilando-un-modulo_23-2147610899.jpg');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('https://image.freepik.com/vettori-gratuito/sfondo-rotonda-con-persona-compilando-un-modulo_23-2147610899.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -270,7 +270,7 @@ body .widget div.sondaggi
 }
 body .widget div.vincitori
 {
-  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('https://as1.ftcdn.net/jpg/01/80/55/08/500_F_180550861_NPUYKrQbW5TKPWLWmhr2qhEQzl0PYB0m.jpg');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('https://as1.ftcdn.net/jpg/01/80/55/08/500_F_180550861_NPUYKrQbW5TKPWLWmhr2qhEQzl0PYB0m.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -279,7 +279,7 @@ body .widget div.vincitori
 
 body .widget div.annunciodelpresidente
 {
-  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('https://image.freepik.com/vettori-gratuito/microfono-realistico-realistico-disegnato-a-mano_23-2148152405.jpg');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('https://image.freepik.com/vettori-gratuito/microfono-realistico-realistico-disegnato-a-mano_23-2148152405.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -296,7 +296,7 @@ body .widget div.fustiassegnaticontent
 
 body .widget div.mercato
 {
-  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('https://image.freepik.com/vettori-gratuito/composizione-outlet-moderna-con-design-piatto_23-2147955616.jpg');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('https://image.freepik.com/vettori-gratuito/composizione-outlet-moderna-con-design-piatto_23-2147955616.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -304,7 +304,7 @@ body .widget div.mercato
 
 body .widget div.fannulloni
 {
-  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('https://thumbs.gfycat.com/SpryAmazingCopepod-size_restricted.gif');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('https://thumbs.gfycat.com/SpryAmazingCopepod-size_restricted.gif');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -316,7 +316,7 @@ body .widget div.fustiassegnati .fustiassegnaticontent
 }
 body .widget div.fustiassegnati .fustiassegnaticontent #count-example
 {
-  background: rgba(255, 255, 255, 0.3);
+  /* background: rgba(255, 255, 255, 0.3); */
   z-index: 9;
   height: 100%;
 }
@@ -354,7 +354,7 @@ body .widget div.fusticoming
 }
 body .widget div.fusticoming .fusticomingcontent
 {
-  background: rgba(255, 255, 255, 0.3);
+  /* background: rgba(255, 255, 255, 0.3); */
   height: 227px;
   text-align: center;
   vertical-align: middle;
