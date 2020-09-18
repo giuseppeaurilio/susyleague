@@ -274,7 +274,7 @@ function inizializzaControlli(){
     $("#giocatore").on('change', enablebutton)
     $("#giocatore").on('change', giocatoreInAsta)
     $("#sq_fc").on('change', enablebutton)
-    $("#costo").on('change', enablebutton)
+    $("#costo").on('change keyup', enablebutton)
 
     // $("#btnInAsta").click(confermaGiocatore);
 }
