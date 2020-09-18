@@ -89,7 +89,7 @@ loadUltimoGiocatore = function(id)
     }); 
 }
 
-loadAstaInCorso = function(id)
+loadAstaInCorso = function()
 {
     var action ="astaincorso";
     $.ajax({
