@@ -8,6 +8,46 @@ imgError = function(img){
 	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/no-campioncino.png";
 };
 var astaincorso = false;
+
+loadStats = function(event)
+{
+    // debugger;
+    var id = event.data.id;
+    var action ="stats";
+    $.ajax({
+        type:'POST',
+            url:'display_riepilogoasta_controller.php',
+            data: {
+                "action": action,
+                "id": id,
+            },
+            success:function(data){
+                var resp=$.parseJSON(data)
+                if(resp.result == "true"){
+                    if(resp.stats.length> 0){
+                        //show data
+                        var template = $('#tmplStats').html();
+                        Mustache.parse(template);   // optional, speeds up future uses
+                        var rendered = Mustache.render(template, resp);
+                        $( "#dialog" ).prop('title', "Statistiche");                
+                        $( "#dialog p" ).html(rendered);
+                        $( "#dialog" ).dialog({modal:true, width:600});
+                    }
+                    else{
+                        $( "#dialog" ).prop('title', "ERROR");                
+                        $( "#dialog p" ).html("nessun dato presente");
+                        $( "#dialog" ).dialog({modal:true});
+                    }
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    }); 
+}
+
 loadUltimoGiocatore = function(id)
 {
     var action ="ultimogiocatore";
@@ -16,7 +56,6 @@ loadUltimoGiocatore = function(id)
             url:'display_riepilogoasta_controller.php',
             data: {
                 "action": action,
-                // "id": id,
             },
             success:function(data){
                 // debugger;
@@ -29,6 +68,7 @@ loadUltimoGiocatore = function(id)
                         Mustache.parse(template);   // optional, speeds up future uses
                         var rendered = Mustache.render(template, resp.giocatori[0]);
                         $("#divAstaprecedente").html(rendered);
+                        $("#divAstaprecedente").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStats);
                     }
                     else{
                         var giocatore = {nome: "NO DATA", ruolo: "-", imgurl: noimage, squadra_breve: "--", costo:"-", fantasquadra : "--"}
@@ -70,6 +110,7 @@ loadAstaInCorso = function(id)
                         var rendered = Mustache.render(template, resp.giocatori[0]);
                         $("#divAstaAttuale").html(rendered);
                         astaincorso = true;
+                        $("#divAstaAttuale").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStats);
                     }
                     else{
                         var giocatore = {nome: "Nessuna giocatore in asta", ruolo: "-", imgurl: noimage, squadra_breve: "--"}
@@ -118,9 +159,9 @@ $(document).on({
 
 <script id="tmplAstaInCorso" type="x-tmpl-mustache">
     
-<table border="0" cellspacing="2" cellpadding="2">
+<div>
     <h3> Adesso in asta</h3>
-    <div class="widgetastacontent incorso" >
+    <div class="widgetastacontent incorso" data-id="{{ id }}">
         <div class="left">
             <img src='{{ imgurl }}' onerror='imgError(this);'> </img> 
         </div>
@@ -129,15 +170,15 @@ $(document).on({
             <div class="ruolo"> Ruolo: {{ ruolo }} </div>
         </div>
     </div>
-</table>
+</div>
 </script>
 
 <script id="tmplAstaprecedente" type="x-tmpl-mustache">
     
-<table border="0" cellspacing="2" cellpadding="2">
+<div>
     <h3>Ultimo Aggiudicato</h3>
-    <div class="widgetastacontent precedente" >
-    <div class="left">
+    <div class="widgetastacontent precedente" data-id="{{ id }}">
+        <div class="left">
             <img src='{{ imgurl }}' onerror='imgError(this);'> </img> 
         </div>
         <div  class="right">
@@ -147,6 +188,31 @@ $(document).on({
             <div > Fantasquadra: <br><span class="fantasquadra">{{ fantasquadra }}<span></div>
         </div>
     </div>
+</div>
+</script>
+
+<script id="tmplStats" type="x-tmpl-mustache">
+    <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
+        <tr><th>anno</th><th>pg</th><th>mv</th><th>mf</th><th>gf</th><th>gs</th><th>rp</th><th>rc</th><th>r+</th><th>r-</th><th>as</th><th>am</th><th>es</th><th>au</th></tr>
+        {{#stats}}
+        <tr>
+            <td>{{anno}}</td>
+            <td>{{pg}}</td>
+            <td>{{mv}}</td>
+            <td>{{mf}}</td>
+            <td>{{gf}}</td>
+            <td>{{gs}}</td>
+            <td>{{rp}}</td>
+            <td>{{rc}}</td>
+            <td>{{r+}}</td>
+            <td>{{r-}}</td>
+            <td>{{ass}}</td>
+            <td>{{amm}}</td>
+            <td>{{esp}}</td>
+            <td>{{au}}</td>
+        </tr>
+        {{/stats}}
+    </table >
 </table>
 </script>
 

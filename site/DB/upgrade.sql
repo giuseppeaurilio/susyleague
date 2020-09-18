@@ -28,3 +28,7 @@ CREATE TABLE `vincitori` ( `id` INT NOT NULL AUTO_INCREMENT , `competizione_id` 
 ALTER TABLE `giocatori` ADD `quotazione` INT NOT NULL DEFAULT '0' AFTER `id_squadra`;
 ALTER TABLE `rose` ADD `ordine` INT NOT NULL AUTO_INCREMENT AFTER `id_giocatore`, ADD UNIQUE `unique_ordine` (`ordine`);
 
+CREATE TABLE `giocatori_statistiche` ( `id` INT NOT NULL , `giocatore_id` INT NOT NULL , `anno` VARCHAR(50) NOT NULL , `pg` INT NOT NULL , `mv` DECIMAL NOT NULL , `mf` DECIMAL NOT NULL , `gf` INT NOT NULL , `gs` INT NOT NULL , `rp` INT NOT NULL , `rc` INT NOT NULL , `r+` INT NOT NULL , `r-` INT NOT NULL , `ass` INT NOT NULL , `amm` INT NOT NULL , `esp` INT NOT NULL , `au` INT NOT NULL , PRIMARY KEY (`id`));
+ALTER TABLE `giocatori_statistiche` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `giocatori_statistiche` CHANGE `mv` `mv` FLOAT NOT NULL;
+ALTER TABLE `giocatori_statistiche` CHANGE `mf` `mf` FLOAT NOT NULL;

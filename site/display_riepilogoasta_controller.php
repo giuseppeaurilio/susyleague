@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
                 $imgurl = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/".$nome_giocatore_pulito.".png");
                 array_push($giocatori, array(
+                    "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
@@ -62,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
                 $imgurl = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/".$nome_giocatore_pulito.".png");
                 array_push($giocatori, array(
+                    "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
@@ -96,6 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
                 $imgurl = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png");
                 array_push($giocatori, array(
+                    "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
@@ -114,7 +117,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo json_encode($response);
             
             break;
-        
+        case("stats"):
+            $id = $_POST['id'];
+            $query= "SELECT * FROM `giocatori_statistiche` WHERE giocatore_id = $id";
+            // echo $query;
+            $result=$conn->query($query);
+            $stats = array();
+            while ($row=$result->fetch_assoc()) {
+                array_push($stats, array(
+                    "anno"=>utf8_encode($row["anno"]),
+                    "pg"=>$row["pg"],
+                    "mv"=>$row["mv"],
+                    "mf"=>$row["mf"],
+                    "gf"=>$row["gf"],
+                    "gs"=>$row["gs"],
+                    "rp"=>$row["rp"],
+                    "rc"=>$row["rc"],
+                    "r+"=>$row["r+"],
+                    "r-"=>$row["r-"],
+                    "ass"=>$row["ass"],
+                    "amm"=>$row["amm"],
+                    "esp"=>$row["esp"],
+                    "au"=>$row["au"],
+                    )
+                );
+            };
+            $response = array(
+                'result' => "true",
+                'message' => $action." eseguito",
+                'stats' => $stats
+            );
+            echo json_encode($response);
+            break;
         default:
             echo json_encode(array(
                 'error' => array(

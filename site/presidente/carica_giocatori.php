@@ -35,6 +35,14 @@ include("menu.php");
     <input type="submit" value="Carica File" name="submit">
 </form>
 <hr>
+
+<form action="upload_statistiche.php" method="post" enctype="multipart/form-data">
+    <span>Anno</span><input type="text" name="AnnoStats"></input>
+    <br>
+    Selziona File da inserire:
+    <input type="file" name="fileToUploadStats" >
+    <input type="submit" value="Carica File" name="submitStats">
+</form>
 <!-- <a href="spiegazione_creazione_file_csv.pdf">File di Spiegazione</a>     -->
 <?php 
 include("../footer.php");
