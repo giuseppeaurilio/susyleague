@@ -1,5 +1,12 @@
 <?php
-$anno=$_POST['AnnoStats'];
+ if(isset($_POST['submitStats'])){
+	// echo 'is set <br>';
+		if(!empty($_POST['AnnoStats'])) {
+			$anno = $_POST['AnnoStats'];	
+		} 
+	}
+// echo 'anno: ' .$anno  . '<br>';
+// $anno=$_POST['AnnoStats'];
 // echo 'Giornata ' .$idgiornata .'<br/>';
 
 function parse_stats($filename, $anno) {

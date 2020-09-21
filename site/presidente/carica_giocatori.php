@@ -37,7 +37,15 @@ include("menu.php");
 <hr>
 
 <form action="upload_statistiche.php" method="post" enctype="multipart/form-data">
-    <span>Anno</span><input type="text" name="AnnoStats"></input>
+    <!-- <span>Anno</span><input type="text" name="AnnoStats"></input> -->
+    <select name="AnnoStats" id="AnnoStats">
+        <option value="">--anno--</option>	
+        <option value="20_21">20_21</option>
+        <option value="19_20">19_20</option>
+        <option value="18_19">18_19</option>
+        <option value="17_18">17_18</option>
+        <option value="16_17">17_18</option>
+    </select>
     <br>
     Selziona File da inserire:
     <input type="file" name="fileToUploadStats" >
