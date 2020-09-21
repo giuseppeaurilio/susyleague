@@ -40,11 +40,11 @@ include("menu.php");
     <!-- <span>Anno</span><input type="text" name="AnnoStats"></input> -->
     <select name="AnnoStats" id="AnnoStats">
         <option value="">--anno--</option>	
-        <option value="20_21">20_21</option>
-        <option value="19_20">19_20</option>
-        <option value="18_19">18_19</option>
-        <option value="17_18">17_18</option>
-        <option value="16_17">17_18</option>
+        <option value="0/1">20/21</option>
+        <option value="9/0">19/20</option>
+        <option value="8/9">18/19</option>
+        <option value="7/8">17/18</option>
+        <option value="6/7">16/17</option>
     </select>
     <br>
     Selziona File da inserire:
