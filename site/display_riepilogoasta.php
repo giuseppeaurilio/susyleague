@@ -133,16 +133,22 @@ loadAstaInCorso = function()
             success:function(data){
                 // debugger;
                 var resp=$.parseJSON(data)
-                if(resp.result == "true"){
+                if(resp.result == "true" ){
                     if(resp.giocatori.length> 0){
-                        //show data
-                        var template = $('#tmplAstaInCorso').html();
-                        Mustache.parse(template);   // optional, speeds up future uses
-                        var rendered = Mustache.render(template, resp.giocatori[0]);
-                        $("#divAstaAttuale").html(rendered);
-                        astaincorso = true;
-                        loadStats(resp.giocatori[0]["id"]);
-                        // $("#divAstaAttuale").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStats);
+                        if(astaincorso == false)
+                        {
+                          //show data
+                          var template = $('#tmplAstaInCorso').html();
+                          Mustache.parse(template);   // optional, speeds up future uses
+                          var rendered = Mustache.render(template, resp.giocatori[0]);
+                          $("#divAstaAttuale").html(rendered);
+                          astaincorso = true;
+                          loadStats(resp.giocatori[0]["id"]);
+                          // $("#divAstaAttuale").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStats);
+                        }
+                        else{
+                            //do nothing
+                        }
                     }
                     else{
                         var giocatore = {nome: "Nessuna giocatore in asta", ruolo: "-", imgurl: noimage, squadra_breve: "--"}
@@ -195,12 +201,12 @@ $(document).on({
     <h3> Adesso in asta</h3>
     <div class="widgetastacontent incorso" data-id="{{ id }}">
         <div class="left">
-            <img src='{{ imgurl }}' onerror='imgError(this);'> </img> 
+            <img  width="120px;" src='{{ imgurl }}' onerror='imgError(this);'> </img> 
         </div>
         <div  class="right">
             <div class="nome"> {{ nome }} ({{ squadra_breve }})</div>
             <div class="ruolo"> Ruolo: {{ ruolo }} </div>
-            <div class=" stats" id="divStats" style="max:width:100%; overflow-x:auto"></div>
+            <div class=" stats" id="divStats" style="overflow-x:auto"></div>
         </div>
     </div>
     

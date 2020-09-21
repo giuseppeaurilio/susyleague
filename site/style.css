@@ -1042,7 +1042,7 @@ padding: 0;
 }
 
 .maincontent .widgetasta{
-  /* width: 350px; */
+  min-width: 350px;
   /* float: left; */
   margin: 5px auto
 }

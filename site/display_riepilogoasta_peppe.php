@@ -167,6 +167,8 @@ loadAstaInCorso = function()
                 var resp=$.parseJSON(data)
                 if(resp.result == "true"){
                     if(resp.giocatori.length> 0){
+                        if(astaincorso == false)
+                        {
                         //show data
                         var template = $('#tmplAstaInCorso').html();
                         Mustache.parse(template);   // optional, speeds up future uses
@@ -175,6 +177,10 @@ loadAstaInCorso = function()
                         astaincorso = true;
                         loadStats(resp.giocatori[0]["id"]);
                         loadPInfo(resp.giocatori[0]["id"]);
+                        }
+                        else{
+                            //do nothing
+                        }
                     }
                     else{
                         var giocatore = {nome: "Nessuna giocatore in asta", ruolo: "-", imgurl: noimage, squadra_breve: "--"}
