@@ -9,7 +9,7 @@ imgError = function(img){
 };
 var astaincorso = false;
 
-loadStats = function(event)
+loadStatsDialog = function(event)
 {
     // debugger;
     var id = event.data.id;
@@ -48,6 +48,37 @@ loadStats = function(event)
     }); 
 }
 
+loadStats = function(id)
+{
+    // debugger;
+    var action ="stats";
+    $.ajax({
+        type:'POST',
+            url:'display_riepilogoasta_controller.php',
+            data: {
+                "action": action,
+                "id": id,
+            },
+            success:function(data){
+                var resp=$.parseJSON(data)
+                if(resp.result == "true"){
+                    if(resp.stats.length> 0){
+                        //show data
+                        var template = $('#tmplStats').html();
+                        Mustache.parse(template);   // optional, speeds up future uses
+                        var rendered = Mustache.render(template, resp);
+                        $("#divStats").html(rendered);
+                    }
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    }); 
+}
+
 loadUltimoGiocatore = function(id)
 {
     var action ="ultimogiocatore";
@@ -68,7 +99,7 @@ loadUltimoGiocatore = function(id)
                         Mustache.parse(template);   // optional, speeds up future uses
                         var rendered = Mustache.render(template, resp.giocatori[0]);
                         $("#divAstaprecedente").html(rendered);
-                        $("#divAstaprecedente").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStats);
+                        $("#divAstaprecedente").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStatsDialog);
                     }
                     else{
                         var giocatore = {nome: "NO DATA", ruolo: "-", imgurl: noimage, squadra_breve: "--", costo:"-", fantasquadra : "--"}
@@ -110,7 +141,8 @@ loadAstaInCorso = function()
                         var rendered = Mustache.render(template, resp.giocatori[0]);
                         $("#divAstaAttuale").html(rendered);
                         astaincorso = true;
-                        $("#divAstaAttuale").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStats);
+                        loadStats(resp.giocatori[0]["id"]);
+                        // $("#divAstaAttuale").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStats);
                     }
                     else{
                         var giocatore = {nome: "Nessuna giocatore in asta", ruolo: "-", imgurl: noimage, squadra_breve: "--"}
@@ -168,8 +200,10 @@ $(document).on({
         <div  class="right">
             <div class="nome"> {{ nome }} ({{ squadra_breve }})</div>
             <div class="ruolo"> Ruolo: {{ ruolo }} </div>
+            <div class=" stats" id="divStats" style="max:width:100%; overflow-x:auto"></div>
         </div>
     </div>
+    
 </div>
 </script>
 

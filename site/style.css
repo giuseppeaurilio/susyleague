@@ -1042,7 +1042,7 @@ padding: 0;
 }
 
 .maincontent .widgetasta{
-  width: 350px;
+  /* width: 350px; */
   /* float: left; */
   margin: 5px auto
 }
@@ -1065,16 +1065,27 @@ padding: 0;
 
 .maincontent .widgetastacontent .left{
   float: left;
-  width: 50%;
+  width: 120px;
   height: 100%;
 }
 
 .maincontent .widgetastacontent .right{
   float: left;
-  width: 50%;
+  /* width: 65%; */
   text-align: left;
   height: 100%;
+  /* max-width: auto; */
     
+}
+.maincontent .widgetastacontent .right table th,
+.maincontent .widgetastacontent .right table td{ 
+padding:1px 2px;
+}
+@media only screen and (max-width: 600px) {
+  .maincontent .widgetastacontent .right{
+    max-width: 200px;
+      
+  }
 }
 
 .maincontent .widgetastacontent .right .nome{
@@ -1090,4 +1101,15 @@ padding: 0;
 .maincontent .widgetastacontent .right .fantasquadra
 {
   font-size: 1.3em;
+}
+
+.maincontent .rigacompleta .listaGiocatori{
+  width:50%;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.maincontent .rigacompleta #divSquadra{
+  max-height: 230px;
+  overflow-y: auto;
 }

@@ -217,9 +217,19 @@ $(document).ready(function(){
     ricercaGiocatore();
     $("#btnCerca").unbind().bind("click",ricercaGiocatore);
     $("#btnResetFiltri").unbind().bind("click",resetFiltri);
+    window.setInterval(function(){
+        // loadUltimoGiocatore();
+        loadAstaInCorso();
+     }, 5000);
 })
-</script>
 
+$(document).on({
+    ajaxStart: function() { 
+        $("body").removeClass("loading");
+    },
+});
+
+</script>
 
 <script id="tmplAstaInCorso" type="x-tmpl-mustache">  
 <div>
@@ -393,13 +403,45 @@ $(document).ready(function(){
     </div>
     <div class="rigacompleta">
         
-        <div class="listaGiocatori" style="width:50%">
+        <div class="listaGiocatori" style="">
             <h3 style="text-align:center">Giocatori disponibili</h3>
             <div id="divGiocatori"></div>
         </div>
-        
-        <div class="squadraAttuale" style="width:50%">
+        <div class="space" style="width:2%">
+        </div>
+        <div class="squadraAttuale" style="width:48%">
             <h3 style="text-align:center">I NANI</h3>
+            <?php
+                include_once ("DB/asta.php");
+                include_once "DB/parametri.php";
+                $idsquadra = 1;
+                $rimanenti = getMilioniRimanenti($idsquadra);
+                $offertamassima = getOffertaMassima($idsquadra);
+                $numjollyscelti = hasJolly($idsquadra);
+                $riepilogo = getRiepilogoAsta($idsquadra);
+                echo "<div style='flex-flow: row;display: flex; flex-wrap: wrap; width: 100%;'> 
+                <div style='padding: 3px 10px;'>Offerta massima: 
+                <span style='border: solid 1px red; background-color:chocolate; padding: 0 5px;'>$offertamassima<span></div>";
+                foreach($riepilogo["giocatori"] as $row){
+                    switch($row["ruolo"])
+                    {
+                        case "P":
+                            echo '<div style="padding: 3px 7px;">Por: '.$row["numero"]. ' ('.$row["costo"].')</div>';
+                        break;
+                        case "D":
+                            echo '<div style="padding: 3px 7px;">Dif: '.$row["numero"]. ' ('.$row["costo"].')</div>';
+                        break;
+                        case "C":
+                            echo '<div style="padding: 3px 7px;">Cen: '.$row["numero"]. ' ('.$row["costo"].')</div>';
+                        break;
+                        case "A":
+                            echo '<div style="padding: 3px 7px;">Att: '.$row["numero"]. ' ('.$row["costo"].')</div>';
+                        break;
+                    }
+                }
+                echo "</div>"
+            ?>
+            
             <div id="divSquadra"></div>
         </div>
     </div>
