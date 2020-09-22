@@ -45,6 +45,7 @@ include("menu.php");
         <option value="18/19">18/19</option>
         <option value="17/18">17/18</option>
         <option value="16/17">16/17</option>
+        <option value="15/16">15/16</option>
     </select>
     <br>
     Selziona File da inserire:

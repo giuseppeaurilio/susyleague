@@ -25,7 +25,7 @@ loadStatsDialog = function(id)
                         var template = $('#tmplStats').html();
                         Mustache.parse(template);   // optional, speeds up future uses
                         var rendered = Mustache.render(template, resp);
-                        $( "#dialog" ).prop('title', "Statistiche - " + resp.stats[0]["nome"]);        
+                        $( "#dialog" ).prop('title', "Statistiche");        
                         $( "#dialog p" ).html(rendered);
                         $( "#dialog" ).dialog({modal:true, width:600});
                     }
@@ -54,6 +54,9 @@ $(document).ready(function(){
 
 
 <script id="tmplStats" type="x-tmpl-mustache">
+    <h3>
+        {{ stats.0.nome }} ({{ stats.0.squadra_breve }}) - {{ stats.0.ruolo }}
+	</h3>
     <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
         <tr><th>anno</th><th>pg</th><th>mv</th><th>mf</th><th>gf</th><th>gs</th><th>rp</th><th>rc</th><th>r+</th><th>r-</th><th>as</th><th>asf</th><th>am</th><th>es</th><th>au</th></tr>
         {{#stats}}

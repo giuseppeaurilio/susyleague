@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             left join giocatori as g on g.id = gs.giocatore_id
             left join squadre_serie_a as sq on sq.id = g.id_squadra
             WHERE giocatore_id = $id";
-            $query .= " order by id desc";
+            $query .= " order by anno desc";
             if($limit <> null)//inserire controlli su input valido
                 $query .= " limit $limit";
             // echo $query;
@@ -235,7 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 if($ip <> null)//inserire controlli su input valido
                     $query.=" and gpi.ip >=  $ip"; 
                 
-                $query.=" order by g.quotazione desc";
+                $query.=" order by gpi.ip, gpi.ia, g.quotazione desc";
                 //echo $query;
                 $result=$conn->query($query);
                 $giocatori = array();

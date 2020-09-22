@@ -131,6 +131,7 @@ loadStats = function(id)
             data: {
                 "action": action,
                 "id": id,
+                "limit": 4
             },
             success:function(data){
                 var resp=$.parseJSON(data)
@@ -254,7 +255,8 @@ $(document).on({
 
 <script id="tmplStats" type="x-tmpl-mustache">
     <table border="0" cellspacing="2" cellpadding="2" style="text-align: center; width:100%">
-        <tr><th>anno</th><th>pg</th><th>mv</th><th>mf</th><th>gf</th><th>gs</th><th>rp</th><th>rc</th><th>r+</th><th>r-</th><th>as</th><th>am</th><th>es</th><th>au</th></tr>
+        <tr><th>anno</th><th>pg</th><th>mv</th><th>mf</th><th>gf</th><th>gs</th><th>rp</th><th>rc</th><th>r+</th><th>r-</th>
+        <th>as</th><th>asf</th><th>am</th><th>es</th><th>au</th></tr>
         {{#stats}}
         <tr>
             <td>{{anno}}</td>
@@ -281,14 +283,18 @@ $(document).on({
 <script id="tmplPInfo" type="x-tmpl-mustache">
     <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
         <tr><th>Quo</th><th>Tit</th><th>cr</th><th>cp</th><th>ca</th><th>val</th><th>ia</th><th>ip</th></tr>
-        <tr><td>{{quotazione}}</td>
-        <td>{{titolarita}}</td>
-        <td>{{cr}}</td>
-        <td>{{cp}}</td>
-        <td>{{ca}}</td>
-        <td>{{val}}</td>
-        <td>{{ia}}</td>
-        <td>{{ip}}</td>
+        <tr>
+            <td>{{quotazione}}</td>
+            <td>{{titolarita}}</td>
+            <td>{{cr}}</td>
+            <td>{{cp}}</td>
+            <td>{{ca}}</td>
+            <td>{{val}}</td>
+            <td>{{ia}}</td>
+            <td>{{ip}}</td>
+        </tr>
+        <tr>
+        <td colspan="8">{{note}}</td></tr>
     </table >
 </table>
 </script>
@@ -374,8 +380,8 @@ $(document).on({
                 }
                 echo '</select>';
             ?>
-            <input type="number" id="txtMediaVoto" min="0" max="10" step="0.1" placeholder="Media Voto">
-            <input type="number"  id="txtFantamedia" min="0" max="20" step="0.1" placeholder="Fantamedia">
+            <!-- <input type="number" id="txtMediaVoto" min="0" max="10" step="0.1" placeholder="Media Voto">
+            <input type="number"  id="txtFantamedia" min="0" max="20" step="0.1" placeholder="Fantamedia"> -->
             <select name="ruolo" id="titolarita">
                 <option value="">--Titolarità--</option>	
                 <option value="10">10</option>
