@@ -29,7 +29,7 @@ loadStatsDialog = function(event)
                         var template = $('#tmplStats').html();
                         Mustache.parse(template);   // optional, speeds up future uses
                         var rendered = Mustache.render(template, resp);
-                        $( "#dialog" ).prop('title', "Statistiche");                
+                        $( "#dialog" ).prop('title', "Statistiche - " + resp.stats[0]["nome"]);        
                         $( "#dialog p" ).html(rendered);
                         $( "#dialog" ).dialog({modal:true, width:600});
                     }
@@ -58,6 +58,7 @@ loadStats = function(id)
             data: {
                 "action": action,
                 "id": id,
+                "limit": 3
             },
             success:function(data){
                 var resp=$.parseJSON(data)
@@ -233,7 +234,7 @@ $(document).on({
 
 <script id="tmplStats" type="x-tmpl-mustache">
     <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
-        <tr><th>anno</th><th>pg</th><th>mv</th><th>mf</th><th>gf</th><th>gs</th><th>rp</th><th>rc</th><th>r+</th><th>r-</th><th>as</th><th>am</th><th>es</th><th>au</th></tr>
+        <tr><th>anno</th><th>pg</th><th>mv</th><th>mf</th><th>gf</th><th>gs</th><th>rp</th><th>rc</th><th>r+</th><th>r-</th><th>as</th><th>asf</th><th>am</th><th>es</th><th>au</th></tr>
         {{#stats}}
         <tr>
             <td>{{anno}}</td>
@@ -247,6 +248,7 @@ $(document).on({
             <td>{{r+}}</td>
             <td>{{r-}}</td>
             <td>{{ass}}</td>
+            <td>{{asf}}</td>
             <td>{{amm}}</td>
             <td>{{esp}}</td>
             <td>{{au}}</td>

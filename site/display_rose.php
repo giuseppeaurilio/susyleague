@@ -2,7 +2,82 @@
 include("menu.php");
 
 ?>
+<script>
+var noimage = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/no-campioncino.png";
+imgError = function(img){
+	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/no-campioncino.png";
+};
+loadStatsDialog = function(id)
+{
+    var action ="stats";
+    $.ajax({
+        type:'POST',
+            url:'display_riepilogoasta_controller.php',
+            data: {
+                "action": action,
+                "id": id,
+            },
+            success:function(data){
+                var resp=$.parseJSON(data)
+                if(resp.result == "true"){
+                    if(resp.stats.length> 0){
+                        //show data
+                        var template = $('#tmplStats').html();
+                        Mustache.parse(template);   // optional, speeds up future uses
+                        var rendered = Mustache.render(template, resp);
+                        $( "#dialog" ).prop('title', "Statistiche - " + resp.stats[0]["nome"]);        
+                        $( "#dialog p" ).html(rendered);
+                        $( "#dialog" ).dialog({modal:true, width:600});
+                    }
+                    else{
+                        $( "#dialog" ).prop('title', "ERROR");                
+                        $( "#dialog p" ).html("nessun dato presente");
+                        $( "#dialog" ).dialog({modal:true});
+                    }
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    }); 
+}
+$(document).ready(function(){
+    $(".rosegiocatoriseriea tr").unbind().bind("click", function(){
+        loadStatsDialog($(this).data("id")); 
+        } 
+    );
+})
 
+</script>
+
+
+<script id="tmplStats" type="x-tmpl-mustache">
+    <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
+        <tr><th>anno</th><th>pg</th><th>mv</th><th>mf</th><th>gf</th><th>gs</th><th>rp</th><th>rc</th><th>r+</th><th>r-</th><th>as</th><th>asf</th><th>am</th><th>es</th><th>au</th></tr>
+        {{#stats}}
+        <tr>
+            <td>{{anno}}</td>
+            <td>{{pg}}</td>
+            <td>{{mv}}</td>
+            <td>{{mf}}</td>
+            <td>{{gf}}</td>
+            <td>{{gs}}</td>
+            <td>{{rp}}</td>
+            <td>{{rc}}</td>
+            <td>{{r+}}</td>
+            <td>{{r-}}</td>
+            <td>{{ass}}</td>
+            <td>{{asf}}</td>
+            <td>{{amm}}</td>
+            <td>{{esp}}</td>
+            <td>{{au}}</td>
+        </tr>
+        {{/stats}}
+    </table >
+</table>
+</script>
 <h2>Rose</h2>
 <script>
     $(document).ready(function(){
@@ -104,7 +179,9 @@ $spesi = $spesi+ $costo_giocatore;
         echo "#FFFFFF";
 }
 ?>
-"> 
+"
+data-id="<?php  echo "$id_giocatore"; ?>"
+> 
 
 
 <td><?php  echo "$nome_giocatore"; ?></td>

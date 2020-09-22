@@ -268,6 +268,7 @@ $(document).on({
             <td>{{r+}}</td>
             <td>{{r-}}</td>
             <td>{{ass}}</td>
+            <td>{{asf}}</td>
             <td>{{amm}}</td>
             <td>{{esp}}</td>
             <td>{{au}}</td>
@@ -294,7 +295,7 @@ $(document).on({
 
 <script id="tmplListaGiocatoriSquadra" type="x-tmpl-mustache">
     <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
-        <tr><th>Nome</th><th>Squadra</th><th>Ruolo</th><th>Costo</th><th>chiamata</th></tr>
+        <tr><th>Nome</th><th>Ruolo</th><th>Squadra</th><th>Costo</th><th>chiamata</th></tr>
         {{ #giocatori }}
         <tr><td>{{nome}}</td><td>{{ruolo}}</td><td>{{squadra_breve}}</td><td>{{costo}}</td><td>{{chiamata}}</td></tr>
         {{ /giocatori }}

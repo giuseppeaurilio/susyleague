@@ -49,6 +49,7 @@ function parse_stats($filename, $anno) {
 						`r+`, 
 						`r-`, 
 						`ass`, 
+						`asf`, 
 						`amm`, 
 						`esp`, 
 						`au`) 
@@ -67,7 +68,8 @@ function parse_stats($filename, $anno) {
 						$data[13],
 						$data[14],
 						$data[15],
-						$data[16])";
+						$data[16],
+						$data[17])";
 					$result=$conn->query($queryInsertStats); //or die($conn->error);
 					if($result) {
 						$countervoti++; 
