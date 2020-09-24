@@ -64,7 +64,7 @@ order by  md desc -->
 	<div class="statistica">
 		<div class="titolo"> Colabrodo</div>
 		<div class="descrizione">
-			Ronei Merda ha applicato un modificatore difesa di +6 nella partita contro Panchester United nellagiornata 3 della Chiusura 19/20
+			Ronei Merda ha applicato un modificatore difesa di +6 nella partita contro Panchester United nella giornata 3 della Chiusura 19/20
 			(Panchester United - RonieMerda 0-1)
 		</div>
 	</div>
