@@ -46,7 +46,9 @@ ricercaGiocatore = function(id)
                     var template = $('#tmplListaGiocatoriDisponibili').html();
                     Mustache.parse(template);   // optional, speeds up future uses
                     var rendered = Mustache.render(template, resp);
-                    $("#divGiocatori").html(rendered);
+                    // $("#divGiocatori").html(rendered);
+                    $("#tblGiocatori > tbody").remove()
+					$("#tblGiocatori").append(rendered);
                 }
                 else{
                     $( "#dialog" ).prop('title', "ERROR");                
@@ -310,21 +312,27 @@ $(document).on({
 </script>
 
 <script id="tmplListaGiocatoriDisponibili" type="x-tmpl-mustache">
-    <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
-        <tr><th>Nome</th><th>Squadra</th><th>Ruolo</th><th>Quo</th><th>Tit</th><th>cr</th><th>cp</th><th>ca</th><th>val</th><th>ia</th><th>ip</th></tr>
+    <tbody>
         {{ #giocatori }}
-        <tr><td>{{nome}}</td><td>{{squadra_breve}}</td><td>{{ruolo}}</td><td>{{quotazione}}</td>
-        <td>{{titolarita}}</td>
-        <td>{{cr}}</td>
-        <td>{{cp}}</td>
-        <td>{{ca}}</td>
-        <td>{{val}}</td>
-        <td>{{ia}}</td>
-        <td>{{ip}}</td>
+        <tr data-id="{{ id }}"> 
+            <td>{{nome}}</td>
+            <td>{{squadra_breve}}</td>
+            <td>{{ruolo}}</td>
+            <td>{{quotazione}}</td>
+            <td>{{titolarita}}</td>
+            <td>{{cr}}</td>
+            <td>{{cp}}</td>
+            <td>{{ca}}</td>
+            <td>{{val}}</td>
+            <td>{{ia}}</td>
+            <td>{{ip}}</td>
+            <td>
+            <!-- {{note}} -->
+            </td>
         </tr>
         {{ /giocatori }}
-    </table >
-</table>
+    </tbody>
+
 </script>
 
 
@@ -351,78 +359,120 @@ $(document).on({
     $squadre = array();
     while($row = $result->fetch_assoc()){
         // $id=mysql_result($result,$i,"id");
-        $id=$row["id"];
-        $squadra=$row["squadra"];
+        // $id=$row["id"];
+        // $squadra=$row["squadra"];
         array_push($squadre, array(
-            "id"=>$id,
-            "squadra"=>$squadra
+            "id"=>$row["id"],
+            "squadra_breve"=>$row["squadra_breve"]
             )
         );
     }
     //fine load squadre fantacalcio
     ?>
-    <div class="" id="divFiltri" style="width:100%; text-align:center;">
-        <!-- <div style="width:100%"> -->
-            <h3 style="text-align:center">Filtri</h3>
-            <select name="Ruolo" id="ruolo">
-                <option value="">--Ruolo--</option>	
-                <option value="P">Portiere</option>
-                <option value="D">Difensore</option>
-                <option value="C">Centrocampista</option>
-                <option value="A">Attaccante</option>
-            </select>
-            <?php
-                echo '<select id="squadra" name="squadra">';
-                echo '<option value="">--squadra--</option>';
-                foreach($squadre as $squadra)
-                {
-                    echo '<option value=' . $squadra["id"] . '>'. $squadra["squadra"] . '</option>';
-                }
-                echo '</select>';
-            ?>
-            <!-- <input type="number" id="txtMediaVoto" min="0" max="10" step="0.1" placeholder="Media Voto">
-            <input type="number"  id="txtFantamedia" min="0" max="20" step="0.1" placeholder="Fantamedia"> -->
-            <select name="ruolo" id="titolarita">
-                <option value="">--Titolarità--</option>	
-                <option value="10">10</option>
-                <option value="9">9</option>
-                <option value="8">8</option>
-                <option value="7">7</option>
-                <option value="6">6</option>
-                <option value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-            </select>
-            <select name="rigori" id="rigori">
-                <option value="">--Rigorista--</option>	
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-            </select>
-            <select name="punizioni" id="punizioni">
-                <option value="">--Punizioni--</option>	
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-            </select>
-            <input type="number" id="txtIA" min="0" max="200" step="1" placeholder="Indice A">
-            <input type="number" id="txtIP" min="0" max="200" step="1" placeholder="Indice P">
-            <input type="button" value="cerca" id="btnCerca">
-            <input type="button" value="reset" id="btnResetFiltri">
-        <!-- </div>     -->
     
-    </div>
     <div class="rigacompleta">
         
-        <div class="listaGiocatori" style="">
-            <h3 style="text-align:center">Giocatori disponibili</h3>
-            <div id="divGiocatori"></div>
+        <div class="listaGiocatori" style="width:60%" >
+            <h3 style="text-align:center">Giocatori disponibili 
+            Ordina per: 
+                <select name="ordinamento" id="ordinamento">			
+                    <!-- <option value="" >-Ordinamento-</option> -->
+                    <option value="mv-a" >Media voto ↑</option>
+                    <option value="mv-d" >Media voto ↓</option>
+                    <option value="fm-a" >Fantamedia ↑</option>
+                    <option value="fm-d" selected>Fantamedia ↓</option>
+                    <option value="pg-d">Partite giocate ↓</option>
+                    <option value="gf-d">Gol fFatti ↓</option>
+                    <option value="gs-d">Gol subiti ↓</option>
+                    <option value="rp-d">Rigori parati ↓</option>
+                    <option value="rc-d">Rigori calciati ↓</option>
+                    <option value="ass-d">Assist ↓</option>
+                    <option value="amm-d">Ammonizioni ↓</option>
+                    <option value="esp-d">Espulsioni ↓</option>
+                    <option value="aut-d">Autogol ↓</option>
+                </select>
+                <input type="button" value="cerca" id="btnCerca">
+                <input type="button" value="reset" id="btnResetFiltri">
+            </h3>
+            <div id="divGiocatori">
+                <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;" id="tblGiocatori">
+                    <thead>
+                        <tr>
+                            <th>nome</th>
+                            <th>
+                                <?php
+                                    echo '<select id="squadra" name="squadra">';
+                                    echo '<option value="">-sq-</option>';
+                                    foreach($squadre as $squadra)
+                                    {
+                                        echo '<option value=' . $squadra["id"] . '>'. $squadra["squadra_breve"] . '</option>';
+                                    }
+                                    echo '</select>';
+                                ?>
+                            </th>
+                            <th>
+                                <select name="Ruolo" id="ruolo">
+                                    <option value="">-R</option>	
+                                    <option value="P">P</option>
+                                    <option value="D">D</option>
+                                    <option value="C">C</option>
+                                    <option value="A">A</option>
+                                </select>
+                            </th>
+                            <th>
+                                <input type="number" style="width: 40px;" id="txtQuotazione" min="0" max="60" step="1" placeholder="Quo">
+                            </th>
+                            <th>
+                                <select name="ruolo" id="titolarita">
+                                    <option value="">tit</option>	
+                                    <option value="10">10</option>
+                                    <option value="9">9</option>
+                                    <option value="8">8</option>
+                                    <option value="7">7</option>
+                                    <option value="6">6</option>
+                                    <option value="5">5</option>
+                                    <option value="4">4</option>
+                                    <option value="3">3</option>
+                                    <option value="2">2</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </th>
+                            <th>
+                                <select name="rigori" id="rigori">
+                                    <option value="">rig</option>	
+                                    <option value="3">3</option>
+                                    <option value="2">2</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </th>
+                            <th>
+                                <select name="punizioni" id="punizioni" style="width: 40px;">
+                                    <option value="">pun</option>	
+                                    <option value="3">3</option>
+                                    <option value="2">2</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </th>
+                            <th >
+                                <select name="angoli" id="angoli" style="width: 40px;">
+                                    <option value="">ang</option>	
+                                    <option value="3">3</option>
+                                    <option value="2">2</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </th>
+                            <th ><input style="width: 30px;" type="number" id="txtVal" min="0" max="200" step="1" placeholder="Val"></th>
+                            <th ><input style="width: 30px;" type="number" id="txtIA" min="0" max="200" step="1" placeholder="IA"></th>
+                            <th ><input style="width: 30px;" type="number" id="txtIP" min="0" max="200" step="1" placeholder="IP"></th>
+                            <th>note</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
-        <div class="space" style="width:2%">
+        <div class="space" style="width:1%">
         </div>
-        <div class="squadraAttuale" style="width:48%">
+        <div class="squadraAttuale" style="width:39%">
             <h3 style="text-align:center">I NANI</h3>
             <?php
                 include_once ("DB/asta.php");

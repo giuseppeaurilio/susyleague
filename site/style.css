@@ -459,11 +459,21 @@ overflow: auto;
 white-space: nowrap;
 }
 main{
-  display:flex;
-  flex-direction:row;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  
 }
 .round{
-  display:flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
   flex-direction:column;
   justify-content:center;
   width:200px;
@@ -1036,6 +1046,10 @@ padding: 0;
 
 .maincontent .rigacompleta{
   width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1112,4 +1126,150 @@ padding:1px 2px;
 .maincontent .rigacompleta #divSquadra{
   max-height: 230px;
   overflow-y: auto;
+}
+
+.organigramma{
+
+}
+
+.organigramma .carica{
+      /* border: 1px solid lightgray; */
+      min-height: 100px;
+      vertical-align: middle;
+
+}
+
+.organigramma .carica .titolo{
+  background-color: lightslategrey;
+  color: whitesmoke;
+  font-size: larger;
+  padding: 5px;
+
+}
+
+.organigramma .carica .nome{
+  text-align: left;
+  font-size: larger;
+  padding: 5px;
+  /* height: 80px; */
+  vertical-align: middle;
+  line-height: 70px;
+}
+
+.albodoro {
+
+}
+.albodoro .campionato,
+.albodoro .coppacoppe,
+.albodoro .coppaitalia,
+.albodoro .supercoppa{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+  flex-wrap: wrap;
+}
+
+.albodoro .note{
+  font-style: italic;
+  font-size: medium;
+}
+
+.albodoro  .anno{
+  text-align: Left;
+  vertical-align: middle;
+  padding: 6px 0 6px 10px;
+  font-size: larger;
+  background-color: #274b59;
+  color: white;
+  font-weight: bold;
+}
+.albodoro  .descrizione{
+  padding: 5px 0;
+  text-align: center;
+  /* background-color: #274b59; */
+  background-color: #1f3c47;;
+  color: white;
+}
+
+.albodoro .competizione{
+  width: 355px;
+  /* margin: 0 1px; */
+  padding: 0 2px;
+  font-size: large;
+}
+.albodoro .competizione2{
+  /* width: 355px; */
+  /* margin: 0 1px; */
+  padding: 0 2px;
+  font-size: large;
+}
+
+.albodoro .vincitori .allenatore{
+ font-size:12px;
+  
+}
+.albodoro .vincitori div{
+  float: left;
+  padding: 4px 2px;
+  
+}
+.albodoro .vincitori > div {
+  width: 100%;
+  /* padding: 5px; */
+}
+
+.albodoro .vincitori .primo div {
+  line-height: 30px;
+  
+  
+}
+.albodoro .vincitori div {
+  line-height: 20px;
+  vertical-align: middle;
+}
+.albodoro .vincitori  i{
+  width: 35px;
+  text-align: center;
+}
+.albodoro .vincitori .primo i{
+  /* background-color: rgba(212,175,55, 1); */
+  color: rgba(212,175,55, 1) ;
+  font-size: 30px;
+  
+  
+}
+
+.albodoro .vincitori .secondo i{
+  /* background-color: rgba(169,169,169, 1); */
+  color: rgba(169,169,169, 1);
+}
+
+.albodoro .vincitori .terzo i{
+  /* background-color:rgba(177,86,15, 1);  */
+  color: rgba(177,86,15, 1);
+}
+
+/* .albodoro .coppacoppe .vincitori i{
+  color: rgba(169,169,169, 1);
+} */
+
+.record {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.record .statistica{
+  width: 350px;
+  /* margin: 0 1px; */
+  
 }
