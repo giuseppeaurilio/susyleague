@@ -11,7 +11,7 @@ session_start();
 include("menu.php");
 
 ?>
-<h2>SusyLeague - Statistiche e curiosità</h2>
+<h2>Statistiche e curiosità</h2>
 <div class="record">
 	<!-- SELECT c.punti_casa, c.punti_ospiti, c.gol_casa, c.gol_ospiti, c.md_casa, c.md_ospite, GREATEST(c.punti_casa, c.punti_ospiti) as md, c.id_giornata, g.id_girone, sqf.squadra as casa, sqf2.squadra as ospite
 FROM `calendario` as c
@@ -20,7 +20,7 @@ left join sq_fantacalcio as sqf2 on c.id_sq_ospite = sqf2.id
 left join giornate as g on g.id_giornata = c.id_giornata
 order by  md desc -->
 	<div class="statistica">
-		<div class="titolo"> punteggio più alto di squadra</div>
+		<div class="titolo"> Punteggio più alto di squadra</div>
 		<div class="descrizione">
 			90 punti fatti da Bar Fabio dal 1936 contro Bono Coppi alla giornata 77 della Coppa Coppe 19/20
 			(Bono Coppi - Bar Fabio dal 1936 6-0)
@@ -34,7 +34,7 @@ left join sq_fantacalcio as sqf2 on c.id_sq_ospite = sqf2.id
 left join giornate as g on g.id_giornata = c.id_giornata
 order by  md desc -->
 <div class="statistica">
-		<div class="titolo"> punteggio più basso di squadra</div>
+		<div class="titolo"> Punteggio più basso di squadra</div>
 		<div class="descrizione">
 			50 punti fatti da Rodrigo Becao contro Bar Fabio dal 1936 alla giornata 12 della Apertura 19/20
 			(Bono Coppi - Bar Fabio dal 1936 6-0)
@@ -48,7 +48,7 @@ left join sq_fantacalcio as sqf2 on c.id_sq_ospite = sqf2.id
 left join giornate as g on g.id_giornata = c.id_giornata
 order by  md desc -->
 	<div class="statistica">
-		<div class="titolo"> partita con più gol</div>
+		<div class="titolo"> Partita con più gol</div>
 		<div class="descrizione">
 			5 a 5 Bono Coppi contro I NANI dal 1936 alla giornata 5 della Chiusura 19/20
 			(Bono Coppi - I NANI 5-5)
