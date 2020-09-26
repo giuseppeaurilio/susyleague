@@ -81,10 +81,10 @@ cercagiocatori = function()
 					$("#tblGiocatori > tbody").remove()
 					$("#tblGiocatori").append(rendered);
 					// $("#tblGiocatori > tbody tr").unbind().bind("click", { id: $(this).data("id")},  function(){alert ($(this).data("id")); }
-					$("#tblGiocatori > tbody tr").unbind().bind("click", function(){
-						loadStatsDialog($(this).data("id")); 
-						} 
-					);						
+					// $("#tblGiocatori > tbody tr").unbind().bind("click", function(){
+					// 	loadStatsDialog($(this).data("id")); 
+					// 	} 
+					// );						
                 }
                 else{
                     $( "#dialog" ).prop('title', "ERROR");                
@@ -152,7 +152,11 @@ $(document).ready(function(){
                 <td> 
 				<img src='{{ imgurl }}' onerror='imgError(this);'> </img> 
 				</td>
-                <td style="text-align:left;">{{ nome }}</td>
+                <td style="text-align:left;">{{ nome }}
+					&nbsp;
+					<a style='float: right;font-size: small; color:black;' target='_blank' 
+					href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21'><i class='fas fa-external-link-alt'></i>
+				</td>
                 <td>{{ squadra_breve }}</td>
                 <td>{{ ruolo }}</td>
 				<td style="text-align:left;">{{ fantasquadra }}</td>

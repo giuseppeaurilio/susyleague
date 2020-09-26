@@ -16,6 +16,7 @@ loadStatsDialog = function(id)
             data: {
                 "action": action,
                 "id": id,
+                "limit": 1,
             },
             success:function(data){
                 var resp=$.parseJSON(data)
@@ -165,7 +166,7 @@ $spesi = $spesi+ $costo_giocatore;
 ?>
 
 
-<tr style="background-color: <?php switch ($ruolo_giocatore) {
+<tr style="cursor: pointer; background-color: <?php switch ($ruolo_giocatore) {
     case "P":
         echo "#66CC33";
         break;
@@ -187,7 +188,15 @@ data-id="<?php  echo "$id_giocatore"; ?>"
 > 
 
 
-<td><?php  echo "$nome_giocatore"; ?></td>
+<td>
+    <?php  
+        echo "$nome_giocatore"; 
+        echo  "&nbsp;<a style='float: right;font-size: small; color:black;' target='_blank' 
+        href='https://www.fantacalcio.it/squadre/Giocatore/$nome_giocatore/$id_giocatore/5/2020-21'
+        onclick='event.stopPropagation()'>
+        <i class='fas fa-external-link-alt'></i>"
+    ?>
+</td>
 <td><?php  echo "$squadra_giocatore"; ?></td>
 <td><?php  echo "$ruolo_giocatore"; ?></td>
 <td><?php  echo "$costo_giocatore"; ?></td>

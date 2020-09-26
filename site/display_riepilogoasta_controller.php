@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             if(isset($_POST['limit']))
                 $limit = $_POST['limit']  = '' ? null :$_POST['limit'];
 
-            $query= "SELECT g.nome, g.ruolo, sq.squadra_breve,  gs.* 
+            $query= "SELECT g.id as id, g.nome, g.ruolo, sq.squadra_breve,  gs.* 
             FROM `giocatori_statistiche` as gs
             left join giocatori as g on g.id = gs.giocatore_id
             left join squadre_serie_a as sq on sq.id = g.id_squadra
@@ -138,6 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $stats = array();
             while ($row=$result->fetch_assoc()) {
                 array_push($stats, array(
+                    "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>utf8_encode($row["ruolo"]),
                     "squadra_breve"=>utf8_encode($row["squadra_breve"]),

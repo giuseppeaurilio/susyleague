@@ -235,6 +235,13 @@ $(document).on({
 <script id="tmplStats" type="x-tmpl-mustache">
     <h3>
         {{ stats.0.nome }} ({{ stats.0.squadra_breve }}) - {{ stats.0.ruolo }}
+
+        &nbsp;
+        <a style='float: right;font-size: small; color:white;' target='_blank' 
+        href='https://www.fantacalcio.it/squadre/Giocatore/{{ stats.0.nome }}/{{ stats.0.id }}/5/2020-21'>
+        <i class='fas fa-external-link-alt'></i>
+        </a>
+    
 	</h3>
     <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
         <tr><th>anno</th><th>pg</th><th>mv</th><th>mf</th><th>gf</th><th>gs</th><th>rp</th><th>rc</th><th>r+</th><th>r-</th><th>as</th><th>asf</th><th>am</th><th>es</th><th>au</th></tr>

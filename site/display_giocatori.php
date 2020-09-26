@@ -96,7 +96,15 @@ while ($row=$result->fetch_assoc()) {
 		?>
 		"> 
 		<td><?php  echo "$id_giocatore"; ?></td>
-		<td><?php  echo "$nome_giocatore"; ?></td>
+		<td>
+			<?php  
+				echo "$nome_giocatore"; 
+				echo  "&nbsp;<a style='float: right;font-size: small; color:black;' target='_blank' 
+				href='https://www.fantacalcio.it/squadre/Giocatore/$nome_giocatore/$id_giocatore/5/2020-21'
+				onclick='event.stopPropagation()'>
+				<i class='fas fa-external-link-alt'></i>"
+			?>
+		</td>
 		<td><?php  echo "$ruolo_giocatore"; ?></td>
 		<td><?php  echo "$squadra_giocatore"; ?></td>
 
