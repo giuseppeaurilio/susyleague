@@ -6,7 +6,7 @@ function parse_giocatori($filename) {
 		// $data = fgetcsv($handle, 1000, ",");
 		$countersquadre = 0;
 		$countergiocatori = 0;
-		while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+		while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 			// print_r($data);
 			include("../dbinfo_susyleague.inc.php");
 			$conn = new mysqli($localhost, $username, $password,$database);

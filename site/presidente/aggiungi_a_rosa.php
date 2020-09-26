@@ -9,9 +9,9 @@ if ($conn->connect_error) {
 }
 // echo "Connected successfully";
 
-
-
 $costo=$_GET["costo"];
+
+
 $sommario=$_GET["sommario"];
 
 //echo "costo=" . $costo ."<br>";
@@ -22,6 +22,8 @@ $sommario_a=explode( '_', $sommario );
 $id_giocatore=$sommario_a[0];
 $id_sq_fc=$sommario_a[1];
 $ruolo=$sommario_a[2];
+$min=$sommario_a[3];
+$max=$sommario_a[4];
 $esito = "info";
 $message = "";
 include_once ("../DB/asta.php");
@@ -147,7 +149,7 @@ if($esito != "error"){
 
 $url = parse_url($_SERVER['HTTP_REFERER']);
 
-$url['query'] = 'ruolo=' . $ruolo ."&esito=". $esito ."&message=" .$message;
+$url['query'] = 'ruolo=' . $ruolo ."&min=". $min ."&max=". $max ."&esito=". $esito ."&message=" .$message;
 
 header('Location: ' . build_url($url));
 

@@ -46,8 +46,13 @@ $(document).ready(function(){
     });
     var url = new URL(window.location);
     var c = url.searchParams.get("ruolo");
+    var min = url.searchParams.get("min");
+    var max = url.searchParams.get("max");
     $("select#ruolo").val(c);
+    $("#txtMin").val(min);
+    $("#txtMax").val(max);
     var esito = url.searchParams.get("esito");
+
     var message = url.searchParams.get("message");
     if(esito != undefined && esito != "info")
     {
@@ -252,9 +257,11 @@ enablebutton = function()
     var giocatore_ID=$('#giocatore').val();
     var sq_fc = $('#sq_fc').val();
     var costo=$('#costo').val();
+    var min=$('#txtMin').val();
+    var max=$('#txtMax').val();
     var disabled=!(sq_sa_ID  && giocatore_ID && sq_fc && $.isNumeric(costo))
     $("#submit").prop('disabled', disabled);
-    $("#sommario").val(giocatore_ID + "_" + sq_fc + "_" + ruolo)
+    $("#sommario").val(giocatore_ID + "_" + sq_fc + "_" + ruolo + "_" + min + "_" + max)
     
     // if( ruolo != "" &&  sq_sa_ID != "" && giocatore_ID != ""){
     //     $('#btnInAsta').removeAttr("disabled");

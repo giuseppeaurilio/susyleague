@@ -6,8 +6,8 @@ include("menu.php");
     <span>
         In questa pagina è possibile caricare e aggiornare le rose delle squadre di serie A.
         <br>
-        Il file deve essere un formato .csv ovvero un file di testo i cui dati sono separati da virgole.<br>
-        Nel file ci devono essere 4 colonne:Id,R,Nome,Squadra
+        Il file deve essere un formato .csv ovvero un file di testo i cui dati sono separati da punto-e-virgola.<br>
+        Nel file ci devono essere 4 colonne:Id;R;Nome;Squadra
         <ol>
             <li>Id=numero intero univoco assegnato al giocatore da Fantagazzetta</li>
             <li>R=ruolo. Puo' assumere i valori P,D,C,A per indicare Portiere,Difensore,Centrocampista e Attaccante rispettivamente</li>
@@ -16,9 +16,9 @@ include("menu.php");
         </ol>
         Ad esempio:<br>
         <span >
-        Id,R,Nome,Squadra,Quotazioen<br>
-        408,A,HIGUAIN,Juventus, 10<br>
-        441,A,BELOTTI,Torino, 9<br></span>
+        Id;R;Nome;Squadra;Quotazioen<br>
+        408;A;HIGUAIN;Juventus; 10<br>
+        441;A;BELOTTI;Torino; 9<br></span>
         Un esempio funzionante di file corretto puo' essere scaricato <a href="giocatori_esempio.csv">qui</a><br>
         <hr> 
         Spuntando la casella <strong>"Primo caricamento"</strong>, vengono importate tutte le squadre e i giocatori presenti nel file. Squadre o giocatori gia nel sistema vengono <strong>CANCELLATI</strong><br>
