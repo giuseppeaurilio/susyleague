@@ -1,5 +1,18 @@
+asta peppe da fare:
 
-Supercoppa
+Lista giocatori disponibili:
+sistemare ordinamento.
+visualizzare media voto e fantamedia anno 20/21
+rendere i giocatori cliccabili per mostrare le stats degli ultimi anni
+aggiungere link a scheda fantacalcio in popup
+Verificare se colonna  val serve
+
+Lista giocatori miei:
+aggiungere colonna note
+verificare se togliere colonna chiamata
+permettere il filtro per ruolo
+evidenziare meglio numero di giocatori e spesa per reparto.
+
 
 Creare sezione SFIDE:
 un allenatore puo sfidare un'altra squadra e decidere il premio.
@@ -18,16 +31,7 @@ I widget di home page
 -partite in corso
 -risultati
 devono mostrare le partite delle sfide
-
 Creare un widget che visualizza le sfide lanciate e accettate
-
-Fare sezione Lega con
-    - organi direttivo
-    - regolamento
-    - albo d'oro
-    - Statistche e curiosità
-
-Visualizzare i vincitori nelle diverse parti del sito.
 
 Gestire classifiche in ex aequeo(sezione presidente)
 Modifcare il DB in modo che sia multistagione.
@@ -39,6 +43,5 @@ c'e' un problema con il file send_telegram_update.php che manda il reminder di i
 Modificare nome della giornata nel messaggio telegram di reminder formazione e risultati.
 
 GRAFICA
-Rivedere la grafica dei widget di home page per farli essere piu ordinati (gni widget deve avere una dimensione predefinita)
-rivedere pagina finale campionato
+Rivedere la grafica dei widget di home page quando sono presenti dati.
 Loghi e banner delle squadre.
