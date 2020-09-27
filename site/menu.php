@@ -126,15 +126,19 @@ $anno=$row["valore"];
 			</li>
 			<li><a href="#"><i class="fas fa-users"></i> Rose</a>
 			<ul>
-				<li><a href="/display_rose.php" >Susy League</a></li>
-				<li><a href="/display_giocatori.php">Serie A</a></li>
-				<li><a href="/display_statistiche.php"><i class="fas fa-balance-scale"></i> Statistiche</a></li>
+				<li><a href="/display_rose.php" >Susy League </a> </li>
+				<li><a href="/display_giocatori.php">Serie <i class="fab fa-autoprefixer"></i></a> </li>
+				<li><a href="/display_statistiche.php">Statistiche <i class="fas fa-chart-bar"></i></a></li>
 			</ul>  
 			<li><a href="#"><i class="fas fa-gavel"></i> Asta</a>       
 			<!-- <li <a href="#"><i class="fas fa-gavel"></i> Asta</a> -->
 				<ul>
 				<li><a href="/display_riepilogoasta.php">Asta Live! <i class="fas fa-satellite-dish"></i></a></li>
-				<li><a href="/display_registroasta.php">Registro asta <i class="fas fa-book"></i></a></li>
+				<li><a href="/display_registroasta.php">Registro acquisti <i class="fas fa-balance-scale"></i></a></li>
+				<?php if ((isset($_SESSION['login'])  && ($_SESSION['login'] == '1'))) {
+					echo '<li><a href="/display_riepilogoasta_peppe.php">asta peppe <i class="fab fa-pinterest-p"></i></a></li>';
+				}
+				?>
 				</ul>         
 			</li>
 
@@ -169,7 +173,8 @@ $anno=$row["valore"];
 	<?php
 	if (!(isset($_SESSION['allenatore']) && $_SESSION['allenatore'] != '')) {
 		echo '
-		<a href="#" style="text-decoration:none; color:white; padding: 15px 5px;" id="btnShowLogin"><i class="fas fa-sign-in-alt"></i> Login</a>';
+		<a href="#" style="text-decoration:none; color:white; padding: 15px 5px;" id="btnShowLogin">
+		<i class="fas fa-sign-in-alt"></i> Login</a>';
 	}
 	else { 
 		

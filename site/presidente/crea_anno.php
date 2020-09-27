@@ -229,12 +229,17 @@ echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
-$query="Truncate `annunci`";
+$query="Truncate `scambi`";
 echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
-$query="Truncate `scambi`";
+$query="Truncate `scambi_dettagli`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
+$query="Truncate `annunci`";
 echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
