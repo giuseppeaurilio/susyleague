@@ -3,16 +3,6 @@ asta peppe da fare:
 Lista giocatori disponibili:
 sistemare ordinamento.
 visualizzare media voto e fantamedia anno 20/21
-rendere i giocatori cliccabili per mostrare le stats degli ultimi anni
-aggiungere link a scheda fantacalcio in popup
-Verificare se colonna  val serve
-
-Lista giocatori miei:
-aggiungere colonna note
-verificare se togliere colonna chiamata
-permettere il filtro per ruolo
-evidenziare meglio numero di giocatori e spesa per reparto.
-
 
 Creare sezione SFIDE:
 un allenatore puo sfidare un'altra squadra e decidere il premio.

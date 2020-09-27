@@ -170,13 +170,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         case("loadpinfo"):
                 $id = $_POST['id'];
                 $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.quotazione as quotazione,  
-                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.val as val, gpi.ia as ia, gpi.ip as ip 
+                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, 
+                gpi.is as 'is', gpi.f as f 
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
                 
                 where g.id = $id";
-                //echo $query;
+                // echo $query;
                 $result=$conn->query($query);
                 $giocatori = array();
                 while ($row=$result->fetch_assoc()) {
@@ -190,9 +191,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "cp"=>utf8_encode($row["cp"]),
                         "cr"=>utf8_encode($row["cr"]),
                         "ca"=>utf8_encode($row["ca"]),
-                        "val"=>utf8_encode($row["val"]),
                         "ia"=>utf8_encode($row["ia"]),
-                        "ip"=>utf8_encode($row["ip"]),
+                        "is"=>utf8_encode($row["is"]),
+                        "f"=>utf8_encode($row["f"]),
                         )
                     );
                 };
@@ -212,10 +213,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $rigori = $_POST['rigori']  = '' ? null :$_POST['rigori'];
                 $punizioni = $_POST['punizioni']  = '' ? null :$_POST['punizioni'];
                 $ia = $_POST['ia']  = '' ? null :$_POST['ia'];
-                $ip = $_POST['titolarita']  = '' ? null :$_POST['ip'];
+                $is = $_POST['is']  = '' ? null :$_POST['is'];
+                $f = $_POST['f']  = '' ? null :$_POST['f'];
 
                 $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.quotazione as quotazione,  
-                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.val as val, gpi.ia as ia, gpi.ip as ip 
+                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, gpi.is as 'is',  gpi.f as f 
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
@@ -233,10 +235,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $query.=" and gpi.cp >=  $punizioni"; 
                 if($ia <> null)//inserire controlli su input valido
                     $query.=" and gpi.ia >=  $ia"; 
-                if($ip <> null)//inserire controlli su input valido
-                    $query.=" and gpi.ip >=  $ip"; 
+                if($is <> null)//inserire controlli su input valido
+                    $query.=" and gpi.is >=  $is"; 
+                if($f <> null)//inserire controlli su input valido
+                    $query.=" and gpi.f >=  $f"; 
                 
-                $query.=" order by gpi.ip, gpi.ia, g.quotazione desc";
+                $query.=" order by gpi.f, gpi.ia, g.quotazione desc";
                 //echo $query;
                 $result=$conn->query($query);
                 $giocatori = array();
@@ -251,9 +255,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "cp"=>utf8_encode($row["cp"]),
                         "cr"=>utf8_encode($row["cr"]),
                         "ca"=>utf8_encode($row["ca"]),
-                        "val"=>utf8_encode($row["val"]),
                         "ia"=>utf8_encode($row["ia"]),
-                        "ip"=>utf8_encode($row["ip"]),
+                        "is"=>utf8_encode($row["is"]),
+                        "f"=>utf8_encode($row["f"])
                         )
                     );
                 };
@@ -266,14 +270,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             break;            
         case("loadsqadra"):
             $idSquadra = $_POST['id'];
+            $ruolo = $_POST['ruolo']  = '' ? null :$_POST['ruolo'];
             $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.quotazione as quotazione, sa.squadra_breve as squadra_breve,
-            sf.squadra as fantasquadra, s.costo as costo, s.ordine as chiamata
+            sf.squadra as fantasquadra, s.costo as costo, gpi.note as note
             FROM `giocatori` as g 
             left join rose as s on s.id_giocatore = g.id
             left join squadre_serie_a as sa on sa.id = g.id_squadra
             left join sq_fantacalcio as sf on sf.id = s.id_sq_fc
-            where id_sq_fc = $idSquadra
-            order by ruolo desc, ordine";
+            left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
+            where id_sq_fc = $idSquadra";
+            if($ruolo <> null)//inserire controlli su input valido
+                $query.=" and g.ruolo = '$ruolo'"; 
+            $query .=" order by ruolo desc, ordine";
 
             $result=$conn->query($query);
             $giocatori = array();
@@ -287,7 +295,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "costo"=>$row["costo"],
-                    "chiamata"=>$row["chiamata"],
+                    "note"=>$row["note"],
                     )
                 );
             };

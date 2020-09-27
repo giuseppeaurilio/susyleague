@@ -157,8 +157,8 @@ $(document).ready(function(){
 					<a style='float: right;font-size: small; color:black;' target='_blank' 
 					href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21'><i class='fas fa-external-link-alt'></i>
 				</td>
-                <td>{{ squadra_breve }}</td>
                 <td>{{ ruolo }}</td>
+				<td>{{ squadra_breve }}</td>
 				<td style="text-align:left;">{{ fantasquadra }}</td>
 				<td>{{ pg }}</td>
 				<td>{{ mv }}</td>
@@ -261,6 +261,16 @@ while($row = $result->fetch_assoc()){
 						
 					</th>
 					<th>Giocatore</th>
+					<th style="width: 40px;">
+					Ruo: <br>
+						<select name="ruolo" id="ruolo" style="width: 40px;">
+							<option value="">-R-</option>	
+							<option value="P">Portiere</option>
+							<option value="D">Difensore</option>
+							<option value="C">Centrocampista</option>
+							<option value="A">Attaccante</option>
+						</select>
+					</th>
 					<th>Squadra: <br>
 					<?php
 						echo '<select id="squadra" name="squadra">';
@@ -271,16 +281,6 @@ while($row = $result->fetch_assoc()){
 						}
 						echo '</select>';
 					?>
-					</th>
-					<th style="width: 40px;">
-					Ruo: <br>
-						<select name="ruolo" id="ruolo" style="width: 40px;">
-							<option value="">-R-</option>	
-							<option value="P">Portiere</option>
-							<option value="D">Difensore</option>
-							<option value="C">Centrocampista</option>
-							<option value="A">Attaccante</option>
-						</select>
 					</th>
 					<th>
 					Fantasquadra: <br>

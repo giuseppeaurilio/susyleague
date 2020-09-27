@@ -74,7 +74,7 @@ $(document).ready(function(){
 </table>
 </script>
 
-<h2>Registro Asta</h2>
+<h2>Registro acquisti</h2>
 <div class="maincontent">
     <div id="divlistacompleta">
     </div>

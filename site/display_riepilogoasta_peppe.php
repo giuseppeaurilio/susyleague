@@ -19,7 +19,8 @@ ricercaGiocatore = function(id)
     rigori = $("#rigori").val();
     punizioni = $("#punizioni").val();
     ia = $("#txtIA").val();
-    ip = $("#txtIP").val();
+    is = $("#indicesquadra").val();
+    f = $("#fascia").val();
     
     
     $.ajax({
@@ -35,7 +36,8 @@ ricercaGiocatore = function(id)
                 "rigori": rigori,
                 "punizioni": punizioni,
                 "ia": ia,
-                "ip": ip,
+                "is": is,
+                "f": f,
             },
             success:function(data){
                 // debugger;
@@ -48,7 +50,11 @@ ricercaGiocatore = function(id)
                     var rendered = Mustache.render(template, resp);
                     // $("#divGiocatori").html(rendered);
                     $("#tblGiocatori > tbody").remove()
-					$("#tblGiocatori").append(rendered);
+                    $("#tblGiocatori").append(rendered);
+                    $("#tblGiocatori > tbody tr").unbind().bind("click", function(){
+                        loadStatsDialog($(this).data("id")); 
+                        } 
+                    );
                 }
                 else{
                     $( "#dialog" ).prop('title', "ERROR");                
@@ -62,12 +68,14 @@ ricercaGiocatore = function(id)
 loadSquadra = function(id)
 {
     var action ="loadsqadra";
+    var ruolo = $("#ruoloP").val()
     $.ajax({
         type:'POST',
             url:'display_riepilogoasta_controller.php',
             data: {
                 "action": action,
-                "id": 1, //idsquadrapeppe
+                "id": <?php echo  $_SESSION['login'] ?>,//idsquadrapeppe
+                "ruolo": ruolo, //idsquadrapeppe
             },
             success:function(data){
                 var resp=$.parseJSON(data)
@@ -78,7 +86,9 @@ loadSquadra = function(id)
                             var template = $('#tmplListaGiocatoriSquadra').html();
                             Mustache.parse(template);   // optional, speeds up future uses
                             var rendered = Mustache.render(template, resp);
-                            $("#divSquadra").html(rendered);
+                            $("#tblSquadra > tbody").remove()
+					        $("#tblSquadra").append(rendered);
+                            // $("#divSquadra").html(rendered);
                         }
                     }
                 }
@@ -133,7 +143,7 @@ loadStats = function(id)
             data: {
                 "action": action,
                 "id": id,
-                "limit": 4
+                "limit": 3
             },
             success:function(data){
                 var resp=$.parseJSON(data)
@@ -144,6 +154,44 @@ loadStats = function(id)
                         Mustache.parse(template);   // optional, speeds up future uses
                         var rendered = Mustache.render(template, resp);
                         $("#divStats").html(rendered);
+                    }
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    }); 
+}
+
+loadStatsDialog = function(id)
+{
+    var action ="stats";
+    $.ajax({
+        type:'POST',
+            url:'display_riepilogoasta_controller.php',
+            data: {
+                "action": action,
+                "id": id,
+                // "limit": 1,
+            },
+            success:function(data){
+                var resp=$.parseJSON(data)
+                if(resp.result == "true"){
+                    if(resp.stats.length> 0){
+                        //show data
+                        var template = $('#tmplStatsDialog').html();
+                        Mustache.parse(template);   // optional, speeds up future uses
+                        var rendered = Mustache.render(template, resp);
+                        $( "#dialog" ).prop('title', "Statistiche");        
+                        $( "#dialog p" ).html(rendered);
+                        $( "#dialog" ).dialog({modal:true, width:600});
+                    }
+                    else{
+                        $( "#dialog" ).prop('title', "ERROR");                
+                        $( "#dialog p" ).html("nessun dato presente");
+                        $( "#dialog" ).dialog({modal:true});
                     }
                 }
                 else{
@@ -218,7 +266,8 @@ resetFiltri = function()
     $("#txtMediaVoto").val("");
     $("#txtFantamedia").val("");
     $("#txtIA").val("");
-    $("#txtIP").val("");
+    $("#indicesquadra").val("");
+    $("#fascia").val("");
 }
 $(document).ready(function(){
     loadAstaInCorso();
@@ -230,6 +279,7 @@ $(document).ready(function(){
         // loadUltimoGiocatore();
         loadAstaInCorso();
      }, 5000);
+    $("#ruoloP").unbind().bind("change", loadSquadra);
 })
 
 $(document).on({
@@ -282,18 +332,48 @@ $(document).on({
 </table>
 </script>
 
+<script id="tmplStatsDialog" type="x-tmpl-mustache">
+    <h3>
+        {{ stats.0.nome }} ({{ stats.0.squadra_breve }}) - {{ stats.0.ruolo }}
+	</h3>
+    <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
+        <tr><th>anno</th><th>pg</th><th>mv</th><th>mf</th><th>gf</th><th>gs</th><th>rp</th><th>rc</th><th>r+</th><th>r-</th><th>as</th><th>asf</th><th>am</th><th>es</th><th>au</th></tr>
+        {{#stats}}
+        <tr>
+            <td>{{anno}}</td>
+            <td>{{pg}}</td>
+            <td>{{mv}}</td>
+            <td>{{mf}}</td>
+            <td>{{gf}}</td>
+            <td>{{gs}}</td>
+            <td>{{rp}}</td>
+            <td>{{rc}}</td>
+            <td>{{r+}}</td>
+            <td>{{r-}}</td>
+            <td>{{ass}}</td>
+            <td>{{asf}}</td>
+            <td>{{amm}}</td>
+            <td>{{esp}}</td>
+            <td>{{au}}</td>
+        </tr>
+        {{/stats}}
+    </table >
+</table>
+</script>
+
 <script id="tmplPInfo" type="x-tmpl-mustache">
     <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
-        <tr><th>Quo</th><th>Tit</th><th>cr</th><th>cp</th><th>ca</th><th>val</th><th>ia</th><th>ip</th></tr>
+        <tr><th>Quo</th><th>Tit</th><th>CR</th><th>CP</th><th>CA</th><th>IA</th><th>IS</th><th>FA</th></tr>
         <tr>
             <td>{{quotazione}}</td>
             <td>{{titolarita}}</td>
             <td>{{cr}}</td>
             <td>{{cp}}</td>
             <td>{{ca}}</td>
-            <td>{{val}}</td>
             <td>{{ia}}</td>
-            <td>{{ip}}</td>
+            <td>{{is}}</td>
+            <td>{{f}}</td>
+            
         </tr>
         <tr>
         <td colspan="8">{{note}}</td></tr>
@@ -302,30 +382,50 @@ $(document).on({
 </script>
 
 <script id="tmplListaGiocatoriSquadra" type="x-tmpl-mustache">
-    <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
-        <tr><th>Nome</th><th>Ruolo</th><th>Squadra</th><th>Costo</th><th>chiamata</th></tr>
+    <tbody>
         {{ #giocatori }}
-        <tr><td>{{nome}}</td><td>{{ruolo}}</td><td>{{squadra_breve}}</td><td>{{costo}}</td><td>{{chiamata}}</td></tr>
+        <tr>
+            <td style="text-align:left;">{{ nome }}
+                &nbsp;
+                <a style='float: right;font-size: small; color:black;' target='popup' 
+                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21'
+                onclick='
+                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21","popup","width=600,height=600"); 
+                event.stopPropagation();
+                return false;''><i class='fas fa-external-link-alt'></i>
+            </td>
+            <td>{{ruolo}}</td>
+            <td>{{squadra_breve}}</td>
+            <td>{{costo}}</td>
+            <td>{{note}}</td>
+        </tr>
         {{ /giocatori }}
-    </table >
-</table>
+    </tbody>
 </script>
 
 <script id="tmplListaGiocatoriDisponibili" type="x-tmpl-mustache">
     <tbody>
         {{ #giocatori }}
         <tr data-id="{{ id }}"> 
-            <td>{{nome}}</td>
-            <td>{{squadra_breve}}</td>
+            <td style="text-align:left;">{{ nome }}
+                &nbsp;
+                <a style='float: right;font-size: small; color:black;' target='popup' 
+                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21'
+                onclick='
+                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21","popup","width=600,height=600"); 
+                event.stopPropagation();
+                return false;''><i class='fas fa-external-link-alt'></i>
+            </td>
             <td>{{ruolo}}</td>
+            <td>{{squadra_breve}}</td>
             <td>{{quotazione}}</td>
             <td>{{titolarita}}</td>
             <td>{{cr}}</td>
             <td>{{cp}}</td>
-            <td>{{ca}}</td>
-            <td>{{val}}</td>
+            <td>{{ca}}</td>            
             <td>{{ia}}</td>
-            <td>{{ip}}</td>
+            <td>{{is}}</td>
+            <td>{{f}}</td>
             <td>
             <!-- {{note}} -->
             </td>
@@ -373,23 +473,15 @@ $(document).on({
     <div class="rigacompleta">
         
         <div class="listaGiocatori" style="width:60%" >
-            <h3 style="text-align:center">Giocatori disponibili 
+            <h3 style="text-align:center">Giocatori disponibili - 
             Ordina per: 
                 <select name="ordinamento" id="ordinamento">			
                     <!-- <option value="" >-Ordinamento-</option> -->
-                    <option value="mv-a" >Media voto ↑</option>
-                    <option value="mv-d" >Media voto ↓</option>
-                    <option value="fm-a" >Fantamedia ↑</option>
-                    <option value="fm-d" selected>Fantamedia ↓</option>
-                    <option value="pg-d">Partite giocate ↓</option>
-                    <option value="gf-d">Gol fFatti ↓</option>
-                    <option value="gs-d">Gol subiti ↓</option>
-                    <option value="rp-d">Rigori parati ↓</option>
-                    <option value="rc-d">Rigori calciati ↓</option>
-                    <option value="ass-d">Assist ↓</option>
-                    <option value="amm-d">Ammonizioni ↓</option>
-                    <option value="esp-d">Espulsioni ↓</option>
-                    <option value="aut-d">Autogol ↓</option>
+                    <option value="ia-d" >indica appetibilita ↓</option>
+                    <option value="is-a" >indice squadra ↓</option>
+                    <option value="f-d" selected>fascia ↓</option>
+                    <option value="t-d">titolarita ↓</option>
+                    <option value="gf-d">quotazione ↓</option>
                 </select>
                 <input type="button" value="cerca" id="btnCerca">
                 <input type="button" value="reset" id="btnResetFiltri">
@@ -398,7 +490,16 @@ $(document).on({
                 <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;" id="tblGiocatori">
                     <thead>
                         <tr>
-                            <th>nome</th>
+                            <th>Nome</th>
+                            <th>
+                                <select name="Ruolo" id="ruolo">
+                                    <option value="">-R</option>	
+                                    <option value="P">P</option>
+                                    <option value="D">D</option>
+                                    <option value="C">C</option>
+                                    <option value="A">A</option>
+                                </select>
+                            </th>
                             <th>
                                 <?php
                                     echo '<select id="squadra" name="squadra">';
@@ -410,21 +511,13 @@ $(document).on({
                                     echo '</select>';
                                 ?>
                             </th>
-                            <th>
-                                <select name="Ruolo" id="ruolo">
-                                    <option value="">-R</option>	
-                                    <option value="P">P</option>
-                                    <option value="D">D</option>
-                                    <option value="C">C</option>
-                                    <option value="A">A</option>
-                                </select>
-                            </th>
+                            
                             <th>
                                 <input type="number" style="width: 40px;" id="txtQuotazione" min="0" max="60" step="1" placeholder="Quo">
                             </th>
                             <th>
                                 <select name="ruolo" id="titolarita">
-                                    <option value="">tit</option>	
+                                    <option value="">-TIT</option>	
                                     <option value="10">10</option>
                                     <option value="9">9</option>
                                     <option value="8">8</option>
@@ -439,31 +532,61 @@ $(document).on({
                             </th>
                             <th>
                                 <select name="rigori" id="rigori">
-                                    <option value="">rig</option>	
-                                    <option value="3">3</option>
-                                    <option value="2">2</option>
+                                    <option value="">-RIG</option>	
                                     <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
                                 </select>
                             </th>
                             <th>
                                 <select name="punizioni" id="punizioni" style="width: 40px;">
-                                    <option value="">pun</option>	
-                                    <option value="3">3</option>
-                                    <option value="2">2</option>
+                                    <option value="">-PUN</option>	
                                     <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
                                 </select>
                             </th>
                             <th >
                                 <select name="angoli" id="angoli" style="width: 40px;">
-                                    <option value="">ang</option>	
-                                    <option value="3">3</option>
-                                    <option value="2">2</option>
+                                    <option value="">-ANG</option>	
                                     <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
                                 </select>
                             </th>
-                            <th ><input style="width: 30px;" type="number" id="txtVal" min="0" max="200" step="1" placeholder="Val"></th>
                             <th ><input style="width: 30px;" type="number" id="txtIA" min="0" max="200" step="1" placeholder="IA"></th>
-                            <th ><input style="width: 30px;" type="number" id="txtIP" min="0" max="200" step="1" placeholder="IP"></th>
+                            <th >
+                                <select name="indicesquadra" id="indicesquadra">
+                                    <option value="">-IS</option>	
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            <!-- <input style="width: 30px;" type="number" id="txtIS" min="0" max="200" step="1" placeholder="IS"> -->
+                            </th>
+                            <th >
+                                <select name="fascia" id="fascia">
+                                    <option value="">F</option>	
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            <!-- <input style="width: 30px;" type="number" id="txtF" min="0" max="200" step="1" placeholder="F"> -->
+                            </th>
                             <th>note</th>
                         </tr>
                     </thead>
@@ -477,7 +600,26 @@ $(document).on({
             <?php
                 include_once ("DB/asta.php");
                 include_once "DB/parametri.php";
-                $idsquadra = 1;
+                function getbackgroundColor($refnum, $refnumjolly, $num, $numjolly)
+                {
+                    $color = "";
+                    if($numjolly < $refnumjolly) // se il jolly non è stato scelto
+                    {
+                        if($num == $refnum)//se il numero di giocatori scelto è uguale al max
+                        {
+                            $color ="yellow";
+                        }
+                    }
+                    else//se il jolly  è stato scelto
+                    {
+                        if($num >= $refnum)//se il numero di giocatori scelto è uguale al max
+                        {
+                            $color ="red";
+                        }
+                    }
+                    return $color;
+                }
+                $idsquadra = $_SESSION['login'];
                 $rimanenti = getMilioniRimanenti($idsquadra);
                 $offertamassima = getOffertaMassima($idsquadra);
                 $numjollyscelti = hasJolly($idsquadra);
@@ -489,23 +631,43 @@ $(document).on({
                     switch($row["ruolo"])
                     {
                         case "P":
-                            echo '<div style="padding: 3px 7px;">Por: '.$row["numero"]. ' ('.$row["costo"].')</div>';
+                            echo '<div style="padding: 3px 7px; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">Por: '.$row["numero"]. ' ('.$row["costo"].'€)</div>';
                         break;
                         case "D":
-                            echo '<div style="padding: 3px 7px;">Dif: '.$row["numero"]. ' ('.$row["costo"].')</div>';
+                            echo '<div style="padding: 3px 7px; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">Dif: '.$row["numero"]. ' ('.$row["costo"].'€)</div>';
                         break;
                         case "C":
-                            echo '<div style="padding: 3px 7px;">Cen: '.$row["numero"]. ' ('.$row["costo"].')</div>';
+                            echo '<div style="padding: 3px 7px; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">Cen: '.$row["numero"]. ' ('.$row["costo"].'€)</div>';
                         break;
                         case "A":
-                            echo '<div style="padding: 3px 7px;">Att: '.$row["numero"]. ' ('.$row["costo"].')</div>';
+                            echo '<div style="padding: 3px 7px; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">Att: '.$row["numero"]. ' ('.$row["costo"].'€)</div>';
                         break;
                     }
                 }
                 echo "</div>"
             ?>
             
-            <div id="divSquadra"></div>
+            <div id="divSquadra">
+                <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;" id="tblSquadra">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>
+                                <select name="RuoloP" id="ruoloP">
+                                    <option value="">-R</option>	
+                                    <option value="P">P</option>
+                                    <option value="D">D</option>
+                                    <option value="C">C</option>
+                                    <option value="A">A</option>
+                                </select>
+                            </th>
+                            <th>Squadra</th>
+                            <th>Costo</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
 </div>

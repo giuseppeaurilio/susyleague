@@ -318,6 +318,26 @@ while($row = $result->fetch_assoc()){
 <?php
 include_once ("DB/asta.php");
 include_once "DB/parametri.php";
+
+function getbackgroundColor($refnum, $refnumjolly, $num, $numjolly)
+{
+    $color = "";
+    if($numjolly < $refnumjolly) // se il jolly non è stato scelto
+    {
+        if($num == $refnum)//se il numero di giocatori scelto è uguale al max
+        {
+            $color ="yellow";
+        }
+    }
+    else//se il jolly  è stato scelto
+    {
+        if($num >= $refnum)//se il numero di giocatori scelto è uguale al max
+        {
+            $color ="red";
+        }
+    }
+    return $color;
+}
 foreach($squadre as $squadra)
 {
     $rimanenti = getMilioniRimanenti($squadra["id"]);
@@ -344,16 +364,24 @@ foreach($squadre as $squadra)
         switch($row["ruolo"])
         {
             case "P":
-                echo '<tr style="background-color:#66CC33"><td>Portieri</td><td>'.$row["costo"].'</td><td>'.$row["numero"]. '</td></tr>';
+                echo '<tr><td>Portieri</td><td style="text-align: center;">'.$row["costo"].'</td>';
+                echo '<td style="text-align: center;background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '</td>';
+                echo'</tr>';
             break;
             case "D":
-                echo '<tr style="background-color:#33CCCC"><td>Difensori</td><td>'.$row["costo"].'</td><td>'.$row["numero"]. '</td></tr>';
+                echo '<tr><td>Difensori</td><td style="text-align: center;">'.$row["costo"].'</td>';
+                echo '<td style="text-align: center;background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '</td>';
+                echo'</tr>';
             break;
             case "C":
-                echo '<tr style="background-color:#FFEF00"><td>Centrocampisti</td><td>'.$row["costo"].'</td><td>'.$row["numero"]. '</td></tr>';
+                echo '<tr><td>Centrocampisti</td><td style="text-align: center;">'.$row["costo"].'</td>';
+                echo '<td style="text-align: center;background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '</td>';
+                echo'</tr>';
             break;
             case "A":
-                echo '<tr style="background-color:#E80000"><td>Attaccanti</td><td>'.$row["costo"].'</td><td>'.$row["numero"]. '</td></tr>';
+                echo '<tr><td>Attaccanti</td><td style="text-align: center;">'.$row["costo"].'</td>';
+                echo '<td style="text-align: center;background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '</td>';
+                echo'</tr>';
             break;
         }
     }
