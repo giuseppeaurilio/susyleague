@@ -38,7 +38,7 @@ $numdif = getNumDifensori();
 $numcen = getNumCentrocampisti();
 $numatt = getNumAttaccanti();
 $numjolly = getNumJolly();
-print_r($riepilogo["giocatori"]);
+// print_r($riepilogo["giocatori"]);
 //verifico il numero di giocatori per ruolo
 //nel caso il numero di giocatori base della rosa sia già stato aquistato, aggiungo come jolly
 foreach($riepilogo["giocatori"] as $row){
@@ -129,7 +129,7 @@ foreach($riepilogo["giocatori"] as $row){
 
 
 //verifico se la squadra ha soldi a sufficienza
-if( $costo > $offertamassima )
+if( $esito == "info"  && $costo > $offertamassima )
 {
     $esito = "error";
     $message = "Fantamilioni insufficienti";
@@ -138,6 +138,9 @@ if( $costo > $offertamassima )
 if($esito != "error"){
     // $query="INSERT INTO `rose` (`id_sq_fc`, `id_giocatore`, `costo`) VALUES ('" . $id_sq_fc ."', '". $id_giocatore ."', '". $costo . "')";
     $query="UPDATE `rose` SET `id_sq_fc`=$id_sq_fc,`costo`=$costo where `id_giocatore`=$id_giocatore";
+    $result=$conn->query($query);
+
+    $query="INSERT INTO `rose_asta` (`id_sq_fc`, `id_giocatore`, `costo`) VALUES ('" . $id_sq_fc ."', '". $id_giocatore ."', '". $costo . "')";
     $result=$conn->query($query);
 }
 

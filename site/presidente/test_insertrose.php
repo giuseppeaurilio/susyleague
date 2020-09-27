@@ -47,12 +47,17 @@ try{
             $idsquadra=$row["id"];
             $queryinsert = "INSERT INTO `rose`(`id_sq_fc`, `costo`, `id_giocatore`) VALUES ($idsquadrafc,1,$idsquadra)";
             $result  = $conn->query($queryinsert) or die($conn->error); 
+
+            $queryinsert = "INSERT INTO `rose_asta`(`id_sq_fc`, `costo`, `id_giocatore`) VALUES ($idsquadrafc,1,$idsquadra)";
+            $result  = $conn->query($queryinsert) or die($conn->error); 
         }
         
         $resultdifensori  = $conn->query($querydifensori) or die($conn->error); 
         while ($row = $resultdifensori->fetch_assoc()) {
             $idsquadra=$row["id"];
             $queryinsert = "INSERT INTO `rose`(`id_sq_fc`, `costo`, `id_giocatore`) VALUES ($idsquadrafc,1,$idsquadra)";
+            $result  = $conn->query($queryinsert) or die($conn->error); 
+            $queryinsert = "INSERT INTO `rose_asta`(`id_sq_fc`, `costo`, `id_giocatore`) VALUES ($idsquadrafc,1,$idsquadra)";
             $result  = $conn->query($queryinsert) or die($conn->error); 
         }
 
@@ -61,12 +66,16 @@ try{
             $idsquadra=$row["id"];
             $queryinsert = "INSERT INTO `rose`(`id_sq_fc`, `costo`, `id_giocatore`) VALUES ($idsquadrafc,1,$idsquadra)";
             $result  = $conn->query($queryinsert) or die($conn->error); 
+            $queryinsert = "INSERT INTO `rose_asta`(`id_sq_fc`, `costo`, `id_giocatore`) VALUES ($idsquadrafc,1,$idsquadra)";
+            $result  = $conn->query($queryinsert) or die($conn->error); 
         }
 
         $resultattaccanti  = $conn->query($queryattaccanti) or die($conn->error); 
         while ($row = $resultattaccanti->fetch_assoc()) {
             $idsquadra=$row["id"];
             $queryinsert = "INSERT INTO `rose`(`id_sq_fc`, `costo`, `id_giocatore`) VALUES ($idsquadrafc,1,$idsquadra)";
+            $result  = $conn->query($queryinsert) or die($conn->error); 
+            $queryinsert = "INSERT INTO `rose_asta`(`id_sq_fc`, `costo`, `id_giocatore`) VALUES ($idsquadrafc,1,$idsquadra)";
             $result  = $conn->query($queryinsert) or die($conn->error); 
         }
 

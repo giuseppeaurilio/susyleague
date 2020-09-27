@@ -177,6 +177,11 @@ echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
+$query="Truncate `rose_asta`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
 // $query="Truncate `vincitori`";
 // echo $query;
 // // $result=mysql_query($query);
