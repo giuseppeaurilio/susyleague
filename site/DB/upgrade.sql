@@ -34,7 +34,7 @@ ALTER TABLE `giocatori_statistiche` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCRE
 ALTER TABLE `giocatori_statistiche` CHANGE `mv` `mv` FLOAT NOT NULL;
 ALTER TABLE `giocatori_statistiche` CHANGE `mf` `mf` FLOAT NOT NULL;
 ALTER TABLE `giocatori_statistiche` ADD `asf` INT NOT NULL AFTER `ass`;
-CREATE TABLE `giocatori_pinfo` ( `id` INT NOT NULL AUTO_INCREMENT , `ip` INT NOT NULL , PRIMARY KEY (`id`)) ;
+CREATE TABLE `giocatori_pinfo` ( `id` INT NOT NULL AUTO_INCREMENT , PRIMARY KEY (`id`)) ;
 ALTER TABLE `giocatori_pinfo` ADD `giocatore_id` INT NOT NULL AFTER `id`;
 ALTER TABLE `giocatori_pinfo` ADD `titolarita` INT NOT NULL AFTER `giocatore_id`, ADD `cp` INT NOT NULL AFTER `titolarita`, ADD `cr` INT NOT NULL AFTER `cp`, ADD `ca` INT NOT NULL AFTER `cr`, ADD `ia` INT NOT NULL AFTER `ca`;
 ALTER TABLE `giocatori_pinfo` ADD `is` INT NOT NULL AFTER `ia`;
