@@ -345,47 +345,68 @@ foreach($squadre as $squadra)
     $numjollyscelti = hasJolly($squadra["id"]);
     $riepilogo = getRiepilogoAsta($squadra["id"]);
 
-    echo '<div id=riepilogo'.$squadra["id"].' class="riepilogo">';
-    echo '<h2>'.$squadra["squadra"].'</h2>';
+    echo '<div id=riepilogo'.$squadra["id"].' class="riepilogo" style="vertical-align: middle;">';
+    echo '<h2>'.$squadra["squadra"];
+   
+    echo '</h2>';
     // echo '<h3>'.$squadra["allenatore"].'</h3>';
-    echo '<div class="ui-state-error" style="text-align:center; padding:5px;">
-                Offerta massima 
+    echo '<div class="ui-state-error" style="text-align:center;">
+                MAX <span style="font-size: 100px">
                 '.$offertamassima.'
-            
+            </span>
             </div>';
-    // echo '<h4 style="text-align: center;">Offerta massima '.$offertamassima.'</h4>';
-    echo '<table>';
-    echo '<tr>
-            <th>Ruolo</th>
-            <th>Spesi</th>
-            <th>In rosa</th>
-        </tr>';
-    foreach($riepilogo["giocatori"] as $row){
-        switch($row["ruolo"])
-        {
-            case "P":
-                echo '<tr><td>Portieri</td><td style="text-align: center;">'.$row["costo"].'</td>';
-                echo '<td style="text-align: center;background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3</td>';
-                echo'</tr>';
-            break;
-            case "D":
-                echo '<tr><td>Difensori</td><td style="text-align: center;">'.$row["costo"].'</td>';
-                echo '<td style="text-align: center;background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9</td>';
-                echo'</tr>';
-            break;
-            case "C":
-                echo '<tr><td>Centrocampisti</td><td style="text-align: center;">'.$row["costo"].'</td>';
-                echo '<td style="text-align: center;background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9</td>';
-                echo'</tr>';
-            break;
-            case "A":
-                echo '<tr><td>Attaccanti</td><td style="text-align: center;">'.$row["costo"].'</td>';
-                echo '<td style="text-align: center;background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7</td>';
-                echo'</tr>';
-            break;
+    echo "<div style='flex-flow: row; display: flex; flex-wrap: wrap; width: 100%; background-color: lightgrey;'> ";
+        foreach($riepilogo["giocatori"] as $row){
+            switch($row["ruolo"])
+            {
+                case "P":
+                    echo '<div style="padding: 3px;">P: <span style="color: black; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'€)</div>';
+                break;
+                case "D":
+                    echo '<div style="padding: 3px; ">D: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
+                break;
+                case "C":
+                    echo '<div style="padding: 3px; ">C: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
+                break;
+                case "A":
+                    echo '<div style="padding: 3px;">A: <span style="color: black; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'€)</div>';
+                break;
+            }
         }
-    }
-    echo '</table>';
+    echo "</div>";
+    // echo '<h4 style="text-align: center;">Offerta massima '.$offertamassima.'</h4>';
+    // echo '<table>';
+    // echo '<tr>
+    //         <th>Ruolo</th>
+    //         <th>Spesi</th>
+    //         <th>In rosa</th>
+    //     </tr>';
+    // foreach($riepilogo["giocatori"] as $row){
+    //     switch($row["ruolo"])
+    //     {
+    //         case "P":
+    //             echo '<tr><td>Portieri</td><td style="text-align: center;">'.$row["costo"].'</td>';
+    //             echo '<td style="text-align: center;background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3</td>';
+    //             echo'</tr>';
+    //         break;
+    //         case "D":
+    //             echo '<tr><td>Difensori</td><td style="text-align: center;">'.$row["costo"].'</td>';
+    //             echo '<td style="text-align: center;background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9</td>';
+    //             echo'</tr>';
+    //         break;
+    //         case "C":
+    //             echo '<tr><td>Centrocampisti</td><td style="text-align: center;">'.$row["costo"].'</td>';
+    //             echo '<td style="text-align: center;background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9</td>';
+    //             echo'</tr>';
+    //         break;
+    //         case "A":
+    //             echo '<tr><td>Attaccanti</td><td style="text-align: center;">'.$row["costo"].'</td>';
+    //             echo '<td style="text-align: center;background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7</td>';
+    //             echo'</tr>';
+    //         break;
+    //     }
+    // }
+    // echo '</table>';
     
         //<tr>
         //     <th>Giocatori in rosa</th>

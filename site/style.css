@@ -1041,7 +1041,7 @@ padding: 0;
 }
 
 .maincontent .riepilogo{
-  min-width: 300px;
+  width: 350px;
 }
 
 .maincontent .riepilogo table th{
