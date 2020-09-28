@@ -22,8 +22,8 @@ order by  md desc -->
 	<div class="statistica">
 		<div class="titolo"> Punteggio più alto di squadra</div>
 		<div class="descrizione">
-			90 punti fatti da Bar Fabio dal 1936 contro Bono Coppi alla giornata 77 della Coppa Coppe 19/20
-			(Bono Coppi - Bar Fabio dal 1936 6-0)
+			91 punti fatti da I NANI contro Atletico ero na volta alla giornata 18 della Apertura 18/19
+			(I NANI - Atletico ero na volta 7-2)
 		</div>
 	</div>
 
@@ -64,8 +64,20 @@ order by  md desc -->
 	<div class="statistica">
 		<div class="titolo"> Colabrodo</div>
 		<div class="descrizione">
-			Ronei Merda ha applicato un modificatore difesa di +6 nella partita contro Panchester United nella giornata 3 della Chiusura 19/20
+			Ronni Merda ha applicato un modificatore difesa di +6 nella partita contro Panchester United nella giornata 3 della Chiusura 19/20
 			(Panchester United - RonieMerda 0-1)
+		</div>
+		<div class="descrizione">
+			Azienda PAAM ha applicato un modificatore difesa di +6 nella partita contro I NANI nella giornata 14 della Apertura 18/19
+			(Azienda PAAM - I NANI 0-2)
+		</div>
+	</div>
+
+	<div class="statistica">
+		<div class="titolo"> Linea Maginot</div>
+		<div class="descrizione">
+			Ronni Merda ha applicato un modificatore difesa di -4 nella partita contro Azienda PAAM nella giornata 6 della Chiusura 18/19
+			(Ronni Merda - Azienda PAAM 4-1)
 		</div>
 	</div>
 	<!-- SELECT c.punti_casa, c.punti_ospiti, c.gol_casa, c.gol_ospiti, c.md_casa, c.md_ospite,GREATEST(c.gol_casa, c.gol_ospiti) as md, c.id_giornata, g.id_girone, sqf.squadra as casa, sqf2.squadra as ospite
@@ -77,8 +89,8 @@ order by  md desc -->
 	<div class="statistica">
 		<div class="titolo">Maggior numero di gol segnati</div>
 		<div class="descrizione">
-			Bar Fabio dal 1936 ha segnato 6 gol contro Bono Coppi nella gioranta 77 del 19/20
-			(Bono Coppi - Bar Fabio dal 1936 0-6)
+			I NANI ha segnato 7 gol contro Atletico ero na volta alla giornata 18 della Apertura 18/19
+			(I NANI - Atletico ero na volta 7-2)
 		</div>
 	</div>
 
@@ -91,6 +103,9 @@ order by voto desc -->
 	<div class="statistica">
 		<div class="titolo">Fuoriclasse</div>
 		<div class="descrizione">
+			Il giocatore Zapata D. di Organizzazione Zero ha fatto registrare un fantapunteggio di 21 nella giornata 18 dell'Apertuna nel campionato 18/19
+		</div>
+		<!-- <div class="descrizione">
 			Il giocatore Cristiano Ronaldo di Bono Coppi ha fatto registrare un fantapunteggio di 18.5 nella giornata 15 del 19/20
 		</div>
 		<div class="descrizione">
@@ -98,7 +113,7 @@ order by voto desc -->
 		</div>
 		<div class="descrizione">
 			Il giocatore Cornelius di Salsino è bello ha fatto registrare un fantapunteggio di 18.5 nella giornata 24 del 19/20
-		</div>
+		</div> -->
 	</div>
 </div>
 

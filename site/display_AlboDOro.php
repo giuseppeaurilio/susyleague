@@ -204,6 +204,128 @@ $(document).ready(function(){
 							<div class="allenatore">(Giuseppe Aurilio)</div>
 						</div>
 					</div>
+				</div>	
+
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Salsino Forever</div>
+							<div class="allenatore">(Filippo Pagliarella)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Nuova  Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">Organizzazione Zero</div>
+							<div class="allenatore">(Figurino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Atletico ero na volta</div>
+							<div class="allenatore">(Antonio & Michela)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Prosut!</div>
+							<div class="allenatore">(Gianluca Pupparo)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">Salsino Forever</div>
+							<div class="allenatore">(Filippo)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Campionato*</div>
+					<div class="vincitori">
+						
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Organizzazione Zero</div>
+							<div class="allenatore">(Figurino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">Nuova Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Salsino Forever</div>
+							<div class="allenatore">(Filippo Pagliarella)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">Salsino Forever</div>
+							<div class="allenatore">(Filippo Pagliarella)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">Azienda PAAM</div>
+							<div class="allenatore">(Andrea Cuggino)</div>
+						</div>
+					</div>
 				</div>				
 			</div>
 			<div class="anno">2017/2018</div>
