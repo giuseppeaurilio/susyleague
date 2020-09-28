@@ -183,7 +183,7 @@ $(document).ready(function(){
     loadUltimoGiocatore();
     loadAstaInCorso();
     window.setInterval(function(){
-        loadUltimoGiocatore();
+        // loadUltimoGiocatore();
         loadAstaInCorso();
      }, 5000);
 
@@ -321,7 +321,7 @@ include_once "DB/parametri.php";
 
 function getbackgroundColor($refnum, $refnumjolly, $num, $numjolly)
 {
-    $color = "";
+    $color = "lightgreen";
     if($numjolly < $refnumjolly) // se il jolly non è stato scelto
     {
         if($num == $refnum)//se il numero di giocatori scelto è uguale al max
@@ -365,22 +365,22 @@ foreach($squadre as $squadra)
         {
             case "P":
                 echo '<tr><td>Portieri</td><td style="text-align: center;">'.$row["costo"].'</td>';
-                echo '<td style="text-align: center;background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '</td>';
+                echo '<td style="text-align: center;background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3</td>';
                 echo'</tr>';
             break;
             case "D":
                 echo '<tr><td>Difensori</td><td style="text-align: center;">'.$row["costo"].'</td>';
-                echo '<td style="text-align: center;background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '</td>';
+                echo '<td style="text-align: center;background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9</td>';
                 echo'</tr>';
             break;
             case "C":
                 echo '<tr><td>Centrocampisti</td><td style="text-align: center;">'.$row["costo"].'</td>';
-                echo '<td style="text-align: center;background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '</td>';
+                echo '<td style="text-align: center;background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9</td>';
                 echo'</tr>';
             break;
             case "A":
                 echo '<tr><td>Attaccanti</td><td style="text-align: center;">'.$row["costo"].'</td>';
-                echo '<td style="text-align: center;background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '</td>';
+                echo '<td style="text-align: center;background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7</td>';
                 echo'</tr>';
             break;
         }

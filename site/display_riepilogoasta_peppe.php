@@ -224,18 +224,27 @@ loadAstaInCorso = function()
                     if(resp.giocatori.length> 0){
                         if(astaincorso == false)
                         {
-                        //show data
-                        var template = $('#tmplAstaInCorso').html();
-                        Mustache.parse(template);   // optional, speeds up future uses
-                        var rendered = Mustache.render(template, resp.giocatori[0]);
-                        $("#divAstaAttuale").html(rendered);
-                        astaincorso = true;
-                        loadStats(resp.giocatori[0]["id"]);
-                        loadPInfo(resp.giocatori[0]["id"]);
+                            //show data
+                            var template = $('#tmplAstaInCorso').html();
+                            Mustache.parse(template);   // optional, speeds up future uses
+                            var rendered = Mustache.render(template, resp.giocatori[0]);
+                            $("#divAstaAttuale").html(rendered);
+                            astaincorso = true;
+                            loadStats(resp.giocatori[0]["id"]);
+                            loadPInfo(resp.giocatori[0]["id"]);
+                            var ruoloattuale = $('.widgetastacontent.incorso .ruolo').data("ruolo");
+                            // if(ruoloattuale != '-')
+                            // {
+                            $("#tblGiocatori #ruolo").val(ruoloattuale);
+                            $("#tblSquadra #ruoloP").val(ruoloattuale);
+                            ricercaGiocatore();
+                            loadSquadra();
+                            // }
                         }
                         else{
                             //do nothing
                         }
+                        
                     }
                     else{
                         var giocatore = {nome: "Nessuna giocatore in asta", ruolo: "-", imgurl: noimage, squadra_breve: "--"}
@@ -245,12 +254,12 @@ loadAstaInCorso = function()
                         Mustache.parse(template);   // optional, speeds up future uses
                         var rendered = Mustache.render(template, resp.giocatori[0]);
                         $("#divAstaAttuale").html(rendered);
-                        
                         if(astaincorso == true)
                         {
                             location.reload();
                         }
                     }
+                    
                 }
                 else{
                     $( "#dialog" ).prop('title', "ERROR");                
@@ -317,7 +326,7 @@ $(document).on({
         </div>
         <div  class="right">
             <div class="nome"> {{ nome }} ({{ squadra_breve }})</div>
-            <div class="ruolo"> Ruolo: {{ ruolo }} </div>
+            <div class="ruolo" data-ruolo="{{ ruolo }}"> Ruolo: {{ ruolo }} </div>
         </div>
     </div>
 </div>
@@ -492,7 +501,7 @@ $(document).on({
         
         <div class="listaGiocatori" style="width:60%" >
             <h3 style="text-align:center">Giocatori - 
-            <input type="checkbox" id="cbSoloLiberi"> Solo liberi</input>
+            <input type="checkbox" id="cbSoloLiberi" checked> Solo liberi</input>
              - Ordina per: 
                 <select name="ordinamento" id="ordinamento">			
                     <!-- <option value="" >-Ordinamento-</option> -->
@@ -622,7 +631,7 @@ $(document).on({
                 include_once "DB/parametri.php";
                 function getbackgroundColor($refnum, $refnumjolly, $num, $numjolly)
                 {
-                    $color = "";
+                    $color = "lightgreen";
                     if($numjolly < $refnumjolly) // se il jolly non è stato scelto
                     {
                         if($num == $refnum)//se il numero di giocatori scelto è uguale al max
@@ -651,16 +660,16 @@ $(document).on({
                     switch($row["ruolo"])
                     {
                         case "P":
-                            echo '<div style="padding: 3px 7px; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">Por: '.$row["numero"]. ' ('.$row["costo"].'€)</div>';
+                            echo '<div style="padding: 3px 7px;">Por: <span style="background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'€)</div>';
                         break;
                         case "D":
-                            echo '<div style="padding: 3px 7px; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">Dif: '.$row["numero"]. ' ('.$row["costo"].'€)</div>';
+                            echo '<div style="padding: 3px 7px; ">Dif: <span style="background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
                         break;
                         case "C":
-                            echo '<div style="padding: 3px 7px; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">Cen: '.$row["numero"]. ' ('.$row["costo"].'€)</div>';
+                            echo '<div style="padding: 3px 7px; ">Cen: <span style="background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
                         break;
                         case "A":
-                            echo '<div style="padding: 3px 7px; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">Att: '.$row["numero"]. ' ('.$row["costo"].'€)</div>';
+                            echo '<div style="padding: 3px 7px;">Att: <span style="background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'€)</div>';
                         break;
                     }
                 }
