@@ -1119,12 +1119,16 @@ padding:1px 2px;
 
 .maincontent .rigacompleta .listaGiocatori{
   width:50%;
+
+}
+.maincontent .rigacompleta .listaGiocatori #divGiocatori{
+
   max-height: 300px;
   overflow-y: auto;
 }
 
 .maincontent .rigacompleta #divSquadra{
-  max-height: 230px;
+  max-height: 280px;
   overflow-y: auto;
 }
 
@@ -1274,7 +1278,7 @@ padding:1px 2px;
   
 }
 
-.record .statistica .titolo{
+.record .statistica .titolo{ 
   padding: 5px 0;
   text-align: center;
   /* background-color: #274b59; */
@@ -1292,4 +1296,20 @@ padding:1px 2px;
   /* color: white; */
   text-align: justify;
   
+}
+
+#tblGiocatori > tbody .barrato
+{
+  text-decoration: line-through;
+  color: grey;
+}
+
+#tblGiocatori > tbody td .visibile
+{
+  display: none;
+}
+#tblGiocatori > tbody td .visibile.barrato
+{
+  text-decoration: none;
+  display: inline;
 }

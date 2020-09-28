@@ -11,16 +11,17 @@ var astaincorso = false;
 ricercaGiocatore = function(id)
 {
     var action ="ricercagiocatore";
-    ruolo = $("#ruolo").val();
-    idsquadra = $("#squadra").val();
-    mediavoto = $("#txtMediaVoto").val();
-    fantamedia = $("#txtFantamedia").val();
-    titolarita = $("#titolarita").val();
-    rigori = $("#rigori").val();
-    punizioni = $("#punizioni").val();
-    ia = $("#txtIA").val();
-    is = $("#indicesquadra").val();
-    f = $("#fascia").val();
+    var ruolo = $("#ruolo").val();
+    var idsquadra = $("#squadra").val();
+    var mediavoto = $("#txtMediaVoto").val();
+    var fantamedia = $("#txtFantamedia").val();
+    var titolarita = $("#titolarita").val();
+    var rigori = $("#rigori").val();
+    var punizioni = $("#punizioni").val();
+    var ia = $("#txtIA").val();
+    var is = $("#indicesquadra").val();
+    var f = $("#fascia").val();
+    var sololiberi = $("#cbSoloLiberi").prop("checked") ;
     
     
     $.ajax({
@@ -38,6 +39,7 @@ ricercaGiocatore = function(id)
                 "ia": ia,
                 "is": is,
                 "f": f,
+                "sololiberi": sololiberi
             },
             success:function(data){
                 // debugger;
@@ -55,6 +57,8 @@ ricercaGiocatore = function(id)
                         loadStatsDialog($(this).data("id")); 
                         } 
                     );
+                    $("#tblGiocatori #txtNome").unbind().bind("keyup", filtraGiocatoriPerNome);
+                    
                 }
                 else{
                     $( "#dialog" ).prop('title', "ERROR");                
@@ -256,6 +260,20 @@ loadAstaInCorso = function()
             }
     }); 
 }
+filtraGiocatoriPerNome = function()
+{
+    var filterString = $("#tblGiocatori #txtNome").val().toUpperCase();
+    // console.log(filterString);
+    $("#tblGiocatori > tbody tr").show()
+    if(filterString != "" && filterString.length >= 2)
+    {
+        $("#tblGiocatori > tbody tr").hide()
+        $("#tblGiocatori .nome").filter(function() {
+            return $(this).html().includes(filterString);
+        }).closest('tr').show()
+    }
+    
+}
 resetFiltri = function()
 {
     $("#ruolo").val("");
@@ -399,7 +417,7 @@ $(document).on({
             <td>{{costo}}</td>
             <td>{{note}}</td>
         </tr>
-        {{ /giocatori }}
+        {{ /giocatori }}    
     </tbody>
 </script>
 
@@ -407,8 +425,8 @@ $(document).on({
     <tbody>
         {{ #giocatori }}
         <tr data-id="{{ id }}"> 
-            <td style="text-align:left;">{{ nome }}
-                &nbsp;
+            <td  style="text-align:left;">
+                <span class="nome {{class}}">{{ nome }}</span> <span class="visibile {{class}}">({{squadrafc}})</span>
                 <a style='float: right;font-size: small; color:black;' target='popup' 
                 href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21'
                 onclick='
@@ -473,8 +491,9 @@ $(document).on({
     <div class="rigacompleta">
         
         <div class="listaGiocatori" style="width:60%" >
-            <h3 style="text-align:center">Giocatori disponibili - 
-            Ordina per: 
+            <h3 style="text-align:center">Giocatori - 
+            <input type="checkbox" id="cbSoloLiberi"> Solo liberi</input>
+             - Ordina per: 
                 <select name="ordinamento" id="ordinamento">			
                     <!-- <option value="" >-Ordinamento-</option> -->
                     <option value="ia-d" >indica appetibilita ↓</option>
@@ -490,7 +509,8 @@ $(document).on({
                 <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;" id="tblGiocatori">
                     <thead>
                         <tr>
-                            <th>Nome</th>
+                            <!-- <th>Nome</th> -->
+                            <th ><input style="width:140px;" type="text" id="txtNome" placeholder="Nome"></th>
                             <th>
                                 <select name="Ruolo" id="ruolo">
                                     <option value="">-R</option>	

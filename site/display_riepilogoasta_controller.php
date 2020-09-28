@@ -215,14 +215,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $ia = $_POST['ia']  = '' ? null :$_POST['ia'];
                 $is = $_POST['is']  = '' ? null :$_POST['is'];
                 $f = $_POST['f']  = '' ? null :$_POST['f'];
+                $sololiberi = $_POST['sololiberi']  = '' ? null :$_POST['sololiberi'];
 
+                // echo $sololiberi;
                 $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.quotazione as quotazione,  
-                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, gpi.is as 'is',  gpi.f as f 
+                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, gpi.is as 'is',  gpi.f as f , sqf.squadra as squadrafc
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
-                left join rose as r on r.id_giocatore =g.id ";
-                $query.=" where r.id_sq_fc is  null ";
+                left join rose as r on r.id_giocatore =g.id 
+                left join sq_fantacalcio as sqf on sqf.id = r.id_sq_fc ";
+                if($sololiberi == "true")//inserire controlli su input valido
+                    $query.=" where r.id_sq_fc is  null ";
+                else
+                    $query.=" where 1 ";
                 if($ruolo <> null)//inserire controlli su input valido
                     $query.=" and g.ruolo = '$ruolo'"; 
                 if($idsquadra <> null)//inserire controlli su input valido
@@ -241,13 +247,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $query.=" and gpi.f >=  $f"; 
                 
                 $query.=" order by gpi.f, gpi.ia, g.quotazione desc";
-                //echo $query;
+                // echo $query;
                 $result=$conn->query($query);
                 $giocatori = array();
                 while ($row=$result->fetch_assoc()) {
                     array_push($giocatori, array(
                         "id"=>$row["idgiocatore"],
                         "nome"=>utf8_encode($row["nome"]),
+                        "class"=>$row["squadrafc"] != null ? "barrato" : "",
                         "squadra_breve"=>utf8_encode($row["squadra_breve"]),
                         "ruolo"=>utf8_encode($row["ruolo"]),
                         "quotazione"=>utf8_encode($row["quotazione"]),
@@ -257,7 +264,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "ca"=>utf8_encode($row["ca"]),
                         "ia"=>utf8_encode($row["ia"]),
                         "is"=>utf8_encode($row["is"]),
-                        "f"=>utf8_encode($row["f"])
+                        "f"=>utf8_encode($row["f"]),
+                        "squadrafc"=>utf8_encode($row["squadrafc"])
                         )
                     );
                 };
