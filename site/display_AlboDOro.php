@@ -669,12 +669,6 @@ $(document).ready(function(){
 						<div class="squadra">I NANI</div>
 						<div class="allenatore">(Peppino)</div>
 					</div>
-					<div class="terso">
-						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">3°</div>
-						<div class="squadra">SC Valle S. Andrea</div>
-						<div class="allenatore">(Andrea Rotondo)</div>
-					</div>
 				</div>
 			</div>
 			<div class="anno">2019</div>
