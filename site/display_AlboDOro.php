@@ -287,7 +287,7 @@ $(document).ready(function(){
 					</div>
 				</div>
 				<div class="competizione">
-					<div class="descrizione">Chiusura - Campionato*</div>
+					<div class="descrizione">Chiusura - Campionato</div>
 					<div class="vincitori">
 						
 						<div class="primo">
@@ -435,7 +435,7 @@ $(document).ready(function(){
 					</div>
 				</div>
 				<div class="competizione">
-					<div class="descrizione">Chiusura - Campionato*</div>
+					<div class="descrizione">Chiusura - Campionato</div>
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
