@@ -352,7 +352,128 @@ $(document).ready(function(){
 							<div class="allenatore">(Arky)</div>
 						</div>
 					</div>
-				</div>				
+				</div>	
+
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Nuova  Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Prosut!</div>
+							<div class="allenatore">(Gianluca Pupparo)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Ronie Merda</div>
+							<div class="allenatore">(Carletto Sciandrone)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">Nuova Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">Prosut!</div>
+							<div class="allenatore">(Gianluca Pupparo)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Nuova Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Prosut!</div>
+							<div class="allenatore">(Gianluca Pupparo)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">AS Fidanken</div>
+							<div class="allenatore">(Filippo Pagliarella)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Nuova Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Prosut!</div>
+							<div class="allenatore">(Gianluca Pupparo)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Campionato*</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Ronie Merda</div>
+							<div class="allenatore">(Carletto Sciandrone)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">AS Valle S Andrea</div>
+							<div class="allenatore">(Andrea rotondo)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Bar Limpido</div>
+							<div class="allenatore">(Daniele Rotondo)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">AS Valle S Andrea</div>
+							<div class="allenatore">(Andrea rotondo)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Bar Limpido</div>
+							<div class="allenatore">(Daniele Rotondo)</div>
+						</div>
+					</div>
+				</div>			
 			</div>
 			<div class="anno">2016/2017</div>
 			<div class="campionato">
