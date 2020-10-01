@@ -1,15 +1,5 @@
 <?php 
-session_start();
-	if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
-	$allenatore="";
-	$id_squadra_logged="";
-	}
-	else { 
-	$allenatore= $_SESSION['allenatore'];
-	$id_squadra_logged= $_SESSION['login'];
-}
 include("menu.php");
-
 ?>
 
 <script>
@@ -460,13 +450,13 @@ $(document).ready(function(){
 				<div class="competizione">
 					<div class="descrizione">Chiusura - Cannonieri</div>
 					<div class="vincitori">
-						<div class="secondo">
-							<div><i class="fas fa-award"></i></div>
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
 							<div class="titolo">2°</div>
 							<div class="squadra">AS Valle S Andrea</div>
 							<div class="allenatore">(Andrea rotondo)</div>
 						</div>
-						<div class="terzo">
+						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
 							<div class="titolo">3°</div>
 							<div class="squadra">Bar Limpido</div>
@@ -499,8 +489,130 @@ $(document).ready(function(){
 							<div class="allenatore">(Arky)</div>
 						</div>
 					</div>
+				</div>	
+
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Nuova  Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Botafiga</div>
+							<div class="allenatore">(Giorgio Gasbarrini)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Oliva</div>
+							<div class="allenatore">(Figurino)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">Nuova Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">Oliva</div>
+							<div class="allenatore">(Figurino)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Dejavu</div>
+							<div class="allenatore">(Filippo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Botafiga</div>
+							<div class="allenatore">(Giorgio Gasbarrini)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Prosut!</div>
+							<div class="allenatore">(Gianluca Pupparo)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Dejavu</div>
+							<div class="allenatore">(Filippo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Botafiga</div>
+							<div class="allenatore">(Giorgio Gasbarrini)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Nuova Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">Oliva</div>
+							<div class="allenatore">(Figurino)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">MILANdruccolo</div>
+							<div class="allenatore">(Vezio)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Nuova Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">MILANdruccolo</div>
+							<div class="allenatore">(Vezio)</div>
+						</div>
+					</div>
 				</div>				
 			</div>
+
 			<div class="anno">2015/2016</div>
 			<div class="campionato">
 				<div class="competizione">
@@ -518,14 +630,130 @@ $(document).ready(function(){
 							<div class="squadra">MILANDruccolo</div>
 							<div class="allenatore">(Vezio Malandruccolo)</div>
 						</div>
+					</div>
+				</div>	
+
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">MILANDruccolo</div>
+							<div class="allenatore">(Vezio Malandruccolo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Nuova Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
 						<div class="terzo">
-							<div><i class="fas fa-medal"></i></div>
+							<div><i class="fas fa-award"></i></div>
 							<div class="titolo">3°</div>
-							<div class="squadra">Azienda Paam</div>
-							<div class="allenatore">(Giorgio Cuggino)</div>
+							<div class="squadra">Azienda PAAM</div>
+							<div class="allenatore">(Andrea Cuggino)</div>
 						</div>
 					</div>
-				</div>				
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">Nuova Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">Azienda PAAM</div>
+							<div class="allenatore">(Andrea Cuggino)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Azienda PAAM</div>
+							<div class="allenatore">(Andrea Cuggino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">MILANDruccolo</div>
+							<div class="allenatore">(Vezio Malandruccolo)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Nuova Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Azienda PAAM</div>
+							<div class="allenatore">(Andrea Cuggino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Nuova Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">MILANdruccolo</div>
+							<div class="allenatore">(Vezio)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Macio Team</div>
+							<div class="allenatore">(Filippo)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Macio Team</div>
+							<div class="allenatore">(Filippo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+					</div>
+				</div>	
+
 			</div>
 			<div class="anno">2014/2015</div>
 			<div class="campionato">
