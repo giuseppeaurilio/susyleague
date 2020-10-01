@@ -1302,11 +1302,26 @@ padding:1px 2px;
   
 }
 
+.record .statistica {
+  margin: 5px;
+}
 .record .statistica .descrizione2{
   padding: 5px;
   background-color: darkgrey;
   text-align: justify;
   
+}
+.record .descrizione, 
+.record .descrizione2{
+  height: 80px;
+}
+
+.record .statistica img
+{
+  float: left;
+}
+.record .statistica span{
+  display: block;
 }
 
 #tblGiocatori > tbody .barrato
