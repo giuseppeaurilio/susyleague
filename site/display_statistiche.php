@@ -149,9 +149,6 @@ $(document).ready(function(){
 	<tbody>
         {{#giocatori}}
             <tr data-id="{{ id }}"> 
-                <td> 
-				<img src='{{ imgurl }}' onerror='imgError(this);'> </img> 
-				</td>
                 <td style="text-align:left;">{{ nome }}
 					&nbsp;
 					<a style='float: right;font-size: small; color:black;' target='_blank' 
@@ -257,9 +254,6 @@ while($row = $result->fetch_assoc()){
 		<table border="0" cellspacing="2" cellpadding="2" id="tblGiocatori">
 			<thead>
 				<tr>
-					<th style="width:90px">		
-						
-					</th>
 					<th>Giocatore</th>
 					<th style="width: 40px;">
 					Ruo: <br>
