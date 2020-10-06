@@ -87,7 +87,7 @@ function update_giocatori($filename) {
 		$countersquadre = 0;
 		$countergiocatori = 0;
 		
-		while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+		while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 			// print_r($data);
 			include("../dbinfo_susyleague.inc.php");
 			$conn = new mysqli($localhost, $username, $password,$database);
@@ -175,9 +175,13 @@ function update_giocatori($filename) {
 
 						$result=$conn->query($queryinsertgiocatore); 
 						// echo $nome;
-						if ($result==1) $countergiocatori++; else echo " ERROR";
+						if ($result==1) $countergiocatori++; else echo " ERROR" . $conn->error;
 						// echo "<br>";
 					}
+				}
+				else
+				{
+					echo "not numeric: " . $data[0]. "<br>";
 				}
 			}
 			catch(Exception $e) {
