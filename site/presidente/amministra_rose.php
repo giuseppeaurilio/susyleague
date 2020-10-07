@@ -239,6 +239,39 @@ annullaGiocatoreEstrazione = function(id)
             }
     }); 
 }
+
+getQuotazioneMax = function()
+{
+    $("#txtMax").attr("max", 100);
+    $("#lblMax").html("max: "+ "ND");
+    var action ="getquotazionemax";
+    var ruolo =$("#ruolo").val();
+    if(ruolo == "")
+        return false;
+    $.ajax({
+        type:'POST',
+            url:'amministra_rose_controller.php',
+            data: {
+                "action": action,
+                "ruolo": ruolo,
+            },
+            success:function(data){
+                // debugger;
+                var resp=$.parseJSON(data)
+                if(resp.result == "true"){
+                   $("#txtMax").attr("max", resp.max);
+                   $("#lblMax").html("max: "+ resp.max);
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+                
+                
+            }
+    }); 
+}
 giocatoreInAsta = function()
 {
     var sq_sa_ID = $('#sq_sa').val();
@@ -282,6 +315,8 @@ function inizializzaControlli(){
     $("#giocatore").on('change', giocatoreInAsta)
     $("#sq_fc").on('change', enablebutton)
     $("#costo").on('change keyup', enablebutton)
+    getQuotazioneMax();
+    $("#ruolo").on('change', getQuotazioneMax);
 
     // $("#btnInAsta").click(confermaGiocatore);
 }
@@ -361,6 +396,7 @@ Costo:<input type="number" id="costo" name="costo" style="width:80px;">
 Estrazione automatica:
 <input type="number" id="txtMin" name="min" placeholder="min" style="width:80px;">
 <input type="number" id="txtMax" name="MAX" placeholder="MAX" style="width:80px;">
+<span id="lblMax"></span>
 <input type="button" value="estrai un giocatore" id="btnEstraiRandom">
 
 </div>

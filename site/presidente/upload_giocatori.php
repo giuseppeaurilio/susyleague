@@ -139,9 +139,9 @@ function update_giocatori($filename) {
 					}
 					//se ho trovato il giocatore faccio l'update della squadra_serie_a
 					else{
-						$queryupdategiocatore="UPDATE `giocatori` SET `id_squadra`=$idsquadra WHERE `id`=$data[0]";
+						$queryupdategiocatore="UPDATE `giocatori` SET `id_squadra`=$idsquadra , `quotazione` = $data[4] WHERE `id`=$data[0]";
 						$result=$conn->query($queryupdategiocatore); 
-						if ($result==1) $countergiocatori++; else echo " ERROR";
+						if ($result==1) $countergiocatori++; else echo " ERROR ". $conn->error;
 						// echo $queryupdategiocatore. "<br/>";
 					}
 					

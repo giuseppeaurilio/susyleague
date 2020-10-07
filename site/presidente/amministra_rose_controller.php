@@ -90,6 +90,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 'message' => $action." eseguito",
             ));
             break;
+        case("getquotazionemax"):
+            $ruolo = $_POST['ruolo']  = '' ? null :$_POST['ruolo'];
+            $query= "SELECT g.quotazione as max
+            from giocatori as g 
+            left join rose as r on r.id_giocatore = g.id
+            where ruolo = '$ruolo'
+            and r.id_sq_fc is null
+            order by quotazione desc limit 1";
+            // echo $query;
+            $result=$conn->query($query);
+            if ($result === FALSE) {
+                echo $query;
+            }
+            $max = 0;
+            while ($row=$result->fetch_assoc()) {
+                    $max=$row["max"];     
+            };
+            $response = array(
+                'result' => "true",
+                'message' => $action." eseguito",
+                'max' => $max
+            );
+            echo json_encode($response);
+            break;
         default:
             echo json_encode(array(
                 'error' => array(
