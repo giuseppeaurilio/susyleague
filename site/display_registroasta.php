@@ -50,7 +50,7 @@ $(document).ready(function(){
 <table border="0" cellspacing="2" cellpadding="2">
     <tbody>
         <tr>
-            <th>&nbsp;</th>
+            
             <th>Giocatore</th>
             <th>SQ</th>
             <th>R</th>
@@ -60,7 +60,7 @@ $(document).ready(function(){
         </tr>
         {{#giocatori}}
             <tr > 
-                <td> <img src='{{ imgurl }}' onerror='imgError(this);'> </img> </td>
+                
                 <td>{{ nome }}</td>
                 <td>{{ squadra_breve }}</td>
                 <td>{{ ruolo }}</td>
