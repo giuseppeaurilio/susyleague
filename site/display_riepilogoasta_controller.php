@@ -217,9 +217,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $f = $_POST['f']  = '' ? null :$_POST['f'];
                 $sololiberi = $_POST['sololiberi']  = '' ? null :$_POST['sololiberi'];
 
+                $ordinamento = $_POST['ordinamento']  = '' ? null :$_POST['ordinamento'];
+ 
                 // echo $sololiberi;
                 $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.quotazione as quotazione,  
-                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, gpi.is as 'is',  gpi.f as f , sqf.squadra as squadrafc
+                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, gpi.is as 'is',  gpi.f as f,  gpi.note as note , sqf.squadra as squadrafc
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
@@ -246,7 +248,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 if($f <> null)//inserire controlli su input valido
                     $query.=" and gpi.f >=  $f"; 
                 
-                $query.=" order by gpi.f, gpi.ia, g.quotazione desc";
+                if($ordinamento  == "ia-d")
+                    $query.=" order by case when gpi.ia is null then 1 else 0 end, gpi.ia desc, g.quotazione desc ";
+                else if($ordinamento  == "is-a")
+                    $query.=" order by case when gpi.is is null then 1 else 0 end, gpi.is asc, gpi.ia desc ";
+                else if($ordinamento  == "f-d")
+                    $query.=" order by case when gpi.f is null then 1 else 0 end, gpi.f desc, gpi.ia desc ";
+                else if($ordinamento  == "t-d")
+                    $query.=" order by case when gpi.titolarita is null then 1 else 0 end, gpi.titolarita desc, gpi.ia desc ";
+                else if($ordinamento  == "q-d")
+                    $query.=" order by case when gpi.quotazione is null then 1 else 0 end, g.quotazione desc, gpi.ia desc ";
+                else
+                    $query.=" order by case when gpi.ia is null then 1 else 0 end, gpi.f, gpi.ia, g.quotazione desc";
                 // echo $query;
                 $result=$conn->query($query);
                 $giocatori = array();
@@ -265,7 +278,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "ia"=>utf8_encode($row["ia"]),
                         "is"=>utf8_encode($row["is"]),
                         "f"=>utf8_encode($row["f"]),
-                        "squadrafc"=>utf8_encode($row["squadrafc"])
+                        "squadrafc"=>utf8_encode($row["squadrafc"]),
+                        "note"=>utf8_encode($row["note"])
                         )
                     );
                 };
@@ -290,20 +304,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             if($ruolo <> null)//inserire controlli su input valido
                 $query.=" and g.ruolo = '$ruolo'"; 
             $query .=" order by ruolo desc, ordine";
-
+            // echo $query;
             $result=$conn->query($query);
             $giocatori = array();
             while ($row=$result->fetch_assoc()) {
-                $imgurl = "";
-                $nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
-                $imgurl = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                // $imgurl = "";
+                // $nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
+                // $imgurl = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png");
                 array_push($giocatori, array(
                     "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "costo"=>$row["costo"],
-                    "note"=>$row["note"],
+                    "note"=>utf8_encode($row["note"])
                     )
                 );
             };

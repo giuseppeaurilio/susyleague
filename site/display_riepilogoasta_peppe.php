@@ -22,6 +22,7 @@ ricercaGiocatore = function(id)
     var is = $("#indicesquadra").val();
     var f = $("#fascia").val();
     var sololiberi = $("#cbSoloLiberi").prop("checked") ;
+    var ordinamento = $("#ordinamento").val();
     
     
     $.ajax({
@@ -39,7 +40,8 @@ ricercaGiocatore = function(id)
                 "ia": ia,
                 "is": is,
                 "f": f,
-                "sololiberi": sololiberi
+                "sololiberi": sololiberi,
+                "ordinamento": ordinamento
             },
             success:function(data){
                 // debugger;
@@ -82,6 +84,7 @@ loadSquadra = function(id)
                 "ruolo": ruolo, //idsquadrapeppe
             },
             success:function(data){
+                
                 var resp=$.parseJSON(data)
                 
                     if(resp.result == "true"){
@@ -446,15 +449,15 @@ $(document).on({
             <td>{{ruolo}}</td>
             <td>{{squadra_breve}}</td>
             <td>{{quotazione}}</td>
+            <td>{{ia}}</td>
             <td>{{titolarita}}</td>
             <td>{{cr}}</td>
             <td>{{cp}}</td>
             <td>{{ca}}</td>            
-            <td>{{ia}}</td>
             <td>{{is}}</td>
             <td>{{f}}</td>
             <td>
-            <!-- {{note}} -->
+            {{note}}
             </td>
         </tr>
         {{ /giocatori }}
@@ -509,7 +512,7 @@ $(document).on({
                     <option value="is-a" >indice squadra ↓</option>
                     <option value="f-d" selected>fascia ↓</option>
                     <option value="t-d">titolarita ↓</option>
-                    <option value="gf-d">quotazione ↓</option>
+                    <option value="q-d">quotazione ↓</option>
                 </select>
                 <input type="button" value="cerca" id="btnCerca">
                 <input type="button" value="reset" id="btnResetFiltri">
@@ -544,6 +547,7 @@ $(document).on({
                             <th>
                                 <input type="number" style="width: 40px;" id="txtQuotazione" min="0" max="60" step="1" placeholder="Quo">
                             </th>
+                            <th ><input style="width: 30px;" type="number" id="txtIA" min="0" max="200" step="1" placeholder="IA"></th>
                             <th>
                                 <select name="ruolo" id="titolarita">
                                     <option value="">-TIT</option>	
@@ -583,7 +587,7 @@ $(document).on({
                                     <option value="3">3</option>
                                 </select>
                             </th>
-                            <th ><input style="width: 30px;" type="number" id="txtIA" min="0" max="200" step="1" placeholder="IA"></th>
+                            
                             <th >
                                 <select name="indicesquadra" id="indicesquadra">
                                     <option value="">-IS</option>	
