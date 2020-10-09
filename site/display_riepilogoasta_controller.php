@@ -171,7 +171,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $id = $_POST['id'];
                 $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.quotazione as quotazione,  
                 gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, 
-                gpi.is as 'is', gpi.f as f 
+                gpi.is as 'is', gpi.f as f ,  gpi.note as note
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
@@ -194,6 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "ia"=>utf8_encode($row["ia"]),
                         "is"=>utf8_encode($row["is"]),
                         "f"=>utf8_encode($row["f"]),
+                        "note"=>utf8_encode($row["note"])
                         )
                     );
                 };
@@ -257,10 +258,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 else if($ordinamento  == "t-d")
                     $query.=" order by case when gpi.titolarita is null then 1 else 0 end, gpi.titolarita desc, gpi.ia desc ";
                 else if($ordinamento  == "q-d")
-                    $query.=" order by case when gpi.quotazione is null then 1 else 0 end, g.quotazione desc, gpi.ia desc ";
+                    $query.=" order by case when g.quotazione is null then 1 else 0 end, g.quotazione desc, gpi.ia desc ";
                 else
                     $query.=" order by case when gpi.ia is null then 1 else 0 end, gpi.f, gpi.ia, g.quotazione desc";
-                // echo $query;
+                //echo $query;
                 $result=$conn->query($query);
                 $giocatori = array();
                 while ($row=$result->fetch_assoc()) {

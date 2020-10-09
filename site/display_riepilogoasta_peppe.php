@@ -328,7 +328,14 @@ $(document).on({
             <img src='{{ imgurl }}' onerror='imgError(this);'> </img> 
         </div>
         <div  class="right">
-            <div class="nome"> {{ nome }} ({{ squadra_breve }})</div>
+            <div class="nome"> {{ nome }} ({{ squadra_breve }})
+                <a style='float: right;font-size: small; color:black;' target='popup' 
+                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21'
+                onclick='
+                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21","popup","width=600,height=600"); 
+                event.stopPropagation();
+                return false;''><i class='fas fa-external-link-alt'></i></a>
+                </div>
             <div class="ruolo" data-ruolo="{{ ruolo }}"> Ruolo: {{ ruolo }} </div>
         </div>
     </div>
@@ -422,7 +429,7 @@ $(document).on({
                 onclick='
                 window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21","popup","width=600,height=600"); 
                 event.stopPropagation();
-                return false;''><i class='fas fa-external-link-alt'></i>
+                return false;''><i class='fas fa-external-link-alt'></i></a>
             </td>
             <td>{{ruolo}}</td>
             <td>{{squadra_breve}}</td>
@@ -508,9 +515,9 @@ $(document).on({
              - Ordina per: 
                 <select name="ordinamento" id="ordinamento">			
                     <!-- <option value="" >-Ordinamento-</option> -->
-                    <option value="ia-d" >indica appetibilita ↓</option>
+                    <option value="ia-d" selected>indica appetibilita ↓</option>
                     <option value="is-a" >indice squadra ↓</option>
-                    <option value="f-d" selected>fascia ↓</option>
+                    <option value="f-d" >fascia ↓</option>
                     <option value="t-d">titolarita ↓</option>
                     <option value="q-d">quotazione ↓</option>
                 </select>
