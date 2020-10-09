@@ -114,6 +114,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             );
             echo json_encode($response);
             break;
+        case("astaincorso"):
+
+            $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.quotazione as quotazione, sa.squadra_breve as squadra_breve
+            FROM `giocatori` as g 
+            left join rose as s on s.id_giocatore = g.id
+            left join squadre_serie_a as sa on sa.id = g.id_squadra
+            where s.id_sq_fc = 0";
+            // echo $query;
+            $result=$conn->query($query);
+            $giocatori = array();
+            while ($row=$result->fetch_assoc()) {
+                // print_r($row);
+                array_push($giocatori, array(
+                    "id"=>utf8_encode($row["id"]),
+                    "ids"=>utf8_encode($row["ids"]),
+                    "ruolo"=>$row["ruolo"],
+                    )
+                );
+            };
+            $response = array(
+                'result' => "true",
+                'message' => $action." eseguito",
+                'giocatori' => $giocatori
+            );
+            echo json_encode($response);
+            break;
         default:
             echo json_encode(array(
                 'error' => array(

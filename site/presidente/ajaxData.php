@@ -13,10 +13,16 @@ if ($conn->connect_error) {
 }
 // echo "Connected successfully";
 
-    $query="SELECT * FROM giocatori  where giocatori.ruolo='". $ruolo . "' and giocatori.id_squadra=".$sq_id;
-     $query="SELECT * FROM giocatori as a where a.ruolo='". $ruolo . "' and a.id_squadra=".$sq_id ."  and a.id NOT IN (SELECT id_giocatore FROM rose)";
+    // $query="SELECT * FROM giocatori  where giocatori.ruolo='". $ruolo . "' and giocatori.id_squadra=".$sq_id;
+    // $query="SELECT * FROM giocatori as a where a.ruolo='". $ruolo . "' and a.id_squadra=".$sq_id ."  and a.id NOT IN (SELECT id_giocatore FROM rose)";
+    $query = "SELECT * 
+    FROM giocatori as g
+    left join `rose` as r on g.id = r.id_giocatore
+    where g.ruolo='$ruolo' and g.id_squadra=$sq_id
+    and (r.id_sq_fc is null
+        OR r.id_sq_fc = 0)";
 
-     //$query="SELECT * FROM giocatori as a  natural left join rose as b where giocatori.ruolo='". $ruolo . "' and giocatori.id_squadra=".$sq_id ." and b.id_giocatore=NULL";
+    //$query="SELECT * FROM giocatori as a  natural left join rose as b where giocatori.ruolo='". $ruolo . "' and giocatori.id_squadra=".$sq_id ." and b.id_giocatore=NULL";
 
     $result=$conn->query($query);
     $num=$result->num_rows; 

@@ -305,6 +305,59 @@ enablebutton = function()
     // }
     
 }
+
+getGiocatoreInAsta = function()
+{
+    var action ="astaincorso";
+    $.ajax({
+        type:'POST',
+            url:'amministra_rose_controller.php',
+            data: {
+                "action": action,
+                // "id": id,
+            },
+            success:function(data){
+                // debugger;
+                var resp=$.parseJSON(data)
+                if(resp.result == "true" ){
+                    if(resp.giocatori.length> 0){
+                        // debugger;
+                        // $("#ruolo").val(resp.giocatori[0]["ruolo"]);
+                        // $("#sq_sa").val(resp.giocatori[0]["ids"]);
+                        load_data( resp.giocatori[0]["ids"], resp.giocatori[0]["ruolo"], resp.giocatori[0]["id"])
+                        //   //show data
+                        //   var template = $('#tmplAstaInCorso').html();
+                        //   Mustache.parse(template);   // optional, speeds up future uses
+                        //   var rendered = Mustache.render(template, resp.giocatori[0]);
+                        //   $("#divAstaAttuale").html(rendered);
+                        //   astaincorso = true;
+                        //   loadStats(resp.giocatori[0]["id"]);
+                        //   // $("#divAstaAttuale").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStats);
+                        
+                    }
+                    else{
+                        // var giocatore = {nome: "Nessuna giocatore in asta", ruolo: "-", imgurl: noimage, squadra_breve: "--"}
+                        // //
+                        // resp.giocatori.push(giocatore);
+                        // var template = $('#tmplAstaInCorso').html();
+                        // Mustache.parse(template);   // optional, speeds up future uses
+                        // var rendered = Mustache.render(template, resp.giocatori[0]);
+                        // $("#divAstaAttuale").html(rendered);
+                        
+                        // if(astaincorso == true)
+                        // {
+                        //     location.reload();
+                        // }
+                    }
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    }); 
+}
 function inizializzaControlli(){
     enablebutton();
     $("#btnEstraiRandom").click(estraiGiocatore);
@@ -317,6 +370,7 @@ function inizializzaControlli(){
     $("#costo").on('change keyup', enablebutton)
     getQuotazioneMax();
     $("#ruolo").on('change', getQuotazioneMax);
+    getGiocatoreInAsta();
 
     // $("#btnInAsta").click(confermaGiocatore);
 }
