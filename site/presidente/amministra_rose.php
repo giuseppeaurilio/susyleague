@@ -380,7 +380,44 @@ $(document).ready(function(){
 </script>
 
 <h2>Aggiungi Giocatore</h2>
+<?php
+$query="SELECT count(id_giocatore) as somma, g.ruolo
+from rose as ra
+left join giocatori as g on ra.id_giocatore = g.id
+group by ruolo order by ruolo desc";
+
+$result=$conn->query($query);
+$somme = array();
+while($row = $result->fetch_assoc()){
+    array_push($somme, array(
+        "somma"=>$row["somma"],
+        "ruolo"=>$row["ruolo"],
+        )
+    );
+}
+?>
 <div class="aggiungi">
+<div> 
+<span>Avanzamento - </span>
+<?php 
+foreach($somme as $somma)
+{
+    if($somma["ruolo"] == "P")
+        echo '<span>Portieri:'.$somma["somma"].' /36; </span>';
+    else if($somma["ruolo"] == "D")
+        echo '<span>Difensori:'.$somma["somma"].' /108;  </span>';
+    else if($somma["ruolo"] == "C")
+        echo '<span>Centrocampisti:'.$somma["somma"].' /108;  </span>';
+    else if($somma["ruolo"] == "A")
+        echo '<span>Attaccanti:'.$somma["somma"].' /84;  </span>';
+}
+?>
+<!-- <span>Portieri: </span>
+<span>Difensori: </span>
+<span>Centrocampisti: </span>
+<span>Attaccanti: </span> -->
+</div>
+<br>
 <form action="aggiungi_a_rosa.php" method="get">
 <select name="Ruolo" id="ruolo">
   <option value="">--Seleziona ruolo--</option>	
