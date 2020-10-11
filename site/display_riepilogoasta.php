@@ -233,8 +233,8 @@ $(document).on({
 </script>
 
 <script id="tmplStats" type="x-tmpl-mustache">
-    <h3>
-        {{ stats.0.nome }} ({{ stats.0.squadra_breve }}) - {{ stats.0.ruolo }}
+    <h3 >
+        <span style="font-size:50px">{{ stats.0.nome }} ({{ stats.0.squadra_breve }}) - {{ stats.0.ruolo }}</span>
 
         &nbsp;
         <a style='float: right;font-size: small; color:white;' target='_blank' 

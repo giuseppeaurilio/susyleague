@@ -431,7 +431,8 @@ $i=0;
 while ($row=$result->fetch_assoc()) {
 	$id=$row["id"];
     $squadra=$row["squadra"];
-	  echo '<option value=' . $id . '>'. $squadra . '</option>';
+    $allenatore =  $row["allenatore"];
+	  echo '<option value=' . $id . '>'. $squadra .'-' .$allenatore. '</option>';
 ++$i;
 }
 ?>

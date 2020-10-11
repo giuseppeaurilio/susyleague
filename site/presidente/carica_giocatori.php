@@ -53,11 +53,11 @@ include("menu.php");
     <input type="submit" value="Carica File" name="submitStats">
 </form>
 <hr>
-<form action="upload_pinfo.php" method="post" enctype="multipart/form-data">
+<!-- <form action="upload_pinfo.php" method="post" enctype="multipart/form-data">
     Selziona File da inserire:
     <input type="file" name="fileToUploadPInfo" >
     <input type="submit" value="Carica File" name="submitPInfo">
-</form>
+</form> -->
 <!-- <a href="spiegazione_creazione_file_csv.pdf">File di Spiegazione</a>     -->
 <?php 
 include("../footer.php");
