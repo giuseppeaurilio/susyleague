@@ -71,24 +71,28 @@ class Partita
     public $idgiornata;
     public $idpartita;
     public $idcasa;
+    public $casamd;
     public $idospite;
+    public $ospitemd;
 
     public $usamediadifesa;
     public $valorefattorecasa;
 
-    public function Partita($_idgiornata, $_idcasa, $_idospite, $_usamediadifesa, $_valorefattorecasa)
+    public function Partita($_idgiornata, $_idcasa, $_idospite, $_usamediadifesa, $_valorefattorecasa, $_casamd, $_ospitemd)
     {
         $this->idgiornata = $_idgiornata;
         $this->idcasa = $_idcasa;
+        $this->casamd = $_casamd;
         $this->idospite = $_idospite;
+        $this->ospitemd = $_ospitemd;
         $this->usamediadifesa = $_usamediadifesa;
         $this->valorefattorecasa = $_valorefattorecasa;
 
     }
     public function calcolaRisultatoPartita()
     {
-        $punteggiocasa = $this->calcolaRisultatoSquadra($this->idgiornata, $this->idcasa);
-        $punteggioospite = $this->calcolaRisultatoSquadra($this->idgiornata, $this->idospite);
+        $punteggiocasa = $this->calcolaRisultatoSquadra($this->idgiornata, $this->idcasa, $this->casamd);
+        $punteggioospite = $this->calcolaRisultatoSquadra($this->idgiornata, $this->idospite, $this->ospitemd);
         include "../globalsettings.php"; 
         if($boolprint) print("<pre>".print_r($punteggiocasa,true)."</pre>").'<br>';
         if($boolprint) print("<pre>".print_r($punteggioospite,true)."</pre>").'<br>';
@@ -103,7 +107,7 @@ class Partita
         $punteggioospite->punteggio,$this->usamediadifesa ?  $punteggiocasa->mediadifesa: 0 ,0, $golospite, $punteggiototaleospite,$punteggioospite->giocatoriconvoto );
     }
     
-    private function calcolaRisultatoSquadra($idgiornata, $idsquadra)
+    private function calcolaRisultatoSquadra($idgiornata, $idsquadra, $calcolamd)
     {
         include "../globalsettings.php"; 
         include "../dbinfo_susyleague.inc.php";
@@ -269,7 +273,7 @@ class Partita
                 }
             }
         }
-        $mediadifesa = $this->calcolaMediaDifesa($numdifcv, $sumdifesa );
+        $mediadifesa = $this->calcolaMediaDifesa($numdifcv, $sumdifesa, $calcolamd);
 
         $cendasostituire = $numcen  - $numcencv;
         if($sostituzionidafare > $sostituzionifatte && $cendasostituire > 0 )// se devo sostituire centrocampisti
@@ -435,12 +439,15 @@ class Partita
         return new RisultatoSquadra($sumvoti, $numvoti, $mediadifesa);
     }
 
-    private function calcolaMediaDifesa($_numdif, $_sommavoti)
+    private function calcolaMediaDifesa($_numdif, $_sommavoti, $calcola)
     {
         include "../globalsettings.php"; 
         // if($boolprint) echo  print("numdifcv= ".$_numdif).'<br>';
         // if($boolprint) echo  print("sumdifesa= ".$_sommavoti).'<br>';
         $ret  = 0;
+        // se il parameto $calcola è false, non devo calcolare la media difesa
+        if($calcola == false)
+            return $ret;
         // $base = 0;
         // $step = 0;
         // switch ($_numdif) {

@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 if(isset($giocatori) && trim($giocatori) !== '')
 {
     $giocatori_line_array=explode("," , $giocatori);
-    $i=1;
+    // $i=1;
     #echo "<br> array=";
     // print_r($giocatori_line_array);
     foreach ($giocatori_line_array as $giocatore_line) {

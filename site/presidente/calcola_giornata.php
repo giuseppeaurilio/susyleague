@@ -29,6 +29,7 @@ $(document).ready(function(){
 			var voto=test.find('.voto').text();
 			var voto_md=test.find('.votomd').text();
 			var sostituzione=test.find('.sostituzione').find('input:checkbox').prop("checked")? "1": "0";
+			
 			// console.log(nome + "_" + j + "_" + voto + "_" + voto_md + "_" + sostituzione);
 			if (isNumeric(voto) || isNumeric(voto_md)) {
 				dataString += j + "_" + voto + "_" + voto_md + "_" + sostituzione + ",";
@@ -38,8 +39,11 @@ $(document).ready(function(){
 				dataString += j + "_" + "_" +  "_" + 0 + ",";
 			}
 		}//end j
+		// var usamd=test.find('.usamd').find('input:checkbox').prop("checked")? "1": "0";
+		// dataString += usamd;
 		dataString = dataString.substring(0, dataString.length - 1);
-		 console.log("datastring= " + dataString);
+		
+		console.log("datastring= " + dataString);
 		$.ajax(
 		{
 			type: "GET",
@@ -93,6 +97,52 @@ $(document).ready(function(){
         	}); //end $.ajax
 	})//end function $("#btn_commento").click
 })
+</script>
+
+<script>
+salvautilizzomd = function()
+{
+	var id_giornata=$(this).data("giornata");
+	var id_partita=$(this).data("partita");
+	var id_squadra=$(this).data("squadra");
+	var home=$(this).data("home");
+	// var casa=$(this).prop("home");
+	var checked=$(this).prop("checked");
+	console.log($(this));
+	var action ="usemd";
+	// debugger;
+	// console.log("giornata: " + id_giornata +"; partita: " + id_partita +"; squadra: " + id_squadra + 
+	// "; checked: " + checked + "; home: " + home);
+	$.ajax({
+        type:'POST',
+            url:'calcola_giornata_controller.php',
+            data: {
+                "action": action,
+                "id_giornata": id_giornata,
+                "id_partita": id_partita, 
+				"id_squadra": id_squadra, 
+				"checked": checked, 
+				"home": home
+            },
+            success:function(data){
+                
+                var resp=$.parseJSON(data)
+                
+				if(resp.result == "true"){
+					// do nothing
+				}     
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    }); 
+}
+$(document).ready(function(){
+    $(".usamd").unbind().bind("change", salvautilizzomd);
+})
+
 </script>
 
 <h1> Calcolo Giornata <?php echo $id_giornata ;?> </h1>
@@ -153,6 +203,10 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$media_difesa_avversaria_ospite = $row["md_ospite"];
 	$voto_totale_ospite = $voto_netto_ospite + $media_difesa_avversaria_ospite;//$row["tot_ospite"];
 	$gol_ospite = $row["gol_ospiti"];
+
+	$id_partita = $row["id_partita"];
+	$usemdcasa = $row["use_mdcasa"];
+	$usemdospite = $row["use_mdospite"];
 
 	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione 
 	FROM formazioni as a 
@@ -225,7 +279,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 			if ($i<11) 
 			{echo "&nbsp;";}
 			else{
-				$s = $row["sostituzione"] == 1 ? "checked='chacked'": "";
+				$s = $row["sostituzione"] == 1 ? "checked='checked'": "";
 				echo	"<input type='checkbox' ".$s."></input>";
 				// ".$row["sostituzione"]? "checked": "" .";
 
@@ -242,6 +296,12 @@ while ($row=$result_giornata->fetch_assoc()) {
 	
 	</table>
 	<p> addizionale = <?php echo $addizionalecasa; ?> </p>
+	<p> <input type="checkbox" class="usamd" id="cbmdcasa" 
+	<?php echo $usemdcasa  == "1" ? "checked": ""; ?>
+	data-home="1" 
+	data-squadra="<?php echo $id_casa; ?>" 
+	data-giornata="<?php echo $id_giornata;?>" 
+	data-partita="<?php echo $id_partita;?>"> calcola media difesa casa</input></p>
 	<p> giocatori con  voto = <?php echo $numero_giocanti_casa; ?> </p>
 	<p> voto netto = <?php echo $voto_netto_casa; ?> </p>
 	<p> media difesa = <?php echo $media_difesa_avversaria_casa; ?> </p>
@@ -321,7 +381,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 				if ($i<11) 
 				{echo "&nbsp;";}
 				else{
-					$s = $row["sostituzione"] == 1 ? "checked='chacked'": "";
+					$s = $row["sostituzione"] == 1 ? "checked='checked'": "";
 					echo	"<input type='checkbox' ".$s."></input>";
 					// ".$row["sostituzione"]? "checked": "" .";
 	
@@ -336,9 +396,15 @@ while ($row=$result_giornata->fetch_assoc()) {
 	?>
 	</table>
 	<p> addizionale = 0 </p>
+	<p> <input type="checkbox" class="usamd" id="cbmdospite" 
+	<?php echo $usemdospite  == "1" ? "checked": ""; ?>
+	data-home="0"
+	data-squadra="<?php echo $id_ospite; ?>" 
+	data-giornata="<?php echo $id_giornata;?>" 
+	data-partita="<?php echo $id_partita;?>"> calcola media difesa ospite</input></p>
 	<p> giocatori con  voto = <?php echo $numero_giocanti_ospite; ?> </p>
 	<p> voto netto = <?php echo $voto_netto_ospite; ?> </p>
-	<p> media difesa = <?php echo $media_difesa_avversaria_ospite; ?> </p>
+	<p> media difesa = <?php echo $media_difesa_avversaria_ospite; ?></p>
 	<p> voto totale = <?php echo $voto_totale_ospite; ?> </p>
 	<p> gol = <?php echo $gol_ospite; ?> </p>
  	<a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_girone=<?php  echo $id_girone; ?>&id_squadra=<?php  echo $id_ospite; ?>">Invia Formazione</a> 

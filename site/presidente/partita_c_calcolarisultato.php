@@ -28,6 +28,8 @@ while ($row = $result->fetch_assoc()) {
         "id_partita"=>$row["id_partita"],  
         "id_sq_casa"=>$row["id_sq_casa"],
         "id_sq_ospite"=>$row["id_sq_ospite"],
+        "mdcasa"=>$row["use_mdcasa"],
+        "mdospite"=>$row["use_mdospite"],
     ));
 }
 $conn->close();
@@ -56,12 +58,14 @@ switch($idgirone)
         $valorefattorecasa = 0;
         break;
 }
-foreach($arraypartite as $partita){
+foreach($arraypartite as $partita){ 
     $p = new Partita($partita["id_giornata"],
                      $partita["id_sq_casa"], 
                      $partita["id_sq_ospite"],
                      $usamediadifesa, 
-                     $valorefattorecasa);
+                     $valorefattorecasa,
+                     $partita["mdcasa"],
+                     $partita["mdospite"]);
     $result = $p->calcolaRisultatoPartita();
     print("<pre>".print_r($result   ,true)."</pre>").'<br>';
 
