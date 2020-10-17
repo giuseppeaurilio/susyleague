@@ -43,8 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				if ($allenatore != "Presidente"){ 
 					throw new Exception("Non si è autenticati per inviare la formazione");
 				}
-				if (count($titolari)!=11 || count($panchina)!=8){
-					throw new Exception("La formazione deve includere necessariamente 11 titolari e 8 riserve");
+				if (count($titolari)!=11 || count($panchina)!=10){
+					throw new Exception("La formazione deve includere necessariamente 11 titolari e 10 riserve");
 				}
 				
 				$formazione=array_merge ($titolari, $panchina);		
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 					
 					$index++;
 					// print_r($value);
-					if($index == 20)
+					if($index == 22)
 					{						
 						$query_ini = "REPLACE INTO `formazioni`(`dasdsa`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
 						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;

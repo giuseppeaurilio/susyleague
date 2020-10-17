@@ -4,7 +4,7 @@ include("menu.php");
 
 <script>
 var moduli =["3-5-2", "3-4-3", "4-3-3", "4-4-2", "4-5-1", "5-3-2", "5-4-1"];
-var numRiserve = 8;
+var numRiserve = 10;
 
 // var pconto = [0, 0, 0, 0];
 // var modulo = [0, 0, 0, 0];
@@ -41,7 +41,7 @@ impostaFormazione = function()
 			{
 				$("#div" + giocatori[index].split('_')[1]).trigger('click');
 			}
-		for( index = 11; index< 19; index++)
+		for( index = 11; index< 21; index++)
 			{
 				$("#div" + giocatori[index].split('_')[1]).trigger('click');
 				$("#div" + giocatori[index].split('_')[1]).trigger('click');
@@ -510,7 +510,7 @@ $(document).ready(function(){
 			{
 				$("#div" + giocatori[index].split('_')[1]).trigger('click');
 			}
-		for( index = 11; index< 19; index++)
+		for( index = 11; index< 21; index++)
 			{
 				$("#div" + giocatori[index].split('_')[1]).trigger('click');
 				$("#div" + giocatori[index].split('_')[1]).trigger('click');
