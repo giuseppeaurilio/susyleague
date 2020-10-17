@@ -27,7 +27,7 @@ try {
     /**************************************************************************************/
     //disabilito l'invio dei mesaggi telegram perche il provider 000webhost non li permette
     /**************************************************************************************/
-    echo "<br> <br>".$http_string."<br>";
+    // echo "<br> <br>".$http_string."<br>";
     $response = file_get_contents($http_string);
         $response = "";
     }

@@ -11,9 +11,14 @@ $mysqlExportPath ='db_backup.sql';
 //Si prega di non modificare i seguenti punti
 //Esportazione del database e dell'output dello stato
 $command='mysqldump --opt -h' .$mysqlHostName .' -u' .$mysqlUserName .' -p' .$mysqlPassword .' ' .$mysqlDatabaseName .' > ' .$mysqlExportPath;
+// $command="mysqldump --user=$mysqlUserName --password=$mysqlPassword --host=$mysqlHostName $mysqlDatabaseName >  $mysqlExportPath";
 // exec($command,$output=array(),$worked);
-$result=exec($command,$output);
-echo $result;
+echo $command;
+echo "<br>";
+exec($command);
+// echo $output;
+// echo "<br>";
+echo "dump complete";
 // switch($worked){
 	// if()
 	// case 0:
