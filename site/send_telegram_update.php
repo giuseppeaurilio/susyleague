@@ -4,7 +4,7 @@ include_once ('send_message_post.php');
 
 function send_telegram_update() {
 
-	$avvisi=[24,4,1];
+	$avvisi=[24,6,1];
 	//$avvisi=range(0,150);
 
 	date_default_timezone_set('Europe/Rome');
