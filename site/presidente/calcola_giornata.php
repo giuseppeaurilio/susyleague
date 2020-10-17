@@ -268,7 +268,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 ?>
 ">
 	<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate'style='width: auto;'> Titolari</div></td>";  } ?>
-	<?php if ($i==11) {echo "<td rowspan='8' style='background-color: rgba(51,102,255,0.2);'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>
+	<?php if ($i==11) {echo "<td rowspan='10' style='background-color: rgba(51,102,255,0.2);'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>
 		<td><?php echo $row["nome"]; ?></td>
 		<td><?php echo $row["squadra_breve"]; ?></td>
 		<td><?php echo $row["ruolo"]; ?></td>
@@ -370,7 +370,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 ?>
 ">
 	<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate'style='width: auto;'> Titolari</div></td>";  } ?>
-	<?php if ($i==11) {echo "<td rowspan='8' style='background-color: rgba(51,102,255,0.2);'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>
+	<?php if ($i==11) {echo "<td rowspan='10' style='background-color: rgba(51,102,255,0.2);'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>
 			<td><?php echo $row["nome"]; ?></td>
 			<td><?php echo $row["squadra_breve"]; ?></td>
 			<td><?php echo $row["ruolo"]; ?></td>

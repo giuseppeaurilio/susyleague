@@ -1,6 +1,6 @@
 <?php 
 $action ="";
-include_once ("..\dbinfo_susyleague.inc.php");
+include_once ("../dbinfo_susyleague.inc.php");
 
 session_start();
 if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
@@ -37,9 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$adesso = date('Y-m-d H:i:s');
 				$query="select fine from giornate where id_giornata=" . $id_giornata  . " and fine > '" . $adesso ."'";
 				$result=$conn->query($query);
-				if ($result->num_rows == 0){
-					throw new Exception("E' troppo tardi per inviare la formazione");
-				}
+				// if ($result->num_rows == 0){
+				// 	throw new Exception("E' troppo tardi per inviare la formazione");
+				// }
 				if ($allenatore != "Presidente"){ 
 					throw new Exception("Non si è autenticati per inviare la formazione");
 				}
