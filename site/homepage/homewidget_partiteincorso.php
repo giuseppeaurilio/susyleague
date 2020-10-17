@@ -25,7 +25,7 @@
         left join calendario as c on g.id_giornata =  c.id_giornata
         left  join sq_fantacalcio as sqf1 on sqf1.id=c.id_sq_casa 
         LEFT join sq_fantacalcio as sqf2 on sqf2.id=c.id_sq_ospite
-		where fine < DATE_ADD(NOW(), INTERVAL 2 HOUR)
+		where fine < DATE_ADD(NOW(), INTERVAL 0 HOUR)
 		and gol_casa is null
         and id_girone = ".$girone ;
         // echo $queryprox;
