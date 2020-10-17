@@ -3,11 +3,11 @@
 $name_loc='db_backup.sql';
 $name_remote='db_backup' .date('m-d-Y_hia').'.sql';
 
-include("backup_database_sql.php");
-// include("send_telegram_update.php");
+// include("backup_database_sql.php");
+include("send_telegram_update.php");
 
 
-// $answer_tg=send_telegram_update();
+$answer_tg=send_telegram_update();
 
 // $ftp_username='susy79';
 // $ftp_userpass='andspe79';

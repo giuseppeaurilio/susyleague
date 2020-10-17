@@ -1,5 +1,5 @@
 <?php
-
+header('Content-Type: text/html; charset=ISO-8859-1');
 function send_message_post($testo) {
 try {
 
@@ -15,19 +15,20 @@ try {
     // $BOT_TOKEN='270744877:AAHCXrPHvHJgWOXEsO_hCuTpR17K2R-l5Wk';//official
     // $GROUP_CHAT_ID_SUSYLEAGUE='-181841313';//official
 
-    // // $BOT_TOKEN='904128728:AAHJSnL1otOg7LycKyyRFlChVSaiGyIqLks';//peppe
-    // // $GROUP_CHAT_ID_SUSYLEAGUE='-227538077';//peppe
+    $BOT_TOKEN='904128728:AAHJSnL1otOg7LycKyyRFlChVSaiGyIqLks';//peppe
+    $GROUP_CHAT_ID_SUSYLEAGUE='-227538077';//peppe
 
-    // $CHAT_ID=$GROUP_CHAT_ID_SUSYLEAGUE;
+    $CHAT_ID=$GROUP_CHAT_ID_SUSYLEAGUE;
 
-    // $http_string="https://api.telegram.org/bot$BOT_TOKEN/sendmessage?";
-    // $http_string.="chat_id=" . $CHAT_ID;
-    // $http_string.="&text=" . urlencode($testo);
+    $http_string="https://api.telegram.org/bot$BOT_TOKEN/sendmessage?";
+    $http_string.="chat_id=" . $CHAT_ID;
+    $http_string.="&text=" . urlencode(utf8_encode($testo));
 
     /**************************************************************************************/
     //disabilito l'invio dei mesaggi telegram perche il provider 000webhost non li permette
     /**************************************************************************************/
-    // $response = file_get_contents($http_string);
+    echo "<br> <br>".$http_string."<br>";
+    $response = file_get_contents($http_string);
         $response = "";
     }
     catch (Exception $e) {

@@ -4,7 +4,7 @@ include('send_message_post.php');
 echo "pippo";
 
 $date = date('m/d/Y h:i:s a', time());
-$testo="susyleague.000webhostapp.com";
+$testo="www.susyleague.it";
 $a=send_message_post($testo);
 echo $a;
 

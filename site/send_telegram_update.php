@@ -4,7 +4,7 @@ include_once ('send_message_post.php');
 
 function send_telegram_update() {
 
-	$avvisi=[24,6,1];
+	$avvisi=[24,4,1];
 	//$avvisi=range(0,150);
 
 	date_default_timezone_set('Europe/Rome');
@@ -41,10 +41,10 @@ function send_telegram_update() {
 		echo "mancano" . $diff;
 		foreach ($avvisi as $value) 
 		{
-			//echo "check $value";
+			
 			if (($diff<$value) and ($diff>$value-1))
 			{
-				//echo "trovato";
+				echo "trovato";
 				include_once "DB/calendario.php";
 				$descrizioneGiornata = getDescrizioneGiornata($giornata);
 				$testo="AVVISO: Mancano meno di $value ore alla chiusura delle partite $descrizioneGiornata. \n\n";
@@ -82,7 +82,7 @@ function send_telegram_update() {
 						$testo .= "$squadra, ";
 						// ++$j;
 					}
-					$testo .= "devono ancora inviare la formazione.\n\n Possono farlo qui: http://susyleague.000webhostapp.com/invio_formazione.php";
+					$testo .= "devono ancora inviare la formazione.\n\n Possono farlo qui: https://www.susyleague.it/invio_formazione.php";
 					echo $testo;		
 				}
 			$a=send_message_post($testo);
