@@ -21,7 +21,7 @@ $(document).ready(function(){
 	for (i=1; i<13; i++){ //i scorre le squadre
  	var dataString = 'id_squadra='+ i + '&id_giornata=' + id_giornata + '&giocatori=';
 		//console.log("datastring= " + dataString);
- 		for (j = 1; j < 20; j++) { //j scorre i giocatori
+ 		for (j = 1; j < 22; j++) { //j scorre i giocatori
 			var test = $("#row_"+ i + "_" + j);
 			var nome=test.find('td:eq(1)').text();
 			var squadra=test.find('td:eq(2)').text();
