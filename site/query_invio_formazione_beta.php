@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 					throw new Exception("Non si è autenticati per inviare la formazione");
 				}
 				if (count($titolari)!=11 || count($panchina)!=10){
-					throw new Exception("La formazione deve includere necessariamente 11 titolari e 8 riserve");
+					throw new Exception("La formazione deve includere necessariamente 11 titolari e 10 riserve");
 				}
 				
 				$formazione=array_merge ($titolari, $panchina);		
