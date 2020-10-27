@@ -9,7 +9,7 @@ function getDescrizioneGiornata($id)
     else if ($id>33 && $id<= 48)
     { $descrizioneGiornata ="Coppa Italia - Girone Narpini. Giornata ".(ceil (($id-33) /3));}
     else if ($id>48 && $id<= 63)
-    { $descrizioneGiornata ="Coppa Italia - Girone Gianluca. Giornata ".(ceil (($id-48) /3));}//(floor(($id-48)/3) + 1);}
+    { $descrizioneGiornata ="Coppa Italia - Girone Figurino. Giornata ".(ceil (($id-48) /3));}//(floor(($id-48)/3) + 1);}
     else if ($id == 64 )
     { $descrizioneGiornata ="Coppa Italia - Quarto 1 - Andata";}
     else if ($id == 65 )

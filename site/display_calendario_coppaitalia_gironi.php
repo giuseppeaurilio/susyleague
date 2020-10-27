@@ -64,7 +64,7 @@ foreach($giornate as $giornata){
 		echo '<div class=" ">';
     }
     else if($counter == 15 ){
-		echo '<h3>Girone Gianluca</h3>';    
+		echo '<h3>Girone Figurino</h3>';    
 		echo '<div class=" ">';
 	}
 	$commento ="";
