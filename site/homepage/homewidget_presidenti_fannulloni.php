@@ -23,7 +23,7 @@
         }  
         else
         {
-            echo "<div>";
+            echo "<div class='widgetcontent fannulloni'>";
             echo '<h3>
                     <div style="width:55%; display: inline-block;">Presidente</div>
                     <div style="width:20%; display: inline-block;text-align: center;">#G</div>

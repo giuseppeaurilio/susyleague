@@ -582,6 +582,7 @@ li.game{
   }
   .truncate {
     /* max-width: 120px; */
+    display: inline-block;
     max-width: 6em;
     white-space: nowrap;
     overflow: hidden;

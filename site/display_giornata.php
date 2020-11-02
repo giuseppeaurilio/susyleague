@@ -241,11 +241,11 @@ while ($row=$result_giornata->fetch_assoc()) {
 							// echo  ($row["sostituzione"] == 1  ? '<i class="fas fa-arrow-left" style="color:springgreen"></i>' : ""); 
 					?>	
 						<div class="<?php echo ($disable)? "disable": "" ?>">
-							<div class="<?php echo ($ritultatocalcolato) ? "truncate": "" ?> ">
+						<div >
 							<?php 
-								echo $row["nome"] .'('.$row["squadra_breve"] .")"
+								echo '<span class="truncate">'. $row["nome"] .'</span><span class="truncate">('.$row["squadra_breve"] .")</span>"
 							?>
-							</div>
+						</div>
 					</div>
 
 					<?php 
@@ -254,7 +254,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 					</td>
 					<td style="width:10%"> 
 						<?php 
-							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : ""); 
+							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : "&nbsp;"); 
 						?>
 					</td>
 					</tr>
@@ -394,24 +394,24 @@ while ($row=$result_giornata->fetch_assoc()) {
 						$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 				?>
 					<td >
-					<?php 
-							// echo  ($row["sostituzione"] == 1  ? '<i class="fas fa-arrow-left" style="color:springgreen"></i>' : ""); 
-					?>	
+						<?php 
+								// echo  ($row["sostituzione"] == 1  ? '<i class="fas fa-arrow-left" style="color:springgreen"></i>' : ""); 
+						?>	
 						<div class="<?php echo ($disable)? "disable": "" ?>">
-							<div class="<?php echo ($ritultatocalcolato) ? "truncate": "" ?> ">
-							<?php 
-								echo $row["nome"] .'('.$row["squadra_breve"] .")"
-							?>
+							<div >
+								<?php 
+									echo '<span class="truncate">'. $row["nome"] .'</span><span class="truncate">('.$row["squadra_breve"] .")</span>"
+								?>
 							</div>
-					</div>
+						</div>
 
-					<?php 
-							// echo ($row["voto"] == "" &&  $i < 11 ? '<i class="fas fa-arrow-right" style="color:red"></i>' : ""); 
-					?>
+						<?php 
+								// echo ($row["voto"] == "" &&  $i < 11 ? '<i class="fas fa-arrow-right" style="color:red"></i>' : ""); 
+						?>
 					</td>
 					<td style="width:10%"> 
 						<?php 
-							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : ""); 
+							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : "&nbsp;"); 
 						?>
 					</td>
 					

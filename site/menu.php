@@ -112,7 +112,15 @@ $anno=$row["valore"];
 	<div id="mainMenu" class="stellarnav">
 		<ul class="navbar">
 			<li><a href="/homepage/home.php"> <i class="fas fa-home"></i> Home</a></li>
-			<li><a href="/display_classifiche.php"><i class="fas fa-chart-line"></i> Classifiche</a></li>
+			<li><a href="/display_classifiche.php"><i class="fas fa-chart-line"></i> Classifiche</a>
+			<ul>
+				<li><a href="/display_classifiche.php?#tabs-1">Apertura</a></li>
+				<li><a href="/display_classifiche.php?#tabs-2">Chiusura</a></li>
+				<li><a href="/display_classifiche.php#tabs-3">Aggregate</a></li>
+				<li><a href="/display_classifiche.php#tabs-5">Coppa Italia - Gironi</a></li>
+				<li><a href="/display_classifiche.php?#tabs-7">Coppa delle coppe</a></li>
+			</ul>
+			</li>
 			<li><a href="#"><i class="fas fa-calendar-alt"></i> Calendari</a>
 			<ul>
 				<li><a href="/display_calendario.php?&id_girone=1">Apertura</a></li>

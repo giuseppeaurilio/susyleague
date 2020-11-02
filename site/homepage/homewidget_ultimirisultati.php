@@ -62,7 +62,7 @@
         $conn->next_result();
         // $num_ultimi=$result_ultimi->num_rows; 
         if(count($risultati) >0){
-            echo '<div>';
+            echo '<div class="widgetcontent ultimirisultati">';
             $counter +=count($risultati);
 
             $index=0;
