@@ -228,19 +228,19 @@ while($row = $result->fetch_assoc()){
 		Ordina per: 
 		<select name="ordinamento" id="ordinamento">			
 			<!-- <option value="" >-Ordinamento-</option> -->
-			<option value="mv-a" >Media voto ↑</option>
-			<option value="mv-d" >Media voto ↓</option>
-			<option value="fm-a" >Fantamedia ↑</option>
-			<option value="fm-d" selected>Fantamedia ↓</option>
-			<option value="pg-d">Partite giocate ↓</option>
-			<option value="gf-d">Gol fFatti ↓</option>
-			<option value="gs-d">Gol subiti ↓</option>
-			<option value="rp-d">Rigori parati ↓</option>
-			<option value="rc-d">Rigori calciati ↓</option>
-			<option value="ass-d">Assist ↓</option>
-			<option value="amm-d">Ammonizioni ↓</option>
-			<option value="esp-d">Espulsioni ↓</option>
-			<option value="aut-d">Autogol ↓</option>
+			<option value="mv-a" >Media voto &uarr;</option>
+			<option value="mv-d" >Media voto &darr;</option>
+			<option value="fm-a" >Fantamedia &uarr;</option>
+			<option value="fm-d" selected>Fantamedia &darr;</option>
+			<option value="pg-d">Partite giocate &darr;</option>
+			<option value="gf-d">Gol fFatti &darr;</option>
+			<option value="gs-d">Gol subiti &darr;</option>
+			<option value="rp-d">Rigori parati &darr;</option>
+			<option value="rc-d">Rigori calciati &darr;</option>
+			<option value="ass-d">Assist &darr;</option>
+			<option value="amm-d">Ammonizioni &darr;</option>
+			<option value="esp-d">Espulsioni &darr;</option>
+			<option value="aut-d">Autogol &darr;</option>
 		</select>
 		<input type="button" value="cerca" id="btnCerca">
 		<input type="button" value="reset" id="btnResetFiltri">    

@@ -515,11 +515,11 @@ $(document).on({
              - Ordina per: 
                 <select name="ordinamento" id="ordinamento">			
                     <!-- <option value="" >-Ordinamento-</option> -->
-                    <option value="ia-d" selected>indica appetibilita ↓</option>
-                    <option value="is-a" >indice squadra ↓</option>
-                    <option value="f-d" >fascia ↓</option>
-                    <option value="t-d">titolarita ↓</option>
-                    <option value="q-d">quotazione ↓</option>
+                    <option value="ia-d" selected>indica appetibilita &darr;</option>
+                    <option value="is-a" >indice squadra &darr;</option>
+                    <option value="f-d" >fascia &darr;</option>
+                    <option value="t-d">titolarita &darr;</option>
+                    <option value="q-d">quotazione &darr;</option>
                 </select>
                 <input type="button" value="cerca" id="btnCerca">
                 <input type="button" value="reset" id="btnResetFiltri">
