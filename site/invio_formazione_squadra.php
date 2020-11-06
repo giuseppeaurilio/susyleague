@@ -575,9 +575,9 @@ order by id_giornata desc
 LIMIT 5';
 
 $result_partite  = $conn->query($querypartite) or die($conn->error);
-
+include_once("DB/calendario.php");
 while ($row = $result_partite->fetch_assoc()) {
-	$descrizionepartita = $row["casa"].'-'.$row["ospite"];
+	$descrizionepartita = getDescrizioneGiornata($row["id_giornata"]).": ". $row["casa"].'-'.$row["ospite"];
 	$formazionedadb = "";
 	$queryformaz = 'SELECT id_posizione, id_giocatore
 	FROM `formazioni` WHERE id_giornata = '.$row["id_giornata"].' and id_squadra = '.$id_squadra.'
