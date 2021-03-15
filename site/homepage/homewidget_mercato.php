@@ -16,12 +16,14 @@
         $result->close();
         // $num_ultimi=$annunci->num_rows; 
         if(count($annunci) >0){
+            
+            echo "<div class='widgetcontent2 mercato'>";
             foreach($annunci as $annuncio)
             {
                 echo '<div style="background-color: rgba(255,255,255,0.8); border-bottom: solid 1px darkgray; ">'.$annuncio["squadra"].': '.$annuncio["testo"].'.('.date('d/m/Y', strtotime($annuncio["data"])).')</div>';
                 // echo '<hr>'; 
             }
-            
+            echo "</div>";
             // echo '<div>'.$annuncio["testo"].'</div>';
             // echo $num_ultimi;
             // print_r($annunci);
