@@ -326,7 +326,7 @@ body .widget div.fustiassegnati ul{
   padding: 0px;
   text-decoration: none;
   list-style: none;
-}
+} 
 body .widget div.fustiassegnati ul li{
   padding: 2px ;
   text-align: center;
@@ -343,7 +343,8 @@ body .widget div.fustiassegnaticontent .lista{
   position: absolute;
   top: 0;
   width: 100%;
-height: 100%;
+  height: 100%;
+  display:contents;
 }
 body .widget div.fusticoming
 {

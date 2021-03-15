@@ -28,7 +28,7 @@
         }  
         else
         {
-            echo "<div>";
+            echo "<div class='widgetcontent vincitori'>";
             $competizionecurrent = "";
             $index=0;
             foreach($vincitori as $vincitore)
@@ -43,7 +43,7 @@
                         </h3>';
                 }
 
-                echo "<div class='widgetcontent'>";
+                echo "<div >";
                 if($index%2== 0)
                         echo "<div class='result'>";
                     else
