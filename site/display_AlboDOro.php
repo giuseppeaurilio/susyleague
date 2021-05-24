@@ -26,6 +26,147 @@ $(document).ready(function(){
 	<div id="tabs-1">
 		<h3>Campionato Susy league</h3>
 		<div  class="content">
+		<div class="anno">2020/2021</div>
+			<div class="campionato">
+				<div class="competizione">
+					<div class="descrizione"> Finale Campionato </div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-shield-alt"></i> </div>
+							<div class="titolo">1°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-medal"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">Mettiti Più Lontano</div>
+							<div class="allenatore">(Figurino)</div>
+						</div>
+					</div>
+				</div>	
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Mettiti Più Lontano</div>
+							<div class="allenatore">(Figurino)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Crossa Pù</div>
+							<div class="allenatore">(Gianluca Puppi)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">Mettiti Più Lontano</div>
+							<div class="allenatore">(Figurino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Mettiti Più Lontano</div>
+							<div class="allenatore">(Figurino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Nuova Romanina</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">Mettiti Più Lontano</div>
+							<div class="allenatore">(Figurino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Campionato*</div>
+					<div class="vincitori">
+						
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">Ronie Merda</div>
+							<div class="allenatore">(Carletto)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Crossa Pu</div>
+							<div class="allenatore">(Gianluca Puppi)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">Mettiti Più Lontano</div>
+							<div class="allenatore">(Figurino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+					</div>
+				</div>		
+			</div>
 			<div class="anno">2019/2020</div>
 			<div class="campionato">
 				<div class="competizione">
