@@ -62,6 +62,10 @@ order by  md desc -->
 			5 a 5 Bono Coppi contro I NANI dal 1936 alla giornata 5 della Chiusura 19/20
 			<br>(Bono Coppi - I NANI 5-5)
 		</div>
+		<div class="descrizione">
+			6 a 4 Nuova Romanina contro Mandrake e Pomata nella Finale Coppa Italia 20/21
+			<br>(Nuova Romanina - mandrake e Pomata 6-4)
+		</div>
 	</div>
 
 	<!-- SELECT c.punti_casa, c.punti_ospiti, c.gol_casa, c.gol_ospiti, c.md_casa, c.md_ospite, GREATEST(c.md_casa, c.md_ospite) as md, c.id_giornata, g.id_girone, sqf.squadra as casa, sqf2.squadra as ospite
@@ -173,6 +177,12 @@ order by voto desc -->
 			<img src='https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/FELIPE.png' onerror='imgError(this);'> </img> 
 			<span >
 				Il giocatore FELIPE D. di Atletico ero na volta ha fatto registrare un fantapunteggio di 14 nella giornata 11 della  Chiusura 18/19
+			</span >
+		</div>
+		<div class="descrizione">
+			<img src='https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/HERNANDEZ-T.png' onerror='imgError(this);'> </img> 
+			<span >
+				Il giocatore Hernandez T. di AS Venere ha fatto registrare un fantapunteggio di 14 nella giornata 11 della  Chiusura 20/21
 			</span >
 		</div>
 	</div>
