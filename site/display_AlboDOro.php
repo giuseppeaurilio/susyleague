@@ -1144,6 +1144,23 @@ $(document).ready(function(){
 	<div id="tabs-2">
 		<h3>Coppa delle Coppe <span class="note"> (*prima edizione 2012)</span></h3>
 		<div class="content">
+			<div class="anno">2021</div>
+			<div class="coppacoppe">
+				<div class="vincitori competizione2">
+					<div class="primo">
+						<div><i class="fas fa-trophy"></i> </div>
+						<div class="titolo">1°</div>
+						<div class="squadra">Salsino Bello</div>
+						<div class="allenatore">(Filippo)</div>
+					</div>
+					<div class="secondo">
+						<div><i class="fas fa-medal"></i> </div>
+						<div class="titolo">2°</div>
+						<div class="squadra">Mandrake e Pomata</div>
+						<div class="allenatore">(Narpini-Iori)</div>
+					</div>
+				</div>
+			</div>
 			<div class="anno">2020</div>
 			<div class="coppacoppe">
 				<div class="vincitori competizione2">
@@ -1304,6 +1321,23 @@ $(document).ready(function(){
 	<div id="tabs-3">
 		<h3>Coppa Italia<span class="note"> (*prima edizione 2019/20)</span></h3>
 		<div class="content">
+			<div class="anno">2020/21</div>
+			<div class="coppaitalia">
+				<div class="vincitori competizione2">
+					<div class="primo">
+						<div><i class="fas fa-trophy"></i> </div>
+						<div class="titolo">1°</div>
+						<div class="squadra">Nuova Romanina</div>
+						<div class="allenatore">(Arky)</div>
+					</div>
+					<div class="secondo">
+					<div><i class="fas fa-medal"></i> </div>
+						<div class="titolo">2°</div>
+						<div class="squadra">Mandrake e Pomata</div>
+						<div class="allenatore">(Narpini-Iori)</div>
+					</div>
+				</div>
+			</div>
 			<div class="anno">2019/20</div>
 			<div class="coppaitalia">
 				<div class="vincitori competizione2">
@@ -1330,7 +1364,18 @@ $(document).ready(function(){
 			<div class="anno">2020/21</div>
 			<div class="supercoppa">
 				<div class="vincitori competizione2">
-					
+					<div class="primo">
+						<div><i class="fas fa-trophy"></i> </div>
+						<div class="titolo">1°</div>
+						<div class="squadra">Mettiti Più Lontano</div>
+						<div class="allenatore">(Figurino)</div>
+					</div>
+					<div class="secondo">
+					<div><i class="fas fa-medal"></i> </div>
+						<div class="titolo">2°</div>
+						<div class="squadra">SC Valle S. Andrea</div>
+						<div class="allenatore">(Rotondo)</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -1338,18 +1383,44 @@ $(document).ready(function(){
 	<div id="tabs-5">
 		<h3>Fustometro<span class="note"> (*prima edizione 2019/20)</span></h3>
 		<div class="content">
+			<div class="anno">2020/21</div>
+			<div class="Fustometro">
+				<div class="vincitori competizione2">
+					<span> <i class="fas fa-beer"></i> Arky: Eccesso di culo contro Filippo</span><br>	
+					<span> <i class="fas fa-beer"></i> Peppe: Chi decide chi debba essere rimesso sul gruppo?</span><br>	
+					<span> <i class="fas fa-beer"></i> Rotondo : Mi rimetti?</span><br>	
+					<span> <i class="fas fa-beer"></i> Rotondo : Voglio uscire da questo gruppo!</span><br>	
+					<span> <i class="fas fa-beer"></i> Iori: Meglio frocio</span><br>	
+					<span> <i class="fas fa-beer"></i> Iori: Che arbitro</span><br>	
+					<span> <i class="fas fa-beer"></i> Filippo: Scetticismo and "bivi de meno"</span><br>	
+					<span> <i class="fas fa-beer"></i> Arky: Fa gli scambi che capisce solo lui</span><br>	
+					<span> <i class="fas fa-beer"></i> Figurino: Fa gli scambi che fanno incazzare tutti</span><br>	
+					<span> <i class="fas fa-beer"></i> Filippo: Eccesso di opposizione</span><br>	
+					<span> <i class="fas fa-beer"></i> Rotondo: Falso fantapresidente</span><br>	
+					<span> <i class="fas fa-beer"></i> Dr clown: Clown</span><br>	
+					<span> <i class="fas fa-beer"></i> Iorio clown: Clown</span><br>	
+					<span> <i class="fas fa-beer"></i> Bomber Iorio: "... na sampata!"</span><br>	
+					<span> <i class="fas fa-beer"></i> Architetto: PerchÃ¨ oggi i Tribunali so aperti!</span><br>	
+					<span> <i class="fas fa-beer"></i> Presidente : PerchÃ© non va alla messa</span><br>	
+					<span> <i class="fas fa-beer"></i> Rotondo : Presidente vero e presidente ombra</span><br>	
+					<span> <i class="fas fa-beer"></i> Rotondo: Accessorio indispensabile (tipo cambiamonete)</span><br>	
+					<span> <i class="fas fa-beer"></i> Rotondo: Eccesso di simpatia</span> 
+				</div>
+				
+			</div>
 			<div class="anno">2019/20</div>
 			<div class="Fustometro">
 				<div class="vincitori competizione2">
-				<div> <i class="fas fa-beer"></i> Arky: il fantacalcio non si abbandona mai!!!</div>
-				<div> <i class="fas fa-beer"></i> Filippo: perche è il presidente vi vuole bene</div>
-				<div> <i class="fas fa-beer"></i> Presidente: perche è il presidente vi vuole bene</div>
-				<div> <i class="fas fa-beer"></i> Daniele "Simpatia" Rontondo</div>
-				<div> <i class="fas fa-beer"></i> Salsino uccellino canterino</div>
-				<div> <i class="fas fa-beer"></i> Arky</div>
-				<div> <i class="fas fa-beer"></i> Daniele Rotondo</div>
-				<div> <i class="fas fa-beer"></i> Andrea rotondo (3)</div>
-				<div> <i class="fas fa-beer"></i> Filippo pagliarella</div>
+				
+					<span> <i class="fas fa-beer"></i> Arky: il fantacalcio non si abbandona mai!!!</span><br>	
+					<span> <i class="fas fa-beer"></i> Filippo: perche è il presidente vi vuole bene</span><br>	
+					<span> <i class="fas fa-beer"></i> Presidente: perche è il presidente vi vuole bene</span><br>	
+					<span> <i class="fas fa-beer"></i> Daniele "Simpatia" Rontondo</span><br>	
+					<span> <i class="fas fa-beer"></i> Salsino uccellino canterino</span><br>	
+					<span> <i class="fas fa-beer"></i> Arky</span><br>	
+					<span> <i class="fas fa-beer"></i> Daniele Rotondo</span><br>	
+					<span> <i class="fas fa-beer"></i> Andrea rotondo (3)</span><br>	
+					<span> <i class="fas fa-beer"></i> Filippo pagliarella</span><br>	
 				</div>
 			</div>
 		</div>
