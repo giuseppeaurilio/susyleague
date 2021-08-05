@@ -30,6 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$id_giornata=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_giornata']);//mysql_escape_String($_POST['id_giornata']);
 				$titolari=(!empty($_POST['titolari']))? $_POST['titolari'] : array();
 				$panchina=(!empty($_POST['panchina']))? $_POST['panchina'] : array();
+				$default=(!empty($_POST['default']))? $_POST['default'] : 'false';
+				$all=(!empty($_POST['all']))? $_POST['all'] : '';
 
 				date_default_timezone_set('Europe/Rome');
 				$adesso = date('Y-m-d H:i:s');
@@ -89,26 +91,48 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 				foreach ($giocatoriformazione as $value) 
 				{	
-					
 					$index++;
-					// print_r($value);
-					if($index == 22)
-					{						
-						$query_ini = "REPLACE INTO `formazioni`(`dasdsa`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
-						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
-					}
-					else
-					{
-						$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
-						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;						
-					}
+					$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
+					VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;						
+					
 					// $query .=$query_ini;
 					if(!$conn->query($query_ini))
 					{
-							// $message .="passako" .$index++."<br>";
-							// $message .=$result;
-							// $message .=$conn->error;
 							throw new Exception($conn->error);
+					}
+
+					// //salvo l'ultima formazione inviata
+					// $query_last = "REPLACE INTO `formazione_standard`( `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`,  `id_tipo_formazione`) 
+					// VALUES (" . $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "', 2);" ;						
+					
+					// // $query .=$query_ini;
+					// if(!$conn->query($query_last))
+					// {
+					// 		throw new Exception($conn->error);
+					// }
+
+					//salvo come formazione di default
+					if($default == "true")
+					{
+						$query_default = "REPLACE INTO `formazione_standard`( `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`,  `id_tipo_formazione`) 
+						VALUES (" . $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "', 1);" ;
+						// $query .=$query_ini;
+						if(!$conn->query($query_default))
+						{
+								throw new Exception($conn->error);
+						}
+					}
+
+					//salvo per tutte le partite in corso.
+					if($all == "true")
+					{
+						// $query_default = "REPLACE INTO `formazione_standard`( `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`,  `id_tipo_formazione`) 
+						// VALUES (" . $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "', 1);" ;
+						// // $query .=$query_ini;
+						// if(!$conn->query($query_default))
+						// {
+						// 		throw new Exception($conn->error);
+						// }
 					}
 				}
 				$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_casa =$id_squadra ;";
@@ -122,42 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 						throw new Exception($conn->error);
 				}
 				$message .= "Formazione inviata\n";
-				// //  echo $query;
-				// $resultmq=$conn->multi_query($query);
 				
-				// // $resultmq->close();
-				// while(mysqli_next_result($conn)){;}
-
-				// if ($conn->multi_query($query)) {
-					
-				// 	$i=0;
-				// 	$message .="passa" .$i++."<br>";
-				// 	do {
-				// 		/* store first result set */
-				// 		if ($result = $conn->store_result()) {
-				// 			// while ($row = $result->fetch_row()) {
-				// 			// 	// printf("%s\n", $row[0]);
-				// 			// }
-				// 			$message .="passaok" .$i++ ."<br>";
-				// 			$message .=$result;
-				// 			$result->free();
-				// 		}
-				// 		else
-				// 		{
-				// 			$message .="passako" .$i++."<br>";
-				// 			$message .=$result;
-				// 			$message .=$conn->error;
-				// 		}
-				// 	} while ($conn->next_result());
-				// 	$message .= "Formazione inviata\n";
-				// }
-				// else
-				// {
-				// 	$message .=$conn->error;	
-				// }
-				// print_r($result);
-				
-				// echo $message;	
 				
 				//se invio il messaggio telegram 
 				$index =0;
@@ -211,7 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$text .= "TITOLARI (" . $textmodulo .")\n". $textformazione . "\n" ."A DISPOSIZIONE (" . $textmodulopanchina . ")\n". $textformazionepanchina;
 				// echo $text;
 				// print_r($text);
-				$a=send_message_post($text);
+				// $a=send_message_post($text);
 
 				$message .= "Messaggio telegram inviato \n";
 

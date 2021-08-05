@@ -65,6 +65,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	//echo "<br> query formazione casa= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
 	$giocatoricasa = array();
+	$formazioneDefaultCasa = false;
 	while ($row=$result_formazione->fetch_assoc()) {
 		array_push($giocatoricasa, array(
 			"nome"=> $row["nome"],
@@ -76,7 +77,77 @@ while ($row=$result_giornata->fetch_assoc()) {
 			)
 		);
 	}
+	if (count($giocatoricasa) == 0){
+		$formazioneDefaultCasa = true;
+		$query_formazione_default="SELECT b.nome, b.ruolo, c.squadra_breve
+		FROM formazione_standard as a 
+		inner join giocatori as b 
+		inner join squadre_serie_a as c 
+		where a.id_squadra= '". $id_casa ."'  
+		and a.id_giocatore=b.id 
+		and a.id_squadra_sa=c.id ";
+		//echo "<br> query formazione casa= " . $query_formazione;
+		$result_formazione_default=$conn->query($query_formazione_default);
+		// $giocatoridefault = array();
+		while ($row=$result_formazione_default->fetch_assoc()) {
+			array_push($giocatoricasa, array(
+				"nome"=> $row["nome"],
+				"squadra_breve"=>$row["squadra_breve"],
+				"ruolo"=>$row["ruolo"],
+				"voto"=>"",
+				"voto_md"=>"",
+				"sostituzione"=>""
+				)
+			);
+		}
+		// print_r($giocatoridefault);
+	}
 	
+	?>
+
+	<?php
+	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione FROM formazioni as a inner join giocatori as b inner join squadre_serie_a as c where a.id_giornata='" . $id_giornata . "' and a.id_squadra= '". $id_ospite ."' and a.id_giocatore=b.id and a.id_squadra_sa=c.id ";
+
+	//echo "<br> query formazione ospite= " . $query_formazione;
+	$result_formazione=$conn->query($query_formazione);
+	$giocatoritraferta = array();
+	$formazioneDefaultOspite = false;
+	while ($row=$result_formazione->fetch_assoc()) {
+		array_push($giocatoritraferta, array(
+			"nome"=> $row["nome"],
+			"squadra_breve"=>$row["squadra_breve"],
+			"ruolo"=>$row["ruolo"],
+			"voto"=>$row["voto"],
+			"voto_md"=>$row["voto_md"],
+			"sostituzione"=>$row["sostituzione"]
+			)
+		);
+	}
+	if (count($giocatoritraferta) == 0){
+		$formazioneDefaultOspite = true;
+		$query_formazione_default="SELECT b.nome, b.ruolo, c.squadra_breve
+		FROM formazione_standard as a 
+		inner join giocatori as b 
+		inner join squadre_serie_a as c 
+		where a.id_squadra= '". $id_ospite ."'  
+		and a.id_giocatore=b.id 
+		and a.id_squadra_sa=c.id ";
+		// echo "<br> query_formazione_default= " . $query_formazione_default;
+		$result_formazione_default=$conn->query($query_formazione_default);
+		// $giocatoridefault = array();
+		while ($row=$result_formazione_default->fetch_assoc()) {
+			array_push($giocatoritraferta, array(
+				"nome"=> $row["nome"],
+				"squadra_breve"=>$row["squadra_breve"],
+				"ruolo"=>$row["ruolo"],
+				"voto"=>"",
+				"voto_md"=>"",
+				"sostituzione"=>""
+				)
+			);
+		}
+		// print_r($giocatoridefault);
+	}
 	?>
 	<!-- <h3 class="caption_style" style="text-align: center;">
 		<div style="width:40%; display:inline-block;"><?php echo $sq_casa; ?> </div>
@@ -87,9 +158,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<div id="tabellino">
 		<table>
 			<tr>
-				<th style="width:35%"><?php echo $sq_casa; ?></th>
+				<th style="width:35%"><?php echo $sq_casa; echo ($formazioneDefaultCasa? "*" : ""); ?></th>
 				<th><?php echo $gol_casa; ?> - <?php echo $gol_ospite; ?></th>
-				<th style="width:35%"><?php echo $sq_ospite; ?></th>
+				<th style="width:35%"><?php echo $sq_ospite; echo ($formazioneDefaultOspite? "*" : "");?></th>
 			</tr>
 			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
 				<td><?php echo $gol_casa; ?> </td>
@@ -266,24 +337,8 @@ while ($row=$result_giornata->fetch_assoc()) {
 			</table>
 		</div>
 
-	<?php
-	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione FROM formazioni as a inner join giocatori as b inner join squadre_serie_a as c where a.id_giornata='" . $id_giornata . "' and a.id_squadra= '". $id_ospite ."' and a.id_giocatore=b.id and a.id_squadra_sa=c.id ";
-
-	//echo "<br> query formazione ospite= " . $query_formazione;
-	$result_formazione=$conn->query($query_formazione);
-	$giocatoritraferta = array();
-	while ($row=$result_formazione->fetch_assoc()) {
-		array_push($giocatoritraferta, array(
-			"nome"=> $row["nome"],
-			"squadra_breve"=>$row["squadra_breve"],
-			"ruolo"=>$row["ruolo"],
-			"voto"=>$row["voto"],
-			"voto_md"=>$row["voto_md"],
-			"sostituzione"=>$row["sostituzione"]
-			)
-		);
-	}
-	?>
+	
+	
 		
 		<div class="ui-block-b" style="float:right;">
 		<!-- <h3 class="caption_style" style="text-align: center;"><?php echo $sq_ospite; ?></h3> -->
@@ -427,6 +482,8 @@ while ($row=$result_giornata->fetch_assoc()) {
 <hr style="display: inline-block;width: 100%;">
 <?php
 ++$j;
+if($formazioneDefaultCasa || $formazioneDefaultOspite){
+echo "<div style=\"text-align: center;\"><i>* formazione di default</i></div>";}
 echo '</div>';
 } # end incontri
 ?>

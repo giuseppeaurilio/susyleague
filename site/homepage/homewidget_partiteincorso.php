@@ -20,7 +20,9 @@
 
         
         $query="SELECT g.id_giornata, sqf1.squadra as sq_casa, sqf2.squadra as sq_ospite, 
-        c.gol_casa, c.gol_ospiti as gol_ospite, c.punti_casa as voto_casa, c.punti_ospiti as voto_ospite
+        c.gol_casa, c.gol_ospiti as gol_ospite, c.punti_casa as voto_casa, c.punti_ospiti as voto_ospite,
+        c.formazione_casa_inviata as luc, 
+        c.formazione_ospite_inviata as luo
         FROM giornate as g 
         left join calendario as c on g.id_giornata =  c.id_giornata
         left  join sq_fantacalcio as sqf1 on sqf1.id=c.id_sq_casa 
@@ -47,6 +49,8 @@
                 "id_giornata" =>$row["id_giornata"],
                 "sq_casa"=>$row["sq_casa"],
                 "sq_ospite"=>$row["sq_ospite"],
+                "luc"=>$row["luc"],
+                "luo"=>$row["luo"]
                 )
             );
         }
@@ -75,9 +79,21 @@
                 echo '<div class="result">';
                 else
                 echo '<div class="result alternate" >';
-                echo '<div style="text-align:center;"><div style="width:40%; display:inline-block;">'. $partita["sq_casa"].'</div>
-                <div style="width:10%; display:inline-block;">-</div>
-                <div style="width:40%; display:inline-block;">'. $partita["sq_ospite"].'</div>
+                echo '<div style="text-align:center;"><div style="width:46%; display:inline-block; text-align:right;">'. $partita["sq_casa"]
+                . ($partita["luc"] == 1 ? 
+                '<i class="far fa-check-circle" style="color:lightgreen;float:right;"></i> '
+                : (($partita["luc"] == 2 ? 
+                '<i class="far fa-check-circle" style="color:lightyellow;float:right;"></i> '
+                : '<i class="far fa-check-circle" style="color:deepskyblue;float:right;"></i> ') )
+                ).'</div>
+                <div style="width:5%; display:inline-block;">-</div>
+                <div style="width:46%; display:inline-block; text-align:left;">'
+                . ($partita["luo"] == 1 ? 
+                    '<i class="far fa-check-circle" style="color:lightgreen;float:left;"></i> '
+                    : (($partita["luo"] == 2 ? 
+                    '<i class="far fa-check-circle" style="color:lightyellow;float:left;"></i> '
+                    : '<i class="far fa-check-circle" style="color:deepskyblue;float:left;"></i> ') )
+                ). $partita["sq_ospite"].'</div>
                 </div>';
                 
                 echo '</div>';

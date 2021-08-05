@@ -1,0 +1,1 @@
+CREATE TABLE `formazione_standard` ( `id_squadra` INT NOT NULL , `id_giocatore` INT NOT NULL , `id_posizione` INT NOT NULL , `id_squadra_sa` INT NOT NULL , `id_tipo_formazione` INT NOT NULL )

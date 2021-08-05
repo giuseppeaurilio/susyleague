@@ -43,7 +43,7 @@
         $queryprox="SELECT g.id_giornata, sqf1.squadra as sq_casa, 
         sqf2.squadra as sq_ospite,
         c.formazione_casa_inviata as luc, 
-         c.formazione_ospite_inviata as luo
+        c.formazione_ospite_inviata as luo
     
         FROM giornate as g 
         left join calendario as c on g.id_giornata =  c.id_giornata

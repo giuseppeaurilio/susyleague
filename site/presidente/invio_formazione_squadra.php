@@ -27,7 +27,24 @@ resetFormazione = function(){
 	});
 };
 
-
+setFormazioneDefault = function(){
+	resetFormazione();
+	var value =$("#hfFormazioneDefault").val();
+	if(value!=0)
+	{
+		var giocatori= value.split('.');
+		// alert(giocatori[0]);
+		for( index = 0; index< 11; index++)
+			{
+				$("#div" + giocatori[index].split('_')[1]).trigger('click');
+			}
+		for( index = 11; index< 21; index++)
+			{
+				$("#div" + giocatori[index].split('_')[1]).trigger('click');
+				$("#div" + giocatori[index].split('_')[1]).trigger('click');
+			}
+	}
+};
 
 impostaFormazione = function()
 {
@@ -499,6 +516,7 @@ $(document).ready(function(){
 	$('#ddlUltimeFormazioni').off("change").bind("change", impostaFormazione);
 	$('.giocatorecontainer').off("click").bind("click", selezionaGiocatore);
 	$("#divInvia").off("click").bind("click",inviaFormazione);
+	$('#btnFormazioneDefault').off("click").bind("click", setFormazioneDefault);
 
 	resetFormazione();
 	var value =$("#hfSquadraInserita").val();
@@ -626,6 +644,23 @@ while ($row = $result_partite->fetch_assoc()) {
 	?>
 
 	<input type="button" id="btnReset" value="Reset Formazione"/>
+
+	<?php
+	$queryformazionedefault = 'SELECT `id_giocatore`,`id_posizione`,`id_squadra_sa`
+	FROM `formazione_standard` WHERE id_tipo_formazione = 1 and id_squadra = '.$id_squadra.'
+	order by id_posizione';
+	
+	$resultformazionedefault  = $conn->query($queryformazionedefault) or die($conn->error);
+	$formazionedefault= "";
+	while ($row = $resultformazionedefault->fetch_assoc()) {
+		$formazionedefault.=$row["id_posizione"].'_'.$row["id_giocatore"].'.';
+	}
+	// $formazionedefault="1_2211.2_2633.3_2164.4_554.5_4895.6_662.7_4965.8_428.9_536.10_2011.11_4992.12_2178.13_142.14_4331.15_2525.16_530.17_2625.18_1987.19_4324.20_2762.21_608.";
+	
+	echo '<input type="hidden" id="hfFormazioneDefault" value="'. $formazionedefault .'"></input>';
+	 
+	?>
+	<input type="button" id="btnFormazioneDefault" value="Formazione Default"/>
 </div>
 
 <?php

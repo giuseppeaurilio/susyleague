@@ -27,7 +27,24 @@ resetFormazione = function(){
 	});
 };
 
-
+setFormazioneDefault = function(){
+	resetFormazione();
+	var value =$("#hfFormazioneDefault").val();
+	if(value!=0)
+	{
+		var giocatori= value.split('.');
+		// alert(giocatori[0]);
+		for( index = 0; index< 11; index++)
+			{
+				$("#div" + giocatori[index].split('_')[1]).trigger('click');
+			}
+		for( index = 11; index< 21; index++)
+			{
+				$("#div" + giocatori[index].split('_')[1]).trigger('click');
+				$("#div" + giocatori[index].split('_')[1]).trigger('click');
+			}
+	}
+};
 
 impostaFormazione = function()
 {
@@ -446,6 +463,8 @@ inviaFormazione = function(){
 	});
 	titolari.sort( compare );
 	panchina.sort( compare );
+	var formazionedefault = document.getElementById("cbFormazioneDefault").checked;
+	var all = document.getElementById("cbSalvaPerTutte").checked;
 	var action ="inviaformazione";
 	$.ajax(
 	{
@@ -457,6 +476,8 @@ inviaFormazione = function(){
 				"id_giornata": id_giornata,
                 "titolari": titolari,
                 "panchina": panchina,
+				"default": formazionedefault,
+				"all": all,
                 
             },
 		cache: false,
@@ -498,7 +519,8 @@ $(document).ready(function(){
 	$('#ddlUltimeFormazioni').off("change").bind("change", impostaFormazione);
 	$('.giocatorecontainer').off("click").bind("click", selezionaGiocatore);
 	$("#divInvia").off("click").bind("click",inviaFormazione);
-
+	$('#btnFormazioneDefault').off("click").bind("click", setFormazioneDefault);
+	
 	resetFormazione();
 	var value =$("#hfSquadraInserita").val();
 	if(value!="")
@@ -566,18 +588,26 @@ if($numammcontr>0)
 		<option value="0">scegli...</option>
 	<!-- <option value="1">DEFAULT</option> -->
 <?php 
-$querypartite = 'SELECT id_giornata, sqc.squadra as casa, sqt.squadra as ospite
+// $querypartite = 'SELECT id_giornata, sqc.squadra as casa, sqt.squadra as ospite
+// FROM `calendario`  as c
+// left join sq_fantacalcio as sqc on c.id_sq_casa = sqc.id
+// left join sq_fantacalcio as sqt on c.id_sq_ospite = sqt.id
+// WHERE (id_sq_casa = '.$id_squadra.' OR id_sq_ospite ='.$id_squadra.') and gol_casa is not null
+// order by id_giornata desc
+// LIMIT 5';
+$querypartite ='SELECT c.id_giornata, sqc.squadra as casa, sqt.squadra as ospite, g.inizio, g.fine
 FROM `calendario`  as c
+left join giornate as g  on c.id_giornata = g.id_giornata
 left join sq_fantacalcio as sqc on c.id_sq_casa = sqc.id
 left join sq_fantacalcio as sqt on c.id_sq_ospite = sqt.id
 WHERE (id_sq_casa = '.$id_squadra.' OR id_sq_ospite ='.$id_squadra.') and gol_casa is not null
-order by id_giornata desc
+order by g.fine desc
 LIMIT 5';
 
 $result_partite  = $conn->query($querypartite) or die($conn->error);
 include_once("DB/calendario.php");
 while ($row = $result_partite->fetch_assoc()) {
-	$descrizionepartita = getDescrizioneGiornata($row["id_giornata"]).": ". $row["casa"].'-'.$row["ospite"];
+	$descrizionepartita = getDescrizioneBreveGiornata($row["id_giornata"]).": ". $row["casa"].'-'.$row["ospite"];
 	$formazionedadb = "";
 	$queryformaz = 'SELECT id_posizione, id_giocatore
 	FROM `formazioni` WHERE id_giornata = '.$row["id_giornata"].' and id_squadra = '.$id_squadra.'
@@ -586,7 +616,9 @@ while ($row = $result_partite->fetch_assoc()) {
 	while ($row = $formazione->fetch_assoc()) {
 		$formazionedadb.=$row["id_posizione"].'_'.$row["id_giocatore"].'.';
 	}
-		echo '<option value="'.$formazionedadb.'">'.$descrizionepartita.'</option> -->';
+	echo '<option value="'.$formazionedadb.'">'.$descrizionepartita.'</option>';
+
+	
 }
 ?>
 
@@ -611,6 +643,23 @@ while ($row = $result_partite->fetch_assoc()) {
 	?>
 
 	<input type="button" id="btnReset" value="Reset Formazione"/>
+
+	<?php
+	$queryformazionedefault = 'SELECT `id_giocatore`,`id_posizione`,`id_squadra_sa`
+	FROM `formazione_standard` WHERE id_tipo_formazione = 1 and id_squadra = '.$id_squadra.'
+	order by id_posizione';
+	
+	$resultformazionedefault  = $conn->query($queryformazionedefault) or die($conn->error);
+	$formazionedefault= "";
+	while ($row = $resultformazionedefault->fetch_assoc()) {
+		$formazionedefault.=$row["id_posizione"].'_'.$row["id_giocatore"].'.';
+	}
+	// $formazionedefault="1_2211.2_2633.3_2164.4_554.5_4895.6_662.7_4965.8_428.9_536.10_2011.11_4992.12_2178.13_142.14_4331.15_2525.16_530.17_2625.18_1987.19_4324.20_2762.21_608.";
+	
+	echo '<input type="hidden" id="hfFormazioneDefault" value="'. $formazionedefault .'"></input>';
+	 
+	?>
+	<input type="button" id="btnFormazioneDefault" value="Formazione Default"/>
 </div>
 
 <?php
@@ -761,6 +810,14 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 			<div id="riserve" style="background-color: rgba(170,170,170,0.2)">
 				<label for="panchina" >panchina = </label>
 				<label id="panchina" >  </label><br>
+			</div>
+			<div style="background-color: rgba(51,102,255,0.2); text-align: center; padding: 10px">
+				<label >Imposta come formazione di default: </label>
+				<input type="checkbox" id="cbFormazioneDefault"/>
+			</div>
+			<div style="background-color: rgba(170,170,170,0.2);text-align: center; padding: 10px; display: none;">
+				<label >Salva per tutte le competizioni: </label>
+				<input type="checkbox" id="cbSalvaPerTutte" />
 			</div>
 			<div id="divInvia" class="mainaction asabutton">Invia Formazione</div>
 
