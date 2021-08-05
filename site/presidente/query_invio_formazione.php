@@ -31,8 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$titolari=(!empty($_POST['titolari']))? $_POST['titolari'] : array();
 				$panchina=(!empty($_POST['panchina']))? $_POST['panchina'] : array();
 				
-				$ammcontrollata=preg_replace("/[^0-9]/", '', $_POST['ammcontrollata']);
-
+				$ammcontrollata=$_POST['ammcontrollata'];
+				// print_r($ammcontrollata);
+				
 				date_default_timezone_set('Europe/Rome');
 				$adesso = date('Y-m-d H:i:s');
 				$query="select fine from giornate where id_giornata=" . $id_giornata  . " and fine > '" . $adesso ."'";
@@ -121,18 +122,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				{
 						throw new Exception($conn->error);
 				}
-				$queryselect =  "SELECT * FROM `sq_fantacalcio` WHERE id =".$id_squadra;
-				$resultfindsquadra  = $conn->query($queryselect) or die($conn->error);
-				//devo aggiornare i contatori dell'amministrazione controllata
-				if($resultfindsquadra->num_rows != 0)
-				{
-					while ($row = $resultfindsquadra->fetch_assoc()) {
-						// print_r ($row);
-						$queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`= '.($row["ammcontrollata"] + 1).', `ammcontrollata_anno`= '.($row["ammcontrollata_anno"] + 1).'  WHERE id=' . $id_squadra;
+				// echo 'ammcontrollata ' . print_r($ammcontrollata);
+				if($ammcontrollata == "true"){
+					$queryselect =  "SELECT * FROM `sq_fantacalcio` WHERE id =".$id_squadra;
+					$resultfindsquadra  = $conn->query($queryselect) or die($conn->error);
+					//devo aggiornare i contatori dell'amministrazione controllata
+					if($resultfindsquadra->num_rows != 0)
+					{
+						while ($row = $resultfindsquadra->fetch_assoc()) {
+							// print_r ($row);
+							$queryupdate='UPDATE `sq_fantacalcio` SET `ammcontrollata`= '.($row["ammcontrollata"] + 1).', `ammcontrollata_anno`= '.($row["ammcontrollata_anno"] + 1).'  WHERE id=' . $id_squadra;
+							
+						}
 					}
+			
+					$resultac  = $conn->query($queryupdate) ;
 				}
-		
-				$resultac  = $conn->query($queryupdate) ;
 				$message .= "Formazione inviata\n";
 				
 				// $result->close();

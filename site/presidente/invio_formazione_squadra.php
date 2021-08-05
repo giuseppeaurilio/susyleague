@@ -459,7 +459,6 @@ inviaFormazione = function(){
                 "titolari": titolari,
 				"panchina": panchina,
 				"ammcontrollata": ammcontrollata,
-                
             },
 		cache: false,
 		success:function(data){
