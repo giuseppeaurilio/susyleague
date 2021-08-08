@@ -441,7 +441,8 @@ while ($row=$result_giornata->fetch_assoc()) {
 </div>
 
 
-<button type="button" id="btn_invia">Invia Voti</button>
+<!-- <button type="button" id="btn_invia">Invia Voti</button> -->
+<a href="amministra_voti.php?giornata_serie_a_id="<?php echo $id_giornata; ?>" >Voti</a>
 <input type="hidden" id="hfIdGirone" value='<?php echo $idgirone; ?>'>
 <button type="button" id="btn_calcola">Calcola Risultati</button>
 <button type="button" id="btn_cancella" data-idgiornata="<?php echo $id_giornata;?>" >Reset Risultati</button>
