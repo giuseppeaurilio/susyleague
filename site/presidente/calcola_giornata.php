@@ -6,6 +6,11 @@ $id_giornata=$_GET['id_giornata'];
 $id_girone=$_GET['id_girone'];
 ?>
 <script>
+	
+imgError = function(img){
+	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
+};
+
 inviaSostituzione= function (){
 	// debugger;
 	var id_giornata=$(this).attr( "data-id_giornata");
@@ -28,7 +33,7 @@ inviaSostituzione= function (){
 				"checked": checked, 
             },
             success:function(data){
-                modalPopupResult(data);
+                modalPopupResultHide(data);
             }
     }); 
 }
@@ -109,7 +114,7 @@ salvautilizzomd = function()
 				"home": home
             },
             success:function(data){
-                modalPopupResult(data);
+                modalPopupResultHide(data);
             }
     }); 
 }
@@ -139,8 +144,12 @@ $(document).ready(function(){
 
 </script>
 
-<h1> Calcolo Giornata <?php echo $id_giornata ;?> </h1>
-<a href="amministra_voti.php" >Voti</a>
+<h1> <?php
+include_once "../DB/calendario.php";
+$descrizioneGiornata = getDescrizioneGiornata($id_giornata);
+ echo $descrizioneGiornata 
+ ;?> </h1>
+<!-- <a href="amministra_voti.php" >Voti</a> -->
 <!-- <form action="upload_voti.php?idgiornata=<?php echo $id_giornata ;?>" method="post" enctype="multipart/form-data">
 <section>
 	<h1>Istruzioni</h1>
@@ -186,9 +195,8 @@ $result_giornata=$conn->query($query2);
 $num_giornata=$result_giornata->num_rows;
 $j=0;
 while ($row=$result_giornata->fetch_assoc()) {
-
 	$idgirone=$row["id_girone"];
-
+	$id_partita=$row["id_partita"];
 	$id_casa=$row["id_sq_casa"];
 	$id_ospite=$row["id_sq_ospite"];
 	$sq_casa=$row["sq_casa"];
@@ -207,240 +215,459 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$voto_totale_ospite = $voto_netto_ospite + $media_difesa_avversaria_ospite;//$row["tot_ospite"];
 	$gol_ospite = $row["gol_ospiti"];
 
-	$id_partita = $row["id_partita"];
 	$usemdcasa = $row["use_mdcasa"];
 	$usemdospite = $row["use_mdospite"];
 
-	$query_formazione="SELECT a.id_posizione, b.id, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto, gv.voto_md
+	$query_formazione="SELECT b.id,  gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione
 	FROM formazioni as a 
-	left join giocatori as b on a.id_giocatore=b.id 
-	left join squadre_serie_a as c on b.id_squadra =c.id 
+	inner join giocatori as b 
 	left join giocatori_voti as gv on b.id = gv.giocatore_id
-	where a.id_giornata=" . $id_giornata . "
-	and a.id_squadra= ". $id_casa ." order by a.id_posizione"; 
-	//  echo $query_formazione;
-	
-	// echo "<br> query formazione casa= " . $query_formazione;
+	inner join squadre_serie_a as c 
+	where a.id_giornata='" . $id_giornata . "' 
+	and a.id_squadra= '". $id_casa ."' 
+	and a.id_giocatore=b.id 
+	and  b.id_squadra =c.id order by a.id_posizione ";
+	// echo $query_formazione;
+	//echo "<br> query formazione casa= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
-	// print_r($result);
-	$num_giocatori=$result_formazione->num_rows;
-	$i=0;
-	?>
-	 <div class="ui-grid-a">
-		<div class="ui-block-a">
-	<table border=1  id="squadra_casa<?php echo $j;?>">
-	<caption class="caption_style"><?php echo $sq_casa; ?></caption>
-	<th style='background-color: white;' >&nbsp;</th>
-	<th width="50%" >Nome</th>
-	<th width="10%">&nbsp;</th>
-	<th width="10%">R</th>
-	<th width="10%">V</th>
-	<th width="10%">VN</th>
-	<th>&nbsp;</th>
-	<?php
+	$giocatoricasa = array();
+	$formazioneDefaultCasa = false;
 	while ($row=$result_formazione->fetch_assoc()) {
-	$ruolo_giocatore=$row["ruolo"];
+		array_push($giocatoricasa, array(
+			"id"=> $row["id"],
+			"nome"=> $row["nome"],
+			"squadra_breve"=>$row["squadra_breve"],
+			"ruolo"=>$row["ruolo"],
+			"voto"=>$row["voto"],
+			"voto_md"=>$row["voto_md"],
+			"sostituzione"=>$row["sostituzione"]
+			)
+		);
+	}	
 	?>
-        <tr id=row_<?php  echo $id_casa  . "_" . ($i+1);?> style="background-color: <?php switch ($ruolo_giocatore) {
-   	case "P":
-	   if($i<11)
-		   echo "rgba(102, 204, 51, 1)";
-	   else
-		   echo "rgba(102, 204, 51, 0.5)";
-	   break;
-   case "D":
-	   if($i<11)
-		   echo "rgba(51, 204, 204, 1)";
-	   else
-		   echo "rgba(51, 204, 204, 0.5)";
-	   break;
-   case "C":
-	   if($i<11)
-		   echo "rgba(255, 239, 0, 1)";
-	   else
-		   echo "rgba(255, 239, 0, 0.5)";
-	   break;
-	case "A":
-		if($i<11)
-		   echo "rgba(232, 0, 0, 1)";
-	   else
-		   echo "rgba(232, 0, 0, 0.5)";
-	   break;
-   default:
-	   echo "#FFFFFF";
-}
-?>
-">
-	<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate'style='width: auto;'> Titolari</div></td>";  } ?>
-	<?php if ($i==11) {echo "<td rowspan='10' style='background-color: rgba(51,102,255,0.2);'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>
-		<td><?php echo $row["nome"]; ?></td>
-		<td><?php echo $row["squadra_breve"]; ?></td>
-		<td><?php echo $row["ruolo"]; ?></td>
-		<td class="voto"><?php echo $row["voto"]; ?></td>
-		<td class="votomd"><?php echo $row["voto_md"]; ?></td>
-		<td class="sostituzione">
-			<?php  
-			if ($i<11) 
-			{echo "&nbsp;";}
-			else{
-				if($row["sostituzione"] == 1){
-					echo	"<input id=\"hf".$row["id"]."\" type='hidden' data-id_giocatore=\"".$row["id"]."\" value=\"1\"/>";
-				}
-				else{
-					echo	"<input id=\"hf".$row["id"]."\" type='hidden' data-id_giocatore=\"".$row["id"]."\" value=\"0\"/>";
-				}
-				echo	"<input class=\"cbFormazione\" id=\"cb".$row["id"]."\" type='checkbox'" 
-				. " data-id_giocatore=\"".$row["id"] ."\"" 
-				. " data-id_giornata=\"".$id_giornata ."\""
-				. " data-id_squadra=\"" .$id_casa ."\""
-				."/>";
-			}
-			?>
-		</td>
-		
-        </tr>
-        <?php
-        ++$i;
-	}#end giocatori casa
-	?>
-	
-	</table>
-	<p> addizionale = <?php echo $addizionalecasa; ?> </p>
-	<p> <input type="checkbox" class="usamd" id="cbmdcasa" 
-	<?php echo $usemdcasa  == "1" ? "checked": ""; ?>
-	data-home="1" 
-	data-squadra="<?php echo $id_casa; ?>" 
-	data-giornata="<?php echo $id_giornata;?>" 
-	data-partita="<?php echo $id_partita;?>"> calcola media difesa casa</input></p>
-	<p> giocatori con  voto = <?php echo $numero_giocanti_casa; ?> </p>
-	<p> voto netto = <?php echo $voto_netto_casa; ?> </p>
-	<p> media difesa = <?php echo $media_difesa_avversaria_casa; ?> </p>
-	<p> voto totale = <?php echo $voto_totale_casa; ?> </p>
-	<p> gol = <?php echo $gol_casa; ?> </p>
-	<a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_girone=<?php  echo $id_girone; ?>&id_squadra=<?php  echo $id_casa; ?>">Invia Formazione</a>
-		</div>
+
 	<?php
-	$query_formazione="SELECT a.id_posizione,b.id, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto, gv.voto_md
+	$query_formazione=
+	"SELECT b.id, gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione
 	FROM formazioni as a 
-	left join giocatori as b on a.id_giocatore=b.id 
-	left join squadre_serie_a as c on b.id_squadra =c.id 
+	inner join giocatori as b 
 	left join giocatori_voti as gv on b.id = gv.giocatore_id
-	where a.id_giornata=" . $id_giornata . "
-	and a.id_squadra= ". $id_ospite ." order by a.id_posizione"; 
+	inner join squadre_serie_a as c 
+	where a.id_giornata='" . $id_giornata . "' 
+	and a.id_squadra= '". $id_ospite ."' 
+	and a.id_giocatore=b.id 
+	and  b.id_squadra =c.id order by a.id_posizione ";
 
-	#echo "<br> query formazione ospite= " . $query_formazione;
+	//echo "<br> query formazione ospite= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
-	$num_giocatori=$result_formazione->num_rows;
-	$i=0;
-	?>
-		<div class="ui-block-b">
-	<table border=1  id="squadra_ospite<?php echo $j;?>">
-	<caption class="caption_style"><?php echo $sq_ospite; ?></caption>
-
-	<th style='background-color: white;' >&nbsp;</th>
-	<th width="50%" >Nome</th>
-	<th width="10%">&nbsp;</th>
-	<th width="10%">R</th>
-	<th width="10%">V</th>
-	<th width="10%">VN</th>
-	<th>&nbsp;</th>
-
-	<?php
+	$giocatoritraferta = array();
+	$formazioneDefaultOspite = false;
 	while ($row=$result_formazione->fetch_assoc()) {
-		$ruolo_giocatore=$row["ruolo"];
+		array_push($giocatoritraferta, array(
+			"id"=> $row["id"],
+			"nome"=> $row["nome"],
+			"squadra_breve"=>$row["squadra_breve"],
+			"ruolo"=>$row["ruolo"],
+			"voto"=>$row["voto"],
+			"voto_md"=>$row["voto_md"],
+			"sostituzione"=>$row["sostituzione"]
+			)
+		);
+	}
+	
 	?>
-		<tr id=row_<?php  echo $id_ospite  . "_" . ($i+1);?> style="background-color: <?php 
-		switch ($ruolo_giocatore) {
-	case "P":
-		if($i<11)
-			echo "rgba(102, 204, 51, 1)";
-		else
-			echo "rgba(102, 204, 51, 0.5)";
-		break;
-	case "D":
-		if($i<11)
-			echo "rgba(51, 204, 204, 1)";
-		else
-			echo "rgba(51, 204, 204, 0.5)";
-		break;
-    case "C":
-		if($i<11)
-			echo "rgba(255, 239, 0, 1)";
-		else
-			echo "rgba(255, 239, 0, 0.5)";
-		break;
-	 case "A":
-		 if($i<11)
-			echo "rgba(232, 0, 0, 1)";
-		else
-			echo "rgba(232, 0, 0, 0.5)";
-		break;
-    default:
-        echo "#FFFFFF";
-}
-?>
-">
-	<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate'style='width: auto;'> Titolari</div></td>";  } ?>
-	<?php if ($i==11) {echo "<td rowspan='10' style='background-color: rgba(51,102,255,0.2);'><div class='rotate' style='width: auto;'> Riserve </div></td>";  } ?>
-			<td><?php echo $row["nome"]; ?></td>
-			<td><?php echo $row["squadra_breve"]; ?></td>
-			<td><?php echo $row["ruolo"]; ?></td>
-			<td class="voto"><?php echo $row["voto"]; ?></td>
-			<td class="votomd"><?php echo $row["voto_md"]; ?></td>
-			<td class="sostituzione">
-				<?php  
-				if ($i<11) 
-				{echo "&nbsp;";}
-				else{
-					if($row["sostituzione"] == 1){
-						echo	"<input id=\"hf".$row["id"]."\" type='hidden' data-id_giocatore=\"".$row["id"]."\" value=\"1\"/>";
-					}
-					else{
-						echo	"<input id=\"hf".$row["id"]."\" type='hidden' data-id_giocatore=\"".$row["id"] ."\" value=\"0\"/>";
-					}
-					echo	"<input class=\"cbFormazione\" id=\"cb".$row["id"]."\" type='checkbox'" 
-					. " data-id_giocatore=\"".$row["id"] ."\"" 
-					. " data-id_giornata=\"".$id_giornata ."\""
-					. " data-id_squadra=\"" .$id_ospite ."\""
-					."/>";
-				}
-				?>
-			</td>
-        </tr>
-        <?php
-        ++$i;
-	}#end giocatori ospiti
-	?>
-	</table>
-	<p> addizionale = 0 </p>
-	<p> <input type="checkbox" class="usamd" id="cbmdospite" 
-	<?php echo $usemdospite  == "1" ? "checked": ""; ?>
-	data-home="0"
-	data-squadra="<?php echo $id_ospite; ?>" 
-	data-giornata="<?php echo $id_giornata;?>" 
-	data-partita="<?php echo $id_partita;?>"> calcola media difesa ospite</input></p>
-	<p> giocatori con  voto = <?php echo $numero_giocanti_ospite; ?> </p>
-	<p> voto netto = <?php echo $voto_netto_ospite; ?> </p>
-	<p> media difesa = <?php echo $media_difesa_avversaria_ospite; ?></p>
-	<p> voto totale = <?php echo $voto_totale_ospite; ?> </p>
-	<p> gol = <?php echo $gol_ospite; ?> </p>
- 	<a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_girone=<?php  echo $id_girone; ?>&id_squadra=<?php  echo $id_ospite; ?>">Invia Formazione</a> 
-
-		</div>
-
+	<div id="tabellino<?php echo $id_partita ?>" class="tabellino">
+		<table>
+			<tr>
+				<th style="width:35%"><?php echo $sq_casa; echo ($formazioneDefaultCasa? "*" : ""); ?></th>
+				<th><?php echo $gol_casa; ?> - <?php echo $gol_ospite; ?></th>
+				<th style="width:35%"><?php echo $sq_ospite; echo ($formazioneDefaultOspite? "*" : "");?></th>
+			</tr>
+			<tr style="  ">
+				<td><?php echo $gol_casa; ?> </td>
+				<td>GOL</td>
+				<td><?php echo $gol_ospite; ?> </td>
+			</tr>
+			<tr style="  ">
+				<td><?php echo $voto_netto_casa; ?> </td>
+				<td>VOTO NETTO</td>
+				<td><?php echo $voto_netto_ospite; ?> </td>
+			</tr>
+			<tr style="  ">
+				<td><?php echo $addizionalecasa; ?> </td>
+				<td>FATTORE CASA</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr style=" <?php echo ($ritultatocalcolato)? "": "display:none" ?>">
+				<td><?php echo $media_difesa_avversaria_casa; ?> </td>
+				<td>MEDIA DIFESA</td>
+				<td><?php echo $media_difesa_avversaria_ospite; ?></td>
+			</tr>
+			<tr style="  ">
+				<td><?php echo $voto_totale_casa; ?> </td>
+				<td>VOTO TOTALE</td>
+				<td><?php echo $voto_totale_ospite; ?></td>
+			</tr>
+			<tr style="  ">
+				<td><?php echo $numero_giocanti_casa; ?> </td>
+				<td># GIOCATORI</td>
+				<td><?php echo $numero_giocanti_ospite; ?></td>
+			</tr>
+			<tr>
+				<td>
+				<input type="checkbox" class="usamd" id="cbmdcasa" 
+					<?php echo $usemdcasa  == "1" ? "checked": ""; ?>
+					data-home="1" 
+					data-squadra="<?php echo $id_casa; ?>" 
+					data-giornata="<?php echo $id_giornata;?>" 
+					data-partita="<?php echo $id_partita;?>"> calcola media difesa casa</input></td>
+				<td>&nbsp;</td>
+				<td><input type="checkbox" class="usamd" id="cbmdospite" 
+					<?php echo $usemdospite  == "1" ? "checked": ""; ?>
+					data-home="0"
+					data-squadra="<?php echo $id_ospite; ?>" 
+					data-giornata="<?php echo $id_giornata;?>" 
+					data-partita="<?php echo $id_partita;?>"> calcola media difesa ospite</input></td>
+			</tr>
+			<tr>
+				<td>
+					<a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_girone=<?php  echo $id_girone; ?>&id_squadra=<?php  echo $id_casa; ?>">Invia Formazione</a>
+				</td>
+				<td>&nbsp;</td>
+				<td><a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_girone=<?php  echo $id_girone; ?>&id_squadra=<?php  echo $id_ospite; ?>">Invia Formazione</a> </td>
+			</tr>
+		</table>
 	</div>
-	<hr>
-	<?php
+	<div class="ui-grid-a">
+		
+		<div class="ui-block-a" style="float:left;">
+		<!-- <h3 class="caption_style" style="text-align: center;"><?php echo $sq_casa; ?></h3> -->
+			<table  id="squadra_casa_desk<?php echo $j;?>" class="desktop">
+				<!-- <caption class="caption_style"><?php echo $sq_casa; ?></caption> -->
+				<tr>
+					<th width="3%">CAS</th>
+					<th colspan="2" >Nome</th>
+					<th width="10%">R</th>
+					<th width="10%">V</th>
+					<th width="10%">VN</th>
+					<th width="10%">S</th>
+				</tr>
+				<?php
+				$i=0;
+				foreach ($giocatoricasa as $row){	
+						$ruolo_giocatore=$row["ruolo"];
+					?>
+				
+					<tr id=row_<?php  echo $id_casa  . "_" . ($i+1);?> style="background-color: <?php 
+					switch ($ruolo_giocatore) {
+						case "P":
+							echo "rgba(102, 204, 51, 1);";
+							break;
+						case "D":
+							echo "rgba(51, 204, 204, 1);";
+							break;
+						case "C":
+							echo "rgba(255, 239, 0, 1);";
+							break;
+						case "A":
+							echo "rgba(232, 0, 0, 1);";
+							break;
+						default:
+							echo "#FFFFFF;";
+							break;
+						}
+					$disable = false;
+					if(($gol_casa != "" && $gol_ospite != "") && (($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1)))
+						$disable = false;
+					else if (($gol_casa == "" && $gol_ospite == "") && ($i<11))
+						$disable = false;
+					else
+						$disable = true;
+					?>">
+						<?php
+							// echo $nome_giocatore;
+							$nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
+							// echo $nome_giocatore_pulito;
+							$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+						?>
+						<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate'> Titolari</div></td>";  } ?>
+						<?php if ($i==11) {echo "<td rowspan='10' style='background-color: rgba(51,102,255,0.4);'><div class='rotate' > Riserve </div></td>";  } ?>	
+						<!-- <td style="padding:0; width:3%" class="<?php echo ($disable)? "disable": "" ?>"><?php echo '<img  onerror="imgError(this);" style="width:20px; height:27px;" src='.$filename.'>';?></td> -->
+						<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
+						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
+						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
+						<td ><?php echo $row["voto"]; ?></td>
+						<td ><?php echo $row["voto_md"] ?></td>
+						<td class="sostituzione">
+							<?php  
+							if ($i<11) 
+							{echo "&nbsp;";}
+							else{
+								if($row["sostituzione"] == 1){
+									echo	"<input id=\"hf".$row["id"]."\" type='hidden' data-id_giocatore=\"".$row["id"]."\" value=\"1\"/>";
+								}
+								else{
+									echo	"<input id=\"hf".$row["id"]."\" type='hidden' data-id_giocatore=\"".$row["id"]."\" value=\"0\"/>";
+								}
+								echo	"<input class=\"cbFormazione\" id=\"cb".$row["id"]."\" type='checkbox'" 
+								. " data-id_giocatore=\"".$row["id"] ."\"" 
+								. " data-id_giornata=\"".$id_giornata ."\""
+								. " data-id_squadra=\"" .$id_casa ."\""
+								."/>";
+							}
+							?>
+						</td>
+					</tr>
+					<?php
+					++$i;
+				}#end giocatori casa
+				?>
 	
+			</table>
+			
+			<table  id="squadra_casa_mobile<?php echo $j;?>" class="mobile">
+				<!-- <caption class="caption_style"><?php echo $sq_casa; ?></caption> -->
+				<!-- <tr> 
+					<th >Giocatore</th>
+					<th width="15%">VOTO</th> 
+				</tr> -->
+				<?php
+				$i=0;
+				foreach ($giocatoricasa as $row){	
+						$ruolo_giocatore=$row["ruolo"];
+					?>
+				
+					<tr id=row_<?php  echo $id_casa  . "_" . ($i+1);?> style="background-color: <?php 
+					switch ($ruolo_giocatore) {
+						case "P":
+							echo "rgba(102, 204, 51, 1);";
+							break;
+						case "D":
+							echo "rgba(51, 204, 204, 1);";
+							break;
+						case "C":
+							echo "rgba(255, 239, 0, 1);";
+							break;
+						case "A":
+							echo "rgba(232, 0, 0, 1);";
+							break;
+						default:
+							echo "#FFFFFF;";
+							break;
+						}
+					$disable = false;
+					if(($gol_casa != "" && $gol_ospite != "") && (($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1)))
+						$disable = false;
+					else if (($gol_casa == "" && $gol_ospite == "") && ($i<11))
+						$disable = false;
+					else
+						$disable = true;
+					?>">
+						<?php
+							// echo $nome_giocatore;
+							$nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
+							// echo $nome_giocatore_pulito;
+							$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+						?>
+						<td >
+					<?php 
+							// echo  ($row["sostituzione"] == 1  ? '<i class="fas fa-arrow-left" style="color:springgreen"></i>' : ""); 
+					?>	
+						<div class="<?php echo ($disable)? "disable": "" ?>">
+						<div >
+							<?php 
+								echo '<span class="truncate">'. $row["nome"] .'</span><span class="truncate">('.$row["squadra_breve"] .")</span>"
+							?>
+						</div>
+					</div>
+
+					<?php 
+							// echo ($row["voto"] == "" &&  $i < 11 ? '<i class="fas fa-arrow-right" style="color:red"></i>' : ""); 
+					?>
+					</td>
+					<td style="width:10%"> 
+						<?php 
+							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : "&nbsp;"); 
+						?>
+					</td>
+					</tr>
+					<?php
+					++$i;
+				}#end giocatori casa
+				?>
+	
+			</table>
+		</div>
+
+	
+	
+		
+		<div class="ui-block-b" style="float:right;">
+		<!-- <h3 class="caption_style" style="text-align: center;"><?php echo $sq_ospite; ?></h3> -->
+			<table id="squadra_ospite_desk<?php echo $j;?>" class="desktop">
+				<!-- <caption class="caption_style"><?php echo $sq_ospite; ?></caption> -->
+				<th colspan="2" >Nome</th>
+				<th width="10%">R</th>
+				<th width="10%">V</th>
+				<th width="10%">VN</th>
+				<th width="3%">OSP</th>
+				<th width="10%">S</th>
+				<?php
+				$i=0;
+				foreach ($giocatoritraferta as $row){	
+					$ruolo_giocatore=$row["ruolo"];
+				?>
+					<tr id=row_<?php  echo $id_ospite  . "_" . ($i+1);?> style="background-color: <?php 
+					switch ($ruolo_giocatore) {
+						case "P":
+							echo "rgba(102, 204, 51, 1);";
+							break;
+						case "D":
+							echo "rgba(51, 204, 204, 1);";
+							break;
+						case "C":
+							echo "rgba(255, 239, 0, 1);";
+							break;
+						case "A":
+							echo "rgba(232, 0, 0, 1);";
+							break;
+						default:
+							echo "#FFFFFF;";
+							break;
+						}
+					$disable = false;
+					if(($gol_casa != "" && $gol_ospite != "") && (($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1)))
+						$disable = false;
+					else if (($gol_casa == "" && $gol_ospite == "") && ($i<11))
+						$disable = false;
+					else
+						$disable = true;
+				?>">
+				<?php
+						// echo $nome_giocatore;
+						$nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
+						// echo $nome_giocatore_pulito;
+						$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+				?>
+				
+					<!-- <td style="padding:0; width:3%" class="<?php echo ($disable)? "disable": "" ?>"><?php echo '<img  onerror="imgError(this);" style="width:20px; height:27px;" src='.$filename.'>';?></td> -->
+					<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
+					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
+					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
+					<td ><?php echo $row["voto"]; ?></td>
+					<td ><?php echo $row["voto_md"] ?></td>
+					<td class="sostituzione">
+							<?php  
+							if ($i<11) 
+							{echo "&nbsp;";}
+							else{
+								if($row["sostituzione"] == 1){
+									echo	"<input id=\"hf".$row["id"]."\" type='hidden' data-id_giocatore=\"".$row["id"]."\" value=\"1\"/>";
+								}
+								else{
+									echo	"<input id=\"hf".$row["id"]."\" type='hidden' data-id_giocatore=\"".$row["id"]."\" value=\"0\"/>";
+								}
+								echo	"<input class=\"cbFormazione\" id=\"cb".$row["id"]."\" type='checkbox'" 
+								. " data-id_giocatore=\"".$row["id"] ."\"" 
+								. " data-id_giornata=\"".$id_giornata ."\""
+								. " data-id_squadra=\"" .$id_ospite ."\""
+								."/>";
+							}
+							?>
+						</td>
+					<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate2'> Titolari</div></td>";  } ?>
+					<?php if ($i==11) {echo "<td rowspan='10' style='background-color: rgba(51,102,255,0.4);'><div class='rotate2'> Riserve </div></td>";  } ?>
+				</tr>
+					<?php
+					++$i;
+				}#end giocatori ospiti
+				?>
+			</table>
+
+			<table  id="squadra_ospite_mobile<?php echo $j;?>" class="mobile">
+				<!-- <caption class="caption_style"><?php echo $sq_ospite; ?></caption> -->
+				
+				<!-- <tr> 
+					<th >Giocatore</th>
+					<th width="15%">VOTO</th> 
+				</tr> -->
+
+				<?php
+				$i=0;
+				foreach ($giocatoritraferta as $row){	
+					$ruolo_giocatore=$row["ruolo"];
+				?>
+					<tr id=row_<?php  echo $id_ospite  . "_" . ($i+1);?> style="background-color: <?php 
+					switch ($ruolo_giocatore) {
+						case "P":
+							echo "rgba(102, 204, 51, 1);";
+							break;
+						case "D":
+							echo "rgba(51, 204, 204, 1);";
+							break;
+						case "C":
+							echo "rgba(255, 239, 0, 1);";
+							break;
+						case "A":
+							echo "rgba(232, 0, 0, 1);";
+							break;
+						default:
+							echo "#FFFFFF;";
+							break;
+						}
+					$disable = false;
+					if(($gol_casa != "" && $gol_ospite != "") && (($i<11 && $row["voto"] != "") ||  ($i>=11 && $row["sostituzione"] == 1)))
+						$disable = false;
+					else if (($gol_casa == "" && $gol_ospite == "") && ($i<11))
+						$disable = false;
+					else
+						$disable = true;
+				?>">
+				<?php
+						// echo $nome_giocatore;
+						$nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
+						// echo $nome_giocatore_pulito;
+						$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+				?>
+					<td >
+						<?php 
+								// echo  ($row["sostituzione"] == 1  ? '<i class="fas fa-arrow-left" style="color:springgreen"></i>' : ""); 
+						?>	
+						<div class="<?php echo ($disable)? "disable": "" ?>">
+							<div >
+								<?php 
+									echo '<span class="truncate">'. $row["nome"] .'</span><span class="truncate">('.$row["squadra_breve"] .")</span>"
+								?>
+							</div>
+						</div>
+
+						<?php 
+								// echo ($row["voto"] == "" &&  $i < 11 ? '<i class="fas fa-arrow-right" style="color:red"></i>' : ""); 
+						?>
+					</td>
+					<td style="width:10%"> 
+						<?php 
+							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : "&nbsp;"); 
+						?>
+					</td>
+					
+					
+				</tr>
+					<?php
+					++$i;
+				}#end giocatori ospiti
+				?>
+			</table>
+		</div>
+	
+<hr style="display: inline-block;width: 100%;">
+<?php
 ++$j;
-
-
-
+if($formazioneDefaultCasa || $formazioneDefaultOspite){
+echo "<div style=\"text-align: center;\"><i>* formazione di default</i></div>";}
+echo '</div>';
 } # end incontri
 ?>
-</div>
-
-
 <!-- <button type="button" id="btn_invia">Invia Voti</button> -->
 <a href="amministra_voti.php?giornata_serie_a_id="<?php echo $id_giornata; ?>" >Voti</a>
 <input type="hidden" id="hfIdGirone" value='<?php echo $idgirone; ?>'>

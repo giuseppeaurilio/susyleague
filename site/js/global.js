@@ -32,3 +32,15 @@ modalPopupResult = function(data){
         $( "#dialog" ).dialog({modal:true});
     }
 }
+modalPopupResultHide = function(data){
+    var resp=$.parseJSON(data)
+    if(resp.result == "true"){
+        //do nothing
+    }
+    else{
+        // $( "#dialog" ).dialog('destroy');
+        $( "#dialog" ).prop('title', "ERROR");                
+        $( "#dialog p" ).html(resp.error.msg);
+        $( "#dialog" ).dialog({modal:true});
+    }
+}
