@@ -39,16 +39,7 @@ include("menu.php");
                 url:'coppaitalia_c_salvagiorne.php',
                 data: dati,
                 success:function(data){
-                    // debugger;
-                    var resp=$.parseJSON(data)
-                    if(resp.result == "true"){
-                        alert(resp.message);
-                    }
-                    else{
-                        alert(resp.error.msg);
-                    }
-                    
-                    //$('#city').html('<option value="">Select state first</option>'); 
+                    modalPopupResult(data);
                 }
                 // ,error: function (xhr, ajaxOptions, thrownError) {
                 //     alert(xhr.responseText);
@@ -61,8 +52,16 @@ include("menu.php");
         var idsquadre = [];
         for (x = 1; x <= 6; x++) {
             var d = $("#sq_fcgir" + girone + x + " option:selected").val();
-            if(d == null || d == 0 ){
-                alert('selezionare tutte le squadre del girone')
+            var message = ""
+            
+            if(message == "" && (d == null || d == 0 ))
+                message = 'selezionare tutte le squadre del girone';
+    
+            if (message != "")
+            {
+                $( "#dialog" ).prop('title', "ERROR");                
+                $( "#dialog p" ).html(message);
+                $( "#dialog" ).dialog({modal:true});
                 return false;
             }
             idsquadre.push(d);
@@ -74,20 +73,8 @@ include("menu.php");
                 url:'coppaitalia_c_generacalendario.php',
                 data: {"girone": girone, "idsquadre": JSON.stringify(idsquadre)},
                 success:function(data){
-                    //debugger;
-                    var resp=$.parseJSON(data)
-                    if(resp.result == "true"){
-                        alert(resp.message);
-                    }
-                    else{
-                        alert(resp.error.msg);
-                    }
-                    
-                    //$('#city').html('<option value="">Select state first</option>'); 
+                    modalPopupResult(data);
                 }
-                // ,error: function (xhr, ajaxOptions, thrownError) {
-                //     alert(xhr.responseText);
-                // }
             });
     }
     showhideOption = function(){

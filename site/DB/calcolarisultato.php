@@ -94,8 +94,8 @@ class Partita
         $punteggiocasa = $this->calcolaRisultatoSquadra($this->idgiornata, $this->idcasa, $this->casamd);
         $punteggioospite = $this->calcolaRisultatoSquadra($this->idgiornata, $this->idospite, $this->ospitemd);
         include "../globalsettings.php"; 
-        if($boolprint) print("<pre>".print_r($punteggiocasa,true)."</pre>").'<br>';
-        if($boolprint) print("<pre>".print_r($punteggioospite,true)."</pre>").'<br>';
+        // if($boolprint) print("<pre>".print_r($punteggiocasa,true)."</pre>").'<br>';
+        // if($boolprint) print("<pre>".print_r($punteggioospite,true)."</pre>").'<br>';
 
         $punteggiototalecasa = $punteggiocasa->punteggio + $this->valorefattorecasa + ($this->usamediadifesa ?  $punteggioospite->mediadifesa: 0);
         $punteggiototaleospite = $punteggioospite->punteggio + ($this->usamediadifesa ?  $punteggiocasa->mediadifesa: 0);
@@ -118,12 +118,13 @@ class Partita
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $query = 'SELECT f.*, g.ruolo
+        $query = 'SELECT g.id as id_giocatore, g.ruolo, f.id_posizione,gv.voto, gv.voto_md, f.sostituzione
         FROM `formazioni`  f
         left join giocatori g on g.id = f.id_giocatore
+        left join giocatori_voti gv on gv.giocatore_id = g.id
         WHERE id_giornata =' . $idgiornata .
         ' and f.id_squadra =' . $idsquadra .
-            ' order by id_posizione';
+        ' order by id_posizione';
 
         $result=$conn->query($query);
         // if($boolprint) echo 'resultformazione'.print("<pre>".print_r($result,true)."</pre>").'<br>';
@@ -207,17 +208,17 @@ class Partita
                 }
             }
         }
-        if($boolprint) echo        'Squadra ID='. $idsquadra .' -> voti: ';
-        if($boolprint)   print("<pre>".print_r($arrayvoti,true)."</pre>").'<br>';
-        if($boolprint) echo        'Riserve portieri con voto';
-        if($boolprint)   print("<pre>".print_r($risporcv,true)."</pre>").'<br>';
-        if($boolprint) echo        'Riserve difensori con voto';
-        if($boolprint)   print("<pre>".print_r($risdifcv,true)."</pre>").'<br>';
-        if($boolprint) echo        'Riserve centrocampisti con voto';
-        if($boolprint)   print("<pre>".print_r($riscencv,true)."</pre>").'<br>';
-        if($boolprint) echo        'Riserve attaccanti con voto';
-        if($boolprint)   print("<pre>".print_r($risattcv,true)."</pre>").'<br>';
-        print_r($arrayvoti);
+        // if($boolprint) echo        'Squadra ID='. $idsquadra .' -> voti: ';
+        // if($boolprint)   print("<pre>".print_r($arrayvoti,true)."</pre>").'<br>';
+        // if($boolprint) echo        'Riserve portieri con voto';
+        // if($boolprint)   print("<pre>".print_r($risporcv,true)."</pre>").'<br>';
+        // if($boolprint) echo        'Riserve difensori con voto';
+        // if($boolprint)   print("<pre>".print_r($risdifcv,true)."</pre>").'<br>';
+        // if($boolprint) echo        'Riserve centrocampisti con voto';
+        // if($boolprint)   print("<pre>".print_r($riscencv,true)."</pre>").'<br>';
+        // if($boolprint) echo        'Riserve attaccanti con voto';
+        // if($boolprint)   print("<pre>".print_r($risattcv,true)."</pre>").'<br>';
+        // print_r($arrayvoti);
         $sostituzionifatte = 0;
         // if($boolprint) echo 'numvoti';
         // if($boolprint) print("<pre>".print_r($numvoti,true)."</pre>").'<br>';

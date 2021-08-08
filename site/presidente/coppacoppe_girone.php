@@ -3,41 +3,7 @@ include("menu.php");
 
 ?>
 <script>
-    // SalvaGirone = function(){
-    //     // alert($(this).attr('id'));
-    //     var idsquadre = [];
-        
-    //     for (x = 1; x <= 10; x++) {
-    //         var d = $("#sq_fc"  + x + " option:selected").val();
-    //         if(d == null || d == 0 ){
-    //             alert('selezionare tutte le squadre del girone')
-    //             return false;
-    //         }
-    //         idsquadre.push(d);
-    //     }
-    //     alert (dati);
-        
-    //     $.ajax({
-    //             type:'POST',
-    //             url:'coppacoppe_c_salvagiorone.php',
-    //             data: {"idsquadre": JSON.stringify(idsquadre)},
-    //             success:function(data){
-    //                 // debugger;
-    //                 var resp=$.parseJSON(data)
-    //                 if(resp.result == "true"){
-    //                     alert(resp.message);
-    //                 }
-    //                 else{
-    //                     alert(resp.error.msg);
-    //                 }
-                    
-    //                 //$('#city').html('<option value="">Select state first</option>'); 
-    //             }
-    //             // ,error: function (xhr, ajaxOptions, thrownError) {
-    //             //     alert(xhr.responseText);
-    //             // }
-    //     }); 
-    // }
+  
     GeneraCalendario = function(){
         var idsquadre = [];
         // for (x = 1; x <= 10; x++) {
@@ -59,16 +25,7 @@ include("menu.php");
                 url:'coppacoppe_c_generacalendario.php',
                 data: {"idsquadre": JSON.stringify(idsquadre)},
                 success:function(data){
-                    //debugger;
-                    var resp=$.parseJSON(data)
-                    if(resp.result == "true"){
-                        alert(resp.message);
-                    }
-                    else{
-                        alert(resp.error.msg);
-                    }
-                    
-                    //$('#city').html('<option value="">Select state first</option>'); 
+                    modalPopupResult(data);
                 }
                 // ,error: function (xhr, ajaxOptions, thrownError) {
                 //     alert(xhr.responseText);

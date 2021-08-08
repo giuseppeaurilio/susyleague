@@ -218,7 +218,8 @@ while($row = $result->fetch_assoc()){
 </h2>
 <h3 style="text-align:center">Anno:
 		<select name="anno" id="anno">			
-			<option value="20/21" selected>20/21</option>
+			<option value="20/21" selected>21/22</option>
+			<option value="20/21">20/21</option>
 			<option value="19/20">19/20</option>
 			<option value="18/19">18/19</option>
 			<option value="17/18">17/18</option>

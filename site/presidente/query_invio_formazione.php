@@ -95,13 +95,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 					// print_r($value);
 					if($index == 22)
 					{						
-						$query_ini = "REPLACE INTO `formazioni`(`dasdsa`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
-						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;
+						$query_ini = "REPLACE INTO `formazioni`(`dasdsa`, `id_squadra`, `id_posizione`, `id_giocatore`) 
+						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] .  "');" ;
 					}
 					else
 					{
-						$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`) 
-						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "');" ;						
+						$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore` ) 
+						VALUES (" . $id_giornata .",". $id_squadra . "," . $index . ",'" .$value["id"] . "');" ;						
 					}
 					// $query .=$query_ini;
 					if(!$conn->query($query_ini))

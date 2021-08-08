@@ -595,13 +595,14 @@ if($numammcontr>0)
 // WHERE (id_sq_casa = '.$id_squadra.' OR id_sq_ospite ='.$id_squadra.') and gol_casa is not null
 // order by id_giornata desc
 // LIMIT 5';
-$querypartite ='SELECT c.id_giornata, sqc.squadra as casa, sqt.squadra as ospite, g.inizio, g.fine
+$querypartite ='SELECT c.id_giornata, sqc.squadra as casa, sqt.squadra as ospite, ga.inizio, ga.fine
 FROM `calendario`  as c
 left join giornate as g  on c.id_giornata = g.id_giornata
+left join giornate_serie_a as ga on g.giornata_serie_a_id = ga.id 
 left join sq_fantacalcio as sqc on c.id_sq_casa = sqc.id
 left join sq_fantacalcio as sqt on c.id_sq_ospite = sqt.id
 WHERE (id_sq_casa = '.$id_squadra.' OR id_sq_ospite ='.$id_squadra.') and gol_casa is not null
-order by g.fine desc
+order by ga.fine desc
 LIMIT 5';
 
 $result_partite  = $conn->query($querypartite) or die($conn->error);

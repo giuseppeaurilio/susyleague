@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $action = $_POST['action'];
     switch($action)
     {
-        case("usemd"):
+        
+    case("usemd"):
 
             $id_giornata = $_POST['id_giornata'];
             $id_partita = $_POST['id_partita'];
@@ -45,7 +46,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 'message' => $action." eseguito",
             ));
             break;
-    
+        case("inviasostituzione"):
+
+            $id_giornata = $_POST['id_giornata'];
+            $id_squadra = $_POST['id_squadra'];
+            $id_giocatore = $_POST['id_giocatore'];
+            $checked = $_POST['checked'];
+            
+            $query= "UPDATE `formazioni` 
+                SET `sostituzione`=$checked 
+                WHERE `id_giocatore`=$id_giocatore
+                AND `id_giornata`=$id_giornata
+                AND `id_squadra`=$id_squadra";
+                // echo $query;
+            
+            if ($conn->query($query) === FALSE) {
+                //throw exception
+                echo $query;
+            }
+            echo json_encode(array(
+                'result' => "true",
+                'message' => $action." eseguito",
+            ));
+            break;
         default:
             echo json_encode(array(
                 'error' => array(

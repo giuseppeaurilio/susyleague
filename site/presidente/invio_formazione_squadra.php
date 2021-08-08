@@ -113,7 +113,7 @@ formazionerandom = function()
 		$(difensorer).trigger('click');
 		// console.log("dif"  + index);
 	}
-	for(var index = 1; index <= 2; index++)
+	for(var index = 1; index <= 3; index++)
 	{
 		var centro = $("#divCentrocampisti").find(".giocatorecontainer.tribuna");
 		var centror	= centro[Math.floor(Math.random()*centro.length)];
@@ -121,7 +121,7 @@ formazionerandom = function()
 		$(centror).trigger('click');
 		// console.log("cen"  + index);
 	}
-	for(var index = 1; index <= 2; index++)
+	for(var index = 1; index <= 3; index++)
 	{
 		var atta = $("#divAttaccanti").find(".giocatorecontainer.tribuna");
 		var attar	= atta[Math.floor(Math.random()*atta.length)];
@@ -646,7 +646,7 @@ while ($row = $result_partite->fetch_assoc()) {
 	<input type="button" id="btnReset" value="Reset Formazione"/>
 
 	<?php
-	$queryformazionedefault = 'SELECT `id_giocatore`,`id_posizione`,`id_squadra_sa`
+	$queryformazionedefault = 'SELECT `id_giocatore`,`id_posizione`
 	FROM `formazione_standard` WHERE id_tipo_formazione = 1 and id_squadra = '.$id_squadra.'
 	order by id_posizione';
 	

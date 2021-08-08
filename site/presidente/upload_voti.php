@@ -1,7 +1,7 @@
 <?php
-$idgiornata=$_GET['idgiornata'];
+// $idgiornata=$_GET['idgiornata'];
 // echo 'Giornata ' .$idgiornata .'<br/>';
-
+$idgiornata=$_POST['hfIdGiornata'];
 function parse_voti($filename, $idgiornata) {
 	// echo $filename;
 	if (($handle = fopen($filename, "r")) !== FALSE) {
@@ -17,8 +17,7 @@ function parse_voti($filename, $idgiornata) {
 				die("Connection failed: " . $conn->connect_error);
 			}
 
-			$queryresetVoti = 'UPDATE formazioni set voto = null, voto_md = null
-			where id_giornata = '.$idgiornata;
+			$queryresetVoti = 'DELETE FROM `giocatori_voti` WHERE `giornata_serie_a_id` = '.$idgiornata;
 			$result=$conn->query($queryresetVoti);// or die($conn->error);
 			if(!$result)
 			{
@@ -28,22 +27,22 @@ function parse_voti($filename, $idgiornata) {
 			else
 				echo 'Reset voti ok.<br/>';
 
-			$queryresetrisultati = 'UPDATE calendario 
-			set gol_casa = null, gol_ospiti = null,
-			punti_casa = null, punti_ospiti = null,
-			md_casa = 0, md_ospite = 0,
-			numero_giocanti_casa = 0, numero_giocanti_ospite = 0,
-			fattorecasa = null
-			where id_giornata = '.$idgiornata;
-			$result=$conn->query($queryresetrisultati); //or die($conn->error);
-			if(!$result)
-			{
-				// echo 'Reset risultati fallito: ' .$conn->error .'<br/>';
-				echo 'Reset risultati fallito: <br>';
-				throw new Exception($conn->error);
-			}
-			else
-				echo 'Reset risultati ok. <br/>';
+			// $queryresetrisultati = 'UPDATE calendario 
+			// set gol_casa = null, gol_ospiti = null,
+			// punti_casa = null, punti_ospiti = null,
+			// md_casa = 0, md_ospite = 0,
+			// numero_giocanti_casa = 0, numero_giocanti_ospite = 0,
+			// fattorecasa = null
+			// where id_giornata = '.$idgiornata;
+			// $result=$conn->query($queryresetrisultati); //or die($conn->error);
+			// if(!$result)
+			// {
+			// 	// echo 'Reset risultati fallito: ' .$conn->error .'<br/>';
+			// 	echo 'Reset risultati fallito: <br>';
+			// 	throw new Exception($conn->error);
+			// }
+			// else
+			// 	echo 'Reset risultati ok. <br/>';
 
 			$cod = 0;
 			$voto = 0;
@@ -93,9 +92,8 @@ function parse_voti($filename, $idgiornata) {
 					}
 					// echo print_r($data) .'<br>'; 
 					if( $voto != 0 && $votof != '' ){
-						$query = 'UPDATE `formazioni` 
-						SET `voto`="'.$votof.'",`voto_md`="'.$voto.'"
-						WHERE id_giornata= '.$idgiornata.' and id_giocatore = '.$cod.' '; 
+						$query = "INSERT INTO `giocatori_voti`(`giocatore_id`, `giornata_serie_a_id`, `voto`, `voto_md`) 
+                        VALUES ($cod,$idgiornata,$votof,$voto)";
 								//  print_r ($query);
 								//  echo '<br/> '; 
 						$result=$conn->query($query) ;//or die($conn->error);

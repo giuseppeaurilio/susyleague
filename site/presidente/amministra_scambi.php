@@ -118,32 +118,7 @@ doScambio= function(){
                 "note": note,
             },
             success:function(data){
-                // debugger;
-                var resp=$.parseJSON(data)
-                if(resp.result == "true"){
-                   var  buttons= [
-                                {
-                                text: "Ok",
-                                // icon: "ui-icon-heart",
-                                click: function() {
-                                        window.location.reload();
-                                    }
-                                }
-                            ]
-                    // $( "#dialog" ).dialog('destroy');
-                    $( "#dialog" ).prop('title', "Info");
-                    $( "#dialog p" ).html("Operazione eseguita.");
-                    $( "#dialog" ).dialog({modal:true, buttons: buttons});
-                    // resp.result => "Login eseguito",
-                }
-                else{
-                    // $( "#dialog" ).dialog('destroy');
-                    $( "#dialog" ).prop('title', "ERROR");                
-                    $( "#dialog p" ).html(resp.error.msg);
-                    $( "#dialog" ).dialog({modal:true});
-                }
-                
-                
+                modalPopupResult(data);
             }
     }); 
 }
@@ -222,22 +197,24 @@ $(document).ready(function(){
 </table>
 </script>
 <?php
-//load squadre fantacalcio
-$query="SELECT * FROM sq_fantacalcio order by squadra";
+// //load squadre fantacalcio
+// $query="SELECT * FROM sq_fantacalcio order by squadra";
 
-$result=$conn->query($query);
-$squadre = array();
-while($row = $result->fetch_assoc()){
-    // $id=mysql_result($result,$i,"id");
-    $id=$row["id"];
-    $squadra=$row["squadra"];
-    array_push($squadre, array(
-        "id"=>$id,
-        "squadra"=>$squadra
-        )
-    );
-}
-//fine load squadre fantacalcio
+// $result=$conn->query($query);
+// $squadre = array();
+// while($row = $result->fetch_assoc()){
+//     // $id=mysql_result($result,$i,"id");
+//     $id=$row["id"];
+//     $squadra=$row["squadra"];
+//     array_push($squadre, array(
+//         "id"=>$id,
+//         "squadra"=>$squadra
+//         )
+//     );
+// }
+// //fine load squadre fantacalcio
+include_once("..\DB/fantacalcio.php");
+$squadre = fantacalcio_getFantasquadre();
 ?>
 <h2>Gestione Scambi</h2>
 <div id="divNuovoScambio">

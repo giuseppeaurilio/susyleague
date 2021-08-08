@@ -1,117 +1,71 @@
+<script>
+redirectFormazioni = function(){
+    var idpartita = $(this).data("idpartita");
+    var idgiornata = $(this).data("idgiornata");
+    window.location.href = "/display_giornata.php?id_giornata=" + idgiornata + "#tabellino" + idpartita;
+}
+$(document).ready(function(){
+    $(".widget.incorso .partita").off("click").bind("click", redirectFormazioni);
+});
+</script>
 <div class="widget incorso">
     <h2>Partite in corso</h2>
     <?php
-    // $querylastdate   = "SELECT fine
-    // FROM `giornate` as g 
-    // left join calendario as c on g.id_giornata =  c.id_giornata
-    // where c.gol_casa is not null
-    // order by fine
-    // limit 1";
-    // $result=$conn->query($querylastdate) or die($conn->error);
-    // $res = $result->fetch_object();
-    // // print_r("res".$res);
-    // $lastdate = $res == "" ? "": $res->fine;
-
-    $result_prox = 0;
-    $num_prox = 0;
-    $counter = 0;
+    include_once("..\DB/serie_a.php");
+    include_once("..\DB/fantacalcio.php");
+    include_once "../DB/calendario.php";
     
-    for ($girone = 1; $girone <= 10; $girone++) {
-
-        
-        $query="SELECT g.id_giornata, sqf1.squadra as sq_casa, sqf2.squadra as sq_ospite, 
-        c.gol_casa, c.gol_ospiti as gol_ospite, c.punti_casa as voto_casa, c.punti_ospiti as voto_ospite,
-        c.formazione_casa_inviata as luc, 
-        c.formazione_ospite_inviata as luo
-        FROM giornate as g 
-        left join calendario as c on g.id_giornata =  c.id_giornata
-        left  join sq_fantacalcio as sqf1 on sqf1.id=c.id_sq_casa 
-        LEFT join sq_fantacalcio as sqf2 on sqf2.id=c.id_sq_ospite
-		where fine < DATE_ADD(NOW(), INTERVAL 0 HOUR)
-		and gol_casa is null
-        and id_girone = ".$girone ;
-        // echo $queryprox;
-        // echo '<br>';
-        $result=$conn->query($query);
-
-        // $num_prox=$result_prox->num_rows; 
-        // if($num_prox >0){
-        //     echo '<div>';
-        //     $counter +=$num_prox;
-        //     // echo $num_prox;
-        //      print_r($result_prox);
-        //     echo '<br>';
-        //     echo '</div>';
-        // }
-        $partite = array();
-        while($row = $result->fetch_assoc()){
-            array_push($partite, array(
-                "id_giornata" =>$row["id_giornata"],
-                "sq_casa"=>$row["sq_casa"],
-                "sq_ospite"=>$row["sq_ospite"],
-                "luc"=>$row["luc"],
-                "luo"=>$row["luo"]
-                )
-            );
-        }
-        $result->close();
-        $conn->next_result();
-
-
-        if(count($partite) >0){
-            echo "<div class='widgetcontent2 partiteincorso'>";
-            $counter +=count($partite);
-            // print_r($lastdate);
-            // echo '<br>';
-            $index=0;
-            $prev = "";
-            foreach($partite as $partita){
-                $id= $partita["id_giornata"];
-                include_once "../DB/calendario.php";
-                $descrizioneGiornata = getDescrizioneGiornata($id);
-                if($prev != $descrizioneGiornata)
-                {
-                    echo '<h3>'.$descrizioneGiornata.'</h3>';
-                    $prev = $descrizioneGiornata;
-                }
-                $index++;
-                if($index%2== 0)
-                echo '<div class="result">';
-                else
-                echo '<div class="result alternate" >';
-                echo '<div style="text-align:center;"><div style="width:46%; display:inline-block; text-align:right;">'. $partita["sq_casa"]
-                . ($partita["luc"] == 1 ? 
-                '<i class="far fa-check-circle" style="color:lightgreen;float:right;"></i> '
-                : (($partita["luc"] == 2 ? 
-                '<i class="far fa-check-circle" style="color:lightyellow;float:right;"></i> '
-                : '<i class="far fa-check-circle" style="color:deepskyblue;float:right;"></i> ') )
-                ).'</div>
-                <div style="width:5%; display:inline-block;">-</div>
-                <div style="width:46%; display:inline-block; text-align:left;">'
-                . ($partita["luo"] == 1 ? 
-                    '<i class="far fa-check-circle" style="color:lightgreen;float:left;"></i> '
-                    : (($partita["luo"] == 2 ? 
-                    '<i class="far fa-check-circle" style="color:lightyellow;float:left;"></i> '
-                    : '<i class="far fa-check-circle" style="color:deepskyblue;float:left;"></i> ') )
-                ). $partita["sq_ospite"].'</div>
-                </div>';
-                
-                echo '</div>';
-                }
-            echo '<h4><a style="text-decoration: none;color: white;" href="/display_giornata.php?&id_giornata='.$id.'">Formazioni <i class="fas fa-list-ol" aria-hidden="true"></i></a></h4>';
-            echo '</div>';
-            $counter++;
-        } 
-        
-    }
-    echo '<hr>';
-    if($counter == 0)
+    $giornatasa = seriea_getGiornataCorrente();
+    if(!is_null($giornatasa))
     {
+        $giornatefc = fantacalcio_getPartite_bySerieAId($giornatasa["id"]);
+        // print_r($giornatefc);
+        $prev = "";
+        $index=0;
+        foreach ($giornatefc as $giornatafc)
+        {
+            $descrizioneGiornata = getDescrizioneGiornata($giornatafc["id_giornata"]);
+            if($prev != $descrizioneGiornata)
+            {
+                echo '<h3>'.$descrizioneGiornata.'</h3>';
+                $prev = $descrizioneGiornata;
+            }
+            $index++;
+            if($index%2== 0)
+                echo '<div class="result">';
+            else
+                echo '<div class="result alternate" >';
+                // echo '<a href="display_giornata.php?&id_giornata=1">';  
+            echo '<div style="text-align:center; cursor:pointer;" class="partita" 
+                    data-idpartita="'.$giornatafc["id_partita"].'" 
+                    data-idgiornata="'.$giornatafc["id_giornata"].'">'.
+                    '<div style="width:46%; display:inline-block; text-align:right;">'
+                        . $giornatafc["sq1"]
+                        . ($giornatafc["luc"] == 1 ? 
+                        '<i class="far fa-check-circle" style="color:gree;float:right;"></i> '
+                        : (($giornatafc["luc"] == 2 ? 
+                        '<i class="far fa-check-circle" style="color:yellow;float:right;"></i> '
+                        : '<i class="far fa-check-circle" style="color:blue;float:right;"></i> ') )
+                        ).'</div>
+                    <div style="width:5%; display:inline-block;">-</div>
+                    <div style="width:46%; display:inline-block; text-align:left;">'
+                        . ($giornatafc["luo"] == 1 ? 
+                        '<i class="far fa-check-circle" style="color:green;float:left;"></i> '
+                        : (($giornatafc["luo"] == 2 ? 
+                        '<i class="far fa-check-circle" style="color:yellow;float:left;"></i> '
+                        : '<i class="far fa-check-circle" style="color:blue;float:left;"></i> ') )
+                        ). $giornatafc["sq2"].'</div>
+                </div>';
+            // echo '</a>';
+            echo '</div>';
+        }
+    }
+    else 
         echo '<script>
             $(document).ready(function(){
                 $(".widget.incorso").hide()
             });
         </script>';
-    }
+    echo '<hr>';
     ?>
 </div>

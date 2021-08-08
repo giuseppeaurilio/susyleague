@@ -6,20 +6,22 @@ include("menu.php");
 
 <?php
 
-$query= "SELECT giornate.*, 
-calendario.id_sq_casa, sq1.squadra as squadracasa,
-calendario.id_sq_ospite,  sq2.squadra as squadraospite ,
-calendario.gol_casa,
-calendario.gol_ospiti,
-calendario.punti_casa,
-calendario.punti_ospiti
+$query= "SELECT g.id_giornata, ga.inizio, ga.fine, g.commento,
+c.id_sq_casa, sq1.squadra as squadracasa,
+c.id_sq_ospite,  sq2.squadra as squadraospite ,
+c.gol_casa,
+c.gol_ospiti,
+c.punti_casa,
+c.punti_ospiti
 
 
-FROM `giornate` 
-left join `calendario` on `giornate`.`id_giornata` =  `calendario`.`id_giornata` 
-left join `sq_fantacalcio` sq1 on `calendario`.`id_sq_casa` =  `sq1`.`id`
-left join `sq_fantacalcio` sq2 on `calendario`.`id_sq_ospite` =  `sq2`.`id`
+FROM `giornate` as g
+LEFT JOIN giornate_serie_a as ga on g.giornata_serie_a_id = ga.id
+left join `calendario` as c on g.`id_giornata` =  c.`id_giornata` 
+left join `sq_fantacalcio` as sq1 on c.`id_sq_casa` =  `sq1`.`id`
+left join `sq_fantacalcio` as sq2 on c.`id_sq_ospite` =  `sq2`.`id`
 WHERE id_girone = 4 order by id_giornata ASC";
+// echo $query;
 $result=$conn->query($query);
 
 $num=$result->num_rows; 
@@ -72,7 +74,7 @@ foreach($giornate as $giornata){
         // echo '<fieldset>';
         // echo '<legend>Giornata:'.($counter/3 > 5 ? $counter/3 - 4 : $counter/3 +1 ).'</legend>';
 		echo '<div class="calendario_giornata coppaitalia ">';
-		echo '<h4>Giornata:'.($counter/3 > 4 ? $counter/3 - 4 : $counter/3 +1 ).'</h4>';
+		echo '<h4>Giornata '.($counter/3 > 4 ? $counter/3 - 4 : $counter/3 +1 ).'</h4>';
 		echo '<div class="scrollmenu">';
 		echo '<table >';
 			echo '<tr>';

@@ -196,9 +196,9 @@ body .widget .widgetcontent2
 {
   min-height: 200px;
 }
-body .widget .result
+body .widget.ultimi .result
 {
-  padding: 5px;
+  padding: 0px;
 
 }
 body .widget .result.alternate
@@ -207,18 +207,44 @@ body .widget .result.alternate
 
 }
 
-body .widget .result .punti
-{
-  
-}
 
 body .widget .result .gol
 {
   font-weight: bold;
-  float: right;
+  /* float: right; */
   background-color: #274b59;
-  padding: 0 10px;
+  padding: 2px 4px;
   color: white;
+  font-size: 34px;
+  width: 20px;
+  /* height: 40px; */
+  text-align: center;
+}
+body .widget .result .home
+{  float: right;}
+body .widget .result .away
+{float: left;}
+body .widget .result .punti
+{
+  /* font-weight: bold; */
+  /* float: right; */
+  background-color: lightgray;
+  padding: 2px 7px;
+  color: darkslategrey;
+  font-size: 14px;
+  width: 40px;
+  text-align: center;
+}
+body .widget .result .squadra
+{
+  font-size: 17px;
+  /* overflow-wrap: break-word; */
+  /* overflow: hidden; */
+  /* word-break: break-all; */
+  padding: 0px 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 135px;
 }
 body .widget div.footer
 {
@@ -391,20 +417,20 @@ padding: 6px 4px;
 table tr:nth-child(even){
 background-color: #f2f2f2;
 }
-#tabellino table  th:nth-child(1),
-#tabellino table td:nth-child(1){
+.tabellino table  th:nth-child(1),
+.tabellino table td:nth-child(1){
   text-align: right;
 }
-#tabellino table  th{
+.tabellino table  th{
  padding:3px 6px;
  font-size: 30px;
 }
 
-#tabellino table  td:nth-child(2){
+.tabellino table  td:nth-child(2){
   text-align: center;
 }
-#tabellino table  th:nth-child(3),
-#tabellino table td:nth-child(3){
+.tabellino table  th:nth-child(3),
+.tabellino table td:nth-child(3){
   text-align: left;
 }
 table tr:hover {
@@ -526,6 +552,21 @@ li.game{
   text-align: center;
   padding: 10px;
 }
+.actionrow{
+  /* width: 100%; */
+  display: block;
+  /* background-color: rgb(54, 107, 130); */
+  text-align: center;
+  padding: 10px;
+}
+.actiontitle{
+  /* width: 100%; */
+  display: block;
+  /* background-color: rgb(54, 107, 130); */
+  text-align: center;
+  padding: 2px;
+  font-size: 25px;
+}
 .mainaction  a{
   color:  white;
 }
@@ -593,11 +634,11 @@ li.game{
   { width:65%}
   .loginsection
   { width:30%}
-  #tabellino table  th:nth-child(1),
-  #tabellino table  th:nth-child(3){
+  .tabellino table  th:nth-child(1),
+  .tabellino table  th:nth-child(3){
     font-size: 6vw;
  }
- #tabellino table td
+ .tabellino table td
  {
    padding: 0 5px;
    font-size: 15px;

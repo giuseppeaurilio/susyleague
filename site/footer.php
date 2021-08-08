@@ -3,7 +3,7 @@
 <span style="float:left; display: block">
     powered by: susyleague plc.
     </span>
-    <span style="float:right; display: block"> web site V1.7</span>
+    <span style="float:right; display: block"> web site V2.0</span>
 </footer>
 
 

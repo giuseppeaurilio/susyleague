@@ -13,29 +13,7 @@ GeneraCalendarioCampionato = function(id)
                 "action": action,
             },
             success:function(data){
-                // debugger;
-                var resp=$.parseJSON(data)
-                if(resp.result == "true"){
-					var  buttons= [
-                                {
-                                text: "Ok",
-                                click: function() {
-                                        window.location.reload();
-                                    }
-                                }
-                            ]
-                    // $( "#dialog" ).dialog('destroy');
-                    $( "#dialog" ).prop('title', "Info");
-                    $( "#dialog p" ).html("Operazione eseguita.");
-                    $( "#dialog" ).dialog({modal:true, buttons: buttons});
-                }
-                else{
-                    $( "#dialog" ).prop('title', "ERROR");                
-                    $( "#dialog p" ).html(resp.error.msg);
-                    $( "#dialog" ).dialog({modal:true});
-                }
-                
-                
+				modalPopupResult(data);0
             }
     }); 
 }
@@ -116,8 +94,9 @@ if($num >0){
 		where c.id_giornata=".$id." 
 		order by c.id_partita";
 
+		include_once("..\DB/calendario.php");
 		$result_giornata=$conn->query($query2);
-		echo "<h3>Giornata ".$id."</h3>";
+		echo "<h3>Giornata ".getDescrizioneGiornata($id)."</h3>";
 		echo "<table>
 				<tr> 
 					<th style='width: 50%;text-align:center;'>Casa</th>

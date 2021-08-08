@@ -34,7 +34,7 @@ $num_giornata=$result_giornata->num_rows;
 $j=0;
 while ($row=$result_giornata->fetch_assoc()) {
 	$idgirone=$row["id_girone"];
-
+	$id_partita=$row["id_partita"];
 	$id_casa=$row["id_sq_casa"];
 	$id_ospite=$row["id_sq_ospite"];
 	$sq_casa=$row["sq_casa"];
@@ -54,14 +54,16 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$gol_ospite = $row["gol_ospiti"];
 
 
-	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione
+	$query_formazione="SELECT gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione
 	FROM formazioni as a 
 	inner join giocatori as b 
+	left join giocatori_voti as gv on b.id = gv.giocatore_id
 	inner join squadre_serie_a as c 
 	where a.id_giornata='" . $id_giornata . "' 
 	and a.id_squadra= '". $id_casa ."' 
 	and a.id_giocatore=b.id 
-	and a.id_squadra_sa=c.id ";
+	and  b.id_squadra =c.id order by a.id_posizione ";
+	// echo $query_formazione;
 	//echo "<br> query formazione casa= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
 	$giocatoricasa = array();
@@ -106,7 +108,16 @@ while ($row=$result_giornata->fetch_assoc()) {
 	?>
 
 	<?php
-	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione FROM formazioni as a inner join giocatori as b inner join squadre_serie_a as c where a.id_giornata='" . $id_giornata . "' and a.id_squadra= '". $id_ospite ."' and a.id_giocatore=b.id and a.id_squadra_sa=c.id ";
+	$query_formazione=
+	"SELECT gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione
+	FROM formazioni as a 
+	inner join giocatori as b 
+	left join giocatori_voti as gv on b.id = gv.giocatore_id
+	inner join squadre_serie_a as c 
+	where a.id_giornata='" . $id_giornata . "' 
+	and a.id_squadra= '". $id_ospite ."' 
+	and a.id_giocatore=b.id 
+	and  b.id_squadra =c.id order by a.id_posizione ";
 
 	//echo "<br> query formazione ospite= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
@@ -155,7 +166,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 		<div style="width:40%; display:inline-block;"><?php echo $sq_ospite; ?></div>
 	</h3> -->
 	<?php $ritultatocalcolato = ($gol_casa != "" && $gol_ospite != "") ? true: false ?>
-	<div id="tabellino">
+	<div id="tabellino<?php echo $id_partita ?>" class="tabellino">
 		<table>
 			<tr>
 				<th style="width:35%"><?php echo $sq_casa; echo ($formazioneDefaultCasa? "*" : ""); ?></th>

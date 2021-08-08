@@ -14,7 +14,10 @@ if($id_girone == 6) $strCampionato = "Coppa delle coppe";
 
 $time_start=microtime(true);
 
-$query="SELECT * FROM giornate where id_girone=". $id_girone . " order by id_giornata ASC";
+$query="SELECT g.id_giornata, ga.inizio, ga.fine, g.commento
+FROM giornate as g
+LEFT JOIN giornate_serie_a as ga on g.giornata_serie_a_id = ga.id
+where id_girone=". $id_girone . " order by id_giornata ASC";
 $result=$conn->query($query);
 
 $num=$result->num_rows; 

@@ -37,7 +37,7 @@ DESC
 SELECT (( gs.mf * gs.pg)/ ra.costo)AS ind, g.nome, g.ruolo, gs.mf, gs.pg, ra.costo
 FROM    `rose_asta` AS ra
 LEFT JOIN giocatori AS g ON    ra.id_giocatore = g.id
-LEFT JOIN serie_a_giocatori_statistiche AS gs ON     gs.giocatore_id = g.id
+LEFT JOIN giocatori_statistiche AS gs ON     gs.giocatore_id = g.id
 LEFT JOIN rose AS r ON     r.id_giocatore = g.id
 LEFT JOIN sq_fantacalcio AS sf ON     sf.id = ra.id_sq_fc
 WHERE
@@ -58,7 +58,7 @@ FROM
 LEFT JOIN giocatori AS g
 ON
     ra.id_giocatore = g.id
-LEFT JOIN serie_a_giocatori_statistiche AS gs
+LEFT JOIN giocatori_statistiche AS gs
 ON
     gs.giocatore_id = g.id
 LEFT JOIN rose AS r

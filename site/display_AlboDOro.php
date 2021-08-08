@@ -126,7 +126,7 @@ $(document).ready(function(){
 					</div>
 				</div>
 				<div class="competizione">
-					<div class="descrizione">Chiusura - Campionato*</div>
+					<div class="descrizione">Chiusura - Campionato</div>
 					<div class="vincitori">
 						
 						<div class="primo">

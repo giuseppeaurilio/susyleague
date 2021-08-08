@@ -1,105 +1,114 @@
-<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <?php
 include("menu.php");
 $id_giornata=$_GET['id_giornata'];
 $id_girone=$_GET['id_girone'];
 ?>
 <script>
+inviaSostituzione= function (){
+	// debugger;
+	var id_giornata=$(this).attr( "data-id_giornata");
+	var id_squadra=$(this).attr( "data-id_squadra");
+	var id_giocatore=$(this).attr( "data-id_giocatore");
+	var checked=$(this).prop("checked");
 
-function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
+	var action ="inviasostituzione";
+	// debugger;
+	// console.log("giornata: " + id_giornata +"; partita: " + id_partita +"; squadra: " + id_squadra + 
+	// "; checked: " + checked + "; home: " + home);
+	$.ajax({
+        type:'POST',
+            url:'calcola_giornata_controller.php',
+            data: {
+                "action": action,
+                "id_giornata": id_giornata,
+                "id_squadra": id_squadra, 
+				"id_giocatore": id_giocatore, 
+				"checked": checked, 
+            },
+            success:function(data){
+                
+                var resp=$.parseJSON(data)
+                
+				if(resp.result == "true"){
+					// do nothing
+				}     
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    }); 
 }
-
-$(document).ready(function(){
-	$("#btn_invia").click(function(){
- 	
+inviaCommento = function(){
+	// var id_giornata="<?php echo $id_giornata; ?>";
+	// var commento = $('#txt_commento').val();
+	// $.ajax({
+	// 	url: "invia_commento.php",
+	// 	type:"GET",
+	// 	data:
+	// 	{
+	// 			id_giornata: id_giornata,
+	// 			commento: commento
+	// 	},
+	// 	success: function(msg)
+	// 	{
+	// 			alert('commento inviato');
+	// 	}
+	// 	}); //end $.ajax
+	var id_giornata=$(this).data("giornata");
+	var id_partita=$(this).data("partita");
+	var id_squadra=$(this).data("squadra");
+	var home=$(this).data("home");
+	// var casa=$(this).prop("home");
+	var checked=$(this).prop("checked");
+	console.log($(this));
+	var action ="usemd";
+	// debugger;
+	// console.log("giornata: " + id_giornata +"; partita: " + id_partita +"; squadra: " + id_squadra + 
+	// "; checked: " + checked + "; home: " + home);
+	$.ajax({
+        type:'POST',
+            url:'calcola_giornata_controller.php',
+            data: {
+                "action": action,
+                "id_giornata": id_giornata,
+                "id_partita": id_partita, 
+				"id_squadra": id_squadra, 
+				"checked": checked, 
+				"home": home
+            },
+            success:function(data){
+                
+                var resp=$.parseJSON(data)
+                
+				if(resp.result == "true"){
+					// do nothing
+				}     
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    }); 
+}
+calcolaRisultati= function(){
 	var id_giornata="<?php echo $id_giornata; ?>";
-
- 	var titolari = [];
- 	var panchina = [];
-	for (i=1; i<13; i++){ //i scorre le squadre
- 	var dataString = 'id_squadra='+ i + '&id_giornata=' + id_giornata + '&giocatori=';
-		//console.log("datastring= " + dataString);
- 		for (j = 1; j < 22; j++) { //j scorre i giocatori
-			var test = $("#row_"+ i + "_" + j);
-			var nome=test.find('td:eq(1)').text();
-			var squadra=test.find('td:eq(2)').text();
-			var ruolo=test.find('td:eq(3)').text();
-			var voto=test.find('.voto').text();
-			var voto_md=test.find('.votomd').text();
-			var sostituzione=test.find('.sostituzione').find('input:checkbox').prop("checked")? "1": "0";
-			
-			// console.log(nome + "_" + j + "_" + voto + "_" + voto_md + "_" + sostituzione);
-			if (isNumeric(voto) || isNumeric(voto_md)) {
-				dataString += j + "_" + voto + "_" + voto_md + "_" + sostituzione + ",";
-			}
-			else
-			{
-				dataString += j + "_" + "_" +  "_" + 0 + ",";
-			}
-		}//end j
-		// var usamd=test.find('.usamd').find('input:checkbox').prop("checked")? "1": "0";
-		// dataString += usamd;
-		dataString = dataString.substring(0, dataString.length - 1);
-		
-		console.log("datastring= " + dataString);
-		$.ajax(
+	var id_girone="<?php echo $id_girone; ?>";
+	$.ajax({
+		url: "partita_c_calcolarisultato.php" + "?idgiornata=" + id_giornata +"&idgirone=" + id_girone,
+		type:"GET",
+		success: function(msg)
 		{
-			type: "GET",
-			url: "query_aggiungi_voti.php",
-			data: dataString,
-			cache: false,
-			success: function(result)
-			{
+			// setTimeout(function(){location.reload();},10);
+			modalPopupResult(msg);
+		}
+		}); //end $.ajax
+}//end function $("#btn_commento").click
 
-				// message_status.show();
-				// message_status.text("Aggiornato");
-				// console.log("risultato query= " + result);
-				// operationSuccess();
-				setTimeout(function(){location.reload(true);},10);
-				// location.reload(true);
-			
-			}
-
-		});
-
-		}//end i
-	}) //end function $("#btn_invia").click
-	$("#btn_commento").click(function(){
-		var id_giornata="<?php echo $id_giornata; ?>";
-		var commento = $('#txt_commento').val();
-		$.ajax({
-        	url: "invia_commento.php",
-        	type:"GET",
-        	data:
-        	{
-            		id_giornata: id_giornata,
-            		commento: commento
-        	},
-        	success: function(msg)
-        	{
-            		alert('commento inviato');
-        	}
-        	}); //end $.ajax
-	})//end function $("#btn_commento").click
-
-	$("#btn_calcola").click(function(){
-		var id_giornata="<?php echo $id_giornata; ?>";
-		var id_girone="<?php echo $id_girone; ?>";
-		$.ajax({
-        	url: "partita_c_calcolarisultato.php" + "?idgiornata=" + id_giornata +"&idgirone=" + id_girone,
-			type:"GET",
-        	success: function(msg)
-        	{
-				setTimeout(function(){location.reload();},10);
-        	}
-        	}); //end $.ajax
-	})//end function $("#btn_commento").click
-})
-</script>
-
-<script>
 salvautilizzomd = function()
 {
 	var id_giornata=$(this).data("giornata");
@@ -139,15 +148,34 @@ salvautilizzomd = function()
             }
     }); 
 }
+inizializza = function(){
+	$(".cbFormazione").each(function() {
+  		var id = $(this).attr( "data-id_giocatore");
+		var sub = $("#hf"+ id).val();
+		if(sub == "1")
+		{
+			$(this).prop( "checked", true );
+		}
+		else
+		{
+			$(this).prop("checked", false );
+		}
+	});
+}
 $(document).ready(function(){
+	inizializza();
+	$(".cbFormazione").off("click").bind("click", inviaSostituzione)
+	$("#btn_commento").off("click").bind("click", inviaCommento);
+	$("#btn_calcola").off("click").bind("click", calcolaRisultati);
     $(".usamd").unbind().bind("change", salvautilizzomd);
+
 })
 
 </script>
 
 <h1> Calcolo Giornata <?php echo $id_giornata ;?> </h1>
-
-<form action="upload_voti.php?idgiornata=<?php echo $id_giornata ;?>" method="post" enctype="multipart/form-data">
+<a href="amministra_voti.php" >Voti</a>
+<!-- <form action="upload_voti.php?idgiornata=<?php echo $id_giornata ;?>" method="post" enctype="multipart/form-data">
 <section>
 	<h1>Istruzioni</h1>
 	Importare un fils CSV. <br>
@@ -158,7 +186,7 @@ $(document).ready(function(){
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Carica File" name="submit">
 </form>
-<div data-role="main" class="ui-content">
+<div data-role="main" class="ui-content"> -->
 
 <?php
 
@@ -169,11 +197,20 @@ $(document).ready(function(){
 // c.squadra as sq_ospite, 
 // a.gol_casa, a.gol_ospiti, 
 // a.punti_casa, a.punti_ospiti 
-$query2="Select *, b.squadra as sq_casa, c.squadra as sq_ospite, g.id_girone
+// $query2="Select *, b.squadra as sq_casa, c.squadra as sq_ospite, g.id_girone
+// FROM calendario as a 
+// left join sq_fantacalcio as b on a.id_sq_casa=b.id 
+// left join sq_fantacalcio as c on a.id_sq_ospite=c.id 
+// left join giornate as g on g.id_giornata=a.id_giornata 
+// where a.id_giornata=".$id_giornata ." order by a.id_partita" ;
+$query2="Select a.id_sq_casa, a.id_sq_ospite, b.squadra as sq_casa, c.squadra as sq_ospite, g.id_girone, a.id_giornata,
+a.fattorecasa, a.numero_giocanti_casa, a.punti_casa, a.md_casa, a.gol_casa,
+a.numero_giocanti_ospite, a.punti_ospiti, a.md_ospite, a.gol_ospiti,
+a.id_partita, a.use_mdcasa, a.use_mdospite
 FROM calendario as a 
 left join sq_fantacalcio as b on a.id_sq_casa=b.id 
 left join sq_fantacalcio as c on a.id_sq_ospite=c.id 
-left join giornate as g on g.id_giornata=a.id_giornata 
+left join giornate as g on g.id_giornata=a.id_giornata  
 where a.id_giornata=".$id_giornata ." order by a.id_partita" ;
 
 	// $query_risultati="Select *, sum(punti_casa + md_casa + fattorecasa) as tot_casa from calendario 
@@ -208,13 +245,14 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$usemdcasa = $row["use_mdcasa"];
 	$usemdospite = $row["use_mdospite"];
 
-	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione 
+	$query_formazione="SELECT a.id_posizione, b.id, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto, gv.voto_md
 	FROM formazioni as a 
-	left join giocatori as b on  a.id_giocatore=b.id 
-	left join squadre_serie_a as c on a.id_squadra_sa=c.id
+	left join giocatori as b on a.id_giocatore=b.id 
+	left join squadre_serie_a as c on b.id_squadra =c.id 
+	left join giocatori_voti as gv on b.id = gv.giocatore_id
 	where a.id_giornata=" . $id_giornata . "
-	and a.id_squadra= ". $id_casa ; 
-
+	and a.id_squadra= ". $id_casa ." order by a.id_posizione"; 
+	//  echo $query_formazione;
 	
 	// echo "<br> query formazione casa= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
@@ -237,7 +275,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	while ($row=$result_formazione->fetch_assoc()) {
 	$ruolo_giocatore=$row["ruolo"];
 	?>
-        <tr contenteditable='true' id=row_<?php  echo $id_casa  . "_" . ($i+1);?> style="background-color: <?php switch ($ruolo_giocatore) {
+        <tr id=row_<?php  echo $id_casa  . "_" . ($i+1);?> style="background-color: <?php switch ($ruolo_giocatore) {
    	case "P":
 	   if($i<11)
 		   echo "rgba(102, 204, 51, 1)";
@@ -279,11 +317,17 @@ while ($row=$result_giornata->fetch_assoc()) {
 			if ($i<11) 
 			{echo "&nbsp;";}
 			else{
-				$s = $row["sostituzione"] == 1 ? "checked='checked'": "";
-				echo	"<input type='checkbox' ".$s."></input>";
-				// ".$row["sostituzione"]? "checked": "" .";
-
-				// checked='checked'
+				if($row["sostituzione"] == 1){
+					echo	"<input id=\"hf".$row["id"]."\" type='hidden' data-id_giocatore=\"".$row["id"]."\" value=\"1\"/>";
+				}
+				else{
+					echo	"<input id=\"hf".$row["id"]."\" type='hidden' data-id_giocatore=\"".$row["id"]."\" value=\"0\"/>";
+				}
+				echo	"<input class=\"cbFormazione\" id=\"cb".$row["id"]."\" type='checkbox'" 
+				. " data-id_giocatore=\"".$row["id"] ."\"" 
+				. " data-id_giornata=\"".$id_giornata ."\""
+				. " data-id_squadra=\"" .$id_casa ."\""
+				."/>";
 			}
 			?>
 		</td>
@@ -310,12 +354,13 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<a href="invio_formazione_squadra.php?&id_giornata=<?php  echo $id_giornata; ?>&id_girone=<?php  echo $id_girone; ?>&id_squadra=<?php  echo $id_casa; ?>">Invia Formazione</a>
 		</div>
 	<?php
-	$query_formazione="SELECT a.voto,a.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione 
+	$query_formazione="SELECT a.id_posizione,b.id, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto, gv.voto_md
 	FROM formazioni as a 
-	left join giocatori as b on  a.id_giocatore=b.id 
-	left join squadre_serie_a as c on a.id_squadra_sa=c.id
+	left join giocatori as b on a.id_giocatore=b.id 
+	left join squadre_serie_a as c on b.id_squadra =c.id 
+	left join giocatori_voti as gv on b.id = gv.giocatore_id
 	where a.id_giornata=" . $id_giornata . "
-	and a.id_squadra= ". $id_ospite ; 
+	and a.id_squadra= ". $id_ospite ." order by a.id_posizione"; 
 
 	#echo "<br> query formazione ospite= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
@@ -338,7 +383,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	while ($row=$result_formazione->fetch_assoc()) {
 		$ruolo_giocatore=$row["ruolo"];
 	?>
-		<tr contenteditable='true' id=row_<?php  echo $id_ospite  . "_" . ($i+1);?> style="background-color: <?php 
+		<tr id=row_<?php  echo $id_ospite  . "_" . ($i+1);?> style="background-color: <?php 
 		switch ($ruolo_giocatore) {
 	case "P":
 		if($i<11)
@@ -381,11 +426,17 @@ while ($row=$result_giornata->fetch_assoc()) {
 				if ($i<11) 
 				{echo "&nbsp;";}
 				else{
-					$s = $row["sostituzione"] == 1 ? "checked='checked'": "";
-					echo	"<input type='checkbox' ".$s."></input>";
-					// ".$row["sostituzione"]? "checked": "" .";
-	
-					// checked='checked'
+					if($row["sostituzione"] == 1){
+						echo	"<input id=\"hf".$row["id"]."\" type='hidden' data-id_giocatore=\"".$row["id"]."\" value=\"1\"/>";
+					}
+					else{
+						echo	"<input id=\"hf".$row["id"]."\" type='hidden' data-id_giocatore=\"".$row["id"] ."\" value=\"0\"/>";
+					}
+					echo	"<input class=\"cbFormazione\" id=\"cb".$row["id"]."\" type='checkbox'" 
+					. " data-id_giocatore=\"".$row["id"] ."\"" 
+					. " data-id_giornata=\"".$id_giornata ."\""
+					. " data-id_squadra=\"" .$id_ospite ."\""
+					."/>";
 				}
 				?>
 			</td>

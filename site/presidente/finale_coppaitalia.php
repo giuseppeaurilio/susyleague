@@ -4,99 +4,38 @@ include("menu.php");
 ?>
 <h2>Finale Coppa Italia</h2>
 <script>
+salvaGiornataSAFinaleCI = function(){
+    // console.log($(this).attr("data-idgiornata"));
+    var idgiornatafc =  $(this).attr("data-idgiornata");
+    var idgiornatasa =  $("#ddlGiornataSerieA" + idgiornatafc).val();
+    salvaGiornata(idgiornatafc, idgiornatasa);
+    
+}
+salvaSquadreFinaleCI = function(){
+    var id1 = $("#sq_finalista1 option:selected").val();
+    var id2 = $("#sq_finalista2 option:selected").val();
+    // var giornata = $("#hfgiornata").val();
+    var giornata =  $(this).attr("data-idgiornata");
+    salvaSquadrePartita(id1, id2, giornata);
+}
 $(document).ready(function(){
-
-    SalvaSquadrePartita = function(){
-        var id1 = $("#sq_finalista1 option:selected").val();
-        var id2 = $("#sq_finalista2 option:selected").val();
-        var giornata = $("#hfgiornata").val();
-        if(id1 == null || id1 == "")
-        {
-            alert('selezionare la squadra di uno');
-            return false;
-        }
-        if(id2 == null || id2 == "")
-        {
-            alert('selezionare la squadra due');
-            return false;
-        }
-
-        if(id1== id2 )
-        {
-            alert('le due squadre devono essere diverse');
-            return false;
-        }
-        var idsquadre = [id1, id2];
-
-        $.ajax({
-                type:'POST',
-                url:'match_c_salvasquadre.php',
-                data: {"idgiornata": giornata, "idsquadre": JSON.stringify(idsquadre)},
-                success:function(data){
-                   //debugger;
-                    var resp=$.parseJSON(data)
-                    if(resp.result == "true"){
-                        alert(resp.message);
-                    }
-                    else{
-                        alert(resp.error.msg);
-                    }
-                    
-                    //$('#city').html('<option value="">Select state first</option>'); 
-                }
-                // ,error: function (xhr, ajaxOptions, thrownError) {
-                //     alert(xhr.responseText);
-                // }
-            });
-    };
-    $("#salvasquadre").off("click").bind("click", SalvaSquadrePartita);
-
+    $(".btnsalva").off("click").bind("click", salvaGiornataSAFinaleCI);
+    $("#salvasquadre").off("click").bind("click", salvaSquadreFinaleCI);
 })
 </script>
 
 <?php
 $idgirone = 9; //finale coppa italia
-
-$query= "SELECT giornate.*, 
-        calendario.id_sq_casa, sq1.squadra as squadracasa,
-        calendario.id_sq_ospite,  sq2.squadra as squadraospite 
-        FROM `giornate` 
-        left join `calendario` on `giornate`.`id_giornata` =  `calendario`.`id_giornata` 
-        left join `sq_fantacalcio` sq1 on `calendario`.`id_sq_casa` =  `sq1`.`id`
-        left join `sq_fantacalcio` sq2 on `calendario`.`id_sq_ospite` =  `sq2`.`id`
-        WHERE id_girone = ".$idgirone." order by id_giornata ASC";
-$result=$conn->query($query);
-while ($row=$result->fetch_assoc()) {
-    $id_giornata=$row["id_giornata"];
-    $inizio=$row["inizio"];
-    $fine=$row["fine"];
-    $id_sq1=$row["id_sq_casa"];
-    $sq1=$row["squadracasa"];
-    $id_sq2=$row["id_sq_ospite"];
-    $sq2=$row["squadraospite"];
-    $inizio_a=date_parse($inizio);
-    $fine_a=date_parse($fine);
-};
-
-$query="SELECT * FROM sq_fantacalcio order by squadra";
-
-$result=$conn->query($query);
-$squadre = array();
-while($row = $result->fetch_assoc()){
-    // $id=mysql_result($result,$i,"id");
-    $id=$row["id"];
-    $squadra=$row["squadra"];
-    array_push($squadre, array(
-        "id"=>$id,
-        "squadra"=>$squadra
-        )
-    );
-}
+include_once("..\DB/serie_a.php");
+include_once("..\DB/fantacalcio.php");
+$giornate = fantacalcio_getGiornate($idgirone);
+$squadre = fantacalcio_getFantasquadre();
+$giornatesa = seriea_getGiornate();
 echo '<fieldset>';
 // echo '<legend>Coppa Italia FINALE</legend>';
-
+echo "<div class=\"actiontitle\">";
 echo '<select id="sq_finalista1" name="squadra_fantacalcio_1">';
-echo '<option value="">--Vincente Semifinale 2--</option>';
+echo '<option value="">--Vincente Semifinale 1--</option>';
 foreach($squadre as $squadra)
 {
     if($squadra["id"] ==$id_sq1 ){
@@ -108,7 +47,7 @@ foreach($squadre as $squadra)
 }
 echo '</select>';
 echo '<select id="sq_finalista2" name="squadra_fantacalcio_2">';
-echo '<option value="">--Vincente Semifinale 1--</option>';
+echo '<option value="">--Vincente Semifinale 2--</option>';
 foreach($squadre as $squadra)
 {
     if($squadra["id"] ==$id_sq2 ){
@@ -119,28 +58,22 @@ foreach($squadre as $squadra)
     }
 }
 echo '</select>';
-echo '<input type="button" class="btn_salvasquadre" id="salvasquadre" value="Salva Squadre" name="'.$id_giornata.'"/>';
-echo '<br>';
+echo '<input type="button" class="btn_salvasquadre" id="salvasquadre" value="Salva Squadre" data-idgiornata="'.$giornate[0]["id_giornata"].'"/>';
+echo '</div>';
+echo "<div class=\"actionrow\">";
+echo "<select id=\"ddlGiornataSerieA".$giornate[0]["id_giornata"]."\">";
+echo "<option value=\"0\">seleziona giornata di serie a...</option>";
+foreach($giornatesa as $giornatasa)
+{
+    echo "<option value=\"".$giornatasa["id"]."\" ".($giornatasa["id"] == $giornata_serie_a_id? "selected": "") .">"
+    .$giornatasa["descrizione"]." (".$giornatasa["inizio"] .")</option>";
+}
+echo "</select>";
+echo "<input class=\"btnsalva\" type=\"button\" id=\"btbgiornata".$giornate[0]["id_giornata"]."\" value=\"salva\" data-idgiornata=\"".$giornate[0]["id_giornata"]."\" >";
 
-echo '<form action="query_amministra_giornate.php" method="post" class="a-form" target="formSending">';
-echo '<input type="hidden" id="hfgiornata" name="giornata" value="'.$id_giornata.'">';
-echo 'Inizio: <br>';
-echo 'Giorno:<input type="text" name="g_inizio" size="5" value="'. $inizio_a['day'] .'" >';
-echo 'Mese:<input type="text" name="m_inizio" size="5" value="'.  $inizio_a['month'] .'" >';
-echo 'Anno:<input type="text" name="a_inizio" size="5" value="'.  $inizio_a['year'] .'">';
-echo 'Ore:<input type="text" name="h_inizio" size="5" value="'.  $inizio_a['hour'] .'">';
-echo 'Minuti:<input type="text" name="min_inizio" size="5" value="'. $inizio_a['minute'] .'"><br>';
-echo 'Fine: <br>';
-echo 'Giorno:<input type="text" name="g_fine" size="5" value="'. $fine_a['day'] .'" >';
-echo 'Mese:<input type="text" name="m_fine" size="5" value="'. $fine_a['month'] .'" >';
-echo 'Anno:<input type="text" name="a_fine" size="5" value="'. $fine_a['year'] .'">';
-echo 'Ore:<input type="text" name="h_fine" size="5" value="'. $fine_a['hour'] .'">';
-echo 'Minuti:<input type="text" name="min_fine" size="5" value="'.  $fine_a['minute'] .'"><br>';
-echo '<input type="submit" value="Invia">';
-echo '</form>';
-echo '<br>';
+echo '</div>';
 echo '<div class="mainaction">';
-echo '<a href="calcola_giornata.php?&id_giornata='.$id_giornata .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
+echo '<a href="calcola_giornata.php?&id_giornata='.$giornate[0]["id_giornata"] .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
 echo '</div>';
 echo '</fieldset>'; 
 ?>

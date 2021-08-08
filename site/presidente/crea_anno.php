@@ -127,7 +127,7 @@ if ($conn->connect_error) {
 // }
 
 function aggiungi_giornata($giornata,$girone) {
-	$query="INSERT INTO .`giornate` (`id_giornata`, `inizio`, `fine`,`id_girone`) VALUES (" . $giornata .", NULL, NULL," . ($girone) .")";
+	$query="INSERT INTO .`giornate` (`id_giornata`,`id_girone`) VALUES (" . $giornata ."," . ($girone) .")";
     // $result=mysql_query($query);
     global $conn;
     $conn->query($query);
@@ -172,6 +172,11 @@ echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
+$query="Truncate `formazione_standard`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
 $query="Truncate `rose`";
 echo $query;
 // $result=mysql_query($query);
@@ -192,7 +197,22 @@ echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
+$query="Truncate `giocatori_voti`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
+$query="Truncate `giocatori_pinfo`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
 $query="Truncate `squadre_serie_a`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
+$query="Truncate `giornate_serie_a`";
 echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
@@ -302,7 +322,14 @@ echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
+//genero le giornate di serie a
 
+for ($giornata = 1; $giornata <= 38; $giornata++) {
+    $query="INSERT INTO `giornate_serie_a` (`id`, `descrizione`) VALUES (NULL, 'Giornata ". $giornata ."') ";
+    echo $query;
+    // $result=mysql_query($query);
+    $result=$conn->query($query);
+}
 
 // // GENERA CALENDARIO
 // $tabellone=generateRoundRobinPairings($n);

@@ -67,7 +67,7 @@ foreach($arraypartite as $partita){
                      $partita["mdcasa"],
                      $partita["mdospite"]);
     $result = $p->calcolaRisultatoPartita();
-    print("<pre>".print_r($result   ,true)."</pre>").'<br>';
+    // print("<pre>".print_r($result   ,true)."</pre>").'<br>';
 
     $conn = new mysqli($localhost, $username, $password, $database);
     if ($conn->connect_error) {
@@ -94,11 +94,14 @@ foreach($arraypartite as $partita){
     // echo  $database;
     // print("<pre>".print_r($result   ,true)."</pre>").'<br>';
     if ($conn->query($queryupdate) === TRUE) {
-        echo "Record updated successfully <br>";
+        // echo "Record updated successfully <br>";
     } else {
         echo "Error updating record: " . $conn->error. '<br>';
     }
     $conn->close();
 }
-
+echo json_encode(array(
+    'result' => "true",
+    'message' => "risultati calcolati",
+));
 ?>

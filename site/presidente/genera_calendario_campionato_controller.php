@@ -148,30 +148,58 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 			$map=range(1, $n);
 			$globalgiornatecounter = 0;
-			//  GENERA GIRONE ANDATA
-			shuffle($map);
+
+
+			// //  GENERA GIRONE ANDATA
+			// shuffle($map);
+
+			// $tabellone_shuffled=mappa($tabellone,$map);
+
+			// for ($giornata = 1; $giornata < $n; $giornata++) {
+			// 	$element=$tabellone_shuffled[$giornata];
+			// }
+
+			// for ($giornata = 1; $giornata <= 2*($n-1); $giornata++) {
+			// 	// aggiungi_giornata($giornata,"1");
+			// 	if ($giornata<$n) {
+			// 		foreach ($tabellone_shuffled[$giornata] as $partita) {
+			// 			aggiungi_partita($giornata, $partita["casa"], $partita["ospite"]);
+			// 		}
+			// 	}
+			// 	else {
+			// 		foreach ($tabellone_shuffled[$giornata-$n+1] as $partita) {
+			// 			aggiungi_partita($giornata, $partita["ospite"], $partita["casa"]);
+			// 		}
+			// 	}	
+			// 	$globalgiornatecounter = $giornata;
+			// }
+            // //FINE   GENERA GIRONE ANDATA
+            
+            //andata con calendario asimmetrico
+	        shuffle($map);
 
 			$tabellone_shuffled=mappa($tabellone,$map);
 
 			for ($giornata = 1; $giornata < $n; $giornata++) {
 				$element=$tabellone_shuffled[$giornata];
 			}
-
-			for ($giornata = 1; $giornata <= 2*($n-1); $giornata++) {
+            for ($giornata = 1; $giornata <= 2*($n-1); $giornata++) {
 				// aggiungi_giornata($giornata,"1");
-				if ($giornata<$n) {
+				if ($giornata<$n) { //girone di andata
 					foreach ($tabellone_shuffled[$giornata] as $partita) {
 						aggiungi_partita($giornata, $partita["casa"], $partita["ospite"]);
 					}
 				}
-				else {
+				else { //girone di ritorno asimmetrico
 					foreach ($tabellone_shuffled[$giornata-$n+1] as $partita) {
-						aggiungi_partita($giornata, $partita["ospite"], $partita["casa"]);
+                        $giornatadiinserimento = 2*($n-1) - ($giornata - $n);//22-
+						aggiungi_partita($giornatadiinserimento, $partita["ospite"], $partita["casa"]);
 					}
 				}	
 				$globalgiornatecounter = $giornata;
 			}
 
+            //FINE andata con calendario asimmetrico
 			// GENERA GIRONE RITORNO
 			shuffle($map);
 			$tabellone_shuffled=mappa($tabellone,$map);
@@ -184,8 +212,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 					aggiungi_partita($giornata, $partita["casa"], $partita["ospite"]);
 				}
 				$globalgiornatecounter = $giornata;
-					
-				
 			}
 
 			$response = array(
