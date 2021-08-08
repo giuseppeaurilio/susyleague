@@ -28,36 +28,11 @@ inviaSostituzione= function (){
 				"checked": checked, 
             },
             success:function(data){
-                
-                var resp=$.parseJSON(data)
-                
-				if(resp.result == "true"){
-					// do nothing
-				}     
-                else{
-                    $( "#dialog" ).prop('title', "ERROR");                
-                    $( "#dialog p" ).html(resp.error.msg);
-                    $( "#dialog" ).dialog({modal:true});
-                }
+                modalPopupResult(data);
             }
     }); 
 }
 inviaCommento = function(){
-	// var id_giornata="<?php echo $id_giornata; ?>";
-	// var commento = $('#txt_commento').val();
-	// $.ajax({
-	// 	url: "invia_commento.php",
-	// 	type:"GET",
-	// 	data:
-	// 	{
-	// 			id_giornata: id_giornata,
-	// 			commento: commento
-	// 	},
-	// 	success: function(msg)
-	// 	{
-	// 			alert('commento inviato');
-	// 	}
-	// 	}); //end $.ajax
 	var id_giornata=$(this).data("giornata");
 	var id_partita=$(this).data("partita");
 	var id_squadra=$(this).data("squadra");
@@ -66,9 +41,7 @@ inviaCommento = function(){
 	var checked=$(this).prop("checked");
 	console.log($(this));
 	var action ="usemd";
-	// debugger;
-	// console.log("giornata: " + id_giornata +"; partita: " + id_partita +"; squadra: " + id_squadra + 
-	// "; checked: " + checked + "; home: " + home);
+
 	$.ajax({
         type:'POST',
             url:'calcola_giornata_controller.php',
@@ -81,17 +54,7 @@ inviaCommento = function(){
 				"home": home
             },
             success:function(data){
-                
-                var resp=$.parseJSON(data)
-                
-				if(resp.result == "true"){
-					// do nothing
-				}     
-                else{
-                    $( "#dialog" ).prop('title', "ERROR");                
-                    $( "#dialog p" ).html(resp.error.msg);
-                    $( "#dialog" ).dialog({modal:true});
-                }
+				modalPopupResult(data);
             }
     }); 
 }
@@ -108,7 +71,22 @@ calcolaRisultati= function(){
 		}
 		}); //end $.ajax
 }//end function $("#btn_commento").click
-
+cancellaRisultati= function (){
+	// debugger;
+	var id_giornata=$(this).data("idgiornata");
+	var action ="cancellarisultati";
+	$.ajax({
+        type:'POST',
+            url:'calcola_giornata_controller.php',
+            data: {
+                "action": action,
+                "id_giornata": id_giornata,
+            },
+            success:function(data){
+				modalPopupResult(data);
+            }
+    }); 
+}
 salvautilizzomd = function()
 {
 	var id_giornata=$(this).data("giornata");
@@ -119,9 +97,6 @@ salvautilizzomd = function()
 	var checked=$(this).prop("checked");
 	console.log($(this));
 	var action ="usemd";
-	// debugger;
-	// console.log("giornata: " + id_giornata +"; partita: " + id_partita +"; squadra: " + id_squadra + 
-	// "; checked: " + checked + "; home: " + home);
 	$.ajax({
         type:'POST',
             url:'calcola_giornata_controller.php',
@@ -134,17 +109,7 @@ salvautilizzomd = function()
 				"home": home
             },
             success:function(data){
-                
-                var resp=$.parseJSON(data)
-                
-				if(resp.result == "true"){
-					// do nothing
-				}     
-                else{
-                    $( "#dialog" ).prop('title', "ERROR");                
-                    $( "#dialog p" ).html(resp.error.msg);
-                    $( "#dialog" ).dialog({modal:true});
-                }
+                modalPopupResult(data);
             }
     }); 
 }
@@ -167,6 +132,7 @@ $(document).ready(function(){
 	$(".cbFormazione").off("click").bind("click", inviaSostituzione)
 	$("#btn_commento").off("click").bind("click", inviaCommento);
 	$("#btn_calcola").off("click").bind("click", calcolaRisultati);
+	$("#btn_cancella").off("click").bind("click", cancellaRisultati);
     $(".usamd").unbind().bind("change", salvautilizzomd);
 
 })
@@ -478,6 +444,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 <button type="button" id="btn_invia">Invia Voti</button>
 <input type="hidden" id="hfIdGirone" value='<?php echo $idgirone; ?>'>
 <button type="button" id="btn_calcola">Calcola Risultati</button>
+<button type="button" id="btn_cancella" data-idgiornata="<?php echo $id_giornata;?>" >Reset Risultati</button>
 
 <?php
 $query="select * from giornate where id_giornata=". $id_giornata;

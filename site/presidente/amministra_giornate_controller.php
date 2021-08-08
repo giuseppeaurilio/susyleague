@@ -29,6 +29,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 'message' => $action." eseguito",
             ));
             break;
+        case("cancellaseriea"):
+                $idgiornata = $_POST['idgiornata'];
+                $query= "UPDATE `giornate_serie_a` SET `inizio`=null,`fine`=null WHERE id=".$idgiornata ;
+    
+                if ($conn->query($query) === FALSE) {
+                    //throw exception
+                    echo $query;
+                }
+                echo json_encode(array(
+                    'result' => "true",
+                    'message' => $action." eseguito",
+                ));
+                break;
         case("salvafc"):
                 $idgiornatasa = $_POST['idgiornatasa'];
                 $idgiornatafc = $_POST['idgiornatafc'];

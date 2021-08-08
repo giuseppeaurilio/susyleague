@@ -69,6 +69,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 'message' => $action." eseguito",
             ));
             break;
+        case("cancellarisultati"):
+
+                $id_giornata = $_POST['id_giornata'];
+                
+                $query= "UPDATE `calendario` 
+                SET `gol_casa`=null
+                ,`gol_ospiti`=null
+                ,`punti_casa`=null
+                ,`punti_ospiti`=null
+                ,`fattorecasa`=null
+                ,`md_casa`=0
+                ,`numero_giocanti_casa`=0
+                ,`md_ospite`=0
+                ,`numero_giocanti_ospite`=0
+                WHERE `id_giornata`=$id_giornata";
+                    // echo $query;
+                
+                if ($conn->query($query) === FALSE) {
+                    //throw exception
+                    echo $query;
+                }
+                echo json_encode(array(
+                    'result' => "true",
+                    'message' => $action." eseguito",
+                ));
+                break;
         default:
             echo json_encode(array(
                 'error' => array(

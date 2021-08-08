@@ -44,10 +44,42 @@ salvaDate = function(){
                 modalPopupResult(data);
             }
     }); 
+}
+cancellaDate = function (){
+    // console.log($(this).attr("data-idgiornata"));
+    var idgiornata =  $(this).attr("data-idgiornata");
+    // console.log ("inizio: " + inizio);
+    // console.log ("fine: " +fine);
+    var message = ""
+    if(idgiornata == null)
+            message = 'giornata selezionata non valida';
+    
+    if (message != "")
+    {
+        // alert (message);
+        $( "#dialog" ).prop('title', "ERROR");                
+        $( "#dialog p" ).html(message);
+        $( "#dialog" ).dialog({modal:true});
+        return false;
     }
+
+    var action ="cancellaseriea";
+    $.ajax({
+            type:'POST',
+            url:'amministra_giornate_controller.php',
+            data: {
+                "action": action,
+                "idgiornata": idgiornata,
+            },
+            success:function(data){
+                modalPopupResult(data);
+            }
+    }); 
+}
 $(document).ready(function(){
     $(".datetimeselector").flatpickr({enableTime: true,})
     $(".btnsalvadata").off("click").bind("click", salvaDate);
+    $(".btncancelladata").off("click").bind("click", cancellaDate);
 })
 
 </script>
@@ -88,6 +120,7 @@ foreach($giornatesa as $giornata)
         <td> <input class=\"datetimeselector\" type=\"textbox\" id=\"txtfine".$giornata["id"]."\" value=\"" .$giornata["fine"]."\"/></td>
         <td> 
             <input class=\"btnsalvadata\" type=\"button\" id=\"btndate".$giornata["id"]."\" value=\"salva\" data-idgiornata=".$giornata["id"].">
+            <input class=\"btncancelladata\" type=\"button\" id=\"btndatedel".$giornata["id"]."\" value=\"cancella\" data-idgiornata=".$giornata["id"].">
             
             <a href=\"amministra_voti.php?giornata_serie_a_id=".$giornata["id"]."\" >Voti</a>
         </td>
