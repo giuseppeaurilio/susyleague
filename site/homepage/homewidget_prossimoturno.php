@@ -15,8 +15,11 @@ $(document).ready(function(){
     include_once("..\DB/fantacalcio.php");
     include_once "../DB/calendario.php";
     
+    $giornatasacurrent = seriea_getGiornataCorrente();
+    // if(!is_null($giornatasa))
     $giornatasa = seriea_getGiornataProssima();
-    if(!is_null($giornatasa))
+    //se non c'e' una giornata in corso ed esiste una prossima giornata
+    if(is_null($giornatasacurrent) && !is_null($giornatasa))
     {
         $giornatefc = fantacalcio_getPartite_bySerieAId($giornatasa["id"]);
         // print_r($giornatefc);
@@ -60,9 +63,18 @@ $(document).ready(function(){
             echo '</div>';
         }
     }
-    else{
+    // se non c'e' una giornata in corso e non esiste una prossima giornata
+    else if(is_null($giornatasacurrent) && is_null($giornatasa)){
         echo "<h3> &nbsp;</h3>";
         echo "<div class='widgetcontent2 prossimoturno'>Non ci sono partite in programma</div>";
+    }
+    else //c'e' una giornata in corso
+    {
+        echo '<script>
+            $(document).ready(function(){
+                $(".widget.prossimo").hide()
+            });
+        </script>';
     }
     echo '<div class="footer"><a href="/invio_formazione.php">Invia la formazione</a></div>';
     echo '<hr>';
