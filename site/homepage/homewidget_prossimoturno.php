@@ -42,7 +42,7 @@ $(document).ready(function(){
                     '<div style="width:46%; display:inline-block; text-align:right;">'
                         . $giornatafc["sq1"]
                         . ($giornatafc["luc"] == 1 ? 
-                        '<i class="far fa-check-circle" style="color:gree;float:right;"></i> '
+                        '<i class="far fa-check-circle" style="color:green;float:right;"></i> '
                         : (($giornatafc["luc"] == 2 ? 
                         '<i class="far fa-check-circle" style="color:yellow;float:right;"></i> '
                         : '<i class="far fa-times-circle" style="color:red;float:right;"></i> ') )
