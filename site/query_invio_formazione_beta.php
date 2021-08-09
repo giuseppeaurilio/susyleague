@@ -99,11 +99,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				{
 						throw new Exception($conn->error);
 				}
-				//cancello precedente
-				$query_del = "DELETE FROM `formazione_standard` where id_squadra=". $id_squadra;
-				if(!$conn->query($query_del))
-				{
-						throw new Exception($conn->error);
+				if($default == "true"){
+					//cancello precedente
+					$query_del = "DELETE FROM `formazione_standard` where id_squadra=". $id_squadra;
+					if(!$conn->query($query_del))
+					{
+							throw new Exception($conn->error);
+					}
 				}
 				foreach ($giocatoriformazione as $value) 
 				{	
@@ -210,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				$text .= "TITOLARI (" . $textmodulo .")\n". $textformazione . "\n" ."A DISPOSIZIONE (" . $textmodulopanchina . ")\n". $textformazionepanchina;
 				// echo $text;
 				// print_r($text);
-				// $a=send_message_post($text);
+				$a=send_message_post($text);
 
 				$message .= "Messaggio telegram inviato \n";
 

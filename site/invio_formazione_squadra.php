@@ -816,7 +816,7 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 				<label >Imposta come formazione di default: </label>
 				<input type="checkbox" id="cbFormazioneDefault"/>
 			</div>
-			<div style="background-color: rgba(170,170,170,0.2);text-align: center; padding: 10px; display: none;">
+			<div style="background-color: rgba(170,170,170,0.2);text-align: center; padding: 10px;">
 				<label >Salva per tutte le competizioni: </label>
 				<input type="checkbox" id="cbSalvaPerTutte" />
 			</div>
