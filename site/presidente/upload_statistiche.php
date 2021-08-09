@@ -66,16 +66,19 @@ function parse_stats($filename, $anno) {
 						$data[11],
 						$data[12],
 						$data[13],
+						0,
 						$data[14],
 						$data[15],
-						$data[16],
-						$data[17])";
+						$data[16] )";
 					$result=$conn->query($queryInsertStats); //or die($conn->error);
 					if($result) {
 						$countervoti++; 
 					}
 					else {
 						echo " ERROR ". $data[0] . '-'.$data[2]  . ($conn->error) .'<br>';
+						echo "17: " . $data[16] ;
+						echo $queryInsertStats .'<br>';
+						
 					}
 				}
 				else 

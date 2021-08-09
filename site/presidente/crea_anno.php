@@ -441,6 +441,6 @@ aggiungi_giornata($globalgiornatecounter ,"8"); // 8  supercoppa
 $globalgiornatecounter++;
 
 $conn->close();
-
+include("../footer.php");
 ?>
 
