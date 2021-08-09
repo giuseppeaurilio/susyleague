@@ -107,6 +107,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 							throw new Exception($conn->error);
 					}
 				}
+				include_once "DB/fantacalcio.php";
+				$altrepartite;
+				if($all == "true"){
+					$altrepartite = fantacalcio_getAltrePartite($id_giornata , $id_squadra);
+				}
 				foreach ($giocatoriformazione as $value) 
 				{	
 					$index++;
@@ -138,24 +143,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 					//salvo per tutte le partite in corso.
 					if($all == "true")
 					{
-						// $query_default = "REPLACE INTO `formazione_standard`( `id_squadra`, `id_posizione`, `id_giocatore`, `id_squadra_sa`,  `id_tipo_formazione`) 
-						// VALUES (" . $id_squadra . "," . $index . ",'" .$value["id"] . "','" .$value["id_squadra"]. "', 1);" ;
-						// // $query .=$query_ini;
-						// if(!$conn->query($query_default))
-						// {
-						// 		throw new Exception($conn->error);
-						// }
+						foreach($altrepartite as $altrapartita)
+						{
+							$query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `id_giocatore`) 
+							VALUES (" . $altrapartita["id_giornata"] .",". $id_squadra . "," . $index . ",'" .$value["id"] . "');" ;						
+							
+							// $query .=$query_ini;
+							if(!$conn->query($query_ini))
+							{
+									throw new Exception($conn->error);
+							}
+						}
+						
 					}
 				}
-				$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_casa =$id_squadra ;";
+				$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=1 WHERE id_giornata = ". $altrapartita["id_giornata"] ." and id_sq_casa =$id_squadra ;";
 				if(!$conn->query($queryformazioneinviatacasa))
 				{
 						throw new Exception($conn->error);
 				}
-				$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_ospite =$id_squadra ;";
+				$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=1 WHERE id_giornata = ". $altrapartita["id_giornata"] ." and id_sq_ospite =$id_squadra ;";
 				if(!$conn->query($queryformazioneinviataospite))
 				{
 						throw new Exception($conn->error);
+				}
+				if($all == "true"){
+					foreach($altrepartite as $altrapartita){
+						$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_casa =$id_squadra ;";
+						if(!$conn->query($queryformazioneinviatacasa))
+						{
+								throw new Exception($conn->error);
+						}
+						$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_ospite =$id_squadra ;";
+						if(!$conn->query($queryformazioneinviataospite))
+						{
+								throw new Exception($conn->error);
+						}
+					}
 				}
 				$message .= "Formazione inviata\n";
 				
