@@ -1,4 +1,14 @@
 <?php
+include_once ("dbinfo_susyleague.inc.php");
+// Create connection
+$conn = new mysqli($localhost, $username, $password,$database);
+// $conn->set_charset("ISO-8859-1");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$conn=mysqli_connect($localhost,$username,$password,$database) or die( "Unable to select database");
+?>
+<?php
 // echo "pippo";
 $name_loc='db_backup.sql';
 $name_remote='db_backup' .date('m-d-Y_hia').'.sql';
@@ -40,4 +50,8 @@ $answer_tg=send_telegram_update();
 
 
  
+?>
+<?php 
+if(isset($conn))
+{$conn->close();}
 ?>

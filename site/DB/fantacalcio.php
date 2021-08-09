@@ -47,7 +47,7 @@ function fantacalcio_getGiornateCampionato(){
 
     return $giornatefc;
 }
-    function fantacalcio_getGiornate($idgirone){
+function fantacalcio_getGiornate($idgirone){
     global $localhost;
     global $username;
     global $password;
@@ -224,6 +224,36 @@ function fantacalcio_getPartite_byGironeId($girone_id)
     }
      return $partite;
 }
+function fantacalcio_getGiornate_bySerieAId($giornata_serie_a_id){
+    global $localhost;
+    global $username;
+    global $password;
+    global $database;
+
+    $conn = new mysqli($localhost, $username, $password, $database);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $query= "SELECT g.*, ga.inizio, ga.fine
+        FROM `giornate` as g
+        left join giornate_serie_a as ga on g.giornata_serie_a_id = ga.id 
+        WHERE giornata_serie_a_id = ".$giornata_serie_a_id." order by id_giornata ASC";
+        // echo $query;
+    $result=$conn->query($query);
+    $giornate = array();
+    while ($row=$result->fetch_assoc()) {
+        array_push($giornate, array(
+            "id_giornata"=>$row["id_giornata"],
+            "id_girone"=>$row["id_girone"],
+            "giornata_serie_a_id"=>$row["giornata_serie_a_id"],
+            "inizio"=>$row["inizio"],
+            "fine"=>$row["fine"],
+            )
+        );
+    }
+     return $giornate;
+}
 function fantacalcio_getPartite_bySerieAId($giornata_serie_a_id){
     global $localhost;
     global $username;
@@ -272,5 +302,36 @@ function fantacalcio_getPartite_bySerieAId($giornata_serie_a_id){
         );
     }
      return $partite;
+}
+
+function fantacalcio_getSquadreSenzaFormazione($giornata_serie_a_id){
+    global $localhost;
+    global $username;
+    global $password;
+    global $database;
+
+    $conn = new mysqli($localhost, $username, $password, $database);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $query="SELECT * FROM sq_fantacalcio 
+    where id  in (
+        select distinct id_sq_casa from calendario where id_giornata=".$giornata_serie_a_id ."
+        union 
+        select distinct id_sq_ospite from calendario where id_giornata=".$giornata_serie_a_id."
+    ) 
+    and id not in (select distinct id_squadra from formazioni where id_giornata=".$giornata_serie_a_id.")";
+        // echo $query;
+    $result=$conn->query($query);
+    $squadre = array();
+    while ($row=$result->fetch_assoc()) {
+        array_push($squadre, array(
+            "id"=>$row["id"],
+            "squadra"=>$row["squadra"],
+            )
+        );
+    }
+     return $squadre;
 }
 ?>
