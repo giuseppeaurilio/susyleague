@@ -67,7 +67,7 @@ if(!is_null($giornatasa))
 }
 else{
     echo "<h3> &nbsp;</h3>";
-    echo "<div class='widgetcontent2 prossimoturno'>Non sono state giocate partite</div>";
+    echo "<div class='widgetcontent2 ultimirisultati'>Non sono state giocate partite</div>";
 }
 
 echo '<hr>';
