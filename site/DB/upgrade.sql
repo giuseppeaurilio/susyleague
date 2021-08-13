@@ -5,7 +5,8 @@ ALTER TABLE `giornate` DROP `inizio`;
 ALTER TABLE `giornate` DROP `fine`;
 ALTER TABLE `giornate` ADD `giornata_serie_a_id` INT NULL AFTER `id_girone`;
 
-CREATE TABLE `id258940_susy_league_2020-21`.`giocatori_voti` ( `id` INT NULL AUTO_INCREMENT , `giocatore_id` INT NOT NULL , `giornata_serie_a_id` INT NOT NULL , `voto` FLOAT NOT NULL , `voto_md` FLOAT NOT NULL , PRIMARY KEY (`id`));
+CREATE TABLE `giocatori_voti` ( `id` INT NULL AUTO_INCREMENT , `giocatore_id` INT NOT NULL , `giornata_serie_a_id` INT NOT NULL , `voto` FLOAT NOT NULL , `voto_md` FLOAT NOT NULL , PRIMARY KEY (`id`));
 ALTER TABLE `formazioni` DROP `id_squadra_sa`;
 ALTER TABLE `formazioni` DROP `voto`;
 ALTER TABLE `formazioni` DROP `voto_md`;
+CREATE TABLE `rose_asta_ap` (`id_giocatore` int(11) NOT NULL,  `id_sq_fc` int(11) NOT NULL,  `costo` int(11) NOT NULL,  `ordine` int(11) NOT NULL)

@@ -344,8 +344,23 @@ $(document).on({
 
 <script id="tmplStats" type="x-tmpl-mustache">
     <table border="0" cellspacing="2" cellpadding="2" style="text-align: center; width:100%">
-        <tr><th>anno</th><th>pg</th><th>mv</th><th>mf</th><th>gf</th><th>gs</th><th>rp</th><th>rc</th><th>r+</th><th>r-</th>
-        <th>as</th><th>asf</th><th>am</th><th>es</th><th>au</th></tr>
+        <tr>
+            <th>anno</th>
+            <th title="Partite giocate">pg</th>
+            <th title="Media voto">mv</th>
+            <th title="FantaMedia">mf</th>
+            <th title="Gol fatti">gf</th>
+            <th title="Gol Subiti">gs</th>
+            <th title="Rigori parati"rp</th>
+            <th title="Rigori calciati">rc</th>
+            <th title="Rigori segnati">r+</th>
+            <th title="Rigori sbagliati">r-</th>
+            <th title="Assit">as</th>
+            <th title="Assist da fermo">asf</th>
+            <th title="Ammonizioni">am</th>
+            <th title="Espusioni">es</th>
+            <th title="Autogol">au</th>
+        </tr>
         {{#stats}}
         <tr>
             <td>{{anno}}</td>
@@ -374,7 +389,23 @@ $(document).on({
         {{ stats.0.nome }} ({{ stats.0.squadra_breve }}) - {{ stats.0.ruolo }}
 	</h3>
     <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
-        <tr><th>anno</th><th>pg</th><th>mv</th><th>mf</th><th>gf</th><th>gs</th><th>rp</th><th>rc</th><th>r+</th><th>r-</th><th>as</th><th>asf</th><th>am</th><th>es</th><th>au</th></tr>
+        <tr>
+            <th>anno</th>
+            <th title="Partite giocate">pg</th>
+            <th title="Media voto">mv</th>
+            <th title="FantaMedia">mf</th>
+            <th title="Gol fatti">gf</th>
+            <th title="Gol Subiti">gs</th>
+            <th title="Rigori parati"rp</th>
+            <th title="Rigori calciati">rc</th>
+            <th title="Rigori segnati">r+</th>
+            <th title="Rigori sbagliati">r-</th>
+            <th title="Assit">as</th>
+            <th title="Assist da fermo">asf</th>
+            <th title="Ammonizioni">am</th>
+            <th title="Espusioni">es</th>
+            <th title="Autogol">au</th>
+        </tr>
         {{#stats}}
         <tr>
             <td>{{anno}}</td>
@@ -400,7 +431,18 @@ $(document).on({
 
 <script id="tmplPInfo" type="x-tmpl-mustache">
     <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
-        <tr><th>Quo</th><th>Tit</th><th>CR</th><th>CP</th><th>CA</th><th>IA</th><th>IS</th><th>FA</th></tr>
+        <tr>
+            <th title="Quotazione">Quo</th>
+            <th title="Titolarità">Tit</th>
+            <th title="Calci di rigore">CR</th>
+            <th title="Calci di punizione">CP</th>
+            <th title="Calci d'agolo">CA</th>
+            <th title="Indice di appetibilità">IA</th>
+            <th title="Indice squadra">IS</th>
+            <th title="Fascia">FA</th>
+            <th title="Costo anno precedente">CAP</th>
+            <th title="ordine di acquisto anno precedente">OAP</th>
+        </tr>
         <tr>
             <td>{{quotazione}}</td>
             <td>{{titolarita}}</td>
@@ -410,7 +452,8 @@ $(document).on({
             <td>{{ia}}</td>
             <td>{{is}}</td>
             <td>{{f}}</td>
-            
+            <td>{{costo_ap}}</td>
+            <td>{{ordine_ap}}</td>
         </tr>
         <tr>
         <td colspan="8">{{note}}</td></tr>

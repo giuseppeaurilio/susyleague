@@ -54,7 +54,9 @@ function parse_voti($filename, $idgiornata) {
 				{
 					//[0]>Cod.	[1]>Ruolo	[2]>Nome	[3]>Voto	[4]>Gf	
 					//[5]>Gs	[6]>Rp	[7]>Rs	[8]>Rf	[9]>Au	[10]>Amm	
-					//[11]>Esp	[12]>Ass	[13]>Asf	[14]>Gdv	[15]>Gdp
+					//[11]>Esp	[12]>Ass	
+					//[13]>Asf	
+					//[14]>Gdv	[15]>Gdp
 					$cod = $data[0];
 					// $voto = str_replace(',', '.', preg_replace("/[^0-9,]/", '',  $data[3]));
 					$voto = str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $data[3]));
@@ -71,7 +73,7 @@ function parse_voti($filename, $idgiornata) {
 						// 	- (0.5*$data[10])//ammonizioni
 						// 	- (0.5*$data[11])//espulsioni
 						// 	+ (1*$data[12]) //assist
-						// 	+ (1*$data[13]) //assist da fermo
+						// 	+ (0.5*$data[13]) //assist da fermo
 						case "P":
 						case "D":
 						case "C":

@@ -170,12 +170,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         case("loadpinfo"):
                 $id = $_POST['id'];
                 $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.quotazione as quotazione,  
-                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, 
-                gpi.is as 'is', gpi.f as f ,  gpi.note as note
+                gpi.titolarita as titolarita, gpi.cp as calci_punizione, gpi.cr as calci_rigore, gpi.ca as calci_angolo, gpi.ia as indice_appetibilita, 
+                gpi.is as 'is', gpi.f as fascia ,  gpi.note as note, rap.costo as costo_ap, rap.ordine as ordine_ap
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
-                
+                left join rose_asta_ap as rap on rap.id_giocatore = g.id
                 where g.id = $id";
                 // echo $query;
                 $result=$conn->query($query);
@@ -188,13 +188,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "ruolo"=>utf8_encode($row["ruolo"]),
                         "quotazione"=>utf8_encode($row["quotazione"]),
                         "titolarita"=>utf8_encode($row["titolarita"]),
-                        "cp"=>utf8_encode($row["cp"]),
-                        "cr"=>utf8_encode($row["cr"]),
-                        "ca"=>utf8_encode($row["ca"]),
-                        "ia"=>utf8_encode($row["ia"]),
+                        "cp"=>utf8_encode($row["calci_punizione"]),
+                        "cr"=>utf8_encode($row["calci_rigore"]),
+                        "ca"=>utf8_encode($row["calci_angolo"]),
+                        "ia"=>utf8_encode($row["indice_appetibilita"]),
                         "is"=>utf8_encode($row["is"]),
-                        "f"=>utf8_encode($row["f"]),
+                        "f"=>utf8_encode($row["fascia"]),
+                        "costo_ap"=>utf8_encode($row["costo_ap"]),
+                        "ordine_ap"=>utf8_encode($row["ordine_ap"]),
                         "note"=>utf8_encode($row["note"])
+
                         )
                     );
                 };
