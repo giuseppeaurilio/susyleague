@@ -1,12 +1,13 @@
 
 Widget in home page: numero di partite giocate in 10.
-Rivedere la grafica dei widget di home page quando sono presenti dati.
+
 Caricamento voti a volte mette limit exceed
 
 asta peppe da fare:
 Lista giocatori disponibili:
 sistemare ordinamento.
-visualizzare media voto e fantamedia anno 20/21
+visualizzare media voto e fantamedia anno corrente
+
 
 GRAFICA
 Loghi e banner delle squadre.
@@ -15,6 +16,7 @@ calcolare un fattore che tiene conto della formazione schierata vs la migliore f
 inserire pulsante di creazione automatica della formazione in base a dai criteri
 
 SVILUPPI 21/22 FATTI
+Rivedere la grafica dei widget di home page quando sono presenti dati. -> DONE
 Calendario Asimmetrico:nella apertura, nel girono di ritorno permettere di mischiare le giornate, in modo che non abbiamo lo stesso ordine del girono di andata
 -> DONE
 Controllare invio messaggio telegram inizio giornata -> DONE
