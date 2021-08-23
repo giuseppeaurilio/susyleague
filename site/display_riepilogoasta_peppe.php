@@ -456,7 +456,7 @@ $(document).on({
             <td>{{ordine_ap}}</td>
         </tr>
         <tr>
-        <td colspan="8">{{note}}</td></tr>
+        <td colspan="10">{{note}}</td></tr>
     </table >
 </table>
 </script>
@@ -476,6 +476,8 @@ $(document).on({
             </td>
             <td>{{ruolo}}</td>
             <td>{{squadra_breve}}</td>
+            <td>{{is}}</td>
+            <td>{{f}}</td>
             <td>{{costo}}</td>
             <td>{{note}}</td>
         </tr>
@@ -745,6 +747,8 @@ $(document).on({
                                 </select>
                             </th>
                             <th>Squadra</th>
+                            <th>IS</th>
+                            <th>F</th>
                             <th>Costo</th>
                             <th>Note</th>
                         </tr>

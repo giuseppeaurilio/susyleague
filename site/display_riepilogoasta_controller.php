@@ -298,7 +298,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $idSquadra = $_POST['id'];
             $ruolo = $_POST['ruolo']  = '' ? null :$_POST['ruolo'];
             $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.quotazione as quotazione, sa.squadra_breve as squadra_breve,
-            sf.squadra as fantasquadra, s.costo as costo, gpi.note as note
+            sf.squadra as fantasquadra, s.costo as costo, gpi.note as note, gpi.is as 'is',  gpi.f as f
             FROM `giocatori` as g 
             left join rose as s on s.id_giocatore = g.id
             left join squadre_serie_a as sa on sa.id = g.id_squadra
