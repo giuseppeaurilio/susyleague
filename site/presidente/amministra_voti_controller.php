@@ -112,6 +112,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     'message' => $action." eseguito",
                 ));
             break;
+        case("inserisciVotoUfficio"):
+            $idgiornatasa = $_POST['idgiornatasa']  = '' ? null :$_POST['idgiornatasa'];
+            $idsquadra = $_POST['idsquadra']  = '' ? null :$_POST['idsquadra'];
+            //inserire controlli sugli input
+            $querydelete = 'DELETE FROM `giocatori_voti` 
+            WHERE `giornata_serie_a_id` = '.$idgiornatasa.'
+            and giocatore_id in (select id from giocatori where id_squadra = '.$idsquadra.')';
+            if ($conn->query($querydelete) === FALSE) {
+                //throw exception
+                echo $querydelete;
+            }
+
+            $queryselect = 'SELECT id from giocatori where giocatori.id_squadra = '.$idsquadra;
+            $result=$conn->query($queryselect);
+            $giocatori = array();
+            while ($row=$result->fetch_assoc()) {
+                array_push($giocatori, array(
+                    "id"=>$row["id"],
+                    )
+                );
+            }
+
+            foreach($giocatori as $giocatore)
+            {
+                $queryinsert= "INSERT INTO `giocatori_voti`(`giocatore_id`, `giornata_serie_a_id`, `voto`, `voto_md`, `voto_ufficio`) 
+                VALUES (".$giocatore["id"].",".$idgiornatasa.",6,6, true)";
+            
+                if ($conn->query($queryinsert) === FALSE) {
+                    //throw exception
+                    echo $queryinsert;
+                }
+            }
+            echo json_encode(array(
+                'result' => "true",
+                'message' => $action." eseguito",
+            ));
+            break;
         default:
             echo json_encode(array(
                 'error' => array(

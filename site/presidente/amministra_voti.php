@@ -140,6 +140,27 @@ filtraGiocatoriPerSquadraBreve = function()
     
 }
 
+inserisciVotoufficio = function()
+{
+    var idgiornatasa = $("#ddlGiornataSerieA").find("option:selected").val();
+    var idsquadra = $("#squadravu").find("option:selected").val();
+
+    var action ="inserisciVotoUfficio";
+    $.ajax({
+            type:'POST',
+            url:'amministra_voti_controller.php',
+            data: {
+                "action": action,
+                "idgiornatasa": idgiornatasa,
+                "idsquadra": idsquadra,
+            },
+            success:function(data){
+                modalPopupResult(data);
+            }
+    }); 
+
+}
+
 var idgiornatasa = "<?php echo $giornata_serie_a_id=isset($_GET['giornata_serie_a_id']) ? $_GET['giornata_serie_a_id']: '' ; ?>";
 $(document).ready(function(){
     $("#ddlGiornataSerieA").off("change").bind("change", getVoti);
@@ -154,7 +175,7 @@ $(document).ready(function(){
         $('#ddlGiornataSerieA').val(idgiornatasa).change();
         
     }
-    // $(".updateVoto").off("click").bind("click", updateVoto);
+    $("#btnInserisciVotoufficio").off("click").bind("click", inserisciVotoufficio);
     // $("#btnUploadFile").off("submit").bind("submit", uploadFile);
 })
 </script>
@@ -170,7 +191,8 @@ $(document).ready(function(){
         // $squadra=$row["squadra"];
         array_push($squadre, array(
             "id"=>$row["id"],
-            "squadra_breve"=>$row["squadra_breve"]
+            "squadra_breve"=>$row["squadra_breve"],
+            "squadra"=>$row["squadra"]
             )
         );
     }
@@ -244,6 +266,20 @@ echo "</select>";
 
 echo '</div>';
 ?>
+<div class="" id="divVotiUfficio">
+    <span>Inserisci un 6 d'ufficio per la seguente squadra</span>
+<?php
+    echo '<select id="squadravu" name="squadra">';
+    echo '<option value="">-scegli la squadra-</option>';
+    foreach($squadre as $squadra)
+    {
+        echo '<option value=' . $squadra["id"] . '>'. $squadra["squadra"] . '</option>';
+    }
+    echo '</select>';
+?>
+<input type="button" class="insertVotoUfficio" value="inserisci voto d'ufficio" id="btnInserisciVotoufficio">
+</div>
+<hr>
 <div class="mainaction" id="divCancellaVoti">
     <a href="#" >Cancella Voti</a>
 </div>
