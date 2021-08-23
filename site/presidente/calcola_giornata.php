@@ -218,7 +218,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$usemdcasa = $row["use_mdcasa"];
 	$usemdospite = $row["use_mdospite"];
 
-	$query_formazione="SELECT b.id,  gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione
+	$query_formazione="SELECT b.id,  gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto_ufficio
 	FROM formazioni as a 
 	inner join giocatori as b 
 	left join giocatori_voti as gv on b.id = gv.giocatore_id
@@ -239,6 +239,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 			"squadra_breve"=>$row["squadra_breve"],
 			"ruolo"=>$row["ruolo"],
 			"voto"=>$row["voto"],
+			"voto_ufficio"=>$row["voto_ufficio"],
 			"voto_md"=>$row["voto_md"],
 			"sostituzione"=>$row["sostituzione"]
 			)
@@ -248,7 +249,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 
 	<?php
 	$query_formazione=
-	"SELECT b.id, gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione
+	"SELECT b.id, gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto_ufficio
 	FROM formazioni as a 
 	inner join giocatori as b 
 	left join giocatori_voti as gv on b.id = gv.giocatore_id
@@ -270,6 +271,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 			"ruolo"=>$row["ruolo"],
 			"voto"=>$row["voto"],
 			"voto_md"=>$row["voto_md"],
+			"voto_ufficio"=>$row["voto_ufficio"],
 			"sostituzione"=>$row["sostituzione"]
 			)
 		);
@@ -396,7 +398,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 						<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
 						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
 						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
-						<td ><?php echo $row["voto"]; ?></td>
+						<td ><?php echo $row["voto"]; ?> <?php echo $row["voto_ufficio"] ? "*": ""; ?></td>
 						<td ><?php echo $row["voto_md"] ?></td>
 						<td class="sostituzione">
 							<?php  
@@ -554,7 +556,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 					<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
 					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
 					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
-					<td ><?php echo $row["voto"]; ?></td>
+					<td ><?php echo $row["voto"]; ?> <?php echo $row["voto_ufficio"] ? "*": ""; ?></td>
 					<td ><?php echo $row["voto_md"] ?></td>
 					<td class="sostituzione">
 							<?php  

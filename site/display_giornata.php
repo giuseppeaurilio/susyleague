@@ -54,7 +54,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$gol_ospite = $row["gol_ospiti"];
 
 
-	$query_formazione="SELECT gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione
+	$query_formazione="SELECT gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto_ufficio
 	FROM formazioni as a 
 	inner join giocatori as b 
 	left join giocatori_voti as gv on b.id = gv.giocatore_id
@@ -75,6 +75,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 			"ruolo"=>$row["ruolo"],
 			"voto"=>$row["voto"],
 			"voto_md"=>$row["voto_md"],
+			"voto_ufficio"=>$row["voto_ufficio"],
 			"sostituzione"=>$row["sostituzione"]
 			)
 		);
@@ -109,7 +110,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 
 	<?php
 	$query_formazione=
-	"SELECT gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione
+	"SELECT gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto_ufficio
 	FROM formazioni as a 
 	inner join giocatori as b 
 	left join giocatori_voti as gv on b.id = gv.giocatore_id
@@ -130,6 +131,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 			"ruolo"=>$row["ruolo"],
 			"voto"=>$row["voto"],
 			"voto_md"=>$row["voto_md"],
+			"voto_ufficio"=>$row["voto_ufficio"],
 			"sostituzione"=>$row["sostituzione"]
 			)
 		);
@@ -169,9 +171,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 	<div id="tabellino<?php echo $id_partita ?>" class="tabellino">
 		<table>
 			<tr>
-				<th style="width:35%"><?php echo $sq_casa; echo ($formazioneDefaultCasa? "*" : ""); ?></th>
+				<th style="width:35%"><?php echo $sq_casa; echo ($formazioneDefaultCasa? "**" : ""); ?></th>
 				<th><?php echo $gol_casa; ?> - <?php echo $gol_ospite; ?></th>
-				<th style="width:35%"><?php echo $sq_ospite; echo ($formazioneDefaultOspite? "*" : "");?></th>
+				<th style="width:35%"><?php echo $sq_ospite; echo ($formazioneDefaultOspite? "**" : "");?></th>
 			</tr>
 			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
 				<td><?php echo $gol_casa; ?> </td>
@@ -264,7 +266,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 						<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
 						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
 						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
-						<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
+						<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?><?php echo $row["voto_ufficio"] ? "*": ""; ?></td>
 						<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
 					</tr>
 					<?php
@@ -403,7 +405,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 					<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
 					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
 					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
-					<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?></td>
+					<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?><?php echo $row["voto_ufficio"] ? "*": ""; ?></td>
 					<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
 					<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate2'> Titolari</div></td>";  } ?>
 					<?php if ($i==11) {echo "<td rowspan='10' style='background-color: rgba(51,102,255,0.4);'><div class='rotate2'> Riserve </div></td>";  } ?>
@@ -493,10 +495,13 @@ while ($row=$result_giornata->fetch_assoc()) {
 <hr style="display: inline-block;width: 100%;">
 <?php
 ++$j;
+echo "<div style=\"text-align: center;\"><i>* voto d'ufficio</i></div>";
+echo '</div>';
 if($formazioneDefaultCasa || $formazioneDefaultOspite){
-echo "<div style=\"text-align: center;\"><i>* formazione di default</i></div>";}
+echo "<div style=\"text-align: center;\"><i>** formazione di default</i></div>";}
 echo '</div>';
 } # end incontri
+
 ?>
 
 <?php 
