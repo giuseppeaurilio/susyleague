@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $fantavoto = $_POST['fantavoto']  = '' ? null :$_POST['fantavoto'];
             //inserire controlli sugli input
             $query= "UPDATE `giocatori_voti` 
-            SET `voto`=$fantavoto,`voto_md`=$voto 
+            SET `voto`=$fantavoto,`voto_md`=$voto, `voto_ufficio`=true
             WHERE `id`=$id";
  
             if ($conn->query($query) === FALSE) {
