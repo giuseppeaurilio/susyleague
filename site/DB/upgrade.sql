@@ -6,6 +6,7 @@ ALTER TABLE `giornate` DROP `fine`;
 ALTER TABLE `giornate` ADD `giornata_serie_a_id` INT NULL AFTER `id_girone`;
 
 CREATE TABLE `giocatori_voti` ( `id` INT NULL AUTO_INCREMENT , `giocatore_id` INT NOT NULL , `giornata_serie_a_id` INT NOT NULL , `voto` FLOAT NOT NULL , `voto_md` FLOAT NOT NULL , PRIMARY KEY (`id`));
+ALTER TABLE `giocatori_voti` ADD `voto_ufficio` BOOLEAN NULL AFTER `voto_md`;
 ALTER TABLE `formazioni` DROP `id_squadra_sa`;
 ALTER TABLE `formazioni` DROP `voto`;
 ALTER TABLE `formazioni` DROP `voto_md`;
