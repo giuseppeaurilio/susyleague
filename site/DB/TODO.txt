@@ -1,13 +1,8 @@
-
 Widget in home page: numero di partite giocate in 10.
-
-Caricamento voti a volte mette limit exceed
 
 asta peppe da fare:
 Lista giocatori disponibili:
-sistemare ordinamento.
-visualizzare media voto e fantamedia anno corrente
-
+    sistemare ordinamento.
 
 GRAFICA
 Loghi e banner delle squadre.
