@@ -45,7 +45,7 @@ order by  md desc -->
 <div class="statistica">
 		<div class="titolo"> Punteggio più basso di squadra</div>
 		<div class="descrizione">
-			45 punti fatti da Jimmy Grimnble contro Bar Limpido alla giornata 1 dei PlayOff-PlayOut 17/18
+			45 punti fatti da Jimmy Grimble contro Bar Limpido alla giornata 1 dei PlayOff-PlayOut 17/18
 			<br>(Bar Limpido - Jimmy Grimble 2-0)
 		</div>
 	</div>
