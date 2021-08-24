@@ -50,75 +50,75 @@ loadStatsDialog = function(event)
 
 loadStats = function(id)
 {
-    // debugger;
-    var action ="stats";
-    $.ajax({
-        type:'POST',
-            url:'display_riepilogoasta_controller.php',
-            data: {
-                "action": action,
-                "id": id,
-                "limit": 3
-            },
-            success:function(data){
-                var resp=$.parseJSON(data)
-                if(resp.result == "true"){
-                    if(resp.stats.length> 0){
-                        //show data
-                        var template = $('#tmplStats').html();
-                        Mustache.parse(template);   // optional, speeds up future uses
-                        var rendered = Mustache.render(template, resp);
-                        $("#divStats").html(rendered);
-                    }
-                }
-                else{
-                    $( "#dialog" ).prop('title', "ERROR");                
-                    $( "#dialog p" ).html(resp.error.msg);
-                    $( "#dialog" ).dialog({modal:true});
-                }
-            }
-    }); 
+    // // debugger;
+    // var action ="stats";
+    // $.ajax({
+    //     type:'POST',
+    //         url:'display_riepilogoasta_controller.php',
+    //         data: {
+    //             "action": action,
+    //             "id": id,
+    //             "limit": 3
+    //         },
+    //         success:function(data){
+    //             var resp=$.parseJSON(data)
+    //             if(resp.result == "true"){
+    //                 if(resp.stats.length> 0){
+    //                     //show data
+    //                     var template = $('#tmplStats').html();
+    //                     Mustache.parse(template);   // optional, speeds up future uses
+    //                     var rendered = Mustache.render(template, resp);
+    //                     $("#divStats").html(rendered);
+    //                 }
+    //             }
+    //             else{
+    //                 $( "#dialog" ).prop('title', "ERROR");                
+    //                 $( "#dialog p" ).html(resp.error.msg);
+    //                 $( "#dialog" ).dialog({modal:true});
+    //             }
+    //         }
+    // }); 
 }
 
 loadUltimoGiocatore = function(id)
 {
-    var action ="ultimogiocatore";
-    $.ajax({
-        type:'POST',
-            url:'display_riepilogoasta_controller.php',
-            data: {
-                "action": action,
-            },
-            success:function(data){
-                // debugger;
-                var resp=$.parseJSON(data)
+    // var action ="ultimogiocatore";
+    // $.ajax({
+    //     type:'POST',
+    //         url:'display_riepilogoasta_controller.php',
+    //         data: {
+    //             "action": action,
+    //         },
+    //         success:function(data){
+    //             // debugger;
+    //             var resp=$.parseJSON(data)
                 
-                if(resp.result == "true"){
-                    if(resp.giocatori.length> 0){
-                        //show data
-                        var template = $('#tmplAstaprecedente').html();
-                        Mustache.parse(template);   // optional, speeds up future uses
-                        var rendered = Mustache.render(template, resp.giocatori[0]);
-                        $("#divAstaprecedente").html(rendered);
-                        $("#divAstaprecedente").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStatsDialog);
-                    }
-                    else{
-                        var giocatore = {nome: "NO DATA", ruolo: "-", imgurl: noimage, squadra_breve: "--", costo:"-", fantasquadra : "--"}
-                        //
-                        resp.giocatori.push(giocatore);
-                        var template = $('#tmplAstaprecedente').html();
-                        Mustache.parse(template);   // optional, speeds up future uses
-                        var rendered = Mustache.render(template, resp.giocatori[0]);
-                        $("#divAstaprecedente").html(rendered);
-                    }
-                }
-                else{
-                    $( "#dialog" ).prop('title', "ERROR");                
-                    $( "#dialog p" ).html(resp.error.msg);
-                    $( "#dialog" ).dialog({modal:true});
-                }
-            }
-    }); 
+    //             if(resp.result == "true"){
+    //                 if(resp.giocatori.length> 0){
+    //                     //show data
+    //                     var template = $('#tmplAstaprecedente').html();
+    //                     Mustache.parse(template);   // optional, speeds up future uses
+    //                     var rendered = Mustache.render(template, resp.giocatori[0]);
+    //                     $("#divAstaprecedente").html(rendered);
+    //                     $("#divAstaprecedente").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStatsDialog);
+    //                 }
+    //                 else{
+    //                     var giocatore = {nome: "NO DATA", ruolo: "-", imgurl: noimage, squadra_breve: "--", costo:"-", fantasquadra : "--"}
+    //                     //
+    //                     resp.giocatori.push(giocatore);
+    //                     var template = $('#tmplAstaprecedente').html();
+    //                     Mustache.parse(template);   // optional, speeds up future uses
+    //                     var rendered = Mustache.render(template, resp.giocatori[0]);
+    //                     $("#divAstaprecedente").html(rendered);
+    //                 }
+    //             }
+    //             else{
+    //                 $( "#dialog" ).prop('title', "ERROR");                
+    //                 $( "#dialog p" ).html(resp.error.msg);
+    //                 $( "#dialog" ).dialog({modal:true});
+    //             }
+    //         }
+    // }); 
 }
 
 loadAstaInCorso = function()
@@ -201,14 +201,9 @@ $(document).on({
 <div>
     <h3> Adesso in asta</h3>
     <div class="widgetastacontent incorso" data-id="{{ id }}">
-        <div class="left">
-            <img  width="120px;" src='{{ imgurl }}' onerror='imgError(this);'> </img> 
-        </div>
-        <div  class="right">
-            <!-- <div class="nome"> {{ nome }} ({{ squadra_breve }})</div>
-            <div class="ruolo"> Ruolo: {{ ruolo }} </div> -->
-            <div class=" stats" id="divStats" style="overflow-x:auto"></div>
-        </div>
+        <div class="nome" style="font-size:100px"> {{ nome }} ({{ squadra_breve }})</div>
+        <div class="ruolo" style="font-size:50px"> Ruolo: {{ ruolo }} </div>
+        <img  width="120px;" src='{{ imgurl }}' onerror='imgError(this);'> </img>     
     </div>
     
 </div>
@@ -223,7 +218,7 @@ $(document).on({
             <img src='{{ imgurl }}' onerror='imgError(this);'> </img> 
         </div>
         <div  class="right">
-            <div class="nome"> {{ nome }} ({{ squadra_breve }})</div>
+            <div class="nome" > {{ nome }} ({{ squadra_breve }})</div>
             <div class="ruolo"> Ruolo: {{ ruolo }} </div>
             <div > Costo: {{ costo }}</div>
             <div > Fantasquadra: <br><span class="fantasquadra">{{ fantasquadra }}<span></div>
@@ -285,7 +280,7 @@ $(document).on({
         
     </div> -->
         </div>
-        <div class="widgetasta " id="divAstaprecedente">
+        <!-- <div class="widgetasta " id="divAstaprecedente"> -->
         <!-- <h3>Ultimo Aggiudicato</h3>
     <div class="widgetastacontent precedente" >
     <div class="left">
@@ -298,8 +293,8 @@ $(document).on({
             <div > Fantasquadra: <br><span class="fantasquadra">Nuova Romanina<span></div>
         </div>
     </div> -->
-        </div>
-    </div>
+        <!-- </div> -->
+    <!-- </div> -->
 <?php 
 //load squadre fantacalcio
 $query="SELECT * FROM sq_fantacalcio order by squadra";
@@ -338,6 +333,15 @@ function getbackgroundColor($refnum, $refnumjolly, $num, $numjolly)
     }
     return $color;
 }
+echo "<div class='widgetasta ' id='divAstaprecedente'> <table>";
+echo "<tr>
+<th>Squadra</th>
+<th>Off MAX</th>
+<th>P</th>
+<th>D</th>
+<th>C</th>
+<th>A</th>
+</tr>";
 foreach($squadre as $squadra)
 {
     $rimanenti = getMilioniRimanenti($squadra["id"]);
@@ -345,35 +349,57 @@ foreach($squadre as $squadra)
     $numjollyscelti = hasJolly($squadra["id"]);
     $riepilogo = getRiepilogoAsta($squadra["id"]);
 
-    echo '<div id=riepilogo'.$squadra["id"].' class="riepilogo" style="vertical-align: middle;">';
-    echo '<h2>'.$squadra["squadra"];
+    echo "<tr>";
+    echo "<td style='font-size:3em; padding: 2px 5px;'>".$squadra["squadra"]."</td>";
+    echo "<td style='font-size:3em; padding: 2px 5px;'>".$offertamassima."</td>";
+    foreach($riepilogo["giocatori"] as $row){
+        echo '<td>';
+        switch($row["ruolo"])
+                {
+                    case "P":
+                        echo '<div style="padding: 2px;">P: <span style="color: black; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'€)</div>';
+                    break;
+                    case "D":
+                        echo '<div style="padding: 2px; ">D: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
+                    break;
+                    case "C":
+                        echo '<div style="padding: 2px; ">C: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
+                    break;
+                    case "A":
+                        echo '<div style="padding: 2px;">A: <span style="color: black; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'€)</div>';
+                    break;
+                }
+        echo '</td>';
+    }
+    echo "</tr>";
+    // echo '<div id=riepilogo'.$squadra["id"].' class="riepilogo" style="vertical-align: middle;">';
+    // echo '<h2>'.$squadra["squadra"];
    
-    echo '</h2>';
-    // echo '<h3>'.$squadra["allenatore"].'</h3>';
-    echo '<div class="ui-state-error" style="text-align:center;">
-                MAX <span style="font-size: 100px">
-                '.$offertamassima.'
-            </span>
-            </div>';
-    echo "<div style='flex-flow: row; display: flex; flex-wrap: wrap; width: 100%; background-color: lightgrey;'> ";
-        foreach($riepilogo["giocatori"] as $row){
-            switch($row["ruolo"])
-            {
-                case "P":
-                    echo '<div style="padding: 3px;">P: <span style="color: black; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'€)</div>';
-                break;
-                case "D":
-                    echo '<div style="padding: 3px; ">D: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
-                break;
-                case "C":
-                    echo '<div style="padding: 3px; ">C: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
-                break;
-                case "A":
-                    echo '<div style="padding: 3px;">A: <span style="color: black; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'€)</div>';
-                break;
-            }
-        }
-    echo "</div>";
+    // echo '</h2>';
+    // echo '<div class="ui-state-error" style="text-align:center;">
+    //             MAX <span style="font-size: 100px">
+    //             '.$offertamassima.'
+    //         </span>
+    //         </div>';
+    // echo "<div style='flex-flow: row; display: flex; flex-wrap: wrap; width: 100%; background-color: lightgrey;'> ";
+    //     foreach($riepilogo["giocatori"] as $row){
+    //         switch($row["ruolo"])
+    //         {
+    //             case "P":
+    //                 echo '<div style="padding: 3px;">P: <span style="color: black; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'€)</div>';
+    //             break;
+    //             case "D":
+    //                 echo '<div style="padding: 3px; ">D: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
+    //             break;
+    //             case "C":
+    //                 echo '<div style="padding: 3px; ">C: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
+    //             break;
+    //             case "A":
+    //                 echo '<div style="padding: 3px;">A: <span style="color: black; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'€)</div>';
+    //             break;
+    //         }
+    //     }
+    // echo "</div>";
     // echo '<h4 style="text-align: center;">Offerta massima '.$offertamassima.'</h4>';
     // echo '<table>';
     // echo '<tr>
@@ -440,7 +466,9 @@ foreach($squadre as $squadra)
     // echo '<br> Jolly: ' . $jollyScelto;
     $conn->next_result();
 }
+echo "</table > </div> ";
 ?>
+</div>
 </div>
 <?php 
 include("footer.php");
