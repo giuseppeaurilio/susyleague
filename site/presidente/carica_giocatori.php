@@ -40,7 +40,7 @@ include("menu.php");
     <!-- <span>Anno</span><input type="text" name="AnnoStats"></input> -->
     <select name="AnnoStats" id="AnnoStats">
         <option value="">--anno--</option>	
-        <option value="20/21">21/22</option>
+        <option value="21/22">21/22</option>
         <option value="20/21">20/21</option>
         <option value="19/20">19/20</option>
         <option value="18/19">18/19</option>
