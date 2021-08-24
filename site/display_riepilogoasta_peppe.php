@@ -323,7 +323,7 @@ $(document).on({
 <script id="tmplAstaInCorso" type="x-tmpl-mustache">  
 <div>
     <h3> Adesso in asta</h3>
-    <div class="widgetastacontent incorso" data-id="{{ id }}">
+    <div class="widgetastacontent incorso height" data-id="{{ id }}">
         <div class="left">
             <img src='{{ imgurl }}' onerror='imgError(this);'> </img> 
         </div>
