@@ -10,4 +10,4 @@ ALTER TABLE `formazioni` DROP `voto`;
 ALTER TABLE `formazioni` DROP `voto_md`;
 CREATE TABLE `rose_asta` (`id_giocatore` int(11) NOT NULL,  `id_sq_fc` int(11) NOT NULL,  `costo` int(11) NOT NULL,  `ordine` int(11) NOT NULL);
 ALTER TABLE `rose_asta`  ADD PRIMARY KEY (`ordine`),  ADD UNIQUE KEY `unique_id_giocatore` (`id_giocatore`);
-ALTER TABLE `rose_asta`  MODIFY `ordine` int(11) NOT NULL AUTO_INCREMENT
+ALTER TABLE `rose_asta`  MODIFY `ordine` int(11) NOT NULL AUTO_INCREMENT;
