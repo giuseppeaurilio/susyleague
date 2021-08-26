@@ -440,8 +440,7 @@ $(document).on({
             <th title="Indice di appetibilità">IA</th>
             <th title="Indice squadra">IS</th>
             <th title="Fascia">FA</th>
-            <th title="Costo anno precedente">CAP</th>
-            <th title="ordine di acquisto anno precedente">OAP</th>
+            <th title="Anno precedente">AP</th>
         </tr>
         <tr>
             <td>{{quotazione}}</td>
@@ -452,8 +451,8 @@ $(document).on({
             <td>{{ia}}</td>
             <td>{{is}}</td>
             <td>{{f}}</td>
-            <td>{{costo_ap}}</td>
-            <td>{{ordine_ap}}</td>
+            <td>{{ordine_ap}}.({{squadra}}){{costo_ap}}FM</td>
+            
         </tr>
         <tr>
         <td colspan="10">{{note}}</td></tr>
@@ -520,6 +519,68 @@ $(document).on({
 
 <h2>ASTA Peppe</h2>
 <div class="maincontent" style="min-height: auto;">
+<?php
+$query="SELECT count(id_giocatore) as somma, g.ruolo
+from rose as ra
+left join giocatori as g on ra.id_giocatore = g.id
+group by ruolo order by ruolo desc";
+
+$result=$conn->query($query);
+$somme = array();
+while($row = $result->fetch_assoc()){
+    array_push($somme, array(
+        "somma"=>$row["somma"],
+        "ruolo"=>$row["ruolo"],
+        )
+    );
+}
+?>
+<?php
+$query="SELECT  ordine, nome, costo,  squadra
+FROM `rose_asta_ap` as rap 
+left join sq_fantacalcio as sqf on rap.id_sq_fc = sqf.id
+left join giocatori as g on g.id = rap.id_giocatore
+WHERE ordine >  (select count(*) from `rose_asta`) 
+order by ordine asc 
+limit 5";
+
+$result=$conn->query($query);
+$prossimi = array();
+while($row = $result->fetch_assoc()){
+    array_push($prossimi, array(
+        "ordine"=>$row["ordine"],
+        "nome"=>$row["nome"],
+        "squadra"=>$row["squadra"],
+        "costo"=>$row["costo"],
+        )
+    );
+}
+?>
+<div class="rigacompleta" id="divavanzamento">
+    <span>Avanzamento:</span>
+    <?php 
+    foreach($somme as $somma)
+    {
+        if($somma["ruolo"] == "P")
+            echo '<span>Portieri:'.$somma["somma"].' /36; </span>';
+        else if($somma["ruolo"] == "D")
+            echo '<span>Difensori:'.$somma["somma"].' /108;  </span>';
+        else if($somma["ruolo"] == "C")
+            echo '<span>Centrocampisti:'.$somma["somma"].' /108;  </span>';
+        else if($somma["ruolo"] == "A")
+            echo '<span>Attaccanti:'.$somma["somma"].' /84;  </span>';
+    }
+    ?>
+</div>
+<div class="rigacompleta" id="divProssimi">
+    <span>Prossimi AP:</span>
+    <?php 
+    foreach($prossimi as $prossimo)
+    {
+        echo '<span>'.$prossimo["ordine"]. '.'. $prossimo["nome"].'('.$prossimo["squadra"].') '.$prossimo["costo"].' FM;  </span>';
+    }
+    ?>
+</div>
     <div class="rigacompleta" id="divAdessoInAsta">
         <div class="widgetasta " id="divAstaAttuale">
 
@@ -716,16 +777,16 @@ $(document).on({
                     switch($row["ruolo"])
                     {
                         case "P":
-                            echo '<div style="padding: 3px 7px;">Por: <span style="background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'€)</div>';
+                            echo '<div style="padding: 3px 7px;">Por: <span style="background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'FM)</div>';
                         break;
                         case "D":
-                            echo '<div style="padding: 3px 7px; ">Dif: <span style="background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
+                            echo '<div style="padding: 3px 7px; ">Dif: <span style="background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'FM)</div>';
                         break;
                         case "C":
-                            echo '<div style="padding: 3px 7px; ">Cen: <span style="background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
+                            echo '<div style="padding: 3px 7px; ">Cen: <span style="background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'FM)</div>';
                         break;
                         case "A":
-                            echo '<div style="padding: 3px 7px;">Att: <span style="background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'€)</div>';
+                            echo '<div style="padding: 3px 7px;">Att: <span style="background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'FM)</div>';
                         break;
                     }
                 }

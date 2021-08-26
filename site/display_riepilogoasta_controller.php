@@ -171,11 +171,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $id = $_POST['id'];
                 $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.quotazione as quotazione,  
                 gpi.titolarita as titolarita, gpi.cp as calci_punizione, gpi.cr as calci_rigore, gpi.ca as calci_angolo, gpi.ia as indice_appetibilita, 
-                gpi.is as 'is', gpi.f as fascia ,  gpi.note as note, rap.costo as costo_ap, rap.ordine as ordine_ap
+                gpi.is as 'is', gpi.f as fascia ,  gpi.note as note, rap.costo as costo_ap, rap.ordine as ordine_ap, sqf.squadra as squadra
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
                 left join rose_asta_ap as rap on rap.id_giocatore = g.id
+                left join sq_fantacalcio as sqf on rap.id_sq_fc = sqf.id
                 where g.id = $id";
                 // echo $query;
                 $result=$conn->query($query);
@@ -196,6 +197,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "f"=>utf8_encode($row["fascia"]),
                         "costo_ap"=>utf8_encode($row["costo_ap"]),
                         "ordine_ap"=>utf8_encode($row["ordine_ap"]),
+                        "squadra"=>utf8_encode($row["squadra"]),
                         "note"=>utf8_encode($row["note"])
 
                         )

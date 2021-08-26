@@ -357,16 +357,16 @@ foreach($squadre as $squadra)
         switch($row["ruolo"])
                 {
                     case "P":
-                        echo '<div style="padding: 2px;">P: <span style="color: black; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'€)</div>';
+                        echo '<div style="padding: 2px;">P: <span style="color: black; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'FM)</div>';
                     break;
                     case "D":
-                        echo '<div style="padding: 2px; ">D: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
+                        echo '<div style="padding: 2px; ">D: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'FM)</div>';
                     break;
                     case "C":
-                        echo '<div style="padding: 2px; ">C: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
+                        echo '<div style="padding: 2px; ">C: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'FM)</div>';
                     break;
                     case "A":
-                        echo '<div style="padding: 2px;">A: <span style="color: black; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'€)</div>';
+                        echo '<div style="padding: 2px;">A: <span style="color: black; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'FM)</div>';
                     break;
                 }
         echo '</td>';
@@ -386,16 +386,16 @@ foreach($squadre as $squadra)
     //         switch($row["ruolo"])
     //         {
     //             case "P":
-    //                 echo '<div style="padding: 3px;">P: <span style="color: black; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'€)</div>';
+    //                 echo '<div style="padding: 3px;">P: <span style="color: black; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'FM)</div>';
     //             break;
     //             case "D":
-    //                 echo '<div style="padding: 3px; ">D: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
+    //                 echo '<div style="padding: 3px; ">D: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'FM)</div>';
     //             break;
     //             case "C":
-    //                 echo '<div style="padding: 3px; ">C: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'€)</div>';
+    //                 echo '<div style="padding: 3px; ">C: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'FM)</div>';
     //             break;
     //             case "A":
-    //                 echo '<div style="padding: 3px;">A: <span style="color: black; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'€)</div>';
+    //                 echo '<div style="padding: 3px;">A: <span style="color: black; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'FM)</div>';
     //             break;
     //         }
     //     }
