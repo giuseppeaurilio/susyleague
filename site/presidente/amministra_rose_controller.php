@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             if($ruolo <> null)//inserire controlli su input valido
                 $query.=" and g.ruolo = '$ruolo'"; 
             if($min <> null)//inserire controlli su input valido
-                $query.=" and g.quotazione > $min"; 
+                $query.=" and g.quotazione >= $min"; 
             if($max <> null)//inserire controlli su input valido
                 $query.=" and g.quotazione <= $max";
             // if($idsquadra <> null)//inserire controlli su input valido
