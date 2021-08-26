@@ -201,7 +201,8 @@ $(document).on({
 <div>
     <h3> Adesso in asta</h3>
     <div class="widgetastacontent incorso" data-id="{{ id }}">
-        <div class="nome" style="font-size:100px"> {{ nome }} ({{ squadra_breve }})</div>
+        <div class="nome" style="font-size:100px"> {{ nome }} </div>
+        <div class="nome" style="font-size:100px"> ({{ squadra }})</div>
         <div class="ruolo" style="font-size:50px"> Ruolo: {{ ruolo }} </div>
         <img  width="120px;" src='{{ imgurl }}' onerror='imgError(this);'> </img>     
     </div>
@@ -350,23 +351,23 @@ foreach($squadre as $squadra)
     $riepilogo = getRiepilogoAsta($squadra["id"]);
 
     echo "<tr>";
-    echo "<td style='font-size:3em; padding: 2px 5px;'>".$squadra["squadra"]."</td>";
+    echo "<td style='font-size:2.5em; padding: 2px 5px;'>".$squadra["squadra"]."</td>";
     echo "<td style='font-size:3em; padding: 2px 5px;'>".$offertamassima."</td>";
     foreach($riepilogo["giocatori"] as $row){
         echo '<td>';
         switch($row["ruolo"])
                 {
                     case "P":
-                        echo '<div style="padding: 2px;">P: <span style="color: black; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'FM)</div>';
+                        echo '<div style="padding: 2px;"><span style="color: black; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span><br>('.$row["costo"].'FM)</div>';
                     break;
                     case "D":
-                        echo '<div style="padding: 2px; ">D: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'FM)</div>';
+                        echo '<div style="padding: 2px; "><span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span><br>('.$row["costo"].'FM)</div>';
                     break;
                     case "C":
-                        echo '<div style="padding: 2px; ">C: <span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'FM)</div>';
+                        echo '<div style="padding: 2px; "><span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span><br>('.$row["costo"].'FM)</div>';
                     break;
                     case "A":
-                        echo '<div style="padding: 2px;">A: <span style="color: black; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'FM)</div>';
+                        echo '<div style="padding: 2px;"><span style="color: black; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span><br>('.$row["costo"].'FM)</div>';
                     break;
                 }
         echo '</td>';

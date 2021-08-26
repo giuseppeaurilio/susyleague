@@ -542,7 +542,7 @@ $resultqueryoffset=$conn->query($queryoffset);
 $value = 0;
 while($row = $resultqueryoffset->fetch_assoc()){
     $value = $row["c"];
-    print_r($row);
+    // print_r($row);
 }
 
 $query="SELECT  ordine, nome, costo,  squadra

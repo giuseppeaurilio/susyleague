@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     {
         case("astaincorso"):
 
-            $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.quotazione as quotazione, sa.squadra_breve as squadra_breve
+            $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.quotazione as quotazione, sa.squadra_breve as squadra_breve, sa.squadra as squadra
             FROM `giocatori` as g 
             left join rose as s on s.id_giocatore = g.id
             left join squadre_serie_a as sa on sa.id = g.id_squadra
@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
+                    "squadra"=>$row["squadra"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "imgurl"=>$imgurl
                     )

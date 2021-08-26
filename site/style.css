@@ -1106,7 +1106,8 @@ padding: 0;
 .maincontent .widgetasta{
   min-width: 350px;
   /* float: left; */
-  margin: 5px auto
+  margin: 5px auto;
+  max-width:50%;
 }
 
 .maincontent .widgetastacontent{
