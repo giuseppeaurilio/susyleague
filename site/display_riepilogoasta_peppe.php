@@ -536,13 +536,21 @@ while($row = $result->fetch_assoc()){
 }
 ?>
 <?php
+$queryoffset ="select count(*) as c from `rose_asta`";
+$resultqueryoffset=$conn->query($queryoffset);
+
+$value = 0;
+while($row = $resultqueryoffset->fetch_assoc()){
+    $value = $row["c"];
+    print_r($row);
+}
+
 $query="SELECT  ordine, nome, costo,  squadra
 FROM `rose_asta_ap` as rap 
 left join sq_fantacalcio as sqf on rap.id_sq_fc = sqf.id
 left join giocatori as g on g.id = rap.id_giocatore
-WHERE ordine >  (select count(*) from `rose_asta`) 
 order by ordine asc 
-limit 5";
+limit 5 OFFSET $value";
 
 $result=$conn->query($query);
 $prossimi = array();
