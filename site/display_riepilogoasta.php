@@ -152,7 +152,7 @@ loadAstaInCorso = function()
                         }
                     }
                     else{
-                        var giocatore = {nome: "Nessuna giocatore in asta", ruolo: "-", imgurl: noimage, squadra_breve: "--"}
+                        var giocatore = {nome: "Nessun giocatore in asta", ruolo: "-", imgurl: noimage, squadra_breve: "--"}
                         //
                         resp.giocatori.push(giocatore);
                         var template = $('#tmplAstaInCorso').html();
