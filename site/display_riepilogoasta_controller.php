@@ -481,6 +481,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             );
             echo json_encode($response);
         break; 
+        case("prossimiprecedenteasta"):
+            $ruolo = $_POST['ruolo']  = '' ? null :$_POST['ruolo'];
+            $queryoffset ="select count(*) as c from `rose_asta`";
+            $resultqueryoffset=$conn->query($queryoffset);
+
+            $value = 0;
+            while($row = $resultqueryoffset->fetch_assoc()){
+                $value = $row["c"];
+                // print_r($row);
+            }
+            $query="SELECT  ordine, nome, costo,  squadra
+            FROM `rose_asta_ap` as rap 
+            left join sq_fantacalcio as sqf on rap.id_sq_fc = sqf.id
+            left join giocatori as g on g.id = rap.id_giocatore
+            where g.ruolo = '$ruolo'
+            order by ordine asc 
+            limit 5 OFFSET $value";
+// echo $query;
+            $result=$conn->query($query);
+            $prossimi = array();
+            while($row = $result->fetch_assoc()){
+                array_push($prossimi, array(
+                    "ordine"=>$row["ordine"],
+                    "nome"=>$row["nome"],
+                    "squadra"=>$row["squadra"],
+                    "costo"=>$row["costo"],
+                    )
+                );
+            }
+            $response = array(
+                'result' => "true",
+                'message' => $action." eseguito",
+                'prossimi' => $prossimi
+            );
+            echo json_encode($response);
+            
+            break;
         default:
             echo json_encode(array(
                 'error' => array(

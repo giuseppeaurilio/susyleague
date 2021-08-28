@@ -108,6 +108,39 @@ loadSquadra = function(id)
     }); 
 }
 
+loadProssimiPrecedenteAsta = function(ruoloattuale)
+{
+    var action ="prossimiprecedenteasta";
+    var ruolo = $("#ruoloP").val()
+    $.ajax({
+        type:'POST',
+            url:'display_riepilogoasta_controller.php',
+            data: {
+                "action": action,
+                "ruolo": ruolo, 
+            },
+            success:function(data){
+                
+                var resp=$.parseJSON(data)
+                // debugger;
+                    if(resp.result == "true"){
+                        if(resp.prossimi.length> 0){
+                            var template = $('#tmplProssimi').html();
+                            Mustache.parse(template);   // optional, speeds up future uses
+                            var rendered = Mustache.render(template, resp);
+					        $("#divProssimi").html(rendered);
+                        }
+                    }
+                }
+                // else{
+                //     $( "#dialog" ).prop('title', "ERROR");                
+                //     $( "#dialog p" ).html(resp.error.msg);
+                //     $( "#dialog" ).dialog({modal:true});
+                // }
+            // }
+    }); 
+}
+
 loadPInfo = function(id)
 {
     // debugger;
@@ -242,6 +275,7 @@ loadAstaInCorso = function()
                             $("#tblSquadra #ruoloP").val(ruoloattuale);
                             ricercaGiocatore();
                             loadSquadra();
+                            loadProssimiPrecedenteAsta(ruoloattuale);
                             // }
                         }
                         else{
@@ -516,6 +550,13 @@ $(document).on({
 
 </script>
 
+<script id="tmplProssimi" type="x-tmpl-mustache">
+    <span>Prossimi AP:</span>
+    {{ #prossimi }}
+        <span>{{nome}}({{squadra}}) {{costo}} FM;  </span>
+    {{ /prossimi }}    
+</script>
+
 
 <h2>ASTA Peppe</h2>
 <div class="maincontent" style="min-height: auto;">
@@ -535,35 +576,7 @@ while($row = $result->fetch_assoc()){
     );
 }
 ?>
-<?php
-$queryoffset ="select count(*) as c from `rose_asta`";
-$resultqueryoffset=$conn->query($queryoffset);
 
-$value = 0;
-while($row = $resultqueryoffset->fetch_assoc()){
-    $value = $row["c"];
-    // print_r($row);
-}
-
-$query="SELECT  ordine, nome, costo,  squadra
-FROM `rose_asta_ap` as rap 
-left join sq_fantacalcio as sqf on rap.id_sq_fc = sqf.id
-left join giocatori as g on g.id = rap.id_giocatore
-order by ordine asc 
-limit 5 OFFSET $value";
-
-$result=$conn->query($query);
-$prossimi = array();
-while($row = $result->fetch_assoc()){
-    array_push($prossimi, array(
-        "ordine"=>$row["ordine"],
-        "nome"=>$row["nome"],
-        "squadra"=>$row["squadra"],
-        "costo"=>$row["costo"],
-        )
-    );
-}
-?>
 <div class="rigacompleta" id="divavanzamento">
     <span>Avanzamento:</span>
     <?php 
@@ -581,12 +594,12 @@ while($row = $result->fetch_assoc()){
     ?>
 </div>
 <div class="rigacompleta" id="divProssimi">
-    <span>Prossimi AP:</span>
+    <!-- <span>Prossimi AP:</span> -->
     <?php 
-    foreach($prossimi as $prossimo)
-    {
-        echo '<span>'.$prossimo["ordine"]. '.'. $prossimo["nome"].'('.$prossimo["squadra"].') '.$prossimo["costo"].' FM;  </span>';
-    }
+    // foreach($prossimi as $prossimo)
+    // {
+    //     echo '<span>'.$prossimo["ordine"]. '.'. $prossimo["nome"].'('.$prossimo["squadra"].') '.$prossimo["costo"].' FM;  </span>';
+    // }
     ?>
 </div>
     <div class="rigacompleta" id="divAdessoInAsta">
