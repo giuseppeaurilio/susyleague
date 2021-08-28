@@ -11,8 +11,8 @@ $(document).ready(function(){
 <div class="widget incorso">
     <h2>Partite in corso</h2>
     <?php
-    include_once("..\DB/serie_a.php");
-    include_once("..\DB/fantacalcio.php");
+    include_once("../DB/serie_a.php");
+    include_once("../DB/fantacalcio.php");
     include_once "../DB/calendario.php";
     
     $giornatasa = seriea_getGiornataCorrente();

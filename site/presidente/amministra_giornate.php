@@ -18,9 +18,9 @@ $(document).ready(function(){
 <h1>Amministazione Giornate</h2>
 <?php
 
-include_once("..\DB/serie_a.php");
-include_once("..\DB/fantacalcio.php");
-include_once("..\DB/calendario.php");
+include_once("../DB/serie_a.php");
+include_once("../DB/fantacalcio.php");
+include_once("../DB/calendario.php");
 
 $giornatefc = fantacalcio_getGiornateCampionato();
 $giornatesa = seriea_getGiornate();

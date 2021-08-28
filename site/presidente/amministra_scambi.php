@@ -213,7 +213,7 @@ $(document).ready(function(){
 //     );
 // }
 // //fine load squadre fantacalcio
-include_once("..\DB/fantacalcio.php");
+include_once("../DB/fantacalcio.php");
 $squadre = fantacalcio_getFantasquadre();
 ?>
 <h2>Gestione Scambi</h2>

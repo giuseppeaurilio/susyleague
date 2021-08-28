@@ -12,8 +12,8 @@ $(document).ready(function(){
     <h2>Ultimi risultati</h2>
 
     <?php
-include_once("..\DB/serie_a.php");
-include_once("..\DB/fantacalcio.php");
+include_once("../DB/serie_a.php");
+include_once("../DB/fantacalcio.php");
 include_once "../DB/calendario.php";
 
 $giornatasa = seriea_getGiornataUltima();

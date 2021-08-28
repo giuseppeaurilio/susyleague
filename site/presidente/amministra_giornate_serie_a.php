@@ -94,7 +94,7 @@ $(document).ready(function(){
             <th>&nbsp;</th>
         </tr>
 <?php 
-include_once("..\DB/serie_a.php");
+include_once("../DB/serie_a.php");
 $giornatesa = seriea_getGiornate();
 //load giornate
 // $query="SELECT id, descrizione, inizio, fine FROM `giornate_serie_a` order by id asc";

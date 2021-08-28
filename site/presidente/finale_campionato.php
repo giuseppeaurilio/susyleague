@@ -30,8 +30,8 @@ $(document).ready(function(){
 <?php
 // Create connection
 $idgirone = 7; //7 finale campionato
-include_once("..\DB/serie_a.php");
-include_once("..\DB/fantacalcio.php");
+include_once("../DB/serie_a.php");
+include_once("../DB/fantacalcio.php");
 $giornate = fantacalcio_getGiornate($idgirone);
 $squadre = fantacalcio_getFantasquadre();
 $giornatesa = seriea_getGiornate();

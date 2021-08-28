@@ -249,8 +249,8 @@ $(document).ready(function(){
 </script>
 <h2>Gestisci Voti</h2>
 <?php
-include_once("..\DB/serie_a.php");
-// include_once("..\DB/fantacalcio.php");
+include_once("../DB/serie_a.php");
+// include_once("/DB/fantacalcio.php");
 // $giornate = fantacalcio_getGiornate($idgirone);
 // $squadre = fantacalcio_getFantasquadre();
 $giornatesa = seriea_getGiornate();

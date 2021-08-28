@@ -94,7 +94,7 @@ if($num >0){
 		where c.id_giornata=".$id." 
 		order by c.id_partita";
 
-		include_once("..\DB/calendario.php");
+		include_once("../DB/calendario.php");
 		$result_giornata=$conn->query($query2);
 		echo "<h3>Giornata ".getDescrizioneGiornata($id)."</h3>";
 		echo "<table>

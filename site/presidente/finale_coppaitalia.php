@@ -26,8 +26,8 @@ $(document).ready(function(){
 
 <?php
 $idgirone = 9; //finale coppa italia
-include_once("..\DB/serie_a.php");
-include_once("..\DB/fantacalcio.php");
+include_once("../DB/serie_a.php");
+include_once("../DB/fantacalcio.php");
 $giornate = fantacalcio_getGiornate($idgirone);
 $squadre = fantacalcio_getFantasquadre();
 $giornatesa = seriea_getGiornate();

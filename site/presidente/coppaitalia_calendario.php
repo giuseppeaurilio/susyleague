@@ -18,8 +18,8 @@ $(document).ready(function(){
 <h1>Calendario Coppa Italia</h2>
 <?php
 $id_girone = 4;
-include_once("..\DB/serie_a.php");
-include_once("..\DB/fantacalcio.php");
+include_once("../DB/serie_a.php");
+include_once("../DB/fantacalcio.php");
 // $giornate = fantacalcio_getGiornate($id_girone);
 // $squadre = fantacalcio_getFantasquadre();
 $partite = fantacalcio_getPartite_byGironeId($id_girone);

@@ -30,8 +30,8 @@ $(document).ready(function(){
 <?php
 $idgirone = 8; //8 supercoppa 
 
-include_once("..\DB/serie_a.php");
-include_once("..\DB/fantacalcio.php");
+include_once("../DB/serie_a.php");
+include_once("../DB/fantacalcio.php");
 $giornate = fantacalcio_getGiornate($idgirone);
 $squadre = fantacalcio_getFantasquadre();
 $giornatesa = seriea_getGiornate();

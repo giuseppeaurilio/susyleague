@@ -20,8 +20,8 @@ $(document).ready(function(){
 // echo "Connected successfully";
 $id_girone = 6; //coppa coppe
 
-include_once("..\DB/serie_a.php");
-include_once("..\DB/fantacalcio.php");
+include_once("../DB/serie_a.php");
+include_once("../DB/fantacalcio.php");
 $giornate = fantacalcio_getGiornate($id_girone);
 // $squadre = fantacalcio_getFantasquadre();
 $giornatesa = seriea_getGiornate();

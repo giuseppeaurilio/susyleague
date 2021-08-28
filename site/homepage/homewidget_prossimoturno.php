@@ -11,8 +11,8 @@ $(document).ready(function(){
 <div class="widget prossimo">
     <h2>Prossimo turno</h2>
     <?php
-    include_once("..\DB/serie_a.php");
-    include_once("..\DB/fantacalcio.php");
+    include_once("../DB/serie_a.php");
+    include_once("../DB/fantacalcio.php");
     include_once "../DB/calendario.php";
     
     $giornatasacurrent = seriea_getGiornataCorrente();
