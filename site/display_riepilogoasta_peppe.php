@@ -580,8 +580,10 @@ while($row = $result->fetch_assoc()){
 <div class="rigacompleta" id="divavanzamento">
     <span>Avanzamento:</span>
     <?php 
+    $totale = 0;
     foreach($somme as $somma)
     {
+        $totale += $somma["somma"];
         if($somma["ruolo"] == "P")
             echo '<span>Portieri:'.$somma["somma"].' /36; </span>';
         else if($somma["ruolo"] == "D")
@@ -591,6 +593,7 @@ while($row = $result->fetch_assoc()){
         else if($somma["ruolo"] == "A")
             echo '<span>Attaccanti:'.$somma["somma"].' /84;  </span>';
     }
+    echo '<span>CHIAMATA:'.$totale.';  </span>'
     ?>
 </div>
 <div class="rigacompleta" id="divProssimi">
