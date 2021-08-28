@@ -17475,10 +17475,10 @@ INSERT INTO `rose` (`id_sq_fc`, `costo`, `id_giocatore`, `ordine`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `rose_asta_ap`
+-- Struttura della tabella `rose_asta`
 --
 
-CREATE TABLE `rose_asta_ap` (
+CREATE TABLE `rose_asta` (
   `id_giocatore` int(11) NOT NULL,
   `id_sq_fc` int(11) NOT NULL,
   `costo` int(11) NOT NULL,
@@ -17486,10 +17486,10 @@ CREATE TABLE `rose_asta_ap` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dump dei dati per la tabella `rose_asta_ap`
+-- Dump dei dati per la tabella `rose_asta`
 --
 
-INSERT INTO `rose_asta_ap` (`id_giocatore`, `id_sq_fc`, `costo`, `ordine`) VALUES
+INSERT INTO `rose_asta` (`id_giocatore`, `id_sq_fc`, `costo`, `ordine`) VALUES
 (4419, 5, 10, 6),
 (2792, 8, 16, 8),
 (159, 11, 6, 9),
@@ -18231,9 +18231,9 @@ ALTER TABLE `rose`
   ADD KEY `index_ordine` (`ordine`);
 
 --
--- Indici per le tabelle `rose_asta_ap`
+-- Indici per le tabelle `rose_asta`
 --
-ALTER TABLE `rose_asta_ap`
+ALTER TABLE `rose_asta`
   ADD PRIMARY KEY (`ordine`),
   ADD UNIQUE KEY `unique_id_giocatore` (`id_giocatore`);
 
@@ -18352,9 +18352,9 @@ ALTER TABLE `rose`
   MODIFY `ordine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=475;
 
 --
--- AUTO_INCREMENT per la tabella `rose_asta_ap`
+-- AUTO_INCREMENT per la tabella `rose_asta`
 --
-ALTER TABLE `rose_asta_ap`
+ALTER TABLE `rose_asta`
   MODIFY `ordine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=421;
 
 --
