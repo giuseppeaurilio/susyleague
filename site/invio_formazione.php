@@ -92,6 +92,10 @@ if(!is_null($giornatasa))
 	}
 	echo '</table>';
 	echo '</div>';
+	if($index == 0)
+	{
+		echo '<h3>Nessuna partita in programma</h3>';
+	}
 }
 else
 {

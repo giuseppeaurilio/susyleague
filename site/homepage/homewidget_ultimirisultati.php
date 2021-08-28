@@ -64,6 +64,10 @@ if(!is_null($giornatasa))
         // echo '</a>';
         echo '</div>';
     }
+    if($index == 0)
+    {
+        echo '<h3>Non sono state giocate partite</h3>';
+    }
 }
 else{
     echo "<h3> &nbsp;</h3>";
