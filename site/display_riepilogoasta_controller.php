@@ -251,9 +251,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 if($ia <> null)//inserire controlli su input valido
                     $query.=" and gpi.ia >=  $ia"; 
                 if($is <> null)//inserire controlli su input valido
-                    $query.=" and gpi.is >=  $is"; 
+                    $query.=" and gpi.is <=  $is"; 
                 if($f <> null)//inserire controlli su input valido
-                    $query.=" and gpi.f >=  $f"; 
+                    $query.=" and gpi.f <=  $f"; 
                 
                 if($ordinamento  == "ia-d")
                     $query.=" order by case when gpi.ia is null then 1 else 0 end, gpi.ia desc, g.quotazione desc ";
