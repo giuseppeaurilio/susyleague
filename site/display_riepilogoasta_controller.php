@@ -245,9 +245,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 if($titolarita <> null)//inserire controlli su input valido
                     $query.=" and gpi.titolarita >=  $titolarita"; 
                 if($rigori <> null)//inserire controlli su input valido
-                    $query.=" and gpi.cr >=  $rigori"; 
+                    $query.=" and gpi.cr =  $rigori"; 
                 if($punizioni <> null)//inserire controlli su input valido
-                    $query.=" and gpi.cp >=  $punizioni"; 
+                    $query.=" and gpi.cp =  $punizioni"; 
                 if($ia <> null)//inserire controlli su input valido
                     $query.=" and gpi.ia >=  $ia"; 
                 if($is <> null)//inserire controlli su input valido
