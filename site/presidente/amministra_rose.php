@@ -460,7 +460,7 @@ while ($row=$result_sa->fetch_assoc()) {
 	<option value="">--Seleziona squadra fantacalcio--</option>	
 	  
 <?php
-$query="SELECT * FROM sq_fantacalcio order by squadra   ";
+$query="SELECT * FROM sq_fantacalcio order by allenatore ";
 $result=$conn->query($query);
 
 $num=$result->num_rows; 
@@ -469,7 +469,7 @@ while ($row=$result->fetch_assoc()) {
 	$id=$row["id"];
     $squadra=$row["squadra"];
     $allenatore =  $row["allenatore"];
-	  echo '<option value=' . $id . '>'. $squadra .'-' .$allenatore. '</option>';
+	  echo '<option value=' . $id . '>'. $allenatore .'-' .$squadra. '</option>';
 ++$i;
 }
 ?>
