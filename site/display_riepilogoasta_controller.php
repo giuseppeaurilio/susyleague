@@ -324,6 +324,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "costo"=>$row["costo"],
+                    "is"=>$row["is"],
+                    "f"=>$row["f"],
                     "note"=>utf8_encode($row["note"])
                     )
                 );
