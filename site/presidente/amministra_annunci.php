@@ -15,10 +15,12 @@ cancellaAnnuncio = function(id)
             },
             success:function(data){
                 modalPopupResult(data);
+            }
     }); 
 }
 
 salvaAnnuncio= function(){
+    
     var date = $("#txtDate").val();
     var titolo = $("#txtTitolo").val();
     var testo = $("#taTesto").val();
@@ -37,6 +39,7 @@ salvaAnnuncio= function(){
                 "datea": dataa,
             },
             success:function(data){
+                // debugger;
                 modalPopupResult(data);    
             }
     }); 
