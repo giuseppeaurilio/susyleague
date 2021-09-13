@@ -114,7 +114,7 @@ $query="INSERT INTO `calendario`(`id_giornata`, `id_sq_casa`, `id_sq_ospite`) VA
 }
 
 function aggiungi_giornata($giornata,$girone) {
-	$query="INSERT INTO `susy79_league`.`giornate` (`id_giornata`, `inizio`, `fine`,`id_girone`) VALUES (" . $giornata .", NULL, NULL," . ($girone) .")";
+	$query="INSERT INTO `giornate` (`id_giornata`, `inizio`, `fine`,`id_girone`) VALUES (" . $giornata .", NULL, NULL," . ($girone) .")";
 	//$result=mysql_query($query);
 	echo $query ."<br>";
 
