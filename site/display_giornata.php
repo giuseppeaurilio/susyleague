@@ -54,15 +54,15 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$gol_ospite = $row["gol_ospiti"];
 
 
-	$query_formazione="SELECT gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto_ufficio
+	$query_formazione="SELECT b.id,  gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto_ufficio
 	FROM formazioni as a 
-	inner join giocatori as b 
-	left join giocatori_voti as gv on b.id = gv.giocatore_id
-	inner join squadre_serie_a as c 
+	left join giocatori as b on a.id_giocatore=b.id
+	left join squadre_serie_a as c on b.id_squadra =c.id
+	left join giornate as g on g.id_giornata = a.id_giornata
+	left join giocatori_voti as gv on (a.id_giocatore = gv.giocatore_id and g.giornata_serie_a_id = gv.giornata_serie_a_id)
 	where a.id_giornata='" . $id_giornata . "' 
 	and a.id_squadra= '". $id_casa ."' 
-	and a.id_giocatore=b.id 
-	and  b.id_squadra =c.id order by a.id_posizione ";
+	order by a.id_posizione ";
 	// echo $query_formazione;
 	//echo "<br> query formazione casa= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
@@ -109,16 +109,15 @@ while ($row=$result_giornata->fetch_assoc()) {
 	?>
 
 	<?php
-	$query_formazione=
-	"SELECT gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto_ufficio
+	$query_formazione="SELECT b.id,  gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto_ufficio
 	FROM formazioni as a 
-	inner join giocatori as b 
-	left join giocatori_voti as gv on b.id = gv.giocatore_id
-	inner join squadre_serie_a as c 
+	left join giocatori as b on a.id_giocatore=b.id
+	left join squadre_serie_a as c on b.id_squadra =c.id
+	left join giornate as g on g.id_giornata = a.id_giornata
+	left join giocatori_voti as gv on (a.id_giocatore = gv.giocatore_id and g.giornata_serie_a_id = gv.giornata_serie_a_id)
 	where a.id_giornata='" . $id_giornata . "' 
 	and a.id_squadra= '". $id_ospite ."' 
-	and a.id_giocatore=b.id 
-	and  b.id_squadra =c.id order by a.id_posizione ";
+	order by a.id_posizione ";
 
 	//echo "<br> query formazione ospite= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
