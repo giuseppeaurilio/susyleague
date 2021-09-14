@@ -124,7 +124,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 					// $query .=$query_ini;
 					if(!$conn->query($query_ini))
 					{
-							throw new Exception($conn->error);
+						echo $query_ini;
+						throw new Exception($conn->error);
 					}
 
 					//salvo come formazione di default
@@ -136,7 +137,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 						// $query .=$query_ini;
 						if(!$conn->query($query_default))
 						{
-								throw new Exception($conn->error);
+							echo $query_default;
+							throw new Exception($conn->error);
 						}
 					}
 
@@ -151,18 +153,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 							// $query .=$query_ini;
 							if(!$conn->query($query_ini))
 							{
-									throw new Exception($conn->error);
+								echo $query_ini;
+								throw new Exception($conn->error);
 							}
 						}
 						
 					}
 				}
-				$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=1 WHERE id_giornata = ". $altrapartita["id_giornata"] ." and id_sq_casa =$id_squadra ;";
+				$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=1 WHERE id_giornata = ". $id_giornata ." and id_sq_casa =$id_squadra ;";
 				if(!$conn->query($queryformazioneinviatacasa))
 				{
 						throw new Exception($conn->error);
 				}
-				$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=1 WHERE id_giornata = ". $altrapartita["id_giornata"] ." and id_sq_ospite =$id_squadra ;";
+				$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=1 WHERE id_giornata = ". $id_giornata ." and id_sq_ospite =$id_squadra ;";
 				if(!$conn->query($queryformazioneinviataospite))
 				{
 						throw new Exception($conn->error);
