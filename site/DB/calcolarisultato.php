@@ -121,11 +121,12 @@ class Partita
         $query = 'SELECT g.id as id_giocatore, g.ruolo, f.id_posizione,gv.voto, gv.voto_md, f.sostituzione
         FROM `formazioni`  f
         left join giocatori g on g.id = f.id_giocatore
-        left join giocatori_voti gv on gv.giocatore_id = g.id
-        WHERE id_giornata =' . $idgiornata .
+        left join giornate as gi on gi.id_giornata = f.id_giornata
+        left join giocatori_voti as gv on (f.id_giocatore = gv.giocatore_id and gi.giornata_serie_a_id = gv.giornata_serie_a_id)
+        WHERE f.id_giornata =' . $idgiornata .
         ' and f.id_squadra =' . $idsquadra .
         ' order by id_posizione';
-
+// echo $query;
         $result=$conn->query($query);
         // if($boolprint) echo 'resultformazione'.print("<pre>".print_r($result,true)."</pre>").'<br>';
         

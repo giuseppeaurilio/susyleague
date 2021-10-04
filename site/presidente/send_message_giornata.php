@@ -72,7 +72,7 @@ if(isset($_POST['risultati']) && $_POST['risultati'] == '1')
 			$testo .= "____________________________\n";
 			// ++$j;
 		}
-		$testo.=  "\nI risultati della giornata $id_giornata sono disponibili qui http://susyleague.000webhostapp.com/display_giornata.php?&id_giornata=$id_giornata";
+		$testo.=  "\nI risultati della giornata $id_giornata sono disponibili qui https://www.susyleague.it/display_giornata.php?&id_giornata=$id_giornata";
 		
 		send_message_post($testo);
 		// echo "messaggio $testo \n";
@@ -82,7 +82,7 @@ if(isset($_POST['risultati']) && $_POST['risultati'] == '1')
 	}
 if(isset($_POST['classifiche']) && $_POST['classifiche'] == '1') 
 	{
-		send_message_post("Le classifiche alla giornata $id_giornata sono disponibili qui http://susyleague.000webhostapp.com/display_classifiche.php");
+		send_message_post("Le classifiche alla giornata $id_giornata sono disponibili qui https://www.susyleague.it/display_classifiche.php");
 		echo "messaggio con link alle classifiche inviato";
 		echo "</br>";
 	}

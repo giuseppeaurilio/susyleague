@@ -227,7 +227,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	where a.id_giornata='" . $id_giornata . "' 
 	and a.id_squadra= '". $id_casa ."' 
 	order by a.id_posizione ";
-	echo $query_formazione;
+	// echo $query_formazione;
 	//echo "<br> query formazione casa= " . $query_formazione;
 	$result_formazione=$conn->query($query_formazione);
 	$giocatoricasa = array();
