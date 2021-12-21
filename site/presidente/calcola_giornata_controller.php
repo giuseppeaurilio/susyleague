@@ -14,8 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     switch($action)
     {
         
-    case("usemd"):
-
+        case("usemd"):
             $id_giornata = $_POST['id_giornata'];
             $id_partita = $_POST['id_partita'];
             $id_squadra = $_POST['id_squadra'];
@@ -47,7 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             ));
             break;
         case("inviasostituzione"):
-
             $id_giornata = $_POST['id_giornata'];
             $id_squadra = $_POST['id_squadra'];
             $id_giocatore = $_POST['id_giocatore'];
@@ -70,31 +68,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             ));
             break;
         case("cancellarisultati"):
-
-                $id_giornata = $_POST['id_giornata'];
-                
-                $query= "UPDATE `calendario` 
-                SET `gol_casa`=null
-                ,`gol_ospiti`=null
-                ,`punti_casa`=null
-                ,`punti_ospiti`=null
-                ,`fattorecasa`=null
-                ,`md_casa`=0
-                ,`numero_giocanti_casa`=0
-                ,`md_ospite`=0
-                ,`numero_giocanti_ospite`=0
-                WHERE `id_giornata`=$id_giornata";
-                    // echo $query;
-                
-                if ($conn->query($query) === FALSE) {
-                    //throw exception
-                    echo $query;
-                }
-                echo json_encode(array(
-                    'result' => "true",
-                    'message' => $action." eseguito",
-                ));
-                break;
+            $id_giornata = $_POST['id_giornata'];
+            
+            $query= "UPDATE `calendario` 
+            SET `gol_casa`=null
+            ,`gol_ospiti`=null
+            ,`punti_casa`=null
+            ,`punti_ospiti`=null
+            ,`fattorecasa`=null
+            ,`md_casa`=0
+            ,`numero_giocanti_casa`=0
+            ,`md_ospite`=0
+            ,`numero_giocanti_ospite`=0
+            WHERE `id_giornata`=$id_giornata";
+                // echo $query;
+            
+            if ($conn->query($query) === FALSE) {
+                //throw exception
+                echo $query;
+            }
+            echo json_encode(array(
+                'result' => "true",
+                'message' => $action." eseguito",
+            ));
+            break;
         default:
             echo json_encode(array(
                 'error' => array(

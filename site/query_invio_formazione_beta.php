@@ -172,12 +172,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				}
 				if($all == "true"){
 					foreach($altrepartite as $altrapartita){
-						$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_casa =$id_squadra ;";
+						$queryformazioneinviatacasa="UPDATE `calendario` SET `formazione_casa_inviata`=1 WHERE id_giornata = " . $altrapartita["id_giornata"] ." and id_sq_casa =$id_squadra ;";
+						// $message .= $queryformazioneinviatacasa;
 						if(!$conn->query($queryformazioneinviatacasa))
 						{
 								throw new Exception($conn->error);
 						}
-						$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=1 WHERE id_giornata = $id_giornata and id_sq_ospite =$id_squadra ;";
+						$queryformazioneinviataospite="UPDATE `calendario` SET `formazione_ospite_inviata`=1 WHERE id_giornata = " . $altrapartita["id_giornata"] ." and id_sq_ospite =$id_squadra ;";
+						// $message .= $queryformazioneinviataospite;
 						if(!$conn->query($queryformazioneinviataospite))
 						{
 								throw new Exception($conn->error);
