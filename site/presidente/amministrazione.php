@@ -4,6 +4,7 @@ include("menu.php");
 <h1>Menu amministratore</h1>
 	<h2>Strumenti del presidente</h2>
 	<ul class="lista">
+		<li><a href="calcola_risultati.php" >Calcola risultati</a></li>	
 		<li><a href="amministra_annunci.php" >Annunci del presidente</a></li>	
 		<li><a href="amministra_sondaggi.php" >Sondaggi</a></li>
 		<li><a href="amministra_fustometro.php" >Fustometro</a></li>

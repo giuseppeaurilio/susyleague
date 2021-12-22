@@ -6,7 +6,6 @@ ENHANCEMENT
 Widget in home page: numero di partite giocate in 10.
 Parametro di efficianza della squadra schierata con la migliore teorica.
 inserire pulsante di creazione automatica della formazione in base a dai criteri
-Inserire una pagina con il riepilogo delle partite da calcolare nella sezione del presidente
 
 GRAFICA
 Loghi e banner delle squadre.
