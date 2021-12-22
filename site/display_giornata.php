@@ -99,6 +99,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 				"ruolo"=>$row["ruolo"],
 				"voto"=>"",
 				"voto_md"=>"",
+				"voto_ufficio"=>"",
 				"sostituzione"=>""
 				)
 			);
@@ -154,6 +155,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 				"ruolo"=>$row["ruolo"],
 				"voto"=>"",
 				"voto_md"=>"",
+				"voto_ufficio"=>"",
 				"sostituzione"=>""
 				)
 			);
@@ -490,19 +492,21 @@ while ($row=$result_giornata->fetch_assoc()) {
 				?>
 			</table>
 		</div>
+	</div>
+	<div style="display: inline-block;width: 100%;">
+		<?php
+		++$j;
+		
+		if($formazioneDefaultCasa || $formazioneDefaultOspite){
+		echo "<div style=\"text-align: center;\"><i>** formazione di default</i></div>";}
+		echo '<hr style="display: inline-block;width: 100%;">';
+		} 
+		echo "<div style=\"text-align: center;\"><i>* voto d'ufficio</i></div>";
+		?>
+		
+	</div>
 	
-<hr style="display: inline-block;width: 100%;">
-<?php
-++$j;
-echo "<div style=\"text-align: center;\"><i>* voto d'ufficio</i></div>";
-echo '</div>';
-if($formazioneDefaultCasa || $formazioneDefaultOspite){
-echo "<div style=\"text-align: center;\"><i>** formazione di default</i></div>";}
-echo '</div>';
-} # end incontri
-
-?>
-
+</div><!-- end incontri-->
 <?php 
 include("footer.php");
 ?>
