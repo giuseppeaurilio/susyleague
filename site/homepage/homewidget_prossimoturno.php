@@ -9,7 +9,6 @@ $(document).ready(function(){
 });
 </script>
 <div class="widget prossimo">
-    <h2>Prossimo turno</h2>
     <?php
     include_once("../DB/serie_a.php");
     include_once("../DB/fantacalcio.php");
@@ -21,6 +20,11 @@ $(document).ready(function(){
     //se non c'e' una giornata in corso ed esiste una prossima giornata
     if(is_null($giornatasacurrent) && !is_null($giornatasa))
     {
+        echo '<h2>Prossimo turno';
+        $date = date_create($giornatasa["inizio"]);
+        echo '<div style="font-size: 15px;"><a href="/invio_formazione.php" style="color:white;">Invia la formazione</a> entro: '.date_format($date, 'H:i  d/m').'</div>';
+        echo '</h2>';
+
         $giornatefc = fantacalcio_getPartite_bySerieAId($giornatasa["id"]);
         // print_r($giornatefc);
         $prev = "";
@@ -76,7 +80,6 @@ $(document).ready(function(){
             });
         </script>';
     }
-    echo '<div class="footer"><a href="/invio_formazione.php">Invia la formazione</a></div>';
     echo '<hr>';
 
     ?>

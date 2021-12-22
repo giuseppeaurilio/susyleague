@@ -22,6 +22,10 @@ include_once "DB/calendario.php";
 $giornatasa = seriea_getGiornataProssima();
 if(!is_null($giornatasa))
 {
+	$date = date_create($giornatasa["inizio"]);
+	echo '<h2 style="">Serie A '.$giornatasa["descrizione"].'</h2>';
+	echo'<h3> Invia la formazione entro le '.date_format($date, 'H:i:s').' del '.date_format($date, 'd/m/Y').'</h3>';
+		
 	$giornatefc = fantacalcio_getPartite_bySerieAId($giornatasa["id"]);
 	// print_r($giornatefc);
 	$prev = "";
@@ -39,7 +43,6 @@ if(!is_null($giornatasa))
 			echo '<div class="giornata">';
 			
 			echo '<h2 style="">'.$descrizioneGiornata.'</h2>';
-			echo '<h3> termine ultimo per presentare la formazione </h3>';
 			echo '<table style="width:100%">
 					<tr>
 						<th style="width:50%">CASA</th>
@@ -54,7 +57,6 @@ if(!is_null($giornatasa))
 			$prev = $descrizioneGiornata;
 			echo '<div class="giornata">';
 			echo '<h2 style="">'.$descrizioneGiornata.'</h2>';
-			echo '<h3> termine ultimo per presentare la formazione </h3>';
 			echo '<table style="width:100%">
 					<tr>
 						<th style="width:50%">CASA</th>
