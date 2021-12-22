@@ -335,6 +335,14 @@ body .widget div.fannulloni
   background-size: auto 100%;
   background-position: center;
 }
+body .widget div.scienziati
+{
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('images/anp.jpg');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+}
+
 body .widget div.fustiassegnati .fustiassegnaticontent
 {
     text-align: center;

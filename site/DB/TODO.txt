@@ -3,9 +3,9 @@ BUG:
     verificare messaggio telegram sulle formazioni mancanti per la coppa
 
 ENHANCEMENT
-Widget in home page: numero di partite giocate in 10.
 Parametro di efficianza della squadra schierata con la migliore teorica.
 inserire pulsante di creazione automatica della formazione in base a dai criteri
+Widget Le Pillole di Iori
 
 GRAFICA
 Loghi e banner delle squadre.

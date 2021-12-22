@@ -18,6 +18,7 @@
             include("homewidget_vincitori.php");
             include("homewidget_mercato.php");
             include("homewidget_presidenti_fannulloni.php");
+            include("homewidget_presidenti_scienziati.php");
         
         ?>
     </div>
