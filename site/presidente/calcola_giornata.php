@@ -38,25 +38,16 @@ inviaSostituzione= function (){
     }); 
 }
 inviaCommento = function(){
-	var id_giornata=$(this).data("giornata");
-	var id_partita=$(this).data("partita");
-	var id_squadra=$(this).data("squadra");
-	var home=$(this).data("home");
-	// var casa=$(this).prop("home");
-	var checked=$(this).prop("checked");
-	console.log($(this));
-	var action ="usemd";
+	var commento=$("#txt_commento").val();
+	console.log(commento);
+	var action ="inviacommento";
 
 	$.ajax({
         type:'POST',
             url:'calcola_giornata_controller.php',
             data: {
                 "action": action,
-                "id_giornata": id_giornata,
-                "id_partita": id_partita, 
-				"id_squadra": id_squadra, 
-				"checked": checked, 
-				"home": home
+                "commento": commento,
             },
             success:function(data){
 				modalPopupResult(data);

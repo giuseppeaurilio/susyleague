@@ -1,14 +1,12 @@
 
 BUG:
-    Il punto del presidente non viene inviato.
-    Inserire la data di inizio della giornata di serie A
-    
     verificare messaggio telegram sulle formazioni mancanti per la coppa
 
 ENHANCEMENT
 Widget in home page: numero di partite giocate in 10.
 Parametro di efficianza della squadra schierata con la migliore teorica.
 inserire pulsante di creazione automatica della formazione in base a dai criteri
+Inserire una pagina con il riepilogo delle partite da calcolare nella sezione del presidente
 
 GRAFICA
 Loghi e banner delle squadre.
@@ -36,5 +34,4 @@ Gestire classifiche in ex aequeo(sezione presidente)
 Modifcare il DB in modo che sia multistagione.
 
 In amministrazione, pulsante per eseguire un backup del DB.
-Cambiare la politica di backup del database.-> 
-c'e' un problema con il file send_telegram_update.php che manda il reminder di invio delle formazioni.
+Cambiare la politica di backup del database

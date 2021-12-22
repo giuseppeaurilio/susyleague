@@ -92,6 +92,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 'message' => $action." eseguito",
             ));
             break;
+        case("inviacommento"):
+            $commento  = $_POST['commento'];
+            include_once ('..\send_message_post.php');
+            $a=send_message_post($commento);
+            echo json_encode(array(
+                'result' => "true",
+                'message' => $action." eseguito",
+            ));
+            break;
         default:
             echo json_encode(array(
                 'error' => array(
