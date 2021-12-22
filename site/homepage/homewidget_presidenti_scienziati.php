@@ -82,7 +82,7 @@
         {
             echo "<div class='widgetcontent scienziati'>";
             echo '<h3>
-                    <div style="display: inline-block;width: 40%;">Presidente</div>
+                    <div style="display: inline-block;width: 40%;">Squadra</div>
                     <div style="text-align: center;display: inline-block;width: 20%;">in 10</div>
                     <div style="text-align: center;display: inline-block;width: 20%;">in 9</div>
                     <div style="text-align: center;display: inline-block;width: 15%;">meno</div>
