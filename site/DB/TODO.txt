@@ -1,48 +1,17 @@
-Widget in home page: numero di partite giocate in 10.
 
-asta peppe da fare:
-Lista giocatori disponibili:
-    sistemare ordinamento.
+BUG:
+    Il punto del presidente non viene inviato.
+    Inserire la data di inizio della giornata di serie A
+    
+    verificare messaggio telegram sulle formazioni mancanti per la coppa
+
+ENHANCEMENT
+Widget in home page: numero di partite giocate in 10.
+Parametro di efficianza della squadra schierata con la migliore teorica.
+inserire pulsante di creazione automatica della formazione in base a dai criteri
 
 GRAFICA
 Loghi e banner delle squadre.
-
-calcolare un fattore che tiene conto della formazione schierata vs la migliore formazione possibile
-inserire pulsante di creazione automatica della formazione in base a dai criteri
-
-SVILUPPI 21/22 FATTI
-Rivedere la grafica dei widget di home page quando sono presenti dati. -> DONE
-Calendario Asimmetrico:nella apertura, nel girono di ritorno permettere di mischiare le giornate, in modo che non abbiamo lo stesso ordine del girono di andata
--> DONE
-Controllare invio messaggio telegram inizio giornata -> DONE
-Modificare nome della giornata nel messaggio telegram di reminder formazione e risultati. -> DONE
-Formazione di default -> DONE
-Fix per campionato 21-22
-Salvataggio voti di tutti i giocatori -> DONE
-Inserire le giornate di serie a e legarle alle giornate delle partite. -> DONE
-Inserire formazione di default. DONE
-BUG FIX:
-in creazione nuovo anno, controllare che siano create correttamente le partite di 
-coppaitalia tabellone -> DONE
-supercoppa-> DONE
-Finale campionato. -> DONE
-Correggere pagina per calcolo risultati del presidente ->DONE
-Controllare invio messaggio telegram su invio formazione -> DONE
-inserire pulsante: salva formazione per tutte le partite->DONE
-
-Creare pulsante per annullare: Data giornata ->DONE
-                                risultato incontro/giornata ->DONE
-                                annullare voti incontro/giornata. ->DONE
-
-
-Widget in home page (Partite in corso, prossimo turno, ultimi risultati): se piu partite di coppa, non vedo tutte le formazioni -> DONE
-Widget in home page (Partite in corso, prossimo turno, ultimi risultati): non si vede correttamente la supercoppa -> DONE
-
-
-Caricamento voti a volte mette le sostituzioni a cazzo e deve caricare piu volte i voti. -> DONE
-
-Amministrazione controllata non viene presa in considerazione. ->DONE
-
 
 Creare sezione SFIDE:
 un allenatore puo sfidare un'altra squadra e decidere il premio.

@@ -538,7 +538,7 @@ $(document).ready(function(){
 });
 </script>
 <?php
-
+include_once "../DB/calendario.php";
 $id_giornata=$_GET['id_giornata'];
 $id_girone=$_GET['id_girone'];
 $id_squadra=$_GET['id_squadra'];
@@ -598,18 +598,44 @@ echo '<input type="hidden" id="hfAmmControllata" value="'.$numammcontr.'"/>';
 	<option value="0">scegli...</option>
 	<!-- <option value="1">DEFAULT</option> -->
 <?php 
-$querypartite = 'SELECT id_giornata, sqc.squadra as casa, sqt.squadra as ospite
-FROM `calendario`  as c
+// $querypartite = 'SELECT id_giornata, sqc.squadra as casa, sqt.squadra as ospite
+// FROM `calendario`  as c
+// left join sq_fantacalcio as sqc on c.id_sq_casa = sqc.id
+// left join sq_fantacalcio as sqt on c.id_sq_ospite = sqt.id
+// WHERE (id_sq_casa = '.$id_squadra.' OR id_sq_ospite ='.$id_squadra.') and gol_casa is not null
+// order by id_giornata desc
+// LIMIT 5';
+
+// $conn->close();
+$adesso = date('Y-m-d H:i:s');
+$query="SELECT * FROM `giornate_serie_a` WHERE '$adesso' > inizio order by inizio desc limit 1";
+echo $query; 
+$result = $conn->query($query) or die($conn->error);
+$giornatesa = array();
+while($row = $result->fetch_assoc()){    
+	array_push($giornatesa, array(
+		"id"=>$row["id"],
+		"descrizione"=>$row["descrizione"],
+		"inizio"=>$row["inizio"],
+		"fine"=>$row["fine"],
+		)
+	);
+}
+$id_giornata_sa = $giornatesa[0]["id"];
+
+$querypartiteadesso =
+'SELECT  c.id_giornata, sqc.squadra as casa, sqt.squadra as ospite, gsa.inizio, gsa.descrizione, c.gol_casa, c.gol_ospiti
+FROM `calendario` as c
 left join sq_fantacalcio as sqc on c.id_sq_casa = sqc.id
 left join sq_fantacalcio as sqt on c.id_sq_ospite = sqt.id
-WHERE (id_sq_casa = '.$id_squadra.' OR id_sq_ospite ='.$id_squadra.') and gol_casa is not null
-order by id_giornata desc
-LIMIT 5';
-
-$result_partite  = $conn->query($querypartite) or die($conn->error);
-
+left join giornate as g on g.id_giornata = c.id_giornata
+left join giornate_serie_a as gsa on gsa.id = g.giornata_serie_a_id
+WHERE (id_sq_casa = '.$id_squadra.' OR id_sq_ospite ='.$id_squadra.')
+AND gsa.id = '.$id_giornata_sa;
+$result_partite  = $conn->query($querypartiteadesso) or die($conn->error);
 while ($row = $result_partite->fetch_assoc()) {
-	$descrizionepartita = $row["casa"].'-'.$row["ospite"];
+	
+	$descrizionepartita = 'IN CORSO: '. $row["casa"].'-'.$row["ospite"] .' ('.getDescrizioneBreveGiornata($row["id_giornata"]).')';
 	$formazionedadb = "";
 	$queryformaz = 'SELECT id_posizione, id_giocatore
 	FROM `formazioni` WHERE id_giornata = '.$row["id_giornata"].' and id_squadra = '.$id_squadra.'
@@ -620,8 +646,31 @@ while ($row = $result_partite->fetch_assoc()) {
 	}
 	echo '<option value="'.$formazionedadb.'">'.$descrizionepartita.'</option> -->';
 }
-// $conn->close();
 
+$querypartite = 'SELECT  c.id_giornata, sqc.squadra as casa, sqt.squadra as ospite, gsa.inizio, gsa.descrizione, c.gol_casa, c.gol_ospiti
+FROM `calendario` as c
+left join sq_fantacalcio as sqc on c.id_sq_casa = sqc.id
+left join sq_fantacalcio as sqt on c.id_sq_ospite = sqt.id
+left join giornate as g on g.id_giornata = c.id_giornata
+left join giornate_serie_a as gsa on gsa.id = g.giornata_serie_a_id
+  WHERE (id_sq_casa = '.$id_squadra.' OR id_sq_ospite ='.$id_squadra.') and  gol_casa is not null
+  order by gsa.inizio desc
+  LIMIT 5';
+$result_partite  = $conn->query($querypartite) or die($conn->error);
+
+while ($row = $result_partite->fetch_assoc()) {
+	
+	$descrizionepartita = $row["casa"].'-'.$row["ospite"] .' ('.getDescrizioneBreveGiornata($row["id_giornata"]).')';
+	$formazionedadb = "";
+	$queryformaz = 'SELECT id_posizione, id_giocatore
+	FROM `formazioni` WHERE id_giornata = '.$row["id_giornata"].' and id_squadra = '.$id_squadra.'
+	order by id_posizione';
+	$formazione  = $conn->query($queryformaz) or die($conn->error);
+	while ($row = $formazione->fetch_assoc()) {
+		$formazionedadb.=$row["id_posizione"].'_'.$row["id_giocatore"].'.';
+	}
+	echo '<option value="'.$formazionedadb.'">'.$descrizionepartita.'</option> -->';
+}
 ?>
 
 	<!-- <option value="1_250.2_2160.3_2130.4_2214.5_226.6_26.7_2002.8_645.9_2610.10_2756.11_785.12_453.13_798.14_288.15_392.16_1996.17_2085.18_2531.19_608">I NANI- ASVenere</option> -->
