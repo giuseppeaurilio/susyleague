@@ -42,7 +42,7 @@
                    }
                    if($formazione["numcasa"] < 9) 
                    {
-                        $altro++;
+                        $meno++;
                    }
                 }
                 else  if($formazione["idtrasferta"] == $ids)
@@ -58,7 +58,7 @@
                    }
                    if($formazione["numtrasferta"] < 9) 
                    {
-                        $altro++;
+                        $meno++;
                    }
                 }
             }
