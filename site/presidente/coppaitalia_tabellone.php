@@ -31,7 +31,7 @@ $idgirone = 5;//tabellone coppaitalia
 
 include_once("../DB/serie_a.php");
 include_once("../DB/fantacalcio.php");
-$giornate = fantacalcio_getGiornate($idgirone);
+$giornate = fantacalcio_getPartite_byGironeId($idgirone);
 $squadre = fantacalcio_getFantasquadre();
 $giornatesa = seriea_getGiornate();
 
