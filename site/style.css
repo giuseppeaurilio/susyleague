@@ -244,7 +244,7 @@ body .widget .result .squadra
   padding: 0px 2px;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 135px;
+  /* max-width: 135px; */
 }
 body .widget div.footer
 {
