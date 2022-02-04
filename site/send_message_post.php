@@ -29,7 +29,7 @@ try {
     /**************************************************************************************/
     // echo "<br> <br>".$http_string."<br>";
     $response = file_get_contents($http_string);
-        $response = "";
+    // $response = "";
     }
     catch (Exception $e) {
         echo json_encode(array(
