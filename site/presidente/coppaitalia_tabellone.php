@@ -11,10 +11,10 @@ salvaSquadreCITabellone = function(){
     var giornatarit = parseInt(giornataand) +1;
     var id1 = $("#sq_a_" +  giornataand + " option:selected").val();
     var id2 = $("#sq_b_" +  giornataand + " option:selected").val();
-    debugger;
+    // debugger;
     salvaSquadrePartita(id1, id2, giornataand);
     // if(giornatarit != 77)
-        salvaSquadrePartita(id2, id1, giornatarit);
+    salvaSquadrePartita(id2, id1, giornatarit);
 };
 salvaGiornataCITabellone = function(){
     // console.log($(this).attr("data-idgiornata"));
