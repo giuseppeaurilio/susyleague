@@ -56,6 +56,9 @@
             }
             echo "</div>";
         }
+        
         $conn->next_result();
     ?>
+
+    <hr>
 </div>

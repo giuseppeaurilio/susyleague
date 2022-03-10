@@ -47,4 +47,5 @@
         }
         $conn->next_result();
     ?>
+    <hr>
 </div>

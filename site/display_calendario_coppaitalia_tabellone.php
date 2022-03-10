@@ -395,7 +395,7 @@ foreach($giornate as $incontro)
 		</div>
 	</div> 
 </div>
-<h1>&nbsp:</h1>
+<h1>&nbsp;</h1>
 <?php 
 include("footer.php");
 ?>
