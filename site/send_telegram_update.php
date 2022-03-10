@@ -108,6 +108,9 @@ function send_telegram_update() {
 			}
 		}
 	}
+	// $testo = "this is a test message";
+	// echo $testo;
+	// $a=send_message_post($testo);
 }
 
 ?>
