@@ -5,7 +5,6 @@ BUG:
 ENHANCEMENT
 Parametro di efficianza della squadra schierata con la migliore teorica.
 inserire pulsante di creazione automatica della formazione in base a dai criteri
-Widget Le Pillole di Iori
 
 GRAFICA
 Loghi e banner delle squadre.

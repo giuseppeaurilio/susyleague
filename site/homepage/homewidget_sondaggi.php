@@ -23,8 +23,9 @@
         }  
         else
         {
-            echo "<h3> &nbsp;</h3>";
-            echo "<div class='widgetcontent sondaggi'>Non ci sono sondaggi al momento</div>";
+            // echo "<h3> &nbsp;</h3>";
+            echo "<div class='widgetcontent sondaggi'><div style='  text-align: center;
+            padding: 125px 0;'>Non ci sono sondaggi al momento</div></div>";
             echo '<hr>';
         } 
         
@@ -59,7 +60,7 @@
                 while($row = $resultvoti->fetch_assoc()){
                     array_push($resultsondaggio, array(
                         "id" => $opzione["id"],
-                        "opzione" => $opzione["opzione"],
+                        "opzione" => str_replace('\'', '', $opzione["opzione"]),
                         "count"=>$row["num"],
                         )
                     );

@@ -14,6 +14,7 @@
             include("homewidget_fustometro_inpreparazione.php");
             include("homewidget_ultimirisultati.php");
             include("homewidget_prossimoturno.php");
+            include("homewidget_perlediiori.php");
             include("homewidget_sondaggi.php");
             include("homewidget_vincitori.php");
             include("homewidget_mercato.php");

@@ -41,6 +41,12 @@ else {
 <script type="text/javascript" src="/js/global.js"></script>
 <script type="text/javascript" src="/js/fantacalcio.js"></script>
 
+<link rel="stylesheet" href="/plugin/slick/slick.css">
+<link rel="stylesheet" href="/plugin/slick/slick-theme.css">
+<!-- <script src="/plugin/slick/jquery.min.js"></script> -->
+<script src="/plugin/slick/slick.js"></script>
+
+
 
 <link href="/style.css" rel="stylesheet" type="text/css">
 </head>

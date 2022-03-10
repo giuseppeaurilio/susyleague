@@ -8,6 +8,7 @@ include("menu.php");
 		<li><a href="amministra_annunci.php" >Annunci del presidente</a></li>	
 		<li><a href="amministra_sondaggi.php" >Sondaggi</a></li>
 		<li><a href="amministra_fustometro.php" >Fustometro</a></li>
+		<li><a href="amministra_leperlediiori.php" >Le perle di Iori</a></li>
 		<li><a href="amministra_vincitori.php" >Vincitori</a></li>
 	</ul>
 	<h2>Serie A</h2>

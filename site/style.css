@@ -343,6 +343,23 @@ body .widget div.scienziati
   background-position: center;
 }
 
+
+
+body .widget div.perle
+{
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('images/93df41c8-c1a5-4853-87a3-ec941ea1f46e.jpg');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+}
+
+body .widget div.perle .perla
+{
+  text-align: center;
+  padding: 110px 0;
+  font-size: 20px;
+}
+
 body .widget div.fustiassegnati .fustiassegnaticontent
 {
     text-align: center;
