@@ -66,7 +66,7 @@ $result=$conn->query($query);
 $num=$result->num_rows; 
 #print_r($result);
 #echo "num=" . $num;
-echo '<select id="ddlSquadra" name="squadra" style="width:100%">'; 
+echo '<select id="ddlSquadra" name="squadra" style="width:101%">'; 
 echo "<option value='0' size =30 >Presidente</option>";
 while($row = $result->fetch_assoc()) 
 {        
@@ -77,7 +77,7 @@ echo "</select>";
 
 
 ?>
-<span>Password:</span> <input type="password" Name ='password' id="txtPassword" value="" style="width:99%">
+<span>Password:</span> <input type="password" Name ='password' id="txtPassword" value="" style="width:98%">
 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 <!-- style="display:none" -->
 <!-- <div id="result" class="result" style="display:none;"></div> -->

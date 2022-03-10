@@ -70,6 +70,11 @@ div.stellarnav
   
   display:inline-block;}
 
+#loginDialog
+{
+  overflow: hidden;
+}
+
 .loginsection{
   width: 10%;
   /* display: inline-block; */
@@ -143,6 +148,7 @@ div.stellarnav
     text-align: center;
     margin: 10px 2px;
 }
+
 .button a{
   text-decoration:none;
   color:white;
