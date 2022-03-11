@@ -46,17 +46,13 @@ else {
 <!-- <script src="/plugin/slick/jquery.min.js"></script> -->
 <script src="/plugin/slick/slick.js"></script>
 
-
-
 <link href="/style.css" rel="stylesheet" type="text/css">
-<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2482891574961869"
-     crossorigin="anonymous"></script> -->
+
 </head>
 
 <body>
 
 <?php 
-
 // include("dbinfo_susyleague.inc.php");
 
 // #echo "username = " . $username;

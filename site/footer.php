@@ -6,7 +6,7 @@
     <span style="float:right; display: block">V2.4.0</span>
    
 </footer>
-<button id="btnToTop" title="Torna su" class="back-to-top btthidden">
+<button id="btnToTop" title="Torna su" class="back-to-top " style="display: none;">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="back-to-top-icon"
