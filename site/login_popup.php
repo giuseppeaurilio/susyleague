@@ -2,12 +2,21 @@
 $(document).ready(function(){
     $("#btnLogin").off("click").bind("click", callLogin);
     $("#loginDialog .toggle-password").off("click").bind("click", togglePassword);
+    $("#loginDialog #Username").off("change").bind("change", function(){
+        var uname = $("#Username option:selected").val();
+        $("#txtUsername").val(uname); 
+    });
+    $("#txtUsername").off("change").bind("change", function(){
+        $("#Username").val($("#txtUsername").val());
+    });
+    
+
 })
 
 callLogin = function()
 {
     $(" #loginDialog #result").hide();
-    var uname = $("#ddlSquadra option:selected").val()
+    var uname = $("#Username option:selected").val()
     var pword = $("#txtPassword").val()
     var action ="login";    
     // console.log(dati);
@@ -15,7 +24,7 @@ callLogin = function()
             type:'POST',
             url:'/login_popup_controller.php',
             data: {
-                "squadra": uname,
+                "uname": uname,
                 "password": pword,
                 "action": action
             },
@@ -66,17 +75,20 @@ $result=$conn->query($query);
 $num=$result->num_rows; 
 #print_r($result);
 #echo "num=" . $num;
-echo '<select id="ddlSquadra" name="squadra" style="width:101%">'; 
-echo "<option value='0' size =30 >Presidente</option>";
+echo '<select id="Username" name="squadra" style="width:101%">'; 
+echo "<option value='Presidente' size =30 >Presidente</option>";
 while($row = $result->fetch_assoc()) 
 {        
 // print_r($row);
-echo "<option value='".$row['id']."'>".$row['squadra']."</option>"; 
+// echo "<option value='".$row['id']."'>".$row['squadra']."</option>"; 
+echo "<option value='".$row['squadra']."'>".$row['squadra']."</option>"; 
 }
 echo "</select>";
 
 
 ?>
+<span style="display:none;">Username:</span> <input type="text" Name ='username' id="txtUsername" value="" style="width:98%; display:none;">
+<!-- <span style="display:none;">UserId:</span> <input type="text" Name ='userid' id="txtUserId" value="" style="width:98%; display:none;"> -->
 <span>Password:</span> <input type="password" Name ='password' id="txtPassword" value="" style="width:98%">
 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 <!-- style="display:none" -->

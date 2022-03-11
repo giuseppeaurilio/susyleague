@@ -16,18 +16,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if($action=="login")
     {
-        $uname = $_POST['squadra'];
+        // $uid = $_POST['uid'];
+        $uname = strtolower($_POST['uname']);
         $pword = $_POST['password'];
         session_start();
         $uname = htmlspecialchars($uname);
         $pword = htmlspecialchars($pword);
-        if ($uname=='0') 
+        if ($uname=='presidente') 
         {
             $SQL =  "SELECT 'Presidente' as 'allenatore', '0' as 'id' FROM generale WHERE id_parametro=4 and valore=\"$pword\"";}
             
         else{
-            $SQL = "SELECT * FROM sq_fantacalcio WHERE id = $uname AND password = \"$pword\"";
+            $SQL = "SELECT * FROM sq_fantacalcio WHERE LOWER(squadra) = \"$uname\" AND password = \"$pword\"";
         }
+        // echo $SQL;
         $result = $conn->query($SQL);
         $num_rows = $result->num_rows;
         if ($result) {
