@@ -187,6 +187,12 @@ div.stellarnav
 body .widget{
   width: 400px;
 }
+
+body .widget.leperlediiori{
+  width: 100%;
+  max-width: 400px;
+}
+
 body .widget>div,
 body .widget table tr
 {

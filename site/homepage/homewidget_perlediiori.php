@@ -1,4 +1,4 @@
-<div class="widget">
+<div class="widget leperlediiori">
 <script>
     $(document).ready(function(){
         $('.perlecontent').slick({
