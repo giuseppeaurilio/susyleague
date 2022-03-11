@@ -3,11 +3,11 @@
     $(document).ready(function(){
         $('.perlecontent').slick({
             arrows:false,
-            // autoplay:true,
+            autoplay:true,
             autoplaySpeed: 5000,
             dots:true,
-            // centerMode:true,
-            // respondTo:'window'
+            centerMode:true,
+            respondTo:'window'
             }
         );
 
