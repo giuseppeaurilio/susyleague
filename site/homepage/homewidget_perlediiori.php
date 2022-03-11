@@ -3,9 +3,11 @@
     $(document).ready(function(){
         $('.perlecontent').slick({
             arrows:false,
-            autoplay:true,
+            // autoplay:true,
             autoplaySpeed: 5000,
-            dots:true
+            dots:true,
+            // centerMode:true,
+            // respondTo:'window'
             }
         );
 
@@ -31,12 +33,14 @@
 
         ?>
     <div class="perle widgetcontent">
+        
         <div class="perlecontent">
             <?php
                 foreach($perle as $perla){
-                    echo '<div class="perla">'.$perla["Testo"].'</div>';
+                    echo '<div class="perla" ><span>'.$perla["Testo"].'</span></div>';
                 }
             ?>  
+        
         </div>
     </div>
    
