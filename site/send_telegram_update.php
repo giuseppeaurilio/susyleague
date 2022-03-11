@@ -79,7 +79,7 @@ function send_telegram_update() {
 					// $num_ni=$result_ni->num_rows; 
 					//echo "num_ni= $num_ni";
 					$squadresenzaformazione = fantacalcio_getSquadreSenzaFormazione($giornatafc["id_giornata"]);
-					if (count($squadresenzaformazione)==2) 
+					if (count($squadresenzaformazione)==0) 
 					{
 						// echo "Tutte le squadre hanno inviato le formazioni";
 						$testo .= "Tutte le squadre hanno inviato la formazione";
