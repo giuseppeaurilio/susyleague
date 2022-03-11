@@ -3,9 +3,24 @@
 <span style="float:left; display: block">
     powered by: susyleague plc.
     </span>
-    <span style="float:right; display: block">V2.3.0</span>
+    <span style="float:right; display: block">V2.4.0</span>
+   
 </footer>
-
+<button id="btnToTop" title="Torna su" class="back-to-top btthidden">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="back-to-top-icon"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M7 11l5-5m0 0l5 5m-5-5v12"
+    />
+  </svg></button>
 
 
 

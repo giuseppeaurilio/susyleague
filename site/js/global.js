@@ -44,3 +44,45 @@ modalPopupResultHide = function(data){
         $( "#dialog" ).dialog({modal:true});
     }
 }
+
+// $(document).ready(function(){
+//     $("#btnToTop").off("click").bind("click", callLogin);
+//     // mybutton = document.getElementById("btnToTop");
+
+//     // When the user scrolls down 20px from the top of the document, show the button
+//     window.onscroll = function() {scrollFunction()};
+    
+// })
+$(document).ready(function(){
+    $("#btnToTop").off("click").bind("click", toTop);
+    $(window).scroll(function() {
+        if ($(this).scrollTop()) {
+            $('#btnToTop').fadeIn("slow");
+        } else {
+            $('#btnToTop').fadeOut("slow");
+        }
+    });
+    window.onscroll = function() {scrollFunction()};
+})
+
+
+function scrollFunction() {
+  if (document.body.scrollTop > 140 || document.documentElement.scrollTop > 140) {
+      $(".menu").css("position", "fixed");
+      $(".menu").css("top", "0");
+      $(".menu").css("width", "100%");
+  } else {
+        $(".menu").css("position", "");
+        $(".menu").css("top", "");
+        $(".menu").css("width", "");
+  }
+}
+
+toTop = function(){
+    // debugger;
+    //1 second of animation time
+    //html works for FFX but not Chrome
+    //body works for Chrome but not FFX
+    //This strange selector seems to work universally
+    $("html, body").animate({scrollTop: 0}, 1000);
+ };

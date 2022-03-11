@@ -49,6 +49,8 @@ else {
 
 
 <link href="/style.css" rel="stylesheet" type="text/css">
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2482891574961869"
+     crossorigin="anonymous"></script> -->
 </head>
 
 <body>
@@ -114,7 +116,7 @@ $anno=$row["valore"];
         });
     });
 </script>
-<div style="background:#366b82;">
+<div class="menu">
 	<div id="mainMenu" class="stellarnav">
 		<ul class="navbar">
 			<li><a href="/homepage/home.php"> <i class="fas fa-home"></i> Home</a></li>

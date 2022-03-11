@@ -62,6 +62,10 @@ h5{
   padding: 5px;
   margin:0;
 }
+.menu	{
+z-index:1000;
+background:#366b82;
+}
 .navbar	{
 z-index:1;
 }
@@ -1432,3 +1436,40 @@ padding:1px 2px;
   text-decoration: none;
   display: inline;
 }
+
+/* #btnToTop {
+  padding: 5px 3px;
+  background: #000;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  right: 5px;
+  display: none;
+} */
+
+/* .btthidden {
+  opacity: 0%;
+} */
+
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  border-radius: 100%;
+  background: rgba(220,220,220, 0.7    z-index: 1000;);
+  padding: 0.3rem;
+  border: none;
+  cursor: pointer;
+  /* opacity: 70%; */
+  /* transition: opacity 0.5s; */
+}
+
+
+.back-to-top-icon {
+  width: 1rem;
+  height: 1rem;
+  color: rgba(0,0,0,1);
+}
+/* .back-to-top:hover {
+  opacity: 60%;
+} */
