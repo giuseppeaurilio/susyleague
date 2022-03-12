@@ -82,9 +82,9 @@
         {
             echo "<div class='widgetcontent scienziati'>";
             echo '<h3>
-                    <div style="display: inline-block;width: 40%;">Squadra</div>
-                    <div style="text-align: center;display: inline-block;width: 20%;">in 10</div>
-                    <div style="text-align: center;display: inline-block;width: 20%;">in 9</div>
+                    <div style="display: inline-block;width: 50%;">Squadra</div>
+                    <div style="text-align: center;display: inline-block;width: 15%;">in 10</div>
+                    <div style="text-align: center;display: inline-block;width: 15%;">in 9</div>
                     <div style="text-align: center;display: inline-block;width: 15%;">meno</div>
                 </h3>';
             $index=0;
@@ -95,9 +95,9 @@
                     echo "<div class='result'>";
                 else
                     echo '<div class="result alternate" >';
-                echo '<div style="display: inline-block;width: 40%;">'.$presidente["squadra"].'</div>
-                    <div style="text-align: center;display: inline-block;width: 20%;">'.$presidente["indieci"].'</div>
-                    <div style="text-align: center;display: inline-block;width: 20%;">'.$presidente["innove"].'</div>
+                echo '<div style="display: inline-block;width: 50%;">'.$presidente["squadra"].'</div>
+                    <div style="text-align: center;display: inline-block;width: 15%;">'.$presidente["indieci"].'</div>
+                    <div style="text-align: center;display: inline-block;width: 15%;">'.$presidente["innove"].'</div>
                     <div style="text-align: center;display: inline-block;width: 15%;">'.$presidente["meno"].'</div>';
                 echo "</div>";
                
