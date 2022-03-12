@@ -34,6 +34,7 @@
             foreach($vincitori as $vincitore)
             {
                 $index++;
+               
                 if($competizionecurrent == "" OR $competizionecurrent != $vincitore["Competizione"])
                 {
                     $competizionecurrent = $vincitore["Competizione"];
@@ -43,16 +44,61 @@
                         </h3>';
                 }
 
-                echo "<div >";
+                // echo '<div class="vincitori">';
+                $posizione = "primo";
+                if($vincitore["Posizione"]=="1")
+                {
+                    $posizione = "primo";
+                }
+                else if($vincitore["Posizione"]=="2")
+                {
+                    $posizione = "secondo";
+                }
+                else if($vincitore["Posizione"]=="3")
+                {
+                    $posizione = "terzo";
+                }
+
+                $award = '<i class="fas fa-award"></i>';
+               
+                // {
+                   
+                // }
+                if(($vincitore["Posizione"]=="1") && ($competizionecurrent=="Apertura Cannonieri"
+                || $competizionecurrent=="Chiusura Cannonieri"
+                || $competizionecurrent=="Aggregate Cannonieri"))
+                {
+                    $award = '<i class="far fa-futbol"></i>';
+                }
+                else if(($vincitore["Posizione"]=="1") && ($competizionecurrent=="Coppa Italia"
+                || $competizionecurrent=="Supercoppa"
+                || $competizionecurrent=="Coppa delle Coppe"))
+                {
+                    $award = '<i class="fas fa-trophy"></i>';
+                }
+                else if(($vincitore["Posizione"]=="1") && ($competizionecurrent=="Finale campionato"))
+                {
+                    $award = '<i class="fas fa-shield-alt"></i>';
+                }
+                else
+                // if($competizionecurrent=="Apertura Campionato"
+                // || $competizionecurrent=="Chiusura Campionato"
+                // || $competizionecurrent=="Aggregate Campionato")
+                {
+                    $award = '<i class="fas fa-award"></i>';
+                }
                 if($index%2== 0)
-                        echo "<div class='result'>";
+                        echo '<div class="result '.$posizione.'" >';
                     else
-                        echo '<div class="result alternate" >';
+                        echo '<div class="result alternate '.$posizione.'" >';
+                    // echo '
+                    //     <div style="width:85%; display: inline-block;text-align: center;">'.$vincitore["Squadra"].' ('.$vincitore["Allenatore"].')</div>
+                    //     <div style="width:14%; display: inline-block;text-align: center;">'.$vincitore["Posizione"].$award.'</div>';
                     echo '
-                        <div style="width:85%; display: inline-block;text-align: center;">'.$vincitore["Squadra"].' ('.$vincitore["Allenatore"].')</div>
-                        <div style="width:14%; display: inline-block;text-align: center;">'.$vincitore["Posizione"].'</div>';
+                        <div class="squadra">'.$vincitore["Squadra"].' ('.$vincitore["Allenatore"].')</div>
+                        <div class="premio">'.$award.'</div>';
                     echo "</div>";
-                echo "</div>";
+                // echo "</div>";
             }
             echo "</div>";
         }

@@ -319,6 +319,50 @@ body .widget div.vincitori
   
 }
 
+body .widgetcontent.vincitori
+{}
+body .widgetcontent.vincitori .result
+{
+  padding: 5px 0;
+}
+
+body .widgetcontent.vincitori .result .squadra
+{
+  width:80%; 
+  display: inline-block;
+  text-align: left;
+  padding-left: 5px;
+}
+body .widgetcontent.vincitori .result .premio
+{
+  width:14%; 
+  display: inline-block;
+  text-align: center;
+}
+
+body .widgetcontent.vincitori .result.primo .squadra,
+body .widgetcontent.vincitori .result.primo .premio
+{
+  font-size: 25px;
+}
+
+body .widgetcontent.vincitori .result.secondo .squadra,
+body .widgetcontent.vincitori .result.secondo .premio,
+body .widgetcontent.vincitori .result.terzo .squadra,
+body .widgetcontent.vincitori .result.terzo .premio
+{
+  font-size: 20px;
+}
+body .widgetcontent.vincitori .result.primo .premio{
+  color: rgba(212,175,55, 1) ;
+}
+body .widgetcontent.vincitori .result.secondo .premio{
+  color: rgba(169,169,169, 1);
+}
+body .widgetcontent.vincitori .result.terzo .premio{
+  color: rgba(177,86,15, 1);
+}
+
 body .widget div.annunciodelpresidente
 {
   background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('https://image.freepik.com/vettori-gratuito/microfono-realistico-realistico-disegnato-a-mano_23-2148152405.jpg');
