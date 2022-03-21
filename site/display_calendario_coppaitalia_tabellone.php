@@ -283,11 +283,11 @@ foreach($giornate as $incontro)
 	.(($incontro->dataFineAndata != "") ? date('d/m H:i', strtotime($incontro->dataFineAndata)) : "").
 	'</td>';
 	echo 	'<td >'
-	.(($incontro->puntiCasaAndata != "") ? '('.$incontro->puntiCasaAndata.')'.$incontro->golCasaAndata : "").
+	.(($incontro->puntiCasaAndata != "") ? '('.$incontro->puntiCasaAndata.')<span class="gol">'.$incontro->golCasaAndata .'</span>': "").
 	'</td>';
 	echo 	'<td>-</td>';
 	echo 	'<td>'
-	.(($incontro->puntiTrasfertaAndata != "") ? $incontro->golTrasfertaAndata.'('.$incontro->puntiTrasfertaAndata.')' : "").
+	.(($incontro->puntiTrasfertaAndata != "") ? '<span class="gol">'.$incontro->golTrasfertaAndata.'</span>('.$incontro->puntiTrasfertaAndata.')' : "").
 	'</td>';
 	echo '<td><a href="display_giornata.php?&id_giornata='. $incontro->idGiornataAndata  .'" ><i class="fas fa-list-ol"></i></a></td>';
 	echo '</tr>';
@@ -302,12 +302,12 @@ foreach($giornate as $incontro)
 		
 		'</td>';
 		echo 	'<td>'
-		.(($incontro->puntiTrasfertaRitorno != "") ? '('.$incontro->puntiTrasfertaRitorno.')' . $incontro->golTrasfertaRitorno  : "").
+		.(($incontro->puntiTrasfertaRitorno != "") ? '('.$incontro->puntiTrasfertaRitorno.')<span class="gol">' . $incontro->golTrasfertaRitorno .'</span>' : "").
 		// . print_r($incontro->idGiornataAndata) . "<br>". 
 		'</td>';
 		echo 	'<td>-</td>';
 		echo 	'<td >'
-		.(($incontro->puntiCasaRitorno != "") ? $incontro->golCasaRitorno . '('.$incontro->puntiCasaRitorno.')': "").
+		.(($incontro->puntiCasaRitorno != "") ? '<span class="gol">'. $incontro->golCasaRitorno . '</span>('.$incontro->puntiCasaRitorno.')': "").
 		// . print_r($incontro->idGiornataAndata) . "<br>".
 		'</td>';
 		echo '<td><a href="display_giornata.php?&id_giornata='. $incontro->idGiornataRitorno  .'" ><i class="fas fa-list-ol"></i></a></td>';

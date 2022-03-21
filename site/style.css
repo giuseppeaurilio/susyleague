@@ -224,7 +224,8 @@ body .widget .result.alternate
 }
 
 
-body .widget .result .gol
+body .widget .result .gol,
+body .ci_tabellone .gol
 {
   font-weight: bold;
   /* float: right; */
@@ -821,7 +822,7 @@ li.game{
 
 .ci_tabellone td:nth-child(2) 
 ,.ci_tabellone th:nth-child(2) {
-  width:100px;
+  min-width:150px;
   text-align: right;
 }
 .ci_tabellone td:nth-child(3) 
@@ -833,7 +834,7 @@ li.game{
 
 .ci_tabellone td:nth-child(4) 
 ,.ci_tabellone th:nth-child(4) {
-  width:100px;
+  min-width:150px;
   text-align: left;
 }
 
