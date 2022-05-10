@@ -26,7 +26,148 @@ $(document).ready(function(){
 	<div id="tabs-1">
 		<h3>Campionato Susy league</h3>
 		<div  class="content">
-		<div class="anno">2020/2021</div>
+		<div class="anno">2021/2022</div>
+			<div class="campionato">
+				<div class="competizione">
+					<div class="descrizione"> Finale Campionato </div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-shield-alt"></i> </div>
+							<div class="titolo">1°</div>
+							<div class="squadra"></div>
+							<div class="allenatore"></div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-medal"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra"></div>
+							<div class="allenatore"></div>
+						</div>
+					</div>
+				</div>	
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Culo Culo</div>
+							<div class="allenatore">(Giorgio Gasbarrini)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Bar Filiacci</div>
+							<div class="allenatore">(Daniele Rotondo)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">AS Venere</div>
+							<div class="allenatore">(MDP)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">Bar Filiacci</div>
+							<div class="allenatore">(Daniele Rotondo)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Culo Culo</div>
+							<div class="allenatore">(Giorgio Gasbarrini)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Bar Filiacci</div>
+							<div class="allenatore">(Daniele Rotondo)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Mandrake e Pomata 2</div>
+							<div class="allenatore">(Narpini-Iori)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">AS Venere</div>
+							<div class="allenatore">(MDP)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">Bar Filiacci</div>
+							<div class="allenatore">(Daniele Rotondo)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Campionato</div>
+					<div class="vincitori">
+						
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">AS Venere</div>
+							<div class="allenatore">(MDP)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">Culo Culo</div>
+							<div class="allenatore">(Giorgio Gasbarrini)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Crossa Pu</div>
+							<div class="allenatore">(Gianluca Puppi)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">Salsino Bello</div>
+							<div class="allenatore">(Filippo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">AS Venere</div>
+							<div class="allenatore">(MDP)</div>
+						</div>
+					</div>
+				</div>		
+			</div>
+			<div class="anno">2020/2021</div>
 			<div class="campionato">
 				<div class="competizione">
 					<div class="descrizione"> Finale Campionato </div>
@@ -1144,7 +1285,24 @@ $(document).ready(function(){
 	<div id="tabs-2">
 		<h3>Coppa delle Coppe <span class="note"> (*prima edizione 2012)</span></h3>
 		<div class="content">
-			<div class="anno">2021</div>
+		<div class="anno">2022</div>
+			<div class="coppacoppe">
+				<div class="vincitori competizione2">
+					<div class="primo">
+						<div><i class="fas fa-trophy"></i> </div>
+						<div class="titolo">1°</div>
+						<div class="squadra"></div>
+						<div class="allenatore"></div>
+					</div>
+					<div class="secondo">
+						<div><i class="fas fa-medal"></i> </div>
+						<div class="titolo">2°</div>
+						<div class="squadra"></div>
+						<div class="allenatore"></div>
+					</div>
+				</div>
+			</div>
+		<div class="anno">2021</div>
 			<div class="coppacoppe">
 				<div class="vincitori competizione2">
 					<div class="primo">
@@ -1161,7 +1319,7 @@ $(document).ready(function(){
 					</div>
 				</div>
 			</div>
-			<div class="anno">2020</div>
+		<div class="anno">2020</div>
 			<div class="coppacoppe">
 				<div class="vincitori competizione2">
 					<div class="primo">
@@ -1321,6 +1479,23 @@ $(document).ready(function(){
 	<div id="tabs-3">
 		<h3>Coppa Italia<span class="note"> (*prima edizione 2019/20)</span></h3>
 		<div class="content">
+			<div class="anno">2021/22</div>
+			<div class="coppaitalia">
+				<div class="vincitori competizione2">
+					<div class="primo">
+						<div><i class="fas fa-trophy"></i> </div>
+						<div class="titolo">1°</div>
+						<div class="squadra">AS Vemere</div>
+						<div class="allenatore">(MDP)</div>
+					</div>
+					<div class="secondo">
+					<div><i class="fas fa-medal"></i> </div>
+						<div class="titolo">2°</div>
+						<div class="squadra">AS Friskies</div>
+						<div class="allenatore">(Antonio & Michela)</div>
+					</div>
+				</div>
+			</div>
 			<div class="anno">2020/21</div>
 			<div class="coppaitalia">
 				<div class="vincitori competizione2">
@@ -1361,6 +1536,23 @@ $(document).ready(function(){
 	<div id="tabs-4">
 		<h3>Supercoppa<span class="note"> (*prima edizione 2020/21)</span></h3>
 		<div class="content">
+			<div class="anno">2021/22</div>
+			<div class="supercoppa">
+				<div class="vincitori competizione2">
+					<div class="primo">
+						<div><i class="fas fa-trophy"></i> </div>
+						<div class="titolo">1°</div>
+						<div class="squadra">I NANI</div>
+						<div class="allenatore">(Peppino)</div>
+					</div>
+					<div class="secondo">
+					<div><i class="fas fa-medal"></i> </div>
+						<div class="titolo">2°</div>
+						<div class="squadra">Nuova Romanina</div>
+						<div class="allenatore">(Arky)</div>
+					</div>
+				</div>
+			</div>
 			<div class="anno">2020/21</div>
 			<div class="supercoppa">
 				<div class="vincitori competizione2">
