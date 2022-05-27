@@ -205,6 +205,7 @@ foreach ($giornate as $partita) {
 		{
 			// echo print_r($partita);
 			// echo $partita->golCasaRitorno;
+			
 			echo '<div class="score">';
 			echo '<div class="punti">('.$partita->puntiTrasfertaRitorno.')</div>';
 			echo '<div class="gol">'.$partita->golTrasfertaRitorno.'</div>';

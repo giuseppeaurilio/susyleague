@@ -76,7 +76,7 @@
                 {
                     $award = '<i class="fas fa-trophy"></i>';
                 }
-                else if(($vincitore["Posizione"]=="1") && ($competizionecurrent=="Finale campionato"))
+                else if(($vincitore["Posizione"]=="1") && ($competizionecurrent=="Finale Campionato"))
                 {
                     $award = '<i class="fas fa-shield-alt"></i>';
                 }
