@@ -181,9 +181,9 @@ foreach ($giornate as $partita) {
 		echo '<div> - </div>';
 		echo '<div class=" squadra2">'.$partita->squadraB.'</div>';
 		echo '</div>';
-		if(!empty($partita->golCasaAndata))
+		if(!is_null($partita->golCasaAndata))
 		{
-			echo $partita->golCasaAndata;
+			// echo $partita->golCasaAndata;
 			echo '<div class="score">';
 			echo '<div class="punti">('.$partita->puntiCasaAndata.')</div>';
 			echo '<div class="gol">'.$partita->golCasaAndata.'</div>';
@@ -201,15 +201,16 @@ foreach ($giornate as $partita) {
 		.$partita->commentoAndata.'</textarea> ';
 		echo '</div>';
 		
-		if(!empty($partita->golCasaRitorno))
+		if(!is_null($partita->golCasaRitorno))
 		{
-			echo $partita->golCasaRitorno;
+			// echo print_r($partita);
+			// echo $partita->golCasaRitorno;
 			echo '<div class="score">';
-			echo '<div class="punti">('.$partita->puntiCasaRitorno.')</div>';
-			echo '<div class="gol">'.$partita->golCasaRitorno.'</div>';
-			echo '<div> - </div>';
-			echo '<div class="gol">'.$partita->golTrasfertaRitorno.'</div>';
 			echo '<div class="punti">('.$partita->puntiTrasfertaRitorno.')</div>';
+			echo '<div class="gol">'.$partita->golTrasfertaRitorno.'</div>';
+			echo '<div> - </div>';
+			echo '<div class="gol">'.$partita->golCasaRitorno.'</div>';
+			echo '<div class="punti">('.$partita->puntiCasaRitorno.')</div>';
 			echo '</div>';
 		}
 		echo '<div class="formazioni">';

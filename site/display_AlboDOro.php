@@ -34,14 +34,14 @@ $(document).ready(function(){
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
 							<div class="titolo">1°</div>
-							<div class="squadra"></div>
-							<div class="allenatore"></div>
+							<div class="squadra">Culo Culo</div>
+							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
 							<div class="titolo">2°</div>
-							<div class="squadra"></div>
-							<div class="allenatore"></div>
+							<div class="squadra">AS Venere</div>
+							<div class="allenatore">(MDP)</div>
 						</div>
 					</div>
 				</div>	
@@ -1291,14 +1291,14 @@ $(document).ready(function(){
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
 						<div class="titolo">1°</div>
-						<div class="squadra"></div>
-						<div class="allenatore"></div>
+						<div class="squadra">AS Friskies</div>
+						<div class="allenatore">(Antonio & Michela)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
 						<div class="titolo">2°</div>
-						<div class="squadra"></div>
-						<div class="allenatore"></div>
+						<div class="squadra">CrossaPù</div>
+						<div class="allenatore">(Gianluca Pupparo)</div>
 					</div>
 				</div>
 			</div>
