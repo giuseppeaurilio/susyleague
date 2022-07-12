@@ -1575,6 +1575,27 @@ $(document).ready(function(){
 	<div id="tabs-5">
 		<h3>Fustometro<span class="note"> (*prima edizione 2019/20)</span></h3>
 		<div class="content">
+		<div class="anno">2021/22</div>
+			<div class="Fustometro">
+				<div class="vincitori competizione2">
+					<span> <i class="fas fa-beer"></i> Filippo: Perché si!</span><br>	
+					<span> <i class="fas fa-beer"></i> Peppe: Perché s è morto Richard Benson. I NANIIIIIIII</span><br>	
+					<span> <i class="fas fa-beer"></i> Peppe : Bonucci è entrato. È un fatto. Permaloso.</span><br>	
+					<span> <i class="fas fa-beer"></i> Peppe: Ma Bonucci è entrato?</span><br>	
+					<span> <i class="fas fa-beer"></i> Carletto : I coriandoli che sono di cartone</span><br>	
+					<span> <i class="fas fa-beer"></i> Carletto : Sei un prescritto cartonato</span><br>	
+					<span> <i class="fas fa-beer"></i> Arch. MDP: Gol di Pereiro e doppietta di Arnautovic non si po sentì</span><br>	
+					<span> <i class="fas fa-beer"></i> Arch. MDP: Uno/due cambi al sabato concediamoli...</span><br>	
+					<span> <i class="fas fa-beer"></i> Mandrake: Ha detto Pomata che stiamo oki così</span><br>	
+					<span> <i class="fas fa-beer"></i> Carletto: Ancora nse mparato le regole del draft...</span><br>	
+					<span> <i class="fas fa-beer"></i> Peppe: Cambio centrocampisti con portieri</span><br>	
+					<span> <i class="fas fa-beer"></i> Mandrake : Fusto a richiesta</span><br>	
+					<span> <i class="fas fa-beer"></i> Peppino: Ma Bonucci è entrato?</span><br>	
+					<span> <i class="fas fa-beer"></i> Peppino: Pari Mazzari!</span><br>	
+					<span> <i class="fas fa-beer"></i> Arky: Eccesso di lecchinismo</span><br>	
+					<span> <i class="fas fa-beer"></i> Salsino: Serviva che lo scrivessi per provare il fustometro...</span><br>	
+				</div>
+			</div>
 			<div class="anno">2020/21</div>
 			<div class="Fustometro">
 				<div class="vincitori competizione2">
