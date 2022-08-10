@@ -1,10 +1,20 @@
 
 BUG:
+    Inserire contratto di sponsorizzazione
+    digitalizzare l'albo d'oro
+    Inserire tripla giornata di coppa coppe
+    finale campionato alla meglio delle tre.
     verificare messaggio telegram sulle formazioni mancanti per la coppa
 
 ENHANCEMENT
 Parametro di efficianza della squadra schierata con la migliore teorica.
 inserire pulsante di creazione automatica della formazione in base a dai criteri
+
+ASTA PEPPE
+prezzo di acquisto anno precedente
+    stesso giocatore
+    stessa chiamata
+Prevedere prezzo di acquisto massimo
 
 GRAFICA
 Loghi e banner delle squadre.
