@@ -420,7 +420,7 @@ $globalgiornatecounter++;
 /////////////////////
 // GENERA giornate per coppa delle coppe - ex torneo di consolazione
 //il torneo si svolge nelle ultime due giornate di campionato, le uniche utili, e vanno  considerati solo i punteggi delle squadre, ignorando gli scontri diretti.
-for ($giornata = 1; $giornata <= 2; $giornata++) {
+for ($giornata = 1; $giornata <= 3; $giornata++) {
 //echo "casa= ". $element[1] . "ospite= " $element[1];
     aggiungi_giornata($globalgiornatecounter,"6"); // 6  coppa delle coppe - ex torneo di consolazione
     $globalgiornatecounter++;
@@ -429,7 +429,7 @@ for ($giornata = 1; $giornata <= 2; $giornata++) {
 /////////////////////
 // GENERA giornate per Finale campionato: andata/ritorno
 $globalgiornatecounter++;
-for ($giornata = 1; $giornata <= 2; $giornata++) {
+for ($giornata = 1; $giornata <= 3; $giornata++) {
 //echo "casa= ". $element[1] . "ospite= " $element[1];
     aggiungi_giornata($globalgiornatecounter,"7"); // 7  finale campionato 
     $globalgiornatecounter++;

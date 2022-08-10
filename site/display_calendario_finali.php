@@ -9,22 +9,30 @@ class IncontroCoppa{
 	public $squadraA;
 	public $idSquadraB;
 	public $squadraB;
-	public $idGiornataAndata;
-	public $dataInizioAndata;
-	public $dataFineAndata;
-	public $golCasaAndata;
-	public $puntiCasaAndata;
-	public $golTrasfertaAndata;
-	public $puntiTrasfertaAndata;
-	public $idGiornataRitorno;
-	public $dataInizioRitorno;
-	public $dataFineRitorno;
-	public $golCasaRitorno;
-	public $puntiCasaRitorno;
-	public $golTrasfertaRitorno;
-	public $puntiTrasfertaRitorno;
-	public $commentoAndata;
-	public $commentoRitorno;
+	public $idGiornatagara1;
+	public $dataIniziogara1;
+	public $dataFinegara1;
+	public $golCasagara1;
+	public $puntiCasagara1;
+	public $golTrasfertagara1;
+	public $puntiTrasfertagara1;
+	public $idGiornatagara2;
+	public $dataIniziogara2;
+	public $dataFinegara2;
+	public $golCasagara2;
+	public $puntiCasagara2;
+	public $golTrasfertagara2;
+	public $puntiTrasfertagara2;
+	public $idGiornatagara3;
+	public $dataIniziogara3;
+	public $dataFinegara3;
+	public $golCasagara3;
+	public $puntiCasagara3;
+	public $golTrasfertagara3;
+	public $puntiTrasfertagara3;
+	public $commentogara1;
+	public $commentogara2;
+	public $commentogara3;
 
 	public $idSquadraVincente;
 	
@@ -52,22 +60,30 @@ $result=$conn->query($query);
 
 // $num=$result->num_rows; 
 $index = 0;
-$id_giornata_andata = "";
-$inizio_a_andata= "";
-$fine_a_andata= "";
-$gol_casa_andata= "";
-$gol_ospiti_andata= "";
-$punti_casa_andata= "";
-$punti_ospiti_andata= "";
-$id_giornata_ritorno= "";
-$inizio_a_ritorno= "";
-$fine_a_ritorno= "";
-$gol_casa_ritorno= "";
-$gol_ospiti_ritorno= "";
-$punti_casa_ritorno= "";
-$punti_ospiti_ritorno= "";
-$commentoAndata= "";
-$commentoRitorno= "";
+$id_giornata_gara1 = "";
+$inizio_a_gara1= "";
+$fine_a_gara1= "";
+$gol_casa_gara1= "";
+$gol_ospiti_gara1= "";
+$punti_casa_gara1= "";
+$punti_ospiti_gara1= "";
+$id_giornata_gara2= "";
+$inizio_a_gara2= "";
+$fine_a_gara2= "";
+$gol_casa_gara2= "";
+$gol_ospiti_gara2= "";
+$punti_casa_gara2= "";
+$punti_ospiti_gara2= "";
+$id_giornata_gara3= "";
+$inizio_a_gara3= "";
+$fine_a_gara3= "";
+$gol_casa_gara3= "";
+$gol_ospiti_gara3= "";
+$punti_casa_gara3= "";
+$punti_ospiti_gara3= "";
+$commentogara1= "";
+$commentogara2= "";
+$commentogara3= "";
 $giornate = array();
 while ($row=$result->fetch_assoc()) {
     
@@ -77,39 +93,57 @@ while ($row=$result->fetch_assoc()) {
 		$sq1=$row["squadracasa"];
 		$id_sq2=$row["id_sq_ospite"];
 		$sq2=$row["squadraospite"];
-		$id_giornata_andata=$row["id_giornata"];
-		$inizio_andata=$row["inizio"];
-		$fine_andata=$row["fine"];
-		$inizio_a_andata=$row["inizio"];//date_parse($inizio_andata);
-		$fine_a_andata=$row["fine"];//date_parse($fine_andata);
+		$id_gara1=$row["id_giornata"];
+		$inizio_gara1=$row["inizio"];
+		$fine_gara1=$row["fine"];
+		$inizio_a_gara1=$row["inizio"];//date_parse($inizio_andata);
+		$fine_a_gara1=$row["fine"];//date_parse($fine_andata);
 		if(!is_null($row["gol_casa"]) && !is_null($row["gol_casa"]) )
 		{
-			$gol_casa_andata=$row["gol_casa"];
-			$gol_ospiti_andata=$row["gol_ospiti"];
-			$punti_casa_andata=$row["punti_casa"];
-			$punti_ospiti_andata=$row["punti_ospiti"];
-			$commentoAndata = $row["commento"];
+			$gol_casa_gara1=$row["gol_casa"];
+			$gol_ospiti_gara1=$row["gol_ospiti"];
+			$punti_casa_gara1=$row["punti_casa"];
+			$punti_ospiti_gara1=$row["punti_ospiti"];
+			$commentogara1 = $row["commento"];
 		}
 		$index =1;
 	}
-	else
+	else if($index == 1)
 	{
-		$id_giornata_ritorno=$row["id_giornata"];
-		// $inizio_ritorno=$row["inizio"];
-		// $fine_ritorno=$row["fine"];
-		$inizio_a_ritorno=$row["inizio"];//date_parse($inizio_ritorno);
-		$fine_a_ritorno=$row["fine"];//date_parse($fine_ritorno);
+		$id_giornata_gara2=$row["id_giornata"];
+		// $inizio_gara2=$row["inizio"];
+		// $fine_gara2=$row["fine"];
+		$inizio_a_gara2=$row["inizio"];//date_parse($inizio_gara2);
+		$fine_a_gara2=$row["fine"];//date_parse($fine_gara2);
 		if(!is_null($row["gol_casa"]) && !is_null($row["gol_casa"]) )
 		{
-			$gol_casa_ritorno=$row["gol_casa"];
-			$gol_ospiti_ritorno=$row["gol_ospiti"];
-			$punti_casa_ritorno=$row["punti_casa"];
-			$punti_ospiti_ritorno=$row["punti_ospiti"];
-			$commentoRitorno = $row["commento"];
+			$gol_casa_gara2=$row["gol_casa"];
+			$gol_ospiti_gara2=$row["gol_ospiti"];
+			$punti_casa_gara2=$row["punti_casa"];
+			$punti_ospiti_gara2=$row["punti_ospiti"];
+			$commentogara2 = $row["commento"];
 		}
 		$index =2;
 	}
-	if($index == 2)
+	else if($index == 2)
+	{
+		$id_giornata_gara3=$row["id_giornata"];
+		// $inizio_gara2=$row["inizio"];
+		// $fine_gara2=$row["fine"];
+		$inizio_a_gara3=$row["inizio"];//date_parse($inizio_gara2);
+		$fine_a_gara3=$row["fine"];//date_parse($fine_gara2);
+		if(!is_null($row["gol_casa"]) && !is_null($row["gol_casa"]) )
+		{
+			$gol_casa_gara3=$row["gol_casa"];
+			$gol_ospiti_gara3=$row["gol_ospiti"];
+			$punti_casa_gara3=$row["punti_casa"];
+			$punti_ospiti_gara3=$row["punti_ospiti"];
+			$commentogara3 = $row["commento"];
+		}
+		$index =3;
+	}
+
+	if($index == 3)
 	{
 		$incontroCoppa = new IncontroCoppa;
 		$incontroCoppa->idSquadraA  = $id_sq1;
@@ -117,24 +151,33 @@ while ($row=$result->fetch_assoc()) {
 		$incontroCoppa->idSquadraB  = $id_sq2;
 		$incontroCoppa->squadraB  = $sq2;
 
-		$incontroCoppa->idGiornataAndata = $id_giornata_andata;
-		$incontroCoppa->dataInizioAndata = $inizio_a_andata;
-		$incontroCoppa->dataFineAndata = $fine_a_andata;
-		$incontroCoppa->golCasaAndata = $gol_casa_andata;
-		$incontroCoppa->puntiCasaAndata = $punti_casa_andata;
-		$incontroCoppa->golTrasfertaAndata = $gol_ospiti_andata;
-		$incontroCoppa->puntiTrasfertaAndata = $punti_ospiti_andata;
+		$incontroCoppa->idGiornatagara1 = $id_giornata_gara1;
+		$incontroCoppa->dataIniziogara1 = $inizio_a_gara1;
+		$incontroCoppa->dataFinegara1 = $fine_a_gara1;
+		$incontroCoppa->golCasagara1 = $gol_casa_gara1;
+		$incontroCoppa->puntiCasagara1 = $punti_casa_gara1;
+		$incontroCoppa->golTrasfertagara1 = $gol_ospiti_gara1;
+		$incontroCoppa->puntiTrasfertagara1 = $punti_ospiti_gara1;
 
-		$incontroCoppa->idGiornataRitorno = $id_giornata_ritorno;
-		$incontroCoppa->dataInizioRitorno = $inizio_a_ritorno;
-		$incontroCoppa->dataFineRitorno = $fine_a_ritorno;
-		$incontroCoppa->golCasaRitorno = $gol_casa_ritorno;
-		$incontroCoppa->puntiCasaRitorno = $punti_casa_ritorno;
-		$incontroCoppa->golTrasfertaRitorno = $gol_ospiti_ritorno;
-		$incontroCoppa->puntiTrasfertaRitorno = $punti_ospiti_ritorno;
+		$incontroCoppa->idGiornatagara2 = $id_giornata_gara2;
+		$incontroCoppa->dataIniziogara2 = $inizio_a_gara2;
+		$incontroCoppa->dataFinegara2 = $fine_a_gara2;
+		$incontroCoppa->golCasagara2 = $gol_casa_gara2;
+		$incontroCoppa->puntiCasagara2 = $punti_casa_gara2;
+		$incontroCoppa->golTrasfertagara2 = $gol_ospiti_gara2;
+		$incontroCoppa->puntiTrasfertagara2 = $punti_ospiti_gara2;
 
-		$incontroCoppa->commentoAndata = $commentoAndata;
-		$incontroCoppa->commentoRitorno = $commentoRitorno;
+		$incontroCoppa->idGiornatagara3 = $id_giornata_gara3;
+		$incontroCoppa->dataIniziogara3 = $inizio_a_gara3;
+		$incontroCoppa->dataFinegara3 = $fine_a_gara3;
+		$incontroCoppa->golCasagara3 = $gol_casa_gara3;
+		$incontroCoppa->puntiCasagara3 = $punti_casa_gara3;
+		$incontroCoppa->golTrasfertagara3 = $gol_ospiti_gara3;
+		$incontroCoppa->puntiTrasfertagara3 = $punti_ospiti_gara3;
+
+		$incontroCoppa->commentogara1 = $commentogara1;
+		$incontroCoppa->commentogara2 = $commentogara2;
+		$incontroCoppa->commentogara3 = $commentogara3;
 
 		
 		array_push($giornate,$incontroCoppa);
@@ -168,11 +211,11 @@ foreach ($giornate as $partita) {
 		if(count($vincitori) > 0){
 			echo '<h1 class="vincitore">'.$vincitori[0]["Squadra"].' è il Vincitore!</h1>';
 		}
-		// (($incontro->dataInizioAndata != "") ? date('d/m H:i', strtotime($incontro->dataInizioAndata)) : "")
+		// (($incontro->dataIniziogara1 != "") ? date('d/m H:i', strtotime($incontro->dataIniziogara1)) : "")
 		echo '<div class="data">'
-		.(($partita->dataInizioAndata != "") ? date('d/m H:i', strtotime($partita->dataInizioAndata)) : "").
+		.(($partita->dataIniziogara1 != "") ? date('d/m H:i', strtotime($partita->dataIniziogara1)) : "").
 		'-'
-		.(($partita->dataFineAndata != "") ? date('d/m H:i', strtotime($partita->dataFineAndata)) : "").
+		.(($partita->dataFinegara1 != "") ? date('d/m H:i', strtotime($partita->dataFinegara1)) : "").
 		'</div>';
 		
 		echo '<div class="location">Allianz Stadium di Torino</div>';
@@ -181,46 +224,68 @@ foreach ($giornate as $partita) {
 		echo '<div> - </div>';
 		echo '<div class=" squadra2">'.$partita->squadraB.'</div>';
 		echo '</div>';
-		if(!is_null($partita->golCasaAndata))
+		if(!is_null($partita->golCasagara1))
 		{
-			// echo $partita->golCasaAndata;
+			// echo $partita->golCasagara1;
 			echo '<div class="score">';
-			echo '<div class="punti">('.$partita->puntiCasaAndata.')</div>';
-			echo '<div class="gol">'.$partita->golCasaAndata.'</div>';
+			echo '<div class="punti">('.$partita->puntiCasagara1.')</div>';
+			echo '<div class="gol">'.$partita->golCasagara1.'</div>';
 			echo '<div> - </div>';
-			echo '<div class="gol">'.$partita->golTrasfertaAndata.'</div>';
-			echo '<div class="punti">('.$partita->puntiTrasfertaAndata.')</div>';
+			echo '<div class="gol">'.$partita->golTrasfertagara1.'</div>';
+			echo '<div class="punti">('.$partita->puntiTrasfertagara1.')</div>';
 			echo '</div>';
 		}
 		echo '<div class="formazioni">';
-		$link="display_giornata.php?&id_giornata=".$partita->idGiornataAndata;
-		echo '<a href='. $link.'>Formazioni Andata <i class="fas fa-list-ol"></i></a>';
+		$link="display_giornata.php?&id_giornata=".$partita->idGiornatagara1;
+		echo '<a href='. $link.'>Formazioni gara1 <i class="fas fa-list-ol"></i></a>';
 		echo '</div>';
-		echo '<div class="commento" style="'.( $partita->commentoAndata == "" ?  "display:none;" : "").'" >';
+		echo '<div class="commento" style="'.( $partita->commentogara1 == "" ?  "display:none;" : "").'" >';
 		echo '<textarea readonly rows="10" >Il punto del presidente:'
-		.$partita->commentoAndata.'</textarea> ';
+		.$partita->commentogara1.'</textarea> ';
 		echo '</div>';
 		
-		if(!is_null($partita->golCasaRitorno))
+		if(!is_null($partita->golCasagara2))
 		{
 			// echo print_r($partita);
-			// echo $partita->golCasaRitorno;
+			// echo $partita->golCasagara2;
 			
 			echo '<div class="score">';
-			echo '<div class="punti">('.$partita->puntiTrasfertaRitorno.')</div>';
-			echo '<div class="gol">'.$partita->golTrasfertaRitorno.'</div>';
+			echo '<div class="punti">('.$partita->puntiTrasfertagara2.')</div>';
+			echo '<div class="gol">'.$partita->golTrasfertagara2.'</div>';
 			echo '<div> - </div>';
-			echo '<div class="gol">'.$partita->golCasaRitorno.'</div>';
-			echo '<div class="punti">('.$partita->puntiCasaRitorno.')</div>';
+			echo '<div class="gol">'.$partita->golCasagara2.'</div>';
+			echo '<div class="punti">('.$partita->puntiCasagara2.')</div>';
 			echo '</div>';
 		}
 		echo '<div class="formazioni">';
-		$link="display_giornata.php?&id_giornata=".$partita->idGiornataRitorno;
-		echo '<a href='. $link.'>Formazioni Ritorno <i class="fas fa-list-ol"></i></a>';
+		$link="display_giornata.php?&id_giornata=".$partita->idGiornatagara2;
+		echo '<a href='. $link.'>Formazioni gara2 <i class="fas fa-list-ol"></i></a>';
 		echo '</div>';
-		echo '<div class="commento" style="'.( $partita->commentoRitorno == "" ?  "display:none;" : "").'">';
+		echo '<div class="commento" style="'.( $partita->commentogara2 == "" ?  "display:none;" : "").'">';
 		echo '<textarea readonly rows="10"  >Il punto del presidente:'
-		.$partita->commentoRitorno.'</textarea> ';
+		.$partita->commentogara2.'</textarea> ';
+		echo '</div>';
+
+		if(!is_null($partita->golCasagara3))
+		{
+			// echo print_r($partita);
+			// echo $partita->golCasagara3;
+			
+			echo '<div class="score">';
+			echo '<div class="punti">('.$partita->puntiTrasfertagara3.')</div>';
+			echo '<div class="gol">'.$partita->golTrasfertagara3.'</div>';
+			echo '<div> - </div>';
+			echo '<div class="gol">'.$partita->golCasagara3.'</div>';
+			echo '<div class="punti">('.$partita->puntiCasagara3.')</div>';
+			echo '</div>';
+		}
+		echo '<div class="formazioni">';
+		$link="display_giornata.php?&id_giornata=".$partita->idGiornatagara3;
+		echo '<a href='. $link.'>Formazioni gara3 <i class="fas fa-list-ol"></i></a>';
+		echo '</div>';
+		echo '<div class="commento" style="'.( $partita->commentogara3 == "" ?  "display:none;" : "").'">';
+		echo '<textarea readonly rows="10"  >Il punto del presidente:'
+		.$partita->commentogara3.'</textarea> ';
 		echo '</div>';
 		echo '<h1>&nbsp;</h1>';
 		

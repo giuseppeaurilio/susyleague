@@ -70,7 +70,7 @@ echo '</select>';
 echo '<input type="button" class="btn_salvasquadre" id="salvasquadre" value="Salva Squadre" data-idgiornata="'.$giornate[0]["id_giornata"].'"/>';
 echo '</div>';
 echo "<div class=\"actionrow\">";
-echo 'ANDATA:';
+echo 'GARA 1:';
 echo "<select id=\"ddlGiornataSerieA".$giornate[0]["id_giornata"]."\">";
 echo "<option value=\"0\">seleziona giornata di serie a...</option>";
 foreach($giornatesa as $giornatasa)
@@ -84,8 +84,9 @@ echo '</div>';
 echo '<div class="mainaction">';
 echo '<a href="calcola_giornata.php?&id_giornata='.$giornate[0]["id_giornata"] .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
 echo '</div>';
+
 echo "<div class=\"actionrow\">";
-echo 'RITORNO:';
+echo 'GARA 2:';
 echo "<select id=\"ddlGiornataSerieA".$giornate[1]["id_giornata"]."\">";
 echo "<option value=\"0\">seleziona giornata di serie a...</option>";
 foreach($giornatesa as $giornatasa)
@@ -97,9 +98,26 @@ echo "</select>";
 echo "<input class=\"btnsalva\" type=\"button\" id=\"btbgiornata".$giornate[1]["id_giornata"]."\" value=\"salva\" data-idgiornata=\"".$giornate[1]["id_giornata"]."\" >";
 echo '</div>';
 
-
 echo '<div class="mainaction">';
 echo '<a href="calcola_giornata.php?&id_giornata='.$giornate[1]["id_giornata"] .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
+echo '</div>';
+
+echo "<div class=\"actionrow\">";
+echo 'GARA 3:';
+echo "<select id=\"ddlGiornataSerieA".$giornate[2]["id_giornata"]."\">";
+echo "<option value=\"0\">seleziona giornata di serie a...</option>";
+foreach($giornatesa as $giornatasa)
+{
+    echo "<option value=\"".$giornatasa["id"]."\" ".($giornatasa["id"] == $giornate[2]["giornata_serie_a_id"]? "selected": "") .">"
+    .$giornatasa["descrizione"]." (".$giornatasa["inizio"] .")</option>";
+}
+echo "</select>";
+echo "<input class=\"btnsalva\" type=\"button\" id=\"btbgiornata".$giornate[2]["id_giornata"]."\" value=\"salva\" data-idgiornata=\"".$giornate[2]["id_giornata"]."\" >";
+echo '</div>';
+
+
+echo '<div class="mainaction">';
+echo '<a href="calcola_giornata.php?&id_giornata='.$giornate[2]["id_giornata"] .'&id_girone='.$idgirone.'">Calcola Giornata</a>';
 echo '</div>';
 echo '</fieldset>'; 
 ?>

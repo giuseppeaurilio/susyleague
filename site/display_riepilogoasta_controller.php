@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     {
         case("astaincorso"):
 
-            $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.quotazione as quotazione, sa.squadra_breve as squadra_breve, sa.squadra as squadra
+            $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.ruolo_mantra as ruolo_mantra, g.quotazione as quotazione, sa.squadra_breve as squadra_breve, sa.squadra as squadra
             FROM `giocatori` as g 
             left join rose as s on s.id_giocatore = g.id
             left join squadre_serie_a as sa on sa.id = g.id_squadra
@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
+                    "ruolo_mantra"=>$row["ruolo_mantra"],
                     "squadra"=>$row["squadra"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "imgurl"=>$imgurl
@@ -170,13 +171,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             break;
         case("loadpinfo"):
                 $id = $_POST['id'];
-                $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.quotazione as quotazione,  
+                $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.ruolo_mantra as ruolo_mantra, g.quotazione as quotazione,  
                 gpi.titolarita as titolarita, gpi.cp as calci_punizione, gpi.cr as calci_rigore, gpi.ca as calci_angolo, gpi.ia as indice_appetibilita, 
-                gpi.is as 'is', gpi.f as fascia ,  gpi.note as note, rap.costo as costo_ap, rap.ordine as ordine_ap, sqf.squadra as squadra
+                gpi.is as 'is', gpi.f as fascia ,  gpi.note as note, rap.costo as costo_ap, rap.ordine as ordine_ap, sqf.squadra as squadra, gpi.om as om
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
-                left join rose_asta_ap as rap on rap.id_giocatore = g.id
+                left join rose_asta_21_22 as rap on rap.id_giocatore = g.id
                 left join sq_fantacalcio as sqf on rap.id_sq_fc = sqf.id
                 where g.id = $id";
                 // echo $query;
@@ -188,6 +189,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "nome"=>utf8_encode($row["nome"]),
                         "squadra_breve"=>utf8_encode($row["squadra_breve"]),
                         "ruolo"=>utf8_encode($row["ruolo"]),
+                        "ruolo_mantra"=>utf8_encode($row["ruolo_mantra"]),
                         "quotazione"=>utf8_encode($row["quotazione"]),
                         "titolarita"=>utf8_encode($row["titolarita"]),
                         "cp"=>utf8_encode($row["calci_punizione"]),
@@ -494,7 +496,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // print_r($row);
             }
             $query="SELECT  ordine, nome, costo,  squadra
-            FROM `rose_asta_ap` as rap 
+            FROM `rose_asta_21_22` as rap 
             left join sq_fantacalcio as sqf on rap.id_sq_fc = sqf.id
             left join giocatori as g on g.id = rap.id_giocatore
             where g.ruolo = '$ruolo'

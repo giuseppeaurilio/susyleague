@@ -14,18 +14,24 @@ if( isset($_POST["idsquadre"]) && !empty($_POST["idsquadre"]))
         $tabellone_shuffled=mappa($tabellone,$map);
         //devo aggiungere 2 partite. le giornate predisposte vanno sono 77 e 78
         $giornata1 = $tabellone_shuffled[1];
-        // $giornata2 = $tabellone_shuffled[2];
-        // print_r('giornata1');print_r($giornata1);
-        // print_r('giornata2');print_r($giornata2);
         cancella_partite(77);
         foreach ($giornata1 as $partita) {
             aggiungi_partita(77, $idsquadre[$partita["casa"]-1], $idsquadre[$partita["ospite"]-1]);
         }
-        
+        $giornata1 = $tabellone_shuffled[1];
         cancella_partite(78);
         foreach ($giornata1 as $partita) {
-            aggiungi_partita(78,$idsquadre[$partita["ospite"]-1] , $idsquadre[$partita["casa"]-1]);
+            aggiungi_partita(78, $idsquadre[$partita["casa"]-1], $idsquadre[$partita["ospite"]-1]);
         }
+        $giornata1 = $tabellone_shuffled[1];
+        cancella_partite(79);
+        foreach ($giornata1 as $partita) {
+            aggiungi_partita(79, $idsquadre[$partita["casa"]-1], $idsquadre[$partita["ospite"]-1]);
+        }
+        // cancella_partite(78);
+        // foreach ($giornata1 as $partita) {
+        //     aggiungi_partita(78,$idsquadre[$partita["ospite"]-1] , $idsquadre[$partita["casa"]-1]);
+        // }
         // foreach ($giornata2 as $partita) {
         //     aggiungi_partita(66, $idsquadre[$partita["casa"]-1], $idsquadre[$partita["ospite"]-1]);
         // }

@@ -263,6 +263,7 @@ loadAstaInCorso = function()
                             //show data
                             var template = $('#tmplAstaInCorso').html();
                             Mustache.parse(template);   // optional, speeds up future uses
+                            // debugger;
                             var rendered = Mustache.render(template, resp.giocatori[0]);
                             $("#divAstaAttuale").html(rendered);
                             astaincorso = true;
@@ -370,7 +371,7 @@ $(document).on({
                 event.stopPropagation();
                 return false;''><i class='fas fa-external-link-alt'></i></a>
                 </div>
-            <div class="ruolo" data-ruolo="{{ ruolo }}"> Ruolo: {{ ruolo }} </div>
+            <div class="ruolo" data-ruolo="{{ ruolo }}"> Ruolo: {{ ruolo }}; Mantra: {{ ruolo_mantra }}</div>
         </div>
     </div>
 </div>
@@ -474,6 +475,7 @@ $(document).on({
             <th title="Indice di appetibilità">IA</th>
             <th title="Indice squadra">IS</th>
             <th title="Fascia">FA</th>
+            <th title="Anno precedente">OFF MAX</th>
             <th title="Anno precedente">AP</th>
         </tr>
         <tr>
@@ -485,6 +487,7 @@ $(document).on({
             <td>{{ia}}</td>
             <td>{{is}}</td>
             <td>{{f}}</td>
+            <td>{{om}}</td>
             <td>{{ordine_ap}}.({{squadra}}){{costo_ap}}FM</td>
             
         </tr>

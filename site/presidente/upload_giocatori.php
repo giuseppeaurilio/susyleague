@@ -18,12 +18,12 @@ function parse_giocatori($filename) {
 			try{
 				
 				if(is_numeric($data[0])){
-					$squadra=strtoupper($data[3]);
+					$squadra=strtoupper($data[4]);
 					$squadra_breve=substr($squadra,0,3);
 
 					$queryfindsquadra = "SELECT * FROM `squadre_serie_a` WHERE squadra_breve='$squadra_breve'";
 					// $idsquadra = 0;
-					// echo "Squadra = " . $squadra . " " . $squadra_breve;
+					//echo "Squadra = " . $squadra . " " . $squadra_breve;
 					$resultfindsquadra  = $conn->query($queryfindsquadra) or die($conn->error);
 					if($resultfindsquadra->num_rows == 0)
 					{
@@ -47,17 +47,16 @@ function parse_giocatori($filename) {
 						}
 					}
 					
-					$nome = preg_replace("/[^A-Za-z0-9 -]/", '', $data[2]);
+					$nome = preg_replace("/[^A-Za-z0-9 -]/", '', $data[3]);
 					$queryfindgiocatore = "SELECT * FROM `giocatori` WHERE nome='$nome'";
-
+					//echo '<br/>' . $queryfindgiocatore;
 					$resultfindgiocaotre  = $conn->query($queryfindgiocatore);
 					if($resultfindgiocaotre->num_rows == 0)
 					{
-						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione` ) SELECT $data[0],'$data[1]','$nome',$idsquadra, $data[4]
-						from squadre_serie_a where `squadra_breve`='$squadra_breve'";
+						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione`,  `ruolo_mantra` ) values ($data[0],'$data[1]', '$nome', $idsquadra, $data[5], '$data[2]' )";
 
 						$result=$conn->query($queryinsertgiocatore); 
-						// echo '<br/>' . $queryinsertgiocatore;
+						//echo '<br/>' . $queryinsertgiocatore;
 						if ($result==1) $countergiocatori++; else echo " ERROR";
 						// echo "<br>";
 					}
@@ -99,7 +98,7 @@ function update_giocatori($filename) {
 			try{
 				if(is_numeric($data[0])){
 					//cerco la squadra di destinazione
-					$squadra=strtoupper($data[3]);
+					$squadra=strtoupper($data[4]);
 					$squadra_breve=substr($squadra,0,3);
 
 					$queryfindsquadra = "SELECT * FROM `squadre_serie_a` WHERE squadra_breve='$squadra_breve'";
@@ -129,8 +128,8 @@ function update_giocatori($filename) {
 					//se non ho trovato il gicatore, faccio l'insert
 					if($resultfindgiocaotre->num_rows == 0)
 					{
-						$nome = preg_replace("/[^A-Za-z0-9 -]/", '', $data[2]);
-						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione` ) values ($data[0],'$data[1]', '$nome', $idsquadra, $data[4] )";
+						$nome = preg_replace("/[^A-Za-z0-9 -]/", '', $data[3]);
+						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione`,  `ruolo_mantra` ) values ($data[0],'$data[1]', '$nome', $idsquadra, $data[5], '$data[2]' )";
 
 						$result=$conn->query($queryinsertgiocatore); 
 						if ($result==1) $countergiocatori++; else 
@@ -141,7 +140,7 @@ function update_giocatori($filename) {
 					}
 					//se ho trovato il giocatore faccio l'update della squadra_serie_a
 					else{
-						$queryupdategiocatore="UPDATE `giocatori` SET `id_squadra`=$idsquadra , `quotazione` = $data[4] WHERE `id`=$data[0]";
+						$queryupdategiocatore="UPDATE `giocatori` SET `id_squadra`=$idsquadra , `quotazione` = $data[5] WHERE `id`=$data[0]";
 						$result=$conn->query($queryupdategiocatore); 
 						if ($result==1) $countergiocatori++; 
 							else 
@@ -150,7 +149,7 @@ function update_giocatori($filename) {
 							}
 					}
 					
-					$squadra=strtoupper($data[3]);
+					$squadra=strtoupper($data[4]);
 					$squadra_breve=substr($squadra,0,3);
 
 					$queryfindsquadra = "SELECT * FROM `squadre_serie_a` WHERE squadra_breve='$squadra_breve'";
@@ -169,14 +168,15 @@ function update_giocatori($filename) {
 					}
 					
 					
-					$nome = preg_replace("/[^A-Za-z0-9 -]/", '', $data[2]);
+					$nome = preg_replace("/[^A-Za-z0-9 -]/", '', $data[3]);
 					$queryfindgiocatore = "SELECT * FROM `giocatori` WHERE nome='$nome'";
 
 					$resultfindgiocaotre  = $conn->query($queryfindgiocatore);
 					if($resultfindgiocaotre->num_rows == 0)
 					{
-						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione` ) SELECT $data[0],'$data[1]','$nome',$idsquadra, $data[4]
-						from squadre_serie_a where `squadra_breve`='$squadra_breve'";
+						// $queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione` ,  `ruolo_mantra`) SELECT $data[0],'$data[1]','$nome',$idsquadra, $data[4], $data[2]
+						// from squadre_serie_a where `squadra_breve`='$squadra_breve'";
+						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione`,  `ruolo_mantra` ) values ($data[0],'$data[1]', '$nome', $idsquadra, $data[5], '$data[2]' )";
 
 						$result=$conn->query($queryinsertgiocatore); 
 						// echo $nome;

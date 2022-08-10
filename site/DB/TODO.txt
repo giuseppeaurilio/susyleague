@@ -4,6 +4,8 @@ BUG:
     digitalizzare l'albo d'oro
     Inserire tripla giornata di coppa coppe
     finale campionato alla meglio delle tre.
+        sezione presidente
+        sezione calendario
     verificare messaggio telegram sulle formazioni mancanti per la coppa
 
 ENHANCEMENT

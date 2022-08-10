@@ -42,15 +42,17 @@ function getDescrizioneGiornata($id)
 
     else if ($id == 76 )
     { $descrizioneGiornata ="Finale COPPA ITALIA";}
-    else if ($id == 77 || $id == 78)
+    else if ($id == 77 || $id == 78 || $id == 79)
     { $descrizioneGiornata ="Coppa delle coppe - Giornata" . ($id-76);}
 
-    else if ($id == 80)
-    { $descrizioneGiornata ="Finale CAMPIONATO - Andata";}
     else if ($id == 81)
-    { $descrizioneGiornata ="Finale CAMPIONATO - Ritorno";}
-
+    { $descrizioneGiornata ="Finale CAMPIONATO - GARA 1";}
     else if ($id == 82)
+    { $descrizioneGiornata ="Finale CAMPIONATO - GARA 2";}
+    else if ($id == 83)
+    { $descrizioneGiornata ="Finale CAMPIONATO - GARA 3";}
+
+    else if ($id == 84)
     { $descrizioneGiornata ="SUPERCOPPA";}
 
     else
