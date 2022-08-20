@@ -173,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $id = $_POST['id'];
                 $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.ruolo_mantra as ruolo_mantra, g.quotazione as quotazione,  
                 gpi.titolarita as titolarita, gpi.cp as calci_punizione, gpi.cr as calci_rigore, gpi.ca as calci_angolo, gpi.ia as indice_appetibilita, 
-                gpi.is as 'is', gpi.f as fascia ,  gpi.note as note, rap.costo as costo_ap, rap.ordine as ordine_ap, sqf.squadra as squadra, gpi.om as om
+                gpi.is as 'is', gpi.f as fascia, gpi.om as offertamassima,  gpi.note as note, rap.costo as costo_ap, rap.ordine as ordine_ap, sqf.squadra as squadra, gpi.om as om
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
@@ -198,6 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "ia"=>utf8_encode($row["indice_appetibilita"]),
                         "is"=>utf8_encode($row["is"]),
                         "f"=>utf8_encode($row["fascia"]),
+                        "om"=>utf8_encode($row["offertamassima"]),
                         "costo_ap"=>utf8_encode($row["costo_ap"]),
                         "ordine_ap"=>utf8_encode($row["ordine_ap"]),
                         "squadra"=>utf8_encode($row["squadra"]),
@@ -224,13 +225,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $ia = $_POST['ia']  = '' ? null :$_POST['ia'];
                 $is = $_POST['is']  = '' ? null :$_POST['is'];
                 $f = $_POST['f']  = '' ? null :$_POST['f'];
+                $om = $_POST['om']  = '' ? null :$_POST['om'];
                 $sololiberi = $_POST['sololiberi']  = '' ? null :$_POST['sololiberi'];
 
                 $ordinamento = $_POST['ordinamento']  = '' ? null :$_POST['ordinamento'];
  
                 // echo $sololiberi;
                 $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.quotazione as quotazione,  
-                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, gpi.is as 'is',  gpi.f as f,  gpi.note as note , sqf.squadra as squadrafc
+                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, gpi.is as 'is',  gpi.f as f, gpi.om as om,   gpi.note as note , sqf.squadra as squadrafc
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
@@ -256,6 +258,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $query.=" and gpi.is <=  $is"; 
                 if($f <> null)//inserire controlli su input valido
                     $query.=" and gpi.f <=  $f"; 
+                if($om <> null)//inserire controlli su input valido
+                    $query.=" and gpi.om >=  $om"; 
                 
                 if($ordinamento  == "ia-d")
                     $query.=" order by case when gpi.ia is null then 1 else 0 end, gpi.ia desc, g.quotazione desc ";
@@ -287,6 +291,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "ia"=>utf8_encode($row["ia"]),
                         "is"=>utf8_encode($row["is"]),
                         "f"=>utf8_encode($row["f"]),
+                        "om"=>utf8_encode($row["om"]),
                         "squadrafc"=>utf8_encode($row["squadrafc"]),
                         "note"=>utf8_encode($row["note"])
                         )
@@ -492,7 +497,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $value = 0;
             while($row = $resultqueryoffset->fetch_assoc()){
-                $value = $row["c"];
+                $value = $row["c"] -1 ;
                 // print_r($row);
             }
             $query="SELECT  ordine, nome, costo,  squadra

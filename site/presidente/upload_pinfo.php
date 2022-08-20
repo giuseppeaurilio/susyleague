@@ -64,6 +64,10 @@ function parse_pinfo($filename) {
 					if(!empty($data[13]))
 					{$f = $data[13];}
 
+					$om = "NULL";
+					if(!empty($data[14]))
+					{$om = $data[14];}
+
 					$queryInsertStats = "INSERT INTO `giocatori_pinfo`(
 						`giocatore_id`, 
 						`ia`,
@@ -73,6 +77,7 @@ function parse_pinfo($filename) {
 						`ca`,
 						`is`,
 						`f`,
+						`om`,
 						`note`
 						) 
 						VALUES (
@@ -84,9 +89,10 @@ function parse_pinfo($filename) {
 						$ca,
 						$is,
 						$f,
-						'$data[14]')";
+						$om,
+						'$data[15]')";
 
-					// echo $queryInsertStats. '<br>';
+					echo $queryInsertStats. '<br>';
 					$result=$conn->query($queryInsertStats); //or die($conn->error);
 					if($result) {
 						$countervoti++; 

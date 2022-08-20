@@ -21,9 +21,10 @@ ricercaGiocatore = function(id)
     var ia = $("#txtIA").val();
     var is = $("#indicesquadra").val();
     var f = $("#fascia").val();
+    var om = $("#txtOffMAX").val();
     var sololiberi = $("#cbSoloLiberi").prop("checked") ;
     var ordinamento = $("#ordinamento").val();
-    
+    // debugger;
     
     $.ajax({
         type:'POST',
@@ -40,6 +41,7 @@ ricercaGiocatore = function(id)
                 "ia": ia,
                 "is": is,
                 "f": f,
+                "om": om,
                 "sololiberi": sololiberi,
                 "ordinamento": ordinamento
             },
@@ -333,6 +335,7 @@ resetFiltri = function()
     $("#txtIA").val("");
     $("#indicesquadra").val("");
     $("#fascia").val("");
+    $("#txtOffMAX").val("");
 }
 $(document).ready(function(){
     loadAstaInCorso();
@@ -475,7 +478,7 @@ $(document).on({
             <th title="Indice di appetibilità">IA</th>
             <th title="Indice squadra">IS</th>
             <th title="Fascia">FA</th>
-            <th title="Anno precedente">OFF MAX</th>
+            <th title="Offerta MAX">OFF MAX</th>
             <th title="Anno precedente">AP</th>
         </tr>
         <tr>
@@ -544,6 +547,7 @@ $(document).on({
             <td>{{ca}}</td>            
             <td>{{is}}</td>
             <td>{{f}}</td>
+            <td>{{om}}</td>
             <td>
             {{note}}
             </td>
@@ -565,7 +569,7 @@ $(document).on({
 <div class="maincontent" style="min-height: auto;">
 <?php
 $query="SELECT count(id_giocatore) as somma, g.ruolo
-from rose as ra
+from rose_asta as ra
 left join giocatori as g on ra.id_giocatore = g.id
 group by ruolo order by ruolo desc";
 
@@ -583,7 +587,7 @@ while($row = $result->fetch_assoc()){
 <div class="rigacompleta" id="divavanzamento">
     <span>Avanzamento:</span>
     <?php 
-    $totale = 0;
+    $totale = 1;
     foreach($somme as $somma)
     {
         $totale += $somma["somma"];
@@ -653,6 +657,7 @@ while($row = $result->fetch_assoc()){
                     <option value="f-d" >fascia &darr;</option>
                     <option value="t-d">titolarita &darr;</option>
                     <option value="q-d">quotazione &darr;</option>
+                    <option value="q-d">Offerta Max &darr;</option>
                 </select>
                 <input type="button" value="cerca" id="btnCerca">
                 <input type="button" value="reset" id="btnResetFiltri">
@@ -759,6 +764,9 @@ while($row = $result->fetch_assoc()){
                                     <option value="10">10</option>
                                 </select>
                             <!-- <input style="width: 30px;" type="number" id="txtF" min="0" max="200" step="1" placeholder="F"> -->
+                            </th>
+                            <th>
+                                <input type="number" style="width: 40px;" id="txtOffMAX" min="0" max="200" step="1" placeholder="OMAX">
                             </th>
                             <th>note</th>
                         </tr>
