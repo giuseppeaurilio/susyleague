@@ -130,7 +130,7 @@ function update_giocatori($filename) {
 					{
 						$nome = preg_replace("/[^A-Za-z0-9 -]/", '', $data[3]);
 						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione`,  `ruolo_mantra` ) values ($data[0],'$data[1]', '$nome', $idsquadra, $data[5], '$data[2]' )";
-
+						echo $queryinsertgiocatore ."<br>";
 						$result=$conn->query($queryinsertgiocatore); 
 						if ($result==1) $countergiocatori++; else 
 						{echo " ERROR insert";
@@ -141,6 +141,7 @@ function update_giocatori($filename) {
 					//se ho trovato il giocatore faccio l'update della squadra_serie_a
 					else{
 						$queryupdategiocatore="UPDATE `giocatori` SET `id_squadra`=$idsquadra , `quotazione` = $data[5] WHERE `id`=$data[0]";
+						echo $queryupdategiocatore ."<br>";
 						$result=$conn->query($queryupdategiocatore); 
 						if ($result==1) $countergiocatori++; 
 							else 
@@ -148,46 +149,11 @@ function update_giocatori($filename) {
 							 echo $queryupdategiocatore. "<br/>";
 							}
 					}
-					
-					$squadra=strtoupper($data[4]);
-					$squadra_breve=substr($squadra,0,3);
-
-					$queryfindsquadra = "SELECT * FROM `squadre_serie_a` WHERE squadra_breve='$squadra_breve'";
-					// $idsquadra = 0;
-					// echo "Squadra = " . $squadra . " " . $squadra_breve;
-					$resultfindsquadra  = $conn->query($queryfindsquadra) or die($conn->error);
-					if($resultfindsquadra->num_rows == 0)
-					{
-						//la squadra del giocatore non è di seria a
-						$queryfindsquadra = "SELECT * FROM `squadre_serie_a` WHERE squadra_breve='SVI'";
-						$resultfindsquadra  = $conn->query($queryfindsquadra) or die($conn->error);
-					}
-					//la squadra del giocatore è di seria a
-					while ($row = $resultfindsquadra->fetch_assoc()) {
-						$idsquadra = $row["id"];
-					}
-					
-					
-					$nome = preg_replace("/[^A-Za-z0-9 -]/", '', $data[3]);
-					$queryfindgiocatore = "SELECT * FROM `giocatori` WHERE nome='$nome'";
-
-					$resultfindgiocaotre  = $conn->query($queryfindgiocatore);
-					if($resultfindgiocaotre->num_rows == 0)
-					{
-						// $queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione` ,  `ruolo_mantra`) SELECT $data[0],'$data[1]','$nome',$idsquadra, $data[4], $data[2]
-						// from squadre_serie_a where `squadra_breve`='$squadra_breve'";
-						$queryinsertgiocatore="INSERT INTO `giocatori`(`id`, `ruolo`,`nome`,`id_squadra`, `quotazione`,  `ruolo_mantra` ) values ($data[0],'$data[1]', '$nome', $idsquadra, $data[5], '$data[2]' )";
-
-						$result=$conn->query($queryinsertgiocatore); 
-						// echo $nome;
-						if ($result==1) $countergiocatori++; else echo " ERROR 2" . $conn->error;
-						// echo "<br>";
-					}
 				}
-				else
-				{
-					echo "not numeric: " . $data[0]. "<br>";
-				}
+				// else
+				// {
+				// 	echo "not numeric: " . $data[0]. "<br>";
+				// }
 			}
 			catch(Exception $e) {
 				echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -199,7 +165,7 @@ function update_giocatori($filename) {
 		}
 		fclose($handle);
 
-		echo " Procedura completata. Inserite " .$countersquadre. " squadre e ".$countergiocatori." giorcatori.";
+		echo " Procedura completata. Update di " .$countergiocatori." giorcatori.";
 	}
 
 // inserisci squadre nel database
@@ -250,6 +216,7 @@ else {
 			else
 			{
 				//update rose
+				
 				update_giocatori($target_file);
 			}
 			echo'<br>';
