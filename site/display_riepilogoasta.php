@@ -185,7 +185,7 @@ $(document).ready(function(){
     window.setInterval(function(){
         // loadUltimoGiocatore();
         loadAstaInCorso();
-     }, 5000);
+     }, 3000);
 
 })
 $(document).on({
