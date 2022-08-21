@@ -153,7 +153,7 @@ resetFormazione = function(){
 };
 
 imgError = function(img){
-	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
+	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
 };
 
 $(document).ready(function(){
@@ -511,18 +511,18 @@ for($i = 0; $i < 4; $i++) {
 		$costo_giocatore=$row["costo"];
 
 		// echo $nome_giocatore;
-		$nome_giocatore_pulito = preg_replace('/\s+/', '-', $nome_giocatore);
+		$nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $nome_giocatore));
 		// echo $nome_giocatore_pulito;
-		$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png");
+		$filename = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
 
-		//  'https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png';
-		// if (file_exists('https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/'.$nome_giocatore.'.png'))
+		//  'https://content.fantacalcio.it/web/campioncini/small/'.$nome_giocatore.'.png';
+		// if (file_exists('https://content.fantacalcio.it/web/campioncini/small/'.$nome_giocatore.'.png'))
 			// if (getimagesize($filename)) 
 		// $headers = get_headers($filename );
 
 		// if (!stripos($headers[0], "200 OK"))
 		// {
-		// 	$filename = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/NO-CAMPIONCINO.png";
+		// 	$filename = "https://content.fantacalcio.it/web/campioncini/small/NO-CAMPIONCINO.png";
 			
 		// }
 		echo '<div class="container">';

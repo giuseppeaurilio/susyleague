@@ -13,10 +13,7 @@ Parametro di efficianza della squadra schierata con la migliore teorica.
 inserire pulsante di creazione automatica della formazione in base a dai criteri
 
 ASTA PEPPE
-prezzo di acquisto anno precedente
-    stesso giocatore
-    stessa chiamata
-Prevedere prezzo di acquisto massimo
+appena un giocatore è stato aggiudicato, mantenerlo e non fare "nessun giocatore in asta"
 
 GRAFICA
 Loghi e banner delle squadre.

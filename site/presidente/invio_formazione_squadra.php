@@ -10,7 +10,7 @@ var numRiserve = 10;
 // var modulo = [0, 0, 0, 0];
 
 imgError = function(img){
-	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
+	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
 };
 	
 resetFormazione = function(){
@@ -734,9 +734,9 @@ while ($row=$result_giocatori->fetch_assoc()) {
 	// $costo_giocatore=$row["costo"];
 
 	// echo $nome_giocatore;
-	$nome_giocatore_pulito = preg_replace('/\s+/', '-', $nome_giocatore);
+	$nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $nome_giocatore));
 	// echo $nome_giocatore_pulito;
-	$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png");
+	$filename = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
 
 	if($ruolo_giocatore == "P")
 	array_push($portieri, array(

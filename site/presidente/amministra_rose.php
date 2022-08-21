@@ -78,7 +78,7 @@ $(document).ready(function(){
 
 <script>
 imgError = function(img){
-	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/no-campioncino.png";
+	img.src = "https://content.fantacalcio.it/web/campioncini/medium/no-campioncino.png";
 };
 estraiGiocatore = function()
 {
@@ -133,9 +133,9 @@ estraiGiocatore = function()
                                     }
                                 ];
                         // preg_replace('/\s+/', '-', $nome_giocatore);
-                        // str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png")
-                        var res = resp.giocatori[0].nome.replace("/\s+/", "-");
-                        var filename = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/" + res + ".png";
+                        // str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png")
+                        var res = resp.giocatori[0].nome.replace("/\s+/", "-").toUpperCase();
+                        var filename = "https://content.fantacalcio.it/web/campioncini/medium/" + res + ".png";
                     
                         var content = "<div style='text-align: center;'>";
                         content += "<h3> " + resp.giocatori[0].nome + " (" + resp.giocatori[0].squadra_breve + ")" + "</h3>";

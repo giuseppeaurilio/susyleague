@@ -3,9 +3,9 @@ include("menu.php");
 
 ?>
 <script>
-var noimage = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/no-campioncino.png";
+var noimage = "https://content.fantacalcio.it/web/campioncini/medium/no-campioncino.png";
 imgError = function(img){
-	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/no-campioncino.png";
+	img.src = "https://content.fantacalcio.it/web/campioncini/medium/no-campioncino.png";
 };
 var astaincorso = false;
 ricercaGiocatore = function(id)

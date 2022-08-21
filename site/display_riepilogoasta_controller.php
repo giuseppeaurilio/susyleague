@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             while ($row=$result->fetch_assoc()) {
                 // print_r($row);
                 $imgurl = "";
-                $nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
-                $imgurl = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/".$nome_giocatore_pulito.".png");
+                $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
                 array_push($giocatori, array(
                     "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
@@ -62,8 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             while ($row=$result->fetch_assoc()) {
                 // print_r($row);
                 $imgurl = "";
-                $nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
-                $imgurl = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/".$nome_giocatore_pulito.".png");
+                $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
                 array_push($giocatori, array(
                     "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
@@ -97,8 +97,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $giocatori = array();
             while ($row=$result->fetch_assoc()) {
                 $imgurl = "";
-                $nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
-                $imgurl = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+                // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                
                 array_push($giocatori, array(
                     "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
@@ -324,7 +326,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             while ($row=$result->fetch_assoc()) {
                 // $imgurl = "";
                 // $nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
-                // $imgurl = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
                 array_push($giocatori, array(
                     "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
@@ -455,8 +457,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $giocatori = array();
             while ($row=$result->fetch_assoc()) {
                 $imgurl = "";
-                $nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
-                $imgurl = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
                
                 array_push($giocatori, array(
                     "id"=>$row["idgiocatore"],

@@ -4,7 +4,9 @@ include("menu.php");
 ?>
 
 <script>
-var noimage = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
+// var noimage = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
+var noimage = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
+
 imgError = function(img){
 	img.src = noimage;
 };
@@ -120,25 +122,25 @@ order by voto desc -->
 	<div class="statistica">
 		<div class="titolo">BOMBER</div>
 		<div class="descrizione">
-			<img src=' https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/ZAPATA-D.png' onerror='imgError(this);'> </img> 
+			<img src=' https://content.fantacalcio.it/web/campioncini/small/ZAPATA-D.png' onerror='imgError(this);'> </img> 
 			<span >
 				Il giocatore ZAPATA D. di Organizzazione Zero ha fatto registrare un fantapunteggio di 21 nella giornata 18 dell'Apertuna 18/19
 			</span>
 		</div>
 		<div class="descrizione2">
-			<img src=' https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/ICARDI.png' onerror='imgError(this);'> </img> 
+			<img src=' https://content.fantacalcio.it/web/campioncini/small/ICARDI.png' onerror='imgError(this);'> </img> 
 			<span >
 				Il giocatore ICARDI di AS Valle S. Andrea ha fatto registrare un fantapunteggio di 21 nella giornata 4 e 5  della Chiusura 17/18
 			</span>
 		</div>
 		<div class="descrizione">
-			<img src=' https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/IMMOBILE.png' onerror='imgError(this);'> </img> 
+			<img src=' https://content.fantacalcio.it/web/campioncini/small/IMMOBILE.png' onerror='imgError(this);'> </img> 
 			<span >
 				Il giocatore IMMOBILE di Prosut! ha fatto registrare un fantapunteggio di 21 nella giornata 17  della Apertura 17/18
 			</span>
 		</div>
 		<div class="descrizione2">
-			<img src=' https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/MERTENS.png' onerror='imgError(this);'> </img> 
+			<img src=' https://content.fantacalcio.it/web/campioncini/small/MERTENS.png' onerror='imgError(this);'> </img> 
 			<span >
 				Il giocatore MERTENS di Atletico ero na volta ha fatto registrare un fantapunteggio di 21 nella giornata 14  della Apertura 16/17
 			</span>
@@ -153,13 +155,13 @@ order by voto desc -->
 	<div class="statistica">
 		<div class="titolo">Miglior Portiere</div>
 		<div class="descrizione">
-			<img src='https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/DONNARUMMA-G.png' onerror='imgError(this);'> </img> 
+			<img src='https://content.fantacalcio.it/web/campioncini/small/DONNARUMMA-G.png' onerror='imgError(this);'> </img> 
 			<span >
 				Il giocatore DONNARUMMA G. di I  NANI ha fatto registrare un fantapunteggio di 11 nella giornata 2 dei PlayOffPlayOut 18/19
 			</span>
 		</div>
 		<div class="descrizione2">
-			<img src='https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/DRAGOWSKI.png' onerror='imgError(this);'> </img> 
+			<img src='https://content.fantacalcio.it/web/campioncini/small/DRAGOWSKI.png' onerror='imgError(this);'> </img> 
 			<span >
 				Il giocatore DRAGOWSKI di BAR Fabio dal 1936 ha fatto registrare un fantapunteggio di 11 nella giornata 18 della Apertura 19/20
 			</span >
@@ -174,13 +176,13 @@ order by voto desc -->
 	<div class="statistica">
 		<div class="titolo">Miglior Difensore</div>
 		<div class="descrizione">
-			<img src='https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/FELIPE.png' onerror='imgError(this);'> </img> 
+			<img src='https://content.fantacalcio.it/web/campioncini/small/FELIPE.png' onerror='imgError(this);'> </img> 
 			<span >
 				Il giocatore FELIPE D. di Atletico ero na volta ha fatto registrare un fantapunteggio di 14 nella giornata 11 della  Chiusura 18/19
 			</span >
 		</div>
 		<div class="descrizione">
-			<img src='https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/HERNANDEZ-T.png' onerror='imgError(this);'> </img> 
+			<img src='https://content.fantacalcio.it/web/campioncini/small/HERNANDEZ-T.png' onerror='imgError(this);'> </img> 
 			<span >
 				Il giocatore Hernandez T. di AS Venere ha fatto registrare un fantapunteggio di 14 nella giornata 11 della  Chiusura 20/21
 			</span >
@@ -195,13 +197,13 @@ order by voto desc -->
 <div class="statistica">
 		<div class="titolo">Miglior Centrocampista</div>
 		<div class="descrizione">
-			<img src=' https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/MERTENS.png' onerror='imgError(this);'> </img> 
+			<img src=' https://content.fantacalcio.it/web/campioncini/small/MERTENS.png' onerror='imgError(this);'> </img> 
 			<span >
 				Il giocatore MERTENS di Atletico ero na volta ha fatto registrare un fantapunteggio di 21 nella giornata 14  della Apertura 16/17
 			</span >
 		</div>
 		<div class="descrizione2">
-			<img src=' https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/PAROLO.png' onerror='imgError(this);'> </img> 
+			<img src=' https://content.fantacalcio.it/web/campioncini/small/PAROLO.png' onerror='imgError(this);'> </img> 
 			<span >
 				Il giocatore PAROLO di Atletico ero na volta ha fatto registrare un fantapunteggio di 20 nella giornata 21  della Apertura 16/17
 			</span >

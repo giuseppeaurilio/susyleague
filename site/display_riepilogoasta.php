@@ -3,9 +3,9 @@ include("menu.php");
 
 ?>
 <script>
-var noimage = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/no-campioncino.png";
+var noimage = "https://content.fantacalcio.it/web/campioncini/medium/no-campioncino.png";
 imgError = function(img){
-	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/no-campioncino.png";
+	img.src = "https://content.fantacalcio.it/web/campioncini/medium/no-campioncino.png";
 };
 var astaincorso = false;
 
@@ -204,7 +204,7 @@ $(document).on({
         <div class="nome" style="font-size:100px"> {{ nome }} </div>
         <div class="nome" style="font-size:100px"> ({{ squadra }})</div>
         <div class="ruolo" style="font-size:50px"> Ruolo: {{ ruolo }} </div>
-        <img  width="120px;" src='{{ imgurl }}' onerror='imgError(this);'> </img>     
+        <img  width="120px;" src='{{ imgurl }}' onerror='imgError(this);'> </img>
     </div>
     
 </div>
@@ -272,7 +272,7 @@ $(document).on({
         <!-- <h3> Adesso in asta</h3>
     <div class="widgetastacontent incorso" >
         <div class="left">
-            <img src='https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/BUFFON.png' onerror='imgError(this);'> </img> 
+            <img src='https://content.fantacalcio.it/web/campioncini/medium/BUFFON.png' onerror='imgError(this);'> </img> 
         </div>
         <div  class="right">
             <div class="nome"> Buffon (JUV)</div>
@@ -285,7 +285,7 @@ $(document).on({
         <!-- <h3>Ultimo Aggiudicato</h3>
     <div class="widgetastacontent precedente" >
     <div class="left">
-            <img src='https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/medium/PERIN.png' onerror='imgError(this);'> </img> 
+            <img src='https://content.fantacalcio.it/web/campioncini/medium/PERIN.png' onerror='imgError(this);'> </img> 
         </div>
         <div  class="right">
             <div class="nome"> PERIN (GEN)</div>

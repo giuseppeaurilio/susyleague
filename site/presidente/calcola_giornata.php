@@ -8,7 +8,7 @@ $id_girone=$_GET['id_girone'];
 <script>
 	
 imgError = function(img){
-	img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
+	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
 };
 
 inviaSostituzione= function (){
@@ -378,9 +378,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 					?>">
 						<?php
 							// echo $nome_giocatore;
-							$nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
+							$nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
 							// echo $nome_giocatore_pulito;
-							$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+							$filename = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 						?>
 						<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate'> Titolari</div></td>";  } ?>
 						<?php if ($i==11) {echo "<td rowspan='10' style='background-color: rgba(51,102,255,0.4);'><div class='rotate' > Riserve </div></td>";  } ?>	
@@ -457,9 +457,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 					?>">
 						<?php
 							// echo $nome_giocatore;
-							$nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
+							$nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
 							// echo $nome_giocatore_pulito;
-							$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+							$filename = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 						?>
 						<td >
 					<?php 
@@ -537,9 +537,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 				?>">
 				<?php
 						// echo $nome_giocatore;
-						$nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
+						$nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
 						// echo $nome_giocatore_pulito;
-						$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+						$filename = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 				?>
 				
 					<!-- <td style="padding:0; width:3%" class="<?php echo ($disable)? "disable": "" ?>"><?php echo '<img  onerror="imgError(this);" style="width:20px; height:27px;" src='.$filename.'>';?></td> -->
@@ -617,9 +617,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 				?>">
 				<?php
 						// echo $nome_giocatore;
-						$nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
+						$nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
 						// echo $nome_giocatore_pulito;
-						$filename = str_replace("% %", "-", "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+						$filename = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 				?>
 					<td >
 						<?php 
