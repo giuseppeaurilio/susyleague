@@ -182,7 +182,8 @@ div.stellarnav
 }
 .background
 {
-  background-image: url('../images/4c58a14a-ed39-4ae0-bf1a-78a8544dddcc.jpg');
+  /* background-image: url('../images/4c58a14a-ed39-4ae0-bf1a-78a8544dddcc.jpg'); */
+  background-image: url('../images/IMG_20220821_111408.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center; 
