@@ -17,8 +17,8 @@
         
         if(count($presidenti) == 0){
             echo "<h3> &nbsp;</h3>";
-            echo "<div class='widgetcontent fannulloni'>Abbiamo solo bravi presidenti!</div>";
-            echo '<hr>';
+            echo "<div style='text-align: center;padding: 125px 0;'  class=' fannulloni'>Abbiamo solo bravi presidenti!</div>";
+            // echo '<hr>';
         
         }  
         else

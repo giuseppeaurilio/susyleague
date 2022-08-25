@@ -22,8 +22,8 @@
         
         if(count($vincitori) == 0){
             echo "<h3> &nbsp;</h3>";
-            echo "<div class='widgetcontent vincitori'>Non sono ancora stati assegnati premi!</div>";
-            echo '<hr>';
+            echo "<div style='text-align: center;padding: 125px 0;' class=' vincitori'>Non sono ancora stati assegnati premi!</div>";
+            // echo '<hr>';
         
         }  
         else
