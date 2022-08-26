@@ -260,7 +260,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 							// echo $nome_giocatore;
 							$nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
 							// echo $nome_giocatore_pulito;
-							$filename = str_replace("% %", "-", "https://content.fantacalcio.it//web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+							$filename = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
 						?>
 						<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate'> Titolari</div></td>";  } ?>
 						<?php if ($i==11) {echo "<td rowspan='10' style='background-color: rgba(51,102,255,0.4);'><div class='rotate' > Riserve </div></td>";  } ?>	
