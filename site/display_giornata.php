@@ -8,7 +8,8 @@ include("menu.php");
 <script>
 imgError = function(img){
 	// img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
-	$imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png");
+	// img.src = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png");
+	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
 };
 </script>
 <?php
