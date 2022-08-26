@@ -128,7 +128,16 @@ $squ=mysqli_fetch_assoc($result);
 $id=$squ["id"];
 $squadra=$squ["squadra"];
 $allenatore=$squ["allenatore"];
-$query2="SELECT a.costo,a.id_giocatore, b.nome, b.ruolo, c.squadra_breve  FROM rose as a inner join giocatori as b inner join squadre_serie_a as c where a.id_sq_fc='" . $id ."' and a.id_giocatore=b.id and b.id_squadra=c.id order by b.ruolo desc";
+// $query2="SELECT a.costo,a.id_giocatore, b.nome, b.ruolo, c.squadra_breve  
+// FROM rose as a inner join giocatori as b inner join squadre_serie_a as c 
+// where a.id_sq_fc='" . $id ."' and a.id_giocatore=b.id and b.id_squadra=c.id order by b.ruolo desc";
+$query2 = "SELECT r.costo,r.id_giocatore, g.nome, g.ruolo, sqa.squadra_breve, ra.ordine
+FROM rose as r 
+inner join giocatori as g on r.id_giocatore = g.id
+inner join squadre_serie_a as sqa on sqa.id = g.id_squadra
+inner join rose_asta as ra on r.id_giocatore = ra.id_giocatore
+where r.id_sq_fc= '" . $id ."'
+order by g.ruolo desc, ra.ordine";
 //echo $query2;
 $result_giocatori=mysqli_query($con,$query2);
 $num_giocatori=mysqli_num_rows($result_giocatori);
