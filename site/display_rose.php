@@ -171,7 +171,7 @@ $nome_giocatore=$giocatore["nome"];
 $squadra_giocatore=$giocatore["squadra_breve"];
 $ruolo_giocatore=$giocatore["ruolo"];
 $costo_giocatore=$giocatore["costo"];
-$spesi = $spesi+ $costo_giocatore;
+// $spesi = $spesi+ $costo_giocatore;
 ?>
 
 
@@ -216,7 +216,14 @@ data-id="<?php  echo "$id_giocatore"; ?>"
 
 } 
 echo "</table>";
-
+$query3 = "select sum(ra.costo) as spesi
+from rose_asta as ra
+where ra.id_sq_fc = '". $id ."'";
+$result3 = $con->query($query3);
+$f3=mysqli_fetch_assoc($result3);
+//echo "generale=";
+//print_r($f);
+$spesi=$f3["spesi"];
 ?>
 <table >
   <tr>
