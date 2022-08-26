@@ -48,7 +48,7 @@
         }   
         else
         {
-            echo "<h3> &nbsp;</h3>";
+            // echo "<h3> &nbsp;</h3>";
             echo "<div style='text-align: center;padding: 125px 0;'  class=' mercato'>Non ci sono annunci di mercato</div>";
             
         }
