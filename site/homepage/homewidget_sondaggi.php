@@ -25,7 +25,7 @@
         {
             // echo "<h3> &nbsp;</h3>";
             echo "<div class='widgetcontent sondaggi'><div style='  text-align: center;
-            padding: 125px 0;'>Non ci sono sondaggi al momento</div></div>";
+            padding: 120px 0;'>Non ci sono sondaggi al momento</div></div>";
             echo '<hr>';
         } 
         

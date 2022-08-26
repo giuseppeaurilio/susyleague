@@ -49,7 +49,7 @@
         else
         {
             // echo "<h3> &nbsp;</h3>";
-            echo "<div style='text-align: center;padding: 125px 0;'  class=' mercato'>Non ci sono annunci di mercato</div>";
+            echo "<div style='text-align: center;padding: 111px 0;'  class=' mercato'>Non ci sono annunci di mercato</div>";
             
         }
         echo '<div class="footer"><a href="/display_mercato.php">Pubblica il tuo annuncio.</a></div>';
