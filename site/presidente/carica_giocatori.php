@@ -21,21 +21,31 @@ include("menu.php");
         441;A;BELOTTI;Torino; 9<br></span>
         Un esempio funzionante di file corretto puo' essere scaricato <a href="giocatori_esempio.csv">qui</a><br>
         <hr> 
-        Spuntando la casella <strong>"Primo caricamento"</strong>, vengono importate tutte le squadre e i giocatori presenti nel file. Squadre o giocatori gia nel sistema vengono <strong>CANCELLATI</strong><br>
-        Se invece si effettua un import del file senza aver selezionato "Primo Caricamento", viene fatto un update di giocatori: i gicoatori che hanno cambiato squadra sono aggiornati; i giocatori non presenti vengono importati.
-</span>
+        </span>
 </div>
 <hr>
+<h2>Data base giocatori</h2>
+<h3>Giocatori Serie A</h3>
 <form action="upload_giocatori.php" method="post" enctype="multipart/form-data">
-    <span>Primo caricamento</span><input type="checkbox" name="cbCancella" value="si"></input>
+    <i>Attenzione, Selezionando questo check box, il database verra creato da zero. Se invece non è selezionato, verranno inseriti i nuovi giocatori, e modificata la squadra di Serie A di quelli esistenti.<i>
     <br>
+    <span>Primo caricamento</span><input type="checkbox" name="cbCancella" value="si"></input>
+    
+    Selziona File da inserire:
+    <input type="file" name="fileToUpload" >
+
+    <input type="submit" value="Carica File" name="submit">
+</form>
+<h3>Giocatori Svincolati</h3>
+<form action="upload_giocatori_svincolati.php" method="post" enctype="multipart/form-data">
+    <i>Attenzione, i giocatori definiti nel file verranno inseriti nella squadra ZVincolati<i><br>
     Selziona File da inserire:
     <input type="file" name="fileToUpload" >
 
     <input type="submit" value="Carica File" name="submit">
 </form>
 <hr>
-
+<h2>Statistiche giocatori</h2>
 <form action="upload_statistiche.php" method="post" enctype="multipart/form-data">
     <!-- <span>Anno</span><input type="text" name="AnnoStats"></input> -->
     <select name="AnnoStats" id="AnnoStats">
@@ -55,11 +65,11 @@ include("menu.php");
     <input type="submit" value="Carica File" name="submitStats">
 </form>
 <hr>
-<form action="upload_pinfo.php" method="post" enctype="multipart/form-data">
+<!-- <form action="upload_pinfo.php" method="post" enctype="multipart/form-data">
     Selziona File da inserire:
     <input type="file" name="fileToUploadPInfo" >
     <input type="submit" value="Carica File" name="submitPInfo">
-</form>
+</form> -->
 <!-- <a href="spiegazione_creazione_file_csv.pdf">File di Spiegazione</a>     -->
 <?php 
 include("../footer.php");
