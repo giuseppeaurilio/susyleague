@@ -1,0 +1,2 @@
+CREATE TABLE `sq_fantacalcio_statistiche` ( `id` INT NOT NULL AUTO_INCREMENT , `sq_fantacalcio_id` INT NOT NULL , `punteggio_medlio` FLOAT NOT NULL , `modulo_preferito` VARCHAR(20) NOT NULL, `formazione_ideale` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`));
+CREATE TABLE `sq_fantacalcio_statistiche_giornata` ( `sq_fantacalcio_id` INT NOT NULL , `giornata_serie_a_id` INT NOT NULL , `punteggio` FLOAT NOT NULL , `modulo` VARCHAR(20) NOT NULL );

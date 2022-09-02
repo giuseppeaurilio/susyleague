@@ -23,12 +23,20 @@ $id_giornata=$_GET['id_giornata'];
 <?php
 
 
-$query2="Select *, b.squadra as sq_casa, c.squadra as sq_ospite, g.id_girone
+// $query2="Select *, b.squadra as sq_casa, c.squadra as sq_ospite, g.id_girone
+// FROM calendario as a 
+// left join sq_fantacalcio as b on a.id_sq_casa=b.id 
+// left join sq_fantacalcio as c on a.id_sq_ospite=c.id 
+// left join giornate as g on g.id_giornata=a.id_giornata 
+// where a.id_giornata=".$id_giornata ." order by a.id_partita" ;
+$query2="Select a.*, b.squadra as sq_casa, c.squadra as sq_ospite, g.id_girone, sg1.punteggio as sq_casa_max, sg2.punteggio as sq_ospite_max
 FROM calendario as a 
 left join sq_fantacalcio as b on a.id_sq_casa=b.id 
 left join sq_fantacalcio as c on a.id_sq_ospite=c.id 
 left join giornate as g on g.id_giornata=a.id_giornata 
-where a.id_giornata=".$id_giornata ." order by a.id_partita" ;
+left join sq_fantacalcio_statistiche_giornata as sg1 on sg1.sq_fantacalcio_id = a.id_sq_casa and sg1.giornata_serie_a_id = g.giornata_serie_a_id
+left join sq_fantacalcio_statistiche_giornata as sg2 on sg2.sq_fantacalcio_id = a.id_sq_ospite and sg2.giornata_serie_a_id = g.giornata_serie_a_id
+where a.id_giornata=$id_giornata order by a.id_partita";
 #echo "<br> quesry2= " . $query2;
 $idgirone = 0;
 $result_giornata=$conn->query($query2);
@@ -45,12 +53,14 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$addizionalecasa = $row["fattorecasa"];
 	$numero_giocanti_casa = $row["numero_giocanti_casa"];
 	$voto_netto_casa = $row["punti_casa"];
+	$sq_casa_max = $row["sq_casa_max"];
 	$media_difesa_avversaria_casa = $row["md_casa"];
 	$voto_totale_casa = $voto_netto_casa + $media_difesa_avversaria_casa + $addizionalecasa;//$row["tot_casa"];
 	$gol_casa = $row["gol_casa"];
 
 	$numero_giocanti_ospite  = $row["numero_giocanti_ospite"];
 	$voto_netto_ospite = $row["punti_ospiti"];
+	$sq_ospite_max = $row["sq_ospite_max"];
 	$media_difesa_avversaria_ospite = $row["md_ospite"];
 	$voto_totale_ospite = $voto_netto_ospite + $media_difesa_avversaria_ospite;//$row["tot_ospite"];
 	$gol_ospite = $row["gol_ospiti"];
@@ -184,12 +194,12 @@ while ($row=$result_giornata->fetch_assoc()) {
 				<td><?php echo $gol_ospite; ?> </td>
 			</tr>
 			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
-				<td><?php echo $voto_netto_casa; ?> </td>
-				<td>VOTO NETTO</td>
-				<td><?php echo $voto_netto_ospite; ?> </td>
+				<td><?php echo $voto_netto_casa ." ($sq_casa_max)";?> </td>
+				<td>VOTO NETTO (VOTO MAX TEORICO)</td>
+				<td><?php echo $voto_netto_ospite." ($sq_ospite_max)"; ?> </td>
 			</tr>
 			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
-				<td><?php echo $addizionalecasa; ?> </td>
+				<td><?php echo $addizionalecasa ?> </td>
 				<td>FATTORE CASA</td>
 				<td>&nbsp;</td>
 			</tr>

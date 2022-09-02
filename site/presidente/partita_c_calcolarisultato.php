@@ -1,5 +1,6 @@
 <?php
 include_once ("../DB/calcolarisultato.php");
+include_once ("../DB/statistiche.php");
 $idgirone=$_GET['idgirone'];
 $idgiornata=$_GET['idgiornata'];
 // $idpartita=$_GET['idpartita'];
@@ -16,11 +17,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$query = 'SELECT * FROM `calendario` where id_giornata = ' . $idgiornata .' order by id_partita';
+// $query = 'SELECT * FROM `calendario` where id_giornata = ' . $idgiornata .' order by id_partita';
+$query = "SELECT c.*, g.giornata_serie_a_id FROM `calendario` as c 
+left join giornate as g on c.id_giornata = g.id_giornata
+where c.id_giornata =  $idgiornata 
+order by id_partita";
 
 $result=$conn->query($query);
 
 $arraypartite = array();
+$giornata_serie_a = 0;
 //recupero i dati dal DB e li trasferisco nell'array di oggetti
 while ($row = $result->fetch_assoc()) {
     array_push($arraypartite,array(
@@ -31,6 +37,7 @@ while ($row = $result->fetch_assoc()) {
         "mdcasa"=>$row["use_mdcasa"],
         "mdospite"=>$row["use_mdospite"],
     ));
+    $giornata_serie_a = $row["giornata_serie_a_id"];
 }
 $conn->close();
 include_once ("../DB/parametri.php");
@@ -98,7 +105,11 @@ foreach($arraypartite as $partita){
     } else {
         echo "Error updating record: " . $conn->error. '<br>';
     }
+    
     $conn->close();
+
+    statistiche_miglioreformazione_digiorntata($giornata_serie_a, $partita["id_sq_casa"]);
+    statistiche_miglioreformazione_digiorntata($giornata_serie_a, $partita["id_sq_ospite"]);
 }
 echo json_encode(array(
     'result' => "true",
