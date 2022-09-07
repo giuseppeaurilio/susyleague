@@ -11,6 +11,70 @@ imgError = function(img){
 	// img.src = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png");
 	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
 };
+
+showFormazioneIdeale = function()
+{
+    var action ="formazione_ideale";
+    var punteggio =$(this).data("punteggio");
+	var modulo =$(this).data("modulo");
+	var formazione =$(this).data("formazione");
+	var idgiornata =$(this).data("idgiornata");
+	
+
+	// $( "#dialog" ).prop('title', "ERROR");                
+	// $( "#dialog p" ).html(punteggio +" " +modulo+ " "+ formazione );
+	// $( "#dialog" ).dialog({modal:true});
+	$.ajax({
+        type:'POST',
+            url:'display_giornata_controller.php',
+            data: {
+                "action": action,
+                "punteggio": punteggio,
+                "modulo": modulo,
+                "formazione": formazione,
+				"idgiornata": idgiornata,
+            },
+            success:function(data){
+                // debugger;
+                var resp=$.parseJSON(data)
+                
+                if(resp.result == "true"){
+                    //show data
+                    var template = $('#tmplFormazioneIdeale').html();
+                    Mustache.parse(template);   // optional, speeds up future uses
+                    var rendered = Mustache.render(template, resp);
+
+					$( "#dialog" ).prop('title', "Formazione Ideale");                
+                    $( "#dialog p" ).html(rendered);
+                    $( "#dialog" ).dialog({modal:true});                    
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    }); 
+}
+$(document).ready(function(){
+    $(".formazione_ideale").off("click").bind("click", showFormazioneIdeale);
+})
+</script>
+
+<script id="tmplFormazioneIdeale" type="x-tmpl-mustache">
+    
+        {{ #giocatori }}
+		<div>
+			<img  onerror="imgError(this);" style="width:20px; height:27px;" src='{{imgurl}}'>
+        	<span> {{nome}}<span> 
+			<span> {{ruolo}}<span> 
+			<span> {{squadra_breve}}<span> 
+			<span> {{voto}}<span> 
+			<span> {{voto_md}}<span> 
+
+		</div>
+        {{ /giocatori }}
+
 </script>
 <?php
 $id_giornata=$_GET['id_giornata'];
@@ -29,7 +93,10 @@ $id_giornata=$_GET['id_giornata'];
 // left join sq_fantacalcio as c on a.id_sq_ospite=c.id 
 // left join giornate as g on g.id_giornata=a.id_giornata 
 // where a.id_giornata=".$id_giornata ." order by a.id_partita" ;
-$query2="Select a.*, b.squadra as sq_casa, c.squadra as sq_ospite, g.id_girone, sg1.punteggio as sq_casa_max, sg2.punteggio as sq_ospite_max
+$query2="Select a.*, b.squadra as sq_casa, c.squadra as sq_ospite, g.id_girone, 
+sg1.punteggio as sq_casa_max, sg2.punteggio as sq_ospite_max,
+sg1.modulo as sq_casa_max_modulo, sg2.modulo as sq_ospite_max_modulo,
+sg1.formazione_ideale as sq_casa_max_formazione, sg2.formazione_ideale as sq_ospite_max_formazione
 FROM calendario as a 
 left join sq_fantacalcio as b on a.id_sq_casa=b.id 
 left join sq_fantacalcio as c on a.id_sq_ospite=c.id 
@@ -54,6 +121,8 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$numero_giocanti_casa = $row["numero_giocanti_casa"];
 	$voto_netto_casa = $row["punti_casa"];
 	$sq_casa_max = $row["sq_casa_max"];
+	$sq_casa_max_modulo = $row["sq_casa_max_modulo"];
+	$sq_casa_max_formazione = $row["sq_casa_max_formazione"];
 	$media_difesa_avversaria_casa = $row["md_casa"];
 	$voto_totale_casa = $voto_netto_casa + $media_difesa_avversaria_casa + $addizionalecasa;//$row["tot_casa"];
 	$gol_casa = $row["gol_casa"];
@@ -61,6 +130,8 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$numero_giocanti_ospite  = $row["numero_giocanti_ospite"];
 	$voto_netto_ospite = $row["punti_ospiti"];
 	$sq_ospite_max = $row["sq_ospite_max"];
+	$sq_ospite_max_modulo = $row["sq_ospite_max_modulo"];
+	$sq_ospite_max_formazione = $row["sq_ospite_max_formazione"];
 	$media_difesa_avversaria_ospite = $row["md_ospite"];
 	$voto_totale_ospite = $voto_netto_ospite + $media_difesa_avversaria_ospite;//$row["tot_ospite"];
 	$gol_ospite = $row["gol_ospiti"];
@@ -194,9 +265,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 				<td><?php echo $gol_ospite; ?> </td>
 			</tr>
 			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
-				<td><?php echo $voto_netto_casa ." ($sq_casa_max)";?> </td>
-				<td>VOTO NETTO (VOTO MAX TEORICO)</td>
-				<td><?php echo $voto_netto_ospite." ($sq_ospite_max)"; ?> </td>
+				<td><?php echo $voto_netto_casa ;?> </td>
+				<td>VOTO NETTO</td>
+				<td><?php echo $voto_netto_ospite; ?> </td>
 			</tr>
 			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
 				<td><?php echo $addizionalecasa ?> </td>
@@ -217,6 +288,21 @@ while ($row=$result_giornata->fetch_assoc()) {
 				<td><?php echo $numero_giocanti_casa; ?> </td>
 				<td># GIOCATORI</td>
 				<td><?php echo $numero_giocanti_ospite; ?></td>
+			</tr>
+			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
+				<td>
+					<!-- <span class="formazione_ideale" data-punteggio="<?php echo $sq_casa_max ?>" 
+					data-modulo="<?php echo  $sq_casa_max_modulo ?>" data-formazione="<?php echo $sq_casa_max_formazione ?>"
+					data-idgiornata="<?php echo  $id_giornata ?>">...</span> -->
+					<?php echo round(($voto_netto_casa / $sq_casa_max)*100, 0)."%"; ?> 
+				</td>
+				<td>Efficienza</td>
+				<td>
+					<?php echo round(($voto_netto_ospite/ $sq_ospite_max)*100, 0)."%"; ?>
+					<!-- <span class="formazione_ideale" data-punteggio="<?php echo $sq_ospite_max ?>" 
+					data-modulo="<?php echo $sq_ospite_max_modulo ?>" data-formazione="<?php echo $sq_ospite_max_formazione ?>"
+					data-idgiornata="<?php echo  $id_giornata ?>">...</span> -->
+				</td>
 			</tr>
 		</table>
 	</div>
