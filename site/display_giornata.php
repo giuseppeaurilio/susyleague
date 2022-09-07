@@ -291,17 +291,17 @@ while ($row=$result_giornata->fetch_assoc()) {
 			</tr>
 			<tr style=" <?php echo ($ritultatocalcolato) ? "": "display:none" ?>">
 				<td>
-					<!-- <span class="formazione_ideale" data-punteggio="<?php echo $sq_casa_max ?>" 
-					data-modulo="<?php echo  $sq_casa_max_modulo ?>" data-formazione="<?php echo $sq_casa_max_formazione ?>"
-					data-idgiornata="<?php echo  $id_giornata ?>">...</span> -->
+					<span class="formazione_ideale" data-punteggio="<?php echo $sq_casa_max ?>" 
+					data-modulo="<?php echo  $sq_casa_max_modulo ?>" data-formazione="<?php echo rtrim($sq_casa_max_formazione, ",") ?>"
+					data-idgiornata="<?php echo  $id_giornata ?>">...</span>
 					<?php echo round(($voto_netto_casa / $sq_casa_max)*100, 0)."%"; ?> 
 				</td>
 				<td>Efficienza</td>
 				<td>
 					<?php echo round(($voto_netto_ospite/ $sq_ospite_max)*100, 0)."%"; ?>
-					<!-- <span class="formazione_ideale" data-punteggio="<?php echo $sq_ospite_max ?>" 
-					data-modulo="<?php echo $sq_ospite_max_modulo ?>" data-formazione="<?php echo $sq_ospite_max_formazione ?>"
-					data-idgiornata="<?php echo  $id_giornata ?>">...</span> -->
+					<span class="formazione_ideale" data-punteggio="<?php echo $sq_ospite_max ?>" 
+					data-modulo="<?php echo $sq_ospite_max_modulo ?>" data-formazione="<?php echo rtrim($sq_ospite_max_formazione, ",") ?>"
+					data-idgiornata="<?php echo  $id_giornata ?>">...</span>
 				</td>
 			</tr>
 		</table>
