@@ -21,7 +21,8 @@ function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantas
     where gv.`giornata_serie_a_id`= $idGiornataSerieA
     and r.id_sq_fc = $idFantasquadra
     order by g.ruolo desc, gv.voto desc";
-    // echo $query;
+    // if($idFantasquadra == 3)
+    //     echo $query;
     $result=$conn->query($query) or die($conn->error);
     $voti = array();
     while ($row=$result->fetch_assoc()) {
@@ -35,7 +36,8 @@ function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantas
             )
         );
     }
-    // print_r($voti);
+    if($idFantasquadra == 3)
+        print_r($voti);
     $num_att = 0;
     $num_cen = 0;
     $num_dif = 0;
@@ -254,23 +256,30 @@ function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantas
             default:
                 break;
         }
-        // print_r($row);
-        // echo "por: ".$num_por ."; ";
-        // echo "dif: ".$num_dif."; ";
-        // echo "cen: ".$num_cen."; ";
-        // echo "att: ".$num_att."; ";
-        // echo "541: ".$sum541."; ";
-        // echo "532: ".$sum532."; ";
-        // echo "541: ".$sum451."; ";
-        // echo "442: ".$sum442."; ";
-        // echo "433: ".$sum433."; ";
-        // echo "352: ".$sum352."; ";
-        // echo "343: ".$sum343."; ";
-        // echo "\r\n";
+        if($idFantasquadra == 3)
+        {
+            print_r($row);
+            echo "por: ".$num_por ."; ";
+            echo "dif: ".$num_dif."; ";
+            echo "cen: ".$num_cen."; ";
+            echo "att: ".$num_att."; ";
+            echo "541: ".$sum541."; ";
+            echo "532: ".$sum532."; ";
+            echo "541: ".$sum451."; ";
+            echo "451: ".$sum451."; ";
+            echo "442: ".$sum442."; ";
+            echo "433: ".$sum433."; ";
+            echo "352: ".$sum352."; ";
+            echo "343: ".$sum343."; ";
+            echo "\r\n";
+        }
     } 
     $max_score = 0;
     $max_score_modulo = 0;
     $max_score_formazione = 0;
+
+    
+    
     if($max_score < $sum541 )
     {
         $max_score = $sum541;
@@ -279,30 +288,42 @@ function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantas
     }
     if($max_score < $sum532 )
     {
+        
         $max_score = $sum532;
         $max_score_modulo = "532";
         $max_scomax_score_formazionere_modulo = $formazione532;
     }
     if($max_score < $sum451 )
     {
+        
         $max_score = $sum451;
         $max_score_modulo = "451";
         $max_score_formazione = $formazione451;
     }
     if($max_score < $sum442 )
     {
+        
         $max_score = $sum442;
         $max_score_modulo = "442";
         $max_score_formazione = $formazione442;
     }
     if($max_score < $sum433 )
     {
+        
         $max_score = $sum433;
         $max_score_modulo = "433";
         $max_score_formazione = $formazione433;
     }
+    if($max_score < $sum352 )
+    {
+        
+        $max_score = $sum352;
+        $max_score_modulo = "352";
+        $max_score_formazione = $formazione343;
+    }
     if($max_score < $sum343 )
     {
+        
         $max_score = $sum343;
         $max_score_modulo = "343";
         $max_score_formazione = $formazione343;
@@ -311,7 +332,7 @@ function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantas
     $result=$conn->query($query) or die($conn->error);
     // return $giornatefc;
     $query = "INSERT INTO `sq_fantacalcio_statistiche_giornata`(`sq_fantacalcio_id`, `giornata_serie_a_id`, `punteggio`, `modulo`, `formazione_ideale`) VALUES ($idFantasquadra,$idGiornataSerieA,$max_score,'$max_score_modulo', '$max_score_formazione') ";
-    // echo $query;
+    if($idFantasquadra == 3) echo $query;
     $result=$conn->query($query) or die($conn->error);
 
     // echo  "formazione_ideale: ".$max_score_modulo."; ".$max_score_formazione ."\r\n";
