@@ -256,23 +256,23 @@ function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantas
             default:
                 break;
         }
-        if($idFantasquadra == 3)
-        {
-            print_r($row);
-            echo "por: ".$num_por ."; ";
-            echo "dif: ".$num_dif."; ";
-            echo "cen: ".$num_cen."; ";
-            echo "att: ".$num_att."; ";
-            echo "541: ".$sum541."; ";
-            echo "532: ".$sum532."; ";
-            echo "541: ".$sum451."; ";
-            echo "451: ".$sum451."; ";
-            echo "442: ".$sum442."; ";
-            echo "433: ".$sum433."; ";
-            echo "352: ".$sum352."; ";
-            echo "343: ".$sum343."; ";
-            echo "\r\n";
-        }
+        // if($idFantasquadra == 3)
+        // {
+        //     print_r($row);
+        //     echo "por: ".$num_por ."; ";
+        //     echo "dif: ".$num_dif."; ";
+        //     echo "cen: ".$num_cen."; ";
+        //     echo "att: ".$num_att."; ";
+        //     echo "541: ".$sum541."; ";
+        //     echo "532: ".$sum532."; ";
+        //     echo "541: ".$sum451."; ";
+        //     echo "451: ".$sum451."; ";
+        //     echo "442: ".$sum442."; ";
+        //     echo "433: ".$sum433."; ";
+        //     echo "352: ".$sum352."; ";
+        //     echo "343: ".$sum343."; ";
+        //     echo "\r\n";
+        // }
     } 
     $max_score = 0;
     $max_score_modulo = 0;
@@ -332,7 +332,7 @@ function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantas
     $result=$conn->query($query) or die($conn->error);
     // return $giornatefc;
     $query = "INSERT INTO `sq_fantacalcio_statistiche_giornata`(`sq_fantacalcio_id`, `giornata_serie_a_id`, `punteggio`, `modulo`, `formazione_ideale`) VALUES ($idFantasquadra,$idGiornataSerieA,$max_score,'$max_score_modulo', '$max_score_formazione') ";
-    if($idFantasquadra == 3) echo $query;
+    // if($idFantasquadra == 3) echo $query;
     $result=$conn->query($query) or die($conn->error);
 
     // echo  "formazione_ideale: ".$max_score_modulo."; ".$max_score_formazione ."\r\n";
