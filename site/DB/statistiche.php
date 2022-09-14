@@ -319,7 +319,7 @@ function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantas
         
         $max_score = $sum352;
         $max_score_modulo = "352";
-        $max_score_formazione = $formazione343;
+        $max_score_formazione = $formazione352;
     }
     if($max_score < $sum343 )
     {
