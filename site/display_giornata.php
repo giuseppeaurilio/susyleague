@@ -62,7 +62,7 @@ $(document).ready(function(){
 </script>
 
 <script id="tmplFormazioneIdeale" type="x-tmpl-mustache">
-    
+ <div> <span>Modulo: {{modulo}}<span></div> <div><span>Punteggio: {{punteggio}}<span>    	</div>
         {{ #giocatori }}
 		<div>
 			<img  onerror="imgError(this);" style="width:20px; height:27px;" src='{{imgurl}}'>
@@ -70,7 +70,7 @@ $(document).ready(function(){
 			<span> {{ruolo}}<span> 
 			<span> {{squadra_breve}}<span> 
 			<span> {{voto}}<span> 
-			<span> {{voto_md}}<span> 
+			<span> ({{voto_md}})<span> 
 
 		</div>
         {{ /giocatori }}
@@ -293,7 +293,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 				<td>
 					<span class="formazione_ideale" data-punteggio="<?php echo $sq_casa_max ?>" 
 					data-modulo="<?php echo  $sq_casa_max_modulo ?>" data-formazione="<?php echo rtrim($sq_casa_max_formazione, ",") ?>"
-					data-idgiornata="<?php echo  $id_giornata ?>">...</span>
+					data-idgiornata="<?php echo  $id_giornata ?>"><i class="fas fa-external-link-alt" aria-hidden="true"></i></span>
 					<?php echo round(($voto_netto_casa / $sq_casa_max)*100, 0)."%"; ?> 
 				</td>
 				<td>Efficienza</td>
@@ -301,7 +301,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 					<?php echo round(($voto_netto_ospite/ $sq_ospite_max)*100, 0)."%"; ?>
 					<span class="formazione_ideale" data-punteggio="<?php echo $sq_ospite_max ?>" 
 					data-modulo="<?php echo $sq_ospite_max_modulo ?>" data-formazione="<?php echo rtrim($sq_ospite_max_formazione, ",") ?>"
-					data-idgiornata="<?php echo  $id_giornata ?>">...</span>
+					data-idgiornata="<?php echo  $id_giornata ?>"><i class="fas fa-external-link-alt" aria-hidden="true"></i></span>
 				</td>
 			</tr>
 		</table>

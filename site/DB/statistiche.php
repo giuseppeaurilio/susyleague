@@ -36,8 +36,8 @@ function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantas
             )
         );
     }
-    if($idFantasquadra == 3)
-        print_r($voti);
+    // if($idFantasquadra == 3)
+    //     print_r($voti);
     $num_att = 0;
     $num_cen = 0;
     $num_dif = 0;

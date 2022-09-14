@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // print_r($row);
                 $imgurl = "";
                 $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
-                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/large/".$nome_giocatore_pulito.".png");
+                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
                 array_push($giocatori, array(
                     "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
@@ -51,7 +51,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $response = array(
                 'result' => "true",
                 'message' => $action." eseguito",
-                'giocatori' => $giocatori
+                'giocatori' => $giocatori,
+                'modulo' => $modulo,
+                'punteggio' => $punteggio
+
             );
             echo json_encode($response);
             break;
