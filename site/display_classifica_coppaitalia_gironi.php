@@ -121,6 +121,7 @@ usort($arraysquadre, "cmp");
 ?>
 
 <h4>Classifica marcatori</h4>
+<div class="scrollmenu">
 <table class="classifica">
 <tr>
 <th>Squadra</th>
@@ -144,6 +145,7 @@ foreach($arraysquadre as $squadra){
 }
 ?>
 </table>
+</div>
 
 
 <?php
@@ -267,28 +269,30 @@ $conn->next_result();
 usort($arraysquadre, "cmp");
 ?>
 
-    <h4>Classifica marcatori</h4>
-    <table class="classifica">
-        <tr>
-        <th>Squadra</th>
-        <th>Punti</th>
-        <th>Punti MAX</th>
-        <th>Efficienza</th>
-        </tr>
+<h4>Classifica marcatori</h4>
+    <div class="scrollmenu">
+        <table class="classifica">
+            <tr>
+            <th>Squadra</th>
+            <th>Punti</th>
+            <th>Punti MAX</th>
+            <th>Efficienza</th>
+            </tr>
 
-            <?php 
-            foreach($arraysquadre as $squadra){
-                echo '<tr>';
-                    echo '<td class="squadra">'.$squadra->squadra.'</td>';
-                    echo '<td >'.$squadra->marcatori.'</td>';
-                    echo '<td >'.$squadra->marcatori_max.'</td>';
-                    if( $squadra->marcatori_max != 0)
-                    echo '<td >'.round(($squadra->marcatori / $squadra->marcatori_max)*100, 1).'%</td>';
-                    else
-                    echo '<td>-</td>';
-               
-                echo '</tr>';
-            }
-            ?>
-    </table>    
+                <?php 
+                foreach($arraysquadre as $squadra){
+                    echo '<tr>';
+                        echo '<td class="squadra">'.$squadra->squadra.'</td>';
+                        echo '<td >'.$squadra->marcatori.'</td>';
+                        echo '<td >'.$squadra->marcatori_max.'</td>';
+                        if( $squadra->marcatori_max != 0)
+                        echo '<td >'.round(($squadra->marcatori / $squadra->marcatori_max)*100, 1).'%</td>';
+                        else
+                        echo '<td>-</td>';
+                    
+                    echo '</tr>';
+                }
+                ?>
+        </table>    
+    </div>
 </div>

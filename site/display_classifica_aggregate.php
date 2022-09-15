@@ -119,6 +119,7 @@ usort($arraysquadre, "cmp");
 ?>
 
 <h3>Classifica marcatori</h3>
+<div class="scrollmenu">
 <table class="classifica">
 <tr>
 <th>Squadra</th>
@@ -142,4 +143,5 @@ foreach($arraysquadre as $squadra){
 }
 ?>
 </table>
+</div>
 </div>
