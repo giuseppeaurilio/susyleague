@@ -1033,6 +1033,14 @@ padding: 0;
 {
   color: #00cc99
 }
+table.classifica td.squadra {
+  text-align: left;
+
+}
+table.classifica td {
+  text-align: center;
+
+}
 
 #divContentNuovoScambio{
   /* display: grid;

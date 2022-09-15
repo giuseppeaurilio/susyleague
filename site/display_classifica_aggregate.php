@@ -13,6 +13,7 @@ while ($row = $result_girone->fetch_assoc()) {
     $temp->squadra = $row["squadra"];
     $temp->punti = $row["punti"];
     $temp->marcatori = $row["marcatori"];
+    $temp->marcatori_max = $row["marcatori_max"];
     $temp->vittorie = $row["vittorie"];
     $temp->pareggi = $row["pareggi"];
     $temp->sconfitte = $row["sconfitte"];
@@ -87,7 +88,7 @@ TRASFERTA
 <?php 
 foreach($arraysquadre as $squadra){
     echo '<tr>';
-        echo '<td>'.$squadra->squadra.'</td>';
+        echo '<td class="squadra">'.$squadra->squadra.'</td>';
         echo '<td>'.$squadra->punti.'</td>';
         echo '<td>'.$squadra->marcatori.'</td>';
         echo '<td>'.$squadra->vittorie.'</td>';
@@ -122,13 +123,20 @@ usort($arraysquadre, "cmp");
 <tr>
 <th>Squadra</th>
 <th>Punti</th>
+<th>Punti MAX</th>
+<th>Efficienza</th>
 </tr>
 
 <?php 
 foreach($arraysquadre as $squadra){
     echo '<tr>';
-        echo '<td>'.$squadra->squadra.'</td>';
-        echo '<td>'.$squadra->marcatori.'</td>';
+        echo '<td class="squadra">'.$squadra->squadra.'</td>';
+        echo '<td >'.$squadra->marcatori.'</td>';
+        echo '<td >'.$squadra->marcatori_max.'</td>';
+        if( $squadra->marcatori_max != 0)
+        echo '<td >'.round(($squadra->marcatori / $squadra->marcatori_max)*100, 1).'%</td>';
+        else
+        echo '<td>-</td>';
        
     echo '</tr>';
 }
