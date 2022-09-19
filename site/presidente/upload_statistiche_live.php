@@ -67,7 +67,7 @@ foreach($items as $item)
 			"asf" => "0", 
 			"amm"=> $DOM->saveHTML($item->getElementsByTagName("td")[9]->childNodes[0]),  
 			"esp"=> $DOM->saveHTML($item->getElementsByTagName("td")[10]->childNodes[0]),  
-			"au" => "0",
+			"au" => "0", //attualmente manca sulla pagina di fantacalcio.it
 			) 
 		);
 	}
