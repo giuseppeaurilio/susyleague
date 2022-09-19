@@ -1,4 +1,5 @@
 <?php
+//called by https://console.cron-job.org/dashboard
 include_once ("dbinfo_susyleague.inc.php");
 // Create connection
 $conn = new mysqli($localhost, $username, $password,$database);

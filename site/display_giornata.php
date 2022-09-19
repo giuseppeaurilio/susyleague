@@ -365,8 +365,21 @@ while ($row=$result_giornata->fetch_assoc()) {
 						<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
 						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
 						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
-						<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?><?php echo $row["voto_ufficio"] ? "*": ""; ?></td>
-						<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
+						<td >
+							<?php 
+							if($ritultatocalcolato){
+								echo ($row["voto"] != "" && $row["sostituzione"] == 1 || $i < 11 ? $row["voto"] : "&nbsp;"); 
+								echo $row["voto_ufficio"] ? "*": ""; 
+							}
+							else
+								echo $row["voto"] != "" ? $row["voto"] : "&nbsp;";
+							?>
+						</td>
+						<td >
+							<?php 
+								echo ($row["voto"] != "" && $row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: "&nbsp;"); 
+							?>
+						</td>
 					</tr>
 					<?php
 					++$i;
@@ -437,7 +450,11 @@ while ($row=$result_giornata->fetch_assoc()) {
 					</td>
 					<td style="width:10%"> 
 						<?php 
+						if($ritultatocalcolato){
 							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : "&nbsp;"); 
+						}
+						else
+							echo ($row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : "&nbsp;"); 
 						?>
 					</td>
 					</tr>
@@ -504,8 +521,21 @@ while ($row=$result_giornata->fetch_assoc()) {
 					<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
 					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
 					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
-					<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto"]: ""); ?><?php echo $row["voto_ufficio"] ? "*": ""; ?></td>
-					<td ><?php echo ($row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: ""); ?></td>
+					<td >
+						<?php 
+						if($ritultatocalcolato){
+							echo ($row["voto"] != "" && $row["sostituzione"] == 1 || $i < 11 ? $row["voto"] : "&nbsp;"); 
+							echo $row["voto_ufficio"] ? "*": ""; 
+						}
+						else
+							echo $row["voto"] != "" ? $row["voto"] : "&nbsp;";
+						?>
+					</td>
+					<td >
+						<?php 
+							echo ($row["voto"] != "" && $row["sostituzione"] == 1 || $i < 11 ? $row["voto_md"]: "&nbsp;"); 
+						?>
+					</td>
 					<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate2'> Titolari</div></td>";  } ?>
 					<?php if ($i==11) {echo "<td rowspan='10' style='background-color: rgba(51,102,255,0.4);'><div class='rotate2'> Riserve </div></td>";  } ?>
 				</tr>
@@ -578,7 +608,11 @@ while ($row=$result_giornata->fetch_assoc()) {
 					</td>
 					<td style="width:10%"> 
 						<?php 
-							echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : "&nbsp;"); 
+							if($ritultatocalcolato){
+								echo (($row["sostituzione"] == 1 || $i < 11) && $row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : "&nbsp;"); 
+							}
+							else
+								echo ($row["voto"] != "" ? ($row["voto"]."(".$row["voto_md"].")") : "&nbsp;"); 
 						?>
 					</td>
 					
