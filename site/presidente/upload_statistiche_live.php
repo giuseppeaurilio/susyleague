@@ -107,7 +107,7 @@ foreach($arrayGiocatori as $item)
 		`au`) 
 		values(
 			". $item["id"] .",
-			". $anno .",
+			'". $anno ."',
 			". $item["pg"] .",
 			". str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $item["mv"])) .",
 			". str_replace(',', '.', preg_replace("/[^0-9,.]/", '',  $item["mf"])) .",
@@ -127,7 +127,7 @@ foreach($arrayGiocatori as $item)
 	// echo '<br/> '; 	
 	$result=$conn->query($queryInsertStats); //or die($conn->error);
 	if($result) {
-		//
+		// echo $queryInsertStats .'<br>';
 	}
 	else {
 		echo " ERROR ". $item["id"] . ($conn->error) .'<br>';
