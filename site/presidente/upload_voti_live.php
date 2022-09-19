@@ -54,7 +54,7 @@ foreach($items as $item)
 		
 		array_push($arrayGiocatori, array(
 			"id"=> $ar[6],
-			"voto"=> $item->getElementsByTagName("td")[1]->getElementsByTagName("div")[3]->getElementsByTagName("span")[0]->getAttribute("data-value"),
+			"voto"=> $item->getElementsByTagName("td")[1]->getElementsByTagName("div")[3]->getElementsByTagName("span")[0]->getAttribute("data-value"),//voti italia
 			"golf"=>  $item->getElementsByTagName("td")[2]->getElementsByTagName("span")[0]->getAttribute("data-value"),
 			"gols"=>  $item->getElementsByTagName("td")[2]->getElementsByTagName("span")[1]->getAttribute("data-value"),
 			"rigp"=>  $item->getElementsByTagName("td")[2]->getElementsByTagName("span")[5]->getAttribute("data-value"),
@@ -103,8 +103,8 @@ foreach($arrayGiocatori as $item)
 		if( $voto != 0 && $votof != '' ){
 			$query = "INSERT INTO `giocatori_voti`(`giocatore_id`, `giornata_serie_a_id`, `voto`, `voto_md`) 
 				VALUES ($id,$idgiornata,$votof,$voto)";
-		print_r ($query);
-		echo '<br/> '; 
+		// print_r ($query);
+		// echo '<br/> '; 
 		$result=$conn->query($query) ;//or die($conn->error);
 		// if($result) {
 		// 	$countervoti++; 
