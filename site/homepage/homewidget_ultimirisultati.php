@@ -26,9 +26,10 @@ if(!is_null($giornatasa))
     foreach ($giornatefc as $giornatafc)
     {
         $descrizioneGiornata = getDescrizioneGiornata($giornatafc["id_giornata"]);
+        $link = getLinkClassificheGiornata($giornatafc["id_giornata"]);
         if($prev != $descrizioneGiornata)
         {
-            echo '<h3>'.$descrizioneGiornata.'</h3>';
+            echo '<h3>'.$descrizioneGiornata.'&nbsp;<a href='.$link.' style="color:white;float: right;"><i>classifica</i></a></h3>';
             $prev = $descrizioneGiornata;
         }
         $index++;
