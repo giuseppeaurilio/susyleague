@@ -17,7 +17,7 @@
     <h2>Le perle di Iori</h2>
     <!-- <h3>Fusti assegnati</h3> -->
     <?php 
-       $query= "SELECT `Id`, `Data`, `Testo`FROM `perlediiori` order by 'Data' Desc";
+       $query= "SELECT `Id`, `Data`, `Testo`FROM `perlediiori` ORDER BY RAND ( ) LIMIT 5";
         $result=$conn->query($query) or die($conn->error);
         $perle = array();
         while($row = $result->fetch_assoc()){
