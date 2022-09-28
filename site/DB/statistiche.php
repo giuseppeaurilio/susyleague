@@ -256,7 +256,7 @@ function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantas
             default:
                 break;
         }
-        // if($idFantasquadra == 3)
+        // if($idFantasquadra == 1)
         // {
         //     print_r($row);
         //     echo "por: ".$num_por ."; ";
@@ -274,6 +274,20 @@ function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantas
         //     echo "\r\n";
         // }
     } 
+    if($idFantasquadra == 1)
+        {
+            // print_r($row);
+            
+            echo "541: ".$sum541."; \r\n";
+            echo "532: ".$sum532."; \r\n";
+            echo "541: ".$sum451."; \r\n";
+            echo "451: ".$sum451."; \r\n";
+            echo "442: ".$sum442."; \r\n";
+            echo "433: ".$sum433."; \r\n";
+            echo "352: ".$sum352."; \r\n";
+            echo "343: ".$sum343."; \r\n";
+            echo "\r\n";
+        }
     $max_score = 0;
     $max_score_modulo = 0;
     $max_score_formazione = 0;
@@ -291,7 +305,7 @@ function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantas
         
         $max_score = $sum532;
         $max_score_modulo = "532";
-        $max_scomax_score_formazionere_modulo = $formazione532;
+        $max_score_formazione = $formazione532;
     }
     if($max_score < $sum451 )
     {
