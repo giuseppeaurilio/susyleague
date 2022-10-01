@@ -22,7 +22,7 @@ $(document).ready(function(){
     {
         echo '<h2>Prossimo turno';
         $date = date_create($giornatasa["inizio"]);
-        echo '<div style="font-size: 15px;"><a href="/invio_formazione.php" style="color:white;">Invia la formazione</a> entro: '.date_format($date, 'H:i  d/m').'</div>';
+        echo '<div style="font-size: 15px;"><a href="/invio_formazione.php" style="color:white;">Invia la formazione</a> entro: '.date_format($date, 'H:i').' del '.date_format($date, 'd/m'). '</div>';
         echo '</h2>';
 
         $giornatefc = fantacalcio_getPartite_bySerieAId($giornatasa["id"]);
