@@ -127,8 +127,8 @@ usort($arraysquadre, "cmp");
 <tr>
 <th>Squadra</th>
 <th>Punti</th>
-<th>Punti MAX</th>
-<th>Efficienza</th>
+<th>MAX</th>
+<th>Eff.</th>
 </tr>
 
 <?php 
