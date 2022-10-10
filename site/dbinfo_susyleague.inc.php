@@ -2,13 +2,20 @@
 // $username="id258940_susy79";
 // $password="andspe79";
 // //$database="id258940_susy_league_2019-20";
-// $database="id258940_susy_league_20_21_off";
+// $database="id258940_susy_league_2022-23";
 // $localhost = "localhost";
 
 //tophost
-$username="susyleag22770";
-$password="susy97074";
-$database="susyleag22770";
+// $username="susyleag22770";
+// $password="susy97074";
+// $database="susyleag22770";
+// $localhost = "sql.susyleague.it";
+
+//tophost
+$username="susyleag16215";
+// $password="susy61554";
+$password="*q3G99i&w24J";
+$database="susyleag16215";
 $localhost = "sql.susyleague.it";
 
 //host poco
