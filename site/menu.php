@@ -15,6 +15,16 @@ else {
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QTL5W2CYXB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QTL5W2CYXB');
+</script>
+
 <title>Susy League</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

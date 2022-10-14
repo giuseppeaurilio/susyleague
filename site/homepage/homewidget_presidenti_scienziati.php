@@ -72,6 +72,7 @@
                 )
             );
         }
+       
         if(count($presidenti) == 0){
             // echo "<h3> &nbsp;</h3>";
             echo "<div style='text-align: center;padding: 125px 0;'  class=' scienziati'>I nostri presidenti studiano!</div>";
@@ -80,6 +81,22 @@
         }  
         else
         {
+            // Obtain a list of columns
+            // foreach ($presidenti as $key => $row) {
+            //     $idsquadra[$key]  = $row['idsquadra'];
+            //     $indieci[$key] = $row['indieci'];
+            //     $innove[$key] = $row['innove'];
+            //     $meno[$key] = $row['meno'];
+            // }
+            $volume  = array_column($presidenti, 'idsquadra');
+            $indieci  = array_column($presidenti, 'indieci');
+            $innove  = array_column($presidenti, 'innove');
+            $meno  = array_column($presidenti, 'meno');
+
+
+            // Sort the data with volume descending, edition ascending
+            // Add $data as the last parameter, to sort by the common key
+            array_multisort($meno, SORT_DESC, $innove, SORT_DESC,$indieci, SORT_DESC, $presidenti);
             echo "<div class='widgetcontent scienziati'>";
             echo '<h3>
                     <div style="display: inline-block;width: 50%;">Squadra</div>
