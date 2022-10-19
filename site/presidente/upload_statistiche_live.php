@@ -53,7 +53,8 @@ foreach($items as $item)
 		$rig = explode("/",$DOM->saveHTML($item->getElementsByTagName("td")[6]->childNodes[0]));
 		// echo print_r($item->getElementsByTagName("td")[5]->childNodes[0]);
 		array_push($arrayGiocatori, array(
-			"id"=> $ar[6],
+			"id"=> $ar[7],
+			"nome"=> $ar[6],
 			"pg"=> $DOM->saveHTML($item->getElementsByTagName("td")[1]->childNodes[0]),
 			"mv"=> $DOM->saveHTML($item->getElementsByTagName("td")[2]->childNodes[0]),
 			"mf"=> $DOM->saveHTML($item->getElementsByTagName("td")[3]->childNodes[0]),
