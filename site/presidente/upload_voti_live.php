@@ -53,7 +53,8 @@ foreach($items as $item)
 		$ar = explode("/", $item->getElementsByTagName("td")[0]->getElementsByTagName("div")[0]->getElementsByTagName("a")[0]->getAttribute("href"));
 		
 		array_push($arrayGiocatori, array(
-			"id"=> $ar[6],
+			"id"=> $ar[7],
+			"nome"=> $ar[6],
 			"voto"=> $item->getElementsByTagName("td")[1]->getElementsByTagName("div")[3]->getElementsByTagName("span")[0]->getAttribute("data-value"),//voti italia
 			"golf"=>  $item->getElementsByTagName("td")[2]->getElementsByTagName("span")[0]->getAttribute("data-value"),
 			"gols"=>  $item->getElementsByTagName("td")[2]->getElementsByTagName("span")[1]->getAttribute("data-value"),
@@ -71,11 +72,11 @@ foreach($items as $item)
 	}
 }
 // echo "giornata: " . print_r($giornata). "<br>";
-// foreach($arrayGiocatori as $item)
-// 	echo print_r($item). "<br>";
+foreach($arrayGiocatori as $item)
+	echo print_r($item). "<br>";
 
-// 
-echo count($arrayGiocatori). "<br>";
+
+// echo count($arrayGiocatori). "<br>";
 foreach($arrayGiocatori as $item)
 {
 		// echo print_r($item). "<br>";
