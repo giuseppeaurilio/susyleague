@@ -1,10 +1,17 @@
 <?php
 function getConnection(){
-    $username="id258940_susy79";
-    $password="andspe79";
-    //$database="id258940_susy_league_2019-20";
-    $database="id258940_susy_league_2022-23";
-    $localhost = "localhost";
+    //localhost
+    // $username="id258940_susy79";
+    // $password="andspe79";
+    // //$database="id258940_susy_league_2019-20";
+    // $database="id258940_susy_league_2022-23";
+    // $localhost = "localhost";
+
+    // //tophost
+    $username="susyleag16215";
+    $password="*q3G99i&w24J";
+    $database="susyleag16215";
+    $localhost = "sql.susyleague.it";
 
 
     // Create connection
@@ -22,11 +29,7 @@ function cleanQuery($string) {
     // return preg_replace('/-+/', '-', $string); // Replaces multiple hyphens with single one.
     return preg_replace('/\s+/S', " ", $string);
  }
-// //tophost
-// $username="susyleag16215";
-// $password="*q3G99i&w24J";
-// $database="susyleag16215";
-// $localhost = "sql.susyleague.it";
+
 
 //host poco
 // $username="susyleag_admin";
