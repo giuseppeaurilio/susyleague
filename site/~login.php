@@ -17,16 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	//	CONNECT TO THE LOCAL DATABASE
 	//==========================================
 
-	include("dbinfo_susyleague.inc.php");
-
-
+	include_once ("dbinfo_susyleague.inc.php");
 	// Create connection
-	$conn = new mysqli($localhost, $username, $password,$database);
+	// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	}
+	// // Check connection
+	// if ($conn->connect_error) {
+	//     die("Connection failed: " . $conn->connect_error);
+	// }
+	$conn = getConnection();
 	// echo "Connected successfully";
 
 
@@ -85,25 +84,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 <?php
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 
 <FORM NAME ="form1" METHOD ="POST" ACTION ="login.php">
 Squadra:	
 <?php
-	include("dbinfo_susyleague.inc.php");
+	include_once ("dbinfo_susyleague.inc.php");
 
 
 	// Create connection
-	$conn = new mysqli($localhost, $username, $password,$database);
+	// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	}
+	// // Check connection
+	// if ($conn->connect_error) {
+	//     die("Connection failed: " . $conn->connect_error);
+	// }
 	// echo "Connected successfully";
-
+	$conn = getConnection();
 
 $query = "SELECT * FROM sq_fantacalcio";
 #echo $sql;
@@ -146,7 +145,7 @@ Password: <INPUT type="password" Name ='password'  value="">
 
 
 <?php
-include("footer.html");
+include_once ("footer.html");
 
 ?>
 

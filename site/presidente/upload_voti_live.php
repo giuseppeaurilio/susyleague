@@ -1,13 +1,15 @@
 <?php
 //called by https://console.cron-job.org/dashboard
-include_once ("../dbinfo_susyleague.inc.php");
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-// $conn->set_charset("ISO-8859-1");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$conn=mysqli_connect($localhost,$username,$password,$database) or die( "Unable to select database");
+// include_once ("../dbinfo_susyleague.inc.php");
+// // Create connection
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+// // $conn->set_charset("ISO-8859-1");
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+// $conn=mysqli_connect($localhost,$username,$password,$database) or die( "Unable to select database");
+include_once("../dbinfo_susyleague.inc.php");
+$conn = getConnection();
 ?>
 <?php
 
@@ -106,7 +108,7 @@ foreach($arrayGiocatori as $item)
 				VALUES ($id,$idgiornata,$votof,$voto)";
 		// print_r ($query);
 		// echo '<br/> '; 
-		$result=$conn->query($query) ;//or die($conn->error);
+		$result=$conn->query(cleanQuery($query)) ;//or die($conn->error);
 		// if($result) {
 		// 	$countervoti++; 
 		// 	// echo $query .'<br>';

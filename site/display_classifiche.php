@@ -1,5 +1,5 @@
 <?php
-include "menu.php";
+include_once("menu.php");
 
 ?>
 
@@ -56,17 +56,17 @@ $(document).ready(function(){
 
 </ul>
 <?php
-include "display_classifica_apertura.php";
-include "display_classifica_chiusura.php";
-include "display_classifica_aggregate.php";
-// include "display_classifica_finale.php";
-include "display_classifica_coppaitalia_gironi.php";
-// include "display_classifica_coppaitalia_tabellone.php";
-include "display_classifica_coppacoppe.php";
-// include "display_classifica_supercoppa.php";
+include_once( "display_classifica_apertura.php");
+include_once( "display_classifica_chiusura.php");
+include_once( "display_classifica_aggregate.php");
+// include_once( "display_classifica_finale.php");
+include_once( "display_classifica_coppaitalia_gironi.php");
+// include_once( "display_classifica_coppaitalia_tabellone.php");
+include_once( "display_classifica_coppacoppe.php");
+// include_once( "display_classifica_supercoppa.php");
 ?>
 </div>
 
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?>

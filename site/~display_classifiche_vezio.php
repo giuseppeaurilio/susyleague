@@ -37,7 +37,7 @@ table th {
 include "dbinfo_susyleague.inc.php";
 #echo $username;
 // Create connection
-$conn = new mysqli($localhost, $username, $password, $database);
+if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 
 // Check connection
 if ($conn->connect_error) {

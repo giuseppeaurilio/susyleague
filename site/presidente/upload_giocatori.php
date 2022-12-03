@@ -8,13 +8,15 @@ function parse_giocatori($filename) {
 		$countergiocatori = 0;
 		while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 			// print_r($data);
-			include("../dbinfo_susyleague.inc.php");
-			$conn = new mysqli($localhost, $username, $password,$database);
+			// include_once ("../dbinfo_susyleague.inc.php");
+			// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 			
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			}
+			// // Check connection
+			// if ($conn->connect_error) {
+			// 	die("Connection failed: " . $conn->connect_error);
+			// }
+			include_once("../dbinfo_susyleague.inc.php");
+    		$conn = getConnection();
 			try{
 				
 				if(is_numeric($data[0])){
@@ -88,13 +90,15 @@ function update_giocatori($filename) {
 		
 		while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 			// print_r($data);
-			include("../dbinfo_susyleague.inc.php");
-			$conn = new mysqli($localhost, $username, $password,$database);
+			// include_once ("../dbinfo_susyleague.inc.php");
+			// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 			
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			}
+			// // Check connection
+			// if ($conn->connect_error) {
+			// 	die("Connection failed: " . $conn->connect_error);
+			// }
+			include_once("../dbinfo_susyleague.inc.php");
+    		$conn = getConnection();
 			try{
 				if(is_numeric($data[0])){
 					//cerco la squadra di destinazione
@@ -188,12 +192,14 @@ if ($uploadOk == 0) {
 } 
 else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-		include("../dbinfo_susyleague.inc.php");
-		$conn = new mysqli($localhost, $username, $password,$database);
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
+		// include_once ("../dbinfo_susyleague.inc.php");
+		// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+		// // Check connection
+		// if ($conn->connect_error) {
+		// 	die("Connection failed: " . $conn->connect_error);
+		// }
+		include_once("../dbinfo_susyleague.inc.php");
+    	$conn = getConnection();
 		try{
 			echo "Il file ". basename( $_FILES["fileToUpload"]["name"]). " e' stato caricato.";
 			echo'<br>';

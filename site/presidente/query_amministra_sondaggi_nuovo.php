@@ -1,20 +1,22 @@
 <?php
 
 
-include_once ("../dbinfo_susyleague.inc.php");
-// mysql_connect($localhost,$username,$password);
-// @mysql_select_db($database) or die( "Unable to select database");
+// include_once ("../dbinfo_susyleague.inc.php");
+// // mysql_connect($localhost,$username,$password);
+// // @mysql_select_db($database) or die( "Unable to select database");
 
 
-// $id_sondaggio=$_POST["id_sondaggio"];
+// // $id_sondaggio=$_POST["id_sondaggio"];
 
-$conn = new mysqli($localhost, $username, $password,$database);
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+// // echo "Connected successfully";
+include_once("../dbinfo_susyleague.inc.php");
+    $conn = getConnection();
 
 
 $testo=$conn->real_escape_string($_POST["testo"]);

@@ -11,7 +11,7 @@ header {
   overflow: hidden;
   color: white;
   justify-content: center;
-  background: #000000 url('../images/header.png') 100% 100% no-repeat;
+  background: #000000 url('/images/header.png') 100% 100% no-repeat;
   background-position: center; 
 }
 header h1{
@@ -182,8 +182,8 @@ div.stellarnav
 }
 .background
 {
-  /* background-image: url('../images/4c58a14a-ed39-4ae0-bf1a-78a8544dddcc.jpg'); */
-  background-image: url('../images/IMG_20220821_111408.jpg');
+  /* background-image: url('/images/4c58a14a-ed39-4ae0-bf1a-78a8544dddcc.jpg'); */
+  background-image: url('/images/IMG_20220821_111408.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center; 
@@ -399,7 +399,7 @@ body .widget div.fannulloni
 }
 body .widget div.scienziati
 {
-  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('images/anp.jpg');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('/images/anp.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -409,7 +409,7 @@ body .widget div.scienziati
 
 body .widget div.perle
 {
-  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('images/93df41c8-c1a5-4853-87a3-ec941ea1f46e.jpg');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('/images/93df41c8-c1a5-4853-87a3-ec941ea1f46e.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -786,11 +786,11 @@ li.game{
 .tabellonecoppa
 {
   overflow: hidden;
-  /* background: url('../images/coppa_italia.jpg');
+  /* background: url('/images/coppa_italia.jpg');
   background-size:100% 100%; */
   
   /* justify-content: center; */
-  background-image: url('../images/coppa_italia.jpg');
+  background-image: url('/images/coppa_italia.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center; 
@@ -935,7 +935,7 @@ connection {
   overflow: hidden;
   color: white;
   overflow: hidden;
-  background: url('../images/Allianz_Stadium_49_4.jpg');
+  background: url('/images/Allianz_Stadium_49_4.jpg');
   /* background-size:100% 100%; */
   background-repeat: no-repeat;
   background-size: auto 100%;
@@ -943,7 +943,7 @@ connection {
 
 }
 .finale.supercoppa{
-  background: url('../images/san_siro_vuoto_lapresse.jpg');
+  background: url('/images/san_siro_vuoto_lapresse.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center; 

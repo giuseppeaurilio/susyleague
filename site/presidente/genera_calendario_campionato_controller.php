@@ -2,18 +2,21 @@
 
 header('Content-Type: text/html; charset=ISO-8859-1');
 $action ="";
-include_once ("../dbinfo_susyleague.inc.php");
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// include_once ("../dbinfo_susyleague.inc.php");
+// // Create connection
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+include_once("../dbinfo_susyleague.inc.php");
+
 
 function sbragaCalendario() {
     $query="DELETE FROM `calendario`";
     // $result=mysql_query($query);
-    global $conn;
+    // global $conn;
+    $conn = getConnection();
 	$conn->query($query);
 	
 	// $query="DELETE FROM `giornate` where id_girone=1";
@@ -101,7 +104,8 @@ function generateRoundRobinPairings($num_players) {
 function aggiungi_partita($giornata, $casa, $ospite) {
     $query="INSERT INTO `calendario`(`id_giornata`, `id_sq_casa`, `id_sq_ospite`) VALUES (" . $giornata .",". $casa .",".  $ospite .")";
     // $result=mysql_query($query);
-    global $conn;
+    // global $conn;
+    $conn = getConnection();
     $conn->query($query);
 	// echo $query ."<br>";
 }

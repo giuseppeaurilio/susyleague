@@ -6,13 +6,15 @@ function update_giocatori($filename) {
 		// $data = fgetcsv($handle, 1000, ",");
 		$countersquadre = 0;
 		$countergiocatori = 0;
-		include("../dbinfo_susyleague.inc.php");
-		$conn = new mysqli($localhost, $username, $password,$database);
+		// include_once ("../dbinfo_susyleague.inc.php");
+		// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 		
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
+		// // Check connection
+		// if ($conn->connect_error) {
+		// 	die("Connection failed: " . $conn->connect_error);
+		// }
+		include_once("../dbinfo_susyleague.inc.php");
+    	$conn = getConnection();
 		$queryfindsquadra = "SELECT * FROM `squadre_serie_a` WHERE squadra_breve='SVI'";
 		$resultfindsquadra  = $conn->query($queryfindsquadra) or die($conn->error);
 		if($resultfindsquadra->num_rows == 0)
@@ -97,12 +99,14 @@ if ($uploadOk == 0) {
 } 
 else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-		include("../dbinfo_susyleague.inc.php");
-		$conn = new mysqli($localhost, $username, $password,$database);
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
+		// include_once ("../dbinfo_susyleague.inc.php");
+		// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+		// // Check connection
+		// if ($conn->connect_error) {
+		// 	die("Connection failed: " . $conn->connect_error);
+		// }
+		include_once("../dbinfo_susyleague.inc.php");
+    	$conn = getConnection();
 		try{
 			echo "Il file ". basename( $_FILES["fileToUpload"]["name"]). " e' stato caricato.";
 			echo'<br>';

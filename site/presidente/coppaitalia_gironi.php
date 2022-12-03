@@ -1,5 +1,5 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 
@@ -144,18 +144,24 @@ while ($index <= 6){
     echo '<option value="">--Seleziona squadra fantacalcio--</option>';
         
 
-    $query="SELECT * FROM sq_fantacalcio order by squadra";
-    // $result=mysql_query($query);
-    // $num=mysql_numrows($result); 
-    $result=$conn->query($query);
-    $num=$result->num_rows; 
-    $i=0;
-    while($row = $result->fetch_assoc()){
-        // $id=mysql_result($result,$i,"id");
-        $id=$row["id"];
-        $squadra=$row["squadra"];
-        echo '<option value=' . $id . '>'. $squadra . '</option>';
-    ++$i;
+    // $query="SELECT * FROM sq_fantacalcio order by squadra";
+    // // $result=mysql_query($query);
+    // // $num=mysql_numrows($result); 
+    // $result=$conn->query($query);
+    // $num=$result->num_rows; 
+    // $i=0;
+    // while($row = $result->fetch_assoc()){
+    //     // $id=mysql_result($result,$i,"id");
+    //     $id=$row["id"];
+    //     $squadra=$row["squadra"];
+    //     echo '<option value=' . $id . '>'. $squadra . '</option>';
+    // ++$i;
+    // }
+    include_once ("../DB/fantacalcio.php");
+    $squadre = fantacalcio_getFantasquadre();
+    foreach($squadre as $squ)
+    {
+        echo '<option value=' . $squ["id"] . '>'. $squ["squadra"] . '</option>';
     }
 
     echo '</select>';
@@ -181,18 +187,22 @@ while ($index <= 6){
     echo '<option value="">--Seleziona squadra fantacalcio--</option>';
         
 
-    $query="SELECT * FROM sq_fantacalcio order by squadra";
-    // $result=mysql_query($query);
-    // $num=mysql_numrows($result); 
-    $result=$conn->query($query);
-    $num=$result->num_rows; 
-    $i=0;
-    while($row = $result->fetch_assoc()){
-        // $id=mysql_result($result,$i,"id");
-        $id=$row["id"];
-        $squadra=$row["squadra"];
-        echo '<option value=' . $id . '>'. $squadra . '</option>';
-    ++$i;
+    // $query="SELECT * FROM sq_fantacalcio order by squadra";
+    // // $result=mysql_query($query);
+    // // $num=mysql_numrows($result); 
+    // $result=$conn->query($query);
+    // $num=$result->num_rows; 
+    // $i=0;
+    // while($row = $result->fetch_assoc()){
+    //     // $id=mysql_result($result,$i,"id");
+    //     $id=$row["id"];
+    //     $squadra=$row["squadra"];
+    //     echo '<option value=' . $id . '>'. $squadra . '</option>';
+    // ++$i;
+    // }
+    foreach($squadre as $squ)
+    {
+        echo '<option value=' . $squ["id"] . '>'. $squ["squadra"] . '</option>';
     }
 
     echo '</select>';
@@ -210,6 +220,6 @@ while ($index <= 6){
     <a href="coppaitalia_calendario.php" >Calendario Incontri</a>
 </div>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>
 

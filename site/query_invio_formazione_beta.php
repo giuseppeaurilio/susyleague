@@ -12,11 +12,12 @@ else {
 	$id_squadra_logged= $_SESSION['login'];
 }
 
-$conn = new mysqli($localhost, $username, $password,$database);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+$conn = getConnection();
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$action = $_POST['action'];
 
@@ -264,10 +265,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 					),
 				));
 			}
-			finally {
-				if(isset($conn))
-					{$conn->close();}
-			}
+			// finally {
+			// 	if(isset($conn))
+			// 		{$conn->close();}
+			// }
 		
 		// else{
 		// 	echo json_encode(array(

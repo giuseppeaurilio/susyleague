@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <h2>Finale Campionato</h2>
@@ -122,6 +122,6 @@ echo '</div>';
 echo '</fieldset>'; 
 ?>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>
 

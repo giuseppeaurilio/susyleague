@@ -1,12 +1,9 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <script>
-// var noimage = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
-imgError = function(img){
-	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
-};
+
 var astaincorso = false;
 loadStatsDialog = function(id)
 {
@@ -178,7 +175,7 @@ $(document).ready(function(){
 </script>
 
 <?php
-//load squadre fantacalcio
+//load squadre serie a 
 $query="SELECT * FROM squadre_serie_a order by squadra";
 
 $result=$conn->query($query);
@@ -193,25 +190,27 @@ while($row = $result->fetch_assoc()){
 		)
 	);
 }
-//fine load squadre fantacalcio
+//fine load squadre  serie a 
 ?>
 
 <?php
 //load squadre fantacalcio
-$query="SELECT * FROM sq_fantacalcio order by squadra";
+// $query="SELECT * FROM sq_fantacalcio order by squadra";
 
-$result=$conn->query($query);
-$squadrefc = array();
-while($row = $result->fetch_assoc()){
-	// $id=mysql_result($result,$i,"id");
+// $result=$conn->query($query);
+// $squadrefc = array();
+// while($row = $result->fetch_assoc()){
+// 	// $id=mysql_result($result,$i,"id");
 	
-	array_push($squadrefc, array(
-		"id"=>$row["id"],
-		"squadra"=>$row["squadra"]
-		)
-	);
-}
+// 	array_push($squadrefc, array(
+// 		"id"=>$row["id"],
+// 		"squadra"=>$row["squadra"]
+// 		)
+// 	);
+// }
 //fine load squadre fantacalcio
+include_once ("DB/fantacalcio.php");
+$squadrefc = fantacalcio_getFantasquadre();
 ?>
 <h2>Statistiche giocatori
 	
@@ -339,5 +338,5 @@ while($row = $result->fetch_assoc()){
     </div>
 </div>
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?>

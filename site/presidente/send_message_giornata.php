@@ -1,18 +1,19 @@
 
 <?php
 include_once ("../send_message_post.php");
-// include("../dbinfo_susyleague.inc.php");
+// include_once ("../dbinfo_susyleague.inc.php");
 // mysql_connect($localhost,$username,$password);
 // @mysql_select_db($database) or die( "Unable to select database");ù
-include_once  ("../dbinfo_susyleague.inc.php");
+// include_once  ("../dbinfo_susyleague.inc.php");
 
-$conn = new mysqli($localhost, $username, $password,$database);
-$conn->set_charset("utf8");
-// Check connection
-if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
-}
-
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+// $conn->set_charset("utf8");
+// // Check connection
+// if ($conn->connect_error) {
+// 	die("Connection failed: " . $conn->connect_error);
+// }
+include_once("../dbinfo_susyleague.inc.php");
+$conn = getConnection();
 
 if (isset($_POST['id_giornata']))
 	{

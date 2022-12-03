@@ -1,5 +1,5 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <script>
@@ -262,5 +262,5 @@ $squadre = fantacalcio_getFantasquadre();
     </div>
 </div>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

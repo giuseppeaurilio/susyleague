@@ -1,5 +1,5 @@
 <?
-#include("dbinfo.inc.php");
+#include_once ("dbinfo.inc.php");
 $database=$_GET['database'];
 $username=$_GET['username'];
 $password=$_GET['password'];

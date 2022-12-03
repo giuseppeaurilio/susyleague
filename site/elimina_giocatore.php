@@ -1,7 +1,7 @@
 <?php 
 
-include("menu.php");
-include("../dbinfo_susyleague.inc.php");
+include_once ("menu.php");
+include_once ("../dbinfo_susyleague.inc.php");
 $link=mysql_connect($localhost,$username,$password);
 @mysql_select_db($database) or die( "Unable to select database");
 

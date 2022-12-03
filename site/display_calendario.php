@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 $id_girone=$_GET['id_girone'];
 $strCampionato = "";
 if($id_girone == 1) $strCampionato = "Apertura";
@@ -149,5 +149,5 @@ while ($row=$result->fetch_assoc()) {
 ?>
 
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?>

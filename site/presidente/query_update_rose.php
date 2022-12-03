@@ -1,5 +1,5 @@
 <?
-include("../dbinfo_susyleague.inc.php");
+include_once ("../dbinfo_susyleague.inc.php");
 
 $id_squadra=mysql_escape_String($_POST['id_squadra']);
 $id_posizione=mysql_escape_String($_POST['id_posizione']);

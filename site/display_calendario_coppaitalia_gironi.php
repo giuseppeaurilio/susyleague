@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 ?>
 <h2>Calendario Coppa Italia</h2>
 
@@ -120,5 +120,5 @@ foreach($giornate as $giornata){
 ?>
 
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?>

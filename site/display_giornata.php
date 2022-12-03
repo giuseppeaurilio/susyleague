@@ -1,16 +1,12 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 
 <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <script>
-imgError = function(img){
-	// img.src = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
-	// img.src = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png");
-	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
-};
+
 
 showFormazioneIdeale = function()
 {
@@ -640,5 +636,5 @@ while ($row=$result_giornata->fetch_assoc()) {
 	
 </div><!-- end incontri-->
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?>

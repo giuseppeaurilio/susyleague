@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -560,5 +560,5 @@ for($i = 0; $i < 4; $i++) {
 <a href="<?php echo "display_giornata.php?&id_giornata=" . $id_giornata; ?>"><?php echo "Formazioni Giornata " . $id_giornata ?></a>
 <br>
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?>

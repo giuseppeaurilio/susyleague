@@ -1,5 +1,5 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 
 // $id_girone=$_GET['id_girone'];
 ?>
@@ -291,5 +291,5 @@ echo '</div>';
 </form>
 <div id="resultcontainer"></div>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

@@ -1,15 +1,13 @@
 <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
 <?php
-include("menu.php");
+include_once ("menu.php");
 $id_giornata=$_GET['id_giornata'];
 $id_girone=$_GET['id_girone'];
 ?>
 <script>
 	
-imgError = function(img){
-	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
-};
+
 
 inviaSostituzione= function (){
 	// debugger;
@@ -694,5 +692,5 @@ $commento=$result_commento->fetch_assoc()["commento"];
 </form> 
     
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

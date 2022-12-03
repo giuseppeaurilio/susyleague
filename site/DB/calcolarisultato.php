@@ -93,10 +93,7 @@ class Partita
     {
         $punteggiocasa = $this->calcolaRisultatoSquadra($this->idgiornata, $this->idcasa, $this->casamd);
         $punteggioospite = $this->calcolaRisultatoSquadra($this->idgiornata, $this->idospite, $this->ospitemd);
-        include "../globalsettings.php"; 
-        // if($boolprint) print("<pre>".print_r($punteggiocasa,true)."</pre>").'<br>';
-        // if($boolprint) print("<pre>".print_r($punteggioospite,true)."</pre>").'<br>';
-
+        
         $punteggiototalecasa = $punteggiocasa->punteggio + $this->valorefattorecasa + ($this->usamediadifesa ?  $punteggioospite->mediadifesa: 0);
         $punteggiototaleospite = $punteggioospite->punteggio + ($this->usamediadifesa ?  $punteggiocasa->mediadifesa: 0);
 
@@ -109,15 +106,10 @@ class Partita
     
     private function calcolaRisultatoSquadra($idgiornata, $idsquadra, $calcolamd)
     {
-        include "../globalsettings.php"; 
-        include "../dbinfo_susyleague.inc.php";
-
-        // Create connection
-        $conn = new mysqli($localhost, $username, $password, $database);
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
+        
+        include_once("../dbinfo_susyleague.inc.php");
+        $conn = getConnection();
+        
         $query = 'SELECT g.id as id_giocatore, g.ruolo, f.id_posizione,gv.voto, gv.voto_md, f.sostituzione
         FROM `formazioni`  f
         left join giocatori g on g.id = f.id_giocatore
@@ -443,9 +435,6 @@ class Partita
 
     private function calcolaMediaDifesa($_numdif, $_sommavoti, $calcola)
     {
-        include "../globalsettings.php"; 
-        // if($boolprint) echo  print("numdifcv= ".$_numdif).'<br>';
-        // if($boolprint) echo  print("sumdifesa= ".$_sommavoti).'<br>';
         $ret  = 0;
         // se il parameto $calcola è false, non devo calcolare la media difesa
         if($calcola == false)

@@ -1,5 +1,5 @@
 <?php 
-include("dbinfo_susyleague.inc.php");
+include_once ("dbinfo_susyleague.inc.php");
 date_default_timezone_set('Europe/Rome');
 $date = date('Y-m-d');
 
@@ -19,7 +19,7 @@ $id_annuncio=$_GET['id_annuncio'];
 	$query="DELETE FROM mercato WHERE id_annuncio='$id_annuncio' and `id_squadra`='$id_squadra_logged'";
 
 	//echo $query;
-	$result=mysqli_query($con,$query);
+	$result=mysqli_query($conn,$query);
 	
 	
 	

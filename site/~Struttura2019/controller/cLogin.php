@@ -11,9 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$uname = htmlspecialchars($uname);
     $pword = htmlspecialchars($pword);
     
-    include("../configuration.php");
+    include_once ("../configuration.php");
     // Create connection
-	$conn = new mysqli($localhost, $username, $password,$database);
+	if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 
 	// Check connection
 	if ($conn->connect_error) {

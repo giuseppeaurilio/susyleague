@@ -16,13 +16,15 @@ function parse_stats($filename, $anno) {
 		$countervoti = 0;
 		$errormessage = "";
 		try{
-			include("../dbinfo_susyleague.inc.php");
-			$conn = new mysqli($localhost, $username, $password,$database);
+			// include_once ("../dbinfo_susyleague.inc.php");
+			// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 			
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			}
+			// // Check connection
+			// if ($conn->connect_error) {
+			// 	die("Connection failed: " . $conn->connect_error);
+			// }
+			include_once("../dbinfo_susyleague.inc.php");
+    		$conn = getConnection();
 
 			
 			while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
@@ -120,12 +122,14 @@ if ($uploadOk == 0) {
 } 
 else {
     if (move_uploaded_file($_FILES["fileToUploadStats"]["tmp_name"], $target_file)) {
-		include("../dbinfo_susyleague.inc.php");
-		$conn = new mysqli($localhost, $username, $password,$database);
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
+		// include_once ("../dbinfo_susyleague.inc.php");
+		// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+		// // Check connection
+		// if ($conn->connect_error) {
+		// 	die("Connection failed: " . $conn->connect_error);
+		// }
+		include_once("../dbinfo_susyleague.inc.php");
+    	$conn = getConnection();
 		try{
 			parse_stats($target_file, $anno);	
 		}

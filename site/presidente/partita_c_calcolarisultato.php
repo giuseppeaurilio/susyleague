@@ -9,13 +9,15 @@ $idgiornata=$_GET['idgiornata'];
 // $partita = new Partita($idgiornata, $idpartita, $idcasa, $idospite, true, 1);
 // $result = $partita->calcolaRisultatoPartita();
 // print_r($result);
-include "../dbinfo_susyleague.inc.php";
+// include_once("../dbinfo_susyleague.inc.php");
 
-// Create connection
-$conn = new mysqli($localhost, $username, $password, $database);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// // Create connection
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+include_once("../dbinfo_susyleague.inc.php");
+    $conn = getConnection();
 
 // $query = 'SELECT * FROM `calendario` where id_giornata = ' . $idgiornata .' order by id_partita';
 $query = "SELECT c.*, g.giornata_serie_a_id FROM `calendario` as c 
@@ -76,10 +78,12 @@ foreach($arraypartite as $partita){
     $result = $p->calcolaRisultatoPartita();
     // print("<pre>".print_r($result   ,true)."</pre>").'<br>';
 
-    $conn = new mysqli($localhost, $username, $password, $database);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    // if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+    // if ($conn->connect_error) {
+    //     die("Connection failed: " . $conn->connect_error);
+    // }
+    include_once("../dbinfo_susyleague.inc.php");
+    $conn = getConnection();
     // print("<pre>".print_r($result   ,true)."</pre>").'<br>';
     $queryupdate = 'UPDATE `calendario` 
                     SET `gol_casa`='.$result->golCasa.'

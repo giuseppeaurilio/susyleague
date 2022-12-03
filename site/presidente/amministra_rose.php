@@ -1,5 +1,5 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
@@ -77,9 +77,7 @@ $(document).ready(function(){
 </script>
 
 <script>
-imgError = function(img){
-	img.src = "https://content.fantacalcio.it/web/campioncini/medium/no-campioncino.png";
-};
+
 estraiGiocatore = function()
 {
     $("#sq_sa").val("");
@@ -638,5 +636,5 @@ echo "</table>";
 } 
 ?>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

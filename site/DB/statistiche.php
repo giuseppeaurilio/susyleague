@@ -1,14 +1,16 @@
 <?php
 function statistiche_miglioreformazione_digiorntata($idGiornataSerieA, $idFantasquadra){
-    global $localhost;
-    global $username;
-    global $password;
-    global $database;
-
-    $conn = new mysqli($localhost, $username, $password, $database);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    // global $localhost;
+    // global $username;
+    // global $password;
+    // global $database;
+    // // global $conn;
+    // if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+    // if ($conn->connect_error) {
+    //     die("Connection failed: " . $conn->connect_error);
+    // }
+    include_once("../dbinfo_susyleague.inc.php");
+    $conn = getConnection();
 
     // $query = "SELECT g.*, ga.inizio, ga.fine
     // FROM `giornate` as g

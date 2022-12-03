@@ -3,15 +3,17 @@
 $id_squadra=$_GET['id_squadra'];
 $id_giornata=$_GET['id_giornata'];
 $giocatori=$_GET['giocatori'];
-include("../dbinfo_susyleague.inc.php");
+include_once ("../dbinfo_susyleague.inc.php");
 
 // $link = mysql_connect(localhost,$username,$password);
 // @mysql_select_db($database) or die( "Unable to select database");
-$conn = new mysqli($localhost, $username, $password,$database);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+include_once("../dbinfo_susyleague.inc.php");
+    $conn = getConnection();
 
 // $query_ini = "REPLACE INTO `formazioni`(`id_giornata`, `id_squadra`, `id_posizione`, `nome`, `squadra`, `ruolo`, `voto`, `voto_md`) VALUES (" . $id_giornata .",". $id_squadra . "," ;
 

@@ -1,5 +1,5 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <script>
@@ -35,16 +35,17 @@ $(document).ready(function(){
 </script>
 
 <?php
-include("../dbinfo_susyleague.inc.php");
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
+// include_once ("../dbinfo_susyleague.inc.php");
+// // Create connection
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
 // echo "Connected successfully";
-
+include_once("../dbinfo_susyleague.inc.php");
+$conn = getConnection();
 
 ?>
 <h2>Aggiungi Giocatore</h2>
@@ -192,5 +193,5 @@ echo "</table>";
 } 
 ?>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

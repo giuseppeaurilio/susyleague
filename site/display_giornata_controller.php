@@ -3,7 +3,8 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 $action ="";
 include_once ("dbinfo_susyleague.inc.php");
 // Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+$conn = getConnection();
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

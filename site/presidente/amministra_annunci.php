@@ -1,5 +1,5 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <script>
@@ -142,5 +142,5 @@ while($row = $result->fetch_assoc()){
     </div>
 </div>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

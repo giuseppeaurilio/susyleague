@@ -1,5 +1,5 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 ?>
 <h2>Carica Giocatori</h2>
 <div class="">
@@ -72,5 +72,5 @@ include("menu.php");
 </form> -->
 <!-- <a href="spiegazione_creazione_file_csv.pdf">File di Spiegazione</a>     -->
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

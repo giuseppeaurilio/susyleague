@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 ?>
 <!-- <h2>Calendario FINALI</h2> -->
 <?php
@@ -199,5 +199,5 @@ foreach ($giornate as $partita) {
 
 ?>
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?>

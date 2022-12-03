@@ -1,17 +1,10 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 ?>
 
 <script>
 var moduli =["3-5-2", "3-4-3", "4-3-3", "4-4-2", "4-5-1", "5-3-2", "5-4-1"];
 var numRiserve = 10;
-
-// var pconto = [0, 0, 0, 0];
-// var modulo = [0, 0, 0, 0];
-
-imgError = function(img){
-	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
-};
 	
 resetFormazione = function(){
 	$('.giocatorecontainer').each( function (){
@@ -834,5 +827,5 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 </div>
 
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?>

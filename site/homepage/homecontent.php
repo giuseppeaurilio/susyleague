@@ -8,18 +8,18 @@
 <div class="background">
     <div class="maincontent" >
         <?php
-            include("homewidget_partiteincorso.php");
-            include("homewidget_annuncio.php");
-            include("homewidget_fustometro.php");
-            include("homewidget_fustometro_inpreparazione.php");
-            include("homewidget_ultimirisultati.php");
-            include("homewidget_prossimoturno.php");
-            include("homewidget_perlediiori.php");
-            include("homewidget_sondaggi.php");
-            include("homewidget_vincitori.php");
-            include("homewidget_mercato.php");
-            include("homewidget_presidenti_fannulloni.php");
-            include("homewidget_presidenti_scienziati.php");
+            include_once ("homewidget_partiteincorso.php");
+            include_once ("homewidget_annuncio.php");
+            include_once ("homewidget_fustometro.php");
+            include_once ("homewidget_fustometro_inpreparazione.php");
+            include_once ("homewidget_ultimirisultati.php");
+            include_once ("homewidget_prossimoturno.php");
+            include_once ("homewidget_perlediiori.php");
+            include_once ("homewidget_sondaggi.php");
+            include_once ("homewidget_vincitori.php");
+            include_once ("homewidget_mercato.php");
+            include_once ("homewidget_presidenti_fannulloni.php");
+            include_once ("homewidget_presidenti_scienziati.php");
         
         ?>
     </div>

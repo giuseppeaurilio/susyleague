@@ -1,18 +1,21 @@
 <?php
-include_once "parametri.php";
+
 
 function getOffertaMassima($idSquadra){
 
-    global $localhost;
-    global $username;
-    global $password;
-    global $database;
+    // global $localhost;
+    // global $username;
+    // global $password;
+    // global $database;
+    // // global $conn;
+    // if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+    // if ($conn->connect_error) {
+    //     die("Connection failed: " . $conn->connect_error);
+    // }
+    // include_once("dbinfo_susyleague.inc.php");
+     $conn = getConnection();
 
-    $conn = new mysqli($localhost, $username, $password, $database);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
+    include_once ("parametri.php");
     $fantamilioni=getFantamilioni();
 
     $query_riepilogo ="select IFNULL(SUM(costo), 0) as spesi, COUNT(id_giocatore) as numero
@@ -24,8 +27,8 @@ function getOffertaMassima($idSquadra){
     $num=$s["numero"];
     $spesi=$s["spesi"];
 
-    if(isset($conn))
-    {$conn->close();}
+    // if(isset($conn))
+    // {$conn->close();}
     $numpor = getNumPortieri();
     $numdif = getNumDifensori();
     $numcen = getNumCentrocampisti();
@@ -43,16 +46,19 @@ function getOffertaMassima($idSquadra){
 
 }
 function getMilioniRimanenti($idSquadra){
-    global $localhost;
-    global $username;
-    global $password;
-    global $database;
-    
-    $conn = new mysqli($localhost, $username, $password, $database);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    // global $localhost;
+    // global $username;
+    // global $password;
+    // global $database;
+    // // global $conn;
+    // if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+    // if ($conn->connect_error) {
+    //     die("Connection failed: " . $conn->connect_error);
+    // }
+    // include_once("dbinfo_susyleague.inc.php");
+    $conn = getConnection();
 
+    include_once ("parametri.php");
     $fantamilioni=getFantamilioni();
 
     $query_riepilogo ="select IFNULL(SUM(costo), 0) as spesi, COUNT(id_giocatore) as numero
@@ -62,12 +68,13 @@ function getMilioniRimanenti($idSquadra){
     $result_riepilogo = $conn->query($query_riepilogo);
     $s=mysqli_fetch_assoc($result_riepilogo);
     $spesi=$s["spesi"];
-    if(isset($conn))
-    {$conn->close();}
+    // if(isset($conn))
+    // {$conn->close();}
     return $fantamilioni - $spesi;
 }
 
 function hasJolly($idSquadra){
+    include_once ("parametri.php");
     $numpor = getNumPortieri();
     $numdif = getNumDifensori();
     $numcen = getNumCentrocampisti();
@@ -102,15 +109,18 @@ function hasJolly($idSquadra){
 function getRiepilogoAsta($idSquadra){
 
 
-    global $localhost;
-    global $username;
-    global $password;
-    global $database;
-    // Create connection
-    $conn = new mysqli($localhost, $username, $password, $database);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    // global $localhost;
+    // global $username;
+    // global $password;
+    // global $database;
+    // // global $conn;
+    // // Create connection
+    // if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+    // if ($conn->connect_error) {
+    //     die("Connection failed: " . $conn->connect_error);
+    // }
+    // include_once("dbinfo_susyleague.inc.php");
+    $conn = getConnection();
 
     $queryriepilogo='CALL getRiepilogoRosa('.$idSquadra.')';
     $resultriepilogo = $conn->query($queryriepilogo) or die($conn->error);
@@ -138,8 +148,8 @@ function getRiepilogoAsta($idSquadra){
         "numerototale"=> $numerototale
     );
 
-    if(isset($conn))
-    {$conn->close();}
+    // if(isset($conn))
+    // {$conn->close();}
     return $arrayriepilogo;
 }
 

@@ -1,16 +1,9 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 
-<script>
-// var noimage = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
-// var noimage = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
 
-imgError = function(img){
-	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
-};
-</script>
 
 <h2>Statistiche e curiosità</h2>
 
@@ -213,5 +206,5 @@ order by voto desc -->
 
 
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?> 

@@ -108,7 +108,7 @@ body {padding: 0; margin: 0;}
 <body>
 
 <?php 
-include("dbinfo_susyleague.inc.php");
+include_once ("dbinfo_susyleague.inc.php");
 
 #echo "username = " . $username;
 $con=mysqli_connect($localhost,$username,$password,$database) or die( "Unable to select database");;

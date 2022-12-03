@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <script>
@@ -66,5 +66,5 @@ foreach($partite as $partita){
 ?>
     
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

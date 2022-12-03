@@ -2,13 +2,13 @@
 $path = $_SERVER['DOCUMENT_ROOT'];
 
 $path = "../menu.php";
-#include("menu.php");
+#include_once ("menu.php");
 #echo "path=" . $path;
-include($path);
-// include("home.html");
+include_once ($path);
+// include_once ("home.html");
 
-include("homecontent.php");
+include_once ("homecontent.php");
 
-include("../footer.php");
+include_once ("../footer.php");
 
 ?>

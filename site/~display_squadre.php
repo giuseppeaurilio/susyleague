@@ -1,10 +1,10 @@
 <?
-include("menu.html");
+include_once ("menu.html");
 
 ?>
 
 <?
-include("dbinfo_susyleague.inc.php");
+include_once ("dbinfo_susyleague.inc.php");
 mysql_connect(localhost,$username,$password);
 @mysql_select_db($database) or die( "Unable to select database");
 $query="SELECT * FROM sq_fantacalcio";
@@ -58,7 +58,7 @@ echo "</table>";
 
 ?>
 <?
-include("footer.html");
+include_once ("footer.html");
 
 ?>
 

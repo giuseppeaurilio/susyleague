@@ -8,7 +8,7 @@ session_start();
 	$allenatore= $_SESSION['allenatore'];
 	$id_squadra_logged= $_SESSION['login'];
 }
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <h2>Mercato</h2>
@@ -17,8 +17,8 @@ include("menu.php");
 
 $query="SELECT a.id_annuncio,a.testo, b.squadra, b.id, a.data_annuncio  FROM mercato as a inner join  sq_fantacalcio as b where a.id_squadra=b.id ; ";
 //echo $query;
-$result=mysqli_query($con,$query);
-$num=mysqli_num_rows($result);
+$result=mysqli_query($conn,$query);
+$num=$result->num_rows;
 ?>
 <div>
 <table border="0" cellspacing="2" cellpadding="2">
@@ -65,7 +65,7 @@ if ($id_squadra_logged==$id_squadra) {
 } 
 echo "</table>";
 echo "</div>";
-mysqli_close($con);
+// mysqli_close($con);
 
 
 if ((isset($_SESSION['login']) && $_SESSION['login'] != '')) {
@@ -82,5 +82,5 @@ if ((isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 }
 ?>
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?>

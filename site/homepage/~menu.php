@@ -99,7 +99,7 @@ body {padding: 0; margin: 0;}
 <body>
 
 <?php 
-include("../dbinfo_susyleague.inc.php");
+include_once ("../dbinfo_susyleague.inc.php");
 
 #echo "username = " . $username;
 mysql_connect(localhost,$username,$password);

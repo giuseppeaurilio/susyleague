@@ -1,6 +1,6 @@
 
 <?php 
-include("menu.php");
+include_once ("menu.php");
 ?>
 
 
@@ -86,5 +86,5 @@ if(!is_null($giornatasa))
 
 ?>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

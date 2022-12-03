@@ -3,10 +3,7 @@ include("menu.php");
 
 ?>
 <script>
-// var noimage = "https://content.fantacalcio.it/web/campioncini/medium/no-campioncino.png";
-imgError = function(img){
-	img.src = "https://content.fantacalcio.it/web/campioncini/medium/no-campioncino.png";
-};
+
 var astaincorso = false;
 
 loadStatsDialog = function(event)
@@ -298,22 +295,24 @@ $(document).on({
     <!-- </div> -->
 <?php 
 //load squadre fantacalcio
-$query="SELECT * FROM sq_fantacalcio order by squadra";
+// $query="SELECT * FROM sq_fantacalcio order by squadra";
 
-$result=$conn->query($query);
-$squadre = array();
-while($row = $result->fetch_assoc()){
-    array_push($squadre, array(
-        "id"=>$row["id"],
-        "squadra"=>$row["squadra"],
-        "allenatore"=>$row["allenatore"]
-        )
-    );
-}
+// $result=$conn->query($query);
+// $squadre = array();
+// while($row = $result->fetch_assoc()){
+//     array_push($squadre, array(
+//         "id"=>$row["id"],
+//         "squadra"=>$row["squadra"],
+//         "allenatore"=>$row["allenatore"]
+//         )
+//     );
+// }
+include_once ("DB/fantacalcio.php");
+$squadre = fantacalcio_getFantasquadre();
 ?>
 <?php
 include_once ("DB/asta.php");
-include_once "DB/parametri.php";
+// include_once ("DB/parametri.php");
 
 function getbackgroundColor($refnum, $refnumjolly, $num, $numjolly)
 {

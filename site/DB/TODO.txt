@@ -1,15 +1,16 @@
 
 BUG:
-    Inserire contratto di sponsorizzazione
-    digitalizzare l'albo d'oro
-    Inserire tripla giornata di coppa coppe
-    finale campionato alla meglio delle tre.
-        sezione presidente
-        sezione calendario
-    verificare messaggio telegram sulle formazioni mancanti per la coppa
 
 ENHANCEMENT
-Parametro di efficianza della squadra schierata con la migliore teorica.
+IN corso
+
+digitalizzare l'albo d'oro
+Inserita cache su funzione fantacalcio_getFantaquadre -> inserirla ovunque
+Inserire cache(sessione) per squadre serie a
+Completare e controllare l'eliminazione di tutte le pagine non utilizzate
+Controllare la riduzione delle connessioni utilizate per il problema con tophost: toomany connection
+
+DA FARE
 inserire pulsante di creazione automatica della formazione in base a dai criteri
 
 ASTA PEPPE

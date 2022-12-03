@@ -1,12 +1,9 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <script>
-// var noimage = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
-imgError = function(img){
-	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
-};
+
 var astaincorso = false;
 listacompleta = function()
 {
@@ -80,5 +77,5 @@ $(document).ready(function(){
     </div>
 </div>
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?>

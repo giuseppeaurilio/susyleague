@@ -32,7 +32,7 @@
         <!-- <li><a href="/presidente/amministrazione.php" ><i class="fas fa-tools"></i> Amministrazione</a></li> -->
     </ul>
     <div>
-        <?php include("./login.php"); ?>
+        <?php include_once ("./login.php"); ?>
     </div>
 </div>
 <script type="text/javascript" src="./plugin/menu/js/stellarnav.js"></script>

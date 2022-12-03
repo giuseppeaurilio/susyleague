@@ -26,12 +26,14 @@ if( isset($_POST["idg"]) && !empty($_POST["idg"])
     $ids4m = $_POST["sq4m"];
     $ids5m = $_POST["sq5m"];
     $ids6m = $_POST["sq6m"];
-    include("../dbinfo_susyleague.inc.php");
-    $conn = new mysqli($localhost, $username, $password,$database);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    // include_once ("../dbinfo_susyleague.inc.php");
+    // if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+    // // Check connection
+    // if ($conn->connect_error) {
+    //     die("Connection failed: " . $conn->connect_error);
+    // }
+    include_once("../dbinfo_susyleague.inc.php");
+    $conn = getConnection();
     try {
         // $query="INSERT INTO .`giornate` (`id_giornata`, `inizio`, `fine`,`id_girone`) VALUES (" . $giornata .", NULL, NULL," . ($girone) .")";
         $query="";

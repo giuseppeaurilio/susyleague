@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +26,10 @@ table, th, td {
 Squadra: <select name="id_squadra">
 
 <?php
-include("dbinfo_susyleague.inc.php");
+include_once ("dbinfo_susyleague.inc.php");
 #echo $username;
 // Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
+if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 
 // Check connection
 if ($conn->connect_error) {
@@ -39,12 +39,13 @@ if ($conn->connect_error) {
 
 
 
-$query="SELECT * FROM sq_fantacalcio";
-$result=$conn->query($query);
+// $query="SELECT * FROM sq_fantacalcio";
+// $result=$conn->query($query);
+include_once ("DB/fantacalcio.php");
+$result=fantacalcio_getFantasquadre();
+// $num=$result_numrows; 
 
-$num=$result_numrows; 
-
-$i=0;
+// $i=0;
 
 while ($row=$result->fetch_assoc()) {
 
@@ -80,7 +81,7 @@ Conferma nuova password: <input type="password" name="new_password_2" id="new_pa
 
 
 <?php
-include("footer.html");
+include_once ("footer.html");
 
 ?>
 

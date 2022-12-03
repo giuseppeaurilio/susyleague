@@ -1,10 +1,10 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <h2>Calendario</h2>
 <?
-// include("../dbinfo_susyleague.inc.php");
+// include_once ("../dbinfo_susyleague.inc.php");
 // mysql_connect($localhost,$username,$password);
 // @mysql_select_db($database) or die( "Unable to select database");
 
@@ -87,5 +87,5 @@ echo "</table>";
 
 ?>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

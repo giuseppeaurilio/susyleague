@@ -1,17 +1,18 @@
 <?php 
-include("dbinfo_susyleague.inc.php");
-include("send_message_post.php");
+include_once ("dbinfo_susyleague.inc.php");
+include_once ("send_message_post.php");
 
 
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
+// // Create connection
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
 // echo "Connected successfully";
  
+$conn = getConnection();
 
 $id_squadra=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_squadra']);//mysql_escape_String($_POST['id_squadra']);
 $id_giornata=preg_replace("/[^A-Za-z0-9,]/", '', $_POST['id_giornata']);//mysql_escape_String($_POST['id_giornata']);
@@ -42,15 +43,16 @@ $ammcontrollata=preg_replace("/[^0-9]/", '', $_POST['ammcontrollata']);
 
 function readback($id_giornata,$id_squadra)
 {
-	include("dbinfo_susyleague.inc.php");
+	include_once ("dbinfo_susyleague.inc.php");
 		// Create connection
-	$conn = new mysqli($localhost, $username, $password,$database);
+	// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	}
+	// // Check connection
+	// if ($conn->connect_error) {
+	//     die("Connection failed: " . $conn->connect_error);
+	// }
 	// echo "Connected successfully";
+	$conn = getConnection();
 	
 	$query="SELECT id_posizione, id_giocatore FROM formazioni where id_giornata=$id_giornata and id_squadra=$id_squadra order by id_posizione";
 	$result=$conn->query($query);

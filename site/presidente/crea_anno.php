@@ -10,15 +10,19 @@ $fantamilioni=$_POST['fantamilioni'];
 
 $n=12;
 
-include("menu.php");
-include("../dbinfo_susyleague.inc.php");
+include_once ("menu.php");
+// include_once ("../dbinfo_susyleague.inc.php");
 // mysql_connect($localhost,$username,$password);
 // @mysql_select_db($database) or die( "Unable to select database");
-$conn = new mysqli($localhost, $username, $password,$database);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+include_once("../dbinfo_susyleague.inc.php");
+$conn = getConnection();
+include_once "../DB/parametri.php";
+$numSquadre = getNumeroFantasquadre();
 
 /******************************************************************************
  * Round Robin Pairing Generator
@@ -129,7 +133,8 @@ if ($conn->connect_error) {
 function aggiungi_giornata($giornata,$girone) {
 	$query="INSERT INTO .`giornate` (`id_giornata`,`id_girone`) VALUES (" . $giornata ."," . ($girone) .")";
     // $result=mysql_query($query);
-    global $conn;
+    // global $conn;
+    $conn = getConnection();
     $conn->query($query);
 	echo $query ."<br>";
 
@@ -352,7 +357,7 @@ for ($giornata = 1; $giornata <= 38; $giornata++) {
 // }
 // echo "<br> Fine Tabellone Shuffled  <br>";
 
-for ($giornata = 1; $giornata <= 2*($n-1); $giornata++) {
+for ($giornata = 1; $giornata <= 2*($numSquadre -1); $giornata++) {
 //echo "casa= ". $element[1] . "ospite= " $element[1];
 	aggiungi_giornata($giornata,"1");
 	$globalgiornatecounter = $giornata;
@@ -377,7 +382,7 @@ for ($giornata = 1; $giornata <= 2*($n-1); $giornata++) {
 
 // echo "<br> Fine Tabellone Shuffled  <br>";
 
-for ($giornata = 2*($n-1)+1; $giornata <= 3*($n-1); $giornata++) {
+for ($giornata = 2*($n-1)+1; $giornata <= 3*($numSquadre -1); $giornata++) {
 //echo "casa= ". $element[1] . "ospite= " $element[1];
 	aggiungi_giornata($giornata,"2");
     $globalgiornatecounter = $giornata;
@@ -441,6 +446,6 @@ aggiungi_giornata($globalgiornatecounter ,"8"); // 8  supercoppa
 $globalgiornatecounter++;
 
 $conn->close();
-include("../footer.php");
+include_once ("../footer.php");
 ?>
 

@@ -1,5 +1,5 @@
 <?php
-//include ("./imagettftextboxopt.php");
+//include_once ("./imagettftextboxopt.php");
 
 $id_giornata=$_GET['id_giornata'];
 $id_incontro= $_GET['id_incontro'];
@@ -18,7 +18,7 @@ $src_scaled=imagescale($src,40,40);
 
 
 
-include("./dbinfo_susyleague.inc.php");
+include_once ("./dbinfo_susyleague.inc.php");
 mysql_connect($localhost,$username,$password);
 @mysql_select_db($database) or die( "Unable to select database");
 

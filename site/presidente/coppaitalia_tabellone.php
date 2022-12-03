@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 
@@ -150,5 +150,5 @@ foreach($giornate as $giornata){
 ?>
     
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

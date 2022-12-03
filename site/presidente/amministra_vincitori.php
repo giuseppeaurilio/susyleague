@@ -1,5 +1,5 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <script>
@@ -109,20 +109,22 @@ $(document).ready(function(){
 </script>
 <?php
 //load squadre fantacalcio
-$query="SELECT * FROM sq_fantacalcio order by squadra";
+// $query="SELECT * FROM sq_fantacalcio order by squadra";
 
-$result=$conn->query($query);
-$squadre = array();
-while($row = $result->fetch_assoc()){
-    // $id=mysql_result($result,$i,"id");
-    $id=$row["id"];
-    $squadra=$row["squadra"];
-    array_push($squadre, array(
-        "id"=>$id,
-        "squadra"=>$squadra
-        )
-    );
-}
+// $result=$conn->query($query);
+// $squadre = array();
+// while($row = $result->fetch_assoc()){
+//     // $id=mysql_result($result,$i,"id");
+//     $id=$row["id"];
+//     $squadra=$row["squadra"];
+//     array_push($squadre, array(
+//         "id"=>$id,
+//         "squadra"=>$squadra
+//         )
+//     );
+// }
+include_once ("../DB/fantacalcio.php");
+$squadre = fantacalcio_getFantasquadre();
 //fine load squadre fantacalcio
 ?>
 
@@ -218,5 +220,5 @@ while($row = $result->fetch_assoc()){
     </div>
 </div>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

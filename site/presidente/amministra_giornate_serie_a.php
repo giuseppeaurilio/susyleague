@@ -1,6 +1,6 @@
 
 <?php 
-include("menu.php");
+include_once ("menu.php");
 ?>
 <script>
 salvaDate = function(){
@@ -130,5 +130,5 @@ foreach($giornatesa as $giornata)
 </tbody>
 </table>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

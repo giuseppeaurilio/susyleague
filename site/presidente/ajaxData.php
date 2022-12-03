@@ -4,13 +4,15 @@ if(isset($_POST["sq_sa"]) && !empty($_POST["sq_sa"]) && isset($_POST["ruolo"]) &
 	$sq_id=$_POST["sq_sa"];
 
 
-	include("../dbinfo_susyleague.inc.php");
-$conn = new mysqli($localhost, $username, $password,$database);
+// 	include_once ("../dbinfo_susyleague.inc.php");
+//     if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+include_once("../dbinfo_susyleague.inc.php");
+$conn = getConnection();
 // echo "Connected successfully";
 
     // $query="SELECT * FROM giocatori  where giocatori.ruolo='". $ruolo . "' and giocatori.id_squadra=".$sq_id;

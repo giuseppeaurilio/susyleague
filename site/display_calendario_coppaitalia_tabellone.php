@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 ?>
 <h2>Coppa Italia - tabellone</h2>
 <?php
@@ -334,12 +334,12 @@ foreach($giornate as $incontro)
 		$("#element76").appendTo(".finaleci");
 
 
-		$("div.quarto1").connections({ to: 'div.semifinale1' });
-		$("div.quarto2").connections({ to: 'div.semifinale1' });
-		$("div.quarto3").connections({ to: 'div.semifinale2' });
-		$("div.quarto4").connections({ to: 'div.semifinale2' });
-		$("div.semifinale1").connections({ to: 'div.finale' });
-		$("div.semifinale2").connections({ to: 'div.finale' });
+		// $("div.quarto1").connections({ to: 'div.semifinale1' });
+		// $("div.quarto2").connections({ to: 'div.semifinale1' });
+		// $("div.quarto3").connections({ to: 'div.semifinale2' });
+		// $("div.quarto4").connections({ to: 'div.semifinale2' });
+		// $("div.semifinale1").connections({ to: 'div.finale' });
+		// $("div.semifinale2").connections({ to: 'div.finale' });
 	});
 	</script>
 	<?php
@@ -397,5 +397,5 @@ foreach($giornate as $incontro)
 </div>
 <h1>&nbsp;</h1>
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?>

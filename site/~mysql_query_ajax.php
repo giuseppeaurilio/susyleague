@@ -1,5 +1,5 @@
 <?
-include("dbinfo_susyleague.inc.php");
+include_once ("dbinfo_susyleague.inc.php");
 
 $query=$_POST['query'];
 echo $query;

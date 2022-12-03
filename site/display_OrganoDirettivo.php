@@ -8,7 +8,7 @@ session_start();
 	$allenatore= $_SESSION['allenatore'];
 	$id_squadra_logged= $_SESSION['login'];
 }
-include("menu.php");
+include_once ("menu.php");
 
 ?> 
 <h2>Organo direttivo</h2>
@@ -44,5 +44,5 @@ include("menu.php");
 	</div>
 <div>
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?> 

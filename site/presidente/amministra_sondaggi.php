@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 ?>
 <script>
 $(document).ready(function() {
@@ -102,5 +102,5 @@ Minuti:<input type="text" name="min_fine" size="5" value=""><br>
 <input type="submit" value="Invia">
 </form>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

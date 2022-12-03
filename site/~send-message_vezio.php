@@ -1,5 +1,5 @@
 <?php
-include('conf.php');
+include_once ('conf.php');
 
 date_default_timezone_set('Europe/Rome');
 $date = date('m/d/Y h:i:s a', time());

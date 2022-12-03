@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <?php
@@ -106,5 +106,5 @@ else
 ?>
 
 <?php 
-include("footer.php");
+include_once ("footer.php");
 ?>

@@ -1,5 +1,5 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 ?>
 <h1>Menu amministratore</h1>
 	<h2>Strumenti del presidente</h2>
@@ -63,7 +63,7 @@ include("menu.php");
 <br>
 
 <?php 
-if(isset($conn))
-{$conn->close();}
-include("../footer.html");
+// if(isset($conn))
+// {$conn->close();}
+include_once ("../footer.php");
 ?>

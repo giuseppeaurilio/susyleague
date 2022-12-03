@@ -16,16 +16,17 @@ $id_sondaggio=$_POST["id_sondaggio"];
 	}
 	
 
-// include("dbinfo_susyleague.inc.php");
+// include_once ("dbinfo_susyleague.inc.php");
 // mysql_connect($localhost,$username,$password);
 // @mysql_select_db($database) or die( "Unable to select database");
 include_once ("dbinfo_susyleague.inc.php");
-$conn = new mysqli($localhost, $username, $password,$database);
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+$conn = getConnection();
 
 date_default_timezone_set('Europe/Rome');
 

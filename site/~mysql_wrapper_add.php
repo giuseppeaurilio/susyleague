@@ -1,5 +1,5 @@
 <?
-#include("dbinfo.inc.php");
+#include_once ("dbinfo.inc.php");
 
 $database=htmlspecialchars($_POST['database']);
 $username=htmlspecialchars($_POST['username']);

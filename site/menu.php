@@ -56,42 +56,45 @@ else {
 <!-- <script src="/plugin/slick/jquery.min.js"></script> -->
 <script src="/plugin/slick/slick.js"></script>
 
-<link href="/style.css" rel="stylesheet" type="text/css">
+<link href="/css/susyleague.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
 
 <?php 
-// include("dbinfo_susyleague.inc.php");
+// include_once ("dbinfo_susyleague.inc.php");
 
 // #echo "username = " . $username;
 
 include_once ("dbinfo_susyleague.inc.php");
+$conn = getConnection();
 // Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
-// $conn->set_charset("ISO-8859-1");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$con=mysqli_connect($localhost,$username,$password,$database) or die( "Unable to select database");;
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+// // $conn->set_charset("ISO-8859-1");
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+// $con=mysqli_connect($localhost,$username,$password,$database) or die( "Unable to select database");;
 
-$query="SELECT * FROM sq_fantacalcio";
-$result=mysqli_query($con,$query);
+// $query="SELECT * FROM sq_fantacalcio";
+// $result=mysqli_query($conn,$query);
 
-$num=mysqli_num_rows($result); 
-
-
+// // $num=mysqli_num_rows($result); 
+// $num = $result->num_rows;
+include_once ("DB/fantacalcio.php");
+$squadrefc = fantacalcio_getFantasquadre();
+$num = count($squadrefc);
 
 #echo "<b><left>Squadre</center></b><br><br>";
 
 $query_generale="SELECT valore FROM generale where nome_parametro='anno'";
 #echo $query2;
-$result_generale=mysqli_query($con,$query_generale);
+$result_generale=mysqli_query($conn,$query_generale);
 //$anno=mysqli_result($result_generale,0,"valore");
 
 $row=mysqli_fetch_array($result_generale,MYSQLI_ASSOC);
-$anno="2016";
+// $anno="2016";
 $anno=$row["valore"];
 ?>
 
@@ -102,7 +105,7 @@ $anno=$row["valore"];
 			<div style="width: 60%; float: left;"> <h1 style="margin: 10px 0 0 0;">Serie A Centro Tim di NG</h1>
 			<h2 style="padding: 0; background-color: transparent;"> SusyLeague <?php  echo $anno; ?></h2> </div>
 			<div style="width:40%; float: left; text-align:center;">
-			<figure style="margin: 10px 0;"><img src="/Logo_sponsor_small.png" syle="object-fit: fitcontent;"></figure> 
+			<figure style="margin: 10px 0;"><img src="/images/Logo_sponsor_small.png" syle="object-fit: fitcontent;"></figure> 
 		</div>
 	</div>
 </a>
@@ -257,5 +260,13 @@ callLogout=function(){
             }
     }); 
 }
+</script>
+<script>
+// var noimage = "https://d22uzg7kr35tkk.cloudfront.net/web/campioncini/small/no-campioncino.png";
+// var noimage = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
+
+imgError = function(img){
+	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
+};
 </script>
 

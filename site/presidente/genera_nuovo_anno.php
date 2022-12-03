@@ -1,5 +1,5 @@
 <?php 
-include("menu.php");
+include_once ("menu.php");
 ?>
 
 
@@ -12,5 +12,5 @@ Fantamilioni: <input type="text" name="fantamilioni"><br>
 <input type="submit">
 </form>
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

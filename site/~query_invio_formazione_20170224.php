@@ -1,6 +1,6 @@
 <?php 
-include("dbinfo_susyleague.inc.php");
-include("send_message_post.php");
+include_once ("dbinfo_susyleague.inc.php");
+include_once ("send_message_post.php");
 
 $id_squadra=mysql_escape_String($_POST['id_squadra']);
 $id_giornata=mysql_escape_String($_POST['id_giornata']);

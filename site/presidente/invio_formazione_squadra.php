@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <script>
@@ -8,11 +8,6 @@ var numRiserve = 10;
 
 // var pconto = [0, 0, 0, 0];
 // var modulo = [0, 0, 0, 0];
-
-imgError = function(img){
-	img.src = "https://content.fantacalcio.it/web/campioncini/small/no-campioncino.png";
-};
-	
 resetFormazione = function(){
 	$('.giocatorecontainer').each( function (){
 		if($(this).hasClass("titolare"))	
@@ -874,5 +869,5 @@ $(document).ready(function(){jQuery(".textcontainer").fitText(.6);});
 <br>
 
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

@@ -1,20 +1,22 @@
 <?php
 function getParametro($parametro){
-    global $localhost;
-    global $username;
-    global $password;
-    global $database;
-
-    $conn = new mysqli($localhost, $username, $password, $database);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    // global $localhost;
+    // global $username;
+    // global $password;
+    // global $database;
+    // global $conn;
+    // if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+    // if ($conn->connect_error) {
+    //     die("Connection failed: " . $conn->connect_error);
+    // }
+    // include_once("dbinfo_susyleague.inc.php");
+    $conn = getConnection();
 
     $query_generale="SELECT valore FROM generale where nome_parametro='$parametro'";
     $result_generale = $conn->query($query_generale);
     $f=mysqli_fetch_assoc($result_generale);
-    if(isset($conn))
-    {$conn->close();}
+    // if(isset($conn))
+    // {$conn->close();}
     return $f["valore"];
 }
 
@@ -51,6 +53,11 @@ function getNumJolly()
 function getOffertaMinima()
 {
     return 1;
+}
+
+function getNumeroFantasquadre()
+{
+    return 12;
 }
 
 function getValoreFattoreCasa()

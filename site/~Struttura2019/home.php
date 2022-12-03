@@ -4,22 +4,22 @@
 
   <head>
     <title>Susy League</title>
-    <?php include("./head.php"); ?>
+    <?php include_once ("./head.php"); ?>
   </head>
 
   <body>
 
     <header>
-        <?php include("./header.php"); ?>
+        <?php include_once ("./header.php"); ?>
         <nav>
-            <?php include("./menu.php"); ?>
+            <?php include_once ("./menu.php"); ?>
         </nav>
     </header>
     <div id="maincontent">
-        <?php include("./home_view.php"); ?>
+        <?php include_once ("./home_view.php"); ?>
     </div>
     <footer>
-        <?php include("./footer.php"); ?>
+        <?php include_once ("./footer.php"); ?>
     </footer>
 
   </body>

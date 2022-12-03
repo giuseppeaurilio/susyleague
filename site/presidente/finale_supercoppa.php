@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <h1>SUPERCOPPA</h2>
@@ -85,5 +85,5 @@ echo '</fieldset>';
 ?>
    
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

@@ -1,5 +1,5 @@
 <?php
-include("menu.php");
+include_once ("menu.php");
 
 ?>
 <h2>Finale Coppa Italia</h2>
@@ -39,7 +39,7 @@ echo '<select id="sq_finalista1" name="squadra_fantacalcio_1">';
 echo '<option value="">--Vincente Semifinale 1--</option>';
 foreach($squadre as $squadra)
 {
-    if($squadra["id"] ==$id_sq1 ){
+    if($squadra["id"] ==$giornate[0]["id_sq1"] ){
         echo '<option value=' . $squadra["id"] . ' selected>'. $squadra["squadra"] . '</option>';    
     }
     else{
@@ -51,7 +51,7 @@ echo '<select id="sq_finalista2" name="squadra_fantacalcio_2">';
 echo '<option value="">--Vincente Semifinale 2--</option>';
 foreach($squadre as $squadra)
 {
-    if($squadra["id"] ==$id_sq2 ){
+    if($squadra["id"] ==$giornate[0]["id_sq2"] ){
         echo '<option value=' . $squadra["id"] . ' selected>'. $squadra["squadra"] . '</option>';    
     }
     else{
@@ -66,7 +66,7 @@ echo "<select id=\"ddlGiornataSerieA".$giornate[0]["id_giornata"]."\">";
 echo "<option value=\"0\">seleziona giornata di serie a...</option>";
 foreach($giornatesa as $giornatasa)
 {
-    echo "<option value=\"".$giornatasa["id"]."\" ".($giornatasa["id"] == $giornata_serie_a_id? "selected": "") .">"
+    echo "<option value=\"".$giornatasa["id"]."\" ".($giornatasa["id"] == $giornate[0]["giornata_serie_a_id"]? "selected": "") .">"
     .$giornatasa["descrizione"]." (".$giornatasa["inizio"] .")</option>";
 }
 echo "</select>";
@@ -80,5 +80,5 @@ echo '</fieldset>';
 ?>
     
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

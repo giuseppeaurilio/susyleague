@@ -1,6 +1,6 @@
 <?php
-include('send_message_post.php');
-//include('send_telegram_update.php');
+include_once ('send_message_post.php');
+//include_once ('send_telegram_update.php');
 echo "pippo";
 
 $date = date('m/d/Y h:i:s a', time());

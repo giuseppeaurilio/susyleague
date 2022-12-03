@@ -1,6 +1,6 @@
 
 <?php 
-include("menu.php");
+include_once ("menu.php");
 ?>
 <script>
 $(document).ready(function()
@@ -43,9 +43,11 @@ $(document).ready(function()
 
 
 <?php 
-$query="SELECT * FROM sq_fantacalcio";
-$result=$conn->query($query);
-$num=$result->num_rows; 
+// $query="SELECT * FROM sq_fantacalcio";
+// $result=$conn->query($query);
+// $num=$result->num_rows; 
+include_once ("../DB/fantacalcio.php");
+$squadre = fantacalcio_getFantasquadre();
 echo "<h2>Squadre</center></h2>";
 ?>
 <table border="0" cellspacing="2" cellpadding="2">
@@ -59,33 +61,36 @@ echo "<h2>Squadre</center></h2>";
 </tr>
 
 <?php 
-$i=0;
-while ($i<12) {
-	$row=$result->fetch_assoc();
+// $i=0;
+// while ($i<12) {
+	// $row=$result->fetch_assoc();
+	
 
-	$id=$row["id"];
-	$squadra=$row["squadra"];
-	$allenatore=$row["allenatore"];
-	$telefono=$row["telefono"];
-	#$telefono=3*$i;
-	$email=$row["email"];
-	$passwor=$row["password"];
+	// $id=$row["id"];
+	// $squadra=$row["squadra"];
+	// $allenatore=$row["allenatore"];
+	// $telefono=$row["telefono"];
+	// #$telefono=3*$i;
+	// $email=$row["email"];
+	// $passwor=$row["password"];
 
-?>
 
-<tr height="50" id="<?php  echo "squadra_". $id ; ?>"  contenteditable="true" > 
-<td ><?php  echo "$squadra"; ?></td>
-<td ><?php  echo "$allenatore"; ?></td>
-<td ><?php  echo "$telefono"; ?></td>
-<td ><?php  echo "$email"; ?></td>
-<td ><?php  echo "$passwor"; ?></td>
 
-</tr>
-<?php 
-++$i;
+foreach($squadre as $squa)
+	{
+		// echo print_r($squa);
+		echo "<tr height='50' id='squadra_". $squa["id"]."'  contenteditable='true' >" ;
+		echo "<td >".$squa["squadra"]."</td>";
+		echo "<td >".$squa["allenatore"]."</td>";
+		echo "<td >".$squa["telefono"]."</td>";
+		echo "<td >".$squa["email"]."</td>";
+		echo "<td >".$squa["password"]."</td>";
+		echo "</tr>";
 }
-echo "</table>";
 ?>
+
+</table>;
+
 <?php 
-include("../footer.php");
+include_once ("../footer.php");
 ?>

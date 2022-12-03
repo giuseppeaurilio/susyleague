@@ -12,5 +12,5 @@
 	$id_squadra= $_SESSION['login'];
 	}
 	
-include("../menu.php");
+include_once ("../menu.php");
 ?>

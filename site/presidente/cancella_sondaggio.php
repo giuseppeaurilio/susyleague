@@ -1,17 +1,19 @@
 <?php
 
 
-// include("../dbinfo_susyleague.inc.php");
+// include_once ("../dbinfo_susyleague.inc.php");
 // mysql_connect($localhost,$username,$password);
 // @mysql_select_db($database) or die( "Unable to select database");
 
-include("../dbinfo_susyleague.inc.php");
-$conn = new mysqli($localhost, $username, $password,$database);
+// include_once ("../dbinfo_susyleague.inc.php");
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
+include_once("../dbinfo_susyleague.inc.php");
+$conn = getConnection();
 
 $id_sondaggio=$_GET["id_sondaggio"];
 

@@ -1,5 +1,5 @@
 <?
-include("../dbinfo_susyleague.inc.php");
+include_once ("../dbinfo_susyleague.inc.php");
 
 $tipo=mysql_escape_String($_GET['tipo']);
 

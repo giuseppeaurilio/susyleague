@@ -1,5 +1,5 @@
 <?
-include("dbinfo.inc.php");
+include_once ("dbinfo.inc.php");
 mysql_connect(localhost,$username,$password);
 @mysql_select_db($database) or die( "Unable to select database");
 $query="SELECT * FROM contacts";

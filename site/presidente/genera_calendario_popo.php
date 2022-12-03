@@ -1,5 +1,5 @@
 <?php
-include("../dbinfo_susyleague.inc.php");
+include_once ("../dbinfo_susyleague.inc.php");
 mysql_connect($localhost,$username,$password);
 @mysql_select_db($database) or die( "Unable to select database");
 

@@ -1,21 +1,22 @@
 <?php
 //called by https://console.cron-job.org/dashboard
 include_once ("dbinfo_susyleague.inc.php");
-// Create connection
-$conn = new mysqli($localhost, $username, $password,$database);
+// Create 
+
+if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 // $conn->set_charset("ISO-8859-1");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$conn=mysqli_connect($localhost,$username,$password,$database) or die( "Unable to select database");
+// $conn=mysqli_connect($localhost,$username,$password,$database) or die( "Unable to select database");
 ?>
 <?php
 // echo "pippo";
 $name_loc='db_backup.sql';
 $name_remote='db_backup' .date('m-d-Y_hia').'.sql';
 
-// include("backup_database_sql.php");
-include("send_telegram_update.php");
+// include_once ("backup_database_sql.php");
+include_once ("send_telegram_update.php");
 
 
 $answer_tg=send_telegram_update();

@@ -9,13 +9,15 @@ function parse_voti($filename, $idgiornata) {
 		$countervoti = 0;
 		$errormessage = "";
 		try{
-			include("../dbinfo_susyleague.inc.php");
-			$conn = new mysqli($localhost, $username, $password,$database);
+			// include_once ("../dbinfo_susyleague.inc.php");
+			// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 			
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			}
+			// // Check connection
+			// if ($conn->connect_error) {
+			// 	die("Connection failed: " . $conn->connect_error);
+			// }
+			include_once("../dbinfo_susyleague.inc.php");
+    		$conn = getConnection();
 
 			$queryresetVoti = 'DELETE FROM `giocatori_voti` WHERE `giornata_serie_a_id` = '.$idgiornata;
 			$result=$conn->query($queryresetVoti);// or die($conn->error);
@@ -155,8 +157,10 @@ if ($uploadOk == 0) {
 } 
 else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-		include("../dbinfo_susyleague.inc.php");
-		$conn = new mysqli($localhost, $username, $password,$database);
+		// include_once ("../dbinfo_susyleague.inc.php");
+		// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+		include_once("../dbinfo_susyleague.inc.php");
+    	$conn = getConnection();
 		// Check connection
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);

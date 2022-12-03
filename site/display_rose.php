@@ -1,12 +1,9 @@
 <?php 
-include("menu.php");
+include_once("menu.php");
 
 ?>
 <script>
-// var noimage = "https://content.fantacalcio.it/web/campioncini/medium/no-campioncino.png";
-imgError = function(img){
-	img.src = "https://content.fantacalcio.it/web/campioncini/medium/no-campioncino.png";
-};
+
 loadStatsDialog = function(id)
 {
     var action ="stats";
@@ -106,25 +103,27 @@ $(document).ready(function(){
 
 <?php 
 
-$query="SELECT * FROM sq_fantacalcio";
-//echo $query;
-$result = $con->query($query);
+// $query="SELECT * FROM sq_fantacalcio";
+// //echo $query;
+// $result = $conn->query($query);
+include_once ("DB/fantacalcio.php");
+$squadre = fantacalcio_getFantasquadre();
 
 $query_generale="SELECT valore FROM generale where nome_parametro='fantamilioni'";
 
 // $result_generale=mysqli_query($con,$query_generale);
-$result_generale = $con->query($query_generale);
+$result_generale = $conn->query($query_generale);
 $f=mysqli_fetch_assoc($result_generale);
 //echo "generale=";
 //print_r($f);
 $fantamilioni=$f["valore"];
 
-$i=0;
+
 echo '<div class="maincontent">';
-while ($i < $num) {
+foreach($squadre as $squ)
+{
 
-
-$squ=mysqli_fetch_assoc($result);
+// $squ=mysqli_fetch_assoc($result);
 $id=$squ["id"];
 $squadra=$squ["squadra"];
 $allenatore=$squ["allenatore"];
@@ -139,8 +138,8 @@ inner join rose_asta as ra on r.id_giocatore = ra.id_giocatore
 where r.id_sq_fc= '" . $id ."'
 order by g.ruolo desc, ra.ordine";
 //echo $query2;
-$result_giocatori=mysqli_query($con,$query2);
-$num_giocatori=mysqli_num_rows($result_giocatori);
+$result_giocatori=mysqli_query($conn,$query2);
+$num_giocatori=$result_giocatori->num_rows;
 
 //echo "num giocatori=" . $num_giocatori;
 
@@ -219,7 +218,7 @@ echo "</table>";
 $query3 = "select sum(ra.costo) as spesi
 from rose_asta as ra
 where ra.id_sq_fc = '". $id ."'";
-$result3 = $con->query($query3);
+$result3 = $conn->query($query3);
 $f3=mysqli_fetch_assoc($result3);
 //echo "generale=";
 //print_r($f);
@@ -244,7 +243,7 @@ $spesi=$f3["spesi"];
 </div>
 <?php 
 
-++$i;
+
 } 
 echo '</div>';
 
@@ -256,5 +255,5 @@ echo '</div>';
 
 
 <?php 
-include("footer.php");
+include_once("footer.php");
 ?>
