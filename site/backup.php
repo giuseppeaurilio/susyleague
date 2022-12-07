@@ -1,13 +1,14 @@
 <?php
 //called by https://console.cron-job.org/dashboard
 include_once ("dbinfo_susyleague.inc.php");
+$conn = getConnection();
 // Create 
 
-if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
-// $conn->set_charset("ISO-8859-1");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
+// // $conn->set_charset("ISO-8859-1");
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
 // $conn=mysqli_connect($localhost,$username,$password,$database) or die( "Unable to select database");
 ?>
 <?php
