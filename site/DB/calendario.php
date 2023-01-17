@@ -133,9 +133,9 @@ function getLinkClassificheGiornata($id)
     else if ($id>22 && $id<= 33)
     { $descrizioneGiornata ="/display_classifiche.php?#tabs-2";}
     else if ($id>33 && $id<= 48)
-    { $descrizioneGiornata ="/display_classifiche.php?#tabs-4";}
+    { $descrizioneGiornata ="/display_classifiche.php?#tabs-5";}
     else if ($id>48 && $id<= 63)
-    { $descrizioneGiornata ="/display_classifiche.php?#tabs-4";}
+    { $descrizioneGiornata ="/display_classifiche.php?#tabs-5";}
     else if ($id == 64 )
     { $descrizioneGiornata ="CI Q1 A";}
     else if ($id == 65 )

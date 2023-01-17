@@ -1,17 +1,17 @@
 <?php
 function getConnection(){
     //localhost
-    // $username="id258940_susy79";
-    // $password="andspe79";
-    // //$database="id258940_susy_league_2019-20";
-    // $database="id258940_susy_league_2022-23";
-    // $localhost = "localhost";
+    $username="id258940_susy79";
+    $password="andspe79";
+    //$database="id258940_susy_league_2019-20";
+    $database="id258940_susy_league_2022-23";
+    $localhost = "localhost";
 
     // //tophost
-    $username="susyleag16215";
-    $password="*q3G99i&w24J";
-    $database="susyleag16215";
-    $localhost = "sql.susyleague.it";
+    // $username="susyleag16215";
+    // $password="*q3G99i&w24J";
+    // $database="susyleag16215";
+    // $localhost = "sql.susyleague.it";
 
 
     // Create connection
