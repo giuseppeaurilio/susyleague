@@ -532,6 +532,35 @@ background-color: #f2f2f2;
 {
  cursor: pointer;
 }
+
+.formazione_ideale_popup
+{}
+.formazione_ideale_popup div
+{
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: rgba( 0, 0, 0, .2 );;
+  
+}
+.formazione_ideale_popup span
+{ display: inline-block;}
+.formazione_ideale_popup .bkgd_P
+{
+  background-color: rgba(102, 204, 51, .5)
+}
+.formazione_ideale_popup .bkgd_D
+{
+  background-color: rgba(51, 204, 204, .5)
+}
+.formazione_ideale_popup .bkgd_C
+{
+  background-color: rgba(255, 239, 0, .5)
+}
+.formazione_ideale_popup .bkgd_A
+{
+  background-color: rgba(232, 0, 0, .5)
+}
+
 table tr:hover {
 background-color: #ddd;
 }

@@ -42,7 +42,7 @@ showFormazioneIdeale = function()
 
 					$( "#dialog" ).prop('title', "Formazione Ideale");                
                     $( "#dialog p" ).html(rendered);
-                    $( "#dialog" ).dialog({modal:true});                    
+                    $( "#dialog" ).dialog({modal:true, width: "auto"});                    
                 }
                 else{
                     $( "#dialog" ).prop('title', "ERROR");                
@@ -58,19 +58,20 @@ $(document).ready(function(){
 </script>
 
 <script id="tmplFormazioneIdeale" type="x-tmpl-mustache">
- <div> <span>Modulo: {{modulo}}<span></div> <div><span>Punteggio: {{punteggio}}<span>    	</div>
+ <div class="formazione_ideale_popup"> 
+	<h3>Modulo: {{modulo}}</h3>
+ 	<h5>Punteggio: {{punteggio}}</h5>
         {{ #giocatori }}
-		<div>
-			<img  onerror="imgError(this);" style="width:20px; height:27px;" src='{{imgurl}}'>
-        	<span> {{nome}}<span> 
-			<span> {{ruolo}}<span> 
-			<span> {{squadra_breve}}<span> 
-			<span> {{voto}}<span> 
-			<span> ({{voto_md}})<span> 
+		<div >
+			<span class="bkgd_{{ruolo}}" style="width:20px; text-align: center;"> {{ruolo}}</span> 	
+			<img  onerror="imgError(this);" style="width:20px; vertical-align:bottom;" src='{{imgurl}}'/>	
+        	<span style="width:120px;"> {{nome}}</span> 
+			<span style="width:40px; text-align: center;"> {{squadra_breve}}</span> 
+			<span style="width:100px; text-align: center;"> {{voto}} ({{voto_md}})</span> 
 
 		</div>
         {{ /giocatori }}
-
+</div>
 </script>
 <?php
 $id_giornata=$_GET['id_giornata'];
