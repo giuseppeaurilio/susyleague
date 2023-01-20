@@ -78,6 +78,8 @@
             
                 // echo 'TOT:'. $counter;
                 echo "<div class='widgetcontent2 '>";
+                // foreach($resultsondaggio as $result)
+                //     echo "[".wordwrap($result["opzione"], 20, ",")."], ";
                 echo '<canvas id="myChart'.$sondaggio["id"].'" style="background-color: rgba(255,255,255,0.8)"></canvas>';
                 echo "</div>";
                 echo "<script>
@@ -86,8 +88,23 @@
                             type: 'bar',
                             data: {
                                 labels: [";
+                                $marker ="\n";
+                                $width = 64 / count($resultsondaggio);
+                                // $width = 30;
                                 foreach($resultsondaggio as $result)
-                                echo "'".$result["opzione"]."',";
+                                {
+                                    $wrapped = wordwrap($result["opzione"], $width, $marker);
+                                    $lines = explode($marker, $wrapped);
+                                    $option = "[";
+                                    foreach($lines as $wrappedword)
+                                    {
+                                        $option .= "\"".$wrappedword."\",";
+                                    }
+                                    $option .= "],";
+                                    echo $option;
+                                }
+                                // echo "'".$result["opzione"]."',";
+                                
                                 echo "],
                                 datasets: [{
                                     label: '# di voti',
@@ -117,12 +134,31 @@
                                 }]
                             },
                             options: {
+                                
                                 scales: {
+                                    // xAxes: [{
+                                    //     ticks: {
+                                    //         callback: function(label) {
+                                    //             if (/\s/.test(label)) {
+                                    //                 // return label.split(' ');
+                                    //                 // return label.match(/.{1,20}/g)
+                                                    
+                                    //                 return label.match(
+                                    //                     /(?![^\\n]{1,32}$)([^\\n]{1,32})\s/g
+                                    //                 );
+                                    //             } 
+                                    //             else {
+                                    //                 return label;
+                                    //             }              
+                                    //         }
+                                    //     }    
+                                    // }], 
                                     yAxes: [{
                                         ticks: {
                                             beginAtZero: true
                                         }
-                                    }]
+                                    }],
+                                   
                                 }
                             }
                         });
