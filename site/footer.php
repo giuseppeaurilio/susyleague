@@ -3,7 +3,7 @@
 <span style="float:left; display: block">
     powered by: susyleague plc.
     </span>
-    <span style="float:right; display: block">V2.9.0</span>
+    <span style="float:right; display: block">V2.9.1</span>
    
 </footer>
 <button id="btnToTop" title="Torna su" class="back-to-top " style="display: none;">
