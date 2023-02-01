@@ -149,7 +149,7 @@ $(document).ready(function(){
                 <td style="text-align:left;">{{ nome }}
 					&nbsp;
 					<a style='float: right;font-size: small; color:black;' target='_blank' 
-					href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21'><i class='fas fa-external-link-alt'></i>
+					href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2021-22'><i class='fas fa-external-link-alt'></i>
 				</td>
                 <td>{{ ruolo }}</td>
 				<td>{{ squadra_breve }}</td>

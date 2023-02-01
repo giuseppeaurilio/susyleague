@@ -365,9 +365,9 @@ $(document).on({
         <div  class="right">
             <div class="nome"> {{ nome }} ({{ squadra_breve }})
                 <a style='float: right;font-size: small; color:black;' target='popup' 
-                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21'
+                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2021-22'
                 onclick='
-                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21","popup","width=600,height=600"); 
+                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2021-22","popup","width=600,height=600"); 
                 event.stopPropagation();
                 return false;''><i class='fas fa-external-link-alt'></i></a>
                 </div>
@@ -504,9 +504,9 @@ $(document).on({
             <td style="text-align:left;">{{ nome }}
                 &nbsp;
                 <a style='float: right;font-size: small; color:black;' target='popup' 
-                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21'
+                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2021-22'
                 onclick='
-                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21","popup","width=600,height=600"); 
+                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2021-22","popup","width=600,height=600"); 
                 event.stopPropagation();
                 return false;''><i class='fas fa-external-link-alt'></i></a>
             </td>
@@ -528,9 +528,9 @@ $(document).on({
             <td  style="text-align:left;">
                 <span class="nome {{class}}">{{ nome }}</span> <span class="visibile {{class}}">({{squadrafc}})</span>
                 <a style='float: right;font-size: small; color:black;' target='popup' 
-                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21'
+                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2021-22'
                 onclick='
-                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2020-21","popup","width=600,height=600"); 
+                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2021-22","popup","width=600,height=600"); 
                 event.stopPropagation();
                 return false;''><i class='fas fa-external-link-alt'></i>
             </td>
