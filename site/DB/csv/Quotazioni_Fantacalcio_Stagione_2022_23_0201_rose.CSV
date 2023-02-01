@@ -1,0 +1,541 @@
+Quotazioni Fantacalcio Stagione 2022 23;;;;;;;;;;;;
+Id;R;RM;Nome;Squadra;Qt.A;Qt.I;Diff.;Qt.A M;Qt.I M;Diff.M;FVM;FVM M
+572;P;Por;Meret;Napoli;18;14;4;18;14;4;74;74
+2814;P;Por;Provedel;Lazio;16;7;9;16;7;9;63;63
+4964;P;Por;Vicario;Empoli;16;9;7;16;9;7;37;37
+453;P;Por;Szczesny;Juventus;14;16;-2;14;16;-2;62;62
+2134;P;Por;Falcone;Lecce;14;5;9;14;5;9;25;25
+2211;P;Por;Silvestri;Udinese;14;10;4;14;10;4;34;34
+4270;P;Por;Rui Patricio;Roma;14;14;0;14;14;0;60;60
+5830;P;Por;Onana;Inter;13;1;12;13;1;12;54;54
+159;P;Por;Sepe;Salernitana;12;8;4;12;8;4;11;11
+2170;P;Por;Milinkovic-Savic V.;Torino;12;1;11;12;1;11;35;35
+2792;P;Por;Musso;Atalanta;12;13;-1;12;13;-1;46;46
+4312;P;Por;Maignan;Milan;12;18;-6;12;18;-6;60;60
+4431;P;Por;Carnesecchi;Cremonese;12;1;11;12;1;11;16;16
+5876;P;Por;Di Gregorio;Monza;12;1;11;12;1;11;35;35
+761;P;Por;Audero;Sampdoria;11;10;1;11;10;1;12;12
+4957;P;Por;Montipo';Verona;11;11;0;11;11;0;18;18
+133;P;Por;Skorupski;Bologna;9;11;-2;9;11;-2;20;20
+509;P;Por;Consigli;Sassuolo;9;11;-2;9;11;-2;22;22
+1917;P;Por;Dragowski;Spezia;9;7;2;9;7;2;20;20
+2815;P;Por;Terracciano;Fiorentina;9;1;8;9;1;8;40;40
+160;P;Por;Tatarusanu;Milan;8;1;7;8;1;7;4;4
+250;P;Por;Handanovic;Inter;8;16;-8;8;16;-8;4;4
+4;P;Por;Sportiello;Atalanta;7;1;6;7;1;6;1;1
+218;P;Por;Perin;Juventus;7;1;6;7;1;6;4;4
+5005;P;Por;Zoet;Spezia;5;1;4;5;1;4;1;1
+6120;P;Por;Ochoa;Salernitana;4;2;2;4;2;2;11;11
+510;P;Por;Pegolo;Sassuolo;2;1;1;2;1;1;1;1
+610;P;Por;Gollini;Napoli;2;12;-10;2;12;-10;1;1
+41;P;Por;Mirante;Milan;1;1;0;1;1;0;1;1
+42;P;Por;Sarr M.;Cremonese;1;1;0;1;1;0;1;1
+217;P;Por;Lamanna;Monza;1;1;0;1;1;0;1;1
+220;P;Por;Ujkani;Empoli;1;1;0;1;1;0;1;1
+316;P;Por;Berisha;Torino;1;11;-10;1;11;-10;1;1
+318;P;Por;Marchetti;Spezia;1;1;0;1;1;0;1;1
+511;P;Por;Perilli;Verona;1;1;0;1;1;0;1;1
+543;P;Por;Padelli;Udinese;1;1;0;1;1;0;1;1
+673;P;Por;Perisan;Empoli;1;1;0;1;1;0;1;1
+799;P;Por;Bardi;Bologna;1;1;0;1;1;0;1;1
+1889;P;Por;Cordaz;Inter;1;1;0;1;1;0;1;1
+1930;P;Por;Pinsoglio;Juventus;1;1;0;1;1;0;1;1
+1947;P;Por;Fiorillo;Salernitana;1;1;0;1;1;0;1;1
+2178;P;Por;Cragno;Monza;1;11;-10;1;11;-10;1;1
+2179;P;Por;Sirigu;Fiorentina;1;1;0;1;1;0;1;1
+2294;P;Por;Cerofolini;Fiorentina;1;1;0;1;1;0;1;1
+2297;P;Por;Rossi F.;Atalanta;1;1;0;1;1;0;1;1
+2722;P;Por;Ravaglia F.;Bologna;1;1;0;1;1;0;1;1
+4351;P;Por;Brancolini;Lecce;1;1;0;1;1;0;1;1
+4468;P;Por;Bleve;Lecce;1;1;0;1;1;0;1;1
+4491;P;Por;Berardi A.;Verona;1;1;0;1;1;0;1;1
+4518;P;Por;Russo A.;Sassuolo;1;1;0;1;1;0;1;1
+4525;P;Por;Gemello;Torino;1;1;0;1;1;0;1;1
+4977;P;Por;Ravaglia;Sampdoria;1;1;0;1;1;0;1;1
+5304;P;Por;Boer;Roma;1;1;0;1;1;0;1;1
+5502;P;Por;Adamonis;Lazio;1;1;0;1;1;0;1;1
+5518;P;Por;Marfella;Napoli;1;1;0;1;1;0;1;1
+5528;P;Por;Zovko;Spezia;1;1;0;1;1;0;1;1
+5707;P;Por;Piana;Udinese;1;1;0;1;1;0;1;1
+5822;P;Por;Bagnolini;Bologna;1;1;0;1;1;0;1;1
+5832;P;Por;Luis Maximiano;Lazio;1;12;-11;1;12;-11;1;1
+5841;P;Por;Svilar;Roma;1;1;0;1;1;0;1;1
+5853;P;Por;Sorrentino A.;Monza;1;1;0;1;1;0;1;1
+5887;P;Por;Ciezkowski;Cremonese;1;1;0;1;1;0;1;1
+6029;P;Por;Saro;Cremonese;1;1;0;1;1;0;1;1
+6125;P;Por;Vasquez D.;Milan;1;1;0;1;1;0;1;1
+6135;P;Por;Turk;Sampdoria;1;1;0;1;1;0;1;1
+254;D;"Ds;Dc;E";Dimarco;Inter;19;8;11;19;9;10;47;50
+4245;D;Dc;Smalling;Roma;19;14;5;19;14;5;40;41
+5851;D;"Ds;E";Doig;Verona;18;6;12;18;6;12;47;47
+5877;D;"Ds;E";Carlos Augusto;Monza;18;8;10;18;8;10;37;37
+5892;D;Dc;Kim;Napoli;16;13;3;16;13;3;43;44
+6066;D;"Dd;Dc";Posch;Bologna;16;8;8;16;9;7;26;27
+2816;D;"Dd;E";Di Lorenzo;Napoli;15;15;0;15;15;0;48;48
+4237;D;"Dd;Ds;E";Danilo;Juventus;15;12;3;15;14;1;43;44
+4292;D;"Ds;E";Hernandez T.;Milan;15;20;-5;15;22;-7;56;56
+5355;D;"Ds;E";Udogie;Udinese;15;13;2;15;13;2;38;38
+5449;D;"Ds;E";Parisi;Empoli;15;8;7;15;8;7;23;23
+142;D;"Ds;E";Mario Rui;Napoli;14;9;5;14;9;5;39;39
+460;D;Dc;Romagnoli;Lazio;14;11;3;14;11;3;29;30
+5332;D;"E;C";Bastoni S.;Spezia;14;12;2;14;13;1;23;23
+5481;D;"Dd;E";Mazzocchi;Salernitana;14;7;7;14;7;7;20;20
+5862;D;"Ds;E";Valeri;Cremonese;14;5;9;14;5;9;20;20
+4751;D;Dc;Tomori;Milan;13;15;-2;13;15;-2;29;30
+5526;D;Dc;Scalvini;Atalanta;13;6;7;13;6;7;24;25
+695;D;Dc;Toloi;Atalanta;12;8;4;12;8;4;18;19
+4332;D;Dc;Demiral;Atalanta;12;13;-1;12;13;-1;23;24
+5375;D;E;Maehle;Atalanta;12;8;4;11;7;4;24;22
+5513;D;E;Dumfries;Inter;12;20;-8;11;19;-8;34;32
+5835;D;"Dd;Ds;Dc";Baschirotto;Lecce;12;2;10;12;2;10;34;34
+5847;D;Dc;Bijol;Udinese;12;5;7;12;5;7;15;15
+6041;D;Dc;Schuurs;Torino;12;9;3;12;9;3;33;34
+256;D;"Ds;Dc";Juan Jesus;Napoli;11;7;4;11;7;4;16;16
+2141;D;"Dd;E";Depaoli;Verona;11;4;7;11;4;7;13;13
+2296;D;Dc;Mancini;Roma;11;10;1;11;10;1;26;27
+4331;D;Dc;Ibanez;Roma;11;9;2;11;9;2;18;19
+4412;D;Dc;Rodrigo Becao;Udinese;11;10;1;11;10;1;18;19
+5480;D;"Dd;E";Ebuehi;Empoli;11;3;8;11;3;8;10;10
+2160;D;E;Gosens;Inter;10;19;-9;10;18;-8;11;10
+2525;D;E;Darmian;Inter;10;9;1;10;8;2;20;19
+2739;D;"Ds;E";Reca;Spezia;10;5;5;10;5;5;19;19
+2788;D;Dc;Bremer;Juventus;10;18;-8;10;18;-8;31;32
+2847;D;"Ds;Dc;E";Sernicola;Cremonese;10;3;7;10;4;6;14;15
+4409;D;Dc;Rrahmani;Napoli;10;14;-4;10;14;-4;36;36
+4994;D;E;Vojvoda;Torino;10;9;1;10;9;1;15;14
+5678;D;"Dd;E";Holm;Spezia;10;2;8;11;3;8;20;20
+2120;D;Dc;Bastoni;Inter;9;15;-6;9;15;-6;32;32
+2164;D;"Dd;Dc";Milenkovic;Fiorentina;9;11;-2;9;12;-3;28;29
+4976;D;"Dd;Dc";Kalulu;Milan;9;14;-5;9;15;-6;27;28
+5323;D;Dc;Martinez Quarta;Fiorentina;9;4;5;9;4;5;14;14
+5498;D;"Dd;Dc";Casale;Lazio;9;9;0;9;10;-1;29;30
+5677;D;Dc;Perez N.;Udinese;9;8;1;9;8;1;16;17
+5840;D;"Ds;E";Olivera;Napoli;9;7;2;9;7;2;8;8
+226;D;"Dd;Dc";Izzo;Monza;8;3;5;8;3;5;20;20
+393;D;"Ds;Dc";Luperto;Empoli;8;5;3;8;6;2;15;16
+798;D;Dc;Skriniar;Inter;8;17;-9;8;16;-8;21;21
+2169;D;"Ds;Dc;E";Rodriguez R.;Torino;8;7;1;8;8;0;13;14
+2188;D;"Dd;Ds;E";Marusic;Lazio;8;7;1;9;8;1;19;20
+2263;D;"Dd;E";Lazzari;Lazio;8;10;-2;8;10;-2;32;32
+4530;D;"Ds;E";Kyriakopoulos;Bologna;8;6;2;8;6;2;9;9
+4719;D;Dc;Ampadu;Spezia;8;6;2;8;6;2;14;15
+5010;D;Dc;Ismajli;Empoli;8;3;5;8;3;5;13;13
+5239;D;Dc;Llorente D.;Roma;8;8;0;8;8;0;16;16
+5520;D;"Dd;Ds;E";Cambiaso;Bologna;8;9;-1;9;10;-1;12;13
+140;D;"Dd;Ds;E";Hysaj;Lazio;7;6;1;7;6;1;10;11
+252;D;"Ds;E";Biraghi;Fiorentina;7;13;-6;7;13;-6;25;25
+272;D;Dc;Medel;Bologna;7;7;0;7;7;0;8;8
+286;D;Dc;Bonucci;Juventus;7;15;-8;7;15;-8;15;15
+357;D;"Dd;E";Calabria;Milan;7;13;-6;7;13;-6;20;20
+513;D;Dc;Acerbi;Inter;7;8;-1;7;8;-1;25;25
+1852;D;"Ds;E";Spinazzola;Roma;7;12;-5;7;13;-6;12;12
+2653;D;"Ds;E";Lykogiannis;Bologna;7;4;3;7;4;3;12;12
+2728;D;"Ds;E";Pellegrini Lu.;Lazio;7;7;0;7;7;0;15;15
+2869;D;"Dd;Ds;Dc";Djidji;Torino;7;5;2;6;6;0;13;14
+4385;D;E;Lazaro;Torino;7;7;0;6;6;0;8;9
+4421;D;"Ds;E";Augello;Sampdoria;7;7;0;7;7;0;11;11
+4502;D;"Ds;E";Gallo;Lecce;7;2;5;7;2;5;8;8
+4899;D;E;Singo;Torino;7;14;-7;6;13;-7;17;16
+4904;D;Dc;Mari';Monza;7;11;-4;7;11;-4;18;18
+4958;D;"Ds;Dc";Caldirola;Monza;7;4;3;7;4;3;15;16
+5885;D;"Dd;E";Dodo';Fiorentina;7;14;-7;7;14;-7;18;18
+322;D;Dc;De Vrij;Inter;6;10;-4;6;10;-4;12;13
+327;D;"Dd;Dc";Patric;Lazio;6;5;1;6;5;1;6;6
+581;D;"Dd;E";Faraoni;Verona;6;13;-7;6;13;-7;16;16
+1891;D;"Dd;Dc";Ceccherini;Verona;6;6;0;6;6;0;14;15
+2130;D;E;Hateboer;Atalanta;6;9;-3;6;8;-2;18;16
+2318;D;"Ds;E";Rogerio;Sassuolo;6;5;1;6;5;1;14;14
+2583;D;Dc;Umtiti;Lecce;6;7;-1;6;7;-1;15;15
+2865;D;E;Aina;Torino;6;5;1;6;5;1;13;12
+5838;D;"Dd;Ds;E";Birindelli;Monza;6;3;3;6;4;2;12;12
+6042;D;Dc;Lucumi';Bologna;6;9;-3;6;10;-4;13;14
+6047;D;"Dd;E";Ehizibue;Udinese;6;4;2;6;4;2;9;9
+612;D;"Dd;Dc";Bianchetti;Cremonese;5;4;1;5;4;1;7;7
+1895;D;Dc;Ferrari G.;Sassuolo;5;8;-3;5;8;-3;18;19
+2016;D;Dc;Fazio;Salernitana;5;6;-1;5;6;-1;9;9
+2184;D;"Dd;Dc";Gravillon;Torino;5;5;0;5;5;0;9;10
+2724;D;"Ds;Dc";Buongiorno;Torino;5;4;1;5;5;0;6;7
+2758;D;Dc;Gunter;Sampdoria;5;5;0;5;5;0;10;10
+2870;D;Dc;Troost-Ekong;Salernitana;5;5;0;5;5;0;10;10
+4891;D;Dc;Soumaoro;Bologna;5;5;0;5;5;0;13;13
+5479;D;"Ds;Dc";Ceccaroni;Lecce;5;5;0;5;5;0;9;10
+5603;D;Dc;Pongracic;Lecce;5;6;-1;5;6;-1;7;7
+5686;D;"Dd;E";Soppy;Atalanta;5;7;-2;5;7;-2;10;10
+5867;D;"Dd;Dc";Gendrey;Lecce;5;4;1;5;4;1;11;11
+6046;D;Dc;Hien;Verona;5;6;-1;5;6;-1;17;18
+45;D;"Dd;Dc";Ferrari A.;Cremonese;4;5;-1;4;5;-1;10;11
+49;D;"Ds;Dc;E";Masina;Udinese;4;6;-2;5;7;-2;6;6
+554;D;E;Zappacosta;Atalanta;4;11;-7;4;10;-6;12;11
+660;D;Dc;Gyomber;Salernitana;4;4;0;4;4;0;11;11
+662;D;"Ds;E";Alex Sandro;Juventus;4;8;-4;4;8;-4;12;12
+770;D;"Ds;E";Pezzella Giu.;Lecce;4;6;-2;4;6;-2;8;8
+2104;D;"Dd;E";Bereszynski;Napoli;4;6;-2;4;6;-2;7;7
+2174;D;"Dd;Ds;E";Venuti;Fiorentina;4;3;1;4;3;1;5;5
+2181;D;Dc;Palomino;Atalanta;4;10;-6;4;10;-6;17;18
+2280;D;Dc;Nuytinck;Sampdoria;4;7;-3;4;7;-3;14;14
+2355;D;Dc;Marlon;Monza;4;7;-3;4;7;-3;13;13
+2769;D;Dc;Magnani;Verona;4;3;1;4;3;1;8;8
+2784;D;Dc;Colley;Sampdoria;4;9;-5;4;8;-4;14;14
+4329;D;Dc;Nikolaou;Spezia;4;4;0;4;4;0;9;9
+4375;D;"Ds;E";Terzic;Fiorentina;4;2;2;4;2;2;3;3
+4407;D;"Ds;Dc";Igor;Fiorentina;4;9;-5;4;10;-6;14;15
+4426;D;"Dd;E";Toljan;Sassuolo;4;5;-1;4;5;-1;11;11
+4433;D;"Dd;Ds;E";Zortea;Sassuolo;4;2;2;4;3;1;7;8
+4493;D;Dc;Dawidowicz;Verona;4;4;0;4;4;0;13;13
+4657;D;"Dd;E";Celik;Roma;4;7;-3;4;7;-3;7;7
+4887;D;E;Bellanova;Inter;4;8;-4;4;7;-3;4;3
+4982;D;Dc;Erlic;Sassuolo;4;9;-5;4;9;-5;16;17
+5017;D;"Ds;E";Ballo-Toure';Milan;4;2;2;4;2;2;4;4
+5313;D;"Dd;Ds;E";Dest;Milan;4;5;-1;4;6;-2;8;8
+5450;D;"Dd;E";Stojanovic;Empoli;4;7;-3;4;7;-3;9;9
+5475;D;"Dd;Dc";Amian;Spezia;4;6;-2;4;6;-2;10;11
+5532;D;"Ds;E";Bradaric;Salernitana;4;7;-3;4;7;-3;7;7
+5554;D;"Dd;Dc";Daniliuc;Salernitana;4;7;-3;4;8;-4;10;11
+5691;D;Dc;Zima;Torino;4;5;-1;4;5;-1;6;6
+5739;D;"Dd;Dc";De Winter;Empoli;4;4;0;4;5;-1;8;9
+5891;D;"Ds;E";Quagliata;Cremonese;4;3;1;4;3;1;4;4
+5994;D;"Ds;E";Ebosse;Udinese;4;4;0;4;4;0;3;3
+6002;D;Dc;Aiwu;Cremonese;4;5;-1;4;5;-1;4;4
+6027;D;Dc;Lochoshvili;Cremonese;4;3;1;4;3;1;8;8
+6028;D;"Dd;Dc";Bronn;Salernitana;4;5;-1;4;5;-1;7;7
+6055;D;Dc;Thiaw;Milan;4;6;-2;4;6;-2;3;3
+6139;D;"Dd;E";Zeefuik;Verona;4;4;0;4;4;0;7;7
+76;D;Dc;Romagnoli S.;Lecce;3;3;0;3;3;0;6;6
+244;D;"Dd;E";Ghiglione;Cremonese;3;5;-2;3;5;-2;4;4
+294;D;Dc;Rugani;Juventus;3;5;-2;3;5;-2;6;6
+358;D;"Dd;Ds;E";De Sciglio;Juventus;3;6;-3;3;7;-4;7;8
+787;D;Dc;Djimsiti;Atalanta;3;7;-4;3;7;-4;3;3
+1847;D;Dc;Caldara;Spezia;3;6;-3;3;6;-3;11;11
+2180;D;"Dd;E";Karsdorp;Roma;3;10;-7;3;10;-7;2;2
+2252;D;"Ds;Dc";Marchizza;Sassuolo;3;2;1;3;2;1;1;1
+2633;D;Dc;Kjaer;Milan;3;5;-2;3;5;-2;14;14
+4432;D;Dc;Okoli;Atalanta;3;5;-2;3;5;-2;5;5
+5316;D;"Ds;Dc";Amione;Sampdoria;3;2;1;3;3;0;8;9
+5354;D;"Ds;E";Ruggeri;Atalanta;3;1;2;3;1;2;4;4
+5527;D;"Dd;E";Zanoli;Sampdoria;3;3;0;3;3;0;2;2
+6153;D;Dc;Wisniewski;Spezia;3;3;0;3;3;0;6;6
+118;D;Dc;Radovanovic;Salernitana;2;5;-3;2;5;-3;6;6
+139;D;Dc;Dermaku;Lecce;2;4;-2;2;4;-2;2;2
+253;D;"Dd;Ds;Dc";D'ambrosio;Inter;2;8;-6;2;9;-7;3;5
+487;D;"Dd;E";De Silvestri;Bologna;2;9;-7;2;9;-7;4;4
+640;D;Dc;Chiriches;Cremonese;2;5;-3;2;5;-3;8;8
+1868;D;"Ds;E";Murru;Sampdoria;2;5;-3;2;5;-3;4;4
+2192;D;Dc;Bonifazi;Bologna;2;4;-2;2;4;-2;5;5
+2446;D;"Dd;Dc";Donati;Monza;2;4;-2;2;4;-2;2;2
+4374;D;Dc;Walukiewicz;Empoli;2;4;-2;2;4;-2;2;2
+4378;D;"Ds;Dc;E";Ranieri L.;Fiorentina;2;1;1;2;1;1;1;1
+4401;D;Dc;Gabbia;Milan;2;1;1;2;1;1;2;2
+4495;D;Dc;Kumbulla;Roma;2;4;-2;2;4;-2;7;7
+4870;D;Dc;Adopo;Torino;2;1;1;2;1;1;3;3
+4897;D;Dc;Pirola;Salernitana;2;4;-2;2;4;-2;5;5
+4934;D;Dc;Lovato;Salernitana;2;6;-4;2;6;-4;10;10
+4960;D;Dc;Tuia;Lecce;2;3;-1;2;3;-1;2;2
+4983;D;"Dd;Ds;E";Ferrer;Spezia;2;3;-1;2;4;-2;3;4
+5399;D;Dc;Antov;Monza;2;1;1;2;1;1;1;1
+5514;D;"Ds;Dc";Vasquez;Cremonese;2;6;-4;2;6;-4;7;7
+5747;D;Dc;Ruan;Sassuolo;2;3;-1;2;3;-1;7;7
+5750;D;Dc;Ostigard;Napoli;2;7;-5;2;7;-5;8;8
+5764;D;Dc;Coppola D.;Verona;2;2;0;2;2;0;3;3
+5804;D;"Ds;E";Cacace;Empoli;2;3;-1;2;3;-1;3;3
+5831;D;Dc;Gatti;Juventus;2;5;-3;2;5;-3;8;8
+5833;D;Dc;Gila;Lazio;2;4;-2;2;4;-2;6;6
+5846;D;E;Bayeye;Torino;2;1;1;2;1;1;1;1
+5856;D;"Dd;E";Sambia;Salernitana;2;7;-5;2;7;-5;8;8
+6118;D;"Ds;E";Moutinho J.;Spezia;2;2;0;2;2;0;4;4
+11;D;"Dd;E";Conti;Sampdoria;1;3;-2;1;3;-2;1;1
+84;D;Dc;Marrone;Monza;1;4;-3;1;4;-3;1;1
+144;D;Dc;Tonelli;Empoli;1;1;0;1;1;0;1;1
+259;D;Dc;Murillo;Sampdoria;1;3;-2;1;3;-2;6;6
+329;D;"Ds;Dc";Radu;Lazio;1;2;-1;1;2;-1;1;1
+360;D;Dc;Paletta;Monza;1;2;-1;1;2;-1;1;1
+464;D;"Dd;E";Florenzi;Milan;1;7;-6;1;7;-6;2;2
+630;D;"E;C";Sala;Spezia;1;5;-4;1;6;-5;3;4
+633;D;"Ds;E";Fares;Lazio;1;2;-1;1;2;-1;1;1
+2279;D;Dc;Romagna;Sassuolo;1;1;0;1;1;0;1;1
+4438;D;"Dd;Ds;E";Cassandro;Lecce;1;1;0;1;1;0;2;2
+4521;D;"Dd;E";Muldur;Sassuolo;1;5;-4;1;5;-4;2;2
+5424;D;"Dd;Dc";Amey;Bologna;1;1;0;1;1;0;1;1
+5740;D;"Dd;E";Zanotti;Inter;1;1;0;1;1;0;1;1
+5848;D;"Dd;E";Ebosele;Udinese;1;2;-1;1;2;-1;3;3
+5849;D;"Ds;E";Buta;Udinese;1;1;0;1;1;0;1;1
+6021;D;"Dc;Dd";Abankwah;Udinese;1;1;0;1;1;0;1;1
+6023;D;Dc;Guessand A.;Udinese;1;1;0;1;1;0;1;1
+6039;D;"Ds;Dc";Cabal;Verona;1;3;-2;1;3;-2;2;2
+6043;D;Dc;Sosa;Bologna;1;2;-1;1;2;-1;1;1
+6056;D;Dc;Guarino;Empoli;1;1;0;1;1;0;1;1
+6149;D;"Ds;E";Carboni F.;Monza;1;1;0;1;1;0;2;2
+632;C;"W;A";Zaccagni;Lazio;32;20;12;32;20;12;142;140
+5839;C;"W;A";Kvaratskhelia;Napoli;31;18;13;31;18;13;230;230
+645;C;"C;T";Milinkovic-Savic;Lazio;27;29;-2;27;29;-2;185;185
+1870;C;C;Barella;Inter;27;20;7;27;19;8;88;88
+152;C;"C;T";Zielinski;Napoli;26;19;7;26;19;7;86;86
+2085;C;T;Luis Alberto;Lazio;26;18;8;25;17;8;83;79
+4486;C;W;Strefezza;Lecce;26;13;13;26;13;13;62;59
+335;C;"W;A";Felipe Anderson;Lazio;24;19;5;24;19;5;85;83
+5685;C;"C;T";Koopmeiners;Atalanta;23;15;8;23;15;8;73;73
+2194;C;T;Calhanoglu;Inter;22;19;3;21;18;3;62;62
+2848;C;C;Frattesi;Sassuolo;22;16;6;22;16;6;68;68
+4825;C;"W;T";Diaz B.;Milan;22;11;11;22;11;11;47;44
+5687;C;"W;T";Vlasic;Torino;22;15;7;22;15;7;63;63
+4220;C;"M;C";Zambo Anguissa;Napoli;21;11;10;21;12;9;45;47
+4479;C;"C;T";Elmas;Napoli;21;11;10;21;11;10;40;39
+5001;C;"T;A";Miranchuk;Torino;21;8;13;21;8;13;79;76
+5119;C;T;Samardzic;Udinese;21;8;13;21;8;13;25;23
+302;C;"W;T";Pereyra;Udinese;19;18;1;19;18;1;48;46
+536;C;"W;A";Politano;Napoli;18;15;3;18;15;3;47;50
+2379;C;C;Rabiot;Juventus;18;7;11;18;7;11;36;36
+5880;C;"T;A";Ciurria;Monza;18;3;15;18;3;15;25;23
+236;C;"E;W";Lazovic;Verona;17;13;4;17;13;4;55;55
+4287;C;"M;C";Lobotka;Napoli;17;11;6;17;12;5;42;43
+5063;C;W;Radonjic;Torino;17;7;10;17;7;10;29;27
+5858;C;"C;T";Ferguson;Bologna;17;5;12;17;5;12;43;43
+367;C;"C;W;T";Bonaventura;Fiorentina;16;14;2;17;16;1;44;48
+2741;C;"C;T";Pessina;Monza;16;13;3;16;13;3;35;35
+4449;C;"M;C";Tonali;Milan;16;16;0;16;16;0;48;52
+4711;C;"E;W";Kostic;Juventus;16;15;1;16;18;-2;41;41
+5823;C;"T;A";Baldanzi;Empoli;16;1;15;16;1;15;52;48
+5850;C;"C;T";Lovric;Udinese;16;6;10;16;6;10;24;24
+530;C;T;Pellegrini Lo.;Roma;15;27;-12;15;26;-11;61;54
+795;C;"W;A";El Shaarawy;Roma;15;9;6;15;9;6;23;22
+2167;C;"W;A";Orsolini;Bologna;15;15;0;15;15;0;48;46
+4658;C;"W;A";Ikone';Fiorentina;15;14;1;15;14;1;28;28
+332;C;W;Candreva;Salernitana;14;17;-3;14;17;-3;24;23
+2818;C;"M;C";Bennacer;Milan;14;10;4;14;10;4;27;27
+2077;C;T;Pasalic;Atalanta;13;22;-9;14;21;-7;40;36
+2529;C;"T;A";Mkhitaryan;Inter;13;16;-3;13;16;-3;28;22
+5878;C;"C;T";Colpani;Monza;13;4;9;13;4;9;9;9
+303;C;"C;T";Pogba;Juventus;12;24;-12;12;24;-12;35;35
+2002;C;"W;A";Chiesa;Juventus;12;25;-13;12;25;-13;75;73
+2253;C;C;Bandinelli;Empoli;12;6;6;12;5;7;12;12
+2528;C;M;Matic;Roma;12;7;5;12;7;5;13;13
+4465;C;"C;T";Fagioli;Juventus;12;3;9;12;3;9;24;24
+4970;C;W;Messias;Milan;12;14;-2;12;14;-2;25;23
+5287;C;"M;C";Arslan;Udinese;12;6;6;12;6;6;10;10
+5453;C;"M;C";Ricci S.;Torino;12;7;5;12;7;5;25;26
+5884;C;"M;C";Ranocchia F.;Monza;12;2;10;12;2;10;5;5
+376;C;"W;T";Verdi;Verona;11;13;-2;11;13;-2;15;15
+1978;C;"C;T";Sensi;Monza;11;12;-1;11;12;-1;24;24
+2172;C;T;Barak;Fiorentina;11;22;-11;10;21;-11;22;18
+2625;C;"C;T";Soriano;Bologna;11;12;-1;11;12;-1;14;15
+4869;C;"M;C";Dominguez;Bologna;11;8;3;12;9;3;25;26
+6025;C;"E;C";Vilhena;Salernitana;11;8;3;11;9;2;17;18
+265;C;"M;C";Brozovic;Inter;10;15;-5;10;15;-5;32;34
+779;C;"M;C";Cristante;Roma;10;9;1;10;9;1;17;18
+5844;C;"C;T";Thorstvedt;Sassuolo;10;9;1;10;9;1;13;13
+5995;C;"T;A";De Ketelaere;Milan;10;21;-11;10;20;-10;18;16
+150;C;"W;T";Saponara;Fiorentina;9;11;-2;9;11;-2;15;15
+181;C;"M;C";Vecino;Lazio;9;6;3;10;7;3;9;10
+827;C;"M;C";Locatelli;Juventus;9;14;-5;9;14;-5;28;29
+2766;C;"W;A";Zaniolo;Roma;9;19;-10;9;19;-10;20;20
+4342;C;T;Duda;Verona;9;9;0;8;8;0;15;13
+4896;C;"T;A";Maldini;Spezia;9;2;7;9;2;7;4;4
+4965;C;"M;C";Marin;Empoli;9;7;2;9;8;1;12;13
+5422;C;"E;W";Zalewski;Roma;9;7;2;9;7;2;22;23
+5451;C;T;Bajrami;Sassuolo;9;18;-9;9;17;-8;18;17
+5504;C;"M;C";Coulibaly L.;Salernitana;9;6;3;9;6;3;13;14
+5999;C;C;Gonzalez J.;Lecce;9;2;7;9;2;7;18;18
+22;C;M;De Roon;Atalanta;8;7;1;8;7;1;13;13
+1933;C;"M;C";Mandragora;Fiorentina;8;9;-1;8;9;-1;10;10
+2638;C;"C;T";Wijnaldum;Roma;8;17;-9;8;17;-9;10;10
+2825;C;"M;C";Bourabia;Spezia;8;4;4;8;4;4;10;10
+2839;C;"W;A";Sottil;Fiorentina;8;8;0;8;8;0;12;12
+5784;C;C;Aebischer;Bologna;8;4;4;8;3;5;11;11
+5792;C;"C;T";Ederson D.s.;Atalanta;8;13;-5;8;13;-5;25;25
+5813;C;"C;T";Miretti;Juventus;8;2;6;8;2;6;8;8
+5869;C;"M;C";Blin;Lecce;8;2;6;8;2;6;9;9
+5870;C;"M;C";Hjulmand;Lecce;8;6;2;8;7;1;15;16
+333;C;"M;C";Cataldi;Lazio;7;8;-1;7;8;-1;14;15
+1995;C;"W;T";Djuricic;Sampdoria;7;13;-6;7;13;-6;12;12
+2008;C;C;Linetty;Torino;7;5;2;7;4;3;7;7
+2161;C;C;Haas;Empoli;7;3;4;7;3;4;9;9
+2392;C;M;Walace;Udinese;7;7;0;7;7;0;10;10
+4515;C;"T;A";Agudelo;Spezia;7;9;-2;7;8;-1;10;9
+5298;C;"C;T";Pobega;Milan;7;9;-2;7;9;-2;10;10
+6058;C;"M;C";Camara Ma.;Roma;7;7;0;8;8;0;6;6
+468;C;"M;C";Paredes;Juventus;6;13;-7;7;15;-8;14;15
+4143;C;"C;T";Ndombele';Napoli;6;11;-5;6;11;-5;15;15
+4349;C;"M;C";Nicolussi Caviglia;Salernitana;6;3;3;6;3;3;9;9
+4459;C;"M;C";Rovella;Monza;6;3;3;6;3;3;16;17
+4522;C;"M;C";Amrabat;Fiorentina;6;8;-2;6;8;-2;18;18
+4890;C;"M;C";Tameze;Verona;6;14;-8;6;14;-8;17;18
+4992;C;"W;A";Gyasi;Spezia;6;10;-4;6;10;-4;17;15
+5007;C;"C;T";Ilic;Torino;6;13;-7;6;13;-7;30;30
+5511;C;"M;C";Matheus Henrique;Sassuolo;6;6;0;6;7;-1;14;12
+5688;C;"M;C";Harroui;Sassuolo;6;2;4;6;2;4;5;5
+5735;C;T;Volpato;Roma;6;1;5;6;1;5;1;1
+5857;C;M;Pickel;Cremonese;6;4;2;6;4;2;8;8
+6054;C;"M;C";Moro N.;Bologna;6;5;1;6;6;0;8;9
+526;C;"M;C";Duncan;Fiorentina;5;7;-2;5;7;-2;11;11
+666;C;"C;T";Machin;Monza;5;4;1;5;4;1;14;14
+697;C;"E;W";Cuadrado;Juventus;5;15;-10;5;15;-10;30;30
+2391;C;"M;C";Ekdal;Spezia;5;7;-2;5;7;-2;7;7
+2789;C;"M;C";Meite';Cremonese;5;7;-2;5;8;-3;9;10
+4393;C;"M;C";Schouten;Bologna;5;8;-3;5;9;-4;11;12
+4501;C;"M;C";Obiang;Sassuolo;5;2;3;5;2;3;10;11
+5397;C;"C;T";Kovalenko;Spezia;5;7;-2;5;7;-2;7;7
+5486;C;C;Crnigoj;Salernitana;5;5;0;5;5;0;12;12
+5674;C;C;Basic;Lazio;5;5;0;4;4;0;6;6
+5719;C;"M;C";Asllani;Inter;5;8;-3;5;8;-3;7;8
+5788;C;"T;A";Sabiri;Sampdoria;5;15;-10;5;15;-10;13;12
+5812;C;"E;M";Terracciano F.;Verona;5;1;4;5;1;4;5;5
+5863;C;"M;C";Castagnetti;Cremonese;5;4;1;5;5;0;8;8
+6061;C;"W;A";Oudin;Lecce;5;5;0;5;5;0;5;4
+27;C;"M;C";Grassi;Empoli;4;6;-2;4;7;-3;6;7
+148;C;"C;T";Krunic;Milan;4;7;-3;3;6;-3;10;10
+238;C;M;Rincon;Sampdoria;4;6;-2;4;6;-2;8;8
+2011;C;"M;C";Miguel Veloso;Verona;4;6;-2;4;6;-2;8;8
+2334;C;W;Leris;Sampdoria;4;3;1;4;3;1;6;6
+4408;C;"M;C";Esposito Sa.;Spezia;4;5;-1;5;6;-1;9;10
+4498;C;"C;T";Henderson L.;Empoli;4;8;-4;4;8;-4;8;8
+4681;C;"M;C";Lopez M.;Sassuolo;4;9;-5;4;10;-6;15;16
+4701;C;"C;T";Cuisance;Sampdoria;4;4;0;4;4;0;8;8
+4892;C;W;Saelemaekers;Milan;4;8;-4;4;8;-4;12;11
+4988;C;"C;T";Maggiore;Salernitana;4;10;-6;4;10;-6;8;8
+5286;C;"M;C";Akpa Akpro;Empoli;4;2;2;4;3;1;8;9
+5457;C;C;Maleh;Lecce;4;3;1;4;3;1;6;6
+5510;C;"W;A";Romero L.;Lazio;4;2;2;4;2;2;4;4
+5776;C;"W;A";Ceide;Sassuolo;4;2;2;4;2;2;5;5
+21;C;"E;W";D'alessandro;Monza;3;1;2;4;2;2;2;2
+557;C;C;Benassi;Cremonese;3;3;0;3;3;0;10;10
+801;C;"M;C";Gagliardini;Inter;3;8;-5;3;8;-5;4;5
+2855;C;"M;C";Vieira;Torino;3;4;-1;3;4;-1;8;8
+5516;C;"M;C";Bianco;Fiorentina;3;1;2;3;1;2;1;1
+5610;C;"M;C";Vranckx;Milan;3;6;-3;3;7;-4;4;4
+5705;C;"M;C";Galdames;Cremonese;3;3;0;3;3;0;5;5
+5834;C;"M;C";Marcos Antonio;Lazio;3;10;-7;3;11;-8;6;7
+6010;C;"C;T";Fazzini;Empoli;3;1;2;3;1;2;2;2
+6024;C;"M;C";Sulemana I.;Verona;3;1;2;3;1;2;4;4
+6117;C;C;Tahirovic;Roma;3;1;2;3;1;2;4;4
+6162;C;M;Abildgaard;Verona;3;3;0;3;3;0;6;6
+1901;C;"M;C";Barberis;Monza;2;7;-5;2;7;-5;2;2
+2117;C;"C;T";Kastanos;Salernitana;2;5;-3;2;5;-3;4;4
+2154;C;"W;T";Vignato;Empoli;2;3;-1;2;3;-1;4;4
+2274;C;"C;T";Valoti;Monza;2;5;-3;2;5;-3;9;9
+4260;C;"M;C";Winks;Sampdoria;2;6;-4;2;7;-5;12;12
+4921;C;C;Askildsen;Lecce;2;3;-1;2;3;-1;2;2
+5423;C;C;Bove;Roma;2;1;1;2;1;1;1;1
+5798;C;"M;C";Bohinen;Salernitana;2;7;-5;2;7;-5;11;12
+6019;C;"T;A";D'andrea;Sassuolo;2;1;1;2;1;1;4;4
+6112;C;"W;A";Iling-Junior;Juventus;2;1;1;2;1;1;9;9
+6142;C;"C;W;T";Cipot;Spezia;2;1;1;2;1;1;2;3
+2639;C;M;Bakayoko;Milan;1;2;-1;1;2;-1;1;1
+4364;C;"C;T";Gaetano;Napoli;1;4;-3;1;4;-3;1;1
+4376;C;C;Zurkowski;Spezia;1;8;-7;1;8;-7;17;17
+4377;C;"C;T";Castrovilli;Fiorentina;1;9;-8;1;9;-8;7;7
+4725;C;M;Demme;Napoli;1;4;-3;1;4;-3;2;2
+5420;C;"M;C";Darboe;Roma;1;1;0;1;1;0;1;1
+5425;C;T;Urbanski;Bologna;1;1;0;1;1;0;1;1
+5442;C;"M;C";Bertini;Lazio;1;1;0;1;1;0;1;1
+5517;C;M;Yepes;Sampdoria;1;3;-2;1;3;-2;1;1
+5810;C;C;Trimboli;Sampdoria;1;1;0;1;1;0;1;1
+5824;C;"T;A";Pafundi;Udinese;1;1;0;1;1;0;1;1
+5872;C;"C;T";Helgason;Lecce;1;1;0;1;1;0;1;1
+5875;C;T;Adli;Milan;1;7;-6;2;6;-4;3;2
+5879;C;"T;A";Vignato S.;Monza;1;1;0;1;1;0;1;1
+5947;C;C;Hrustic;Verona;1;4;-3;1;3;-2;2;2
+5996;C;"M;C";Samek;Lecce;1;1;0;1;1;0;1;1
+5998;C;"W;A";Zerbin;Napoli;1;1;0;1;1;0;5;5
+6005;C;"C;T";Ilkhan;Sampdoria;1;3;-2;1;3;-2;5;5
+6009;C;"M;C";Degli Innocenti;Empoli;1;1;0;1;1;0;1;1
+6012;C;C;Acella;Cremonese;1;1;0;1;1;0;1;1
+6106;C;"T;A";Carboni V.;Inter;1;1;0;1;1;0;1;1
+4661;A;Pc;Osimhen;Napoli;40;35;5;40;35;5;450;460
+2764;A;Pc;Martinez L.;Inter;36;34;2;36;34;2;300;305
+309;A;A;Dybala;Roma;34;29;5;34;29;5;222;222
+4510;A;A;Rafael Leao;Milan;33;31;2;33;31;2;250;250
+4730;A;"W;A";Lookman;Atalanta;33;13;20;34;15;19;235;247
+785;A;Pc;Immobile;Lazio;32;42;-10;32;42;-10;312;315
+2841;A;Pc;Vlahovic;Juventus;31;40;-9;31;40;-9;302;306
+4268;A;Pc;Arnautovic;Bologna;29;27;2;29;26;3;202;205
+5672;A;Pc;Dia;Salernitana;29;17;12;28;16;12;115;112
+647;A;Pc;Dzeko;Inter;26;16;10;26;15;11;88;84
+2012;A;Pc;Milik;Juventus;26;21;5;26;20;6;95;95
+5336;A;Pc;Nzola;Spezia;26;14;12;26;13;13;127;127
+5694;A;Pc;Beto;Udinese;26;24;2;26;24;2;99;96
+4200;A;Pc;Giroud;Milan;25;28;-3;25;28;-3;198;198
+2544;A;Pc;Abraham;Roma;23;33;-10;23;33;-10;118;118
+2119;A;A;Deulofeu;Udinese;22;24;-2;22;24;-2;16;16
+6060;A;A;Lauriente';Sassuolo;21;14;7;21;14;7;59;59
+2061;A;Pc;Simeone;Napoli;20;25;-5;20;25;-5;44;42
+4517;A;A;Lozano;Napoli;20;18;2;20;18;2;52;52
+495;A;A;Correa;Inter;19;16;3;19;16;3;16;16
+531;A;A;Berardi;Sassuolo;19;35;-16;19;35;-16;232;232
+2489;A;A;Pedro;Lazio;19;19;0;19;19;0;38;38
+2531;A;Pc;Lukaku;Inter;19;39;-20;19;39;-20;165;165
+479;A;Pc;Sanabria;Torino;18;21;-3;18;21;-3;44;41
+2369;A;A;Thauvin;Udinese;18;18;0;18;18;0;56;56
+5786;A;Pc;Cabral;Fiorentina;18;19;-1;17;18;-1;34;30
+6052;A;Pc;Hojlund;Atalanta;18;8;10;18;7;11;169;169
+1958;A;A;Caprari;Monza;17;26;-9;17;26;-9;63;63
+2382;A;A;Di Maria;Juventus;17;26;-9;17;26;-9;80;80
+2756;A;Pc;Piatek;Salernitana;17;15;2;17;14;3;58;54
+186;A;A;Rebic;Milan;16;14;2;16;14;2;26;26
+505;A;Pc;Bonazzoli;Salernitana;16;14;2;16;14;2;26;26
+608;A;Pc;Zapata D.;Atalanta;16;32;-16;16;32;-16;75;75
+2762;A;A;Kouame';Fiorentina;16;9;7;16;9;7;25;25
+4179;A;A;Gonzalez N.;Fiorentina;16;20;-4;16;20;-4;48;48
+4184;A;A;Brekalo;Fiorentina;16;16;0;16;16;0;48;48
+5882;A;Pc;Mota;Monza;16;10;6;16;10;6;38;36
+2097;A;Pc;Kean;Juventus;15;15;0;15;14;1;28;27
+5515;A;A;Okereke;Cremonese;15;13;2;15;13;2;48;48
+5836;A;Pc;Ceesay;Lecce;15;10;5;15;10;5;22;20
+4923;A;Pc;Colombo;Lecce;14;7;7;14;6;8;23;21
+6026;A;Pc;Dessers;Cremonese;14;17;-3;13;16;-3;32;29
+507;A;Pc;Muriel;Atalanta;13;26;-13;13;26;-13;42;38
+2038;A;Pc;Pinamonti;Sassuolo;13;23;-10;13;23;-10;37;37
+1857;A;A;Di Francesco F.;Lecce;12;12;0;12;12;0;17;17
+2438;A;Pc;Jovic;Fiorentina;12;24;-12;12;24;-12;67;67
+2466;A;Pc;Origi;Milan;12;17;-5;12;17;-5;23;20
+2819;A;Pc;Caputo;Empoli;12;21;-9;12;21;-9;40;38
+2832;A;"W;A";Boga;Atalanta;12;13;-1;13;15;-2;32;36
+4436;A;A;Cambiaghi;Empoli;12;6;6;12;6;6;9;9
+5845;A;Pc;Alvarez A.;Sassuolo;12;14;-2;12;13;-1;18;17
+6001;A;A;Banda;Lecce;12;5;7;12;5;7;12;12
+212;A;Pc;Ciofani D.;Cremonese;11;1;10;11;1;10;7;7
+383;A;Pc;Petagna;Monza;11;15;-4;10;14;-4;27;25
+2719;A;A;Barrow;Bologna;11;17;-6;11;17;-6;15;15
+5471;A;Pc;Djuric;Verona;11;11;0;12;10;2;23;21
+5529;A;Pc;Henry;Verona;11;18;-7;11;16;-5;1;1
+5676;A;A;Success;Udinese;11;13;-2;11;13;-2;20;20
+407;A;A;Gabbiadini;Sampdoria;10;15;-5;10;15;-5;18;18
+5086;A;Pc;Zirkzee;Bologna;10;7;3;10;7;3;13;13
+5292;A;Pc;Lammers;Sampdoria;10;15;-5;10;14;-4;20;17
+5460;A;Pc;Satriano;Empoli;10;14;-4;10;13;-3;16;13
+5439;A;A;Kallon;Verona;9;2;7;9;2;7;8;8
+1943;A;Pc;Nestorovski;Udinese;8;11;-3;8;10;-2;6;6
+4371;A;A;Raspadori;Napoli;8;20;-12;8;20;-12;44;44
+5842;A;Pc;Botheim;Salernitana;8;13;-5;8;12;-4;7;5
+5881;A;Pc;Gytkjaer;Monza;8;4;4;8;4;4;15;15
+6119;A;A;Solbakken;Roma;8;10;-2;8;10;-2;13;13
+90;A;Pc;Lasagna;Verona;7;11;-4;7;10;-3;12;10
+441;A;Pc;Belotti;Roma;7;16;-9;6;15;-9;10;9
+2103;A;Pc;Pellegri;Torino;7;12;-5;7;11;-4;20;17
+5864;A;A;Buonaiuto;Cremonese;7;7;0;7;7;0;8;8
+215;A;A;Verde;Spezia;6;18;-12;6;18;-12;17;17
+472;A;Pc;Destro;Empoli;5;18;-13;4;16;-12;14;11
+5806;A;"W;A";Seck;Torino;5;3;2;5;3;2;6;7
+537;A;A;Sansone;Bologna;4;6;-2;4;6;-2;12;12
+568;A;Pc;Quagliarella;Sampdoria;4;10;-6;4;10;-6;12;10
+643;A;A;Defrel;Sassuolo;4;8;-4;4;8;-4;8;8
+1998;A;A;Pjaca;Empoli;4;9;-5;4;9;-5;6;6
+5394;A;Pc;Gaich;Verona;4;4;0;3;3;0;6;5
+5734;A;A;Soule';Juventus;4;1;3;4;1;3;5;5
+5854;A;Pc;Tsadjout;Cremonese;4;8;-4;4;7;-3;5;4
+4359;A;Pc;Piccoli;Empoli;3;13;-10;3;12;-9;8;7
+5311;A;Pc;Shomurodov;Spezia;3;12;-9;3;11;-8;28;27
+5728;A;A;Afena-Gyan;Cremonese;3;8;-5;3;8;-5;10;10
+6145;A;A;Ngonge;Verona;3;3;0;3;3;0;5;5
+2325;A;A;Karamoh;Torino;2;4;-2;2;4;-2;3;3
+2530;A;Pc;Ibrahimovic;Milan;2;13;-11;2;13;-11;15;15
+2826;A;"W;A";Pussetto;Sampdoria;2;5;-3;2;6;-4;3;4
+5500;A;A;Cancellieri;Lazio;2;7;-5;2;7;-5;5;5
+5843;A;A;Valencia D.;Salernitana;2;2;0;2;2;0;2;2
+5378;A;A;Oddei;Sassuolo;1;1;0;1;1;0;1;1
+5395;A;"W;A";Braaf;Verona;1;1;0;2;2;0;4;5
+5436;A;Pc;Raimondo;Bologna;1;1;0;1;1;0;1;1
+5505;A;Pc;Kaio Jorge;Juventus;1;1;0;1;1;0;1;1
+5512;A;Pc;De Luca;Sampdoria;1;4;-3;1;4;-3;1;1
+5785;A;Pc;Lazetic;Milan;1;1;0;1;1;0;1;1
+5837;A;Pc;Voelkerling Persson;Lecce;1;1;0;1;1;0;1;1
+6113;A;Pc;Montevago;Sampdoria;1;1;0;1;1;0;3;3
+6143;A;Pc;Krollis;Spezia;1;1;0;1;1;0;2;2

@@ -369,6 +369,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             left join sq_fantacalcio as sqfc on r.id_sq_fc = sqfc.id
             left join giocatori_statistiche as gs on gs.giocatore_id = g.id";
             $query.=" where gs.anno = '$anno' ";
+            $query.=" and g.id_squadra != 21 " ;
             if($ruolo <> null)//inserire controlli su input valido
                 $query.=" and g.ruolo = '$ruolo'"; 
             if($idsquadra <> null)//inserire controlli su input valido
@@ -449,7 +450,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $ordinamento = $_POST['espulsioni']  = '' ? null :$_POST['ordinamento'];
           
             // $query.=" order by g.quotazione desc";
-            //  echo $query;
+            // echo $query;
             $result=$conn->query($query);
             $giocatori = array();
             while ($row=$result->fetch_assoc()) {
