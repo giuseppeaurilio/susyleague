@@ -358,11 +358,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $ammonizioni = $_POST['ammonizioni']  = '' ? null :$_POST['ammonizioni'];
             $espulsioni = $_POST['espulsioni']  = '' ? null :$_POST['espulsioni'];
             $autogol = $_POST['autogol']  = '' ? null :$_POST['autogol'];
-            $ordinamento = $_POST['espulsioni']  = '' ? null :$_POST['ordinamento'];
+            $quotazione = $_POST['quotazione']  = '' ? null :$_POST['quotazione'];
+            $ordinamento = $_POST['ordinamento']  = '' ? null :$_POST['ordinamento'];
 
             $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, 
             sqfc.squadra as fantasquadra,
-            gs.pg, gs.mv,gs.mf, gs.gf, gs.gs, gs.rp,  gs.rc, `r+` as rseg, `r-` as rsba, gs.ass, gs.asf, gs.amm, gs.esp, gs.au               
+            gs.pg, gs.mv,gs.mf, gs.gf, gs.gs, gs.rp,  gs.rc, `r+` as rseg, `r-` as rsba, gs.ass, gs.asf, gs.amm, gs.esp, gs.au, g.quotazione               
             FROM `giocatori` as g
             left join rose as r on r.id_giocatore =g.id 
             left join squadre_serie_a as sq on g.id_squadra = sq.id
@@ -401,6 +402,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $query.=" and gs.esp >= $espulsioni"; 
             if($autogol <> null)//inserire controlli su input valido
                 $query.=" and gs.au >= $autogol"; 
+            if($quotazione <> null)//inserire controlli su input valido
+                $query.=" and g.quotazione >= $quotazione"; 
             
             switch($ordinamento)
             {
@@ -442,6 +445,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 break;
                 case "aut-d":
                     $query.=" order by gs.aut desc";
+                case "quo-d":
+                    $query.=" order by g.quotazione desc";
                 break;
                 default :
                     $query.=" order by gs.mf desc"; 
@@ -480,6 +485,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "amm"=>utf8_encode($row["amm"]),
                     "esp"=>utf8_encode($row["esp"]),
                     "au"=>utf8_encode($row["au"]),
+                    "quo"=>utf8_encode($row["quotazione"]),
                     )
                 );
             };

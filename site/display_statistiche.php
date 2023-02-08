@@ -65,6 +65,7 @@ cercagiocatori = function()
 				"ammonizioni": $("#txtAmmonizioni").val(),
 				"espulsioni": $("#txtEspulsioni").val(),
 				"autogol": $("#txtAutogol").val(),
+				"quotazione": $("#txtQuotazione").val(),
 				"ordinamento": $("#ordinamento").val(),
             },
             success:function(data){
@@ -103,6 +104,7 @@ resetFiltri = function()
 	$("#txtAutogol").val("");
 	$("#txtAmmonizioni").val("");
 	$("#txtEspulsioni").val("");
+	$("#txtQuotazione").val("");
    
 }
 
@@ -168,6 +170,7 @@ $(document).ready(function(){
 				<td>{{ amm }}</td>
 				<td>{{ esp }}</td>
 				<td>{{ au }}</td>
+				<td>{{ quo }}</td>
             </tr>
         {{/giocatori}}
 	</tbody>
@@ -242,6 +245,7 @@ $squadrefc = fantacalcio_getFantasquadre();
 			<option value="amm-d">Ammonizioni &darr;</option>
 			<option value="esp-d">Espulsioni &darr;</option>
 			<option value="aut-d">Autogol &darr;</option>
+			<option value="quo-d">Quotazione &darr;</option>
 		</select>
 		<input type="button" value="cerca" id="btnCerca">
 		<input type="button" value="reset" id="btnResetFiltri">    
@@ -331,6 +335,10 @@ $squadrefc = fantacalcio_getFantasquadre();
 					<th>
 						Aut.: <br>
 						<input type="number" style="width: 40px;" id="txtAutogol" min="0" max="99" step="1" placeholder="Aut">
+					</th>
+					<th>
+						Quo.: <br>
+						<input type="number" style="width: 40px;" id="txtQuotazione" min="0" max="99" step="1" placeholder="Quo">
 					</th>
 				</tr>
 			</thead>
