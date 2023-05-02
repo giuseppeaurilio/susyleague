@@ -127,63 +127,30 @@ function getDescrizioneBreveGiornata($id)
 
 function getLinkClassificheGiornata($id)
 {
-    $descrizioneGiornata = "";
+    $link = "";
     if($id <= 22)
-    { $descrizioneGiornata ="/display_classifiche.php?#tabs-1";}
+    { $link ="/display_classifiche.php?#tabs-1";}
     else if ($id>22 && $id<= 33)
-    { $descrizioneGiornata ="/display_classifiche.php?#tabs-2";}
+    { $link ="/display_classifiche.php?#tabs-2";}
     else if ($id>33 && $id<= 48)
-    { $descrizioneGiornata ="/display_classifiche.php?#tabs-5";}
+    { $link ="/display_classifiche.php?#tabs-5";}
     else if ($id>48 && $id<= 63)
-    { $descrizioneGiornata ="/display_classifiche.php?#tabs-5";}
-    else if ($id == 64 )
-    { $descrizioneGiornata ="CI Q1 A";}
-    else if ($id == 65 )
-    { $descrizioneGiornata ="CI Q1 R";}
-
-    else if ($id == 66 )
-    { $descrizioneGiornata ="CI Q2 A";}
-    else if ($id == 67 )
-    { $descrizioneGiornata ="CI Q2 R";}
-
-    else if ($id == 68 )
-    { $descrizioneGiornata ="CI Q3 A";}
-    else if ($id == 69 )
-    { $descrizioneGiornata ="CI Q3 R";}
-
-    else if ($id == 70 )
-    { $descrizioneGiornata ="CI Q4 A";}
-    else if ($id == 71 )
-    { $descrizioneGiornata ="CI Q4 R";}
-
-    else if ($id == 72 )
-    { $descrizioneGiornata ="CI SF1 A";}
-    else if ($id == 73 )
-    { $descrizioneGiornata ="CI SF1 R";}
-
-    else if ($id == 74 )
-    { $descrizioneGiornata ="CI SF2 A";}
-    else if ($id == 75 )
-    { $descrizioneGiornata ="CI SF2 R";}
-
-    else if ($id == 76 )
-    { $descrizioneGiornata ="CI F";}
-    else if ($id == 77 || $id == 78 || $id == 79 )
-    { $descrizioneGiornata ="CdC G. " . ($id-76);}
-
+    { $link ="/display_classifiche.php?#tabs-5";}
+    else if ($id >= 64 &&  $id<= 79)
+    { $link ="/display_calendario_coppaitalia_tabellone.php";}
     else if ($id == 81)
-    { $descrizioneGiornata = "/display_calendario_finali.php";}
+    { $link = "/display_calendario_finali.php";}
     else if ($id == 82)
-    { $descrizioneGiornata = "/display_calendario_finali.php";}
+    { $link = "/display_calendario_finali.php";}
     else if ($id == 83)
-    { $descrizioneGiornata = "/display_calendario_finali.php";}
+    { $link = "/display_calendario_finali.php";}
 
     else if ($id == 84)
-    { $descrizioneGiornata ="/display_calendario_supercoppa.php";}
+    { $link ="/display_calendario_supercoppa.php";}
 
     else
-    { $descrizioneGiornata ="mancante ".$id ;}
+    { $link ="mancante_".$id ;}
 
-    return $descrizioneGiornata;
+    return $link;
 }
 ?>
