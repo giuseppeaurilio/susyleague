@@ -21,7 +21,7 @@ if( isset($_POST["idsquadre"]) && !empty($_POST["idsquadre"]))
         $giornata1 = $tabellone_shuffled[1];
         cancella_partite(78);
         foreach ($giornata1 as $partita) {
-            aggiungi_partita(78, $idsquadre[$partita["casa"]-1], $idsquadre[$partita["ospite"]-1]);
+            aggiungi_partita(78, $idsquadre[$partita["ospite"]-1], $idsquadre[$partita["casa"]-1]);
         }
         $giornata1 = $tabellone_shuffled[1];
         cancella_partite(79);

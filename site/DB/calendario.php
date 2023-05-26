@@ -136,15 +136,13 @@ function getLinkClassificheGiornata($id)
     { $link ="/display_classifiche.php?#tabs-5";}
     else if ($id>48 && $id<= 63)
     { $link ="/display_classifiche.php?#tabs-5";}
-    else if ($id >= 64 &&  $id<= 79)
+    else if ($id >= 64 &&  $id<= 76)
     { $link ="/display_calendario_coppaitalia_tabellone.php";}
-    else if ($id == 81)
+    else if ($id >= 77 &&  $id<= 79)
+    { $link ="/display_classifiche.php?#tabs-7";}
+    else if ($id >= 81 &&  $id<= 83)
     { $link = "/display_calendario_finali.php";}
-    else if ($id == 82)
-    { $link = "/display_calendario_finali.php";}
-    else if ($id == 83)
-    { $link = "/display_calendario_finali.php";}
-
+    
     else if ($id == 84)
     { $link ="/display_calendario_supercoppa.php";}
 
