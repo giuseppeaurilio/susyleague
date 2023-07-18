@@ -26,7 +26,148 @@ $(document).ready(function(){
 	<div id="tabs-1">
 		<h3>Campionato Susy league</h3>
 		<div  class="content">
-		<div class="anno">2021/2022</div>
+			<div class="anno">2022/2023</div>
+			<div class="campionato">
+				<div class="competizione">
+					<div class="descrizione"> Finale Campionato </div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-shield-alt"></i> </div>
+							<div class="titolo">1°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-medal"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">AS Frieskies</div>
+							<div class="allenatore">(Antonio & Michela)</div>
+						</div>
+					</div>
+				</div>	
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">In Vino Veritas</div>
+							<div class="allenatore">(Filippo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">AS Frieskies</div>
+							<div class="allenatore">(Antonio & Michela)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">In Vino Veritas</div>
+							<div class="allenatore">(Filippo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">3F costruzioni</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">AS Frieskies</div>
+							<div class="allenatore">(Antonio & Michela)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">5emezzo</div>
+							<div class="allenatore">(Giorgio)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">In Vino Veritas</div>
+							<div class="allenatore">(Filippo)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">In Vino Veritas</div>
+							<div class="allenatore">(Filippo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">AS Frieskies</div>
+							<div class="allenatore">(Antonio & Michela)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Campionato</div>
+					<div class="vincitori">
+						
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">I NANI</div>
+							<div class="allenatore">(Peppino)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">In Vino Veritas</div>
+							<div class="allenatore">(Filippo)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">3F costruzioni</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">3F costruzioni</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">In Vino Veritas</div>
+							<div class="allenatore">(Filippo)</div>
+						</div>
+					</div>
+				</div>		
+			</div>
+			<div class="anno">2021/2022</div>
 			<div class="campionato">
 				<div class="competizione">
 					<div class="descrizione"> Finale Campionato </div>
@@ -894,7 +1035,6 @@ $(document).ready(function(){
 					</div>
 				</div>				
 			</div>
-
 			<div class="anno">2015/2016</div>
 			<div class="campionato">
 				<div class="competizione">
@@ -1257,7 +1397,6 @@ $(document).ready(function(){
 					</div>
 				</div>
 			</div>
-
 			<div class="anno">2002/2003</div>
 			<div class="campionato">
 				<div class="competizione">
@@ -1285,6 +1424,23 @@ $(document).ready(function(){
 	<div id="tabs-2">
 		<h3>Coppa delle Coppe <span class="note"> (*prima edizione 2012)</span></h3>
 		<div class="content">
+		<div class="anno">2023</div>
+			<div class="coppacoppe">
+				<div class="vincitori competizione2">
+					<div class="primo">
+						<div><i class="fas fa-trophy"></i> </div>
+						<div class="titolo">1°</div>
+						<div class="squadra">Ebosele Song</div>
+						<div class="allenatore">(MDP)</div>
+					</div>
+					<div class="secondo">
+						<div><i class="fas fa-medal"></i> </div>
+						<div class="titolo">2°</div>
+						<div class="squadra">5emmezzo</div>
+						<div class="allenatore">(Giorgio)</div>
+					</div>
+				</div>
+			</div>
 		<div class="anno">2022</div>
 			<div class="coppacoppe">
 				<div class="vincitori competizione2">
@@ -1479,6 +1635,23 @@ $(document).ready(function(){
 	<div id="tabs-3">
 		<h3>Coppa Italia<span class="note"> (*prima edizione 2019/20)</span></h3>
 		<div class="content">
+			<div class="anno">2022/23</div>
+			<div class="coppaitalia">
+				<div class="vincitori competizione2">
+					<div class="primo">
+						<div><i class="fas fa-trophy"></i> </div>
+						<div class="titolo">1°</div>
+						<div class="squadra">5emmezzo</div>
+						<div class="allenatore">(Giorgio)</div>
+					</div>
+					<div class="secondo">
+					<div><i class="fas fa-medal"></i> </div>
+						<div class="titolo">2°</div>
+						<div class="squadra">Reggi Frenato</div>
+						<div class="allenatore">(Iori)</div>
+					</div>
+				</div>
+			</div>
 			<div class="anno">2021/22</div>
 			<div class="coppaitalia">
 				<div class="vincitori competizione2">
@@ -1536,6 +1709,23 @@ $(document).ready(function(){
 	<div id="tabs-4">
 		<h3>Supercoppa<span class="note"> (*prima edizione 2020/21)</span></h3>
 		<div class="content">
+			<div class="anno">2022/23</div>
+			<div class="supercoppa">
+				<div class="vincitori competizione2">
+					<div class="primo">
+						<div><i class="fas fa-trophy"></i> </div>
+						<div class="titolo">1°</div>
+						<div class="squadra">5emmezzo </div>
+						<div class="allenatore">(Giorgio)</div>
+					</div>
+					<div class="secondo">
+					<div><i class="fas fa-medal"></i> </div>
+						<div class="titolo">2°</div>
+						<div class="squadra">Ebosele Song</div>
+						<div class="allenatore">(MDP)</div>
+					</div>
+				</div>
+			</div>
 			<div class="anno">2021/22</div>
 			<div class="supercoppa">
 				<div class="vincitori competizione2">
@@ -1572,10 +1762,32 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
+
 	<div id="tabs-5">
 		<h3>Fustometro<span class="note"> (*prima edizione 2019/20)</span></h3>
 		<div class="content">
-		<div class="anno">2021/22</div>
+			<div class="anno">2022/23</div>
+			<div class="Fustometro">
+				<div class="vincitori competizione2">
+					<span> <i class="fas fa-beer"></i> Peppe: Un fusto lo cacci subito (Lisa) e un fusto lo cacci mo</span><br>	
+					<span> <i class="fas fa-beer"></i> Peppe: Il Siviglia risolve un problema anche ai fustometri</span><br>	
+					<span> <i class="fas fa-beer"></i> Peppe: Ha il diritto di esprimere il suo dissenso. Fino a un certo punto.</span><br>	
+					<span> <i class="fas fa-beer"></i> Iorio: Il presidente ha 43 anni, non 44...</span><br>	
+					<span> <i class="fas fa-beer"></i> Peppe: Problema eliminato per Mario</span><br>	
+					<span> <i class="fas fa-beer"></i> Salsino: El Coco</span><br>	
+					<span> <i class="fas fa-beer"></i> Filippo: Esperto di regolamento al 3x2</span><br>	
+					<span> <i class="fas fa-beer"></i> Carletto : Stavo a cena fuori...</span><br>	
+					<span> <i class="fas fa-beer"></i> Salsino: Cene dove il portale non funziona. Solo a isso!</span><br>	
+					<span> <i class="fas fa-beer"></i> Presidente: In effetti non si può mancare al draft...</span><br>	
+					<span> <i class="fas fa-beer"></i> Peppe: Non si chiede il fusto per gli altri</span><br>	
+					<span> <i class="fas fa-beer"></i> Salsino: Andiamo a cerca Mero pe Roma</span><br>	
+					<span> <i class="fas fa-beer"></i> IORI: Alle uscite a cazzo!</span><br>	
+					<span> <i class="fas fa-beer"></i> DARPINO: Padel, crossfit, tennis</span><br>	
+					<span> <i class="fas fa-beer"></i> IORI: Presidente a cosa è impegnato?</span><br>	
+					<span> <i class="fas fa-beer"></i> IORI: Il presidente assegna i fusti</span><br>	
+				</div>
+			</div>
+			<div class="anno">2021/22</div>
 			<div class="Fustometro">
 				<div class="vincitori competizione2">
 					<span> <i class="fas fa-beer"></i> Filippo: Perché si!</span><br>	
