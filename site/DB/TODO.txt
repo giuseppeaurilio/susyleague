@@ -2,15 +2,22 @@
 BUG:
 
 ENHANCEMENT
-IN corso
-
 digitalizzare l'albo d'oro
 
-DA FARE
-inserire pulsante di creazione automatica della formazione in base a dai criteri
+Nelle classifiche, inserire l'andamento per squadra di (creare/evolvere una sezione statistiche squadra)
+vittorie-pareggi-sconfitte
+punteggio marcatori
+media difesa applicata
+media difesa subita
+
+Finale campionato:
+modificare in modo che il presidente possa decidere le suqadre per tutte e tre le partite (quindi non fare generare le 3 giornate in contemporanea) 
+e se applciare il fattore casa o campo neutro sulla singola partita
 
 ASTA PEPPE
 appena un giocatore è stato aggiudicato, mantenerlo e non fare "nessun giocatore in asta"
+
+inserire pulsante di creazione automatica della formazione in base a dai criteri
 
 GRAFICA
 Loghi e banner delle squadre.
