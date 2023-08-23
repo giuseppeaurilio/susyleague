@@ -113,7 +113,7 @@ function fantacalcio_getFantasquadre(){
     // include_once ("../dbinfo_susyleague.inc.php");
     $conn = getConnection();
     $squadre = array();
-    // if(!isset($_SESSION['fantasquadre']))
+    if(!isset($_SESSION['fantasquadre']))
     {
         $query="SELECT * FROM sq_fantacalcio order by squadra";
         $result=$conn->query($query);

@@ -45,9 +45,8 @@ include_once ("menu.php");
     <input type="submit" value="Carica File" name="submit">
 </form>
 <hr>
-<h2>Statistiche giocatori</h2>
+<!-- <h2>Statistiche giocatori</h2>
 <form action="upload_statistiche.php" method="post" enctype="multipart/form-data">
-    <!-- <span>Anno</span><input type="text" name="AnnoStats"></input> -->
     <select name="AnnoStats" id="AnnoStats">
         <option value="">--anno--</option>	
         <option value="22/23">22/23</option>
@@ -64,12 +63,13 @@ include_once ("menu.php");
     <input type="file" name="fileToUploadStats" >
     <input type="submit" value="Carica File" name="submitStats">
 </form>
-<hr>
-<!-- <form action="upload_pinfo.php" method="post" enctype="multipart/form-data">
+<hr> -->
+<h2>PINFO</h2>
+<form action="upload_pinfo.php" method="post" enctype="multipart/form-data">
     Selziona File da inserire:
     <input type="file" name="fileToUploadPInfo" >
     <input type="submit" value="Carica File" name="submitPInfo">
-</form> -->
+</form>
 <!-- <a href="spiegazione_creazione_file_csv.pdf">File di Spiegazione</a>     -->
 <?php 
 include_once ("../footer.php");

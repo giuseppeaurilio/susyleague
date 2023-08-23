@@ -56,6 +56,8 @@ left join `calendario` as c on g.`id_giornata` =  c.`id_giornata`
 left join `sq_fantacalcio` as sq1 on c.`id_sq_casa` =  `sq1`.`id`
 left join `sq_fantacalcio` as sq2 on c.`id_sq_ospite` =  `sq2`.`id`
 WHERE id_girone = 7 order by id_giornata ASC";
+
+// print_r($query);
 $result=$conn->query($query);
 
 // $num=$result->num_rows; 
@@ -125,25 +127,25 @@ while ($row=$result->fetch_assoc()) {
 		}
 		$index =2;
 	}
-	else if($index == 2)
-	{
-		$id_giornata_gara3=$row["id_giornata"];
-		// $inizio_gara2=$row["inizio"];
-		// $fine_gara2=$row["fine"];
-		$inizio_a_gara3=$row["inizio"];//date_parse($inizio_gara2);
-		$fine_a_gara3=$row["fine"];//date_parse($fine_gara2);
-		if(!is_null($row["gol_casa"]) && !is_null($row["gol_casa"]) )
-		{
-			$gol_casa_gara3=$row["gol_casa"];
-			$gol_ospiti_gara3=$row["gol_ospiti"];
-			$punti_casa_gara3=$row["punti_casa"];
-			$punti_ospiti_gara3=$row["punti_ospiti"];
-			$commentogara3 = $row["commento"];
-		}
-		$index =3;
-	}
+	// else if($index == 2)
+	// {
+	// 	$id_giornata_gara3=$row["id_giornata"];
+	// 	// $inizio_gara2=$row["inizio"];
+	// 	// $fine_gara2=$row["fine"];
+	// 	$inizio_a_gara3=$row["inizio"];//date_parse($inizio_gara2);
+	// 	$fine_a_gara3=$row["fine"];//date_parse($fine_gara2);
+	// 	if(!is_null($row["gol_casa"]) && !is_null($row["gol_casa"]) )
+	// 	{
+	// 		$gol_casa_gara3=$row["gol_casa"];
+	// 		$gol_ospiti_gara3=$row["gol_ospiti"];
+	// 		$punti_casa_gara3=$row["punti_casa"];
+	// 		$punti_ospiti_gara3=$row["punti_ospiti"];
+	// 		$commentogara3 = $row["commento"];
+	// 	}
+	// 	$index =3;
+	// }
 
-	if($index == 3)
+	if($index == 2)
 	{
 		$incontroCoppa = new IncontroCoppa;
 		$incontroCoppa->idSquadraA  = $id_sq1;
@@ -266,27 +268,28 @@ foreach ($giornate as $partita) {
 		.$partita->commentogara2.'</textarea> ';
 		echo '</div>';
 
-		if(!is_null($partita->golCasagara3))
-		{
-			// echo print_r($partita);
-			// echo $partita->golCasagara3;
+		// if(!is_null($partita->golCasagara3))
+		// {
+		// 	// echo print_r($partita);
+		// 	// echo $partita->golCasagara3;
 			
-			echo '<div class="score">';
-			echo '<div class="punti">('.$partita->puntiTrasfertagara3.')</div>';
-			echo '<div class="gol">'.$partita->golTrasfertagara3.'</div>';
-			echo '<div> - </div>';
-			echo '<div class="gol">'.$partita->golCasagara3.'</div>';
-			echo '<div class="punti">('.$partita->puntiCasagara3.')</div>';
-			echo '</div>';
-		}
-		echo '<div class="formazioni">';
-		$link="display_giornata.php?&id_giornata=".$partita->idGiornatagara3;
-		echo '<a href='. $link.'>Formazioni gara3 <i class="fas fa-list-ol"></i></a>';
-		echo '</div>';
-		echo '<div class="commento" style="'.( $partita->commentogara3 == "" ?  "display:none;" : "").'">';
-		echo '<textarea readonly rows="10"  >Il punto del presidente:'
-		.$partita->commentogara3.'</textarea> ';
-		echo '</div>';
+		// 	echo '<div class="score">';
+		// 	echo '<div class="punti">('.$partita->puntiTrasfertagara3.')</div>';
+		// 	echo '<div class="gol">'.$partita->golTrasfertagara3.'</div>';
+		// 	echo '<div> - </div>';
+		// 	echo '<div class="gol">'.$partita->golCasagara3.'</div>';
+		// 	echo '<div class="punti">('.$partita->puntiCasagara3.')</div>';
+		// 	echo '</div>';
+		// }
+		// echo '<div class="formazioni">';
+		// $link="display_giornata.php?&id_giornata=".$partita->idGiornatagara3;
+		// echo '<a href='. $link.'>Formazioni gara3 <i class="fas fa-list-ol"></i></a>';
+		// echo '</div>';
+		// echo '<div class="commento" style="'.( $partita->commentogara3 == "" ?  "display:none;" : "").'">';
+		// echo '<textarea readonly rows="10"  >Il punto del presidente:'
+		// .$partita->commentogara3.'</textarea> ';
+		// echo '</div>';
+
 		echo '<h1>&nbsp;</h1>';
 		
 	echo '</div>';

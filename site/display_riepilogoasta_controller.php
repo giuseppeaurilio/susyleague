@@ -6,6 +6,8 @@ include_once ("dbinfo_susyleague.inc.php");
 // if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
 $conn = getConnection();
 
+include_once ("DB/parametri.php");
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $action = $_POST['action'];
@@ -13,11 +15,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     {
         case("astaincorso"):
 
-            $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.ruolo_mantra as ruolo_mantra, g.quotazione as quotazione, sa.squadra_breve as squadra_breve, sa.squadra as squadra
+            $query= "SELECT  g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.ruolo_mantra as ruolo_mantra, g.quotazione as quotazione, 
+            sa.squadra_breve as squadra_breve, sa.squadra as squadra, sqf.id as idsqf, sqf.squadra as fantasquadra, r.costo as costo
             FROM `giocatori` as g 
-            left join rose as s on s.id_giocatore = g.id
+            left join rose as r on r.id_giocatore = g.id
             left join squadre_serie_a as sa on sa.id = g.id_squadra
-            where s.id_sq_fc = 0";
+            left join sq_fantacalcio as sqf on  sqf.id = r.id_sq_fc
+            
+            order by ordine desc
+            LIMIT 1";
+            
             // echo $query;
             $result=$conn->query($query);
             $giocatori = array();
@@ -33,6 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "ruolo_mantra"=>$row["ruolo_mantra"],
                     "squadra"=>$row["squadra"],
                     "squadra_breve"=>$row["squadra_breve"],
+                    "fantasquadra"=>$row["fantasquadra"],
+                    "costo"=>$row["costo"],
                     "imgurl"=>$imgurl
                     )
                 );
@@ -177,7 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
-                left join rose_asta_21_22 as rap on rap.id_giocatore = g.id
+                left join rose_asta_".getStrAnnoPrecedente()." as rap on rap.id_giocatore = g.id
                 left join sq_fantacalcio as sqf on rap.id_sq_fc = sqf.id
                 where g.id = $id";
                 // echo $query;
@@ -219,10 +228,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $idsquadra = $_POST['idsquadra']  = '' ? null :$_POST['idsquadra'];
                 // $mediavoto = $_POST['mediavoto']  = '' ? null :$_POST['mediavoto'];
                 // $fantamedia = $_POST['fantamedia']  = '' ? null :$_POST['fantamedia'];
+                $quotazione = $_POST['quotazione']  = '' ? null :$_POST['quotazione'];
                 $titolarita = $_POST['titolarita']  = '' ? null :$_POST['titolarita'];
                 $rigori = $_POST['rigori']  = '' ? null :$_POST['rigori'];
                 $punizioni = $_POST['punizioni']  = '' ? null :$_POST['punizioni'];
-                $ia = $_POST['ia']  = '' ? null :$_POST['ia'];
+                // $ia = $_POST['ia']  = '' ? null :$_POST['ia'];
                 $is = $_POST['is']  = '' ? null :$_POST['is'];
                 $f = $_POST['f']  = '' ? null :$_POST['f'];
                 $om = $_POST['om']  = '' ? null :$_POST['om'];
@@ -245,14 +255,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $query.=" and g.ruolo = '$ruolo'"; 
                 if($idsquadra <> null)//inserire controlli su input valido
                     $query.=" and g.id_squadra = '$idsquadra'"; 
+                if($quotazione <> null)//inserire controlli su input valido
+                    $query.=" and g.quotazione >=  $quotazione"; 
                 if($titolarita <> null)//inserire controlli su input valido
                     $query.=" and gpi.titolarita >=  $titolarita"; 
                 if($rigori <> null)//inserire controlli su input valido
                     $query.=" and gpi.cr =  $rigori"; 
                 if($punizioni <> null)//inserire controlli su input valido
                     $query.=" and gpi.cp =  $punizioni"; 
-                if($ia <> null)//inserire controlli su input valido
-                    $query.=" and gpi.ia >=  $ia"; 
+                // if($ia <> null)//inserire controlli su input valido
+                //     $query.=" and gpi.ia >=  $ia"; 
                 if($is <> null)//inserire controlli su input valido
                     $query.=" and gpi.is <=  $is"; 
                 if($f <> null)//inserire controlli su input valido
@@ -507,13 +519,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // print_r($row);
             }
             $query="SELECT  ordine, nome, costo,  squadra
-            FROM `rose_asta_21_22` as rap 
+            FROM `rose_asta_".getStrAnnoPrecedente()."` as rap 
             left join sq_fantacalcio as sqf on rap.id_sq_fc = sqf.id
             left join giocatori as g on g.id = rap.id_giocatore
             where g.ruolo = '$ruolo'
             order by ordine asc 
             limit 5 OFFSET $value";
-// echo $query;
+            //echo $query;
             $result=$conn->query($query);
             $prossimi = array();
             while($row = $result->fetch_assoc()){

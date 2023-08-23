@@ -3,8 +3,11 @@ include("menu.php");
 
 ?>
 <script>
-
-var astaincorso = false;
+function scrollFunction() {
+    return false;
+}
+// var pagereload = false;
+var lastcost = 0;
 
 loadStatsDialog = function(event)
 {
@@ -79,43 +82,43 @@ loadStats = function(id)
 
 loadUltimoGiocatore = function(id)
 {
-    // var action ="ultimogiocatore";
-    // $.ajax({
-    //     type:'POST',
-    //         url:'display_riepilogoasta_controller.php',
-    //         data: {
-    //             "action": action,
-    //         },
-    //         success:function(data){
-    //             // debugger;
-    //             var resp=$.parseJSON(data)
+    var action ="ultimogiocatore";
+    $.ajax({
+        type:'POST',
+            url:'display_riepilogoasta_controller.php',
+            data: {
+                "action": action,
+            },
+            success:function(data){
+                // debugger;
+                var resp=$.parseJSON(data)
                 
-    //             if(resp.result == "true"){
-    //                 if(resp.giocatori.length> 0){
-    //                     //show data
-    //                     var template = $('#tmplAstaprecedente').html();
-    //                     Mustache.parse(template);   // optional, speeds up future uses
-    //                     var rendered = Mustache.render(template, resp.giocatori[0]);
-    //                     $("#divAstaprecedente").html(rendered);
-    //                     $("#divAstaprecedente").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStatsDialog);
-    //                 }
-    //                 else{
-    //                     var giocatore = {nome: "NO DATA", ruolo: "-", imgurl: noimage, squadra_breve: "--", costo:"-", fantasquadra : "--"}
-    //                     //
-    //                     resp.giocatori.push(giocatore);
-    //                     var template = $('#tmplAstaprecedente').html();
-    //                     Mustache.parse(template);   // optional, speeds up future uses
-    //                     var rendered = Mustache.render(template, resp.giocatori[0]);
-    //                     $("#divAstaprecedente").html(rendered);
-    //                 }
-    //             }
-    //             else{
-    //                 $( "#dialog" ).prop('title', "ERROR");                
-    //                 $( "#dialog p" ).html(resp.error.msg);
-    //                 $( "#dialog" ).dialog({modal:true});
-    //             }
-    //         }
-    // }); 
+                if(resp.result == "true"){
+                    if(resp.giocatori.length> 0){
+                        //show data
+                        var template = $('#tmplAstaprecedente').html();
+                        Mustache.parse(template);   // optional, speeds up future uses
+                        var rendered = Mustache.render(template, resp.giocatori[0]);
+                        $("#divAstaprecedente").html(rendered);
+                        $("#divAstaprecedente").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStatsDialog);
+                    }
+                    else{
+                        var giocatore = {nome: "NO DATA", ruolo: "-", imgurl: noimage, squadra_breve: "--", costo:"-", fantasquadra : "--"}
+                        //
+                        resp.giocatori.push(giocatore);
+                        var template = $('#tmplAstaprecedente').html();
+                        Mustache.parse(template);   // optional, speeds up future uses
+                        var rendered = Mustache.render(template, resp.giocatori[0]);
+                        $("#divAstaprecedente").html(rendered);
+                    }
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    }); 
 }
 
 loadAstaInCorso = function()
@@ -131,35 +134,30 @@ loadAstaInCorso = function()
             success:function(data){
                 // debugger;
                 var resp=$.parseJSON(data)
+                
                 if(resp.result == "true" ){
                     if(resp.giocatori.length> 0){
-                        if(astaincorso == false)
-                        {
-                          //show data
-                          var template = $('#tmplAstaInCorso').html();
-                          Mustache.parse(template);   // optional, speeds up future uses
-                          var rendered = Mustache.render(template, resp.giocatori[0]);
-                          $("#divAstaAttuale").html(rendered);
-                          astaincorso = true;
-                          loadStats(resp.giocatori[0]["id"]);
-                          // $("#divAstaAttuale").unbind().bind("click", { id: resp.giocatori[0]["id"]},  loadStats);
-                        }
-                        else{
-                            //do nothing
-                        }
-                    }
-                    else{
-                        var giocatore = {nome: "Nessun giocatore in asta", ruolo: "-", imgurl: noimage, squadra_breve: "--"}
-                        //
-                        resp.giocatori.push(giocatore);
+                        // debugger;
+                        // astaincorso = resp.giocatori[0].costo == null;
+                        // console.log(resp.giocatori[0].costo);
+                        // if(astaincorso == true)
+                        // {
+                        //show data
                         var template = $('#tmplAstaInCorso').html();
                         Mustache.parse(template);   // optional, speeds up future uses
                         var rendered = Mustache.render(template, resp.giocatori[0]);
                         $("#divAstaAttuale").html(rendered);
-                        
-                        if(astaincorso == true)
+                       
+                        if(resp.giocatori[0].costo == null)
                         {
-                            location.reload();
+                            lastcost = resp.giocatori[0].costo;
+                        }
+                        else
+                        {
+                            if(lastcost == null)
+                            {
+                                location.reload();
+                            }
                         }
                     }
                 }
@@ -177,7 +175,8 @@ $(document).ready(function(){
         //verifico se c'e' un giocatore in vendita.
             //se non c'era e lo trovo mostro il nuovo giocatore in vendita.
             //se c'era e non c'è vuol dire che è stato venduto, reload della pagina
-    loadUltimoGiocatore();
+    // loadUltimoGiocatore();
+    var pagereload = false;
     loadAstaInCorso();
     window.setInterval(function(){
         // loadUltimoGiocatore();
@@ -196,14 +195,24 @@ $(document).on({
 <script id="tmplAstaInCorso" type="x-tmpl-mustache">
     
 <div>
+    {{ #fantasquadra }}
+    <h3> Ultimo aggiudicato</h3>
+    <div class="widgetastacontent ultimoaggiudicato" data-id="{{ id }}">
+    {{ /fantasquadra }}
+    {{ ^fantasquadra }}
     <h3> Adesso in asta</h3>
     <div class="widgetastacontent incorso" data-id="{{ id }}">
-        <div class="nome" style="font-size:100px"> {{ nome }} </div>
-        <div class="nome" style="font-size:100px"> ({{ squadra }})</div>
-        <div class="ruolo" style="font-size:50px"> Ruolo: {{ ruolo }} </div>
-        <img  width="120px;" src='{{ imgurl }}' onerror='imgError(this);'> </img>
-    </div>
+    {{ /fantasquadra }}
     
+    <div class="nome" style="font-size:100px"> {{ nome }} </div>
+    <div class="nome" style="font-size:100px"> ({{ squadra }})</div>
+    <div class="ruolo" style="font-size:50px"> Ruolo: {{ ruolo }} </div>
+    <img  width="120px;" src='{{ imgurl }}' onerror='imgError(this);'> </img>
+
+    {{ #fantasquadra }}
+    <div class="fantasquadra" style="font-size:50px"> Aggiudicato: {{ fantasquadra }} <br> Costo: {{ costo }}</div>
+    {{ /fantasquadra }}
+    </div>
 </div>
 </script>
 

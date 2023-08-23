@@ -22,7 +22,30 @@ function getParametro($parametro){
 
 function getFantamilioni()
 {
-    return getParametro("fantamilioni");
+    if(!isset($_SESSION['fantamilioni']))
+    {
+        $_SESSION['fantamilioni'] = getParametro("fantamilioni");
+    }
+    return $_SESSION['fantamilioni'];
+}
+
+function getAnno()
+{
+    if(!isset($_SESSION['anno']))
+    {
+        $_SESSION['anno'] = getParametro("anno");
+    }
+    return $_SESSION['anno'];
+}
+
+function getStrAnno()
+{
+    return  str_replace("/", "-", getAnno());
+}
+function getStrAnnoPrecedente()
+{
+    $anno = getAnno();
+    return ((int)(explode("/", $anno)[0])-1)."_".((int)(explode("/", $anno)[1])-1);;
 }
 
 function getNumPortieri()

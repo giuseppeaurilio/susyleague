@@ -1,10 +1,14 @@
 <?php 
 include_once ("menu.php");
-
+include_once ("DB/parametri.php");
 ?>
 <script>
-
-var astaincorso = false;
+function scrollFunction() {
+    return false;
+}
+// var astaincorso = false;
+// var pagereload = false;
+var lastcost = 0;
 ricercaGiocatore = function(id)
 {
     var action ="ricercagiocatore";
@@ -12,10 +16,11 @@ ricercaGiocatore = function(id)
     var idsquadra = $("#squadra").val();
     var mediavoto = $("#txtMediaVoto").val();
     var fantamedia = $("#txtFantamedia").val();
+    var quotazione = $("#txtQuotazione").val();
     var titolarita = $("#titolarita").val();
     var rigori = $("#rigori").val();
     var punizioni = $("#punizioni").val();
-    var ia = $("#txtIA").val();
+    // var ia = $("#txtIA").val();
     var is = $("#indicesquadra").val();
     var f = $("#fascia").val();
     var om = $("#txtOffMAX").val();
@@ -32,10 +37,11 @@ ricercaGiocatore = function(id)
                 "idsquadra": idsquadra,
                 // "mediavoto": mediavoto,
                 // "fantamedia": fantamedia,
+                "quotazione": quotazione,
                 "titolarita": titolarita,
                 "rigori": rigori,
                 "punizioni": punizioni,
-                "ia": ia,
+                // "ia": ia,
                 "is": is,
                 "f": f,
                 "om": om,
@@ -257,8 +263,8 @@ loadAstaInCorso = function()
                 var resp=$.parseJSON(data)
                 if(resp.result == "true"){
                     if(resp.giocatori.length> 0){
-                        if(astaincorso == false)
-                        {
+                        // if(astaincorso == false)
+                        // {
                             //show data
                             var template = $('#tmplAstaInCorso').html();
                             Mustache.parse(template);   // optional, speeds up future uses
@@ -276,26 +282,34 @@ loadAstaInCorso = function()
                             ricercaGiocatore();
                             loadSquadra();
                             loadProssimiPrecedenteAsta(ruoloattuale);
-                            // }
-                        }
-                        else{
-                            //do nothing
-                        }
+                            
+                            console.log(lastcost)
+                            if(resp.giocatori[0].costo == null)
+                            {
+                                lastcost = resp.giocatori[0].costo;
+                            }
+                            else
+                            {
+                                if(lastcost == null)
+                                {
+                                    location.reload();
+                                }
+                            }
                         
                     }
-                    else{
-                        var giocatore = {nome: "Nessuna giocatore in asta", ruolo: "-", imgurl: noimage, squadra_breve: "--"}
-                        //
-                        resp.giocatori.push(giocatore);
-                        var template = $('#tmplAstaInCorso').html();
-                        Mustache.parse(template);   // optional, speeds up future uses
-                        var rendered = Mustache.render(template, resp.giocatori[0]);
-                        $("#divAstaAttuale").html(rendered);
-                        if(astaincorso == true)
-                        {
-                            location.reload();
-                        }
-                    }
+                    // else{
+                    //     var giocatore = {nome: "Nessuna giocatore in asta", ruolo: "-", imgurl: noimage, squadra_breve: "--"}
+                    //     //
+                    //     resp.giocatori.push(giocatore);
+                    //     var template = $('#tmplAstaInCorso').html();
+                    //     Mustache.parse(template);   // optional, speeds up future uses
+                    //     var rendered = Mustache.render(template, resp.giocatori[0]);
+                    //     $("#divAstaAttuale").html(rendered);
+                    //     if(astaincorso == true)
+                    //     {
+                    //         location.reload();
+                    //     }
+                    // }
                     
                 }
                 else{
@@ -329,7 +343,7 @@ resetFiltri = function()
     $("#punizioni").val("");
     $("#txtMediaVoto").val("");
     $("#txtFantamedia").val("");
-    $("#txtIA").val("");
+    // $("#txtIA").val("");
     $("#indicesquadra").val("");
     $("#fascia").val("");
     $("#txtOffMAX").val("");
@@ -357,21 +371,31 @@ $(document).on({
 
 <script id="tmplAstaInCorso" type="x-tmpl-mustache">  
 <div>
+    {{ #fantasquadra }}
+    <h3> Ultimo aggiudicato</h3>
+    <div class="widgetastacontent ultimoaggiudicato height" data-id="{{ id }}">
+    {{ /fantasquadra }}
+    {{ ^fantasquadra }}
     <h3> Adesso in asta</h3>
     <div class="widgetastacontent incorso height" data-id="{{ id }}">
+    {{ /fantasquadra }}
+
         <div class="left">
             <img src='{{ imgurl }}' onerror='imgError(this);'> </img> 
         </div>
         <div  class="right">
             <div class="nome"> {{ nome }} ({{ squadra_breve }})
                 <a style='float: right;font-size: small; color:black;' target='popup' 
-                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2022-23'
+                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}'
                 onclick='
-                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2022-23","popup","width=600,height=600"); 
+                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}","popup","width=600,height=600"); 
                 event.stopPropagation();
                 return false;''><i class='fas fa-external-link-alt'></i></a>
                 </div>
             <div class="ruolo" data-ruolo="{{ ruolo }}"> Ruolo: {{ ruolo }}; Mantra: {{ ruolo_mantra }}</div>
+            {{ #fantasquadra }}
+            <div class="fantasquadra"> Fantasquadra: {{ fantasquadra }} <br> Costo: {{ costo }}</div>
+            {{ /fantasquadra }}
         </div>
     </div>
 </div>
@@ -385,13 +409,9 @@ $(document).on({
             <th title="Media voto">mv</th>
             <th title="FantaMedia">mf</th>
             <th title="Gol fatti">gf</th>
-            <th title="Gol Subiti">gs</th>
-            <th title="Rigori parati"rp</th>
             <th title="Rigori calciati">rc</th>
             <th title="Rigori segnati">r+</th>
-            <th title="Rigori sbagliati">r-</th>
             <th title="Assit">as</th>
-            <th title="Assist da fermo">asf</th>
             <th title="Ammonizioni">am</th>
             <th title="Espusioni">es</th>
             <th title="Autogol">au</th>
@@ -403,13 +423,9 @@ $(document).on({
             <td>{{mv}}</td>
             <td>{{mf}}</td>
             <td>{{gf}}</td>
-            <td>{{gs}}</td>
-            <td>{{rp}}</td>
             <td>{{rc}}</td>
             <td>{{r+}}</td>
-            <td>{{r-}}</td>
             <td>{{ass}}</td>
-            <td>{{asf}}</td>
             <td>{{amm}}</td>
             <td>{{esp}}</td>
             <td>{{au}}</td>
@@ -467,29 +483,26 @@ $(document).on({
 <script id="tmplPInfo" type="x-tmpl-mustache">
     <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;">
         <tr>
-            <th title="Quotazione">Quo</th>
+            <th title="Offerta MAX">OFF MAX</th>
+            <th title="Fascia">FA</th>
+            <th title="Indice squadra">IS</th>
             <th title="Titolarità">Tit</th>
+            <th title="Quotazione">Quo</th>
             <th title="Calci di rigore">CR</th>
             <th title="Calci di punizione">CP</th>
             <th title="Calci d'agolo">CA</th>
-            <th title="Indice di appetibilità">IA</th>
-            <th title="Indice squadra">IS</th>
-            <th title="Fascia">FA</th>
-            <th title="Offerta MAX">OFF MAX</th>
             <th title="Anno precedente">AP</th>
         </tr>
         <tr>
-            <td>{{quotazione}}</td>
+            <td>{{om}}</td>
+            <td>{{f}}</td>
+            <td>{{is}}</td>    
             <td>{{titolarita}}</td>
+            <td>{{quotazione}}</td>
             <td>{{cr}}</td>
             <td>{{cp}}</td>
             <td>{{ca}}</td>
-            <td>{{ia}}</td>
-            <td>{{is}}</td>
-            <td>{{f}}</td>
-            <td>{{om}}</td>
             <td>{{ordine_ap}}.({{squadra}}){{costo_ap}}FM</td>
-            
         </tr>
         <tr>
         <td colspan="10">{{note}}</td></tr>
@@ -501,21 +514,23 @@ $(document).on({
     <tbody>
         {{ #giocatori }}
         <tr>
-            <td style="text-align:left;">{{ nome }}
+            <td rowspan="2">{{ruolo}}</td>
+            <td rowspan="2" style="text-align:left;">{{ nome }}
                 &nbsp;
                 <a style='float: right;font-size: small; color:black;' target='popup' 
-                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2022-23'
+                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}'
                 onclick='
-                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2022-23","popup","width=600,height=600"); 
+                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}","popup","width=600,height=600"); 
                 event.stopPropagation();
                 return false;''><i class='fas fa-external-link-alt'></i></a>
             </td>
-            <td>{{ruolo}}</td>
             <td>{{squadra_breve}}</td>
             <td>{{is}}</td>
             <td>{{f}}</td>
             <td>{{costo}}</td>
-            <td>{{note}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">{{note}}</td>
         </tr>
         {{ /giocatori }}    
     </tbody>
@@ -525,27 +540,28 @@ $(document).on({
     <tbody>
         {{ #giocatori }}
         <tr data-id="{{ id }}"> 
-            <td  style="text-align:left;">
+            <td rowspan="2" style="text-align:left;">
                 <span class="nome {{class}}">{{ nome }}</span> <span class="visibile {{class}}">({{squadrafc}})</span>
                 <a style='float: right;font-size: small; color:black;' target='popup' 
-                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2022-23'
+                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}'
                 onclick='
-                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2022-23","popup","width=600,height=600"); 
+                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}","popup","width=600,height=600"); 
                 event.stopPropagation();
                 return false;''><i class='fas fa-external-link-alt'></i>
             </td>
-            <td>{{ruolo}}</td>
-            <td>{{squadra_breve}}</td>
-            <td>{{quotazione}}</td>
-            <td>{{ia}}</td>
+            <td rowspan="2">{{ruolo}}</td>
+            <td rowspan="2">{{squadra_breve}}</td>
+            <td>{{om}}</td>
+            <td>{{f}}</td>
+            <td>{{is}}</td>
             <td>{{titolarita}}</td>
+            <td>{{quotazione}}</td>            
             <td>{{cr}}</td>
             <td>{{cp}}</td>
             <td>{{ca}}</td>            
-            <td>{{is}}</td>
-            <td>{{f}}</td>
-            <td>{{om}}</td>
-            <td>
+        </tr>
+        <tr>
+            <td colspan="8">
             {{note}}
             </td>
         </tr>
@@ -685,11 +701,44 @@ while($row = $result->fetch_assoc()){
                                     echo '</select>';
                                 ?>
                             </th>
-                            
                             <th>
-                                <input type="number" style="width: 40px;" id="txtQuotazione" min="0" max="60" step="1" placeholder="Quo">
+                                <input type="number" style="width: 40px;" id="txtOffMAX" min="0" max="200" step="1" placeholder="OMAX">
                             </th>
-                            <th ><input style="width: 30px;" type="number" id="txtIA" min="0" max="200" step="1" placeholder="IA"></th>
+                            <th >
+                                <select name="fascia" id="fascia">
+                                    <option value="">F</option>	
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            <!-- <input style="width: 30px;" type="number" id="txtF" min="0" max="200" step="1" placeholder="F"> -->
+                            </th>
+
+                            <th >
+                                <select name="indicesquadra" id="indicesquadra">
+                                    <option value="">-IS</option>	
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            <!-- <input style="width: 30px;" type="number" id="txtIS" min="0" max="200" step="1" placeholder="IS"> -->
+                            </th>
+                           
+                            <!-- <th ><input style="width: 30px;" type="number" id="txtIA" min="0" max="200" step="1" placeholder="IA"></th> -->
                             <th>
                                 <select name="ruolo" id="titolarita">
                                     <option value="">-TIT</option>	
@@ -704,6 +753,9 @@ while($row = $result->fetch_assoc()){
                                     <option value="2">2</option>
                                     <option value="1">1</option>
                                 </select>
+                            </th>
+                            <th>
+                                <input type="number" style="width: 40px;" id="txtQuotazione" min="0" max="60" step="1" placeholder="Quo">
                             </th>
                             <th>
                                 <select name="rigori" id="rigori">
@@ -729,43 +781,7 @@ while($row = $result->fetch_assoc()){
                                     <option value="3">3</option>
                                 </select>
                             </th>
-                            
-                            <th >
-                                <select name="indicesquadra" id="indicesquadra">
-                                    <option value="">-IS</option>	
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            <!-- <input style="width: 30px;" type="number" id="txtIS" min="0" max="200" step="1" placeholder="IS"> -->
-                            </th>
-                            <th >
-                                <select name="fascia" id="fascia">
-                                    <option value="">F</option>	
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            <!-- <input style="width: 30px;" type="number" id="txtF" min="0" max="200" step="1" placeholder="F"> -->
-                            </th>
-                            <th>
-                                <input type="number" style="width: 40px;" id="txtOffMAX" min="0" max="200" step="1" placeholder="OMAX">
-                            </th>
-                            <th>note</th>
+                            <!-- <th>note</th> -->
                         </tr>
                     </thead>
                 </table>
@@ -843,7 +859,7 @@ while($row = $result->fetch_assoc()){
                             <th>IS</th>
                             <th>F</th>
                             <th>Costo</th>
-                            <th>Note</th>
+                            <!-- <th>Note</th> -->
                         </tr>
                     </thead>
                 </table>

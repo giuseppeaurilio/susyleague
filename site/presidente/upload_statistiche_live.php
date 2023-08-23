@@ -10,12 +10,13 @@
 // $conn=mysqli_connect($localhost,$username,$password,$database) or die( "Unable to select database");
 include_once("../dbinfo_susyleague.inc.php");
 $conn = getConnection();
+include_once ("../DB/parametri.php");
 ?>
 <?php
 
 
 // $html = file_get_contents("https://www.fantacalcio.it/voti-fantacalcio-serie-a");
-$url = "https://www.fantacalcio.it/statistiche-serie-a/2022-23/italia/riepilogo";
+$url = "https://www.fantacalcio.it/statistiche-serie-a/20". getStrAnno(). "/italia/riepilogo";
 $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 $html = curl_exec($curl);
@@ -81,7 +82,7 @@ foreach($items as $item)
 
 // 
 // echo count($arrayGiocatori). "<br>";
-$anno = "22/23";
+$anno = getAnno();
 foreach($arrayGiocatori as $item)
 {
 	$queryresetVoti = "DELETE FROM `giocatori_statistiche` 
@@ -126,8 +127,8 @@ foreach($arrayGiocatori as $item)
 			". $item["esp"] .",
 			". $item["au"] ."
 		)";
-	// print_r ($query);
-	// echo '<br/> '; 	
+	print_r ($queryInsertStats);
+	echo '<br/> '; 	
 	$result=$conn->query(cleanQuery($queryInsertStats)); //or die($conn->error);
 	if($result) {
 		// echo cleanQuery($queryInsertStats) .'<br>';

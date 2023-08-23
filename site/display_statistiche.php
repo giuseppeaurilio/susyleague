@@ -151,7 +151,7 @@ $(document).ready(function(){
                 <td style="text-align:left;">{{ nome }}
 					&nbsp;
 					<a style='float: right;font-size: small; color:black;' target='_blank' 
-					href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}/5/2022-23'><i class='fas fa-external-link-alt'></i>
+					href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}'><i class='fas fa-external-link-alt'></i>
 				</td>
                 <td>{{ ruolo }}</td>
 				<td>{{ squadra_breve }}</td>
@@ -214,14 +214,16 @@ while($row = $result->fetch_assoc()){
 //fine load squadre fantacalcio
 include_once ("DB/fantacalcio.php");
 $squadrefc = fantacalcio_getFantasquadre();
+include_once ("DB/parametri.php");
 ?>
 <h2>Statistiche giocatori
 	
 </h2>
 <h3 style="text-align:center">Anno:
 		<select name="anno" id="anno">			
-			<option value="22/23" selected>22/23</option>	
-			<option value="21/22" >21/22</option>
+			<option value="<?php  echo getAnno(); ?>" selected><?php  echo getAnno(); ?></option>	
+			<option value="22/23">22/23</option>	
+			<option value="21/22">21/22</option>
 			<option value="20/21">20/21</option>
 			<option value="19/20">19/20</option>
 			<option value="18/19">18/19</option>

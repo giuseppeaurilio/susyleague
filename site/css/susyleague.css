@@ -1263,7 +1263,11 @@ table.classifica td {
 }
 
 .maincontent .widgetastacontent.incorso{
-  background: lightcoral; 
+  background: lightgrey; 
+}
+
+.maincontent .widgetastacontent.ultimoaggiudicato{
+  background: lightgreen; 
 }
 
 .maincontent .widgetastacontent .left{

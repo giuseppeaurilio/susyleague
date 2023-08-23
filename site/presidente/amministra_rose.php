@@ -473,7 +473,7 @@ while ($row=$result->fetch_assoc()) {
 ?>
 </select>
 
-Costo:<input type="number" id="costo" name="costo" style="width:80px;">
+Costo:<input type="number" id="costo" name="costo" style="width:80px;" min=1>
 
 
 <input  type="hidden" id="sommario" name="sommario" value="">
