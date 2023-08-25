@@ -15,10 +15,30 @@ function load_data(id_sq, ruolo, id) {
                     $("#ruolo").val(ruolo)
                     $("#sq_sa").val(id_sq)
                     $("#giocatore").val(id)
+                    enablebutton();
+                    
                 }
             }); 
 }
-
+adessoinasta = function(){
+    var squadra = $("#ruolo option:selected" ).text();
+    var squadra = $("#sq_sa option:selected" ).text();
+    var giocatoreval = $("#giocatore").val();
+    var giocatore = $("#giocatore option:selected" ).text();
+    if(giocatoreval == "" || giocatoreval == null || giocatoreval == undefined)
+    {
+        $("#astaincorso").hide();
+    }
+    else
+    {
+        $("#astaincorso").show()
+        // $("#astaincorso>img").attr("src",
+        var nome_giocatore_pulito = giocatore.replace(/\s+/g, '-').toUpperCase();
+        var imgurl = "https://content.fantacalcio.it/web/campioncini/medium/" + nome_giocatore_pulito.replace(/% %/g, "-") + ".png";
+        $("#astaincorso>img").attr("src", imgurl);
+        // $("#astaincorso #idgiocatore").html("presente");
+    }
+}
 
 $(document).ready(function(){
     $('#sq_sa').on('change',function(){
@@ -225,7 +245,7 @@ annullaGiocatoreEstrazione = function(id)
                 // debugger;
                 var resp=$.parseJSON(data)
                 if(resp.result == "true"){
-                   // t
+                    enablebutton();
                 }
                 else{
                     $( "#dialog" ).prop('title', "ERROR");                
@@ -291,9 +311,12 @@ enablebutton = function()
     var min=$('#txtMin').val();
     var max=$('#txtMax').val();
     var disabled=!(sq_sa_ID  && giocatore_ID && sq_fc && $.isNumeric(costo))
+    var disabledannullaasta=!(sq_sa_ID  && giocatore_ID)
+    $("#btnAnnullaAstaCorrente").prop('disabled', disabledannullaasta);
+    $("#btnEstraiRandom").prop('disabled', !disabledannullaasta);
     $("#submit").prop('disabled', disabled);
     $("#sommario").val(giocatore_ID + "_" + sq_fc + "_" + ruolo + "_" + min + "_" + max)
-    
+    adessoinasta();
     // if( ruolo != "" &&  sq_sa_ID != "" && giocatore_ID != ""){
     //     $('#btnInAsta').removeAttr("disabled");
     //     $("#btnInAsta").unbind().bind('click', confermaGiocatore);
@@ -378,6 +401,7 @@ $(document).ready(function(){
 </script>
 
 <h2>Aggiungi Giocatore</h2>
+
 <?php
 $query="SELECT count(id_giocatore) as somma, g.ruolo
 from rose as ra
@@ -394,103 +418,114 @@ while($row = $result->fetch_assoc()){
     );
 }
 ?>
-<div class="aggiungi">
-<div> 
-<span>Avanzamento - </span>
-<?php 
-foreach($somme as $somma)
-{
-    if($somma["ruolo"] == "P")
-        echo '<span>Portieri:'.$somma["somma"].' /36; </span>';
-    else if($somma["ruolo"] == "D")
-        echo '<span>Difensori:'.$somma["somma"].' /108;  </span>';
-    else if($somma["ruolo"] == "C")
-        echo '<span>Centrocampisti:'.$somma["somma"].' /108;  </span>';
-    else if($somma["ruolo"] == "A")
-        echo '<span>Attaccanti:'.$somma["somma"].' /84;  </span>';
-}
-?>
-<!-- <span>Portieri: </span>
-<span>Difensori: </span>
-<span>Centrocampisti: </span>
-<span>Attaccanti: </span> -->
-</div>
-<br>
-<form action="aggiungi_a_rosa.php" method="get">
-<select name="Ruolo" id="ruolo">
-  <option value="">--Seleziona ruolo--</option>	
-  <option value="P">Portiere</option>
-  <option value="D">Difensore</option>
-  <option value="C">Centrocampista</option>
-  <option value="A">Attaccante</option>
-</select>
+<div class="rigacompleta" style="display:flex">
+    <div class="aggiungi" >
+        <div> 
+        <span>Avanzamento - </span>
+        <?php 
+        foreach($somme as $somma)
+        {
+            if($somma["ruolo"] == "P")
+                echo '<span>Portieri:'.$somma["somma"].' /36; </span>';
+            else if($somma["ruolo"] == "D")
+                echo '<span>Difensori:'.$somma["somma"].' /108;  </span>';
+            else if($somma["ruolo"] == "C")
+                echo '<span>Centrocampisti:'.$somma["somma"].' /108;  </span>';
+            else if($somma["ruolo"] == "A")
+                echo '<span>Attaccanti:'.$somma["somma"].' /84;  </span>';
+        }
+        ?>
+        <!-- <span>Portieri: </span>
+        <span>Difensori: </span>
+        <span>Centrocampisti: </span>
+        <span>Attaccanti: </span> -->
+        </div>
+
+        <br>
+        <form action="aggiungi_a_rosa.php" method="get">
+        <select name="Ruolo" id="ruolo">
+        <option value="">--Seleziona ruolo--</option>	
+        <option value="P">Portiere</option>
+        <option value="D">Difensore</option>
+        <option value="C">Centrocampista</option>
+        <option value="A">Attaccante</option>
+        </select>
 
 
-<select name="squadra_serie_a" id="sq_sa">
-<option value="">--Seleziona squadra--</option>	
-<?php
-$query_sa="SELECT * FROM squadre_serie_a order by squadra";
-$result_sa=$conn->query($query_sa);
+        <select name="squadra_serie_a" id="sq_sa">
+        <option value="">--Seleziona squadra--</option>	
+        <?php
+        $query_sa="SELECT * FROM squadre_serie_a order by squadra";
+        $result_sa=$conn->query($query_sa);
 
-$num_sa=$result_sa->num_rows; 
-$i=0;
-while ($row=$result_sa->fetch_assoc()) {
-	
-	$id=$row["id"];
-    $squadra=$row["squadra_breve"];
-	  echo '<option value=' . $id . '>'. $squadra . '</option>';
-++$i;
-}
-?>
-</select>
-
-
-<select name="giocatore" id="giocatore">
-		<option value="">--Seleziona giocatore--</option>	
-</select>
-<!-- <input type="button" value="in asta" id="btnInAsta"> -->
-<input type="button" value="annulla asta" id="btnAnnullaAstaCorrente">
-
-&#8658;
+        $num_sa=$result_sa->num_rows; 
+        $i=0;
+        while ($row=$result_sa->fetch_assoc()) {
+            
+            $id=$row["id"];
+            $squadra=$row["squadra_breve"];
+            echo '<option value=' . $id . '>'. $squadra . '</option>';
+        ++$i;
+        }
+        ?>
+        </select>
 
 
-<select id="sq_fc" name="squadra_fantacalcio ">
-	<option value="">--Seleziona squadra fantacalcio--</option>	
-	  
-<?php
-$query="SELECT * FROM sq_fantacalcio order by allenatore ";
-$result=$conn->query($query);
+        <select name="giocatore" id="giocatore">
+                <option value="">--Seleziona giocatore--</option>	
+        </select>
+        <!-- <input type="button" value="in asta" id="btnInAsta"> -->
+        <input type="button" value="annulla asta" id="btnAnnullaAstaCorrente">
 
-$num=$result->num_rows; 
-$i=0;
-while ($row=$result->fetch_assoc()) {
-	$id=$row["id"];
-    $squadra=$row["squadra"];
-    $allenatore =  $row["allenatore"];
-	  echo '<option value=' . $id . '>'. $allenatore .'-' .$squadra. '</option>';
-++$i;
-}
-?>
-</select>
-
-Costo:<input type="number" id="costo" name="costo" style="width:80px;" min=1>
+        &#8658;
 
 
-<input  type="hidden" id="sommario" name="sommario" value="">
-<input type="submit" id="submit" value="Aggiungi" disabled>
-<br/>
+        <select id="sq_fc" name="squadra_fantacalcio ">
+            <option value="">--Seleziona squadra fantacalcio--</option>	
+            
+        <?php
+        $query="SELECT * FROM sq_fantacalcio order by allenatore ";
+        $result=$conn->query($query);
 
-</form> 
+        $num=$result->num_rows; 
+        $i=0;
+        while ($row=$result->fetch_assoc()) {
+            $id=$row["id"];
+            $squadra=$row["squadra"];
+            $allenatore =  $row["allenatore"];
+            echo '<option value=' . $id . '>'. $allenatore .'-' .$squadra. '</option>';
+        ++$i;
+        }
+        ?>
+        </select>
 
-<div>
-Estrazione automatica:
-<input type="number" id="txtMin" name="min" placeholder="min" style="width:80px;">
-<input type="number" id="txtMax" name="MAX" placeholder="MAX" style="width:80px;">
-<span id="lblMax"></span>
-<input type="button" value="estrai un giocatore" id="btnEstraiRandom">
+        Costo:<input type="number" id="costo" name="costo" style="width:80px;" min=1>
 
-</div>
 
+        <input  type="hidden" id="sommario" name="sommario" value="">
+        <input type="submit" id="submit" value="Aggiungi" disabled>
+
+        <br/>
+
+        </form> 
+
+
+        <div>
+            Estrazione automatica:
+            <input type="number" id="txtMin" name="min" placeholder="min" style="width:80px;">
+            <input type="number" id="txtMax" name="MAX" placeholder="MAX" style="width:80px;">
+            <span id="lblMax"></span>
+            <input type="button" value="estrai un giocatore" id="btnEstraiRandom">
+
+        </div>
+
+    </div>
+    <div style="width:10%">
+        <span id="astaincorso" style="">
+            <img height="110px" src='' onerror='imgError(this);'> </img>
+            <!-- <span id="idgiocatore"></span> -->
+        </span>
+    </div>
 </div>
 <h2>Rose</h2>
 <?php 

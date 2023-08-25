@@ -8,6 +8,7 @@ function scrollFunction() {
 }
 // var astaincorso = false;
 // var pagereload = false;
+var loadonce = true;
 var lastcost = 0;
 ricercaGiocatore = function(id)
 {
@@ -95,12 +96,16 @@ loadSquadra = function(id)
                     if(resp.result == "true"){
                         if(resp.giocatori.length> 0){
                             //show data
+                            // debugger;
                             var template = $('#tmplListaGiocatoriSquadra').html();
                             Mustache.parse(template);   // optional, speeds up future uses
                             var rendered = Mustache.render(template, resp);
                             $("#tblSquadra > tbody").remove()
 					        $("#tblSquadra").append(rendered);
                             // $("#divSquadra").html(rendered);
+                        }
+                        else{
+                            $("#tblSquadra > tbody").remove()
                         }
                     }
                 }
@@ -188,7 +193,7 @@ loadStats = function(id)
             data: {
                 "action": action,
                 "id": id,
-                "limit": 3
+                "limit": 4
             },
             success:function(data){
                 var resp=$.parseJSON(data)
@@ -271,19 +276,22 @@ loadAstaInCorso = function()
                             // debugger;
                             var rendered = Mustache.render(template, resp.giocatori[0]);
                             $("#divAstaAttuale").html(rendered);
-                            astaincorso = true;
+                            // astaincorso = true;
+                            
                             loadStats(resp.giocatori[0]["id"]);
                             loadPInfo(resp.giocatori[0]["id"]);
-                            var ruoloattuale = $('.widgetastacontent.incorso .ruolo').data("ruolo");
-                            // if(ruoloattuale != '-')
-                            // {
-                            $("#tblGiocatori #ruolo").val(ruoloattuale);
-                            $("#tblSquadra #ruoloP").val(ruoloattuale);
-                            ricercaGiocatore();
-                            loadSquadra();
-                            loadProssimiPrecedenteAsta(ruoloattuale);
-                            
-                            console.log(lastcost)
+                            if(loadonce){
+                                var ruoloattuale = $('.widgetastacontent .ruolo').data("ruolo");
+                                // if(ruoloattuale != '-')
+                                // {
+                                $("#tblGiocatori #ruolo").val(ruoloattuale);
+                                $("#tblSquadra #ruoloP").val(ruoloattuale);
+                                ricercaGiocatore();
+                                loadSquadra();
+                                // loadProssimiPrecedenteAsta(ruoloattuale);
+                                loadonce= false;
+                            }
+                            // console.log(lastcost)
                             if(resp.giocatori[0].costo == null)
                             {
                                 lastcost = resp.giocatori[0].costo;
@@ -350,8 +358,6 @@ resetFiltri = function()
 }
 $(document).ready(function(){
     loadAstaInCorso();
-    loadSquadra();
-    ricercaGiocatore();
     $("#btnCerca").unbind().bind("click",ricercaGiocatore);
     $("#btnResetFiltri").unbind().bind("click",resetFiltri);
     window.setInterval(function(){
@@ -407,10 +413,9 @@ $(document).on({
             <th>anno</th>
             <th title="Partite giocate">pg</th>
             <th title="Media voto">mv</th>
-            <th title="FantaMedia">mf</th>
+            <th title="FantaMedia">fm</th>
             <th title="Gol fatti">gf</th>
-            <th title="Rigori calciati">rc</th>
-            <th title="Rigori segnati">r+</th>
+            <th title="Rigori calciati">r+/rc</th>
             <th title="Assit">as</th>
             <th title="Ammonizioni">am</th>
             <th title="Espusioni">es</th>
@@ -423,8 +428,7 @@ $(document).on({
             <td>{{mv}}</td>
             <td>{{mf}}</td>
             <td>{{gf}}</td>
-            <td>{{rc}}</td>
-            <td>{{r+}}</td>
+            <td>{{r+}}/{{rc}}</td>
             <td>{{ass}}</td>
             <td>{{amm}}</td>
             <td>{{esp}}</td>
@@ -502,7 +506,7 @@ $(document).on({
             <td>{{cr}}</td>
             <td>{{cp}}</td>
             <td>{{ca}}</td>
-            <td>{{ordine_ap}}.({{squadra}}){{costo_ap}}FM</td>
+            <td>{{costo_ap}}FM - {{squadra}}({{ordine_ap}})</td>
         </tr>
         <tr>
         <td colspan="10">{{note}}</td></tr>
@@ -514,7 +518,7 @@ $(document).on({
     <tbody>
         {{ #giocatori }}
         <tr>
-            <td rowspan="2">{{ruolo}}</td>
+            
             <td rowspan="2" style="text-align:left;">{{ nome }}
                 &nbsp;
                 <a style='float: right;font-size: small; color:black;' target='popup' 
@@ -524,13 +528,15 @@ $(document).on({
                 event.stopPropagation();
                 return false;''><i class='fas fa-external-link-alt'></i></a>
             </td>
-            <td>{{squadra_breve}}</td>
-            <td>{{is}}</td>
-            <td>{{f}}</td>
+            <td rowspan="2">{{ruolo}}</td>
+            <td rowspan="2">{{squadra_breve}}</td>
             <td>{{costo}}</td>
+            <td>{{f}}</td>
+            <td>{{is}}</td>
+            <td>{{tit}}</td>
         </tr>
         <tr>
-            <td colspan="4">{{note}}</td>
+            <td colspan="5">{{note}}</td>
         </tr>
         {{ /giocatori }}    
     </tbody>
@@ -597,25 +603,7 @@ while($row = $result->fetch_assoc()){
 }
 ?>
 
-<div class="rigacompleta" id="divavanzamento">
-    <span>Avanzamento:</span>
-    <?php 
-    $totale = 1;
-    foreach($somme as $somma)
-    {
-        $totale += $somma["somma"];
-        if($somma["ruolo"] == "P")
-            echo '<span>Portieri:'.$somma["somma"].' /36; </span>';
-        else if($somma["ruolo"] == "D")
-            echo '<span>Difensori:'.$somma["somma"].' /108;  </span>';
-        else if($somma["ruolo"] == "C")
-            echo '<span>Centrocampisti:'.$somma["somma"].' /108;  </span>';
-        else if($somma["ruolo"] == "A")
-            echo '<span>Attaccanti:'.$somma["somma"].' /84;  </span>';
-    }
-    echo '<span>CHIAMATA:'.$totale.';  </span>'
-    ?>
-</div>
+
 <div class="rigacompleta" id="divProssimi">
     <!-- <span>Prossimi AP:</span> -->
     <?php 
@@ -626,245 +614,311 @@ while($row = $result->fetch_assoc()){
     ?>
 </div>
     <div class="rigacompleta" id="divAdessoInAsta">
-        <div class="widgetasta " id="divAstaAttuale">
-
-        </div>
-        <div style="width:65%">
-            <div class=" stats" id="divStats">
-
-            </div>
-            <div class="pinfo" id="divPInfo">
-
-            </div>
-        </div>
-    </div>
-    <?php
-    //load squadre fantacalcio
-    $query="SELECT * FROM squadre_serie_a order by squadra";
-
-    $result=$conn->query($query);
-    $squadre = array();
-    while($row = $result->fetch_assoc()){
-        // $id=mysql_result($result,$i,"id");
-        // $id=$row["id"];
-        // $squadra=$row["squadra"];
-        array_push($squadre, array(
-            "id"=>$row["id"],
-            "squadra_breve"=>$row["squadra_breve"]
-            )
-        );
-    }
-    //fine load squadre fantacalcio
-    ?>
-    
-    <div class="rigacompleta">
-        
-        <div class="listaGiocatori" style="width:60%" >
-            <h3 style="text-align:center">Giocatori - 
-            <input type="checkbox" id="cbSoloLiberi" checked> Solo liberi</input>
-             - Ordina per: 
-                <select name="ordinamento" id="ordinamento">			
-                    <!-- <option value="" >-Ordinamento-</option> -->
-                    <option value="ia-d" selected>indica appetibilita &darr;</option>
-                    <option value="is-a" >indice squadra &darr;</option>
-                    <option value="f-d" >fascia &darr;</option>
-                    <option value="t-d">titolarita &darr;</option>
-                    <option value="q-d">quotazione &darr;</option>
-                    <option value="q-d">Offerta Max &darr;</option>
-                </select>
-                <input type="button" value="cerca" id="btnCerca">
-                <input type="button" value="reset" id="btnResetFiltri">
-            </h3>
-            <div id="divGiocatori">
-                <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;" id="tblGiocatori">
-                    <thead>
-                        <tr>
-                            <!-- <th>Nome</th> -->
-                            <th ><input style="width:140px;" type="text" id="txtNome" placeholder="Nome"></th>
-                            <th>
-                                <select name="Ruolo" id="ruolo">
-                                    <option value="">-R</option>	
-                                    <option value="P">P</option>
-                                    <option value="D">D</option>
-                                    <option value="C">C</option>
-                                    <option value="A">A</option>
-                                </select>
-                            </th>
-                            <th>
-                                <?php
-                                    echo '<select id="squadra" name="squadra">';
-                                    echo '<option value="">-sq-</option>';
-                                    foreach($squadre as $squadra)
-                                    {
-                                        echo '<option value=' . $squadra["id"] . '>'. $squadra["squadra_breve"] . '</option>';
-                                    }
-                                    echo '</select>';
-                                ?>
-                            </th>
-                            <th>
-                                <input type="number" style="width: 40px;" id="txtOffMAX" min="0" max="200" step="1" placeholder="OMAX">
-                            </th>
-                            <th >
-                                <select name="fascia" id="fascia">
-                                    <option value="">F</option>	
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            <!-- <input style="width: 30px;" type="number" id="txtF" min="0" max="200" step="1" placeholder="F"> -->
-                            </th>
-
-                            <th >
-                                <select name="indicesquadra" id="indicesquadra">
-                                    <option value="">-IS</option>	
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            <!-- <input style="width: 30px;" type="number" id="txtIS" min="0" max="200" step="1" placeholder="IS"> -->
-                            </th>
-                           
-                            <!-- <th ><input style="width: 30px;" type="number" id="txtIA" min="0" max="200" step="1" placeholder="IA"></th> -->
-                            <th>
-                                <select name="ruolo" id="titolarita">
-                                    <option value="">-TIT</option>	
-                                    <option value="10">10</option>
-                                    <option value="9">9</option>
-                                    <option value="8">8</option>
-                                    <option value="7">7</option>
-                                    <option value="6">6</option>
-                                    <option value="5">5</option>
-                                    <option value="4">4</option>
-                                    <option value="3">3</option>
-                                    <option value="2">2</option>
-                                    <option value="1">1</option>
-                                </select>
-                            </th>
-                            <th>
-                                <input type="number" style="width: 40px;" id="txtQuotazione" min="0" max="60" step="1" placeholder="Quo">
-                            </th>
-                            <th>
-                                <select name="rigori" id="rigori">
-                                    <option value="">-RIG</option>	
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </th>
-                            <th>
-                                <select name="punizioni" id="punizioni" style="width: 40px;">
-                                    <option value="">-PUN</option>	
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </th>
-                            <th >
-                                <select name="angoli" id="angoli" style="width: 40px;">
-                                    <option value="">-ANG</option>	
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </th>
-                            <!-- <th>note</th> -->
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-        <div class="space" style="width:1%">
-        </div>
-        <div class="squadraAttuale" style="width:39%">
-            <h3 style="text-align:center">I NANI</h3>
-            <?php
-                include_once ("DB/asta.php");
-                include_once "DB/parametri.php";
-                function getbackgroundColor($refnum, $refnumjolly, $num, $numjolly)
+        <div style="width:70%; float:left;">
+            <div class="rigacompleta" id="divavanzamento" style="    width: 100%;    padding: 10px;    font-size: 20px;">
+                <span>Avanzamento:</span>
+                <?php 
+                $totale = 1;
+                foreach($somme as $somma)
                 {
-                    $color = "lightgreen";
-                    if($numjolly < $refnumjolly) // se il jolly non è stato scelto
-                    {
-                        if($num == $refnum)//se il numero di giocatori scelto è uguale al max
-                        {
-                            $color ="yellow";
-                        }
-                    }
-                    else//se il jolly  è stato scelto
-                    {
-                        if($num >= $refnum)//se il numero di giocatori scelto è uguale al max
-                        {
-                            $color ="red";
-                        }
-                    }
-                    return $color;
+                    $totale += $somma["somma"];
+                    if($somma["ruolo"] == "P")
+                        echo '<span>Portieri:'.$somma["somma"].' /36; </span>';
+                    else if($somma["ruolo"] == "D")
+                        echo '<span>Difensori:'.$somma["somma"].' /108;  </span>';
+                    else if($somma["ruolo"] == "C")
+                        echo '<span>Centrocampisti:'.$somma["somma"].' /108;  </span>';
+                    else if($somma["ruolo"] == "A")
+                        echo '<span>Attaccanti:'.$somma["somma"].' /84;  </span>';
                 }
-                $idsquadra = $_SESSION['login'];
-                $rimanenti = getMilioniRimanenti($idsquadra);
-                $offertamassima = getOffertaMassima($idsquadra);
-                $numjollyscelti = hasJolly($idsquadra);
-                $riepilogo = getRiepilogoAsta($idsquadra);
-                echo "<div style='flex-flow: row;display: flex; flex-wrap: wrap; width: 100%;'> 
-                <div style='padding: 3px 10px;'>Offerta massima: 
-                <span style='border: solid 1px red; background-color:chocolate; padding: 0 5px;'>$offertamassima<span></div>";
-                foreach($riepilogo["giocatori"] as $row){
-                    switch($row["ruolo"])
-                    {
-                        case "P":
-                            echo '<div style="padding: 3px 7px;">Por: <span style="background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'FM)</div>';
-                        break;
-                        case "D":
-                            echo '<div style="padding: 3px 7px; ">Dif: <span style="background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'FM)</div>';
-                        break;
-                        case "C":
-                            echo '<div style="padding: 3px 7px; ">Cen: <span style="background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'FM)</div>';
-                        break;
-                        case "A":
-                            echo '<div style="padding: 3px 7px;">Att: <span style="background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'FM)</div>';
-                        break;
-                    }
+                echo '<span>CHIAMATA:'.$totale.';  </span>'
+                ?>
+            </div>
+            <div style="width:40%; float:left;" class="widgetasta " id="divAstaAttuale">
+
+            </div>
+            <div style="width:60%; float:left;">
+                <div class=" stats" id="divStats">
+
+                </div>
+                <div class="pinfo" id="divPInfo">
+
+                </div>
+            </div>
+            <hr>
+            <div class="listaGiocatori"  style="width:100%; float: left;">
+                <?php
+                //load squadre fantacalcio
+                $query="SELECT * FROM squadre_serie_a order by squadra";
+
+                $result=$conn->query($query);
+                $squadre = array();
+                while($row = $result->fetch_assoc()){
+                    // $id=mysql_result($result,$i,"id");
+                    // $id=$row["id"];
+                    // $squadra=$row["squadra"];
+                    array_push($squadre, array(
+                        "id"=>$row["id"],
+                        "squadra_breve"=>$row["squadra_breve"]
+                        )
+                    );
                 }
-                echo "</div>"
-            ?>
-            
-            <div id="divSquadra">
-                <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;" id="tblSquadra">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>
-                                <select name="RuoloP" id="ruoloP">
-                                    <option value="">-R</option>	
-                                    <option value="P">P</option>
-                                    <option value="D">D</option>
-                                    <option value="C">C</option>
-                                    <option value="A">A</option>
-                                </select>
-                            </th>
-                            <th>Squadra</th>
-                            <th>IS</th>
-                            <th>F</th>
-                            <th>Costo</th>
-                            <!-- <th>Note</th> -->
-                        </tr>
-                    </thead>
-                </table>
+                //fine load squadre fantacalcio
+                ?>
+                <h3 style="text-align:center">Giocatori - 
+                <input type="checkbox" id="cbSoloLiberi" checked> Solo liberi</input>
+                - Ordina per: 
+                    <select name="ordinamento" id="ordinamento">			
+                        <!-- <option value="" >-Ordinamento-</option> -->
+                        <option value="ia-d" selected>indica appetibilita &darr;</option>
+                        <option value="is-a" >indice squadra &darr;</option>
+                        <option value="f-d" >fascia &darr;</option>
+                        <option value="t-d">titolarita &darr;</option>
+                        <option value="q-d">quotazione &darr;</option>
+                        <option value="q-d">Offerta Max &darr;</option>
+                    </select>
+                    <input type="button" value="cerca" id="btnCerca">
+                    <input type="button" value="reset" id="btnResetFiltri">
+                </h3>
+                <div id="divGiocatori">
+                    <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;" id="tblGiocatori">
+                        <thead>
+                            <tr>
+                                <!-- <th>Nome</th> -->
+                                <th ><input style="width:140px;" type="text" id="txtNome" placeholder="Nome"></th>
+                                <th>
+                                    <select name="Ruolo" id="ruolo">
+                                        <option value="">-R</option>	
+                                        <option value="P">P</option>
+                                        <option value="D">D</option>
+                                        <option value="C">C</option>
+                                        <option value="A">A</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <?php
+                                        echo '<select id="squadra" name="squadra">';
+                                        echo '<option value="">-sq-</option>';
+                                        foreach($squadre as $squadra)
+                                        {
+                                            echo '<option value=' . $squadra["id"] . '>'. $squadra["squadra_breve"] . '</option>';
+                                        }
+                                        echo '</select>';
+                                    ?>
+                                </th>
+                                <th>
+                                    <input type="number" style="width: 40px;" id="txtOffMAX" min="0" max="200" step="1" placeholder="OMAX">
+                                </th>
+                                <th >
+                                    <select name="fascia" id="fascia">
+                                        <option value="">F</option>	
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                <!-- <input style="width: 30px;" type="number" id="txtF" min="0" max="200" step="1" placeholder="F"> -->
+                                </th>
+
+                                <th >
+                                    <select name="indicesquadra" id="indicesquadra">
+                                        <option value="">-IS</option>	
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                <!-- <input style="width: 30px;" type="number" id="txtIS" min="0" max="200" step="1" placeholder="IS"> -->
+                                </th>
+                            
+                                <!-- <th ><input style="width: 30px;" type="number" id="txtIA" min="0" max="200" step="1" placeholder="IA"></th> -->
+                                <th>
+                                    <select name="ruolo" id="titolarita">
+                                        <option value="">-TIT</option>	
+                                        <option value="10">10</option>
+                                        <option value="9">9</option>
+                                        <option value="8">8</option>
+                                        <option value="7">7</option>
+                                        <option value="6">6</option>
+                                        <option value="5">5</option>
+                                        <option value="4">4</option>
+                                        <option value="3">3</option>
+                                        <option value="2">2</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <input type="number" style="width: 40px;" id="txtQuotazione" min="0" max="60" step="1" placeholder="Quo">
+                                </th>
+                                <th>
+                                    <select name="rigori" id="rigori">
+                                        <option value="">-RIG</option>	
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </th>
+                                <th>
+                                    <select name="punizioni" id="punizioni" style="width: 40px;">
+                                        <option value="">-PUN</option>	
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </th>
+                                <th >
+                                    <select name="angoli" id="angoli" style="width: 40px;">
+                                        <option value="">-ANG</option>	
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </th>
+                                <!-- <th>note</th> -->
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
+        <div style="width:30%; float:left;">
+            <div class="squadraAttuale" >
+                <h3 style="text-align:center">I NANI</h3>
+                <h4 style="text-align:left">
+                    
+                
+                <?php
+                    include_once ("DB/asta.php");
+                    include_once "DB/parametri.php";
+                    function getbackgroundColor($refnum, $refnumjolly, $num, $numjolly)
+                    {
+                         $color = "";
+                        // if($numjolly < $refnumjolly) // se il jolly non è stato scelto
+                        // {
+                            if($num == $refnum)//se il numero di giocatori scelto è uguale al max
+                            {
+                                $color ="darkgreen";
+                            }
+                        // }
+                        // else//se il jolly  è stato scelto
+                        // {
+                            if($num > $refnum)//se il numero di giocatori scelto è uguale al max
+                            {
+                                $color ="darkred";
+                            }
+                        // }
+                        return $color;
+                    }
+                    $idsquadra = $_SESSION['login'];
+                    $rimanenti = getMilioniRimanenti($idsquadra);
+                    $offertamassima = getOffertaMassima($idsquadra);
+                    $numjollyscelti = hasJolly($idsquadra);
+                    $riepilogo = getRiepilogoAsta($idsquadra);
+                    $numpor= 0;
+                    $numdif= 0;
+                    $numcen= 0;
+                    $numatt= 0;
+                    $costopor= 0;
+                    $costodif= 0;
+                    $costocen= 0;
+                    $costoatt= 0;
+                    echo "<div style='width: 100%;'> 
+                    <div style='padding: 3px 10px;'>Offerta massima: 
+                    <span style='border: solid 1px red; background-color:chocolate; padding: 0 5px;'>$offertamassima<span></div>";
+                    // echo "<div>Spesa anno precedente 40 104 (3*f1, 1*f2, 1*f4 5*f5), 81 171</div>";
+                    foreach($riepilogo["giocatori"] as $row){
+                        switch($row["ruolo"])
+                        {
+                            case "P":
+                                $numpor = $row["numero"];
+                                $costopor= $row["costo"];
+                                // echo '<div style="padding: 3px 7px;">
+                                //     Por: <span style="background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span>('.$row["costo"].'/40)
+                                //     <span></span>
+                                // </div>';
+                            break;
+                            case "D":
+                                $numdif = $row["numero"];
+                                $costodif= $row["costo"];
+                                // echo '<div style="padding: 3px 7px; ">
+                                //     Dif: <span style="background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'/80) 
+                                    
+                                // </div>';
+                                //<span>3*f12;3*f34;4*f56</span>
+                            break;
+                            case "C":
+                                $numcen = $row["numero"];
+                                $costocen= $row["costo"];
+                                // echo '<div style="padding: 3px 7px; ">
+                                //     Cen: <span style="background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span>('.$row["costo"].'/80)
+                                // </div>';
+                            break;
+                            case "A":
+                                $numatt = $row["numero"];
+                                $costoatt= $row["costo"];
+                                // echo '<div style="padding: 3px 7px;">
+                                //     Att: <span style="background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span>('.$row["costo"].'/200)
+                                // </div>';
+                            break;
+                        }
+                    }
+                    echo '<div style="padding: 3px 7px;">
+                            Por: <span style="background-color: '.getbackgroundColor(3, 1, $numpor, $numjollyscelti).';">'.$numpor. '/3 </span>('.$costopor.'/40)
+                            <span></span>
+                        </div>';
+                    echo '<div style="padding: 3px 7px; ">
+                            Dif: <span style="background-color: '.getbackgroundColor(9, 1, $numdif, $numjollyscelti).';">'.$numdif. '/9 </span>('.$costodif.'/80) 
+                            
+                        </div>';
+                    echo '<div style="padding: 3px 7px; ">
+                            Cen: <span style="background-color: '.getbackgroundColor(9, 1, $numcen, $numjollyscelti).';">'.$numcen. '/9 </span>('.$costocen.'/80)
+                        </div>';
+                    echo '<div style="padding: 3px 7px;">
+                            Att: <span style="background-color: '.getbackgroundColor(7, 1, $numatt, $numjollyscelti).';">'.$numatt. '/7 </span>('.$costoatt.'/200)
+                        </div>';
+                    echo "</div>"
+                ?>
+                </h4>
+                <div id="divSquadra">
+                    <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;" id="tblSquadra">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>
+                                    <select name="RuoloP" id="ruoloP">
+                                        <option value="">-R</option>	
+                                        <option value="P">P</option>
+                                        <option value="D">D</option>
+                                        <option value="C">C</option>
+                                        <option value="A">A</option>
+                                    </select>
+                                </th>
+                                <th>Squadra</th>
+                                <th>Costo</th>
+                                <th>F</th>
+                                <th>IS</th>
+                                <th>Tit</th>
+                                <!-- <th>Note</th> -->
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
 </div>
 <?php 

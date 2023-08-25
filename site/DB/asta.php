@@ -142,6 +142,14 @@ function getRiepilogoAsta($idSquadra){
         $spesi +=$row["costo"];
         $numerototale += $row["numero"];
     }
+    // if (count($arraygiocatori) === 0) {
+    //     array_push($arraygiocatori, array(
+    //         "numero"=>0,
+    //         "costo"=>0,
+    //         "ruolo"=>0
+    //     )     
+    //     );
+    // }
     $arrayriepilogo = array(
         "giocatori"=> $arraygiocatori,
         "spesi"=> $spesi,

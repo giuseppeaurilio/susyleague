@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             left join rose as r on r.id_giocatore = g.id
             left join squadre_serie_a as sa on sa.id = g.id_squadra
             left join sq_fantacalcio as sqf on  sqf.id = r.id_sq_fc
-            
+            where ordine is not null
             order by ordine desc
             LIMIT 1";
             
@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>utf8_encode($row["ruolo"]),
                     "squadra_breve"=>utf8_encode($row["squadra_breve"]),
-                    "anno"=>utf8_encode($row["anno"]),
+                    "anno"=>utf8_encode($row["anno"]. " "),
                     "pg"=>$row["pg"],
                     "mv"=>$row["mv"],
                     "mf"=>$row["mf"],
@@ -319,7 +319,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $idSquadra = $_POST['id'];
             $ruolo = $_POST['ruolo']  = '' ? null :$_POST['ruolo'];
             $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.quotazione as quotazione, sa.squadra_breve as squadra_breve,
-            sf.squadra as fantasquadra, s.costo as costo, gpi.note as note, gpi.is as 'is',  gpi.f as f
+            sf.squadra as fantasquadra, s.costo as costo, gpi.note as note, gpi.is as 'is',  gpi.f as f, gpi.titolarita as tit
             FROM `giocatori` as g 
             left join rose as s on s.id_giocatore = g.id
             left join squadre_serie_a as sa on sa.id = g.id_squadra
@@ -344,6 +344,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "costo"=>$row["costo"],
                     "is"=>$row["is"],
                     "f"=>$row["f"],
+                    "tit"=>$row["tit"],
                     "note"=>utf8_encode($row["note"])
                     )
                 );

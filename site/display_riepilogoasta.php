@@ -179,9 +179,11 @@ $(document).ready(function(){
     var pagereload = false;
     loadAstaInCorso();
     window.setInterval(function(){
-        // loadUltimoGiocatore();
+        
         loadAstaInCorso();
      }, 3000);
+     $("header").hide()
+     $(".menu").hide()
 
 })
 $(document).on({
@@ -196,11 +198,11 @@ $(document).on({
     
 <div>
     {{ #fantasquadra }}
-    <h3> Ultimo aggiudicato</h3>
+    <h3 style="text-align:center;font-size: 30px;"> Ultimo aggiudicato</h3>
     <div class="widgetastacontent ultimoaggiudicato" data-id="{{ id }}">
     {{ /fantasquadra }}
     {{ ^fantasquadra }}
-    <h3> Adesso in asta</h3>
+    <h3 style="text-align:center;font-size: 30px;"> Adesso in asta</h3>
     <div class="widgetastacontent incorso" data-id="{{ id }}">
     {{ /fantasquadra }}
     
@@ -210,7 +212,7 @@ $(document).on({
     <img  width="120px;" src='{{ imgurl }}' onerror='imgError(this);'> </img>
 
     {{ #fantasquadra }}
-    <div class="fantasquadra" style="font-size:50px"> Aggiudicato: {{ fantasquadra }} <br> Costo: {{ costo }}</div>
+    <div class="fantasquadra" style="font-size:50px"> Aggiudicato: {{ fantasquadra }} <br> Costo: {{ costo }} FMD</div>
     {{ /fantasquadra }}
     </div>
 </div>
@@ -325,28 +327,28 @@ include_once ("DB/asta.php");
 
 function getbackgroundColor($refnum, $refnumjolly, $num, $numjolly)
 {
-    $color = "lightgreen";
-    if($numjolly < $refnumjolly) // se il jolly non è stato scelto
-    {
+    $color = "";
+    // if($numjolly < $refnumjolly) // se il jolly non è stato scelto
+    // {
         if($num == $refnum)//se il numero di giocatori scelto è uguale al max
         {
-            $color ="yellow";
+            $color ="lightgreen";
         }
-    }
-    else//se il jolly  è stato scelto
-    {
-        if($num >= $refnum)//se il numero di giocatori scelto è uguale al max
+    // }
+    // else//se il jolly  è stato scelto
+    // {
+        if($num > $refnum)//se il numero di giocatori scelto è uguale al max
         {
             $color ="red";
         }
-    }
+    // }
     return $color;
 }
-echo "<div class='widgetasta ' id='divAstaprecedente'> <table>";
+echo "<div class='riepilogocreditiasta ' id='divAstaprecedente'> <table>";
 echo "<tr>
 <th>Squadra</th>
-<th>Off MAX</th>
-<th>P</th>
+<th>Off MAX /RIMANENTI <br>(FMD)</th>
+<th>P </th>
 <th>D</th>
 <th>C</th>
 <th>A</th>
@@ -357,29 +359,59 @@ foreach($squadre as $squadra)
     $offertamassima = getOffertaMassima($squadra["id"]);
     $numjollyscelti = hasJolly($squadra["id"]);
     $riepilogo = getRiepilogoAsta($squadra["id"]);
-
+    // echo $squadra["id"] . " - " .print_r($riepilogo) ."<br>";
+    $numpor= 0;
+    $numdif= 0;
+    $numcen= 0;
+    $numatt= 0;
+    $costopor= 0;
+    $costodif= 0;
+    $costocen= 0;
+    $costoatt= 0;
     echo "<tr>";
-    echo "<td style='font-size:2.5em; padding: 2px 5px;'>".$squadra["squadra"]."</td>";
-    echo "<td style='font-size:3em; padding: 2px 5px;'>".$offertamassima."</td>";
+    echo "<td style='font-size:2.5em;'>".$squadra["squadra"]."</td>";
+    echo "<td style='font-size:3em; text-align:center;'>".$offertamassima." <span style='font-size:0.6em'>/".$rimanenti." </span></td>";
     foreach($riepilogo["giocatori"] as $row){
-        echo '<td>';
+        
+        // echo '<td>';
         switch($row["ruolo"])
                 {
                     case "P":
-                        echo '<div style="padding: 2px;"><span style="color: black; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span><br>('.$row["costo"].'FM)</div>';
+                        // echo '<div style="padding: 2px;"><span style="color: black; background-color: '.getbackgroundColor(3, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/3 </span><br>('.$row["costo"].'FM)</div>';
+                        $numpor = $row["numero"];
+                        $costopor= $row["costo"];
                     break;
                     case "D":
-                        echo '<div style="padding: 2px; "><span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span><br>('.$row["costo"].'FM)</div>';
+                        // echo '<div style="padding: 2px; "><span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span><br>('.$row["costo"].'FM)</div>';
+                        $numdif = $row["numero"];
+                        $costodif= $row["costo"];
                     break;
                     case "C":
-                        echo '<div style="padding: 2px; "><span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span><br>('.$row["costo"].'FM)</div>';
+                        // echo '<div style="padding: 2px; "><span style="color: black; background-color: '.getbackgroundColor(9, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/9 </span><br>('.$row["costo"].'FM)</div>';
+                        $numcen = $row["numero"];
+                        $costocen= $row["costo"];
                     break;
                     case "A":
-                        echo '<div style="padding: 2px;"><span style="color: black; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span><br>('.$row["costo"].'FM)</div>';
+                        // echo '<div style="padding: 2px;"><span style="color: black; background-color: '.getbackgroundColor(7, 1, $row["numero"], $numjollyscelti).';">'.$row["numero"]. '/7 </span><br>('.$row["costo"].'FM)</div>';
+                        $numatt = $row["numero"];
+                        $costoatt= $row["costo"];
                     break;
                 }
-        echo '</td>';
+                
+        // echo '</td>';
     }
+    echo '<td class="costo" style="color: black; background-color: '.getbackgroundColor(3, 1, $numpor, $numjollyscelti).';">';
+    echo '<div style="padding: 2px;"><span >'.$numpor. '/3 </span> <br>('.$costopor.'FMD)';
+    echo '</td>';
+    echo '<td class="costo" style="color: black; background-color: '.getbackgroundColor(9, 1, $numdif, $numjollyscelti).';">';
+    echo '<div style="padding: 2px;"><span >'.$numdif. '/9 </span> <br>('.$costodif.'FMD)</div>';
+    echo '</td>';
+    echo '<td class="costo"  style="color: black; background-color: '.getbackgroundColor(9, 1, $numcen, $numjollyscelti).';">';
+    echo '<div style="padding: 2px;"><span >'.$numcen. '/9 </span> <br>('.$costocen.'FMD)</div>';
+    echo '</td>';
+    echo '<td class="costo" style="color: black; background-color: '.getbackgroundColor(7, 1, $numatt, $numjollyscelti).';">';
+    echo '<div style="padding: 2px;"><span >'.$numatt. '/7 </span> <br>('.$costoatt.'FMD)</div>';
+    echo '</td>';
     echo "</tr>";
     // echo '<div id=riepilogo'.$squadra["id"].' class="riepilogo" style="vertical-align: middle;">';
     // echo '<h2>'.$squadra["squadra"];

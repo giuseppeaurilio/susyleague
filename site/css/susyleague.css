@@ -723,7 +723,7 @@ li.game{
 }
 
 .aggiungi{
-  background-color: yellow;
+  /* background-color: yellow; */
   padding: 20px 10px;
 }
 
@@ -1240,10 +1240,25 @@ table.classifica td {
 }
 
 .maincontent .widgetasta{
-  min-width: 350px;
+  /* min-width: 350px; */
   /* float: left; */
-  margin: 5px auto;
-  max-width:50%;
+  /* margin: 5px auto; */
+  /* max-width:50%; */
+  width:40%
+}
+.maincontent .riepilogocreditiasta{
+  /* min-width: 350px; */
+  /* float: left; */
+  /* margin: 5px auto; */
+  /* max-width:50%; */
+  width:60%
+}
+.maincontent .riepilogocreditiasta td{
+  padding: 2px 5px;
+}
+.maincontent .riepilogocreditiasta td.costo{
+  font-size:1.4em;
+  text-align:center;
 }
 
 .maincontent .widgetastacontent{
@@ -1316,12 +1331,12 @@ padding:1px 2px;
 }
 .maincontent .rigacompleta .listaGiocatori #divGiocatori{
 
-  max-height: 300px;
+  /* max-height: 300px; */
   overflow-y: auto;
 }
 
 .maincontent .rigacompleta #divSquadra{
-  max-height: 280px;
+  /* max-height: 280px; */
   overflow-y: auto;
 }
 
