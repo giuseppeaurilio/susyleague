@@ -24,6 +24,9 @@ $result=$conn->query($query);
 //echo $_SERVER['HTTP_REFERER'];
 //sleep(2);
 
+$query="DELETE FROM `rose_asta` WHERE `id_giocatore`='". $id_giocatore . "'";
+$result=$conn->query($query);
+
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
 

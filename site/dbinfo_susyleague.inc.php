@@ -3,9 +3,9 @@ function getConnection(){
     //localhost
     $username="id258940_susy79";
     $password="andspe79";
-    $database="id258940_susy_league_2023-24";
+    // $database="id258940_susy_league_2023-24";
     // $database="id258940_susy_league_2022-23_asta";
-    //  $database="id258940_susy_league_2022-23";
+     $database="id258940_susy_league_2022-23";
     $localhost = "localhost";
 
     // //tophost

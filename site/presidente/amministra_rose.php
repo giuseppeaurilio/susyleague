@@ -379,7 +379,17 @@ getGiocatoreInAsta = function()
             }
     }); 
 }
+toggleTabellaGiocatori = function()
+{
+    var idsq= $(this).data("id")
+    $("#tablerose"+idsq).toggle( "slow");
+    $(this).find("i").toggleClass("fa-sort-down")
+    $(this).find("i").toggleClass("fa-sort-up")
+    // fa-sort-up
+}
 function inizializzaControlli(){
+    $(".rosegiocatoriseriea h3").on('click', toggleTabellaGiocatori);
+    $(".table_rose").hide();
     enablebutton();
     $("#btnEstraiRandom").click(estraiGiocatore);
     $("#btnAnnullaAstaCorrente").click(annullaGiocatoreEstrazione);
@@ -513,7 +523,7 @@ while($row = $result->fetch_assoc()){
         <div>
             Estrazione automatica:
             <input type="number" id="txtMin" name="min" placeholder="min" style="width:80px;">
-            <input type="number" id="txtMax" name="MAX" placeholder="MAX" style="width:80px;">
+            <input type="number" id="txtMax" name="MAX" placeholder="MAX" style="width:80px;" autocomplete="one-time-code">
             <span id="lblMax"></span>
             <input type="button" value="estrai un giocatore" id="btnEstraiRandom">
 
@@ -563,9 +573,11 @@ $num_giocatori=$result_giocatori->num_rows;
 ?>
 <div class="rosegiocatoriseriea">
 <h2><?php echo "$squadra";?></h2>
-<h3><?php echo "(" .$allenatore .")";?></h3>
+<h3 <?php echo "data-id='".$id."' "?>><?php echo "(" .$allenatore .")";?><span style="float:right"> <i class="fas fa-sort-down"></i></span></h3>
+<!-- fa-sort-down fa-sort-up-->
 
-<table class="table_rose" border="0" cellspacing="2" cellpadding="2">
+
+<table class="table_rose" border="0" cellspacing="2" cellpadding="2" <?php echo "id='tablerose".$id."' "?>>
 <tr> 
 
 <th>Nome</th>
@@ -629,28 +641,26 @@ $attaccanti=$attaccanti + ($ruolo_giocatore=="A");
 echo "</table>";
 
 ?>
-<br>
-
 <table >
   <tr>
     <th>giocatori</th>
-    <th><?php  echo $num_giocatori; ?></th>
+    <th><?php  echo $num_giocatori; ?>/29</th>
   </tr >
   <tr>
     <th>portieri</th>
-    <th><?php  echo $portieri; ?></th>
+    <th><?php  echo $portieri; ?>/3</th>
   </tr>
    <tr>
     <th>difensori</th>
-    <th><?php  echo $difensori; ?></th>
+    <th><?php  echo $difensori; ?>/9</th>
   </tr>
   <tr>
     <th>centrocampisti</th>
-    <th><?php  echo $centrocampisti; ?></th>
+    <th><?php  echo $centrocampisti; ?>/9</th>
   </tr>
   <tr>
     <th>attaccanti</th>
-    <th><?php  echo $attaccanti; ?></th>
+    <th><?php  echo $attaccanti; ?>/7</th>
   </tr>
   <tr >
     <th>Fantamilioni spesi</th>

@@ -182,8 +182,15 @@ $(document).ready(function(){
         
         loadAstaInCorso();
      }, 3000);
-     $("header").hide()
-     $(".menu").hide()
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var c = url.searchParams.get("fullscreen");
+
+    if(c != null)
+    {
+        $("header").hide()
+        $(".menu").hide()
+    }
 
 })
 $(document).on({

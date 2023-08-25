@@ -667,7 +667,7 @@ li.game{
   }
 .rosegiocatoriseriea{
   margin: 2px;
-  display: inline-block
+  display: inline-grid
 }
 
 .rosegiocatoriseriea .nome{

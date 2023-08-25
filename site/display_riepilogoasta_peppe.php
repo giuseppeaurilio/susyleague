@@ -588,7 +588,7 @@ $(document).on({
 <div class="maincontent" style="min-height: auto;">
 <?php
 $query="SELECT count(id_giocatore) as somma, g.ruolo
-from rose_asta as ra
+from rose as ra
 left join giocatori as g on ra.id_giocatore = g.id
 group by ruolo order by ruolo desc";
 
