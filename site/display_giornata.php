@@ -66,7 +66,8 @@ $(document).ready(function(){
 			<span class="bkgd_{{ruolo}}" style="width:20px; text-align: center;"> {{ruolo}}</span> 	
 			<img  onerror="imgError(this);" style="width:20px; vertical-align:bottom;" src='{{imgurl}}'/>	
         	<span style="width:120px;"> {{nome}}</span> 
-			<span style="width:40px; text-align: center;"> {{squadra_breve}}</span> 
+			<!-- <span style="width:40px; text-align: center;"> {{squadra_breve}}</span>  -->
+			<span style="width:40px; text-align: center;"><img  width="25px;" src='{{ imgurlsquadra }}'> </img></span>
 			<span style="width:100px; text-align: center;"> {{voto}} ({{voto_md}})</span> 
 
 		</div>
@@ -134,7 +135,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	$gol_ospite = $row["gol_ospiti"];
 
 
-	$query_formazione="SELECT b.id,  gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto_ufficio
+	$query_formazione="SELECT b.id,  gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve,c.squadra, a.sostituzione, gv.voto_ufficio
 	FROM formazioni as a 
 	left join giocatori as b on a.id_giocatore=b.id
 	left join squadre_serie_a as c on b.id_squadra =c.id
@@ -152,6 +153,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 		array_push($giocatoricasa, array(
 			"nome"=> $row["nome"],
 			"squadra_breve"=>$row["squadra_breve"],
+			"squadra"=>$row["squadra"],
 			"ruolo"=>$row["ruolo"],
 			"voto"=>$row["voto"],
 			"voto_md"=>$row["voto_md"],
@@ -162,7 +164,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	}
 	if (count($giocatoricasa) == 0){
 		$formazioneDefaultCasa = true;
-		$query_formazione_default="SELECT b.nome, b.ruolo, c.squadra_breve
+		$query_formazione_default="SELECT b.nome, b.ruolo, c.squadra_breve , c.squadra 
 		FROM formazione_standard as a 
 		inner join giocatori as b 
 		inner join squadre_serie_a as c 
@@ -176,6 +178,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 			array_push($giocatoricasa, array(
 				"nome"=> $row["nome"],
 				"squadra_breve"=>$row["squadra_breve"],
+				"squadra"=>$row["squadra"],
 				"ruolo"=>$row["ruolo"],
 				"voto"=>"",
 				"voto_md"=>"",
@@ -190,7 +193,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	?>
 
 	<?php
-	$query_formazione="SELECT b.id,  gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, a.sostituzione, gv.voto_ufficio
+	$query_formazione="SELECT b.id,  gv.voto, gv.voto_md, b.nome, b.ruolo, c.squadra_breve, c.squadra, a.sostituzione, gv.voto_ufficio
 	FROM formazioni as a 
 	left join giocatori as b on a.id_giocatore=b.id
 	left join squadre_serie_a as c on b.id_squadra =c.id
@@ -208,6 +211,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 		array_push($giocatoritraferta, array(
 			"nome"=> $row["nome"],
 			"squadra_breve"=>$row["squadra_breve"],
+			"squadra"=>$row["squadra"],
 			"ruolo"=>$row["ruolo"],
 			"voto"=>$row["voto"],
 			"voto_md"=>$row["voto_md"],
@@ -218,7 +222,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 	}
 	if (count($giocatoritraferta) == 0){
 		$formazioneDefaultOspite = true;
-		$query_formazione_default="SELECT b.nome, b.ruolo, c.squadra_breve
+		$query_formazione_default="SELECT b.nome, b.ruolo, c.squadra_breve, c.squadra
 		FROM formazione_standard as a 
 		inner join giocatori as b 
 		inner join squadre_serie_a as c 
@@ -232,6 +236,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 			array_push($giocatoritraferta, array(
 				"nome"=> $row["nome"],
 				"squadra_breve"=>$row["squadra_breve"],
+				"squadra"=>$row["squadra"],
 				"ruolo"=>$row["ruolo"],
 				"voto"=>"",
 				"voto_md"=>"",
@@ -355,13 +360,14 @@ while ($row=$result_giornata->fetch_assoc()) {
 							$nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
 							// echo $nome_giocatore_pulito;
 							$filename = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+							$squadra_giocatore = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
 						?>
 						<?php if ($i==0) {echo 	"<td rowspan='11' style='background-color: rgba(51,102,255,0.2);'><div class='rotate'> Titolari</div></td>";  } ?>
 						<?php if ($i==11) {echo "<td rowspan='10' style='background-color: rgba(51,102,255,0.4);'><div class='rotate' > Riserve </div></td>";  } ?>	
 						<td style="padding:0; width:3%" class="<?php echo ($disable)? "disable": "" ?>"><?php echo '<img  onerror="imgError(this);" style="width:20px; height:27px;" src='.$filename.'>';?></td>
 						<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
-						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
-						<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
+						<td class="<?php echo ($disable)? "disable": "" ?>" style="text-align:center;"><img  width="25px;" <?php   echo "src='$squadra_giocatore'" ?> "> </img></td>
+						<td class="<?php echo ($disable)? "disable": "" ?>" style="text-align:center;"><?php echo $row["ruolo"]; ?></td>
 						<td >
 							<?php 
 							if($ritultatocalcolato){
@@ -428,6 +434,7 @@ while ($row=$result_giornata->fetch_assoc()) {
 							$nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
 							// echo $nome_giocatore_pulito;
 							$filename = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+							$squadra_giocatore = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
 						?>
 						<td >
 					<?php 
@@ -436,7 +443,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 						<div class="<?php echo ($disable)? "disable": "" ?>">
 						<div >
 							<?php 
-								echo '<span class="truncate">'. $row["nome"] .'</span><span class="truncate">('.$row["squadra_breve"] .")</span>"
+								// echo '<span class="truncate">'. $row["nome"] .'</span><span class="truncate">('.$row["squadra_breve"] .")</span>"
+								echo '<span class="truncate">'. $row["nome"] .'</span><span style="float:right;"><img  width="25px;" src="'.$squadra_giocatore.'"> </img></span>'
+								
 							?>
 						</div>
 					</div>
@@ -512,11 +521,12 @@ while ($row=$result_giornata->fetch_assoc()) {
 						$nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
 						// echo $nome_giocatore_pulito;
 						$filename = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+						$squadra_giocatore = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
 				?>
 				
 					<td style="padding:0; width:3%" class="<?php echo ($disable)? "disable": "" ?>"><?php echo '<img  onerror="imgError(this);" style="width:20px; height:27px;" src='.$filename.'>';?></td>
 					<td class="<?php echo ($disable)? "disable": "" ?>"><div class="truncate"><?php echo $row["nome"]; ?></div></td>
-					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["squadra_breve"]; ?></td>
+					<td class="<?php echo ($disable)? "disable": "" ?>" style="text-align:center;"><img  width="25px;" <?php   echo "src='$squadra_giocatore'" ?> "> </img></td>
 					<td class="<?php echo ($disable)? "disable": "" ?>"><?php echo $row["ruolo"]; ?></td>
 					<td >
 						<?php 
@@ -583,9 +593,10 @@ while ($row=$result_giornata->fetch_assoc()) {
 				?>">
 				<?php
 						// echo $nome_giocatore;
-						$nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+						// $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
 						// echo $nome_giocatore_pulito;
-						$filename = str_replace("% %", "-", "https://content.fantacalcio.it//web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+						// $filename = str_replace("% %", "-", "https://content.fantacalcio.it//web/campioncini/small/".$nome_giocatore_pulito.".png"); 
+						$squadra_giocatore = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
 				?>
 					<td >
 						<?php 
@@ -594,7 +605,9 @@ while ($row=$result_giornata->fetch_assoc()) {
 						<div class="<?php echo ($disable)? "disable": "" ?>">
 							<div >
 								<?php 
-									echo '<span class="truncate">'. $row["nome"] .'</span><span class="truncate">('.$row["squadra_breve"] .")</span>"
+									// echo '<span class="truncate">'. $row["nome"] .'</span><span class="truncate">('.$row["squadra_breve"] .")</span>"
+									echo '<span class="truncate">'. $row["nome"] .'</span><span style="float:right;"><img  width="25px;" src="'.$squadra_giocatore.'"> </img></span>'
+									
 								?>
 							</div>
 						</div>

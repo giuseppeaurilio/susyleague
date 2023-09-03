@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         case("astaincorso"):
 
             $query= "SELECT  g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.ruolo_mantra as ruolo_mantra, g.quotazione as quotazione, 
-            sa.squadra_breve as squadra_breve, sa.squadra as squadra, sqf.id as idsqf, sqf.squadra as fantasquadra, r.costo as costo
+            sa.squadra_breve as squadra_breve,  sa.squadra as squadra, sqf.id as idsqf, sqf.squadra as fantasquadra, r.costo as costo
             FROM `giocatori` as g 
             left join rose as r on r.id_giocatore = g.id
             left join squadre_serie_a as sa on sa.id = g.id_squadra
@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $imgurl = "";
                 $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
                 $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
+                $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 array_push($giocatori, array(
                     "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
@@ -42,7 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "squadra_breve"=>$row["squadra_breve"],
                     "fantasquadra"=>$row["fantasquadra"],
                     "costo"=>$row["costo"],
-                    "imgurl"=>$imgurl
+                    "imgurl"=>$imgurl,
+                    "imgurlsquadra"=> $imgurlsquadra
                     )
                 );
             };
@@ -54,7 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo json_encode($response);
             break;
         case("ultimogiocatore"):
-            $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.quotazione as quotazione, sa.squadra_breve as squadra_breve,
+            $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.quotazione as quotazione, 
+            sa.squadra_breve as squadra_breve, sa.squadra as squadra,
             sf.squadra as fantasquadra, s.costo as costo
             FROM `giocatori` as g 
             left join rose as s on s.id_giocatore = g.id
@@ -71,12 +74,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $imgurl = "";
                 $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
                 $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
+                $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 array_push($giocatori, array(
                     "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "imgurl"=>$imgurl,
+                    "imgurlsquadra"=>$imgurlsquadra,
                     "fantasquadra"=>utf8_encode($row["fantasquadra"]),
                     "costo"=>$row["costo"],
                     )
@@ -91,7 +96,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             
             break;
         case("listacompleta"):
-            $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.quotazione as quotazione, sa.squadra_breve as squadra_breve,
+            $query= "SELECT g.id as id, g.id_squadra as ids, g.nome as nome, g.ruolo as ruolo, g.quotazione as quotazione, 
+            sa.squadra_breve as squadra_breve, sa.squadra as squadra,
             sf.squadra as fantasquadra, s.costo as costo, s.ordine as chiamata
             FROM `giocatori` as g 
             left join rose as s on s.id_giocatore = g.id
@@ -107,6 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
                 // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
                 $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 
                 array_push($giocatori, array(
                     "id"=>utf8_encode($row["id"]),
@@ -114,6 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "imgurl"=>$imgurl,
+                    "imgurlsquadra"=>$imgurlsquadra,
                     "fantasquadra"=>utf8_encode($row["fantasquadra"]),
                     "costo"=>$row["costo"],
                     "chiamata"=>$row["chiamata"],
@@ -374,7 +382,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $quotazione = $_POST['quotazione']  = '' ? null :$_POST['quotazione'];
             $ordinamento = $_POST['ordinamento']  = '' ? null :$_POST['ordinamento'];
 
-            $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, 
+            $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, sq.squadra as squadra, g.ruolo as ruolo, 
             sqfc.squadra as fantasquadra,
             gs.pg, gs.mv,gs.mf, gs.gf, gs.gs, gs.rp,  gs.rc, `r+` as rseg, `r-` as rsba, gs.ass, gs.asf, gs.amm, gs.esp, gs.au, g.quotazione               
             FROM `giocatori` as g
@@ -468,13 +476,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $ordinamento = $_POST['espulsioni']  = '' ? null :$_POST['ordinamento'];
           
             // $query.=" order by g.quotazione desc";
-            // echo $query;
+            //  echo $query;
             $result=$conn->query($query);
             $giocatori = array();
             while ($row=$result->fetch_assoc()) {
                 $imgurl = "";
                 $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
                 $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                
                 array_push($giocatori, array(
                     "id"=>$row["idgiocatore"],
@@ -482,6 +491,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "squadra_breve"=>utf8_encode($row["squadra_breve"]),
                     "ruolo"=>utf8_encode($row["ruolo"]),
                     "imgurl"=>$imgurl,
+                    "imgurlsquadra"=>$imgurlsquadra,
                     "fantasquadra"=>utf8_encode($row["fantasquadra"]),
                     "pg"=>utf8_encode($row["pg"]),
                     "mv"=>utf8_encode($row["mv"]),

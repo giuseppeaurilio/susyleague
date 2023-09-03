@@ -130,7 +130,7 @@ $allenatore=$squ["allenatore"];
 // $query2="SELECT a.costo,a.id_giocatore, b.nome, b.ruolo, c.squadra_breve  
 // FROM rose as a inner join giocatori as b inner join squadre_serie_a as c 
 // where a.id_sq_fc='" . $id ."' and a.id_giocatore=b.id and b.id_squadra=c.id order by b.ruolo desc";
-$query2 = "SELECT r.costo,r.id_giocatore, g.nome, g.ruolo, sqa.squadra_breve, ra.ordine
+$query2 = "SELECT r.costo,r.id_giocatore, g.nome, g.ruolo, sqa.squadra_breve,sqa.squadra, ra.ordine
 FROM rose as r 
 inner join giocatori as g on r.id_giocatore = g.id
 inner join squadre_serie_a as sqa on sqa.id = g.id_squadra
@@ -167,7 +167,8 @@ while ($j < $num_giocatori) {
 $id_giocatore=$giocatore["id_giocatore"];
 $nome_giocatore=$giocatore["nome"];
 //echo $nome_giocatore;
-$squadra_giocatore=$giocatore["squadra_breve"];
+// $squadra_giocatore=$giocatore["squadra_breve"];
+$squadra_giocatore = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($giocatore["squadra"]).".png");
 $ruolo_giocatore=$giocatore["ruolo"];
 $costo_giocatore=$giocatore["costo"];
 // $spesi = $spesi+ $costo_giocatore;
@@ -199,13 +200,14 @@ data-id="<?php  echo "$id_giocatore"; ?>"
 <td>
     <?php  
         echo "$nome_giocatore"; 
-        echo  "&nbsp;<a style='float: right;font-size: small; color:black;' target='_blank' 
-        href='https://www.fantacalcio.it/squadre/Giocatore/$nome_giocatore/$id_giocatore/5/2020-21'
-        onclick='event.stopPropagation()'>
-        <i class='fas fa-external-link-alt'></i>"
+        // echo  "&nbsp;<a style='float: right;font-size: small; color:black;' target='_blank' 
+        // href='https://www.fantacalcio.it/squadre/Giocatore/$nome_giocatore/$id_giocatore/5/2020-21'
+        // onclick='event.stopPropagation()'>
+        // <i class='fas fa-external-link-alt'></i>"
     ?>
 </td>
-<td><?php  echo "$squadra_giocatore"; ?></td>
+<!-- <td><?php  echo "$squadra_giocatore"; ?></td> -->
+<td style="text-align:center;"> <img  width="25px;" <?php  echo "src='$squadra_giocatore'" ?> "> </img></td>
 <td><?php  echo "$ruolo_giocatore"; ?></td>
 <td><?php  echo "$costo_giocatore"; ?></td>
 </tr>

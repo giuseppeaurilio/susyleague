@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			$formazione = $_POST['formazione']  = '' ? null :$_POST['formazione'];
 			$idgiornata = $_POST['idgiornata']  = '' ? null :$_POST['idgiornata'];
 
-            $query= "SELECT g.id, g.nome,g.ruolo, sq_a.squadra_breve, gv.voto, gv.voto_md
+            $query= "SELECT g.id, g.nome,g.ruolo, sq_a.squadra_breve, sq_a.squadra, gv.voto, gv.voto_md
 			FROM `giocatori` as g
 			left join squadre_serie_a as sq_a on g.id_squadra = sq_a.id
 			left join giocatori_voti as gv on g.id = gv.giocatore_id
@@ -38,12 +38,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $imgurl = "";
                 $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
                 $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 array_push($giocatori, array(
                     "id"=>utf8_encode($row["id"]),
                     "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "imgurl"=>$imgurl,
+                    "imgurlsquadra"=>$imgurlsquadra,
 					"voto"=>$row["voto"],
 					"voto_md"=>$row["voto_md"],
                     )

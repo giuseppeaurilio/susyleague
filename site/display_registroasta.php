@@ -59,7 +59,10 @@ $(document).ready(function(){
             <tr > 
                 
                 <td>{{ nome }}</td>
-                <td>{{ squadra_breve }}</td>
+                <td>
+                    <!-- {{ squadra_breve }} -->
+                    <img  width="25px;" src='{{ imgurlsquadra }}' style="float: right;"> </img>
+                </td>
                 <td>{{ ruolo }}</td>
                 <td>{{ costo }}</td>
                 <td>{{ fantasquadra }}</td>

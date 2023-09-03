@@ -154,7 +154,8 @@ $(document).ready(function(){
 					href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}'><i class='fas fa-external-link-alt'></i>
 				</td>
                 <td>{{ ruolo }}</td>
-				<td>{{ squadra_breve }}</td>
+				<!-- <td>{{ squadra_breve }}</td> -->
+				<td style="text-align:center;"> <img  width="25px;" src='{{ imgurlsquadra }}'> </img></td>
 				<td style="text-align:left;">{{ fantasquadra }}</td>
 				<td>{{ pg }}</td>
 				<td>{{ mv }}</td>
