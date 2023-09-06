@@ -6,6 +6,8 @@ include_once ("DB/parametri.php");
 function scrollFunction() {
     return false;
 }
+
+
 // var astaincorso = false;
 // var pagereload = false;
 var loadonce = true;
@@ -75,6 +77,41 @@ ricercaGiocatore = function(id)
                 }
             }
     }); 
+}
+
+loadAvanzamentoPerFascia = function(ruoloattuale)
+{
+    var action ="avanzamentoperfascia";
+    // debugger;
+    
+    $.ajax({
+        type:'POST',
+            url:'display_riepilogoasta_controller.php',
+            data: {
+                "action": action,
+                "ruolo": ruoloattuale,
+            },
+            success:function(data){
+                // debugger;
+                var resp=$.parseJSON(data)
+                
+                if(resp.result == "true"){
+                    // alert(resp);
+                    //show data
+                    var template = $('#tmplAvanzamentoPerFasce').html();
+                    Mustache.parse(template);   // optional, speeds up future uses
+                    var rendered = Mustache.render(template, resp);
+                    $("#divAvanzamentoPerFasce").html(rendered);
+                    
+                    
+                }
+                else{
+                    $( "#dialog" ).prop('title', "ERROR");                
+                    $( "#dialog p" ).html(resp.error.msg);
+                    $( "#dialog" ).dialog({modal:true});
+                }
+            }
+    });
 }
 
 loadSquadra = function(id)
@@ -288,6 +325,7 @@ loadAstaInCorso = function()
                                 $("#tblSquadra #ruoloP").val(ruoloattuale);
                                 ricercaGiocatore();
                                 loadSquadra();
+                                loadAvanzamentoPerFascia(ruoloattuale);
                                 // loadProssimiPrecedenteAsta(ruoloattuale);
                                 loadonce= false;
                             }
@@ -586,6 +624,16 @@ $(document).on({
     {{ /prossimi }}    
 </script>
 
+<script id="tmplAvanzamentoPerFasce" type="x-tmpl-mustache">
+    {{ #avanzamento }}    
+    <span>
+    {{fascia}} ({{sogliaF}})
+    {{num}}/{{refF}}
+    {{speso}}/{{refspesa}}
+    </span><br>
+    {{ /avanzamento }}
+</script>
+
 
 <h2>ASTA Peppe</h2>
 <div class="maincontent" style="min-height: auto;">
@@ -799,7 +847,7 @@ while($row = $result->fetch_assoc()){
         <div style="width:30%; float:left;">
             <div class="squadraAttuale" >
                 <h3 style="text-align:center">I NANI</h3>
-                <h4 style="text-align:left">
+                <h4 style="text-align:left;display: inline-block;width: 100%;">
                     
                 
                 <?php
@@ -837,7 +885,7 @@ while($row = $result->fetch_assoc()){
                     $costodif= 0;
                     $costocen= 0;
                     $costoatt= 0;
-                    echo "<div style='width: 100%;'> 
+                    echo "<div style='width: 50%; float:left;'> 
                     <div style='padding: 3px 10px;'>Offerta massima: 
                     <span style='border: solid 1px red; background-color:chocolate; padding: 0 5px;'>$offertamassima<span></div>";
                     // echo "<div>Spesa anno precedente 40 104 (3*f1, 1*f2, 1*f4 5*f5), 81 171</div>";
@@ -893,6 +941,9 @@ while($row = $result->fetch_assoc()){
                         </div>';
                     echo "</div>"
                 ?>
+                <div style='width: 50%; float:left;' id="divAvanzamentoPerFasce"> 
+                </div>
+                <!-- Inserire  avanzamento per fasce-->
                 </h4>
                 <div id="divSquadra">
                     <table border="0" cellspacing="2" cellpadding="2" style="text-align: center;" id="tblSquadra">

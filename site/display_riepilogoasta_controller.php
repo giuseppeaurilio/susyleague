@@ -556,6 +556,144 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo json_encode($response);
             
             break;
+        case("avanzamentoperfascia"):
+            $ruolo = $_POST['ruolo']  = '' ? null :$_POST['ruolo'];
+            $refF = [];
+            $sogliaF = [];
+            $refspesa = [];
+            if($ruolo == 'P'){
+                $query="SELECT COUNT(costo) AS num, SUM(costo) as speso,
+                 (CASE
+                     WHEN costo>=35 THEN 'F1'
+                     WHEN costo BETWEEN 20 AND 34 then 'F2'
+                     WHEN costo BETWEEN 10 AND 19 then 'F3'
+                     WHEN costo BETWEEN 5 AND 9 then 'F4'
+                     WHEN costo BETWEEN 2 AND 4 then 'F5'
+                     ELSE 'F6' END
+                      ) AS fascia
+             FROM
+                 rose_asta as ra 
+                 left JOIN giocatori as g on g.id = ra.id_giocatore
+                 where g.ruolo = 'P'
+             GROUP BY
+                 (CASE
+                     WHEN costo>=35 THEN 'F1'
+                     WHEN costo BETWEEN 20 AND 34 then 'F2'
+                     WHEN costo BETWEEN 10 AND 19 then 'F3'
+                     WHEN costo BETWEEN 5 AND 9 then 'F4'
+                     WHEN costo BETWEEN 2 AND 4 then 'F5'
+                     ELSE 'F6' END
+                     )";
+                $refF= [5,2,3,10,4,13];
+                $sogliaF = [35,20,10,5,2,0];
+                $refspesa = [216,50,42,62,12,13];
+            }
+            else if($ruolo == 'D'){
+                $query="SELECT COUNT(costo) AS num, SUM(costo) as speso,
+                 (CASE
+                     WHEN costo>=25 THEN 'F1'
+                     WHEN costo BETWEEN 20 AND 24 then 'F2'
+                     WHEN costo BETWEEN 15 AND 19 then 'F3'
+                     WHEN costo BETWEEN 10 AND 14 then 'F4'
+                     WHEN costo BETWEEN 4 AND 9 then 'F5'
+                     ELSE 'F6' END
+                      ) AS fascia
+             FROM
+                 rose_asta as ra 
+                 left JOIN giocatori as g on g.id = ra.id_giocatore
+                 where g.ruolo = 'D'
+             GROUP BY
+                 (CASE
+                     WHEN costo>=25 THEN 'F1'
+                     WHEN costo BETWEEN 20 AND 24 then 'F2'
+                     WHEN costo BETWEEN 15 AND 19 then 'F3'
+                     WHEN costo BETWEEN 10 AND 14 then 'F4'
+                     WHEN costo BETWEEN 4 AND 9 then 'F5'
+                     ELSE 'F6' END
+                     )";
+                $refF= [3,5,8,14,43,37];
+                $sogliaF = [25,20,15,10,4,0];
+                $refspesa = [103,102,141,161,240,62];
+            }
+            else if($ruolo == 'C'){
+                $query="SELECT COUNT(costo) AS num, SUM(costo) as speso,
+                 (CASE
+                     WHEN costo>=40 THEN 'F1'
+                     WHEN costo BETWEEN 25 AND 39 then 'F2'
+                     WHEN costo BETWEEN 15 AND 24 then 'F3'
+                     WHEN costo BETWEEN 10 AND 14 then 'F4'
+                     WHEN costo BETWEEN 4 AND 9 then 'F5'
+                     ELSE 'F6' END
+                      ) AS fascia
+             FROM
+                 rose_asta as ra 
+                 left JOIN giocatori as g on g.id = ra.id_giocatore
+                 where g.ruolo = 'C'
+             GROUP BY
+                 (CASE
+                     WHEN costo>=40 THEN 'F1'
+                     WHEN costo BETWEEN 25 AND 39 then 'F2'
+                     WHEN costo BETWEEN 15 AND 24 then 'F3'
+                     WHEN costo BETWEEN 10 AND 14 then 'F4'
+                     WHEN costo BETWEEN 4 AND 9 then 'F5'
+                     ELSE 'F6' END
+                     )";
+               $refF= [8,8,24,9,20,45];
+               $sogliaF = [40,25,15,10,4,0];
+               $refspesa = [361,235,449,110,118,66];
+            }
+            else if($ruolo == 'A'){
+                $query="SELECT COUNT(costo) AS num, SUM(costo) as speso,
+                 (CASE
+                     WHEN costo>=100 THEN 'F1'
+                     WHEN costo BETWEEN 75 AND 99 then 'F2'
+                     WHEN costo BETWEEN 40 AND 74 then 'F3'
+                     WHEN costo BETWEEN 15 AND 39 then 'F4'
+                     WHEN costo BETWEEN 4 AND 14 then 'F5'
+                     ELSE 'F6' END
+                      ) AS fascia
+             FROM
+                 rose_asta as ra 
+                 left JOIN giocatori as g on g.id = ra.id_giocatore
+                 where g.ruolo = 'A'
+             GROUP BY
+                 (CASE
+                     WHEN costo>=100 THEN 'F1'
+                     WHEN costo BETWEEN 75 AND 99 then 'F2'
+                     WHEN costo BETWEEN 40 AND 74 then 'F3'
+                     WHEN costo BETWEEN 15 AND 39 then 'F4'
+                     WHEN costo BETWEEN 4 AND 14 then 'F5'
+                     ELSE 'F6' END
+                     )";
+                $refF= [6,5,8,13,23,32];
+                $sogliaF = [100,75,40,15,4,1];
+                $refspesa = [852,410,407,327,203,44];
+                
+            }
+            // print_r($query);
+            $result=$conn->query($query);
+            $avanzamento = array();
+            $index = 0;
+            while($row = $result->fetch_assoc()){
+                array_push($avanzamento, array(
+                    "ruolo"=>$ruolo,
+                    "num"=>$row["num"],
+                    "speso"=>$row["speso"],
+                    "fascia"=>$row["fascia"],
+                    "refF"=>$refF[$index],
+                    "sogliaF"=>$sogliaF[$index],
+                    "refspesa"=>$refspesa[$index],
+                    )
+                );
+                $index++;
+            }
+            $response = array(
+                'result' => "true",
+                'message' => $action." eseguito",
+                'avanzamento' => $avanzamento
+            );
+            echo json_encode($response);
+            break;
         default:
             echo json_encode(array(
                 'error' => array(
