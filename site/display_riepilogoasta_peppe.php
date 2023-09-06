@@ -550,7 +550,7 @@ $(document).on({
             <td>{{costo_ap}}FM - {{squadra}}({{ordine_ap}})</td>
         </tr>
         <tr>
-        <td colspan="10">{{note}}</td></tr>
+        <td colspan="10" style="text-align: left;">{{note}}</td></tr>
     </table >
 </table>
 </script>
@@ -577,7 +577,7 @@ $(document).on({
             <td>{{tit}}</td>
         </tr>
         <tr>
-            <td colspan="5">{{note}}</td>
+            <td colspan="5" style="text-align: left;">{{note}}</td>
         </tr>
         {{ /giocatori }}    
     </tbody>
@@ -608,7 +608,7 @@ $(document).on({
             <td>{{ca}}</td>            
         </tr>
         <tr>
-            <td colspan="8">
+            <td colspan="8" style="text-align:left;">
             {{note}}
             </td>
         </tr>

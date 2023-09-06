@@ -38,37 +38,50 @@ function parse_pinfo($filename) {
 					{
 						echo 'Reset stats fallito: `giocatore_id`='.$data[0] .'; <br>';
 					}
+					//11 indice appetibilità ovvero offerta su 1000
+					//13 offerma massima
+					//14 fascia
+					//15 indice squadra
+					//16 titolarità 
+					//17 rigori
+					//18 punizioni
+					//19 angoli
+					//20 note
 					$ia = "NULL";
-					if(!empty($data[7]))
-					{$ia = $data[7];}
-
-					$tit = "NULL";
-					if(!empty($data[8]))
-					{$tit = $data[8];}
-
-					$cr = "NULL";
-					if(!empty($data[9]))
-					{$cr = $data[9];}
-
-					$cp = "NULL";
-					if(!empty($data[10]))
-					{$cp = $data[10];}
-					
-					$ca = "NULL";
 					if(!empty($data[11]))
-					{$ca = $data[11];}
-
-					$is = "NULL";
-					if(!empty($data[12]))
-					{$is = $data[12];}
-
-					$f = "NULL";
-					if(!empty($data[13]))
-					{$f = $data[13];}
+					{$ia = $data[11];}
 
 					$om = "NULL";
+					if(!empty($data[13]))
+					{$om = $data[13];}
+
+					$f = "NULL";
 					if(!empty($data[14]))
-					{$om = $data[14];}
+					{$f = $data[14];}
+
+					$is = "NULL";
+					if(!empty($data[15]))
+					{$is = $data[15];}
+
+					$tit = "NULL";
+					if(!empty($data[16]))
+					{$tit = $data[16];}
+
+					$cr = "NULL";
+					if(!empty($data[17]))
+					{$cr = $data[17];}
+
+					$cp = "NULL";
+					if(!empty($data[18]))
+					{$cp = $data[18];}
+					
+					$ca = "NULL";
+					if(!empty($data[19]))
+					{$ca = $data[19];}
+
+					$note = "";
+					if(!empty($data[20]))
+					{$note= $data[20];}
 
 					$queryInsertStats = "INSERT INTO `giocatori_pinfo`(
 						`giocatore_id`, 
@@ -92,9 +105,9 @@ function parse_pinfo($filename) {
 						$is,
 						$f,
 						$om,
-						'$data[15]')";
+						'$note')";
 
-					echo $queryInsertStats. '<br>';
+					//echo $queryInsertStats. '<br>';
 					$result=$conn->query($queryInsertStats); //or die($conn->error);
 					if($result) {
 						$countervoti++; 
