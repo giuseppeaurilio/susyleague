@@ -627,9 +627,9 @@ $(document).on({
 <script id="tmplAvanzamentoPerFasce" type="x-tmpl-mustache">
     {{ #avanzamento }}    
     <span>
-    {{fascia}} ({{sogliaF}})
-    {{num}}/{{refF}}
-    {{speso}}/{{refspesa}}
+    {{fascia}} ({{sogliafascia}})
+    {{num}}/{{num_prec}}
+    {{speso}}/{{speso_prec}}
     </span><br>
     {{ /avanzamento }}
 </script>
@@ -721,12 +721,13 @@ while($row = $result->fetch_assoc()){
                 - Ordina per: 
                     <select name="ordinamento" id="ordinamento">			
                         <!-- <option value="" >-Ordinamento-</option> -->
-                        <option value="ia-d" selected>indica appetibilita &darr;</option>
-                        <option value="is-a" >indice squadra &darr;</option>
-                        <option value="f-d" >fascia &darr;</option>
+                        <option value="q-d" selected>Offerta Max &darr;</option>
+                        <!-- <option value="ia-d" >Valore &darr;</option> -->
+                        <option value="is-a" >indice squadra &uarr;</option>
+                        <option value="f-a" >fascia &uarr;</option>
                         <option value="t-d">titolarita &darr;</option>
                         <option value="q-d">quotazione &darr;</option>
-                        <option value="q-d">Offerta Max &darr;</option>
+                        
                     </select>
                     <input type="button" value="cerca" id="btnCerca">
                     <input type="button" value="reset" id="btnResetFiltri">
@@ -847,7 +848,7 @@ while($row = $result->fetch_assoc()){
         <div style="width:30%; float:left;">
             <div class="squadraAttuale" >
                 <h3 style="text-align:center">I NANI</h3>
-                <h4 style="text-align:left;display: inline-block;width: 100%;">
+                <h4 style="text-align:left;display: inline-block;width: 96%;">
                     
                 
                 <?php

@@ -250,7 +250,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
  
                 // echo $sololiberi;
                 $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.quotazione as quotazione,  
-                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, gpi.is as 'is',  gpi.f as f, gpi.om as om,   gpi.note as note , sqf.squadra as squadrafc
+                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, gpi.is as 'is',  gpi.f as f, gpi.om as om,   
+                gpi.note as note , sqf.squadra as squadrafc
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
@@ -284,12 +285,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $query.=" order by case when gpi.ia is null then 1 else 0 end, gpi.ia desc, g.quotazione desc ";
                 else if($ordinamento  == "is-a")
                     $query.=" order by case when gpi.is is null then 1 else 0 end, gpi.is asc, gpi.ia desc ";
-                else if($ordinamento  == "f-d")
-                    $query.=" order by case when gpi.f is null then 1 else 0 end, gpi.f desc, gpi.ia desc ";
+                else if($ordinamento  == "f-a")
+                    $query.=" order by case when gpi.f is null then 1 else 0 end, gpi.f asc, gpi.ia desc ";
                 else if($ordinamento  == "t-d")
                     $query.=" order by case when gpi.titolarita is null then 1 else 0 end, gpi.titolarita desc, gpi.ia desc ";
                 else if($ordinamento  == "q-d")
-                    $query.=" order by case when g.quotazione is null then 1 else 0 end, g.quotazione desc, gpi.ia desc ";
+                    $query.=" order by case when gpi.om is null then 1 else 0 end, gpi.om desc, gpi.ia desc ";
                 else
                     $query.=" order by case when gpi.ia is null then 1 else 0 end, gpi.f, gpi.ia, g.quotazione desc";
                 //echo $query;
@@ -562,115 +563,72 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $sogliaF = [];
             $refspesa = [];
             if($ruolo == 'P'){
-                $query="SELECT COUNT(costo) AS num, SUM(costo) as speso,
-                 (CASE
-                     WHEN costo>=35 THEN 'F1'
-                     WHEN costo BETWEEN 20 AND 34 then 'F2'
-                     WHEN costo BETWEEN 10 AND 19 then 'F3'
-                     WHEN costo BETWEEN 5 AND 9 then 'F4'
-                     WHEN costo BETWEEN 2 AND 4 then 'F5'
-                     ELSE 'F6' END
-                      ) AS fascia
-             FROM
-                 rose_asta as ra 
-                 left JOIN giocatori as g on g.id = ra.id_giocatore
-                 where g.ruolo = 'P'
-             GROUP BY
-                 (CASE
-                     WHEN costo>=35 THEN 'F1'
-                     WHEN costo BETWEEN 20 AND 34 then 'F2'
-                     WHEN costo BETWEEN 10 AND 19 then 'F3'
-                     WHEN costo BETWEEN 5 AND 9 then 'F4'
-                     WHEN costo BETWEEN 2 AND 4 then 'F5'
-                     ELSE 'F6' END
-                     )";
-                $refF= [5,2,3,10,4,13];
+                // $refF= [5,2,3,10,4,13];
                 $sogliaF = [35,20,10,5,2,0];
-                $refspesa = [216,50,42,62,12,13];
+                // $refspesa = [216,50,42,62,12,13];
             }
             else if($ruolo == 'D'){
-                $query="SELECT COUNT(costo) AS num, SUM(costo) as speso,
-                 (CASE
-                     WHEN costo>=25 THEN 'F1'
-                     WHEN costo BETWEEN 20 AND 24 then 'F2'
-                     WHEN costo BETWEEN 15 AND 19 then 'F3'
-                     WHEN costo BETWEEN 10 AND 14 then 'F4'
-                     WHEN costo BETWEEN 4 AND 9 then 'F5'
-                     ELSE 'F6' END
-                      ) AS fascia
-             FROM
-                 rose_asta as ra 
-                 left JOIN giocatori as g on g.id = ra.id_giocatore
-                 where g.ruolo = 'D'
-             GROUP BY
-                 (CASE
-                     WHEN costo>=25 THEN 'F1'
-                     WHEN costo BETWEEN 20 AND 24 then 'F2'
-                     WHEN costo BETWEEN 15 AND 19 then 'F3'
-                     WHEN costo BETWEEN 10 AND 14 then 'F4'
-                     WHEN costo BETWEEN 4 AND 9 then 'F5'
-                     ELSE 'F6' END
-                     )";
-                $refF= [3,5,8,14,43,37];
+                // $refF= [3,5,8,14,43,37];
                 $sogliaF = [25,20,15,10,4,0];
-                $refspesa = [103,102,141,161,240,62];
+                // $refspesa = [103,102,141,161,240,62];
             }
             else if($ruolo == 'C'){
-                $query="SELECT COUNT(costo) AS num, SUM(costo) as speso,
-                 (CASE
-                     WHEN costo>=40 THEN 'F1'
-                     WHEN costo BETWEEN 25 AND 39 then 'F2'
-                     WHEN costo BETWEEN 15 AND 24 then 'F3'
-                     WHEN costo BETWEEN 10 AND 14 then 'F4'
-                     WHEN costo BETWEEN 4 AND 9 then 'F5'
-                     ELSE 'F6' END
-                      ) AS fascia
-             FROM
-                 rose_asta as ra 
-                 left JOIN giocatori as g on g.id = ra.id_giocatore
-                 where g.ruolo = 'C'
-             GROUP BY
-                 (CASE
-                     WHEN costo>=40 THEN 'F1'
-                     WHEN costo BETWEEN 25 AND 39 then 'F2'
-                     WHEN costo BETWEEN 15 AND 24 then 'F3'
-                     WHEN costo BETWEEN 10 AND 14 then 'F4'
-                     WHEN costo BETWEEN 4 AND 9 then 'F5'
-                     ELSE 'F6' END
-                     )";
-               $refF= [8,8,24,9,20,45];
+            //    $refF= [8,8,24,9,20,45];
                $sogliaF = [40,25,15,10,4,0];
-               $refspesa = [361,235,449,110,118,66];
+            //    $refspesa = [361,235,449,110,118,66];
             }
             else if($ruolo == 'A'){
-                $query="SELECT COUNT(costo) AS num, SUM(costo) as speso,
-                 (CASE
-                     WHEN costo>=100 THEN 'F1'
-                     WHEN costo BETWEEN 75 AND 99 then 'F2'
-                     WHEN costo BETWEEN 40 AND 74 then 'F3'
-                     WHEN costo BETWEEN 15 AND 39 then 'F4'
-                     WHEN costo BETWEEN 4 AND 14 then 'F5'
-                     ELSE 'F6' END
-                      ) AS fascia
-             FROM
-                 rose_asta as ra 
-                 left JOIN giocatori as g on g.id = ra.id_giocatore
-                 where g.ruolo = 'A'
-             GROUP BY
-                 (CASE
-                     WHEN costo>=100 THEN 'F1'
-                     WHEN costo BETWEEN 75 AND 99 then 'F2'
-                     WHEN costo BETWEEN 40 AND 74 then 'F3'
-                     WHEN costo BETWEEN 15 AND 39 then 'F4'
-                     WHEN costo BETWEEN 4 AND 14 then 'F5'
-                     ELSE 'F6' END
-                     )";
-                $refF= [6,5,8,13,23,32];
+                // $refF= [6,5,8,13,23,32];
                 $sogliaF = [100,75,40,15,4,1];
-                $refspesa = [852,410,407,327,203,44];
+                // $refspesa = [852,410,407,327,203,44];
                 
             }
-            // print_r($query);
+            $query="select RA1.fascia, RA1.num as num_prec, RA1.speso as speso_prec, RA2.num, RA2.speso
+            from (SELECT COUNT(costo) AS num, SUM(costo) as speso,
+                             (CASE
+                                 WHEN costo>=$sogliaF[0] THEN 'F1'
+                                 WHEN costo BETWEEN $sogliaF[1] AND ($sogliaF[0]-1) then 'F2'
+                                 WHEN costo BETWEEN $sogliaF[2] AND ($sogliaF[1]-1) then 'F3'
+                                 WHEN costo BETWEEN $sogliaF[3] AND ($sogliaF[2]-1) then 'F4'
+                                 WHEN costo BETWEEN $sogliaF[4] AND ($sogliaF[3]-1) then 'F5'
+                                 ELSE 'F6' END
+                                  ) AS fascia
+                         FROM
+                             rose_asta_22_23 as ra_prec 
+                             left JOIN giocatori as g on g.id = ra_prec.id_giocatore
+                             where g.ruolo = '$ruolo'
+                         GROUP BY
+                             (CASE
+                             WHEN costo>=$sogliaF[0] THEN 'F1'
+                             WHEN costo BETWEEN $sogliaF[1] AND ($sogliaF[0]-1) then 'F2'
+                             WHEN costo BETWEEN $sogliaF[2] AND ($sogliaF[1]-1) then 'F3'
+                             WHEN costo BETWEEN $sogliaF[3] AND ($sogliaF[2]-1) then 'F4'
+                             WHEN costo BETWEEN $sogliaF[4] AND ($sogliaF[3]-1) then 'F5'
+                             ELSE 'F6' END
+                                 )) as RA1
+            left join (SELECT COUNT(costo) AS num, SUM(costo) as speso,
+                             (CASE
+                             WHEN costo>=$sogliaF[0] THEN 'F1'
+                             WHEN costo BETWEEN $sogliaF[1] AND ($sogliaF[0]-1) then 'F2'
+                             WHEN costo BETWEEN $sogliaF[2] AND ($sogliaF[1]-1) then 'F3'
+                             WHEN costo BETWEEN $sogliaF[3] AND ($sogliaF[2]-1) then 'F4'
+                             WHEN costo BETWEEN $sogliaF[4] AND ($sogliaF[3]-1) then 'F5'
+                             ELSE 'F6' END
+                                  ) AS fascia
+                         FROM
+                             rose_asta as ra
+                             left JOIN giocatori as g on g.id = ra.id_giocatore
+                             where g.ruolo = '$ruolo'
+                         GROUP BY
+                             (CASE
+                             WHEN costo>=$sogliaF[0] THEN 'F1'
+                             WHEN costo BETWEEN $sogliaF[1] AND ($sogliaF[0]-1) then 'F2'
+                             WHEN costo BETWEEN $sogliaF[2] AND ($sogliaF[1]-1) then 'F3'
+                             WHEN costo BETWEEN $sogliaF[3] AND ($sogliaF[2]-1) then 'F4'
+                             WHEN costo BETWEEN $sogliaF[4] AND ($sogliaF[3]-1) then 'F5'
+                             ELSE 'F6' END
+                                 )) as RA2 on RA1.fascia = RA2.fascia";
+            //  print_r($query);
             $result=$conn->query($query);
             $avanzamento = array();
             $index = 0;
@@ -680,9 +638,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "num"=>$row["num"],
                     "speso"=>$row["speso"],
                     "fascia"=>$row["fascia"],
-                    "refF"=>$refF[$index],
-                    "sogliaF"=>$sogliaF[$index],
-                    "refspesa"=>$refspesa[$index],
+                    "sogliafascia"=>$sogliaF[$index],
+                    "num_prec"=>$row["num_prec"],
+                    "speso_prec"=>$row["speso_prec"],
                     )
                 );
                 $index++;
