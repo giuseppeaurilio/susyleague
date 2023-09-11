@@ -375,7 +375,7 @@ foreach($squadre as $squadra)
     $costocen= 0;
     $costoatt= 0;
     echo "<tr>";
-    echo "<td style='font-size:2.5em;'>".$squadra["squadra"]."</td>";
+    echo "<td style='font-size:2.5em;'>".$squadra["squadra"]."<span style='font-size:0.5em;'>(".$squadra["allenatore"].")</span></td>";
     echo "<td style='font-size:3em; text-align:center;'>".$offertamassima." <span style='font-size:0.6em'>/".$rimanenti." </span></td>";
     foreach($riepilogo["giocatori"] as $row){
         
