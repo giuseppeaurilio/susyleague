@@ -219,8 +219,8 @@ class Partita
         $sostituzionidafare = 0;
         if($numvoti < 11)
         {
-            if((11- $numvoti) >= 3 ){
-                $sostituzionidafare = 3;
+            if((11- $numvoti) >= 5 ){
+                $sostituzionidafare = 5;
             }
             else{
                 $sostituzionidafare = 11- $numvoti;
