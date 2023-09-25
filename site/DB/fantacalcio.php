@@ -113,8 +113,8 @@ function fantacalcio_getFantasquadre(){
     // include_once ("../dbinfo_susyleague.inc.php");
     $conn = getConnection();
     $squadre = array();
-    if(!isset($_SESSION['fantasquadre']))
-    {
+    // if(!isset($_SESSION['fantasquadre']))
+    // {
         $query="SELECT * FROM sq_fantacalcio order by squadra";
         $result=$conn->query($query);
         while($row = $result->fetch_assoc()){
@@ -129,10 +129,10 @@ function fantacalcio_getFantasquadre(){
                 "ammcontrollata_anno"=>$row["ammcontrollata_anno"],
                 )
             );
-        }
-        $_SESSION['fantasquadre'] = $squadre;
+        // }
+        // $_SESSION['fantasquadre'] = $squadre;
     }
-    $squadre = $_SESSION['fantasquadre'];
+    // $squadre = $_SESSION['fantasquadre'];
     return $squadre;
 }
 

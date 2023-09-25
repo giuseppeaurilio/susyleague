@@ -384,7 +384,7 @@ body .widget div.fustiassegnaticontent
 
 body .widget div.mercato
 {
-  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('https://image.freepik.com/vettori-gratuito/composizione-outlet-moderna-con-design-piatto_23-2147955616.jpg');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('/images/anp.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -400,7 +400,7 @@ body .widget div.fannulloni
 }
 body .widget div.scienziati
 {
-  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('/images/anp.jpg');
+  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('/images/oronzo-cana-1080x675.jpg');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;

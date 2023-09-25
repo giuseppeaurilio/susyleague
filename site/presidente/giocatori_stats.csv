@@ -1,536 +1,541 @@
-Id;R;RM;Nome;Squadra;Qt.A;FVM;Indice appetibilità;Titolarita;Rigori;Punizioni;angoli;Indice Squadra;Fascia;Offerta max;Note
-4;P;Por;Sportiello;Atalanta;1;1;24;3;;;;;;0;
-11;D;"Dd;E";Conti;Sampdoria;3;4;68;5;;;;;;2;rientro a settembre
-21;C;"E;W";D'alessandro;Monza;2;1;57;3;;;;;;0;
-22;C;M;De Roon;Atalanta;7;10;65;6;;;;;;4;
-27;C;"M;C";Grassi;Empoli;6;10;61;6;;3;;;;4;
-41;P;Por;Mirante;Milan;1;1;5;1;;;;;;0;
-42;P;Por;Sarr M.;Cremonese;1;1;30;3;;;;;;0;
-45;D;"Dd;Dc";Ferrari A.;Sampdoria;5;10;70;8;;;;;;4;
-49;D;"Ds;Dc;E";Masina;Udinese;7;10;67;6;;;;;;4;
-50;D;"Dd;Ds;E";Mbaye;Bologna;1;1;62;3;;;;;;0;
-58;C;"M;C";Diawara;Roma;2;1;24;1;;;;;;0;
-84;D;Dc;Marrone;Monza;4;2;55;3;;;;;;1;
-90;A;Pc;Lasagna;Verona;12;35;72;8;;;;;;14;
-118;D;Dc;Radovanovic;Salernitana;5;5;63;7;;2;;;;2;
-133;P;Por;Skorupski;Bologna;11;20;75;9;;;;;;8;
-139;D;Dc;Dermaku;Lecce;4;6;60;7;;;;;;2;rientro inizio settembre
-140;D;"Dd;Ds;E";Hysaj;Lazio;6;8;63;5;;;;;;3;
-142;D;"Ds;E";Mario Rui;Napoli;9;17;77;7;;2;;;;7;
-144;D;Dc;Tonelli;Empoli;1;1;44;4;;;;;;0;crociato, rientro ottobre
-148;C;"C;T";Krunic;Milan;7;8;45;3;;;;;;3;stiramento muscolare, da valutare
-150;C;"W;T";Saponara;Fiorentina;11;17;74;6;;;;;;7;
-152;C;"C;T";Zielinski;Napoli;20;60;79;7;;3;;;;24;
-159;P;Por;Sepe;Salernitana;9;14;69;9;;;;;;6;
-160;P;Por;Tatarusanu;Milan;1;1;15;2;;;;;;0;
-173;C;"M;C";Capezzi;Salernitana;1;1;40;3;;;;;;0;
-177;A;A;Ilicic;Atalanta;11;12;58;4;;;;;;5;forse bologna
-181;C;"M;C";Vecino;Lazio;6;10;73;6;;;;;;4;
-186;A;A;Rebic;Milan;16;41;68;5;;;;;;16;
-212;A;Pc;Ciofani D.;Cremonese;1;1;66;5;;;;;;0;
-215;A;A;Verde;Spezia;18;46;73;8;2;1;;;;18;possibile rientro alla terza
-217;P;Por;Lamanna;Monza;1;1;5;1;;;;;;0;
-218;P;Por;Perin;Juventus;2;5;50;4;;;;;;2;
-226;D;"Dd;Dc";Izzo;Torino;3;4;72;8;;;;;;2;
-236;C;"E;W";Lazovic;Verona;13;24;74;8;;1;;;;10;
-238;C;M;Rincon;Sampdoria;6;8;67;7;;;;;;3;
-244;D;"Dd;E";Ghiglione;Cremonese;6;10;70;9;;;;;;4;
-250;P;Por;Handanovic;Inter;16;60;92;8;;;;;;24;
-252;D;"Ds;E";Biraghi;Fiorentina;13;37;79;9;;1;;;;15;
-253;D;"Dd;Ds;Dc";D'ambrosio;Inter;8;10;62;5;;;;;;4;
-254;D;"Ds;Dc;E";Dimarco;Inter;8;15;65;5;;2;;;;6;
-256;D;"Ds;Dc";Juan Jesus;Napoli;7;10;64;5;;;;;;4;
-259;D;Dc;Murillo;Sampdoria;3;7;;;;;;;;3;
-261;D;Dc;Ranocchia;Monza;6;9;72;8;;;;;;4;
-265;C;"M;C";Brozovic;Inter;14;38;80;9;;3;;;;15;
-272;D;Dc;Medel;Bologna;7;10;60;7;;;;;;4;
-286;D;Dc;Bonucci;Juventus;15;32;80;8;2;;;;;13;
-294;D;Dc;Rugani;Juventus;5;8;40;4;;;;;;3;
-302;C;"W;T";Pereyra;Udinese;18;57;77;8;2;2;;;;23;**
-303;C;"C;T";Pogba;Juventus;23;68;78;4;3;2;;;;27;tentativo rientro per fine settembre
-309;A;A;Dybala;Roma;29;197;84;9;1;2;;;;79;
-315;A;Pc;Zaza;Torino;5;5;50;3;;;;;;2;
-316;P;Por;Berisha;Torino;11;5;75;7;;;;;;2;
-322;D;Dc;De Vrij;Inter;10;20;74;7;;;;;;8;
-327;D;"Dd;Dc";Patric;Lazio;5;8;70;6;;;;;;3;
-329;D;"Ds;Dc";Radu;Lazio;2;2;56;3;;;;;;1;
-332;C;W;Candreva;Salernitana;17;46;81;9;2;3;;;;18;
-333;C;"M;C";Cataldi;Lazio;8;12;68;5;;;;;;5;
-335;C;"W;A";Felipe Anderson;Lazio;19;63;82;7;3;;;;;25;
-357;D;"Dd;E";Calabria;Milan;14;24;80;8;;;;;;10;
-358;D;"Dd;Ds;E";De Sciglio;Juventus;6;9;51;5;;;;;;4;
-360;D;Dc;Paletta;Monza;2;1;40;2;;;;;;0;
-367;C;"C;W;T";Bonaventura;Fiorentina;15;39;75;8;;2;;;;16;
-376;C;"W;T";Verdi;Torino;13;15;78;9;;;;;;6;
-383;A;Pc;Petagna;Monza;15;43;78;8;1;;;;;17;
-393;D;"Ds;Dc";Luperto;Empoli;5;8;64;8;;;;;;3;
-407;A;A;Gabbiadini;Sampdoria;15;30;72;8;;1;;;;12;
-434;C;"M;C";Jajalo;Udinese;3;3;40;2;;;;;;1;
-453;P;Por;Szczesny;Juventus;16;65;90;8;;;;;;26;rientro per la terza
-454;D;Dc;Capradossi;Spezia;2;2;40;2;;;;;;1;
-460;D;Dc;Romagnoli;Lazio;11;20;74;9;;;;;;8;
-464;D;"Dd;E";Florenzi;Milan;7;13;69;5;;;;;;5;
-472;A;Pc;Destro;Empoli;17;43;78;9;2;;;;;17;
-479;A;Pc;Sanabria;Torino;22;79;77;9;2;;;;;32;
-487;D;"Dd;E";De Silvestri;Bologna;8;17;69;7;;;;;;7;
-495;A;A;Correa;Inter;16;35;72;5;;;;;;14;
-505;A;Pc;Bonazzoli;Salernitana;14;30;77;8;1;;;;;12;
-507;A;Pc;Muriel;Atalanta;25;113;82;6;2;2;;;;45;
-509;P;Por;Consigli;Sassuolo;10;23;75;9;;;;;;9;
-510;P;Por;Pegolo;Sassuolo;1;1;15;2;;;;;;0;
-511;P;Por;Perilli;Verona;1;1;10;1;;;;;;0;
-513;D;Dc;Acerbi;Lazio;8;10;50;4;;;;;;4;forse inter
-526;C;"M;C";Duncan;Fiorentina;7;10;73;8;;;;;;4;
-530;C;T;Pellegrini Lo.;Roma;27;108;91;8;3;1;;;;43;
-531;A;A;Berardi;Sassuolo;34;249;89;9;1;1;;;;100;
-536;C;"W;A";Politano;Napoli;16;26;71;5;;;;;;10;
-537;A;A;Sansone;Bologna;6;7;68;5;3;3;;;;3;
-543;P;Por;Padelli;Udinese;1;1;0;2;;;;;;0;
-554;D;E;Zappacosta;Atalanta;11;18;78;7;;;;;;7;
-557;C;C;Benassi;Fiorentina;4;4;40;3;;;;;;2;
-568;A;Pc;Quagliarella;Sampdoria;10;15;70;5;3;3;;;;6;
-572;P;Por;Meret;Napoli;14;20;83;8;;;;;;8;arriva Navas?
-581;D;"Dd;E";Faraoni;Verona;13;29;80;9;;;;;;12;
-600;C;"C;T";Verre;Sampdoria;7;10;72;7;;;;;;4;
-608;A;Pc;Zapata D.;Atalanta;32;245;88;8;1;;;;;98;
-610;P;Por;Gollini;Fiorentina;11;32;78;8;;;;;;13;
-612;D;"Dd;Dc";Bianchetti;Cremonese;5;9;64;6;;;;;;4;
-630;D;"E;C";Sala;Spezia;5;7;54;3;;;;;;3;
-632;C;"W;A";Zaccagni;Lazio;20;69;84;9;;;;;;28;
-640;D;Dc;Chiriches;Cremonese;5;9;67;8;;;;;;4;
-643;A;A;Defrel;Sassuolo;8;10;54;3;3;;;;;4;
-645;C;"C;T";Milinkovic-Savic;Lazio;29;158;92;9;;2;;;;63;
-647;A;Pc;Dzeko;Inter;16;70;78;5;;;;;;28;
-660;D;Dc;Gyomber;Salernitana;4;3;50;3;;;;;;1;
-662;D;"Ds;E";Alex Sandro;Juventus;9;14;68;7;;;;;;6;
-666;C;"C;T";Machin;Monza;4;4;56;4;;;;;;2;
-673;P;Por;Perisan;Empoli;1;1;26;2;;;;;;0;
-694;C;"E;W";Baez;Cremonese;4;6;68;6;;2;;;;2;
-695;D;Dc;Toloi;Atalanta;9;13;78;8;;;;;;5;
-697;C;"E;W";Cuadrado;Juventus;15;28;75;6;;;;;;11;
-761;P;Por;Audero;Sampdoria;10;17;73;9;;;;;;7;
-779;C;"M;C";Cristante;Roma;10;17;70;8;;;;;;7;
-785;A;Pc;Immobile;Lazio;42;390;97;10;1;;;;;156;
-787;D;Dc;Djimsiti;Atalanta;7;13;70;6;;;;;;5;
-795;C;"W;A";El Shaarawy;Roma;9;21;60;5;;;;;;8;
-798;D;Dc;Skriniar;Inter;17;50;88;8;;;;;;20;
-799;P;Por;Bardi;Bologna;1;1;30;3;;;;;;0;
-801;C;"M;C";Gagliardini;Inter;8;11;62;4;;;;;;4;
-827;C;"M;C";Locatelli;Juventus;14;26;82;8;;3;;;;10;
-1839;A;"W;A";Edera;Torino;2;1;60;3;;;;;;0;
-1843;P;Por;Radu I.;Cremonese;4;8;65;9;;;;;;3;
-1847;D;Dc;Caldara;Spezia;7;10;68;8;;;;;;4;
-1851;C;E;Molina S.;Monza;4;6;55;3;;;;;;2;
-1852;D;"Ds;E";Spinazzola;Roma;12;24;82;8;;;;;;10;
-1857;A;A;Di Francesco F.;Lecce;12;21;69;7;3;2;;;;8;
-1868;D;"Ds;E";Murru;Sampdoria;5;8;69;8;;;;;;3;
-1870;C;C;Barella;Inter;20;64;86;9;;;;;;26;
-1889;P;Por;Cordaz;Inter;1;1;21;1;;;;;;0;
-1891;D;"Dd;Dc";Ceccherini;Verona;6;13;68;8;;;;;;5;
-1895;D;Dc;Ferrari G.;Sassuolo;8;15;73;8;;;;;;6;
-1898;D;"Dd;Dc;E";Sampirisi;Monza;3;2;45;3;;;;;;1;
-1901;C;"M;C";Barberis;Monza;7;8;66;7;;;;;;3;
-1917;P;Por;Dragowski;Spezia;8;13;70;9;;;;;;5;
-1930;P;Por;Pinsoglio;Juventus;1;1;18;1;;;;;;0;
-1933;C;"M;C";Mandragora;Fiorentina;10;18;75;9;;3;;;;7;
-1943;A;Pc;Nestorovski;Udinese;11;8;55;4;;;;;;3;
-1947;P;Por;Fiorillo;Salernitana;1;1;15;2;;;;;;0;
-1958;A;A;Caprari;Monza;26;110;81;9;2;2;;;;44;
-1976;C;"M;C";Mazzitelli;Monza;3;4;35;2;;;;;;2;
-1978;C;"C;T";Sensi;Monza;12;28;71;7;;1;;;;11;
-1995;C;"W;T";Djuricic;Sampdoria;12;30;70;6;;2;;;;12;
-2002;C;"W;A";Chiesa;Juventus;24;89;84;5;;;;;;36;rientro per fine settembre
-2008;C;C;Linetty;Torino;5;8;50;4;;;;;;3;
-2009;C;"C;T";Lukic;Torino;13;31;78;9;1;3;;;;12;**
-2011;C;"M;C";Miguel Veloso;Verona;6;9;64;6;2;2;;;;4;
-2016;D;Dc;Fazio;Salernitana;6;10;66;7;;;;;;4;
-2038;A;Pc;Pinamonti;Sassuolo;23;120;83;8;2;;;;;48;
-2061;A;Pc;Simeone;Napoli;24;42;60;4;;;;;;17;
-2064;D;"Dd;Ds;Dc";Veseli;Salernitana;1;1;48;4;;;;;;0;
-2077;C;T;Pasalic;Atalanta;22;75;90;7;;;;;;30;
-2085;C;T;Luis Alberto;Lazio;18;45;80;8;2;1;;;;18;
-2097;A;Pc;Kean;Juventus;15;37;68;5;;;;;;15;
-2103;A;Pc;Pellegri;Torino;12;15;72;6;;;;;;6;
-2104;D;"Dd;E";Bereszynski;Sampdoria;6;11;68;8;;;;;;4;
-2117;C;"C;T";Kastanos;Salernitana;5;10;57;4;;;;;;4;influenza
-2119;A;A;Deulofeu;Udinese;24;80;82;9;1;1;;;;32;
-2120;D;Dc;Bastoni;Inter;15;37;78;8;;;;;;15;
-2130;D;E;Hateboer;Atalanta;9;16;79;7;;;;;;6;
-2134;P;Por;Falcone;Lecce;6;12;66;9;;;;;;5;
-2141;D;"Dd;E";Depaoli;Sampdoria;4;5;50;3;;;;;;2;
-2154;C;"W;T";Vignato;Bologna;3;7;67;6;;;;;;3;
-2160;D;E;Gosens;Inter;19;62;82;7;;;;;;25;insieme a di marco
-2161;C;C;Haas;Empoli;3;4;58;5;;;;;;2;
-2164;D;"Dd;Dc";Milenkovic;Fiorentina;11;24;76;9;;;;;;10;
-2167;C;"W;A";Orsolini;Bologna;15;34;75;7;2;1;;;;14;
-2169;D;"Ds;Dc;E";Rodriguez R.;Torino;8;11;69;8;;;;;;4;*
-2170;P;Por;Milinkovic-Savic V.;Torino;2;21;62;4;;;;;;8;
-2172;C;T;Barak;Verona;22;51;80;9;1;;;;;20;forse fiorentina
-2174;D;"Dd;Ds;E";Venuti;Fiorentina;3;4;67;6;;;;;;2;
-2178;P;Por;Cragno;Monza;11;25;79;8;;;;;;10;
-2179;P;Por;Sirigu;Napoli;1;6;45;3;;;;;;2;
-2180;D;"Dd;E";Karsdorp;Roma;10;20;71;7;;;;;;8;
-2181;D;Dc;Palomino;Atalanta;10;1;10;1;;;;;;0;doping
-2188;D;"Dd;Ds;E";Marusic;Lazio;7;13;74;8;;;;;;5;
-2192;D;Dc;Bonifazi;Bologna;4;6;65;7;;;;;;2;
-2194;C;T;Calhanoglu;Inter;19;64;87;7;3;1;;;;26;
-2195;A;A;Ounas;Napoli;4;6;44;3;;;;;;2;
-2208;D;"Ds;Dc;E";Jaroszynski;Salernitana;1;1;35;2;;;;;;0;possibile rientro alla terza
-2211;P;Por;Silvestri;Udinese;9;22;78;9;;;;;;9;
-2252;D;"Ds;Dc";Marchizza;Sassuolo;2;2;46;3;;;;;;1;
-2253;C;C;Bandinelli;Empoli;6;9;74;8;;;;;;4;
-2263;D;"Dd;E";Lazzari;Lazio;10;26;80;9;;;;;;10;
-2274;C;"C;T";Valoti;Monza;5;14;69;5;3;;;;;6;
-2279;D;Dc;Romagna;Sassuolo;1;1;55;3;;;;;;0;
-2280;D;Dc;Nuytinck;Udinese;7;7;65;6;;;;;;3;
-2294;P;Por;Cerofolini;Fiorentina;1;1;5;1;;;;;;0;
-2296;D;Dc;Mancini;Roma;10;18;67;8;;;;;;7;
-2297;P;Por;Rossi F.;Atalanta;1;1;16;1;;;;;;0;
-2300;D;Dc;Leverbe;Sampdoria;4;7;70;6;;;;;;3;
-2312;D;Dc;Hristov;Spezia;3;3;56;4;;;;;;1;
-2318;D;"Ds;E";Rogerio;Sassuolo;5;12;62;5;;;;;;5;
-2334;C;W;Leris;Sampdoria;4;7;55;3;;;;;;3;
-2355;D;Dc;Marlon;Monza;7;14;70;7;;;;;;6;
-2379;C;C;Rabiot;Juventus;7;10;62;5;;;;;;4;
-2382;A;A;Di Maria;Juventus;27;114;80;8;;1;;;;46;rientro per metà settembre
-2391;C;"M;C";Ekdal;Spezia;7;9;62;8;;;;;;4;
-2392;C;M;Walace;Udinese;7;9;57;7;;;;;;4;
-2409;A;A;Ribery;Salernitana;5;10;58;4;;1;;;;4;in fase di recupero
-2432;C;M;Zakaria;Juventus;10;17;78;7;;;;;;7;
-2438;A;Pc;Jovic;Fiorentina;25;121;78;8;2;;;;;48;
-2446;D;"Dd;Dc";Donati;Monza;4;3;60;5;;;;;;1;
-2453;D;Dc;Nastasic;Fiorentina;1;2;69;4;;;;;;1;
-2466;A;Pc;Origi;Milan;17;59;70;5;;;;;;24;
-2489;A;A;Pedro;Lazio;19;67;77;9;;3;;;;27;
-2525;D;E;Darmian;Inter;10;16;64;5;;;;;;6;
-2528;C;M;Matic;Roma;7;13;66;7;;;;;;5;
-2529;C;"T;A";Mkhitaryan;Inter;16;48;74;5;;;;;;19;rientro per la terza
-2530;A;Pc;Ibrahimovic;Milan;13;15;40;1;3;;;;;6;non prima di gennaio
-2531;A;Pc;Lukaku;Inter;40;363;92;8;1;;;;;145;
-2544;A;Pc;Abraham;Roma;32;322;89;9;2;;;;;129;
-2625;C;"C;T";Soriano;Bologna;12;21;78;9;;;;;;8;
-2633;D;Dc;Kjaer;Milan;5;10;62;5;;;;;;4;
-2638;C;"C;T";Wijnaldum;Roma;17;49;81;8;;;;;;20;
-2639;C;M;Bakayoko;Milan;2;2;35;1;;;;;;1;
-2653;D;"Ds;E";Lykogiannis;Bologna;4;6;64;5;;2;;;;2;
-2668;D;"Dd;Ds;Dc";Retsos;Verona;1;1;46;4;;;;;;0;
-2719;A;A;Barrow;Bologna;17;44;78;8;;;;;;18;
-2724;D;"Ds;Dc";Buongiorno;Torino;4;6;66;5;;;;;;2;
-2739;D;"Ds;E";Reca;Spezia;6;10;69;7;;;;;;4;
-2741;C;"C;T";Pessina;Monza;13;36;78;9;;;;;;14;
-2742;C;"M;C";Valzania;Cremonese;2;1;69;8;;;;;;0;
-2746;D;"Ds;E";Dijks;Bologna;3;2;60;4;;;;;;1;
-2758;D;Dc;Gunter;Verona;6;11;69;8;;;;;;4;
-2762;A;A;Kouame';Fiorentina;10;18;69;5;;;;;;7;
-2764;A;Pc;Martinez L.;Inter;34;307;89;8;2;;;;;123;
-2766;C;"W;A";Zaniolo;Roma;19;70;80;6;;3;;;;28;
-2769;D;Dc;Magnani;Verona;3;5;59;4;;;;;;2;
-2775;C;"C;T";Ruiz;Napoli;19;19;79;8;;;;;;8;
-2784;D;Dc;Colley;Sampdoria;9;17;70;9;;;;;;7;
-2788;D;Dc;Bremer;Juventus;18;53;82;8;;;;;;21;
-2792;P;Por;Musso;Atalanta;13;37;82;9;;;;;;15;
-2804;C;"M;C";Scozzarella;Monza;1;2;40;2;;;;;;1;
-2814;P;Por;Provedel;Lazio;7;6;10;2;;;;;;2;
-2815;P;Por;Terracciano;Fiorentina;1;5;55;4;;;;;;2;
-2816;D;"Dd;E";Di Lorenzo;Napoli;16;40;87;9;;;;;;16;
-2818;C;"M;C";Bennacer;Milan;10;20;66;7;;;;;;8;
-2819;A;Pc;Caputo;Sampdoria;21;72;78;9;1;;;;;29;
-2825;C;"M;C";Bourabia;Spezia;4;5;56;4;;;;;;2;
-2832;A;"W;A";Boga;Atalanta;13;27;68;5;;;;;;11;
-2839;C;"W;A";Sottil;Fiorentina;9;19;75;6;;;;;;8;
-2841;A;Pc;Vlahovic;Juventus;41;383;94;9;1;;;;;153;Arriva depay?
-2842;A;"W;A";Zanimacchia;Cremonese;9;15;73;9;3;;;;;6;
-2845;P;Por;Contini;Sampdoria;1;1;10;2;;;;;;0;
-2847;D;"Ds;Dc;E";Sernicola;Cremonese;3;5;60;4;;;;;;2;
-2848;C;C;Frattesi;Sassuolo;16;42;75;8;;;;;;17;
-2855;C;"M;C";Vieira;Sampdoria;4;7;65;5;;;;;;3;
-2857;C;"W;T";Traore' Hj.;Sassuolo;18;55;78;8;;2;;;;22;frattura, inizio ottobre
-2865;D;E;Aina;Torino;5;8;72;6;;;;;;3;
-2869;D;"Dd;Ds;Dc";Djidji;Torino;6;8;65;4;;;;;;3;
-4143;C;"C;T";Ndombele';Napoli;11;22;72;7;;;;;;9;
-4178;C;"M;C";Ascacibar;Cremonese;6;8;;;;;;;;3;
-4179;A;A;Gonzalez N.;Fiorentina;20;58;80;9;1;;;;;23;
-4200;A;Pc;Giroud;Milan;28;158;80;7;1;;;;;63;
-4220;C;"M;C";Zambo Anguissa;Napoli;11;17;61;5;;;;;;7;
-4237;D;"Dd;Ds;E";Danilo;Juventus;12;23;74;7;;;;;;9;
-4245;D;Dc;Smalling;Roma;14;27;79;8;;;;;;11;
-4268;A;Pc;Arnautovic;Bologna;28;140;85;9;1;;;;;56;
-4270;P;Por;Rui Patricio;Roma;14;48;84;9;;;;;;19;
-4285;C;"M;C";Arthur;Juventus;5;5;52;4;;;;;;2;
-4287;C;"M;C";Lobotka;Napoli;12;24;64;7;;;;;;10;
-4292;D;"Ds;E";Hernandez T.;Milan;21;84;96;9;2;;;;;34;
-4312;P;Por;Maignan;Milan;17;81;97;9;;;;;;32;
-4329;D;Dc;Nikolaou;Spezia;4;6;57;5;;;;;;2;
-4331;D;Dc;Ibanez;Roma;9;17;58;5;;;;;;7;
-4332;D;Dc;Demiral;Atalanta;13;24;76;8;;;;;;10;
-4351;P;Por;Brancolini;Lecce;1;1;24;1;;;;;;0;
-4359;A;Pc;Piccoli;Verona;13;18;70;6;;;;;;7;
-4364;C;"C;T";Gaetano;Napoli;4;6;45;2;;;;;;2;
-4371;A;A;Raspadori;Sassuolo;20;65;81;9;;;;;;26;quasi ufficiale napoli
-4375;D;"Ds;E";Terzic;Fiorentina;2;3;40;3;;;;;;1;
-4376;C;C;Zurkowski;Fiorentina;9;20;68;5;;;;;;8;in dubbio per la terza
-4377;C;"C;T";Castrovilli;Fiorentina;9;1;70;5;;;;;;0;rientro fine gennaio
-4385;D;E;Lazaro;Torino;7;13;71;5;;;;;;5;
-4393;C;"M;C";Schouten;Bologna;8;13;73;9;;;;;;5;
-4401;D;Dc;Gabbia;Milan;1;4;42;2;;;;;;2;
-4407;D;"Ds;Dc";Igor;Fiorentina;9;18;74;8;;;;;;7;rientro per la terza
-4409;D;Dc;Rrahmani;Napoli;14;28;80;8;;;;;;11;
-4411;C;"M;C";Agoume;Inter;2;2;;;;;;;;1;
-4412;D;Dc;Rodrigo Becao;Udinese;11;17;73;8;;;;;;7;
-4421;D;"Ds;E";Augello;Sampdoria;7;15;70;8;;;;;;6;
-4426;D;"Dd;E";Toljan;Sassuolo;5;12;60;5;;;;;;5;
-4427;C;T;Malinovskyi;Atalanta;22;18;86;8;3;1;;;;7;se ne sta andando?
-4431;P;Por;Carnesecchi;Atalanta;1;6;10;1;;;;;;2;rientro novembre 
-4432;D;Dc;Okoli;Atalanta;5;13;67;5;;;;;;5;
-4433;D;"Dd;Ds;E";Zortea;Atalanta;2;3;38;3;;;;;;1;
-4436;A;A;Cambiaghi;Empoli;6;13;62;5;;;;;;5;
-4449;C;"M;C";Tonali;Milan;16;45;74;8;;3;;;;18;
-4459;C;"M;C";Rovella;Juventus;3;4;38;2;;;;;;2;
-4465;C;"C;T";Fagioli;Juventus;3;4;39;3;;;;;;2;
-4468;P;Por;Bleve;Lecce;1;1;15;1;;;;;;0;
-4479;C;"C;T";Elmas;Napoli;11;18;71;5;;;;;;7;forse all'estero
-4486;C;W;Strefezza;Lecce;13;38;78;9;2;1;;;;15;
-4491;P;Por;Berardi A.;Verona;1;1;10;1;;;;;;0;
-4493;D;Dc;Dawidowicz;Verona;4;11;64;4;;;;;;4;
-4495;D;Dc;Kumbulla;Roma;4;8;48;4;;;;;;3;
-4498;C;"C;T";Henderson L.;Empoli;8;13;64;7;;;;;;5;
-4500;A;Pc;Di Carmine;Cremonese;1;1;64;4;;;;;;0;
-4501;C;"M;C";Obiang;Sassuolo;2;2;51;2;;;;;;1;
-4502;D;"Ds;E";Gallo;Lecce;2;3;40;3;;;;;;1;
-4510;A;A;Rafael Leao;Milan;30;199;87;9;;;;;;80;
-4515;C;"T;A";Agudelo;Spezia;9;15;64;6;;2;;;;6;
-4517;A;A;Lozano;Napoli;19;57;70;7;3;;;;;23;forse all'estero
-4518;P;Por;Russo A.;Sassuolo;1;1;5;1;;;;;;0;
-4519;D;Dc;Cetin;Lecce;5;8;46;5;;;;;;3;salta un match
-4521;D;"Dd;E";Muldur;Sassuolo;5;2;45;4;;;;;;1;frattura, metà novembre
-4522;C;"M;C";Amrabat;Fiorentina;8;14;69;6;;;;;;6;
-4525;P;Por;Gemello;Torino;1;1;10;1;;;;;;0;
-4530;D;"Ds;E";Kyriakopoulos;Sassuolo;6;12;63;6;;;;;;5;
-4657;D;"Dd;E";Celik;Roma;7;13;60;5;;;;;;5;
-4658;C;"W;A";Ikone';Fiorentina;14;28;79;8;;;;;;11;
-4661;A;Pc;Osimhen;Napoli;36;325;90;9;1;;;;;130;
-4681;C;"M;C";Lopez M.;Sassuolo;9;16;69;8;;3;;;;6;
-4711;C;"E;W";Kostic;Juventus;15;38;81;5;;;;;;15;
-4725;C;M;Demme;Napoli;4;5;0;3;;;;;;2;seconda metà di settembre
-4730;A;"W;A";Lookman;Atalanta;14;32;72;5;;;;;;13;
-4751;D;Dc;Tomori;Milan;15;36;90;9;;;;;;14;
-4758;D;Dc;Benkovic;Udinese;4;6;59;5;;;;;;2;
-4825;C;"W;T";Diaz B.;Milan;13;26;68;5;;2;;;;10;
-4869;C;"M;C";Dominguez;Bologna;8;12;74;8;;;;;;5;
-4870;D;Dc;Adopo;Torino;1;4;63;4;;;;;;2;
-4885;C;"M;C";Villar;Sampdoria;7;13;70;7;;;;;;5;
-4887;D;E;Bellanova;Inter;8;14;64;5;;;;;;6;
-4890;C;"M;C";Tameze;Verona;13;24;73;8;;;;;;10;
-4891;D;Dc;Soumaoro;Bologna;4;8;69;8;;;;;;3;
-4892;C;W;Saelemaekers;Milan;8;14;61;5;;;;;;6;
-4896;C;"T;A";Maldini;Spezia;2;5;64;5;;;;;;2;
-4897;D;Dc;Pirola;Salernitana;4;5;60;6;;;;;;2;
-4899;D;E;Singo;Torino;14;33;77;8;;;;;;13;**
-4904;D;Dc;Mari';Monza;10;19;75;8;;;;;;8;
-4921;C;C;Askildsen;Lecce;3;4;62;6;;;;;;2;
-4923;A;Pc;Colombo;Lecce;7;13;60;5;;;;;;5;
-4925;D;"Ds;Dc";Carboni;Monza;5;8;66;7;;;;;;3;
-4934;D;Dc;Lovato;Salernitana;6;13;66;8;;;;;;5;fine settembre
-4938;A;A;Moro;Lazio;1;1;60;3;;;;;;0;
-4945;D;"Ds;E";Calafiori;Roma;2;2;42;2;;;;;;1;
-4946;D;"Ds;E";Frabotta;Lecce;4;7;64;8;;;;;;3;
-4957;P;Por;Montipo';Verona;10;22;75;9;;;;;;9;
-4958;D;"Ds;Dc";Caldirola;Monza;4;3;60;5;;;;;;1;
-4960;D;Dc;Tuia;Lecce;3;4;58;7;;;;;;2;
-4964;P;Por;Vicario;Empoli;9;17;72;9;;;;;;7;
-4965;C;"M;C";Marin;Empoli;7;13;75;8;;2;;;;5;
-4970;C;W;Messias;Milan;13;36;68;6;;;;;;14;
-4973;C;"C;W";Mckennie;Juventus;11;9;60;5;;;;;;4;
-4975;C;"M;C";Escalante;Cremonese;3;6;72;7;;;;;;2;
-4976;D;"Dd;Dc";Kalulu;Milan;14;33;76;7;;;;;;13;
-4977;P;Por;Ravaglia;Sampdoria;1;1;10;2;;;;;;0;
-4979;D;"Dd;Dc";Ayhan;Sassuolo;5;8;55;4;;;;;;3;
-4982;D;Dc;Erlic;Sassuolo;9;13;71;7;;;;;;5;
-4983;D;"Dd;Ds;E";Ferrer;Spezia;3;5;53;4;;;;;;2;
-4987;C;C;Bartolomei;Cremonese;1;1;;;;;;;;0;
-4988;C;"C;T";Maggiore;Salernitana;10;23;72;8;;;;;;9;
-4992;C;"W;A";Gyasi;Spezia;10;23;70;8;3;;;;;9;
-4994;D;E;Vojvoda;Torino;9;16;74;9;;;;;;6;
-5001;C;"T;A";Miranchuk;Torino;9;35;77;8;3;1;;;;14;inizio ottobre
-5005;P;Por;Zoet;Spezia;1;1;15;2;;;;;;0;
-5007;C;"C;T";Ilic;Verona;12;27;76;8;;3;;;;11;forse via
-5010;D;Dc;Ismajli;Empoli;3;7;60;7;;;;;;3;
-5017;D;"Ds;E";Ballo-Toure';Milan;2;2;44;3;;;;;;1;
-5063;C;W;Radonjic;Torino;8;18;77;8;;;;;;7;
-5119;C;T;Samardzic;Udinese;8;12;60;4;;3;;;;5;
-5287;C;"M;C";Arslan;Udinese;6;8;55;5;;;;;;3;
-5292;A;Pc;Lammers;Empoli;15;35;75;7;3;;;;;14;
-5298;C;"C;T";Pobega;Milan;9;19;65;5;;;;;;8;
-5304;P;Por;Boer;Roma;1;1;18;1;;;;;;0;
-5311;A;Pc;Shomurodov;Roma;12;16;62;4;;;;;;6;forse bologna
-5316;D;"Ds;Dc";Amione;Verona;2;4;30;2;;;;;;2;
-5323;D;Dc;Martinez Quarta;Fiorentina;4;8;70;6;;;;;;3;
-5329;C;"M;C";Makengo;Udinese;8;11;59;5;;;;;;4;
-5332;D;"E;C";Bastoni S.;Spezia;12;22;74;7;;3;;;;9;
-5336;A;Pc;Nzola;Spezia;15;49;71;7;1;;;;;20;
-5354;D;"Ds;E";Ruggeri;Atalanta;1;1;34;2;;;;;;0;
-5355;D;"Ds;E";Udogie;Udinese;13;31;84;9;;;;;;12;**
-5375;D;E;Maehle;Atalanta;8;14;65;5;;;;;;6;
-5378;A;A;Oddei;Sassuolo;1;1;42;2;;;;;;0;
-5391;A;Pc;Kokorin;Fiorentina;1;1;0;0;;;;;;0;
-5397;C;"C;T";Kovalenko;Spezia;7;13;73;7;;;;;;5;
-5399;D;Dc;Antov;Monza;1;1;35;2;;;;;;0;
-5420;C;"M;C";Darboe;Roma;1;1;19;1;;;;;;0;
-5422;C;"E;W";Zalewski;Roma;7;13;60;5;;;;;;5;
-5423;C;C;Bove;Roma;1;1;34;2;;;;;;0;
-5424;D;"Dd;Dc";Amey;Bologna;1;2;40;3;;;;;;1;
-5444;C;"C;T";Cortinovis;Verona;2;3;;;;;;;;1;
-5449;D;"Ds;E";Parisi;Empoli;8;14;70;8;;;;;;6;
-5450;D;"Dd;E";Stojanovic;Empoli;7;13;72;8;;;;;;5;
-5451;C;T;Bajrami;Empoli;17;50;84;8;1;1;;;;20;
-5453;C;"M;C";Ricci S.;Torino;8;18;73;8;;;;;;7;
-5457;C;C;Maleh;Fiorentina;6;9;60;5;;;;;;4;
-5460;A;Pc;Satriano;Empoli;14;16;70;5;;;;;;6;
-5461;D;"Ds;E";Kamenovic;Lazio;1;1;10;1;;;;;;0;
-5468;C;C;Cavion;Salernitana;1;2;45;3;;;;;;1;
-5471;A;Pc;Djuric;Verona;11;16;67;5;;;;;;6;
-5475;D;"Dd;Dc";Amian;Spezia;6;13;70;8;;;;;;5;inizio ottobre
-5476;C;C;Kornvig;Spezia;2;2;45;3;;;;;;1;
-5480;D;"Dd;E";Ebuehi;Empoli;3;4;46;4;;;;;;2;
-5481;D;"Dd;E";Mazzocchi;Salernitana;7;15;72;8;;;;;;6;
-5498;D;"Dd;Dc";Casale;Lazio;9;17;74;8;;;;;;7;
-5499;C;"M;C";Hongla;Verona;3;7;48;3;;;;;;3;
-5500;A;A;Cancellieri;Lazio;7;17;69;5;;;;;;7;
-5502;P;Por;Adamonis;Lazio;1;1;10;2;;;;;;0;
-5503;D;"Dd;E";Kechrida;Salernitana;1;1;55;4;;;;;;0;
-5504;C;"M;C";Coulibaly L.;Salernitana;6;11;62;7;;;;;;4;
-5505;A;Pc;Kaio Jorge;Juventus;1;1;22;1;;;;;;0;
-5509;D;"Ds;E";Vina;Roma;3;5;46;3;;;;;;2;
-5510;C;"W;A";Romero L.;Lazio;2;4;60;4;;;;;;2;
-5511;C;"M;C";Matheus Henrique;Sassuolo;6;10;61;5;;;;;;4;
-5512;A;Pc;De Luca;Sampdoria;4;7;;;;;;;;3;
-5513;D;E;Dumfries;Inter;21;77;92;8;;;;;;31;
-5514;D;"Ds;Dc";Vasquez;Cremonese;6;12;69;9;;;;;;5;
-5515;A;A;Okereke;Cremonese;14;31;69;6;;;;;;12;
-5517;C;M;Yepes;Sampdoria;3;3;0;0;;;;;;1;
-5518;P;Por;Marfella;Napoli;1;1;15;1;;;;;;0;
-5519;C;"M;C";Sher;Spezia;1;1;40;3;;;;;;0;
-5520;D;"Dd;Ds;E";Cambiaso;Bologna;9;19;74;8;;;;;;8;
-5526;D;Dc;Scalvini;Atalanta;7;10;54;5;;;;;;4;
-5527;D;"Dd;E";Zanoli;Napoli;3;3;57;5;;;;;;1;
-5528;P;Por;Zovko;Spezia;1;1;5;1;;;;;;0;
-5529;A;Pc;Henry;Verona;19;47;74;9;3;;;;;19;*
-5532;D;"Ds;E";Bradaric;Salernitana;7;11;55;4;;;;;;4;
-5672;A;Pc;Dia;Salernitana;17;45;75;8;3;;;;;18;
-5673;A;A;Antiste;Spezia;3;5;50;3;;;;;;2;distorsione ginocchio, da valutare
-5674;C;C;Basic;Lazio;5;13;72;6;;;;;;5;
-5676;A;A;Success;Udinese;13;21;64;5;;;;;;8;
-5677;D;Dc;Perez N.;Udinese;8;14;58;5;;;;;;6;
-5678;D;"Dd;E";Holm;Spezia;3;3;40;3;;;;;;1;
-5682;P;Por;Molla;Bologna;1;1;5;1;;;;;;0;
-5685;C;"C;T";Koopmeiners;Atalanta;15;40;82;7;;3;;;;16;
-5686;D;"Dd;E";Soppy;Atalanta;7;15;62;5;;;;;;6;
-5687;C;"W;T";Vlasic;Torino;15;36;77;8;;2;;;;14;
-5688;C;"M;C";Harroui;Sassuolo;2;4;55;4;;;;;;2;
-5690;A;Pc;Strelec;Spezia;6;8;66;5;;;;;;3;
-5691;D;Dc;Zima;Torino;5;8;70;7;;;;;;3;possibile rientro alla terza
-5693;D;Dc;Kiwior;Spezia;7;12;70;7;;;;;;5;
-5694;A;Pc;Beto;Udinese;24;94;82;8;3;;;;;38;
-5707;P;Por;Piana;Udinese;1;1;5;1;;;;;;0;
-5716;A;A;Podgoreanu;Spezia;1;1;35;1;;;;;;0;
-5719;C;"M;C";Asllani;Inter;8;16;67;5;;;;;;6;
-5722;C;"M;C";Nguiamba;Spezia;1;1;41;2;;;;;;0;
-5728;A;A;Afena-Gyan;Roma;8;10;43;2;;;;;;4;
-5734;A;A;Soule';Juventus;1;2;28;1;;;;;;1;
-5735;C;T;Volpato;Roma;1;1;38;2;;;;;;0;
-5739;D;"Dd;Dc";De Winter;Empoli;4;6;32;2;;;;;;2;
-5740;D;"Dd;E";Zanotti;Inter;1;1;24;1;;;;;;0;
-5747;D;Dc;Ruan;Sassuolo;3;4;53;3;;;;;;2;
-5750;D;Dc;Ostigard;Napoli;7;10;57;4;;;;;;4;
-5764;D;Dc;Coppola D.;Verona;2;3;50;4;;;;;;1;
-5776;C;"W;A";Ceide;Sassuolo;2;8;44;3;;;;;;3;
-5784;C;C;Aebischer;Bologna;4;5;69;6;;;;;;2;
-5785;A;Pc;Lazetic;Milan;1;1;35;2;;;;;;0;
-5786;A;Pc;Cabral;Fiorentina;19;59;75;6;3;;;;;24;
-5788;C;"T;A";Sabiri;Sampdoria;15;39;77;9;2;;;;;16;
-5789;C;T;Praszelik;Verona;1;2;50;4;;;;;;1;
-5792;C;"C;T";Ederson D.s.;Atalanta;13;34;72;5;;;;;;14;infortunio muscolare
-5793;D;"Dd;E";Kasius;Bologna;3;2;55;4;;;;;;1;
-5798;C;"M;C";Bohinen;Salernitana;7;10;64;8;;;;;;4;metà settembre
-5804;D;"Ds;E";Cacace;Empoli;3;4;56;4;;;;;;2;
-5806;A;"W;A";Seck;Torino;3;4;69;7;;;;;;2;
-5813;C;"C;T";Miretti;Juventus;3;3;32;2;;;;;;1;
-5820;D;Dc;Bertola;Spezia;1;2;50;3;;;;;;1;
-5822;P;Por;Bagnolini;Bologna;1;1;;;;;;;;0;
-5823;C;"T;A";Baldanzi;Empoli;1;2;38;2;;;;;;1;
-5824;C;"T;A";Pafundi;Udinese;1;1;35;2;;;;;;0;
-5829;C;"C;T";Milanese;Cremonese;7;8;68;8;;;;;;3;
-5830;P;Por;Onana;Inter;1;13;56;4;;;;;;5;
-5831;D;Dc;Gatti;Juventus;5;7;32;3;;;;;;3;
-5832;P;Por;Luis Maximiano;Lazio;11;30;79;9;;;;;;12;
-5833;D;Dc;Gila;Lazio;4;6;63;5;;;;;;2;
-5834;C;"M;C";Marcos Antonio;Lazio;10;20;76;8;;;;;;8;
-5835;D;"Dd;Ds;Dc";Baschirotto;Lecce;2;4;46;4;;;;;;2;
-5836;A;Pc;Ceesay;Lecce;11;27;74;8;1;;;;;11;
-5837;A;Pc;Voelkerling Persson;Lecce;1;1;46;3;;;;;;0;
-5838;D;"Dd;Ds;E";Birindelli;Monza;4;7;64;5;;;;;;3;
-5839;C;"W;A";Kvaratskhelia;Napoli;19;110;77;7;2;1;;;;44;
-5840;D;"Ds;E";Olivera;Napoli;7;14;64;5;;;;;;6;
-5841;P;Por;Svilar;Roma;1;1;40;2;;;;;;0;
-5842;A;Pc;Botheim;Salernitana;13;26;60;5;;;;;;10;
-5843;A;A;Valencia D.;Salernitana;2;3;54;4;;;;;;1;
-5844;C;"C;T";Thorstvedt;Sassuolo;9;22;71;7;;;;;;9;
-5845;A;Pc;Alvarez A.;Sassuolo;14;20;74;5;;;;;;8;
-5846;D;E;Bayeye;Torino;1;1;66;5;;;;;;0;
-5847;D;Dc;Bijol;Udinese;5;14;60;4;;;;;;6;
-5848;D;"Dd;E";Ebosele;Udinese;2;10;55;4;;;;;;4;
-5849;D;"Ds;E";Buta;Udinese;1;1;35;2;;;;;;0;
-5850;C;"C;T";Lovric;Udinese;6;12;68;6;;;;;;5;
-5851;D;"Ds;E";Doig;Verona;6;7;68;4;;;;;;3;
-5853;P;Por;Sorrentino A.;Monza;1;1;5;1;;;;;;0;
-5854;A;Pc;Tsadjout;Cremonese;8;10;71;8;2;;;;;4;
-5855;C;C;Tenkorang;Cremonese;1;1;;;;;;;;0;
-5856;D;"Dd;E";Sambia;Salernitana;7;13;55;4;;;;;;5;
-5857;C;M;Pickel;Cremonese;4;6;;;;;;;;2;
-5858;C;"C;T";Ferguson;Bologna;5;10;68;5;;;;;;4;
-5859;D;Dc;Ndiaye;Cremonese;1;1;55;4;;;;;;0;
-5860;D;Dc;Ravanelli;Cremonese;3;2;60;5;;;;;;1;
-5861;D;"Dd;Dc";Fiordaliso;Cremonese;1;1;58;4;;;;;;0;
-5862;D;"Ds;E";Valeri;Cremonese;5;10;72;9;;3;;;;4;
-5863;C;"M;C";Castagnetti;Cremonese;4;6;67;8;;;;;;2;
-5864;A;A;Buonaiuto;Cremonese;8;8;60;4;;1;;;;3;
-5867;D;"Dd;Dc";Gendrey;Lecce;4;5;62;7;;;;;;2;
-5868;C;"M;C";Bjorkengren;Lecce;1;1;44;2;;;;;;0;
-5869;C;"M;C";Blin;Lecce;3;6;48;4;;;;;;2;
-5870;C;"M;C";Hjulmand;Lecce;6;8;60;8;;3;;;;3;
-5872;C;"C;T";Helgason;Lecce;1;4;44;2;;;;;;2;
-5873;C;W;Listkowski;Lecce;2;2;55;5;;;;;;1;
-5874;A;A;Rodriguez P.;Lecce;2;2;45;2;;;;;;1;
-5875;C;T;Adli;Milan;7;15;55;4;;;;;;6;
-5876;P;Por;Di Gregorio;Monza;2;1;15;2;;;;;;0;
-5877;D;"Ds;E";Carlos Augusto;Monza;8;17;76;8;;3;;;;7;rientro per la terza
-5878;C;"C;T";Colpani;Monza;4;5;62;5;;;;;;2;
-5879;C;"T;A";Vignato S.;Monza;1;1;41;2;;;;;;0;
-5880;C;"T;A";Ciurria;Monza;3;5;57;4;;;;;;2;
-5881;A;Pc;Gytkjaer;Monza;4;8;55;4;;;;;;3;
-5882;A;Pc;Mota;Monza;11;26;68;5;;;;;;10;possibile rientro alla terza
-5884;C;"M;C";Ranocchia F.;Monza;3;4;60;5;;;;;;2;
-5885;D;"Dd;E";Dodo';Fiorentina;14;39;78;9;;;;;;16;
-5886;C;"C;T";Bistrovic;Lecce;5;8;63;7;;;;;;3;
-5887;P;Por;Ciezkowski;Cremonese;1;1;;;;;;;;0;
-5889;P;Por;Micai;Salernitana;1;1;5;1;;;;;;0;
-5890;P;Por;Chiesa M.;Verona;1;1;;;;;;;;0;
-5891;D;"Ds;E";Quagliata;Cremonese;4;7;;;;;;;;3;
-5892;D;Dc;Kim;Napoli;13;26;71;7;;;;;;10;
-5992;C;"C;T";Bondo;Monza;1;3;50;3;;;;;;1;
-5994;D;"Ds;E";Ebosse;Udinese;4;9;55;4;;;;;;4;
-5995;C;"T;A";De Ketelaere;Milan;21;79;86;8;;1;;;;32;
-5996;C;"M;C";Samek;Lecce;1;3;54;5;;;;;;1;
-5998;C;"W;A";Zerbin;Napoli;2;2;35;2;;;;;;1;
-5999;C;C;Gonzalez J.;Lecce;2;3;48;3;;;;;;1;
-6001;A;A;Banda;Lecce;5;8;44;3;;;;;;3;
-6002;D;Dc;Aiwu;Cremonese;5;6;;;;;;;;2;
-6005;C;"C;T";Ilkhan;Torino;3;5;68;5;;;;;;2;
-6025;C;"E;C";Vilhena;Salernitana;8;14;71;8;;;;;;6;
-6026;A;Pc;Dessers;Cremonese;17;46;74;9;1;;;;;18;
-6027;D;Dc;Lochoshvili;Cremonese;3;6;55;4;;;;;;2;
-6028;D;"Dd;Dc";Bronn;Salernitana;5;8;60;5;;;;;;3;
-6029;P;Por;Saro;Cremonese;1;1;;;;;;;;0;
-6041;D;Dc;Schuurs;Torino;9;18;74;8;;;;;;7;
-6042;D;Dc;Lucumi';Bologna;9;19;72;8;;;;;;8;
-6043;D;Dc;Sosa;Bologna;2;3;63;4;;;;;;1;
+Quotazioni Fantacalcio Stagione 2023 24;;;;;;;;;;;;;;;;;;;;;
+Id;R;RM;Nome;Squadra;Qt.A;Qt.I;Diff.;Qt.A M;Qt.I M;Diff.M;FVM;FVM M;offerta massima;fascia;indice squadra;titolarita;rigori;punizioni;angoli;note;Check su altro file 
+1946;P;Por;Aresti;Cagliari;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+761;P;Por;Audero;Inter;1;1;0;1;1;0;1;1;0;;2;2;;;;;KO
+5822;P;Por;Bagnolini;Bologna;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+4491;P;Por;Berardi A.;Verona;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+316;P;Por;Berisha;Empoli;3;1;2;3;1;2;5;5;2;5;2;1;;;;;KO
+5304;P;Por;Boer;Roma;1;1;0;1;1;0;1;1;0;;2;2;;;;;KO
+6406;P;Por;Borbei;Lecce;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+4351;P;Por;Brancolini;Lecce;1;1;0;1;1;0;1;1;0;;2;2;;;;;KO
+4360;P;Por;Caprile;Empoli;6;7;-1;6;7;-1;10;10;4;5;1;8;;;;Caviglia (Settembre-Ottobre);KO
+4431;P;Por;Carnesecchi;Atalanta;10;11;-1;10;11;-1;10;16;4;5;2;5;;;;;KO
+2294;P;Por;Cerofolini;Frosinone;2;1;1;2;1;1;1;1;0;;2;1;;;;;KO
+6403;P;Por;Christensen O.;Fiorentina;2;3;-1;2;3;-1;16;16;6;4;2;4;;;;;KO
+509;P;Por;Consigli;Sassuolo;5;5;0;5;5;0;15;15;6;4;1;8;;;;;KO
+2845;P;Por;Contini;Napoli;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+2338;P;Por;Costil;Salernitana;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+2178;P;Por;Cragno;Sassuolo;3;4;-1;3;4;-1;8;8;3;5;2;4;;;;;KO
+1926;P;Por;Di Gennaro;Inter;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+5876;P;Por;Di Gregorio;Monza;12;12;0;12;12;0;37;37;15;3;1;8;;;;;KO
+2134;P;Por;Falcone;Lecce;9;8;1;9;8;1;22;22;9;4;1;9;;;;sorpr;KO
+1947;P;Por;Fiorillo;Salernitana;1;1;0;1;1;0;1;1;0;;2;1;;;;;KO
+2799;P;Por;Frattali;Frosinone;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+4525;P;Por;Gemello;Torino;1;1;0;1;1;0;1;1;0;;2;1;;;;;KO
+610;P;Por;Gollini;Napoli;1;1;0;1;1;0;1;1;0;;2;2;;;;;KO
+6255;P;Por;Gori;Monza;1;1;0;1;1;0;1;1;0;;4;1;;;;;KO
+217;P;Por;Lamanna;Monza;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+188;P;Por;Leali;Genoa;1;1;0;1;1;0;1;1;0;;2;1;;;;;KO
+4312;P;Por;Maignan;Milan;17;17;0;17;17;0;89;89;36;1;1;9;;;;;KO
+6482;P;Por;Mandas;Lazio;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+6184;P;Por;Martinelli T.;Fiorentina;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+5116;P;Por;Martinez Jo.;Genoa;8;8;0;8;8;0;17;17;7;4;1;8;;;;;KO
+572;P;Por;Meret;Napoli;16;17;-1;16;17;-1;80;80;32;2;1;8;;;;;KO
+2170;P;Por;Milinkovic-Savic V.;Torino;10;10;0;10;10;0;31;31;12;3;1;8;;;;;KO
+41;P;Por;Mirante;Milan;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+4957;P;Por;Montipo';Verona;8;7;1;8;7;1;13;13;5;4;1;8;;;;;KO
+2792;P;Por;Musso;Atalanta;5;3;2;5;3;2;28;28;11;3;1;4;;;;;KO
+6120;P;Por;Ochoa;Salernitana;9;9;0;9;9;0;27;27;11;3;1;9;;;;;KO
+6462;P;Por;Okoye;Udinese;1;1;0;1;1;0;1;1;0;;2;2;;;;;KO
+543;P;Por;Padelli;Udinese;1;1;0;1;1;0;1;1;0;;3;1;;;;noie muscolari (rientro 4°);KO
+510;P;Por;Pegolo;Sassuolo;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+511;P;Por;Perilli;Verona;1;1;0;1;1;0;1;1;0;;2;2;;;;;KO
+218;P;Por;Perin;Juventus;3;1;2;3;1;2;5;5;2;5;2;2;;;;;KO
+673;P;Por;Perisan;Empoli;1;2;-1;1;2;-1;1;1;0;;3;2;;;;;KO
+1930;P;Por;Pinsoglio;Juventus;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+6210;P;Por;Popa;Torino;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+2814;P;Por;Provedel;Lazio;15;16;-1;15;16;-1;60;60;24;2;1;9;;;;antisco;KO
+3;P;Por;Radunovic;Cagliari;8;8;0;8;8;0;13;13;5;4;1;8;;;;;KO
+2722;P;Por;Ravaglia F.;Bologna;1;1;0;1;1;0;1;1;0;;2;1;;;;;KO
+2297;P;Por;Rossi F.;Atalanta;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+4270;P;Por;Rui Patricio;Roma;12;14;-2;12;14;-2;47;47;19;3;1;8;;;;;KO
+574;P;Por;Scuffet;Cagliari;1;1;0;1;1;0;1;1;0;;2;1;;;;;KO
+159;P;Por;Sepe;Lazio;1;1;0;1;1;0;1;1;0;;2;2;;;;;KO
+2211;P;Por;Silvestri;Udinese;9;9;0;9;9;0;31;31;12;3;1;8;;;;;KO
+133;P;Por;Skorupski;Bologna;10;10;0;10;10;0;32;32;13;3;1;9;;;;;KO
+219;P;Por;Sommariva;Genoa;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+2428;P;Por;Sommer;Inter;16;15;1;16;15;1;67;67;27;2;1;8;;;;;KO
+5853;P;Por;Sorrentino A.;Monza;1;1;0;1;1;0;1;1;0;;2;2;;;;;KO
+4;P;Por;Sportiello;Milan;1;1;0;1;1;0;1;1;0;;2;2;;;;;KO
+6234;P;Por;Stubljar;Empoli;1;1;0;1;1;0;1;1;0;;4;1;;;;;KO
+5841;P;Por;Svilar;Roma;1;1;0;1;1;0;1;1;0;;3;1;;;;;KO
+453;P;Por;Szczesny;Juventus;15;15;0;15;15;0;71;71;28;2;1;9;;;;;KO
+2815;P;Por;Terracciano;Fiorentina;10;10;0;10;10;0;14;14;6;4;1;6;;;;;KO
+4867;P;Por;Turati;Frosinone;5;5;0;5;5;0;8;8;3;5;1;8;;;;;KO
+513;D;Dc;Acerbi;Inter;10;11;-1;10;11;-1;32;32;13;4;5;8;;;;"+; risentimento muscolare (metà settembre)";KO
+662;D;"Ds;Dc";Alex Sandro;Juventus;6;6;0;7;7;0;12;16;5;5;3;5;;;;;KO
+5424;D;"Dd;Dc";Amey;Bologna;1;1;0;1;1;0;1;2;0;7;11;2;;;;;KO
+5316;D;"Ds;Dc";Amione;Verona;2;3;-1;3;4;-1;5;6;2;6;6;5;;;;;KO
+4421;D;"Ds;E";Augello;Cagliari;5;5;0;5;5;0;12;12;5;5;3;7;;;;;KO
+6231;D;"Ds;E";Azzi;Cagliari;6;5;1;6;5;1;10;10;4;5;2;7;;;;;KO
+5067;D;E;Bakker;Atalanta;11;12;-1;10;11;-1;23;20;9;5;2;6;;;;"esterno quasi titolare; occhio a ruggeri";KO
+2285;D;Dc;Bani;Genoa;3;3;0;3;3;0;6;6;2;6;5;5;;;;;KO
+5835;D;"Dd;Dc";Baschirotto;Lecce;11;10;1;12;11;1;36;40;14;4;1;9;;;;antisco;KO
+2120;D;Dc;Bastoni;Inter;14;13;1;14;13;1;48;48;19;3;4;8;;;;;KO
+5332;D;"Ds;E";Bastoni S.;Empoli;8;8;0;8;8;0;32;32;13;4;1;7;;;;;KO
+4887;D;"Dd;E";Bellanova;Torino;7;8;-1;7;8;-1;25;26;10;4;2;8;;;;sco;KO
+2104;D;"Dd;E";Bereszynski;Empoli;3;3;0;3;3;0;4;4;2;6;6;3;;;;;KO
+2737;D;Dc;Bettella;Monza;1;1;0;1;1;0;1;1;0;7;11;3;;;;;KO
+6202;D;Dc;Beukema;Bologna;6;6;0;6;6;0;22;22;9;5;4;8;;;;;KO
+5847;D;Dc;Bijol;Udinese;9;9;0;9;9;0;21;21;8;5;1;8;;;;+;KO
+252;D;"Ds;E";Biraghi;Fiorentina;11;10;1;11;10;1;24;24;10;4;1;7;3;1;1;con Parisi?;KO
+2083;D;"Dd;Dc";Biraschi;Genoa;4;3;1;5;4;1;3;4;1;6;6;4;;;;;KO
+5838;D;"Dd;Ds;E";Birindelli;Monza;6;5;1;7;6;1;5;6;2;6;6;4;;;;;KO
+6217;D;Dc;Bisseck;Inter;3;4;-1;3;4;-1;6;6;2;6;10;4;;;;;KO
+6444;D;Dc;Bonfanti;Atalanta;1;1;0;1;1;0;1;1;0;7;12;1;;;;;KO
+2192;D;Dc;Bonifazi;Bologna;2;3;-1;2;3;-1;3;3;1;6;7;4;;;;;KO
+5532;D;"Ds;E";Bradaric;Salernitana;7;7;0;7;7;0;11;11;4;5;2;7;;3;;;KO
+2788;D;Dc;Bremer;Juventus;13;13;0;13;13;0;52;48;21;2;2;8;;;;;KO
+6028;D;"Dd;Dc";Bronn;Salernitana;1;2;-1;1;2;-1;3;3;1;6;8;3;;;;;KO
+2724;D;Dc;Buongiorno;Torino;10;11;-1;10;11;-1;23;23;9;5;3;8;;;;+;KO
+6039;D;"Ds;Dc";Cabal;Verona;2;3;-1;3;4;-1;4;5;2;6;9;3;;;;;KO
+5804;D;"Ds;E";Cacace;Empoli;2;3;-1;2;3;-1;8;8;3;6;8;3;;;;;KO
+357;D;"Dd;E";Calabria;Milan;10;9;1;10;9;1;22;22;9;5;4;8;;;;;KO
+4945;D;"Ds;E";Calafiori;Bologna;4;4;0;4;4;0;7;7;3;6;8;3;;;;;KO
+4958;D;"Ds;Dc";Caldirola;Monza;7;7;0;8;8;0;10;12;4;5;5;5;;;;;KO
+5520;D;"Dd;Ds;E";Cambiaso;Juventus;7;5;2;7;6;1;22;27;9;5;4;6;;;;buone le prime giornate;KO
+454;D;Dc;Capradossi;Cagliari;1;1;0;1;1;0;1;1;0;7;10;1;;;;;KO
+4925;D;"Ds;Dc";Carboni A.;Monza;3;3;0;4;4;0;3;4;1;6;8;3;;;;;KO
+6149;D;"Ds;E";Carboni F.;Monza;1;1;0;1;1;0;1;1;0;7;10;3;;;;;KO
+5877;D;E;Carlos Augusto;Inter;17;17;0;17;17;0;42;30;17;3;6;4;;;;gioca poco;KO
+5498;D;Dc;Casale;Lazio;10;10;0;10;10;0;22;22;9;5;2;7;;;;;KO
+4657;D;"Dd;E";Celik;Roma;2;3;-1;2;3;-1;7;5;3;6;7;3;;;;;KO
+5757;D;Dc;Cittadini;Monza;2;3;-1;2;3;-1;4;4;2;6;7;3;;;;;KO
+5764;D;Dc;Coppola D.;Verona;2;2;0;2;2;0;2;2;1;6;10;3;;;;;KO
+6407;D;"Dd;Ds;E";Corazza;Bologna;2;1;1;2;1;1;1;1;0;7;12;2;;;;;KO
+697;D;E;Cuadrado;Inter;10;9;1;9;8;1;34;28;14;4;7;5;;;;;KO
+253;D;"Dd;Ds;Dc";D'ambrosio;Monza;7;7;0;9;9;0;14;14;6;5;3;4;;;;"antisco; Caviglia (da valutare)";KO
+5554;D;"Dd;Dc";Daniliuc;Salernitana;2;3;-1;2;3;-1;4;5;2;6;7;3;;;;piede (luglio-ottobre);KO
+4237;D;"Dd;Ds;Dc";Danilo;Juventus;16;15;1;19;18;1;52;48;21;2;1;9;;;;+;KO
+2525;D;"Dd;Dc";Darmian;Inter;12;11;1;14;13;1;23;27;9;5;8;5;;;;;KO
+4493;D;Dc;Dawidowicz;Verona;5;4;1;5;4;1;5;5;2;6;5;5;;;;;KO
+358;D;"Dd;Ds;E";De Sciglio;Juventus;2;3;-1;2;3;-1;6;6;2;6;7;3;;;;crociato (maggio-gennaio);KO
+487;D;"Dd;E";De Silvestri;Bologna;1;2;-1;1;2;-1;3;3;1;6;9;3;;;;;KO
+322;D;Dc;De Vrij;Inter;8;6;2;8;6;2;13;13;5;5;9;4;;;;;KO
+5739;D;"Dd;Dc";De Winter;Genoa;2;3;-1;2;3;-1;6;8;2;6;10;1;;;;;KO
+139;D;Dc;Dermaku;Lecce;1;1;0;1;1;0;1;1;0;7;8;2;;;;;KO
+2816;D;"Dd;E";Di Lorenzo;Napoli;20;18;2;20;18;2;96;96;38;1;1;9;;;;;KO
+5406;D;"Dd;E";Di Pardo;Cagliari;3;2;1;3;2;1;3;3;1;6;9;3;;;;;KO
+254;D;E;Dimarco;Inter;20;19;1;19;18;1;81;72;32;1;1;8;;2;2;+++;KO
+2869;D;Dc;Djidji;Torino;5;6;-1;5;6;-1;7;7;3;6;6;4;;;;"noie muscolari, possibile intervento (da valutare); coppa dafrica";KO
+787;D;Dc;Djimsiti;Atalanta;8;7;1;8;7;1;16;16;6;5;8;5;;;;;KO
+5885;D;"Dd;E";Dodo';Fiorentina;7;8;-1;7;8;-1;22;22;9;5;3;8;;;;;KO
+5851;D;"Ds;E";Doig;Verona;11;11;0;11;11;0;20;20;8;5;2;8;;;;;KO
+6257;D;"Ds;E";Dorgu;Lecce;3;1;2;3;1;2;8;8;3;6;4;4;;;;;KO
+6230;D;Dc;Dossena;Cagliari;6;6;0;6;6;0;7;7;3;6;4;7;;;;;KO
+5365;D;"Dd;Dc";Dragusin;Genoa;6;6;0;7;7;0;12;12;5;5;2;8;;;;;KO
+5513;D;E;Dumfries;Inter;14;12;2;13;11;2;47;39;19;3;2;7;;;;riscatto?;KO
+5848;D;"Dd;E";Ebosele;Udinese;5;4;1;5;4;1;6;6;2;6;4;6;;;;coppa dafrica;KO
+5994;D;"Ds;Dc";Ebosse;Udinese;2;3;-1;3;4;-1;3;4;1;6;9;3;;;;"crociato (febbraio- ottobre); coppa dafrica";KO
+5480;D;"Dd;E";Ebuehi;Empoli;10;11;-1;10;11;-1;17;17;7;5;2;7;;;;coppa dafrica;KO
+6047;D;"Dd;E";Ehizibue;Udinese;4;5;-1;4;5;-1;6;6;2;6;7;4;;;;"crociato (maggio-novembre); coppa dafrica";KO
+4982;D;Dc;Erlic;Sassuolo;6;5;1;6;5;1;10;10;4;5;1;7;;;;;KO
+581;D;"Dd;E";Faraoni;Verona;9;9;0;9;9;0;16;16;6;5;1;7;;;;++;KO
+2016;D;Dc;Fazio;Salernitana;2;2;0;2;2;0;2;2;1;6;9;3;;;;;KO
+1895;D;Dc;Ferrari G.;Sassuolo;3;4;-1;3;4;-1;10;10;4;5;5;3;;;;;KO
+6256;D;"Dd;E";Ferreira J.;Udinese;2;1;1;2;1;1;1;1;0;7;12;3;;;;;KO
+464;D;"Dd;Ds;E";Florenzi;Milan;2;3;-1;3;4;-1;5;7;2;6;7;3;;;;;KO
+4502;D;"Ds;E";Gallo;Lecce;6;5;1;6;5;1;9;9;4;5;2;6;;;;;KO
+5831;D;Dc;Gatti;Juventus;6;6;0;6;6;0;12;12;5;5;5;5;;;;;KO
+5867;D;"Dd;E";Gendrey;Lecce;6;6;0;6;6;0;8;9;3;6;3;7;;;;;KO
+5833;D;Dc;Gila;Lazio;1;1;0;1;1;0;2;2;1;6;8;2;;;;;KO
+418;D;Dc;Goldaniga;Cagliari;3;3;0;3;3;0;3;3;1;6;8;2;;;;;KO
+6056;D;Dc;Guarino;Empoli;1;1;0;1;1;0;2;2;1;6;10;1;;;;;KO
+6023;D;Dc;Guessand A.;Udinese;1;1;0;1;1;0;1;1;0;7;11;2;;;;;KO
+2758;D;Dc;Gunter;Verona;3;4;-1;3;4;-1;4;4;2;6;8;2;;;;;KO
+660;D;Dc;Gyomber;Salernitana;6;6;0;6;6;0;7;7;3;6;4;5;;;;;KO
+5695;D;"Ds;E";Haps;Genoa;2;2;0;2;2;0;4;4;2;6;9;2;;;;;KO
+2130;D;E;Hateboer;Atalanta;6;7;-1;5;6;-1;10;10;4;5;10;5;;;;Infortunato (Maggio-Febbraio);KO
+6438;D;"Dd;Dc";Hatzidiakos;Cagliari;5;5;0;5;5;0;7;7;3;6;6;5;;;;;KO
+5748;D;"Dd;E";Hefti;Genoa;3;3;0;3;3;0;4;4;2;6;8;2;;;;;KO
+4292;D;"Ds;E";Hernandez T.;Milan;18;17;1;18;17;1;88;88;35;1;1;9;2;3;2;;KO
+6046;D;Dc;Hien;Verona;7;8;-1;7;8;-1;15;15;6;5;3;5;;;;;KO
+5678;D;E;Holm;Atalanta;10;10;0;9;9;0;20;18;8;5;6;4;;;;;KO
+6433;D;Dc;Huijsen;Juventus;1;1;0;1;1;0;1;1;0;7;8;2;;;;;KO
+140;D;"Dd;Ds;E";Hysaj;Lazio;7;7;0;8;8;0;15;18;6;5;4;6;;;;;KO
+5010;D;Dc;Ismajli;Empoli;5;5;0;5;5;0;9;9;4;5;4;6;;;;;KO
+226;D;Dc;Izzo;Monza;7;8;-1;7;8;-1;18;18;7;5;1;8;;;;+;KO
+256;D;"Ds;Dc";Juan Jesus;Napoli;6;5;1;7;6;1;21;25;8;5;5;4;;;;;KO
+4263;D;Dc;Kabasele;Udinese;5;5;0;5;5;0;5;5;2;6;5;6;;;;;KO
+6430;D;Dc;Kalaj;Frosinone;1;1;0;1;1;0;1;1;0;7;8;1;;;;;KO
+4976;D;"Dd;Dc";Kalulu;Milan;7;7;0;8;8;0;15;17;6;5;5;5;;;;;
+5555;D;"Ds;E";Kamara H.;Udinese;7;6;1;7;6;1;10;10;4;5;3;6;;;;coppa dafrica;KO
+2180;D;"Dd;E";Karsdorp;Roma;3;2;1;3;2;1;5;5;2;6;8;4;;;;;KO
+6235;D;"Dd;Ds;E";Kayode;Fiorentina;2;1;1;3;2;1;8;8;3;6;8;4;;;;;KO
+2633;D;Dc;Kjaer;Milan;3;4;-1;3;4;-1;8;8;3;6;6;4;;;;;KO
+2640;D;"Ds;Dc";Kolasinac;Atalanta;9;9;0;10;10;0;22;27;9;5;4;7;;;;gioca alto;KO
+6220;D;"Dd;E";Kristensen;Roma;8;9;-1;8;9;-1;10;10;4;5;5;7;;;;;KO
+6485;D;Dc;Kristensen T.;Udinese;2;2;0;2;2;0;3;3;1;6;10;1;;;;;KO
+6148;D;"Ds;E";Kristiansen;Bologna;7;6;1;7;6;1;22;22;9;5;2;7;;;;;KO
+4495;D;Dc;Kumbulla;Roma;2;3;-1;2;3;-1;3;3;1;6;9;1;;;;Crociato (aprile-dicembre);KO
+4530;D;"Ds;E";Kyriakopoulos;Monza;8;9;-1;8;9;-1;15;15;6;5;4;4;;;;;KO
+4385;D;E;Lazaro;Torino;4;4;0;4;4;0;8;8;3;6;7;4;;;;;KO
+2263;D;"Dd;E";Lazzari;Lazio;6;5;1;6;5;1;16;16;6;5;1;5;;;;;KO
+2006;D;"Dd;E";Lirola;Frosinone;3;3;0;3;3;0;5;5;2;6;2;7;;;;;KO
+5239;D;Dc;Llorente D.;Roma;6;6;0;6;6;0;17;17;7;5;6;4;;;;;KO
+4934;D;Dc;Lovato;Salernitana;5;4;1;5;4;1;6;6;2;6;5;5;;;;;KO
+6042;D;Dc;Lucumi';Bologna;7;7;0;7;7;0;16;16;6;5;3;8;;;;;KO
+393;D;Dc;Luperto;Empoli;7;8;-1;7;8;-1;10;10;4;5;3;8;;;;;KO
+2653;D;"Ds;E";Lykogiannis;Bologna;5;5;0;5;5;0;8;8;3;6;5;4;;;;;KO
+2769;D;Dc;Magnani;Verona;3;3;0;3;3;0;4;4;2;6;7;5;;;;;KO
+2296;D;Dc;Mancini;Roma;10;11;-1;10;11;-1;26;26;10;4;2;7;;;;questanno me lo sento;KO
+2252;D;"Ds;Dc";Marchizza;Frosinone;6;5;1;7;6;1;5;7;2;6;5;4;;;;;KO
+4904;D;Dc;Mari';Monza;8;9;-1;8;9;-1;18;18;7;5;2;8;;;;;KO
+142;D;"Ds;E";Mario Rui;Napoli;10;10;0;10;10;0;20;20;8;5;4;5;;2;;;KO
+2593;D;"Ds;E";Martin;Genoa;8;8;0;8;8;0;12;12;5;5;1;8;;;;sco;KO
+5323;D;Dc;Martinez Quarta;Fiorentina;5;6;-1;5;6;-1;7;7;3;6;6;4;;;;;KO
+2188;D;"Dd;Ds;E";Marusic;Lazio;7;7;0;8;8;0;15;20;6;5;5;6;;;;;KO
+49;D;"Ds;Dc";Masina;Udinese;5;6;-1;6;7;-1;7;8;3;6;6;5;;;;"noie muscolari (rientro metà settembre); coppa dafrica";KO
+6411;D;Dc;Mateus Lusuardi;Frosinone;1;1;0;1;1;0;1;1;0;7;7;1;;;;;KO
+6244;D;Dc;Matturro;Genoa;1;1;0;1;1;0;1;1;0;7;11;1;;;;;KO
+5481;D;"Dd;Ds;E";Mazzocchi;Salernitana;11;12;-1;13;14;-1;37;41;15;3;1;8;;;3;anno scorso top;KO
+2164;D;Dc;Milenkovic;Fiorentina;10;10;0;10;10;0;26;26;10;4;2;8;;;;;KO
+4210;D;Dc;Mina;Fiorentina;7;8;-1;7;8;-1;12;12;5;5;5;6;;;;;KO
+6189;D;"Dd;E";Missori;Sassuolo;2;1;1;2;1;1;1;1;0;7;7;3;;;;;KO
+4952;D;Dc;Monterisi;Frosinone;5;1;4;5;1;4;6;6;2;6;4;7;;;;sorpr;KO
+6396;D;Dc;Natan;Napoli;8;9;-1;8;9;-1;17;17;7;5;6;4;;;;;KO
+4317;D;Dc;N'dicka;Roma;8;9;-1;8;9;-1;18;18;7;5;3;7;;;;"  a poco è affare; coppa dafrica";KO
+6253;D;Dc;N'guessan;Torino;1;1;0;1;1;0;1;1;0;7;11;2;;;;;KO
+5701;D;Dc;Obert;Cagliari;5;5;0;5;5;0;6;6;2;6;7;4;;;;;KO
+4432;D;Dc;Okoli;Frosinone;1;2;-1;1;2;-1;7;7;3;6;3;7;;;;;KO
+5840;D;"Ds;E";Olivera;Napoli;7;7;0;7;7;0;24;24;10;4;3;6;;;;;KO
+5750;D;Dc;Ostigard;Napoli;3;4;-1;3;4;-1;9;9;4;5;7;3;;;;frega il poso a juan jesus;KO
+6238;D;"Dd;Ds;Dc";Oyono;Frosinone;2;1;1;2;1;1;8;12;3;6;1;7;;;;+ sco;KO
+2181;D;Dc;Palomino;Atalanta;6;7;-1;6;7;-1;8;8;3;6;9;4;;;;;KO
+5449;D;"Ds;E";Parisi;Fiorentina;7;8;-1;7;8;-1;20;20;8;5;4;5;;;;con Biraghi?;KO
+327;D;"Dd;Dc";Patric;Lazio;4;5;-1;5;6;-1;5;6;2;6;7;5;;;;;KO
+4177;D;"Dd;Dc";Pavard;Inter;14;14;0;15;15;0;48;50;19;3;3;8;;;;;KO
+6426;D;"Dd;E";Pedersen;Sassuolo;7;7;0;7;7;0;10;10;4;5;4;6;;;;;KO
+2728;D;"Ds;E";Pellegrini Lu.;Lazio;4;4;0;4;4;0;8;8;3;6;6;4;;;;;KO
+6460;D;Dc;Pellegrino;Milan;1;1;0;1;1;0;1;1;0;7;8;2;;;;;KO
+729;D;"Dd;E";Pereira P.;Monza;1;1;0;1;1;0;1;1;0;7;9;2;;;;;KO
+5677;D;Dc;Perez N.;Udinese;9;9;0;9;9;0;12;12;5;5;2;7;;;;;KO
+770;D;"Ds;E";Pezzella Giu.;Empoli;5;5;0;5;5;0;5;5;2;6;5;6;;;;;KO
+6432;D;"Dd;Ds;E";Pierozzi;Fiorentina;1;1;0;1;2;-1;2;3;1;6;9;1;;;;;KO
+4897;D;Dc;Pirola;Salernitana;5;5;0;5;5;0;10;10;4;5;3;7;;;;sco;KO
+5603;D;Dc;Pongracic;Lecce;5;5;0;5;5;0;6;6;2;6;5;5;;;;;KO
+6066;D;"Dd;Dc";Posch;Bologna;15;16;-1;17;18;-1;46;50;18;3;1;9;;;;antisco;KO
+4378;D;"Ds;Dc";Ranieri L.;Fiorentina;5;5;0;5;6;-1;12;12;5;5;7;4;;;;;KO
+2169;D;"Ds;Dc";Rodriguez R.;Torino;8;8;0;9;9;0;10;12;4;5;4;6;3;3;3;+;KO
+460;D;Dc;Romagnoli;Lazio;13;13;0;13;13;0;36;36;14;4;3;8;;;;;KO
+76;D;Dc;Romagnoli S.;Frosinone;6;5;1;6;5;1;6;6;2;6;6;2;;;;;KO
+4409;D;Dc;Rrahmani;Napoli;14;14;0;14;14;0;44;44;18;3;2;8;;;;;KO
+294;D;Dc;Rugani;Juventus;2;3;-1;2;3;-1;6;6;2;6;6;2;;;;;KO
+5354;D;"Ds;E";Ruggeri;Atalanta;5;3;2;6;4;2;10;8;4;5;11;4;;;;sostituto di bakker.;KO
+791;D;"Dd;Ds;E";Sabelli;Genoa;5;4;1;6;5;1;12;12;5;5;3;6;;;;;KO
+5856;D;"Dd;E";Sambia;Salernitana;3;4;-1;3;4;-1;5;5;2;6;6;4;;;;;KO
+6474;D;Dc;Sazonov;Torino;3;3;0;3;3;0;4;4;2;6;9;4;;;;;KO
+5526;D;Dc;Scalvini;Atalanta;10;9;1;10;9;1;30;30;12;4;3;8;;;;costante;KO
+6041;D;Dc;Schuurs;Torino;15;14;1;15;14;1;46;46;18;3;1;8;;;;+;KO
+6223;D;Dc;Smajlovic;Lecce;1;1;0;1;1;0;1;1;0;7;9;2;;;;;KO
+4245;D;Dc;Smalling;Roma;14;15;-1;14;15;-1;46;50;18;3;1;8;;;;spero a poco;KO
+5686;D;E;Soppy;Torino;1;2;-1;1;2;-1;3;3;1;6;10;2;;;;tanta concorrenza;KO
+4891;D;Dc;Soumaoro;Bologna;3;4;-1;3;4;-1;5;5;2;6;6;6;;;;Infortunato (Maggio-Gennaio);KO
+1852;D;E;Spinazzola;Roma;12;10;2;11;9;2;26;22;10;4;4;7;;;;;KO
+5812;D;"Dd;E";Terracciano F.;Verona;4;3;1;4;3;1;7;7;3;6;4;5;;;;;KO
+6055;D;Dc;Thiaw;Milan;11;10;1;11;10;1;27;27;11;4;3;7;;;;titolare;KO
+4426;D;"Dd;E";Toljan;Sassuolo;6;6;0;6;6;0;9;9;4;5;2;5;;;;;KO
+695;D;Dc;Toloi;Atalanta;8;9;-1;8;9;-1;12;12;5;5;5;5;;;;;KO
+4751;D;Dc;Tomori;Milan;13;13;0;13;13;0;43;43;17;3;2;8;;;;;KO
+144;D;Dc;Tonelli;Empoli;1;1;0;1;1;0;2;2;1;6;9;2;;;;;KO
+6465;D;"Ds;Dc";Touba;Lecce;3;3;0;3;3;0;5;5;2;6;7;4;;;;;KO
+5747;D;Dc;Tressoldi;Sassuolo;5;5;0;5;5;0;7;7;3;6;6;5;;;;;KO
+5514;D;"Ds;Dc";Vasquez;Genoa;6;4;2;7;5;2;7;7;3;6;4;4;;;;;KO
+2174;D;"Dd;Ds;E";Venuti;Lecce;3;4;-1;4;5;-1;5;7;2;6;6;5;;;;;KO
+5509;D;"Ds;E";Vina;Sassuolo;4;4;0;4;4;0;6;6;2;6;3;7;;;;;KO
+5718;D;Dc;Viti;Sassuolo;6;6;0;6;6;0;7;7;3;6;5;5;;;;;KO
+6245;D;"Dd;Dc";Vogliacco;Genoa;4;5;-1;5;6;-1;4;4;2;6;7;4;;;;Distrazione muscolare (rientro 4°);KO
+4994;D;E;Vojvoda;Torino;6;6;0;6;5;1;16;12;6;5;5;5;;;;;KO
+4374;D;Dc;Walukiewicz;Empoli;2;3;-1;2;3;-1;4;4;2;6;7;3;;;;;KO
+6464;D;Dc;Wieteska;Cagliari;6;5;1;6;5;1;7;7;3;6;5;7;;;;;KO
+5527;D;"Dd;E";Zanoli;Napoli;3;4;-1;3;4;-1;6;6;2;6;8;3;;;;;KO
+4461;D;"Dd;E";Zappa;Cagliari;6;6;0;6;6;0;14;14;6;5;1;7;;;;;KO
+554;D;E;Zappacosta;Atalanta;15;15;0;14;14;0;41;38;16;3;1;7;;;;+;KO
+6211;D;"Ds;E";Zemura;Udinese;6;5;1;6;5;1;7;7;3;6;8;4;;;;coppa dafrica;KO
+5691;D;Dc;Zima;Torino;3;3;0;3;3;0;4;4;2;6;8;4;;;;;KO
+4433;D;"Dd;Ds;E";Zortea;Atalanta;5;3;2;6;4;2;4;5;2;6;7;2;;;;prime giornate bene;KO
+5875;C;T;Adli;Milan;1;1;0;1;1;0;3;3;1;6;10;2;;;;;KO
+4870;C;"M;C";Adopo;Atalanta;3;2;1;3;2;1;4;5;2;6;7;3;;;;;KO
+5784;C;"C;W;T";Aebischer;Bologna;6;5;1;6;5;1;9;12;4;5;8;5;;;;;KO
+5286;C;"M;C";Akpa Akpro;Monza;2;3;-1;2;3;-1;3;3;1;6;7;4;;;;coppa dafrica;KO
+6236;C;"M;C";Amatucci;Fiorentina;2;1;1;2;1;1;1;2;0;7;12;2;;;;;KO
+4142;C;"C;T";Aouar;Roma;16;15;1;16;15;1;47;47;19;3;2;7;;3;3;"noie muscolari (da valutare 4°); coppa dafrica";KO
+4285;C;"M;C";Arthur Melo;Fiorentina;8;7;1;9;8;1;18;18;7;5;2;7;;3;;;KO
+5719;C;"M;C";Asllani;Inter;3;4;-1;4;5;-1;8;10;3;6;7;4;;;;;KO
+170;C;"M;C";Badelj;Genoa;5;5;0;6;6;0;7;8;3;6;7;8;;2;3;;KO
+694;C;W;Baez;Frosinone;4;3;1;4;3;1;6;6;2;6;4;5;;3;2;antisco;KO
+5451;C;T;Bajrami;Sassuolo;13;13;0;12;12;0;36;30;14;4;1;7;3;2;2;;KO
+5823;C;"T;A";Baldanzi;Empoli;14;15;-1;13;14;-1;39;36;16;3;1;8;2;2;2;+;KO
+2172;C;T;Barak;Fiorentina;11;12;-1;10;11;-1;14;10;6;5;5;3;;;;"antisco; infezione (Luglio-Settembre)";KO
+1870;C;C;Barella;Inter;20;20;0;20;20;0;78;78;31;2;2;8;;;;;KO
+6175;C;"M;C";Barrenechea;Frosinone;3;2;1;4;3;1;6;8;2;6;6;5;;;;;KO
+5674;C;C;Basic;Lazio;3;4;-1;3;4;-1;6;5;2;6;9;4;;;;;KO
+6203;C;"M;C";Belardinelli;Empoli;1;2;-1;1;2;-1;3;3;1;6;11;3;;;;;KO
+2818;C;"M;C";Bennacer;Milan;9;10;-1;10;11;-1;9;10;4;5;6;2;;;;"cartilagine (maggio-dicembre); coppa dafrica";KO
+5869;C;"M;C";Blin;Lecce;6;6;0;6;6;0;5;6;2;6;7;4;;;;;KO
+5798;C;"M;C";Bohinen;Salernitana;4;4;0;4;4;0;6;7;2;6;5;5;;;;;KO
+6219;C;"M;C";Boloca;Sassuolo;5;6;-1;6;7;-1;12;14;5;5;4;5;;;;;KO
+367;C;"C;T";Bonaventura;Fiorentina;15;14;1;15;14;1;39;39;16;3;1;8;;;2;;KO
+5992;C;"C;T";Bondo;Monza;1;1;0;1;1;0;1;1;0;7;9;2;;;;;KO
+2825;C;"M;C";Bourabia;Frosinone;4;4;0;5;5;0;8;10;3;6;5;7;;;;;KO
+5423;C;C;Bove;Roma;6;5;1;6;5;1;7;7;3;6;8;5;;;;;KO
+4947;C;"M;C";Brescianini;Frosinone;6;5;1;6;6;0;4;6;2;6;8;3;;;;;KO
+6402;C;"M;C";Cajuste ;Napoli;6;7;-1;7;8;-1;12;14;5;5;7;4;;;;;KO
+2194;C;"M;C";Calhanoglu;Inter;17;16;1;19;18;1;69;81;28;2;1;8;3;1;1;+;KO
+6221;C;"M;C";Camara E.;Udinese;2;3;-1;3;4;-1;4;5;2;6;6;3;;;;;KO
+332;C;W;Candreva;Salernitana;17;15;2;16;14;2;75;72;30;2;1;8;2;2;1;+;KO
+6106;C;"T;A";Carboni V.;Monza;1;2;-1;1;2;-1;4;3;2;6;5;3;;;;sco;KO
+2692;C;W;Castillejo;Sassuolo;5;5;0;4;4;0;9;7;4;5;5;4;;;;;KO
+4377;C;"C;T";Castrovilli;Fiorentina;9;10;-1;8;9;-1;9;9;4;5;11;3;;;;Legamento (Agosto-TBD);KO
+333;C;"M;C";Cataldi;Lazio;8;7;1;8;8;0;12;14;5;5;6;7;;2;2;;KO
+4856;C;"W;A";Chukwueze;Milan;19;19;0;18;18;0;75;75;30;2;4;5;;;;non ha ancora giocato, forse con Leao?;KO
+5880;C;"E;W";Ciurria;Monza;14;14;0;15;15;0;42;46;17;3;3;8;;2;2;anno scorso top;KO
+5878;C;"C;T";Colpani;Monza;12;9;3;12;9;3;25;25;10;4;2;7;;;;"gioca punta; sorprese";KO
+5504;C;"M;C";Coulibaly L.;Salernitana;8;8;0;9;9;0;10;13;4;5;4;8;;;;coppa dafrica;KO
+779;C;"M;C";Cristante;Roma;10;9;1;11;10;1;17;23;7;5;4;8;;;;;KO
+5995;C;T;De Ketelaere;Atalanta;9;7;2;9;7;2;41;37;16;3;1;5;;;;+++;KO
+22;C;"M;C";De Roon;Atalanta;11;11;0;12;12;0;18;22;7;5;5;8;;3;3;;KO
+1871;C;"M;C";Deiola;Cagliari;4;4;0;4;4;0;5;6;2;6;6;3;;;;;KO
+4725;C;M;Demme;Napoli;1;1;0;1;1;0;1;1;0;7;9;2;;;;;KO
+4342;C;"C;T";Duda;Verona;8;6;2;8;6;2;14;14;6;5;2;8;2;2;3;sorpresea;KO
+526;C;C;Duncan;Fiorentina;6;5;1;6;4;2;9;10;4;5;10;4;;;;;KO
+5792;C;"C;T";Ederson D.s.;Atalanta;12;10;2;12;10;2;20;20;8;5;3;5;;;;sorpresa;KO
+6225;C;"M;C";El Azzouzi;Bologna;1;1;0;1;1;0;2;2;1;6;9;2;;;;;KO
+795;C;"W;A";El Shaarawy;Roma;16;16;0;15;15;0;35;31;14;4;3;5;;;;+;KO
+4479;C;"C;W;T";Elmas;Napoli;14;15;-1;16;17;-1;36;42;14;4;6;5;;;;;KO
+6206;C;C;Fabbian;Bologna;6;5;1;6;5;1;18;18;7;5;5;3;;;;sorp;KO
+4465;C;"C;T";Fagioli;Juventus;12;13;-1;12;13;-1;30;30;12;4;5;5;;;;;KO
+6168;C;"M;C";Faticanti;Lecce;1;1;0;1;1;0;6;6;2;6;8;3;;;;;KO
+6010;C;"C;T";Fazzini;Empoli;5;6;-1;5;6;-1;10;10;4;5;7;4;;;;;KO
+335;C;"W;A";Felipe Anderson;Lazio;22;23;-1;22;23;-1;128;128;51;1;3;8;;;;;KO
+5858;C;"C;T";Ferguson;Bologna;18;17;1;19;18;1;71;74;28;2;2;9;2;;;;KO
+6252;C;"C;T";Folorunsho;Verona;3;2;1;3;2;1;12;12;5;5;6;5;;;;coppa dafrica;KO
+2848;C;C;Frattesi;Inter;17;17;0;17;17;0;54;54;22;3;3;6;;;;;KO
+5791;C;"E;M";Frendrup;Genoa;7;5;2;8;7;1;13;16;5;5;5;7;;;;;KO
+788;C;"M;C";Freuler;Bologna;7;7;0;8;8;0;15;16;6;5;4;8;;3;3;;KO
+4364;C;"C;T";Gaetano;Napoli;2;3;-1;2;3;-1;4;4;2;6;8;2;;;;;KO
+801;C;"M;C";Gagliardini;Monza;7;6;1;8;7;1;12;14;5;5;4;8;;3;3;;KO
+2183;C;"W;T";Garritano;Frosinone;3;3;0;3;3;0;4;4;2;6;7;3;;;;;KO
+6241;C;"C;W;T";Gelli;Frosinone;3;1;2;3;1;2;1;1;0;7;10;3;;;;;KO
+6170;C;C;Gineitis;Torino;1;1;0;1;1;0;1;1;0;7;7;2;;;;;KO
+5999;C;C;Gonzalez J.;Lecce;6;7;-1;6;7;-1;9;9;4;5;4;7;;;;;KO
+27;C;M;Grassi;Empoli;5;5;0;5;5;0;6;8;2;6;5;5;;3;3;;KO
+5800;C;"T;A";Gudmundsson A.;Genoa;14;14;0;13;13;0;63;58;25;2;2;8;3;3;2;;KO
+4186;C;"C;T";Guendouzi;Lazio;13;13;0;12;12;0;34;30;14;4;5;7;;;;;KO
+4992;C;"W;A";Gyasi;Empoli;7;8;-1;7;8;-1;8;8;3;6;2;4;;;;"antisco; coppa dafrica";KO
+5688;C;"M;C";Harroui;Frosinone;8;4;4;8;5;3;22;27;9;5;1;8;2;;;"prime partite buone;sorpresa; coppa dafrica";KO
+5499;C;"M;C";Hongla;Verona;5;4;1;6;5;1;4;6;2;6;7;7;;;;"noie muscolari (da valutare); coppa dafrica";KO
+5947;C;C;Hrustic;Verona;2;3;-1;2;3;-1;4;3;2;6;11;3;;;;;KO
+4658;C;W;Ikone';Fiorentina;12;13;-1;11;12;-1;18;18;7;5;4;5;;;;Anca (rientro 4°);KO
+5007;C;C;Ilic;Torino;12;12;0;12;12;0;28;28;11;4;3;8;;;;;KO
+6112;C;W;Iling Junior;Juventus;5;4;1;4;3;1;12;12;5;5;8;4;;3;;;KO
+6393;C;"W;T";Infantino;Fiorentina;4;5;-1;5;6;-1;10;12;4;5;9;4;;;;;KO
+4384;C;C;Jagiello;Genoa;2;3;-1;2;3;-1;5;4;2;6;9;3;;;;;KO
+1987;C;"E;C";Jankto;Cagliari;8;7;1;8;8;0;15;18;6;5;3;7;;;;;KO
+6254;C;"M;C";Joselito;Verona;1;1;0;1;1;0;1;1;0;7;12;2;;;;;KO
+6410;C;"M;C";Kaba;Lecce;6;5;1;6;6;0;7;8;3;6;6;4;;;;;KO
+5948;C;"C;T";Kamada;Lazio;15;15;0;15;15;0;66;66;26;2;4;5;;;;;KO
+2117;C;"C;T";Kastanos;Salernitana;7;7;0;7;7;0;12;12;5;5;2;7;3;1;2;antisco;KO
+4182;C;"C;T";Klaassen;Inter;9;9;0;9;9;0;18;18;7;5;5;4;;;;;KO
+5685;C;"C;T";Koopmeiners;Atalanta;24;24;0;24;24;0;112;112;45;1;2;9;2;1;1;sco;KO
+4711;C;"E;W";Kostic;Juventus;14;15;-1;14;15;-1;30;25;12;4;6;5;;;;non vede piu il campo;KO
+5397;C;"C;T";Kovalenko;Empoli;4;4;0;4;4;0;7;7;3;6;8;3;;;;;KO
+148;C;"M;C";Krunic;Milan;7;6;1;8;7;1;14;16;6;5;5;5;;;;;KO
+6479;C;"M;C";Kutlu;Genoa;4;4;0;5;5;0;6;7;2;6;8;3;;;;;KO
+236;C;"E;W";Lazovic;Verona;14;15;-1;14;15;-1;42;45;17;3;1;8;;1;2;lesione muscolare (rientro 4°);KO
+6423;C;"M;C";Legowski;Salernitana;1;1;0;1;1;0;1;1;0;7;8;3;;;;;KO
+5949;C;"W;T";Lindstrom;Napoli;15;15;0;15;15;0;60;60;24;3;3;5;;;;sco;KO
+2008;C;"M;C";Linetty;Torino;6;5;1;6;6;0;6;7;2;6;5;5;;;;;KO
+6246;C;"M;C";Lipani;Sassuolo;1;1;0;1;1;0;1;1;0;7;9;3;;;;;KO
+4287;C;"M;C";Lobotka;Napoli;13;13;0;14;14;0;27;36;11;4;5;8;;3;;;KO
+827;C;"M;C";Locatelli;Juventus;11;12;-1;12;13;-1;29;32;12;4;4;7;;1;3;;KO
+4199;C;C;Loftus-Cheek;Milan;14;13;1;14;13;1;33;33;13;4;3;8;;;;;KO
+4681;C;"M;C";Lopez M.;Fiorentina;7;8;-1;8;9;-1;22;25;9;5;6;6;;;;;KO
+5850;C;"C;T";Lovric;Udinese;15;15;0;15;15;0;53;53;21;3;1;8;3;1;2;;KO
+2085;C;"C;T";Luis Alberto;Lazio;22;21;1;23;22;1;116;122;46;1;1;8;2;1;1;;KO
+500;C;C;Lulic K.;Frosinone;1;2;-1;1;2;-1;3;3;1;6;9;3;;;;;KO
+666;C;C;Machin;Monza;6;5;1;5;4;1;6;5;2;6;6;4;;;;coppa dafrica;KO
+4988;C;C;Maggiore;Salernitana;3;3;0;3;3;0;4;3;2;6;6;5;;;;problema muscolare (rientro 4°);KO
+6232;C;"M;C";Makoumbou;Cagliari;5;5;0;6;6;0;8;10;3;6;4;7;;;;;KO
+4896;C;"T;A";Maldini;Empoli;4;5;-1;4;5;-1;9;7;4;5;3;4;;;;Noie muscolari (Meta settembre);KO
+5457;C;C;Maleh;Empoli;4;5;-1;3;4;-1;4;4;2;6;10;2;;;;coppa dafrica;KO
+4427;C;T;Malinovskyi;Genoa;15;17;-2;14;16;-2;62;60;25;2;1;8;2;1;1;+++;KO
+65;C;T;Mancosu;Cagliari;6;7;-1;5;6;-1;6;6;2;6;5;3;3;1;2;Collaterale (Agosto-Settembre);KO
+1933;C;"M;C";Mandragora;Fiorentina;10;9;1;10;10;0;15;16;6;5;3;6;;2;;;KO
+4965;C;"M;C";Marin;Empoli;8;8;0;9;9;0;14;16;6;5;4;8;;1;1;;KO
+6448;C;T;Martegani;Salernitana;5;4;1;4;3;1;6;5;2;6;3;2;;;;gioca piu di quanto dicono?;KO
+5511;C;C;Matheus Henrique;Sassuolo;9;9;0;8;8;0;9;8;4;5;3;5;;;;;KO
+1976;C;"M;C";Mazzitelli;Frosinone;5;4;1;6;5;1;6;8;2;6;3;5;;2;3;calci piazzati;KO
+6216;C;W;Mboula;Verona;9;10;-1;8;9;-1;12;12;5;5;5;5;;;;sco;KO
+4973;C;C;Mckennie;Juventus;8;8;0;7;7;0;17;17;7;5;7;4;;;;;KO
+4970;C;W;Messias;Genoa;8;9;-1;7;8;-1;28;28;11;4;3;5;;;;"antisco; risentimento muscolare (metà settembre)";KO
+5001;C;"T;A";Miranchuk;Atalanta;9;10;-1;9;10;-1;8;8;3;6;6;2;;;;;KO
+5813;C;"C;T";Miretti;Juventus;5;5;0;5;5;0;11;11;4;5;9;5;;;;;KO
+2529;C;"C;T";Mkhitaryan;Inter;13;13;0;13;13;0;42;42;17;3;4;6;;3;3;antisco;KO
+6054;C;"M;C";Moro N.;Bologna;7;6;1;7;6;1;12;14;5;5;7;5;;;;;KO
+5295;C;C;Musah;Milan;9;9;0;9;9;0;18;18;7;5;7;7;;;;;KO
+4514;C;"E;C";Nandez;Cagliari;8;7;1;9;8;1;21;24;8;5;1;8;;2;1;;KO
+5564;C;"W;A";Ndoye;Bologna;12;12;0;11;11;0;25;25;10;4;3;5;;;;con karlsson?;KO
+4349;C;"M;C";Nicolussi Caviglia;Juventus;1;2;-1;1;2;-1;2;2;1;6;10;2;;;;;KO
+4501;C;"M;C";Obiang;Sassuolo;2;3;-1;2;3;-1;3;3;1;6;8;2;;;;coppa dafrica;KO
+6218;C;"W;T;A";Oristanio;Cagliari;5;4;1;7;7;0;12;14;5;5;2;7;;3;3;sco;KO
+2167;C;W;Orsolini;Bologna;19;21;-2;18;20;-2;91;91;36;2;1;9;1;1;1;++ con karlsson?;KO
+6061;C;"W;T";Oudin;Lecce;6;6;0;5;5;0;9;8;4;5;5;4;;;;;KO
+5824;C;"T;A";Pafundi;Udinese;1;1;0;1;1;0;1;1;0;7;8;3;;;;;
+6420;C;"C;T";Pagano;Roma;1;1;0;1;1;0;1;1;0;7;9;2;;;;;KO
+468;C;"M;C";Paredes;Roma;7;7;0;8;8;0;13;14;5;5;7;4;;;;;KO
+2077;C;T;Pasalic;Atalanta;13;14;-1;12;13;-1;30;25;12;4;4;5;;;;antisco;KO
+6481;C;"C;T";Payero;Udinese;5;5;0;5;5;0;8;8;3;6;4;4;;;;;KO
+530;C;"C;T";Pellegrini Lo.;Roma;15;16;-1;15;16;-1;62;66;25;2;1;8;3;2;2;;KO
+2741;C;"C;T";Pessina;Monza;13;14;-1;13;14;-1;40;40;16;3;1;8;1;;;+;KO
+5298;C;C;Pobega;Milan;6;5;1;5;4;1;8;8;3;6;8;3;;;;;KO
+303;C;"C;T";Pogba;Juventus;12;12;0;12;12;0;28;28;11;4;3;7;3;;2;"sco (potrebbe andare basso); noie muscolari (da valutare)";KO
+536;C;W;Politano;Napoli;15;14;1;14;13;1;66;60;26;2;2;5;3;;2;+;KO
+6424;C;"M;C";Prati;Cagliari;1;2;-1;2;3;-1;4;5;2;6;8;4;;;;;KO
+2423;C;"T;A";Pulisic;Milan;20;18;2;19;17;2;126;120;50;1;1;7;3;1;1;+++;KO
+4787;C;"C;W;T";Quina;Udinese;3;4;-1;4;5;-1;4;6;2;6;7;2;;;;;KO
+2379;C;C;Rabiot;Juventus;22;22;0;22;22;0;96;96;38;2;1;8;;;;antisco (andrà alto);KO
+5267;C;"M;C";Racic;Sassuolo;4;4;0;5;5;0;8;10;3;6;6;4;;;;;KO
+5063;C;W;Radonjic;Torino;12;11;1;11;10;1;27;25;11;4;2;5;;2;2;;KO
+6222;C;"C;T";Rafia;Lecce;6;3;3;6;3;3;16;16;6;5;2;8;3;3;3;"sco; coppa dafrica";KO
+6394;C;"M;C";Ramadani;Lecce;7;6;1;8;7;1;11;13;4;5;3;7;;;;;KO
+5884;C;C;Ranocchia F.;Empoli;4;5;-1;3;4;-1;6;6;2;6;6;5;;;;;KO
+6224;C;"M;C";Reijnders;Milan;13;12;1;14;13;1;40;50;16;3;2;8;;2;3;++;KO
+5093;C;"W;T";Reinier;Frosinone;8;8;0;8;8;0;18;18;7;5;2;4;;;;;KO
+2543;C;C;Renato Sanches;Roma;12;13;-1;12;13;-1;32;30;13;4;5;5;;;;"antisco; noie muscolari (rientro 4°)";KO
+5453;C;"M;C";Ricci S.;Torino;13;13;0;14;14;0;23;28;9;5;4;8;;;;;KO
+2076;C;"M;C";Rog;Cagliari;1;1;0;1;1;0;1;1;0;7;10;1;;;;Crociato (Agosto-Marzo);KO
+5510;C;W;Romero L.;Milan;3;4;-1;3;4;-1;8;8;3;6;9;3;;;;;KO
+4459;C;"M;C";Rovella;Lazio;4;5;-1;5;6;-1;10;12;4;5;7;4;;;;;KO
+5788;C;"T;A";Sabiri;Fiorentina;8;9;-1;8;9;-1;7;5;3;6;8;3;;;;Problema al ginocchio (rientro 5°);KO
+4892;C;W;Saelemaekers;Bologna;4;5;-1;4;5;-1;7;7;3;6;6;5;;;;Rientro alla 4°;KO
+5119;C;"C;T";Samardzic;Udinese;17;16;1;17;16;1;50;50;20;3;2;8;;;;+;KO
+150;C;"W;T";Saponara;Verona;10;11;-1;10;11;-1;29;33;12;4;4;6;;3;1;"troppa concorrenza; distorsione caviglia (rientro 4°)";KO
+1978;C;"C;T";Sensi;Inter;6;7;-1;6;7;-1;10;10;4;5;6;2;;;;;KO
+6458;C;"C;T";Serdar;Verona;5;5;0;5;5;0;7;7;3;6;9;3;;;;;KO
+2839;C;W;Sottil;Fiorentina;8;8;0;8;8;0;12;12;5;5;7;4;;;;;KO
+4486;C;W;Strefezza;Lecce;18;18;0;17;17;0;77;72;31;2;1;9;1;1;1;+++;KO
+470;C;"M;C";Strootman;Genoa;6;6;0;7;7;0;8;9;3;6;4;7;;;;;KO
+6024;C;"M;C";Sulemana I.;Cagliari;3;3;0;2;2;0;4;5;2;6;7;4;;;;;KO
+6486;C;"C;W;T";Suslov;Verona;3;3;0;5;5;0;5;7;2;6;10;3;;;;;KO
+4890;C;"M;C";Tameze;Torino;8;8;0;9;9;0;10;13;4;5;6;4;;;;"antisco; coppa dafrica";KO
+5919;C;W;Tchaouna;Salernitana;3;3;0;2;2;0;5;3;2;6;7;3;;;;;KO
+6480;C;W;Tchatchoua;Verona;4;4;0;3;3;0;5;4;2;6;8;3;;;;incidente stradale (rientro metà settembre);KO
+4404;C;"M;C";Thorsby;Genoa;8;9;-1;10;11;-1;18;21;7;5;6;7;;;;;KO
+5844;C;"C;T";Thorstvedt;Sassuolo;6;6;0;6;6;0;7;7;3;6;2;4;;;;;KO
+5425;C;"C;T";Urbanski;Bologna;2;1;1;2;1;1;2;2;1;6;10;1;;;;;KO
+181;C;"M;C";Vecino;Lazio;6;6;0;7;7;0;7;8;3;6;8;5;;;;;KO
+5879;C;"T;A";Vignato S.;Monza;2;1;1;2;1;1;1;1;0;7;8;2;;;;;KO
+440;C;C;Viola;Cagliari;1;2;-1;1;2;-1;4;4;2;6;9;4;;;;;KO
+5687;C;"W;T";Vlasic;Torino;17;18;-1;18;19;-1;68;74;27;2;1;8;1;1;1;"+++; noie muscolari (rientro 4°)";KO
+5735;C;T;Volpato;Sassuolo;2;3;-1;2;3;-1;4;4;2;6;7;3;;;;;KO
+2392;C;"M;C";Walace;Udinese;6;7;-1;7;8;-1;9;10;4;5;3;8;;;;;KO
+4662;C;"E;W";Weah;Juventus;10;10;0;10;10;0;32;38;13;4;2;7;;;;;KO
+632;C;"W;A";Zaccagni;Lazio;26;28;-2;26;28;-2;155;155;62;1;2;8;3;3;3;;KO
+5422;C;E;Zalewski;Roma;8;8;0;9;9;0;10;10;4;5;6;4;;;;;KO
+4220;C;"M;C";Zambo Anguissa;Napoli;14;14;0;15;15;0;34;40;14;4;4;7;;;;"antisco; coppa dafrica";KO
+6212;C;C;Zarraga;Udinese;2;3;-1;2;3;-1;4;3;2;6;5;3;;;;;KO
+5998;C;W;Zerbin;Napoli;1;1;0;1;1;0;1;1;0;7;10;2;;;;;KO
+152;C;"C;T";Zielinski;Napoli;21;20;1;21;20;1;82;78;33;2;1;8;;1;3;;KO
+2544;A;Pc;Abraham;Roma;14;15;-1;14;15;-1;50;45;20;4;5;2;;;;Crociato (maggio-febbraio);KO
+5060;A;A;Ake' M.;Udinese;1;1;0;1;1;0;2;2;1;6;7;2;;;;;KO
+6207;A;A;Almqvist;Lecce;11;10;1;11;10;1;28;32;11;5;2;7;;2;2;;KO
+5845;A;Pc;Alvarez A.;Sassuolo;4;5;-1;3;4;-1;5;4;2;6;6;2;;;;crociato (maggio- novembre);KO
+4268;A;Pc;Arnautovic;Inter;23;23;0;23;23;0;122;131;49;3;3;7;2;;;;KO
+5795;A;Pc;Azmoun;Roma;12;13;-1;11;12;-1;40;45;16;4;3;5;;;;+ sco;KO
+6001;A;A;Banda;Lecce;9;8;1;9;8;1;16;16;6;5;3;5;;;;coppa dafrica;KO
+441;A;Pc;Belotti;Roma;12;9;3;11;8;3;52;45;21;4;4;3;;;;sorpresa;KO
+6409;A;Pc;Beltran L.;Fiorentina;15;16;-1;15;16;-1;61;60;24;4;3;5;;;;sco;KO
+531;A;A;Berardi;Sassuolo;30;30;0;30;30;0;271;274;108;1;1;9;1;1;1;++;
+6242;A;A;Bidaoui;Frosinone;1;1;0;1;1;0;1;1;0;7;7;2;;;;coppa dafrica;KO
+505;A;A;Bonazzoli;Verona;8;7;1;8;7;1;8;8;3;6;3;5;1;;;;KO
+5842;A;Pc;Botheim;Salernitana;7;8;-1;6;7;-1;10;8;4;5;2;5;;;;;KO
+5395;A;A;Braaf;Verona;1;1;0;1;1;0;1;1;0;7;6;3;;;;problema fisico (rientro 4°);KO
+4184;A;"W;A";Brekalo;Fiorentina;11;11;0;13;13;0;17;17;7;5;4;6;;;;;KO
+6213;A;Pc;Brenner;Udinese;10;11;-1;9;10;-1;12;10;5;5;6;3;;;;distrazione muscolare (agosto-gennaio);KO
+6418;A;Pc;Burnete;Lecce;1;1;0;1;1;0;2;2;1;6;5;3;;;;;KO
+4436;A;A;Cambiaghi;Empoli;12;12;0;12;12;0;28;30;11;5;2;6;;;;+;KO
+5500;A;A;Cancellieri;Empoli;5;5;0;5;5;0;8;8;3;5;3;4;;;;;KO
+1958;A;A;Caprari;Monza;14;14;0;14;14;0;41;45;16;4;2;8;2;1;1;;KO
+2819;A;Pc;Caputo;Empoli;14;15;-1;14;15;-1;52;48;21;4;1;8;1;;;;KO
+5364;A;A;Caso;Frosinone;6;6;0;6;6;0;12;12;5;5;1;8;3;1;1;;KO
+6226;A;Pc;Castellanos;Lazio;12;13;-1;11;12;-1;28;22;11;5;2;3;;;;sco;KO
+5776;A;A;Ceide;Sassuolo;2;1;1;2;1;1;1;1;0;7;7;2;;;;;KO
+6439;A;Pc;Cheddira;Frosinone;10;11;-1;10;11;-1;28;22;11;5;2;7;1;;;;KO
+2002;A;A;Chiesa;Juventus;19;17;2;19;17;2;142;142;57;3;2;8;;2;;+;KO
+4923;A;Pc;Colombo;Monza;9;10;-1;8;9;-1;40;33;16;4;1;8;3;;;++;KO
+6419;A;A;Corfitzen;Lecce;1;1;0;1;1;0;1;1;0;7;6;2;;;;;KO
+6214;A;Pc;Cuni;Frosinone;4;4;0;3;3;0;5;5;2;6;5;5;;;;;KO
+5637;A;Pc;Davis K.;Udinese;10;10;0;10;10;0;24;22;10;5;5;3;;;;;KO
+643;A;A;Defrel;Sassuolo;9;9;0;9;9;0;12;13;5;5;5;3;;;;;KO
+472;A;Pc;Destro;Empoli;2;1;1;2;1;1;1;1;0;7;5;1;3;;;;KO
+2119;A;A;Deulofeu;Udinese;13;14;-1;13;14;-1;20;24;8;5;2;5;1;2;1;"ginocchio(rientro fine settembre); a poco  è affare";KO
+5672;A;Pc;Dia;Salernitana;26;26;0;26;26;0;156;156;62;2;1;9;1;;;coppa dafrica;KO
+5471;A;Pc;Djuric;Verona;10;9;1;9;8;1;10;8;4;5;2;4;;;;antisco;KO
+309;A;A;Dybala;Roma;28;30;-2;28;30;-2;286;292;114;1;1;8;1;1;1;;KO
+6011;A;A;Ekong;Empoli;1;1;0;1;1;0;1;1;0;7;6;1;;;;;KO
+5506;A;A;Ekuban;Genoa;3;1;2;3;1;2;2;2;1;6;2;3;;;;coppa dafrica;KO
+4200;A;Pc;Giroud;Milan;28;24;4;28;24;4;200;190;80;2;2;7;1;;;antisco;KO
+4179;A;A;Gonzalez N.;Fiorentina;17;15;2;17;15;2;95;100;38;3;1;6;1;;3;anno buono;KO
+5529;A;Pc;Henry;Verona;11;12;-1;10;11;-1;6;6;2;6;4;3;;;;crociato (gennaio-ottobre);KO
+6425;A;Pc;Ikwuemesi;Salernitana;2;1;1;2;1;1;2;2;1;6;4;2;;;;;KO
+785;A;Pc;Immobile;Lazio;31;32;-1;31;32;-1;327;317;131;1;1;8;1;;;-;KO
+6398;A;A;Isaksen;Lazio;11;12;-1;11;12;-1;21;21;8;5;3;4;;;;;KO
+5807;A;A;Jovane;Salernitana;5;5;0;5;5;0;8;8;3;6;3;2;;;;;KO
+2438;A;Pc;Jovic;Milan;13;14;-1;12;13;-1;28;20;11;5;4;4;;;;sco;KO
+5505;A;Pc;Kaio Jorge;Frosinone;1;1;0;1;1;0;9;8;4;5;4;5;;;;;KO
+5439;A;A;Kallon;Verona;1;2;-1;1;2;-1;2;2;1;6;5;3;;;;coppa dafrica;KO
+2325;A;A;Karamoh;Torino;10;10;0;10;10;0;6;6;2;6;4;4;;;;coppa dafrica;KO
+6459;A;A;Karlsson;Bologna;11;11;0;11;11;0;25;25;10;5;2;7;3;2;2;sorp;KO
+2097;A;Pc;Kean;Juventus;10;11;-1;9;10;-1;20;17;8;5;4;5;;;;;KO
+2762;A;A;Kouame';Fiorentina;8;9;-1;8;9;-1;8;9;3;6;5;5;;;;coppa dafrica;KO
+6435;A;Pc;Krstovic;Lecce;13;11;2;13;11;2;66;55;26;5;1;7;2;;;;KO
+5839;A;A;Kvaratskhelia;Napoli;30;31;-1;30;31;-1;261;265;104;1;2;9;2;;1;;KO
+6204;A;A;Kvernadze;Frosinone;3;3;0;3;3;0;6;6;2;6;6;4;;;;;KO
+1939;A;Pc;Lapadula;Cagliari;14;15;-1;14;15;-1;38;35;15;4;5;3;2;;;Caviglia (Luglio-Novembre);KO
+6060;A;A;Lauriente';Sassuolo;21;21;0;21;21;0;105;110;42;3;2;9;;3;3;;KO
+4730;A;A;Lookman;Atalanta;24;26;-2;24;26;-2;155;165;62;3;1;8;1;2;2;coppa dafrica;KO
+6215;A;Pc;Lucca;Udinese;7;6;1;6;5;1;20;15;8;5;1;7;;;;antisco;KO
+2531;A;Pc;Lukaku;Roma;30;31;-1;30;31;-1;312;303;125;1;2;8;2;;;;KO
+5297;A;A;Luvumbo;Cagliari;9;8;1;9;8;1;9;9;4;5;3;3;;;;coppa dafrica;KO
+6250;A;Pc;Maric;Monza;2;1;1;2;1;1;1;1;0;7;4;1;;;;;KO
+2764;A;Pc;Martinez L.;Inter;40;37;3;40;37;3;436;436;174;1;1;9;1;;;;KO
+2012;A;Pc;Milik;Juventus;18;18;0;17;17;0;92;82;37;4;3;5;2;;;;KO
+5882;A;A;Mota;Monza;10;11;-1;10;11;-1;16;18;6;5;3;5;;;;;KO
+6205;A;Pc;Mulattieri;Sassuolo;11;11;0;10;10;0;22;20;9;5;4;4;;;;sco;KO
+507;A;Pc;Muriel;Atalanta;13;14;-1;12;13;-1;38;29;15;4;4;5;3;;;sorpresa;KO
+6145;A;A;Ngonge;Verona;14;12;2;14;12;2;50;52;20;4;1;8;3;;;++;KO
+5336;A;Pc;Nzola;Fiorentina;22;23;-1;22;23;-1;81;80;32;4;2;9;2;;;+;KO
+6227;A;Pc;Okafor;Milan;16;16;0;15;15;0;52;48;21;4;3;5;;;;;KO
+4661;A;Pc;Osimhen;Napoli;44;43;1;44;43;1;442;438;177;1;1;8;1;;;coppa dafrica;KO
+247;A;Pc;Pavoletti;Cagliari;4;4;0;3;3;0;6;4;2;6;4;4;;;;"antisco; Affaticamento, rientro 4°";KO
+2489;A;A;Pedro;Lazio;11;12;-1;11;12;-1;18;18;7;5;4;4;;;;;KO
+2103;A;Pc;Pellegri;Torino;8;8;0;7;7;0;10;7;4;5;3;4;;;;;KO
+383;A;Pc;Petagna;Cagliari;12;13;-1;12;13;-1;32;27;13;5;1;8;1;;;;KO
+4359;A;Pc;Piccoli;Lecce;7;7;0;6;6;0;8;7;3;6;4;3;;;;;KO
+2038;A;Pc;Pinamonti;Sassuolo;13;13;0;12;12;0;57;55;23;4;3;7;2;;;antisco;KO
+281;A;Pc;Puscas;Genoa;1;2;-1;1;1;0;2;1;1;6;3;2;;;;;KO
+4510;A;A;Rafael Leao;Milan;32;31;1;32;31;1;282;282;113;1;1;9;;;;++;KO
+4371;A;A;Raspadori;Napoli;9;10;-1;9;10;-1;35;37;14;5;3;5;;;;;KO
+6228;A;Pc;Retegui;Genoa;23;23;0;23;23;0;128;128;51;3;1;9;1;;;++;KO
+479;A;Pc;Sanabria;Torino;23;24;-1;23;24;-1;71;60;28;4;2;4;;;;distrazione muscolare (rinetro 4°);KO
+2475;A;A;Sanchez;Inter;14;15;-1;14;15;-1;44;44;18;4;4;4;;;;sco;KO
+2137;A;Pc;Scamacca;Atalanta;27;25;2;27;25;2;220;195;88;2;2;5;;;;+;KO
+5806;A;A;Seck;Torino;3;3;0;3;3;0;3;3;1;6;5;3;;;;coppa dafrica;KO
+5311;A;Pc;Shomurodov;Cagliari;12;13;-1;12;13;-1;22;20;9;4;2;3;;;;;KO
+6395;A;Pc;Shpendi S.;Empoli;2;1;1;2;1;1;1;1;0;7;4;3;;;;sco;KO
+2061;A;Pc;Simeone;Napoli;12;13;-1;11;12;-1;30;23;12;5;4;4;;;;;KO
+5734;A;"W;A";Soule';Frosinone;4;4;0;5;5;0;14;14;6;5;3;7;;;;;KO
+6427;A;Pc;Stewart;Salernitana;1;1;0;1;1;0;1;1;0;7;6;2;;;;;KO
+5676;A;A;Success;Udinese;7;7;0;7;7;0;9;9;4;5;4;4;;;;;KO
+2369;A;A;Thauvin;Udinese;11;11;0;11;11;0;16;18;6;5;3;4;2;3;3;;KO
+4871;A;Pc;Thuram;Inter;25;23;2;25;23;2;180;185;72;3;2;6;;;;;KO
+6229;A;Pc;Toure' E.;Atalanta;15;16;-1;14;15;-1;45;45;18;4;3;3;;;;Infortunato (Agosto - Dicembre);KO
+5843;A;A;Valencia D.;Salernitana;1;1;0;1;1;0;1;1;0;7;5;2;;;;;KO
+5446;A;Pc;Van Hooijdonk;Bologna;2;3;-1;2;3;-1;5;5;2;6;4;1;;;;;KO
+6160;A;Pc;Vivaldo;Udinese;1;1;0;1;1;0;1;1;0;7;8;2;;;;;KO
+2841;A;Pc;Vlahovic;Juventus;28;28;0;28;28;0;342;342;137;1;1;9;1;;1;;KO
+6247;A;Pc;Yalcin;Genoa;1;1;0;1;1;0;1;1;0;7;4;1;;;;;KO
+6434;A;A;Yildiz;Juventus;1;1;0;1;1;0;1;1;0;7;5;1;;;;;KO
+608;A;Pc;Zapata D.;Torino;19;19;0;19;19;0;180;170;72;2;1;8;2;;;+;KO
+5086;A;Pc;Zirkzee;Bologna;13;11;2;12;10;2;71;65;28;5;1;7;;;;sorpresa;KO
