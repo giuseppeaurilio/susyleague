@@ -12,36 +12,37 @@ loadStatsDialog = function(id)
     var action ="stats";
     $.ajax({
         type:'POST',
-            url:'display_riepilogoasta_controller.php',
-            data: {
-                "action": action,
-                "id": id,
-				"limit": '',
-            },
-            success:function(data){
-                var resp=$.parseJSON(data)
-                if(resp.result == "true"){
-                    if(resp.stats.length> 0){
-                        //show data
-                        var template = $('#tmplStats').html();
-                        Mustache.parse(template);   // optional, speeds up future uses
-                        var rendered = Mustache.render(template, resp);
-                        $( "#dialog" ).prop('title', "Statistiche");                
-                        $( "#dialog p" ).html(rendered);
-                        $( "#dialog" ).dialog({modal:true, width:600});
-                    }
-                    else{
-                        $( "#dialog" ).prop('title', "ERROR");                
-                        $( "#dialog p" ).html("nessun dato presente");
-                        $( "#dialog" ).dialog({modal:true});
-                    }
-                }
-                else{
-                    $( "#dialog" ).prop('title', "ERROR");                
-                    $( "#dialog p" ).html(resp.error.msg);
-                    $( "#dialog" ).dialog({modal:true});
-                }
-            }
+		contentType: "application/x-www-form-urlencoded;charset=utf-8",
+		url:'display_riepilogoasta_controller.php',
+		data: {
+			"action": action,
+			"id": id,
+			"limit": '',
+		},
+		success:function(data){
+			var resp=$.parseJSON(data)
+			if(resp.result == "true"){
+				if(resp.stats.length> 0){
+					//show data
+					var template = $('#tmplStats').html();
+					Mustache.parse(template);   // optional, speeds up future uses
+					var rendered = Mustache.render(template, resp);
+					$( "#dialog" ).prop('title', "Statistiche");                
+					$( "#dialog p" ).html(rendered);
+					$( "#dialog" ).dialog({modal:true, width:600});
+				}
+				else{
+					$( "#dialog" ).prop('title', "ERROR");                
+					$( "#dialog p" ).html("nessun dato presente");
+					$( "#dialog" ).dialog({modal:true});
+				}
+			}
+			else{
+				$( "#dialog" ).prop('title', "ERROR");                
+				$( "#dialog p" ).html(resp.error.msg);
+				$( "#dialog" ).dialog({modal:true});
+			}
+		}
     }); 
 }
 

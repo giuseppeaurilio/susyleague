@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
                 $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 array_push($giocatori, array(
-                    "id"=>utf8_encode($row["id"]),
+                    "id"=>$row["id"],
                     "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "ruolo_mantra"=>$row["ruolo_mantra"],
@@ -76,13 +76,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
                 $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 array_push($giocatori, array(
-                    "id"=>utf8_encode($row["id"]),
+                    "id"=>$row["id"],
                     "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "imgurl"=>$imgurl,
                     "imgurlsquadra"=>$imgurlsquadra,
-                    "fantasquadra"=>utf8_encode($row["fantasquadra"]),
+                    "fantasquadra"=>$row["fantasquadra"],
                     "costo"=>$row["costo"],
                     )
                 );
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "squadra_breve"=>$row["squadra_breve"],
                     "imgurl"=>$imgurl,
                     "imgurlsquadra"=>$imgurlsquadra,
-                    "fantasquadra"=>utf8_encode($row["fantasquadra"]),
+                    "fantasquadra"=>$row["fantasquadra"],
                     "costo"=>$row["costo"],
                     "chiamata"=>$row["chiamata"],
                     )
@@ -493,7 +493,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "ruolo"=>utf8_encode($row["ruolo"]),
                     "imgurl"=>$imgurl,
                     "imgurlsquadra"=>$imgurlsquadra,
-                    "fantasquadra"=>utf8_encode($row["fantasquadra"]),
+                    "fantasquadra"=>$row["fantasquadra"],
                     "pg"=>utf8_encode($row["pg"]),
                     "mv"=>utf8_encode($row["mv"]),
                     "mf"=>utf8_encode($row["mf"]),

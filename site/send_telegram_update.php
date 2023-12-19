@@ -53,8 +53,6 @@ function send_telegram_update() {
 		 echo "<br> mancano " . $diff ."<br>";
 		foreach ($avvisi as $value) 
 		{
-			
-			
 			if (($diff<$value) and ($diff>$value-1))
 			{
 				$giornatefc = fantacalcio_getGiornate_bySerieAId($giornatasa["id"]);
@@ -107,6 +105,15 @@ function send_telegram_update() {
 				}
 			}
 		}
+		////messaggio di test
+		// $testo .= "Le squadre ";
+		// $squadresenzaformazione = fantacalcio_getFantasquadre();
+		// foreach($squadresenzaformazione as $squadra)
+		// {
+		// 	$testo .= " ". $squadra["squadra"].", " ;
+		// }
+		// $testo .= " devono ancora inviare la formazione.\n\n Possono farlo qui: https://www.susyleague.it/invio_formazione.php";
+		// $a=send_message_post($testo);
 	}
 	// $testo = "this is a test message";
 	// echo $testo;

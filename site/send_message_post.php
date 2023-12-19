@@ -23,7 +23,7 @@ try {
 
     $http_string="https://api.telegram.org/bot$BOT_TOKEN/sendmessage?";
     $http_string.="chat_id=" . $CHAT_ID;
-    $http_string.="&text=" . urlencode(utf8_encode($testo));
+    $http_string.="&text=" . urlencode($testo);
 
     /**************************************************************************************/
     //disabilito l'invio dei mesaggi telegram perche il provider 000webhost non li permette
