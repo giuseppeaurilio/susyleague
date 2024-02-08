@@ -1,5 +1,5 @@
 <?php 
-include_once ("menu.php");
+include_once ("menu2.php");
 
 ?>
 <script>

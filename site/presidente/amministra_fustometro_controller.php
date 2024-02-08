@@ -1,5 +1,5 @@
 <?php 
-header('Content-Type: text/html; charset=ISO-8859-1');
+// header('Content-Type: text/html; charset=ISO-8859-1');
 $action ="";
 // include_once ("../dbinfo_susyleague.inc.php");
 // // Create connection
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $data = date('Y-m-d H:i:s');
 
             $query= "INSERT INTO `contafusti` (`Id`, `Presidente`, `Motivazione`, `Stato`, `DataUM`)
-                    VALUES (null,'$presidente','$motivazione',$stato, '$data')";
+                    VALUES (null,'".$presidente."','". preg_replace("/[^A-Za-z0-9 -]/", ' ', $motivazione)."',$stato, '$data')";
 
             if ($conn->query($query) === FALSE) {
                 //throw exception
@@ -69,8 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // print_r($row);
                 array_push($fusti, array(
                     "Id"=>$row["Id"],
-                    "Presidente"=>utf8_encode($row["Presidente"]),
-                    "Motivazione"=>utf8_encode($row["Motivazione"]),
+                    "Presidente"=>$row["Presidente"],
+                    "Motivazione"=>$row["Motivazione"],
                     "Stato"=>$row["Stato"] == '0' ? "in preparazione": ($row["Stato"] == '1' ? "assegnato": "annullato"),
                     // "Stato"=>$row["Stato"] ,
                     "DataUM"=>$row["DataUM"]

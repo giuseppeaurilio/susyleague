@@ -189,6 +189,10 @@ $anno=$row["valore"];
 				echo '<li><a href="/presidente/amministrazione.php" ><i class="fas fa-tools"></i> Amministrazione</a></li>';
 			}
 			?>
+			<?php if ((isset($_SESSION['login'])  && ($_SESSION['login'] == '3'))) {
+				echo '<li><a href="/presidente/amministra_fustometro.php" ><i class="fas fa-tools"></i> Fustometro</a></li>';
+			}
+			?>
 			<!-- <li><a href="#" >			
 				LOGIN
 				</a>
