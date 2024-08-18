@@ -25,11 +25,11 @@ DELIMITER $$
 --
 -- Procedure
 --
-CREATE DEFINER=`susyleag16215`@`%` PROCEDURE `getAnnunciAttivi` ()  NO SQL select * from annunci where CURRENT_DATE() >= dal and CURRENT_DATE() < al$$
+CREATE  PROCEDURE `getAnnunciAttivi` ()  NO SQL select * from annunci where CURRENT_DATE() >= dal and CURRENT_DATE() < al$$
 
-CREATE DEFINER=`susyleag16215`@`%` PROCEDURE `getAnnunciMercato` ()  NO SQL select id, testo, squadra, data_annuncio from mercato as m left join sq_fantacalcio as sqf on m.id_squadra= sqf.id order by m.data_annuncio DESC limit 5$$
+CREATE  PROCEDURE `getAnnunciMercato` ()  NO SQL select id, testo, squadra, data_annuncio from mercato as m left join sq_fantacalcio as sqf on m.id_squadra= sqf.id order by m.data_annuncio DESC limit 5$$
 
-CREATE DEFINER=`susyleag16215`@`%` PROCEDURE `getClassifica` (IN `pIdGirone` INT)  NO SQL select cc.idsquadrac as idsquadra,sf.squadra, 
+CREATE  PROCEDURE `getClassifica` (IN `pIdGirone` INT)  NO SQL select cc.idsquadrac as idsquadra,sf.squadra, 
 cc.puntic + ct.puntit as punti,
 cc.marcatoric + ct.marcatorit as marcatori,
 COALESCE( cs.marcatori_max,0) as marcatori_max,
@@ -107,7 +107,7 @@ on cs.`sq_fantacalcio_id` = cc.idsquadrac
 left join sq_fantacalcio sf on sf.id = cc.idsquadrac
 order by punti desc, marcatori desc, golfattit desc$$
 
-CREATE DEFINER=`susyleag16215`@`%` PROCEDURE `getClassificaAggregateAperturaChiusura` ()  NO SQL select cc.idsquadrac as idsquadra,sf.squadra, 
+CREATE  PROCEDURE `getClassificaAggregateAperturaChiusura` ()  NO SQL select cc.idsquadrac as idsquadra,sf.squadra, 
 cc.puntic + ct.puntit as punti,
 cc.marcatoric + ct.marcatorit as marcatori,
 COALESCE( cs.marcatori_max,0) as marcatori_max,
@@ -184,7 +184,7 @@ on cs.`sq_fantacalcio_id` = cc.idsquadrac
 left join sq_fantacalcio sf on sf.id = cc.idsquadrac
 order by punti desc, marcatori desc, golfattit desc$$
 
-CREATE DEFINER=`susyleag16215`@`%` PROCEDURE `getClassificaGironeCoppaItalia` (IN `pIdGirone` INT, IN `pIdGironeCI` INT)  NO SQL select cc.idsquadrac as idsquadra,sf.squadra, 
+CREATE  PROCEDURE `getClassificaGironeCoppaItalia` (IN `pIdGirone` INT, IN `pIdGironeCI` INT)  NO SQL select cc.idsquadrac as idsquadra,sf.squadra, 
 cc.puntic + ct.puntit as punti,
 cc.marcatoric + ct.marcatorit as marcatori,
 COALESCE( cs.marcatori_max,0) as marcatori_max,
@@ -269,20 +269,20 @@ on cs.`sq_fantacalcio_id` = cc.idsquadrac
 left join sq_fantacalcio sf on sf.id = cc.idsquadrac
 order by punti desc, marcatori desc, golfattit desc$$
 
-CREATE DEFINER=`susyleag16215`@`%` PROCEDURE `getRiepilogoRosa` (IN `idSq_Fanta` INT)  NO SQL SELECT count(r.id_giocatore) as numero, SUM(r.costo) as costo, g.ruolo
+CREATE  PROCEDURE `getRiepilogoRosa` (IN `idSq_Fanta` INT)  NO SQL SELECT count(r.id_giocatore) as numero, SUM(r.costo) as costo, g.ruolo
 FROM `rose` as r
 left join giocatori as g on g.id = r.id_giocatore
 where r.id_sq_fc = idSq_fanta
 group by g.ruolo
 order by g.ruolo desc$$
 
-CREATE DEFINER=`susyleag16215`@`%` PROCEDURE `getRisposteSondaggio` (IN `idSondaggio` INT)  NO SQL select * from sondaggi_opzioni where id_sondaggio = idSondaggio$$
+CREATE  PROCEDURE `getRisposteSondaggio` (IN `idSondaggio` INT)  NO SQL select * from sondaggi_opzioni where id_sondaggio = idSondaggio$$
 
-CREATE DEFINER=`susyleag16215`@`%` PROCEDURE `getRisposteSquadreSondaggio` (IN `idSondaggio` INT, IN `idOpzione` INT)  NO SQL select count(*) as num from sondaggi_risposte where id_sondaggio = idSondaggio and id_opzione = idOpzione$$
+CREATE  PROCEDURE `getRisposteSquadreSondaggio` (IN `idSondaggio` INT, IN `idOpzione` INT)  NO SQL select count(*) as num from sondaggi_risposte where id_sondaggio = idSondaggio and id_opzione = idOpzione$$
 
-CREATE DEFINER=`susyleag16215`@`%` PROCEDURE `getSondaggiAttivi` ()  NO SQL SELECT * from sondaggi where scadenza > CURRENT_DATE()$$
+CREATE  PROCEDURE `getSondaggiAttivi` ()  NO SQL SELECT * from sondaggi where scadenza > CURRENT_DATE()$$
 
-CREATE DEFINER=`susyleag16215`@`%` PROCEDURE `statistiche_mediadifesa` (IN `pIdGirone` INT)  NO SQL select mdfc.id_sq_casa, mdfc.squadra , 
+CREATE  PROCEDURE `statistiche_mediadifesa` (IN `pIdGirone` INT)  NO SQL select mdfc.id_sq_casa, mdfc.squadra , 
 md_f_c, md_f_t, (md_f_c+md_f_t) as md_f,
 md_c_c, md_c_t, (md_c_c+md_c_t) as md_c,
 ((md_c_c+md_c_t) - (md_f_c+md_f_t)) as md
@@ -335,7 +335,7 @@ GROUP by c.id_sq_ospite
 on mdfc.id_sq_casa = mdct.id_sq_ospite
 order by md desc$$
 
-CREATE DEFINER=`susyleag16215`@`%` PROCEDURE `widget_prossimoturno` (IN `pGirone` INT)  NO SQL BEGIN
+CREATE  PROCEDURE `widget_prossimoturno` (IN `pGirone` INT)  NO SQL BEGIN
 	SELECT g.id_giornata, sqf1.squadra as sq_casa, 
         sqf2.squadra as sq_ospite
     

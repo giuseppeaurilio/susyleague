@@ -224,6 +224,7 @@ include_once ("DB/parametri.php");
 <h3 style="text-align:center">Anno:
 		<select name="anno" id="anno">			
 			<option value="<?php  echo getAnno(); ?>" selected><?php  echo getAnno(); ?></option>	
+			<option value="22/23">23/24</option>
 			<option value="22/23">22/23</option>	
 			<option value="21/22">21/22</option>
 			<option value="20/21">20/21</option>

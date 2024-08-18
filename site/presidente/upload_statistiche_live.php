@@ -14,7 +14,6 @@ include_once ("../DB/parametri.php");
 ?>
 <?php
 
-
 // $html = file_get_contents("https://www.fantacalcio.it/voti-fantacalcio-serie-a");
 $url = "https://www.fantacalcio.it/statistiche-serie-a/20". getStrAnno(). "/italia/riepilogo";
 $curl = curl_init($url);
@@ -26,21 +25,6 @@ $DOM = new DOMDocument;
 libxml_use_internal_errors(true);
 $DOM->loadHTML($html);
 libxml_clear_errors();
-
-// $giornate = $DOM->getElementById('matchweek')->getElementsByTagName("option");
-// $idgiornata = 0;
-// foreach($giornate as $item)
-// {
-// 	// echo $item->getAttribute("selected")."<br>";
-// 	if($item->getAttribute("selected")!= "" 
-// 	// AND $item->getAttribute("selected")!= "0"
-// 	)
-// 		// print_r($item->getAttribute("value"))."<br>";
-// 		$idgiornata =  $item->getAttribute("value");
-// }
-
-// $queryresetVoti = 'DELETE FROM "giocatori_voti" WHERE "giornata_serie_a_id" = '.$idgiornata;
-// $result=$conn->query($queryresetVoti);// or die($conn->error);
 
 $items = $DOM->getElementsByTagName('tr');
 $arrayGiocatori = array();
@@ -55,9 +39,11 @@ foreach($items as $item)
 		$ar = explode("/", $item->getElementsByTagName("th")[3]->getElementsByTagName("a")[0]->getAttribute("href"));
 		$rig = explode("/",$DOM->saveHTML($item->getElementsByTagName("td")[6]->childNodes[0]));
 		// echo print_r($item->getElementsByTagName("td")[5]->childNodes[0]);
+		// echo (print_r ($ar[7]." ".$ar[6]. " " . $ar[5]. "<br>");
 		array_push($arrayGiocatori, array(
 			"id"=> $ar[7],
 			"nome"=> $ar[6],
+			"squadra"=> $ar[5],
 			"pg"=> $DOM->saveHTML($item->getElementsByTagName("td")[1]->childNodes[0]),
 			"mv"=> $DOM->saveHTML($item->getElementsByTagName("td")[2]->childNodes[0]),
 			"mf"=> $DOM->saveHTML($item->getElementsByTagName("td")[3]->childNodes[0]),
@@ -78,13 +64,14 @@ foreach($items as $item)
 }
 // echo "giornata: " . print_r($giornata). "<br>";
 // foreach($arrayGiocatori as $item)
-// 	echo print_r($item). "<br>";
+	// echo print_r($items). "<br>";
 
 // 
 // echo count($arrayGiocatori). "<br>";
 $anno = getAnno();
 foreach($arrayGiocatori as $item)
 {
+	echo print_r($item). "<br>";
 	$queryresetVoti = "DELETE FROM `giocatori_statistiche` 
 					where `giocatore_id`=". $item["id"] ." AND `anno`='$anno'";
 	$result=$conn->query($queryresetVoti);// or die($conn->error);
@@ -127,8 +114,8 @@ foreach($arrayGiocatori as $item)
 			". $item["esp"] .",
 			". $item["au"] ."
 		)";
-	// print_r ($queryInsertStats);
-	// echo '<br/> '; 	
+	print_r ($queryInsertStats);
+	echo '<br/> '; 	
 	$result=$conn->query(cleanQuery($queryInsertStats)); //or die($conn->error);
 	if($result) {
 		// echo cleanQuery($queryInsertStats) .'<br>';

@@ -6,6 +6,9 @@
 $nuovo_anno=$_POST['anno'];
 $precedente_anno = ((int)(explode("/", $nuovo_anno)[0])-1)."_".((int)(explode("/", $nuovo_anno)[1])-1);
 $fantamilioni=$_POST['fantamilioni'];
+
+session_destroy();
+    
 //echo $nuovo_anno;
 //echo $fantamilioni;
 

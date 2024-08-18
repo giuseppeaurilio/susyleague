@@ -1958,7 +1958,7 @@ $(document).ready(function(){
 	<div id="tabs-5">
 		<h3>Fustometro<span class="note"> (*prima edizione 2019/20)</span></h3>
 		<div class="content">
-		<div class="anno">2022/23</div>
+		<div class="anno">2023/24</div>
 			<div class="Fustometro">
 				<div class="vincitori competizione2">
 					<span> <i class="fas fa-beer"></i> Presidente : Ergo un fusto</span><br>
