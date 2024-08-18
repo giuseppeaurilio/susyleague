@@ -26,6 +26,147 @@ $(document).ready(function(){
 	<div id="tabs-1">
 		<h3>Campionato Susy league</h3>
 		<div  class="content">
+		<div class="anno">2023/2024</div>
+			<div class="campionato">
+				<div class="competizione">
+					<div class="descrizione"> Finale Campionato </div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-shield-alt"></i> </div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Trillò Team</div>
+							<div class="allenatore">(Andrea Rotondo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-medal"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">CrossaPù</div>
+							<div class="allenatore">(Gianluca Pupparo)</div>
+						</div>
+					</div>
+				</div>	
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Trillò Team</div>
+							<div class="allenatore">(Andrea Rotondo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">CrossaPù</div>
+							<div class="allenatore">(Gianluca Pupparo)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">Iori Presidente</div>
+							<div class="allenatore">(Figurino - Cugino Bruno)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Aggregate - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">Trillò Team</div>
+							<div class="allenatore">(Andrea Rotondo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">CrossaPù</div>
+							<div class="allenatore">(Gianluca Pupparo)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Campionato</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">Trillò Team</div>
+							<div class="allenatore">(Andrea Rotondo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2° </div>
+							<div class="squadra">Iori Presidente</div>
+							<div class="allenatore">(Figurino - Cugino Bruno)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">CrossaPù</div>
+							<div class="allenatore">(Gianluca Pupparo)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Apertura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">Trillò Team</div>
+							<div class="allenatore">(Andrea Rotondo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">3F costruzioni Srl</div>
+							<div class="allenatore">(Arky)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Campionato</div>
+					<div class="vincitori">
+						
+						<div class="primo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">1°</div>
+							<div class="squadra">CrossaPù</div>
+							<div class="allenatore">(Gianluca Pupparo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">AS Frieskies</div>
+							<div class="allenatore">(Antonio & Michela)</div>
+						</div>
+						<div class="terzo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">3°</div>
+							<div class="squadra">AS Venere</div>
+							<div class="allenatore">(MDP)</div>
+						</div>
+					</div>
+				</div>
+				<div class="competizione">
+					<div class="descrizione">Chiusura - Cannonieri</div>
+					<div class="vincitori">
+						<div class="primo">
+							<div><i class="far fa-futbol"></i></div>
+							<div class="titolo">1° </div>
+							<div class="squadra">CrossaPù</div>
+							<div class="allenatore">(Gianluca Pupparo)</div>
+						</div>
+						<div class="secondo">
+							<div><i class="fas fa-award"></i></div>
+							<div class="titolo">2°</div>
+							<div class="squadra">AS Frieskies</div>
+							<div class="allenatore">(Antonio & Michela)</div>
+						</div>
+					</div>
+				</div>		
+			</div>	
 			<div class="anno">2022/2023</div>
 			<div class="campionato">
 				<div class="competizione">
@@ -1424,6 +1565,23 @@ $(document).ready(function(){
 	<div id="tabs-2">
 		<h3>Coppa delle Coppe <span class="note"> (*prima edizione 2012)</span></h3>
 		<div class="content">
+		<div class="anno">2024</div>
+			<div class="coppacoppe">
+				<div class="vincitori competizione2">
+					<div class="primo">
+						<div><i class="fas fa-trophy"></i> </div>
+						<div class="titolo">1°</div>
+						<div class="squadra">Iori cè</div>
+						<div class="allenatore">(Figurino - Cugino Bruno)</div>
+					</div>
+					<div class="secondo">
+						<div><i class="fas fa-medal"></i> </div>
+						<div class="titolo">2°</div>
+						<div class="squadra">Iori Presidente</div>
+						<div class="allenatore">(filippo)</div>
+					</div>
+				</div>
+			</div>
 		<div class="anno">2023</div>
 			<div class="coppacoppe">
 				<div class="vincitori competizione2">
@@ -1635,7 +1793,24 @@ $(document).ready(function(){
 	<div id="tabs-3">
 		<h3>Coppa Italia<span class="note"> (*prima edizione 2019/20)</span></h3>
 		<div class="content">
-			<div class="anno">2022/23</div>
+		<div class="anno">2023/24</div>
+			<div class="coppaitalia">
+				<div class="vincitori competizione2">
+					<div class="primo">
+						<div><i class="fas fa-trophy"></i> </div>
+						<div class="titolo">1°</div>
+						<div class="squadra">Iori Presidente</div>
+						<div class="allenatore">(Figurino - Cugino Bruno)</div>
+					</div>
+					<div class="secondo">
+					<div><i class="fas fa-medal"></i> </div>
+						<div class="titolo">2°</div>
+						<div class="squadra">IL BAR</div>
+						<div class="allenatore">(Salsino)</div>
+					</div>
+				</div>
+			</div>	
+		<div class="anno">2022/23</div>
 			<div class="coppaitalia">
 				<div class="vincitori competizione2">
 					<div class="primo">
@@ -1709,7 +1884,24 @@ $(document).ready(function(){
 	<div id="tabs-4">
 		<h3>Supercoppa<span class="note"> (*prima edizione 2020/21)</span></h3>
 		<div class="content">
-			<div class="anno">2022/23</div>
+		<div class="anno">2023/24</div>
+			<div class="supercoppa">
+				<div class="vincitori competizione2">
+					<div class="primo">
+						<div><i class="fas fa-trophy"></i> </div>
+						<div class="titolo">1°</div>
+						<div class="squadra">I NANI </div>
+						<div class="allenatore">(Peppino)</div>
+					</div>
+					<div class="secondo">
+					<div><i class="fas fa-medal"></i> </div>
+						<div class="titolo">2°</div>
+						<div class="squadra">5emezzo</div>
+						<div class="allenatore">(Giorgio)</div>
+					</div>
+				</div>
+			</div>	
+		<div class="anno">2022/23</div>
 			<div class="supercoppa">
 				<div class="vincitori competizione2">
 					<div class="primo">
@@ -1766,6 +1958,14 @@ $(document).ready(function(){
 	<div id="tabs-5">
 		<h3>Fustometro<span class="note"> (*prima edizione 2019/20)</span></h3>
 		<div class="content">
+		<div class="anno">2022/23</div>
+			<div class="Fustometro">
+				<div class="vincitori competizione2">
+					<span> <i class="fas fa-beer"></i> Presidente : Ergo un fusto</span><br>
+					<span> <i class="fas fa-beer"></i> AS Venere: Eccesso di sconfitte in semifinale nonostante punteggio maggiore</span><br>	
+					<span> <i class="fas fa-beer"></i> Trillò Team: Andava provata la nuova funzionalità</span><br>
+				</div>
+			</div>		
 			<div class="anno">2022/23</div>
 			<div class="Fustometro">
 				<div class="vincitori competizione2">
