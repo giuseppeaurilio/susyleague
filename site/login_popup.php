@@ -88,7 +88,7 @@ $conn = getConnection();
 
 include_once ("DB/fantacalcio.php");
 $squadre = fantacalcio_getFantasquadre();
-echo '<select id="Username" name="squadra" style="width:101%" autocomplete="Username">'; 
+echo '<select id="Username" name="squadra" style="width:101%" autocomplete="on">'; 
 echo "<option value='Presidente' size =30 >Presidente</option>";
 foreach($squadre as $item) 
 {        
@@ -101,9 +101,8 @@ echo "</select>";
 
 
 ?>
-<span style="display:none;">Username:</span> <input type="text" Name ='username' id="txtUsername" value="" style="width:98%; display:none;" autocomplete="Username">
 <!-- <span style="display:none;">UserId:</span> <input type="text" Name ='userid' id="txtUserId" value="" style="width:98%; display:none;"> -->
-<span>Password:</span> <input type="password" Name ='password' id="txtPassword" value="" style="width:98%">
+<span>Password:</span> <input type="password" Name ='password' id="txtPassword" value="" style="width:98%" autocomplete="on">
 <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 <!-- style="display:none" -->
 <!-- <div id="result" class="result" style="display:none;"></div> -->
