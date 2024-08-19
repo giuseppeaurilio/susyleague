@@ -1,5 +1,6 @@
 <?php 
 include_once ("menu.php");
+include_once ("DB/parametri.php");
 
 ?>
 <h2>Rose</h2>
