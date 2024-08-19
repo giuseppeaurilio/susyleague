@@ -16,20 +16,20 @@ else {
 <html>
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QTL5W2CYXB"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-QTL5W2CYXB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-QTL5W2CYXB');
-</script>
+</script> -->
 
 <title>Susy League</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, user-scalable=no,  initial-scale=1.0">
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
-
+<link rel="manifest" href="/manifest.json" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>

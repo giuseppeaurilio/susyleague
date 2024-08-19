@@ -1,0 +1,21 @@
+{
+    "short_name": "SL",
+    "name": "Susy League di Narpini NG",
+    "icons": [
+      {
+        "src": "images/icon_192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "images/icon_512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/homepage/home.php",
+    
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+  }
