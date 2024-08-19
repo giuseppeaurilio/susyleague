@@ -248,7 +248,7 @@ $(document).on({
 
         &nbsp;
         <a style='float: right;font-size: small; color:white;' target='_blank' 
-        href='https://www.fantacalcio.it/squadre/Giocatore/{{ stats.0.nome }}/{{ stats.0.id }}/5/2020-21'>
+        href='https://www.fantacalcio.it/squadre/Giocatore/{{ stats.0.nome }}/{{ stats.0.id }}/5/20{{anno}}'>
         <i class='fas fa-external-link-alt'></i>
         </a>
     

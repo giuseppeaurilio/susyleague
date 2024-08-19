@@ -99,8 +99,9 @@ while ($row=$result->fetch_assoc()) {
 		<td>
 			<?php  
 				echo "$nome_giocatore"; 
+				$anno = getStrAnno();
 				echo  "&nbsp;<a style='float: right;font-size: small; color:black;' target='_blank' 
-				href='https://www.fantacalcio.it/squadre/Giocatore/$nome_giocatore/$id_giocatore/5/2024-25'
+				href='https://www.fantacalcio.it/squadre/Giocatore/$nome_giocatore/$id_giocatore/5/20$anno'
 				onclick='event.stopPropagation()'>
 				<i class='fas fa-external-link-alt'></i>"
 			?>
