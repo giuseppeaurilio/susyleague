@@ -11,8 +11,10 @@
 include_once("../dbinfo_susyleague.inc.php");
 $conn = getConnection();
 include_once ("../DB/parametri.php");
+include_once ("../presidente/upload_giornate_seriea.php");
 ?>
 <?php
+update_giornate_seriea_date();
 
 // $html = file_get_contents("https://www.fantacalcio.it/voti-fantacalcio-serie-a");
 $url = "https://www.fantacalcio.it/statistiche-serie-a/20". getStrAnno(). "/italia/riepilogo";
