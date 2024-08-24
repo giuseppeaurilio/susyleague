@@ -41,12 +41,12 @@ function update_giornate_seriea_date() {
 		$data_inizio= $inizio_anno."-".$inizio_data[1]."-".$inizio_data[0]." ".$inizio[1];
 		// echo $data_inizio;
 		$data_fine= $fine_anno."-".$fine_data[1]."-".$fine_data[0]." ". date("H:i", strtotime( $fine[1])+ (4*1800));
-		echo $data_inizio." ".date('y-m-d H:i')."<br>";
+		// echo $data_inizio." ".date('y-m-d H:i')."<br>";
 		if ($data_inizio > date('y-m-d H:i') )
 		{
 			// echo $data_fine;
 			$query= "UPDATE `giornate_serie_a` SET `inizio`='".$data_inizio."',`fine`='".$data_fine."' WHERE id=".$id_giornata_sa ;
-			echo $query."<br>";
+			// echo $query."<br>";
 			if ($conn->query($query) === FALSE) {
 				//throw exception
 				echo $query;

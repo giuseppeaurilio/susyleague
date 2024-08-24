@@ -116,8 +116,8 @@ foreach($arrayGiocatori as $item)
 			". $item["esp"] .",
 			". $item["au"] ."
 		)";
-	print_r ($queryInsertStats);
-	echo '<br/> '; 	
+	// print_r ($queryInsertStats);
+	// echo '<br/> '; 	
 	$result=$conn->query(cleanQuery($queryInsertStats)); //or die($conn->error);
 	if($result) {
 		// echo cleanQuery($queryInsertStats) .'<br>';

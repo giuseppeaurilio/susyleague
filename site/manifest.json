@@ -1,5 +1,5 @@
 {
-    "short_name": "SL",
+    "short_name": "SusyLeague",
     "name": "Susy League di Narpini NG",
     "icons": [
       {
@@ -14,6 +14,7 @@
       }
     ],
     "start_url": "/homepage/home.php",
+    "scope": "/",
     
     "display": "standalone",
     "theme_color": "#000000",
