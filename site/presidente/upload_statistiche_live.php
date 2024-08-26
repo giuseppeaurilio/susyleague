@@ -73,7 +73,7 @@ foreach($items as $item)
 $anno = getAnno();
 foreach($arrayGiocatori as $item)
 {
-	echo print_r($item). "<br>";
+	// echo print_r($item). "<br>";
 	$queryresetVoti = "DELETE FROM `giocatori_statistiche` 
 					where `giocatore_id`=". $item["id"] ." AND `anno`='$anno'";
 	$result=$conn->query($queryresetVoti);// or die($conn->error);
