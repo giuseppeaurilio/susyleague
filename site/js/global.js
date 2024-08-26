@@ -86,3 +86,71 @@ toTop = function(){
     //This strange selector seems to work universally
     $("html, body").animate({scrollTop: 0}, 1000);
  };
+
+ let deferredPrompt;
+
+ // Save data to sessionStorage
+
+// Get saved data from sessionStorage
+
+ window.addEventListener('beforeinstallprompt', (e) => {
+   // Prevents the default mini-infobar or install dialog from appearing on mobile
+   e.preventDefault();
+   // Save the event because you'll need to trigger it later.
+   deferredPrompt = e;
+   // Show your customized install prompt for your PWA
+   // Your own UI doesn't have to be a single element, you
+   // can have buttons in different locations, or wait to prompt
+   // as part of a critical journey.
+   let notnow = sessionStorage.getItem("notnow");
+   console.log (notnow);
+   if(notnow !== "true" )
+        showInAppInstallPanel();
+ });
+
+ function showInAppInstallPanel() {
+    $( "#installPWADialog" ).dialog({
+        autoOpen: true,
+        show: {
+            effect: "blind",
+            duration: 1000
+        },
+        hide: {
+            effect: "blind",
+            duration: 1
+        },
+        position: 'top',
+        resizable: false,
+        height: "auto",
+        width: "auto",
+        modal: false,
+        buttons: [
+            {
+                text: "Installa",
+                click: async function() {
+                    deferredPrompt.prompt();
+                    // Find out whether the user confirmed the installation or not
+                    const { outcome } = await deferredPrompt.userChoice;
+                    // The deferredPrompt can only be used once.
+                    deferredPrompt = null;
+                    // Act on the user's choice
+                    if (outcome === 'accepted') {
+                        $( this ).dialog( "close" );
+                    } 
+                    else if (outcome === 'dismissed') {
+                        console.log('User dismissed the install prompt');
+                    }
+                }
+            },
+            {
+                text: "Magari dopo",
+                click: function() {
+                    sessionStorage.setItem("notnow", "true");
+                    $( this ).dialog( "close" );
+                }
+            }
+            ]
+         
+        });
+ }
+  

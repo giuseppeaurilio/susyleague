@@ -3,7 +3,7 @@
 <span style="float:left; display: block">
     powered by: susyleague plc.
     </span>
-    <span style="float:right; display: block">V2.11.0</span>
+    <span style="float:right; display: block">V2.12.0</span>
    
 </footer>
 <button id="btnToTop" title="Torna su" class="back-to-top " style="display: none;">
@@ -27,6 +27,10 @@
 <div id="loginDialog" title="Login" style="display:none;">
 <?php include_once "login_popup.php";?>
 
+</div>
+
+<div id="installPWADialog" title="Installa SusyLeague" style="display:none;">
+<span> Vuoi installare l'app ufficiale della Serie A Centro Tim di Narpini NG sul tuo cellulare?</span>
 </div>
 
 <div id="cambioPasswordDialog" title="Cambio Password" style="display:none;">
