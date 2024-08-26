@@ -1,8 +1,12 @@
 
 BUG:
+si è perso finaliste di supercoppa
 
 ENHANCEMENT
 digitalizzare l'albo d'oro
+Screen per download web app su IOS
+notifiche web app
+
 
 Nelle classifiche, inserire l'andamento per squadra di (creare/evolvere una sezione statistiche squadra)
 vittorie-pareggi-sconfitte
@@ -15,8 +19,9 @@ modificare in modo che il presidente possa decidere le suqadre per tutte e tre l
 e se applciare il fattore casa o campo neutro sulla singola partita
 
 ASTA PEPPE
-appena un giocatore è stato aggiudicato, mantenerlo e non fare "nessun giocatore in asta"
+Inserire info sull'infortunio
 
+appena un giocatore è stato aggiudicato, mantenerlo e non fare "nessun giocatore in asta"
 inserire pulsante di creazione automatica della formazione in base a dai criteri
 
 GRAFICA
