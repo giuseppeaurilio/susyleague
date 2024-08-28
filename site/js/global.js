@@ -103,54 +103,103 @@ toTop = function(){
    // can have buttons in different locations, or wait to prompt
    // as part of a critical journey.
    let notnow = sessionStorage.getItem("notnow");
-   console.log (notnow);
+//    console.log (notnow);
    if(notnow !== "true" )
         showInAppInstallPanel();
  });
+ ///return true if the user is using an iPhone, iPad, or iPod. Otherwise, it will return false.
+ function checkIOS(){
+    
+    console.log(navigator.userAgent);
+    return [
+        'iPad Simulator',
+        'iPhone Simulator',
+        'iPod Simulator',
+        'iPad',
+        'iPhone',
+        'iPod'
+      ].includes(navigator.platform)
+      // iPad on iOS 13 detection
+      || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    };
+// const checkIOS = () => {
+//     debugger;
+//     const ua = navigator.userAgent
+//     if (/android/i.test(ua)) {
+//       return "Android"
+//     }
+//     else if ((/iPad|iPhone|iPod/.test(ua))
+//        || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)){
+//       return "iOS"
+//     }
+//     return "Other"
+//   }
 
  function showInAppInstallPanel() {
-    $( "#installPWADialog" ).dialog({
-        autoOpen: true,
-        show: {
-            effect: "blind",
-            duration: 1000
-        },
-        hide: {
-            effect: "blind",
-            duration: 1
-        },
-        position: 'top',
-        resizable: false,
-        height: "auto",
-        width: "auto",
-        modal: false,
-        buttons: [
-            {
-                text: "Installa",
-                click: async function() {
-                    deferredPrompt.prompt();
-                    // Find out whether the user confirmed the installation or not
-                    const { outcome } = await deferredPrompt.userChoice;
-                    // The deferredPrompt can only be used once.
-                    deferredPrompt = null;
-                    // Act on the user's choice
-                    if (outcome === 'accepted') {
+    console.log(checkIOS());
+    if(checkIOS()){
+        $( "#installPWADialogIOS" ).dialog({
+            autoOpen: true,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "blind",
+                duration: 1
+            },
+            position: 'top',
+            resizable: false,
+            height: "auto",
+            width: "auto",
+            modal: false,
+        });
+    }
+    else{
+        $( "#installPWADialog" ).dialog({
+            autoOpen: true,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "blind",
+                duration: 1
+            },
+            position: 'top',
+            resizable: false,
+            height: "auto",
+            width: "auto",
+            modal: false,
+            buttons: [
+                {
+                    text: "Installa",
+                    click: async function() {
+                        deferredPrompt.prompt();
+                        // Find out whether the user confirmed the installation or not
+                        const { outcome } = await deferredPrompt.userChoice;
+                        // The deferredPrompt can only be used once.
+                        deferredPrompt = null;
+                        // Act on the user's choice
+                        if (outcome === 'accepted') {
+                            $( this ).dialog( "close" );
+                        } 
+                        else if (outcome === 'dismissed') {
+                            console.log('User dismissed the install prompt');
+                        }
+                    }
+                },
+                {
+                    text: "Magari dopo",
+                    click: function() {
+                        sessionStorage.setItem("notnow", "true");
                         $( this ).dialog( "close" );
-                    } 
-                    else if (outcome === 'dismissed') {
-                        console.log('User dismissed the install prompt');
                     }
                 }
-            },
-            {
-                text: "Magari dopo",
-                click: function() {
-                    sessionStorage.setItem("notnow", "true");
-                    $( this ).dialog( "close" );
-                }
-            }
-            ]
-         
-        });
+                ]
+            
+            });
+    }
  }
+
   

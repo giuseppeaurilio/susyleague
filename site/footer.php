@@ -33,6 +33,9 @@
 <span> Vuoi installare l'app ufficiale della Serie A Centro Tim di Narpini NG sul tuo cellulare?</span>
 </div>
 
+<div id="installPWADialogIOS" title="Installa SusyLeague" style="display:none;">
+<span>Installa questa applicazione sulla tua schermata iniziale per un accesso rapido, facile e offline quando sei in giro. Chiudi questa finestra modale, tocca l'icona "condividi", quindi tocca "Aggiungi alla schermata iniziale".</span>
+</div>
 <div id="cambioPasswordDialog" title="Cambio Password" style="display:none;">
 <?php include_once "cambiopassword_popup.php";?>
 
