@@ -71,10 +71,7 @@ echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
-// $query="INSERT INTO rose_asta_". str_replace("/","_", $precedente_anno) ." SELECT * FROM rose_asta";
-// echo $query;
-// // $result=mysql_query($query);
-// $result=$conn->query($query);
+
 
 $query="Truncate `rose_asta`";
 echo $query;
@@ -85,6 +82,16 @@ $result=$conn->query($query);
 // echo $query;
 // // $result=mysql_query($query);
 // $result=$conn->query($query);
+
+$query="DROP TABLE IF EXISTS giocatori_". str_replace("/","_", $precedente_anno) ;
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
+$query="CREATE TABLE giocatori_". str_replace("/","_", $precedente_anno) ." AS SELECT * FROM giocatori";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
 
 $query="Truncate `giocatori`";
 echo $query;

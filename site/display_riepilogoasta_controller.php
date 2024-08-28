@@ -595,7 +595,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                   ) AS fascia
                          FROM
                              rose_asta_22_23 as ra_prec 
-                             left JOIN giocatori_22_23 as g on g.id = ra_prec.id_giocatore
+                             left JOIN giocatori_".getStrAnnoPrecedente()." as g on g.id = ra_prec.id_giocatore
                              where g.ruolo = '$ruolo'
                          GROUP BY
                              (CASE
