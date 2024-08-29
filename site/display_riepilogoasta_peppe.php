@@ -598,17 +598,20 @@ $(document).on({
             </td>
             <td rowspan="2">{{ruolo}}</td>
             <td rowspan="2">{{squadra_breve}}</td>
+            <td>{{quotazione}}</td> 
+            <td>{{fvm}}</td> 
             <td>{{om}}</td>
             <td>{{f}}</td>
             <td>{{is}}</td>
             <td>{{titolarita}}</td>
-            <td>{{quotazione}}</td>            
+                       
             <td>{{cr}}</td>
             <td>{{cp}}</td>
-            <td>{{ca}}</td>            
+            <td>{{ca}}</td>   
+            <td>{{costo_ap}}</td>            
         </tr>
         <tr>
-            <td colspan="8" style="text-align:left;">
+            <td colspan="10" style="text-align:left;">
             {{note}}
             </td>
         </tr>
@@ -721,13 +724,13 @@ while($row = $result->fetch_assoc()){
                 - Ordina per: 
                     <select name="ordinamento" id="ordinamento">			
                         <!-- <option value="" >-Ordinamento-</option> -->
-                        <option value="q-d" selected>Offerta Max &darr;</option>
+                        <option value="om-d" selected>Offerta Max &darr;</option>
+                        <option value="q-d">quotazione &darr;</option>
+                        <option value="fvm-d" >FantaValoreMercato &darr;</option>
                         <!-- <option value="ia-d" >Valore &darr;</option> -->
                         <option value="is-a" >indice squadra &uarr;</option>
                         <option value="f-a" >fascia &uarr;</option>
                         <option value="t-d">titolarita &darr;</option>
-                        <option value="q-d">quotazione &darr;</option>
-                        
                     </select>
                     <input type="button" value="cerca" id="btnCerca">
                     <input type="button" value="reset" id="btnResetFiltri">
@@ -757,6 +760,12 @@ while($row = $result->fetch_assoc()){
                                         }
                                         echo '</select>';
                                     ?>
+                                </th>
+                                <th>
+                                    <input type="number" style="width: 40px;" id="txtQuotazione" min="0" max="60" step="1" placeholder="Quo">
+                                </th>
+                                <th>
+                                    <input type="number" style="width: 40px;" id="txtFantaValoreMercato" min="0" max="60" step="1" placeholder="FVM">
                                 </th>
                                 <th>
                                     <input type="number" style="width: 40px;" id="txtOffMAX" min="0" max="200" step="1" placeholder="OMAX">
@@ -811,9 +820,7 @@ while($row = $result->fetch_assoc()){
                                         <option value="1">1</option>
                                     </select>
                                 </th>
-                                <th>
-                                    <input type="number" style="width: 40px;" id="txtQuotazione" min="0" max="60" step="1" placeholder="Quo">
-                                </th>
+                                
                                 <th>
                                     <select name="rigori" id="rigori">
                                         <option value="">-RIG</option>	
@@ -837,6 +844,9 @@ while($row = $result->fetch_assoc()){
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                     </select>
+                                </th>
+                                <th>
+                                    <input type="number" style="width: 40px;" id="txtCosto_AP" min="0" max="60" step="1" placeholder="CAP">
                                 </th>
                                 <!-- <th>note</th> -->
                             </tr>

@@ -249,14 +249,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $ordinamento = $_POST['ordinamento']  = '' ? null :$_POST['ordinamento'];
  
                 // echo $sololiberi;
-                $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, g.quotazione as quotazione,  
+                $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, 
+                g.quotazione as quotazione, g.fantavaloremercato as fvm,  
                 gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, gpi.is as 'is',  gpi.f as f, gpi.om as om,   
-                gpi.note as note , sqf.squadra as squadrafc
+                gpi.note as note , sqf.squadra as squadrafc, ra_ap.costo as costo_ap
                 FROM `giocatori` as g
                 left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
                 left join rose as r on r.id_giocatore =g.id 
-                left join sq_fantacalcio as sqf on sqf.id = r.id_sq_fc ";
+                left join sq_fantacalcio as sqf on sqf.id = r.id_sq_fc 
+                left join rose_asta_23_24 as ra_ap on ra_ap.id_giocatore = g.id ";
                 $query.=" where g.id_squadra <> 21 ";
                 if($sololiberi == "true")//inserire controlli su input valido
                     $query.=" and r.id_sq_fc is  null ";
@@ -281,16 +283,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 if($om <> null)//inserire controlli su input valido
                     $query.=" and gpi.om >=  $om"; 
                 
-                if($ordinamento  == "ia-d")
+                if($ordinamento  == "q-d")//quotazione
+                    $query.=" order by case when g.quotazione is null then 1 else 0 end, g.quotazione desc, gpi.fvm desc ";
+                else if($ordinamento  == "fvm-d")//fanta valore di mercato
+                    $query.=" order by case when g.fantavaloremercato is null then 1 else 0 end, g.fantavaloremercato desc, g.quotazione desc ";
+                else if($ordinamento  == "is-a")//indice squadra
+                    $query.=" order by case when gpi.is is null then 1 else 0 end, gpi.is asc, g.quotazione desc ";
+                else if($ordinamento  == "f-a")//fascia
+                    $query.=" order by case when gpi.f is null then 1 else 0 end, gpi.f asc, g.quotazione desc ";
+                else if($ordinamento  == "t-d")//titolarita
+                    $query.=" order by case when gpi.titolarita is null then 1 else 0 end, gpi.titolarita desc, g.quotazione desc ";
+                else if($ordinamento  == "ia-d")//indice appetibilita-deprecato
                     $query.=" order by case when gpi.ia is null then 1 else 0 end, gpi.ia desc, g.quotazione desc ";
-                else if($ordinamento  == "is-a")
-                    $query.=" order by case when gpi.is is null then 1 else 0 end, gpi.is asc, gpi.ia desc ";
-                else if($ordinamento  == "f-a")
-                    $query.=" order by case when gpi.f is null then 1 else 0 end, gpi.f asc, gpi.ia desc ";
-                else if($ordinamento  == "t-d")
-                    $query.=" order by case when gpi.titolarita is null then 1 else 0 end, gpi.titolarita desc, gpi.ia desc ";
-                else if($ordinamento  == "q-d")
-                    $query.=" order by case when gpi.om is null then 1 else 0 end, gpi.om desc, gpi.ia desc ";
+                else if($ordinamento  == "om-d")//offerta max
+                    $query.=" order by case when gpi.om is null then 1 else 0 end, gpi.om desc, g.quotazione desc ";
                 else
                     $query.=" order by case when gpi.ia is null then 1 else 0 end, gpi.f, gpi.ia, g.quotazione desc";
                 //echo $query;
@@ -304,6 +310,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "squadra_breve"=>utf8_encode($row["squadra_breve"]),
                         "ruolo"=>utf8_encode($row["ruolo"]),
                         "quotazione"=>utf8_encode($row["quotazione"]),
+                        "fvm"=>utf8_encode($row["fvm"]),
                         "titolarita"=>utf8_encode($row["titolarita"]),
                         "cp"=>utf8_encode($row["cp"]),
                         "cr"=>utf8_encode($row["cr"]),
@@ -312,6 +319,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "is"=>utf8_encode($row["is"]),
                         "f"=>utf8_encode($row["f"]),
                         "om"=>utf8_encode($row["om"]),
+                        "costo_ap"=>utf8_encode($row["costo_ap"]),
                         "squadrafc"=>utf8_encode($row["squadrafc"]),
                         "note"=>utf8_encode($row["note"])
                         )
