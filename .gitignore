@@ -2,7 +2,12 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/susyleague/config/applicationhost.config
 /.vs
+/.vscode
 /site/.vscode/launch.json
 /site/.history
+./.vs
+./.vscode
+./site/.history
+./site/.vscode
+
