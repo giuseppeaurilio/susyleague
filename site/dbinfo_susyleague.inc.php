@@ -1,17 +1,31 @@
 <?php
+
+
+
+
 function getConnection(){
-    // //localhost
-    // $username="id258940_susy79";
-    // $password="andspe79";
-    // $database="id258940_susy_league_2024-25";
-    // $localhost = "localhost";
+    // echo $_SERVER['REMOTE_ADDR'] ."pippo";
+    $whitelist = array(
+        'localhost',
+        '127.0.0.1',
+        '::1'
+    );
+    if(in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
+        //localhost
+        $username="id258940_susy79";
+        $password="andspe79";
+        $database="id258940_susy_league_2024-25";
+        $localhost = "localhost";
 
-    //tophost
-    $username="susyleag16215";
-    $password="*q3G99i&w24J";
-    $database="susyleag16215";
-    $localhost = "sql.susyleague.it";
-
+    }
+    else{
+        
+        //tophost
+        $username="susyleag16215";
+        $password="*q3G99i&w24J";
+        $database="susyleag16215";
+        $localhost = "sql.susyleague.it";
+    }
 
     // Create connection
     if(!isset($conn)) {$conn = new mysqli($localhost, $username, $password,$database);}
