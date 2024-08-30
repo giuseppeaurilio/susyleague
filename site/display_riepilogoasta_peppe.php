@@ -647,7 +647,7 @@ left join giocatori as g on ra.id_giocatore = g.id
 group by ruolo order by ruolo desc";
 
 $result=$conn->query($query);
-$somme = array();
+$somme = array();//addeed for test
 while($row = $result->fetch_assoc()){
     array_push($somme, array(
         "somma"=>$row["somma"],

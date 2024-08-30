@@ -231,7 +231,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 );
                 echo json_encode($response);
             break;
-        case("ricercagiocatore"):
+        case("ricercagiocatore"): //addeed for test
                 $ruolo = $_POST['ruolo']  = '' ? null :$_POST['ruolo'];
                 $idsquadra = $_POST['idsquadra']  = '' ? null :$_POST['idsquadra'];
                 // $mediavoto = $_POST['mediavoto']  = '' ? null :$_POST['mediavoto'];
