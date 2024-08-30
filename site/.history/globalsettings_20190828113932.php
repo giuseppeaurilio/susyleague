@@ -1,3 +1,0 @@
-<?php
-$boolprint = false;
-?>
