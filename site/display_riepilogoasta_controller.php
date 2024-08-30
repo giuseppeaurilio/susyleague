@@ -282,7 +282,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $query.=" and gpi.f <=  $f"; 
                 if($om <> null)//inserire controlli su input valido
                     $query.=" and gpi.om >=  $om"; 
-                
+                 
                 if($ordinamento  == "q-d")//quotazione
                     $query.=" order by case when g.quotazione is null then 1 else 0 end, g.quotazione desc, gpi.fvm desc ";
                 else if($ordinamento  == "fvm-d")//fanta valore di mercato

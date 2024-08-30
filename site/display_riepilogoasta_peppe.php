@@ -595,7 +595,7 @@ $(document).on({
                 window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}","popup","width=600,height=600"); 
                 event.stopPropagation();
                 return false;''><i class='fas fa-external-link-alt'></i>
-            </td>
+            </td> 
             <td rowspan="2">{{ruolo}}</td>
             <td rowspan="2">{{squadra_breve}}</td>
             <td>{{quotazione}}</td> 
