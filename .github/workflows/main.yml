@@ -14,4 +14,4 @@ jobs:
         server: ftp.susyleague.it
         username: susyleague.it
         password: ${{ secrets.ftp_password }}
-        dry-run: true
+        dry-run: false
