@@ -1,0 +1,3 @@
+<?php
+$boolprint = true;
+?>

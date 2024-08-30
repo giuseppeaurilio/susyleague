@@ -1,0 +1,16 @@
+
+Fustometro
+Aggiornamento rose serie a da file CSV.
+
+In amministrazione, pulsante per eseguire un backup del DB.
+Cambiare la politica di backup del database.-> c'e' un problema con il file send_telegram_update.php che manda il reminder di invio delle formazioni.
+
+Fare sezione Lega con
+    - organi direttivo
+    - regolamento
+    - albo d'oro
+    - Statistche
+
+Loghi e banner delle squadre.
+
+Eliminare sezione annunci e sondaggi

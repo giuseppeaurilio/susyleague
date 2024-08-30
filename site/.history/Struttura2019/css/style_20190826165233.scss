@@ -1,0 +1,56 @@
+@font-face {
+    font-family: "SusyLeagueFont";
+    src: url(../font/Champions-Bold.ttf) format("truetype");
+}
+
+header {
+    overflow: hidden;
+    // background-color: black;
+    color: white;
+    justify-content: center;
+    background: #000000 url('../images/header.png') 100% 100% no-repeat;
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-attachment: fixed;
+    background-position: center; 
+}
+header h1{
+    width: 100%;
+    vertical-align: middle;
+    height: auto;
+    text-align: center;
+}
+
+header figure{
+    width: 30%;
+    text-align: center;
+}
+
+// header #imghb {
+// margin-left: 50%;
+// transform: translateX(-50%);
+
+// }
+
+body{
+    font-family: "SusyLeagueFont", sans-serif, Verdana, Tahoma;  
+    margin: 0;
+}
+
+footer{
+    overflow: hidden;
+    // background-color: black;
+    color: white;
+    justify-content: center;
+    background: #000000 url('../images/header.png') 100% 100% no-repeat;
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-attachment: fixed;
+    background-position: top; 
+}
