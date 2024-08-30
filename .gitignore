@@ -12,4 +12,8 @@
 ./.vscode
 ./site/.history
 ./site/.vscode
+./.vs/
+./.vscode/
+./site/.history/
+./site/.vscode/
 
