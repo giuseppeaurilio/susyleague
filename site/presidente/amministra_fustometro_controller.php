@@ -51,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 'message' => $action." eseguito",
             ));
             break;
-        break;
         case("get"):
 
             $stato = $_POST['stato']  = '' ? null : $_POST['stato'];

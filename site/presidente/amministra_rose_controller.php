@@ -130,8 +130,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             while ($row=$result->fetch_assoc()) {
                 // print_r($row);
                 array_push($giocatori, array(
-                    "id"=>utf8_encode($row["id"]),
-                    "ids"=>utf8_encode($row["ids"]),
+                    "id"=>($row["id"]),
+                    "ids"=>($row["ids"]),
                     "ruolo"=>$row["ruolo"],
                     )
                 );
