@@ -14,18 +14,30 @@ $conn = getConnection();
 <?php
 
 
-// $html = file_get_contents("https://www.fantacalcio.it/voti-fantacalcio-serie-a");
 $url = "https://www.fantacalcio.it/voti-fantacalcio-serie-a";
+$useragent= "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36";
+$options = array(
+	CURLOPT_RETURNTRANSFER => true,   // return web page
+	CURLOPT_HEADER         => false,  // don't return headers
+	CURLOPT_FOLLOWLOCATION => true,   // follow redirects
+	CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+	CURLOPT_ENCODING       => "gzip, deflate",     // handle compressed
+	CURLOPT_USERAGENT      => $useragent , // name of client
+	CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+	CURLOPT_CONNECTTIMEOUT => 120,    // time-out on connect
+	CURLOPT_TIMEOUT        => 120,    // time-out on response
+
+); 
 $curl = curl_init($url);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt_array($curl, $options);
 $html = curl_exec($curl);
 curl_close($curl);
-
 $DOM = new DOMDocument;
 libxml_use_internal_errors(true);
 $DOM->loadHTML($html);
 libxml_clear_errors();
 
+// print_r($_SERVER['HTTP_USER_AGENT']);
 $giornate = $DOM->getElementById('matchweek')->getElementsByTagName("option");
 $idgiornata = 0;
 foreach($giornate as $item)
@@ -74,10 +86,10 @@ foreach($items as $item)
 	}
 }
 // echo "giornata: " . print_r($giornata). "<br>";
-foreach($arrayGiocatori as $item)
-	echo print_r($item). "<br>";
+// foreach($arrayGiocatori as $item)
+// 	echo print_r($item). "<br>";
 
-
+$countervoti =0;
 // echo count($arrayGiocatori). "<br>";
 foreach($arrayGiocatori as $item)
 {
@@ -109,18 +121,18 @@ foreach($arrayGiocatori as $item)
 		// print_r ($query);
 		// echo '<br/> '; 
 		$result=$conn->query(cleanQuery($query)) ;//or die($conn->error);
-		// if($result) {
-		// 	$countervoti++; 
-		// 	// echo $query .'<br>';
-		// 	// echo $result .'<br>';
-		// 	// echo $cod . '-'.$data[2] . '; voto: ' . $voto. ' fantavoto:  ' .$votof . '<br/> '; 
-		// }
-		// else {
-		// 	echo " ERROR ". $cod . '-'.$data[2]  . ($conn->error) .'<br>';
-		// }
+		if($result) {
+			$countervoti++; 
+			// echo $query .'<br>';
+			// echo $result .'<br>';
+			// echo $cod . '-'.$data[2] . '; voto: ' . $voto. ' fantavoto:  ' .$votof . '<br/> '; 
+		}
+		else {
+			echo " ERROR ". $cod . '-'.$data[2]  . ($conn->error) .'<br>';
+		}
 	}
 }
-		
+echo("Inseriti $countervoti  voti.<br>");
 ?>
 <?php 
 if(isset($conn))

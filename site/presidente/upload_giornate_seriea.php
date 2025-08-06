@@ -7,23 +7,33 @@ function update_giornate_seriea_date() {
 	$id_giornata_sa = 1;
 	do
 	{
+
 		$url = "https://www.fantacalcio.it/serie-a/calendario/$id_giornata_sa";
+		$useragent= "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36";
+		$options = array(
+			CURLOPT_RETURNTRANSFER => true,   // return web page
+			CURLOPT_HEADER         => false,  // don't return headers
+			CURLOPT_FOLLOWLOCATION => true,   // follow redirects
+			CURLOPT_MAXREDIRS      => 10,     // stop after 10 redirects
+			CURLOPT_ENCODING       => "gzip, deflate",     // handle compressed
+			CURLOPT_USERAGENT      => $useragent , // name of client
+			CURLOPT_AUTOREFERER    => true,   // set referrer on redirect
+			CURLOPT_CONNECTTIMEOUT => 120,    // time-out on connect
+			CURLOPT_TIMEOUT        => 120,    // time-out on response
+		); 
+		
 		$curl = curl_init($url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt_array($curl, $options);
 		$html = curl_exec($curl);
 		curl_close($curl);
-		
-		$classname ="match-date";
 		$DOM = new DOMDocument;
 		libxml_use_internal_errors(true);
 		$DOM->loadHTML($html);
 		libxml_clear_errors();
-		
-		$xpath = new DOMXpath($DOM);
-		$nodes = $xpath->query('//div [@class="' . $classname . '"]');
-		
-		// $tmp_dom = new DOMDocument();
 
+		$xpath = new DOMXpath($DOM);
+		$classname ="match-date";
+		$nodes = $xpath->query('//div [@class="' . $classname . '"]');
 		
 		$inizio = explode("      ", trim($nodes[0]->nodeValue));
 		$inizio_data = explode("/",trim($inizio[0]));
@@ -52,6 +62,7 @@ function update_giornate_seriea_date() {
 				echo $query;
 			}
 		}
+		echo("Giornata  $id_giornata_sa  inserita.<br>");
 		$id_giornata_sa++;
 	}
 	while ($id_giornata_sa < 39);
