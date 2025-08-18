@@ -1,9 +1,10 @@
 
 BUG:
-si è perso finaliste di supercoppa
-
 ENHANCEMENT
-digitalizzare l'albo d'oro
+digitalizzare l'albo d'oro:
+La gestione dell'albo d'oro deve sostituire i vincitori, quindi cambiare la pagina di gestione albo d'oro per inserire i soli vincitori dell'anno e  modificare il comportamento del widget.
+Alla creazione del nuovo anno, inserire nuovo record nella tabella amministrazione
+
 Screen per download web app su IOS
 notifiche web app
 
