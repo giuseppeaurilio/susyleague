@@ -39,6 +39,10 @@ left join giornate as g on g.id_giornata = c.id_giornata
 order by  md desc -->
 <div class="statistica">
 		<div class="titolo"> Punteggio più basso di squadra</div>
+		<div class="descrizione2">
+			45 punti fatti da Bar 58 contro Riommelu alla giornata 10 dell'Apertura 24/25
+			<br>(Riommelu - BAR 58 5-0)
+		</div>
 		<div class="descrizione">
 			45 punti fatti da Jimmy Grimble contro Bar Limpido alla giornata 1 dei PlayOff-PlayOut 17/18
 			<br>(Bar Limpido - Jimmy Grimble 2-0)
@@ -114,6 +118,12 @@ left join giocatori as g on g.id = f.id_giocatore
 order by voto desc -->
 	<div class="statistica">
 		<div class="titolo">BOMBER</div>
+		<div class="descrizione2">
+			<img src=' https://content.fantacalcio.it/web/campioncini/small/RETEGUI.png' onerror='imgError(this);'> </img> 
+			<span >
+				Il giocatore Retegui di Crossa Pu ha fatto registrare un fantapunteggio di 21 nella giornata 21 dell'Apertuna 24/25
+			</span>
+		</div>
 		<div class="descrizione">
 			<img src=' https://content.fantacalcio.it/web/campioncini/small/ZAPATA-D.png' onerror='imgError(this);'> </img> 
 			<span >
@@ -148,16 +158,10 @@ order by voto desc -->
 	<div class="statistica">
 		<div class="titolo">Miglior Portiere</div>
 		<div class="descrizione">
-			<img src='https://content.fantacalcio.it/web/campioncini/small/DONNARUMMA-G.png' onerror='imgError(this);'> </img> 
+			<img src='https://content.fantacalcio.it/web/campioncini/small/DE-GEA.png' onerror='imgError(this);'> </img> 
 			<span >
-				Il giocatore DONNARUMMA G. di I  NANI ha fatto registrare un fantapunteggio di 11 nella giornata 2 dei PlayOffPlayOut 18/19
+				Il giocatore De Gea di SUDOMAGODO ha fatto registrare un fantapunteggio di 14 nella giornata 4 dell'Apertura 24/25
 			</span>
-		</div>
-		<div class="descrizione2">
-			<img src='https://content.fantacalcio.it/web/campioncini/small/DRAGOWSKI.png' onerror='imgError(this);'> </img> 
-			<span >
-				Il giocatore DRAGOWSKI di BAR Fabio dal 1936 ha fatto registrare un fantapunteggio di 11 nella giornata 18 della Apertura 19/20
-			</span >
 		</div>
 	</div>
 	<!-- SELECT  g.nome, sqf.squadra, f.voto, f.id_giornata 
@@ -168,6 +172,12 @@ where g.ruolo = 'D'
 order by voto desc -->
 	<div class="statistica">
 		<div class="titolo">Miglior Difensore</div>
+		<div class="descrizione">
+			<img src='https://content.fantacalcio.it/web/campioncini/small/ZAPPA.png' onerror='imgError(this);'> </img> 
+			<span >
+				Il giocatore Zappa. di Team chiappetto Iori ha fatto registrare un fantapunteggio di 14 nella giornata 9 della Apertura 24/25
+			</span >
+		</div>
 		<div class="descrizione">
 			<img src='https://content.fantacalcio.it/web/campioncini/small/FELIPE.png' onerror='imgError(this);'> </img> 
 			<span >
