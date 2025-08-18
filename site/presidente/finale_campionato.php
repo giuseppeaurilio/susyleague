@@ -17,7 +17,8 @@ salvaSquadreFinaleCampionato = function(){
     var id2 = $("#sq_finalista2 option:selected").val();
     var giornataand = $(this).attr("data-idgiornata");
     var giornatarit = parseInt(giornataand) +1;
-    var giornatarbella = parseInt(giornatarit) +1;
+    // var giornatarbella = parseInt(giornatarit) +1;
+    // debugger;
     // var giornata = $("#hfgiornata").val();
     // var giornata =  $(this).attr("data-idgiornata");
     salvaSquadrePartita(id1, id2, giornataand);
