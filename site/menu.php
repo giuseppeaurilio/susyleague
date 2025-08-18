@@ -84,19 +84,21 @@ $conn = getConnection();
 // // $num=mysqli_num_rows($result); 
 // $num = $result->num_rows;
 include_once ("DB/fantacalcio.php");
+include_once ("DB/parametri.php");
 $squadrefc = fantacalcio_getFantasquadre();
 $num = count($squadrefc);
 
 #echo "<b><left>Squadre</center></b><br><br>";
 
-$query_generale="SELECT valore FROM generale where nome_parametro='anno'";
-#echo $query2;
-$result_generale=mysqli_query($conn,$query_generale);
-//$anno=mysqli_result($result_generale,0,"valore");
+// $query_generale="SELECT valore FROM generale where nome_parametro='anno'";
+// #echo $query2;
+// $result_generale=mysqli_query($conn,$query_generale);
+// //$anno=mysqli_result($result_generale,0,"valore");
 
-$row=mysqli_fetch_array($result_generale,MYSQLI_ASSOC);
+// $row=mysqli_fetch_array($result_generale,MYSQLI_ASSOC);
 // $anno="2016";
-$anno=$row["valore"];
+// $anno=$row["valore"];
+$anno = getAnno();
 ?>
 
 

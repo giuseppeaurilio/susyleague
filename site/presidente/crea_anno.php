@@ -205,6 +205,21 @@ echo $query;
 // $result=mysql_query($query);
 $result=$conn->query($query);
 
+$query="Truncate `formazione_standard`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
+$query="Truncate `sq_fantacalcio_statistiche`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
+$query="Truncate `sq_fantacalcio_statistiche_giornata`";
+echo $query;
+// $result=mysql_query($query);
+$result=$conn->query($query);
+
 /////////
 /// AGGIORNA PARAMETRI GENERALE
 $query="UPDATE `generale` SET `valore`='" .$fantamilioni . "' WHERE `id_parametro`='2'";
@@ -341,6 +356,7 @@ for ($giornata = 1; $giornata <= 2; $giornata++) {//23-24 DUEGIORNATE FINALE)
 aggiungi_giornata($globalgiornatecounter ,"8"); // 8  supercoppa
 $globalgiornatecounter++;
 
+session_destroy(); 
 $conn->close();
 include_once ("../footer.php");
 ?>

@@ -14,7 +14,7 @@ function getConnection(){
         //localhost
         $username="id258940_susy79";
         $password="andspe79";
-        $database="id258940_susy_league_2024-25";
+        $database="id258940_susy_league_2025-26";
         $localhost = "localhost";
 
     }
