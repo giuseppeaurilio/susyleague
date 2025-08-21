@@ -25,6 +25,7 @@ adessoinasta = function(){
     var squadra = $("#sq_sa option:selected" ).text();
     var giocatoreval = $("#giocatore").val();
     var giocatore = $("#giocatore option:selected" ).text();
+    var id = $("#giocatore option:selected" ).val();
     if(giocatoreval == "" || giocatoreval == null || giocatoreval == undefined)
     {
         $("#astaincorso").hide();
@@ -33,8 +34,9 @@ adessoinasta = function(){
     {
         $("#astaincorso").show()
         // $("#astaincorso>img").attr("src",
-        var nome_giocatore_pulito = giocatore.replace(/\s+/g, '-').toUpperCase();
-        var imgurl = "https://content.fantacalcio.it/web/campioncini/medium/" + nome_giocatore_pulito.replace(/% %/g, "-") + ".png";
+        // var nome_giocatore_pulito = giocatore.replace(/\s+/g, '-').toUpperCase();
+        // var imgurl = "https://content.fantacalcio.it/web/campioncini/medium/" + nome_giocatore_pulito.replace(/% %/g, "-") + ".png";
+        var imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/"+id+".png?v=333";
         $("#astaincorso>img").attr("src", imgurl);
         // $("#astaincorso #idgiocatore").html("presente");
     }
@@ -152,12 +154,13 @@ estraiGiocatore = function()
                                 ];
                         // preg_replace('/\s+/', '-', $nome_giocatore);
                         // str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png")
-                        var res = resp.giocatori[0].nome.replace("/\s+/", "-").toUpperCase();
-                        var filename = "https://content.fantacalcio.it/web/campioncini/medium/" + res + ".png";
+                        // var res = resp.giocatori[0].nome.replace("/\s+/", "-").toUpperCase();
+                        // var filename = "https://content.fantacalcio.it/web/campioncini/medium/" + res + ".png";
+                        var filename = "https://content.fantacalcio.it/web/campioncini/20/card/"+resp.giocatori[0].id+".png?v=333";
                     
                         var content = "<div style='text-align: center;'>";
                         content += "<h3> " + resp.giocatori[0].nome + " (" + resp.giocatori[0].squadra_breve + ")" + "</h3>";
-                        content += "<img src='" + filename + "' onerror='imgError(this);'> </img> ";
+                        content += "<img height='200px' src='" + filename + "' onerror='imgError(this);'> </img> ";
                         content +="<div> Ruolo: " + resp.giocatori[0].ruolo + "</div>";
                         content += "<div> Quotazione: " + resp.giocatori[0].quotazione + "</div>",
                         content +="</div>";

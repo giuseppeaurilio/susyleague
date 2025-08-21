@@ -31,12 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             while ($row=$result->fetch_assoc()) {
                 // print_r($row);
                 $imgurl = "";
-                $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
-                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
+                // $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+                // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
+                $imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/".$row["id"].".png?v=333";
                 $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 array_push($giocatori, array(
                     "id"=>$row["id"],
-                    "nome"=>utf8_encode($row["nome"]),
+                    "nome"=>($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "ruolo_mantra"=>$row["ruolo_mantra"],
                     "squadra"=>$row["squadra"],
@@ -72,12 +73,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             while ($row=$result->fetch_assoc()) {
                 // print_r($row);
                 $imgurl = "";
-                $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
-                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
+                // $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+                // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
+                $imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/".$row["id"].".png?v=333";
                 $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 array_push($giocatori, array(
                     "id"=>$row["id"],
-                    "nome"=>utf8_encode($row["nome"]),
+                    "nome"=>($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "imgurl"=>$imgurl,
@@ -110,14 +112,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $giocatori = array();
             while ($row=$result->fetch_assoc()) {
                 $imgurl = "";
-                $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+                // $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
                 // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
-                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                $imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/".$row["id"].".png?v=333";
                 $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 
                 array_push($giocatori, array(
-                    "id"=>utf8_encode($row["id"]),
-                    "nome"=>utf8_encode($row["nome"]),
+                    "id"=>($row["id"]),
+                    "nome"=>($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "imgurl"=>$imgurl,
@@ -157,11 +159,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $stats = array();
             while ($row=$result->fetch_assoc()) {
                 array_push($stats, array(
-                    "id"=>utf8_encode($row["id"]),
-                    "nome"=>utf8_encode($row["nome"]),
-                    "ruolo"=>utf8_encode($row["ruolo"]),
-                    "squadra_breve"=>utf8_encode($row["squadra_breve"]),
-                    "anno"=>utf8_encode($row["anno"]. " "),
+                    "id"=>($row["id"]),
+                    "nome"=>($row["nome"]),
+                    "ruolo"=>($row["ruolo"]),
+                    "squadra_breve"=>($row["squadra_breve"]),
+                    "anno"=>($row["anno"]. " "),
                     "pg"=>$row["pg"],
                     "mv"=>$row["mv"],
                     "mf"=>$row["mf"],
@@ -203,23 +205,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 while ($row=$result->fetch_assoc()) {
                     array_push($giocatori, array(
                         "id"=>$row["idgiocatore"],
-                        "nome"=>utf8_encode($row["nome"]),
-                        "squadra_breve"=>utf8_encode($row["squadra_breve"]),
-                        "ruolo"=>utf8_encode($row["ruolo"]),
-                        "ruolo_mantra"=>utf8_encode($row["ruolo_mantra"]),
-                        "quotazione"=>utf8_encode($row["quotazione"]),
-                        "titolarita"=>utf8_encode($row["titolarita"]),
-                        "cp"=>utf8_encode($row["calci_punizione"]),
-                        "cr"=>utf8_encode($row["calci_rigore"]),
-                        "ca"=>utf8_encode($row["calci_angolo"]),
-                        "ia"=>utf8_encode($row["indice_appetibilita"]),
-                        "is"=>utf8_encode($row["is"]),
-                        "f"=>utf8_encode($row["fascia"]),
-                        "om"=>utf8_encode($row["offertamassima"]),
-                        "costo_ap"=>utf8_encode($row["costo_ap"]),
-                        "ordine_ap"=>utf8_encode($row["ordine_ap"]),
-                        "squadra"=>utf8_encode($row["squadra"]),
-                        "note"=>utf8_encode($row["note"])
+                        "nome"=>$row["nome"],
+                        "squadra_breve"=>$row["squadra_breve"],
+                        "ruolo"=>$row["ruolo"],
+                        "ruolo_mantra"=>$row["ruolo_mantra"],
+                        "quotazione"=>$row["quotazione"],
+                        "titolarita"=>$row["titolarita"],
+                        "cp"=>$row["calci_punizione"],
+                        "cr"=>$row["calci_rigore"],
+                        "ca"=>$row["calci_angolo"],
+                        "ia"=>$row["indice_appetibilita"],
+                        "is"=>$row["is"],
+                        "f"=>$row["fascia"],
+                        "om"=>$row["offertamassima"],
+                        "costo_ap"=>$row["costo_ap"],
+                        "ordine_ap"=>$row["ordine_ap"],
+                        "squadra"=>$row["squadra"],
+                        "note"=>$row["note"]
 
                         )
                     );
@@ -305,23 +307,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 while ($row=$result->fetch_assoc()) {
                     array_push($giocatori, array(
                         "id"=>$row["idgiocatore"],
-                        "nome"=>utf8_encode($row["nome"]),
+                        "nome"=>($row["nome"]),
                         "class"=>$row["squadrafc"] != null ? "barrato" : "",
-                        "squadra_breve"=>utf8_encode($row["squadra_breve"]),
-                        "ruolo"=>utf8_encode($row["ruolo"]),
-                        "quotazione"=>utf8_encode($row["quotazione"]),
-                        "fvm"=>utf8_encode($row["fvm"]),
-                        "titolarita"=>utf8_encode($row["titolarita"]),
-                        "cp"=>utf8_encode($row["cp"]),
-                        "cr"=>utf8_encode($row["cr"]),
-                        "ca"=>utf8_encode($row["ca"]),
-                        "ia"=>utf8_encode($row["ia"]),
-                        "is"=>utf8_encode($row["is"]),
-                        "f"=>utf8_encode($row["f"]),
-                        "om"=>utf8_encode($row["om"]),
-                        "costo_ap"=>utf8_encode($row["costo_ap"]),
-                        "squadrafc"=>utf8_encode($row["squadrafc"]),
-                        "note"=>utf8_encode($row["note"])
+                        "squadra_breve"=>($row["squadra_breve"]),
+                        "ruolo"=>($row["ruolo"]),
+                        "quotazione"=>($row["quotazione"]),
+                        "fvm"=>($row["fvm"]),
+                        "titolarita"=>($row["titolarita"]),
+                        "cp"=>($row["cp"]),
+                        "cr"=>($row["cr"]),
+                        "ca"=>($row["ca"]),
+                        "ia"=>($row["ia"]),
+                        "is"=>($row["is"]),
+                        "f"=>($row["f"]),
+                        "om"=>($row["om"]),
+                        "costo_ap"=>($row["costo_ap"]),
+                        "squadrafc"=>($row["squadrafc"]),
+                        "note"=>($row["note"])
                         )
                     );
                 };
@@ -354,15 +356,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // $nome_giocatore_pulito = preg_replace('/\s+/', '-', $row["nome"]);
                 // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
                 array_push($giocatori, array(
-                    "id"=>utf8_encode($row["id"]),
-                    "nome"=>utf8_encode($row["nome"]),
+                    "id"=>($row["id"]),
+                    "nome"=>($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "costo"=>$row["costo"],
                     "is"=>$row["is"],
                     "f"=>$row["f"],
                     "tit"=>$row["tit"],
-                    "note"=>utf8_encode($row["note"])
+                    "note"=>($row["note"])
                     )
                 );
             };
@@ -490,34 +492,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $giocatori = array();
             while ($row=$result->fetch_assoc()) {
                 $imgurl = "";
-                $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
-                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                // $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+                // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                $imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/".$row["idgiocatore"].".png?v=333";
                 $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                
                 array_push($giocatori, array(
                     "id"=>$row["idgiocatore"],
-                    "nome"=>utf8_encode($row["nome"]),
-                    "squadra_breve"=>utf8_encode($row["squadra_breve"]),
-                    "ruolo"=>utf8_encode($row["ruolo"]),
+                    "nome"=>($row["nome"]),
+                    "squadra_breve"=>($row["squadra_breve"]),
+                    "ruolo"=>($row["ruolo"]),
                     "imgurl"=>$imgurl,
                     "imgurlsquadra"=>$imgurlsquadra,
                     "fantasquadra"=>$row["fantasquadra"],
-                    "pg"=>utf8_encode($row["pg"]),
-                    "mv"=>utf8_encode($row["mv"]),
-                    "mf"=>utf8_encode($row["mf"]),
-                    "gf"=>utf8_encode($row["gf"]),
-                    "mf"=>utf8_encode($row["mf"]),
-                    "gs"=>utf8_encode($row["gs"]),
-                    "rp"=>utf8_encode($row["rp"]),
-                    "rc"=>utf8_encode($row["rc"]),
-                    "rseg"=>utf8_encode($row["rseg"]),
-                    "rsba"=>utf8_encode($row["rsba"]),
-                    "ass"=>utf8_encode($row["ass"]),
-                    "asf"=>utf8_encode($row["asf"]),
-                    "amm"=>utf8_encode($row["amm"]),
-                    "esp"=>utf8_encode($row["esp"]),
-                    "au"=>utf8_encode($row["au"]),
-                    "quo"=>utf8_encode($row["quotazione"]),
+                    "pg"=>($row["pg"]),
+                    "mv"=>($row["mv"]),
+                    "mf"=>($row["mf"]),
+                    "gf"=>($row["gf"]),
+                    "mf"=>($row["mf"]),
+                    "gs"=>($row["gs"]),
+                    "rp"=>($row["rp"]),
+                    "rc"=>($row["rc"]),
+                    "rseg"=>($row["rseg"]),
+                    "rsba"=>($row["rsba"]),
+                    "ass"=>($row["ass"]),
+                    "asf"=>($row["asf"]),
+                    "amm"=>($row["amm"]),
+                    "esp"=>($row["esp"]),
+                    "au"=>($row["au"]),
+                    "quo"=>($row["quotazione"]),
                     )
                 );
             };

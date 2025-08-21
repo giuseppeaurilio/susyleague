@@ -1,5 +1,5 @@
 <?php 
-include("menu.php");
+include("menu_lite.php");
 
 ?>
 <script>
@@ -212,11 +212,11 @@ $(document).on({
     <h3 style="text-align:center;font-size: 30px;"> Adesso in asta</h3>
     <div class="widgetastacontent incorso" data-id="{{ id }}">
     {{ /fantasquadra }}
-    <div class="ruolo" style="font-size:50px"> Ruolo: {{ ruolo }} </div>
+    <!-- <div class="ruolo" style="font-size:50px"> Ruolo: {{ ruolo }} </div>
     <div class="nome" style="font-size:100px"> {{ nome }} </div>
-    <!-- <div class="nome" style="font-size:100px"> ({{ squadra }})</div> -->
     <img  width="120px;" src='{{ imgurl }}' onerror='imgError(this);'> </img>
-    <img  width="120px;" src='{{ imgurlsquadra }}'> </img>
+    <img  width="120px;" src='{{ imgurlsquadra }}'> </img> -->
+    <img  src='{{ imgurl }}' onerror='imgError(this);'> </img>
     {{ #fantasquadra }}
     <div class="fantasquadra" style="font-size:50px"> Aggiudicato: {{ fantasquadra }} <br> Costo: {{ costo }} FMD</div>
     {{ /fantasquadra }}
@@ -375,8 +375,8 @@ foreach($squadre as $squadra)
     $costocen= 0;
     $costoatt= 0;
     echo "<tr>";
-    echo "<td style='font-size:2.5em;'>".$squadra["squadra"]."<span style='font-size:0.5em;'>(".$squadra["allenatore"].")</span></td>";
-    echo "<td style='font-size:3em; text-align:center;'>".$offertamassima." <span style='font-size:0.6em'>/".$rimanenti." </span></td>";
+    echo "<td style='font-size:2.5em;'><div>".$squadra["squadra"]."</div><div style='font-size:0.5em;'>(".$squadra["allenatore"].")</div></td>";
+    echo "<td style='font-size:2.5em; text-align:center;'><div>".$offertamassima."</div><div style='font-size:0.5em'>/".$rimanenti." </div></td>";
     foreach($riepilogo["giocatori"] as $row){
         
         // echo '<td>';
@@ -407,16 +407,16 @@ foreach($squadre as $squadra)
         // echo '</td>';
     }
     echo '<td class="costo" style="color: black; background-color: '.getbackgroundColor(3, 1, $numpor, $numjollyscelti).';">';
-    echo '<div style="padding: 2px;"><span >'.$numpor. '/3 </span> <br>('.$costopor.'FMD)';
+    echo '<div style="font-size:1.2em;"><div>'.$numpor. '/3 </div><div style="font-size:0.5em">('.$costopor.'FMD)</div>';
     echo '</td>';
     echo '<td class="costo" style="color: black; background-color: '.getbackgroundColor(9, 1, $numdif, $numjollyscelti).';">';
-    echo '<div style="padding: 2px;"><span >'.$numdif. '/9 </span> <br>('.$costodif.'FMD)</div>';
+    echo '<div style="font-size:1.2em;"><div>'.$numdif. '/9 </div><div style="font-size:0.5em">('.$costodif.'FMD)</div>';
     echo '</td>';
     echo '<td class="costo"  style="color: black; background-color: '.getbackgroundColor(9, 1, $numcen, $numjollyscelti).';">';
-    echo '<div style="padding: 2px;"><span >'.$numcen. '/9 </span> <br>('.$costocen.'FMD)</div>';
+    echo '<div style="font-size:1.2em;"><div>'.$numcen. '/9 </div><div style="font-size:0.5em">('.$costocen.'FMD)</div>';
     echo '</td>';
     echo '<td class="costo" style="color: black; background-color: '.getbackgroundColor(7, 1, $numatt, $numjollyscelti).';">';
-    echo '<div style="padding: 2px;"><span >'.$numatt. '/7 </span> <br>('.$costoatt.'FMD)</div>';
+    echo '<div style="font-size:1.2em;"><div>'.$numatt. '/7 </div><div style="font-size:0.5em">('.$costoatt.'FMD)</div>';
     echo '</td>';
     echo "</tr>";
     // echo '<div id=riepilogo'.$squadra["id"].' class="riepilogo" style="vertical-align: middle;">';

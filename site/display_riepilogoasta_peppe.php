@@ -423,27 +423,28 @@ $(document).on({
     <h3> Adesso in asta</h3>
     <div class="widgetastacontent incorso height" data-id="{{ id }}">
     {{ /fantasquadra }}
-    <div class="ruolo" data-ruolo="{{ ruolo }}"> Ruolo: {{ ruolo }}; Mantra: {{ ruolo_mantra }}</div>
-        <div class="left">
-            <img src='{{ imgurl }}' onerror='imgError(this);'> </img> 
-           
-        </div>
-        <div  class="right">
-            <div class="nome"> {{ nome }}
-                
-            <!-- ({{ squadra_breve }}) -->
-                <a style='float: right;font-size: small; color:black;' target='popup' 
-                href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}'
-                onclick='
-                window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}","popup","width=600,height=600"); 
-                event.stopPropagation();
-                return false;''><i class='fas fa-external-link-alt'></i></a>
-                </div>
-                <img  width="80px;" src='{{ imgurlsquadra }}' style="float: right;"> </img>
-            {{ #fantasquadra }}
-            <div class="fantasquadra"> Fantasquadra: {{ fantasquadra }} <br> Costo: {{ costo }}</div>
-            {{ /fantasquadra }}
-        </div>
+    
+    <div class="left">
+        <img height="100%"; style="display:block;" src='{{ imgurl }}' onerror='imgError(this);'> </img> 
+        
+    </div>
+    <div  class="right">
+        <div class="nome"> {{ nome }}
+        
+        ({{ squadra_breve }})
+            <a style='float: right;font-size: small; color:black;' target='popup' 
+            href='https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}'
+            onclick='
+            window.open("https://www.fantacalcio.it/squadre/Giocatore/{{ nome }}/{{ id }}","popup","width=600,height=600"); 
+            event.stopPropagation();
+            return false;''><i class='fas fa-external-link-alt'></i></a>
+            </div>
+            <div class="ruolo" data-ruolo="{{ ruolo }}"> Ruolo: {{ ruolo }}; Mantra: {{ ruolo_mantra }}</div> 
+            <!-- <img  width="80px;" src='{{ imgurlsquadra }}' style="float: right;"> </img> -->
+        {{ #fantasquadra }}
+        <div class="fantasquadra"> Fantasquadra: {{ fantasquadra }} <br> Costo: {{ costo }}</div>
+        {{ /fantasquadra }}
+    </div>
     </div>
 </div>
 </script>
