@@ -31,9 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             while ($row=$result->fetch_assoc()) {
                 // print_r($row);
                 $imgurl = "";
-                // $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
-                // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
-                $imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/".$row["id"].".png?v=333";
+                $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
+                // $imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/".$row["id"].".png?v=333";
                 $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 array_push($giocatori, array(
                     "id"=>$row["id"],
@@ -73,9 +73,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             while ($row=$result->fetch_assoc()) {
                 // print_r($row);
                 $imgurl = "";
-                // $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
-                // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
-                $imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/".$row["id"].".png?v=333";
+                $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/medium/".$nome_giocatore_pulito.".png");
+                // $imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/".$row["id"].".png?v=333";
                 $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 array_push($giocatori, array(
                     "id"=>$row["id"],
@@ -112,9 +112,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $giocatori = array();
             while ($row=$result->fetch_assoc()) {
                 $imgurl = "";
-                // $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
-                // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
-                $imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/".$row["id"].".png?v=333";
+                $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                // $imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/".$row["id"].".png?v=333";
                 $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 
                 array_push($giocatori, array(
@@ -492,9 +492,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $giocatori = array();
             while ($row=$result->fetch_assoc()) {
                 $imgurl = "";
-                // $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
-                // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
-                $imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/".$row["idgiocatore"].".png?v=333";
+                $nome_giocatore_pulito = strtoupper(preg_replace('/\s+/', '-', $row["nome"]));
+                $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
+                // $imgurl = "https://content.fantacalcio.it/web/campioncini/20/card/".$row["idgiocatore"].".png?v=333";
                 $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                
                 array_push($giocatori, array(

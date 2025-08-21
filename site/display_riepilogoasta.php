@@ -212,11 +212,11 @@ $(document).on({
     <h3 style="text-align:center;font-size: 30px;"> Adesso in asta</h3>
     <div class="widgetastacontent incorso" data-id="{{ id }}">
     {{ /fantasquadra }}
-    <!-- <div class="ruolo" style="font-size:50px"> Ruolo: {{ ruolo }} </div>
+    <div class="ruolo" style="font-size:50px"> Ruolo: {{ ruolo }} </div>
     <div class="nome" style="font-size:100px"> {{ nome }} </div>
     <img  width="120px;" src='{{ imgurl }}' onerror='imgError(this);'> </img>
-    <img  width="120px;" src='{{ imgurlsquadra }}'> </img> -->
-    <img  src='{{ imgurl }}' onerror='imgError(this);'> </img>
+    <img  width="120px;" src='{{ imgurlsquadra }}'> </img>
+    <!-- <img  src='{{ imgurl }}' onerror='imgError(this);'> </img> -->
     {{ #fantasquadra }}
     <div class="fantasquadra" style="font-size:50px"> Aggiudicato: {{ fantasquadra }} <br> Costo: {{ costo }} FMD</div>
     {{ /fantasquadra }}
