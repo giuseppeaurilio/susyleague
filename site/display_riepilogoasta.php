@@ -1,5 +1,5 @@
 <?php 
-include("menu_lite.php");
+include("menu.php");
 
 ?>
 <script>
