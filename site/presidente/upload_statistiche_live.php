@@ -17,8 +17,8 @@ include_once ("../presidente/upload_giornate_seriea.php");
 update_giornate_seriea_date();
 
 // $html = file_get_contents("https://www.fantacalcio.it/voti-fantacalcio-serie-a");
-// $url = "https://www.fantacalcio.it/statistiche-serie-a/20". getStrAnno(). "/italia/riepilogo";
-$url = "https://www.fantacalcio.it/statistiche-serie-a/2024/italia/riepilogo";
+$url = "https://www.fantacalcio.it/statistiche-serie-a/20". getStrAnno(). "/italia/riepilogo";
+// $url = "https://www.fantacalcio.it/statistiche-serie-a/2024/italia/riepilogo";
 $useragent= "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36";
 $options = array(
 	CURLOPT_RETURNTRANSFER => true,   // return web page
