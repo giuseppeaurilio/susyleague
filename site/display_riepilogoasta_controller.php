@@ -251,7 +251,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $ordinamento = $_POST['ordinamento']  = '' ? null :$_POST['ordinamento'];
  
                 // echo $sololiberi;
-                $query= " ";
+                $query= "SELECT g.id as idgiocatore, g.nome as nome, sq.squadra_breve as squadra_breve, g.ruolo as ruolo, 
+                g.quotazione as quotazione, g.fantavaloremercato as fvm,  
+                gpi.titolarita as titolarita, gpi.cp as cp,gpi.cr as cr, gpi.ca as ca, gpi.ia as ia, gpi.is as 'is',  gpi.f as f, gpi.om as om,   
+                gpi.note as note , sqf.squadra as squadrafc, ra_ap.costo as costo_ap
+                FROM `giocatori` as g
+                left join giocatori_pinfo as gpi on g.id = gpi.giocatore_id
+                left join squadre_serie_a as sq on sq.id = g.id_squadra
+                left join rose as r on r.id_giocatore =g.id 
+                left join sq_fantacalcio as sqf on sqf.id = r.id_sq_fc 
+                left join rose_asta_24_25 as ra_ap on ra_ap.id_giocatore = g.id ";
                 $query.=" where g.id_squadra <> 21 ";
                 if($sololiberi == "true")//inserire controlli su input valido
                     $query.=" and r.id_sq_fc is  null ";
