@@ -301,7 +301,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $query.=" order by case when gpi.om is null then 1 else 0 end, gpi.om desc, g.quotazione desc ";
                 else
                     $query.=" order by case when gpi.ia is null then 1 else 0 end, gpi.f, gpi.ia, g.quotazione desc";
-                echo $query;
+                //echo $query;
                 $result=$conn->query($query);
                 $giocatori = array();
                 while ($row=$result->fetch_assoc()) {
