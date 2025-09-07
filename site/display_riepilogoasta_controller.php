@@ -260,7 +260,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 left join squadre_serie_a as sq on sq.id = g.id_squadra
                 left join rose as r on r.id_giocatore =g.id 
                 left join sq_fantacalcio as sqf on sqf.id = r.id_sq_fc 
-                left join rose_asta_23_24 as ra_ap on ra_ap.id_giocatore = g.id ";
+                left join rose_asta_24_25 as ra_ap on ra_ap.id_giocatore = g.id ";
                 $query.=" where g.id_squadra <> 21 ";
                 if($sololiberi == "true")//inserire controlli su input valido
                     $query.=" and r.id_sq_fc is  null ";
