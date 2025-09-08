@@ -288,7 +288,8 @@ body .widget div.partiteincorso
 
 body .widget div.ultimirisultati
 {
-  background: linear-gradient(rgba(220,220,220,.7), rgba(220,220,220,.7)), url('//upload.wikimedia.org/wikipedia/it/thumb/5/50/Images90minuto.jpg/260px-Images90minuto.jpg');
+  /* background: linear-gradient(rgba(2200,220,220,.7), rgba(220,220,220,.7)), url('//upload.wikimedia.org/wikipedia/it/thumb/5/50/Images90minuto.jpg/260px-Images90minuto.jpg'); */
+  background: linear-gradient(rgba(2200,220,220,.7), rgba(220,220,220,.7)), url('/images/hW8lh-kj_400x400.jpg');;
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;
@@ -470,7 +471,8 @@ body .widget div.fustiassegnaticontent .lista{
 body .widget div.fusticoming
 {
   /* background-image: url('https://treatycitybrewery.ie/cms_files/wp-content/uploads/2017/04/gif2.gif'); */
-  background-image: url('http://cdn.firstwefeast.com/assets/2014/03/step1.gif');
+  /* background-image: url('http://cdn.firstwefeast.com/assets/2014/03/step1.gif'); */
+  background-image: url('/images/original-c1d75783c370495197e63ac974035ff4.gif');
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center;  
