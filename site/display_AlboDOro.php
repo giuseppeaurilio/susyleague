@@ -33,13 +33,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">AS Frieskies</div>
 							<div class="allenatore">(Antonio e Michela)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Titolari lo cost</div>
 							<div class="allenatore">(Filippo Pagliarella)</div>
 						</div>
@@ -50,19 +50,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Bar 58</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Titolari lo cost</div>
 							<div class="allenatore">(Filippo Pagliarella)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">MILANdruccolo</div>
 							<div class="allenatore">(Vezio Malandruccolo)</div>
 						</div>
@@ -73,13 +73,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Team chiappetto Iori</div>
 							<div class="allenatore">(Marco Arianna)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">AS Frieskies</div>
 							<div class="allenatore">(Antonio e Michela)</div>
 						</div>
@@ -90,19 +90,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Titolari lo cost</div>
 							<div class="allenatore">(Filippo Pagliarella)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Bar 58</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">MILANdruccolo</div>
 							<div class="allenatore">(Vezio Malandruccolo)</div>
 						</div>
@@ -113,13 +113,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Team chiappetto Iori</div>
 							<div class="allenatore">(Marco Arianna)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Riommelu</div>
 							<div class="allenatore">(Carletto Sciandrone)</div>
 						</div>
@@ -131,19 +131,19 @@ $(document).ready(function(){
 						
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">AS Frieskies</div>
 							<div class="allenatore">(Antonio e Michela)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Sudomagodo</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Bar 58</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
@@ -154,13 +154,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">AS Frieskies</div>
 							<div class="allenatore">(Antonio e Michela)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Team chiappetto Iori</div>
 							<div class="allenatore">(Marco Arianna)</div>
 						</div>
@@ -174,13 +174,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Trillò Team</div>
 							<div class="allenatore">(Andrea Rotondo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">CrossaPù</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
@@ -191,19 +191,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Trillò Team</div>
 							<div class="allenatore">(Andrea Rotondo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">CrossaPù</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Iori Presidente</div>
 							<div class="allenatore">(Figurino - Cugino Bruno)</div>
 						</div>
@@ -214,13 +214,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Trillò Team</div>
 							<div class="allenatore">(Andrea Rotondo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">CrossaPù</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
@@ -231,19 +231,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Trillò Team</div>
 							<div class="allenatore">(Andrea Rotondo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Iori Presidente</div>
 							<div class="allenatore">(Figurino - Cugino Bruno)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">CrossaPù</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
@@ -254,13 +254,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Trillò Team</div>
 							<div class="allenatore">(Andrea Rotondo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">3F costruzioni Srl</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
@@ -272,19 +272,19 @@ $(document).ready(function(){
 						
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">CrossaPù</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">AS Frieskies</div>
 							<div class="allenatore">(Antonio & Michela)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">AS Venere</div>
 							<div class="allenatore">(MDP)</div>
 						</div>
@@ -295,13 +295,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">CrossaPù</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">AS Frieskies</div>
 							<div class="allenatore">(Antonio & Michela)</div>
 						</div>
@@ -315,13 +315,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">AS Frieskies</div>
 							<div class="allenatore">(Antonio & Michela)</div>
 						</div>
@@ -332,19 +332,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">In Vino Veritas</div>
 							<div class="allenatore">(Filippo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">AS Frieskies</div>
 							<div class="allenatore">(Antonio & Michela)</div>
 						</div>
@@ -355,13 +355,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">In Vino Veritas</div>
 							<div class="allenatore">(Filippo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">3F costruzioni</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
@@ -372,19 +372,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">AS Frieskies</div>
 							<div class="allenatore">(Antonio & Michela)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">5emezzo</div>
 							<div class="allenatore">(Giorgio)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">In Vino Veritas</div>
 							<div class="allenatore">(Filippo)</div>
 						</div>
@@ -395,13 +395,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">In Vino Veritas</div>
 							<div class="allenatore">(Filippo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">AS Frieskies</div>
 							<div class="allenatore">(Antonio & Michela)</div>
 						</div>
@@ -413,19 +413,19 @@ $(document).ready(function(){
 						
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">In Vino Veritas</div>
 							<div class="allenatore">(Filippo)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">3F costruzioni</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
@@ -436,13 +436,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">3F costruzioni</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">In Vino Veritas</div>
 							<div class="allenatore">(Filippo)</div>
 						</div>
@@ -456,13 +456,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Culo Culo</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">AS Venere</div>
 							<div class="allenatore">(MDP)</div>
 						</div>
@@ -473,19 +473,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Culo Culo</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Bar Filiacci</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
@@ -496,13 +496,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">AS Venere</div>
 							<div class="allenatore">(MDP)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Bar Filiacci</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
@@ -513,19 +513,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Culo Culo</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Bar Filiacci</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Mandrake e Pomata 2</div>
 							<div class="allenatore">(Narpini-Iori)</div>
 						</div>
@@ -536,13 +536,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">AS Venere</div>
 							<div class="allenatore">(MDP)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Bar Filiacci</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
@@ -554,19 +554,19 @@ $(document).ready(function(){
 						
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">AS Venere</div>
 							<div class="allenatore">(MDP)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Culo Culo</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Crossa Pu</div>
 							<div class="allenatore">(Gianluca Puppi)</div>
 						</div>
@@ -577,13 +577,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Salsino Bello</div>
 							<div class="allenatore">(Filippo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">AS Venere</div>
 							<div class="allenatore">(MDP)</div>
 						</div>
@@ -597,13 +597,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Mettiti Più Lontano</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
@@ -614,19 +614,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Mettiti Più Lontano</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Crossa Pù</div>
 							<div class="allenatore">(Gianluca Puppi)</div>
 						</div>
@@ -637,13 +637,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Mettiti Più Lontano</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
@@ -654,19 +654,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Mettiti Più Lontano</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
@@ -677,13 +677,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Mettiti Più Lontano</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
@@ -695,19 +695,19 @@ $(document).ready(function(){
 						
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Ronie Merda</div>
 							<div class="allenatore">(Carletto)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Crossa Pu</div>
 							<div class="allenatore">(Gianluca Puppi)</div>
 						</div>
@@ -718,13 +718,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Mettiti Più Lontano</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
@@ -738,13 +738,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Rodrigo Becao</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">CrossaPù</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
@@ -755,19 +755,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Rodrigo Becao</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">SC Valle S.Andrea</div>
 							<div class="allenatore">(Andrea Rotondo)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Bono Coppi</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
@@ -778,13 +778,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Rodrigo Becao</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Bono Coppi</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
@@ -795,19 +795,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Rodrigo Becao</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Bar Fabio 1936</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
@@ -818,13 +818,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Rodrigo Becao</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Bono Coppi</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
@@ -836,19 +836,19 @@ $(document).ready(function(){
 						
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">CrossaPù</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Bono Coppi</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">SC Valle S.Andrea</div>
 							<div class="allenatore">(Andrea Rotondo)</div>
 						</div>
@@ -862,13 +862,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Giuseppe Aurilio)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Bono Coppi</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
@@ -882,19 +882,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Organizzazione Zero</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Giuseppe Aurilio)</div>
 						</div>
@@ -906,19 +906,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Salsino Forever</div>
 							<div class="allenatore">(Filippo Pagliarella)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Nuova  Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
@@ -929,13 +929,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Organizzazione Zero</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
@@ -946,19 +946,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Atletico ero na volta</div>
 							<div class="allenatore">(Antonio & Michela)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Prosut!</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
@@ -969,13 +969,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Salsino Forever</div>
 							<div class="allenatore">(Filippo)</div>
 						</div>
@@ -987,19 +987,19 @@ $(document).ready(function(){
 						
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Organizzazione Zero</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Salsino Forever</div>
 							<div class="allenatore">(Filippo Pagliarella)</div>
 						</div>
@@ -1010,13 +1010,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Salsino Forever</div>
 							<div class="allenatore">(Filippo Pagliarella)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Azienda PAAM</div>
 							<div class="allenatore">(Andrea Cuggino)</div>
 						</div>
@@ -1030,19 +1030,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">AS Valle S. Andrea</div>
 							<div class="allenatore">(Andrea Rotondo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">PROSUT!</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
@@ -1054,19 +1054,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Nuova  Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Prosut!</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Ronie Merda</div>
 							<div class="allenatore">(Carletto Sciandrone)</div>
 						</div>
@@ -1077,13 +1077,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Prosut!</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
@@ -1094,19 +1094,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Prosut!</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">AS Fidanken</div>
 							<div class="allenatore">(Filippo Pagliarella)</div>
 						</div>
@@ -1117,13 +1117,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Prosut!</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
@@ -1134,19 +1134,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Ronie Merda</div>
 							<div class="allenatore">(Carletto Sciandrone)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">AS Valle S Andrea</div>
 							<div class="allenatore">(Andrea rotondo)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Bar Limpido</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
@@ -1157,13 +1157,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">AS Valle S Andrea</div>
 							<div class="allenatore">(Andrea rotondo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Bar Limpido</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
@@ -1177,19 +1177,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">DEJAVU</div>
 							<div class="allenatore">(Filippo Pagliarella)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Botafiga</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
@@ -1201,19 +1201,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Nuova  Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Botafiga</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Oliva</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
@@ -1224,13 +1224,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Oliva</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
@@ -1241,19 +1241,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Dejavu</div>
 							<div class="allenatore">(Filippo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Botafiga</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Prosut!</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
@@ -1264,13 +1264,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Dejavu</div>
 							<div class="allenatore">(Filippo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Botafiga</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
@@ -1281,19 +1281,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Oliva</div>
 							<div class="allenatore">(Figurino)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">MILANdruccolo</div>
 							<div class="allenatore">(Vezio)</div>
 						</div>
@@ -1304,13 +1304,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">MILANdruccolo</div>
 							<div class="allenatore">(Vezio)</div>
 						</div>
@@ -1324,13 +1324,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">AS Soreta</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">MILANDruccolo</div>
 							<div class="allenatore">(Vezio Malandruccolo)</div>
 						</div>
@@ -1342,19 +1342,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">MILANDruccolo</div>
 							<div class="allenatore">(Vezio Malandruccolo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Azienda PAAM</div>
 							<div class="allenatore">(Andrea Cuggino)</div>
 						</div>
@@ -1365,13 +1365,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1° </div>
+							<div class="titolo">1&#176; </div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Azienda PAAM</div>
 							<div class="allenatore">(Andrea Cuggino)</div>
 						</div>
@@ -1382,19 +1382,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Azienda PAAM</div>
 							<div class="allenatore">(Andrea Cuggino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">MILANDruccolo</div>
 							<div class="allenatore">(Vezio Malandruccolo)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
@@ -1405,13 +1405,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Azienda PAAM</div>
 							<div class="allenatore">(Andrea Cuggino)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Nuova Romanina</div>
 							<div class="allenatore">(Arky)</div>
 						</div>
@@ -1422,19 +1422,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">MILANdruccolo</div>
 							<div class="allenatore">(Vezio)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">2° </div>
+							<div class="titolo">2&#176; </div>
 							<div class="squadra">Macio Team</div>
 							<div class="allenatore">(Filippo)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
@@ -1445,13 +1445,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="far fa-futbol"></i></div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Macio Team</div>
 							<div class="allenatore">(Filippo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-award"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">I NANI</div>
 							<div class="allenatore">(Peppino)</div>
 						</div>
@@ -1466,19 +1466,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">FICA Junior</div>
 							<div class="allenatore">(Giorgio Gasbarrini)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">X-Team</div>
 							<div class="allenatore">(Marco Mauti)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">PROSUT!</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
@@ -1492,19 +1492,19 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">PROSUT!</div>
 							<div class="allenatore">(Gianluca Pupparo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">X-Team</div>
 							<div class="allenatore">(Marco Mauti)</div>
 						</div>
 						<div class="terzo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">3°</div>
+							<div class="titolo">3&#176;</div>
 							<div class="squadra">MILANDruccolo</div>
 							<div class="allenatore">(Vezio Malandruccolo)</div>
 						</div>
@@ -1518,13 +1518,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">MILANDruccolo</div>
 							<div class="allenatore">(Vezio Malandruccolo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">BAR da Ancesco</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
@@ -1538,13 +1538,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Real WC Mbrenator</div>
 							<div class="allenatore">(Filippo Pagliarella)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Arcky C&C</div>
 							<div class="allenatore">(Arcangelo Perciballi)</div>
 						</div>
@@ -1558,13 +1558,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">BAR Garibaldi</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">FC Daje De Tacco</div>
 							<div class="allenatore">(Giuseppe Aurilio)</div>
 						</div>
@@ -1578,13 +1578,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">A.S.3:32</div>
 							<div class="allenatore">(Giuseppe Aurilio)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Centro Tim</div>
 							<div class="allenatore">(Andrea Rotondo)</div>
 						</div>
@@ -1598,13 +1598,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">T.K.M.</div>
 							<div class="allenatore">(Nicola Fazi)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">La Capolista</div>
 							<div class="allenatore">(Flavio & Marco)</div>
 						</div>
@@ -1627,13 +1627,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">Bar Fabio dal 1396</div>
 							<div class="allenatore">(Daniele Rotondo)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">Atletico Collasso</div>
 							<div class="allenatore">(Giuseppe Aurilio)</div>
 						</div>
@@ -1666,13 +1666,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div class="titolo">1°</div>
+							<div class="titolo">1&#176;</div>
 							<div class="squadra">S.C.A.P.P.E.T.</div>
 							<div class="allenatore">(Giuseppe Aurilio)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">As 433</div>
 							<div class="allenatore">(Fernando Fiorini)</div>
 						</div>
@@ -1686,13 +1686,13 @@ $(document).ready(function(){
 					<div class="vincitori">
 						<div class="primo">
 							<div><i class="fas fa-shield-alt"></i> </div>
-							<div 0class="titolo">1°</div>
+							<div 0class="titolo">1&#176;</div>
 							<div class="squadra">Real Baucao</div>
 							<div class="allenatore">(Carlo Perciballi)</div>
 						</div>
 						<div class="secondo">
 							<div><i class="fas fa-medal"></i></div>
-							<div class="titolo">2°</div>
+							<div class="titolo">2&#176;</div>
 							<div class="squadra">As 433</div>
 							<div class="allenatore">(Fernando Fiorini)</div>
 						</div>
@@ -1711,13 +1711,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Riommelu</div>
 						<div class="allenatore">(Carletto Sciandrone)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">Team chiappetto Iori</div>
 						<div class="allenatore">(Marco Arianna)</div>
 					</div>
@@ -1728,13 +1728,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Iori cè</div>
 						<div class="allenatore">(Figurino - Cugino Bruno)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">Iori Presidente</div>
 						<div class="allenatore">(filippo)</div>
 					</div>
@@ -1745,13 +1745,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Ebosele Song</div>
 						<div class="allenatore">(MDP)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">5emmezzo</div>
 						<div class="allenatore">(Giorgio)</div>
 					</div>
@@ -1762,13 +1762,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">AS Friskies</div>
 						<div class="allenatore">(Antonio & Michela)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">CrossaPù</div>
 						<div class="allenatore">(Gianluca Pupparo)</div>
 					</div>
@@ -1779,13 +1779,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Salsino Bello</div>
 						<div class="allenatore">(Filippo)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">Mandrake e Pomata</div>
 						<div class="allenatore">(Narpini-Iori)</div>
 					</div>
@@ -1796,13 +1796,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Bar Fabio dal 1936</div>
 						<div class="allenatore">(Daniele Rotondo)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">I NANI</div>
 						<div class="allenatore">(Peppino)</div>
 					</div>
@@ -1813,13 +1813,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Nuova ROmanina</div>
 						<div class="allenatore">(Arky)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">I NANI</div>
 						<div class="allenatore">(Peppino)</div>
 					</div>
@@ -1830,13 +1830,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">PROSUT!</div>
 						<div class="allenatore">(Gianluca Pupparo)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">I NANI</div>
 						<div class="allenatore">(Peppino)</div>
 					</div>
@@ -1847,13 +1847,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">OLIVA</div>
 						<div class="allenatore">(Figurinp)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">I NANI</div>
 						<div class="allenatore">(Peppino)</div>
 					</div>
@@ -1864,13 +1864,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">I NANI</div>
 						<div class="allenatore">(Peppino)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">Nuova Romanina</div>
 						<div class="allenatore">(Arky)</div>
 					</div>
@@ -1881,13 +1881,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Fica Junion</div>
 						<div class="allenatore">(Giorgio Gasbarrini)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">FC Daje de tacco</div>
 						<div class="allenatore">Peppino</div>
 					</div>
@@ -1898,13 +1898,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Atletico ero na volta</div>
 						<div class="allenatore">(Antonio Palombizio)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">FC Daje de tacco</div>
 						<div class="allenatore">Peppino</div>
 					</div>
@@ -1915,13 +1915,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Wiskey & Benny</div>
 						<div class="allenatore">(Marco & Flavio)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">FC Daje de tacco</div>
 						<div class="allenatore">Peppino</div>
 					</div>
@@ -1933,13 +1933,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Atletico ci sarai tu</div>
 						<div class="allenatore">(Antonio Palombizio)</div>
 					</div>
 					<div class="secondo">
 						<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">FC Daje de tacco</div>
 						<div class="allenatore">(Peppino)</div>
 					</div>
@@ -1956,13 +1956,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Team chiappetto Iori</div>
 						<div class="allenatore">(Marco Arianna)</div>
 					</div>
 					<div class="secondo">
 					<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">Pianeta Verde NA</div>
 						<div class="allenatore">(Andrea Rotondo)</div>
 					</div>
@@ -1973,13 +1973,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Iori Presidente</div>
 						<div class="allenatore">(Figurino - Cugino Bruno)</div>
 					</div>
 					<div class="secondo">
 					<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">IL BAR</div>
 						<div class="allenatore">(Salsino)</div>
 					</div>
@@ -1990,13 +1990,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">5emmezzo</div>
 						<div class="allenatore">(Giorgio)</div>
 					</div>
 					<div class="secondo">
 					<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">Reggi Frenato</div>
 						<div class="allenatore">(Iori)</div>
 					</div>
@@ -2007,13 +2007,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">AS Vemere</div>
 						<div class="allenatore">(MDP)</div>
 					</div>
 					<div class="secondo">
 					<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">AS Friskies</div>
 						<div class="allenatore">(Antonio & Michela)</div>
 					</div>
@@ -2024,13 +2024,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Nuova Romanina</div>
 						<div class="allenatore">(Arky)</div>
 					</div>
 					<div class="secondo">
 					<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">Mandrake e Pomata</div>
 						<div class="allenatore">(Narpini-Iori)</div>
 					</div>
@@ -2041,13 +2041,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">SC Valle S. Andrea</div>
 						<div class="allenatore">(Andrea Rotondo)</div>
 					</div>
 					<div class="secondo">
 					<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">I NANI</div>
 						<div class="allenatore">(Peppino)</div>
 					</div>
@@ -2064,13 +2064,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Cugino Bruno </div>
 						<div class="allenatore">(Mario De Persis)</div>
 					</div>
 					<div class="secondo">
 					<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">Pianeta Verde NA</div>
 						<div class="allenatore">(Andrea Rotondo)</div>
 					</div>
@@ -2081,13 +2081,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">I NANI </div>
 						<div class="allenatore">(Peppino)</div>
 					</div>
 					<div class="secondo">
 					<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">5emezzo</div>
 						<div class="allenatore">(Giorgio)</div>
 					</div>
@@ -2098,13 +2098,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">5emmezzo </div>
 						<div class="allenatore">(Giorgio)</div>
 					</div>
 					<div class="secondo">
 					<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">Ebosele Song</div>
 						<div class="allenatore">(MDP)</div>
 					</div>
@@ -2115,13 +2115,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">I NANI</div>
 						<div class="allenatore">(Peppino)</div>
 					</div>
 					<div class="secondo">
 					<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">Nuova Romanina</div>
 						<div class="allenatore">(Arky)</div>
 					</div>
@@ -2132,13 +2132,13 @@ $(document).ready(function(){
 				<div class="vincitori competizione2">
 					<div class="primo">
 						<div><i class="fas fa-trophy"></i> </div>
-						<div class="titolo">1°</div>
+						<div class="titolo">1&#176;</div>
 						<div class="squadra">Mettiti Più Lontano</div>
 						<div class="allenatore">(Figurino)</div>
 					</div>
 					<div class="secondo">
 					<div><i class="fas fa-medal"></i> </div>
-						<div class="titolo">2°</div>
+						<div class="titolo">2&#176;</div>
 						<div class="squadra">SC Valle S. Andrea</div>
 						<div class="allenatore">(Rotondo)</div>
 					</div>
