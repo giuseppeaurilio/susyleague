@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 array_push($giocatori, array(
                     "id"=>$row["id"],
-                    "nome"=>($row["nome"]),
+                    "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "ruolo_mantra"=>$row["ruolo_mantra"],
                     "squadra"=>$row["squadra"],
@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $imgurlsquadra = str_replace("% %", "-", "https://content.fantacalcio.it/web/img/team/ico/".strtolower($row["squadra"]).".png");
                 array_push($giocatori, array(
                     "id"=>$row["id"],
-                    "nome"=>($row["nome"]),
+                    "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "imgurl"=>$imgurl,
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 
                 array_push($giocatori, array(
                     "id"=>($row["id"]),
-                    "nome"=>($row["nome"]),
+                    "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "imgurl"=>$imgurl,
@@ -160,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             while ($row=$result->fetch_assoc()) {
                 array_push($stats, array(
                     "id"=>($row["id"]),
-                    "nome"=>($row["nome"]),
+                    "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>($row["ruolo"]),
                     "squadra_breve"=>($row["squadra_breve"]),
                     "anno"=>($row["anno"]. " "),
@@ -205,7 +205,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 while ($row=$result->fetch_assoc()) {
                     array_push($giocatori, array(
                         "id"=>$row["idgiocatore"],
-                        "nome"=>$row["nome"],
+                        "nome"=>utf8_encode($row["nome"]),
                         "squadra_breve"=>$row["squadra_breve"],
                         "ruolo"=>$row["ruolo"],
                         "ruolo_mantra"=>$row["ruolo_mantra"],
@@ -307,7 +307,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 while ($row=$result->fetch_assoc()) {
                     array_push($giocatori, array(
                         "id"=>$row["idgiocatore"],
-                        "nome"=>($row["nome"]),
+                        "nome"=>utf8_encode($row["nome"]),
                         "class"=>$row["squadrafc"] != null ? "barrato" : "",
                         "squadra_breve"=>($row["squadra_breve"]),
                         "ruolo"=>($row["ruolo"]),
@@ -323,7 +323,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         "om"=>($row["om"]),
                         "costo_ap"=>($row["costo_ap"]),
                         "squadrafc"=>($row["squadrafc"]),
-                        "note"=>($row["note"])
+                        "note"=>utf8_encode($row["note"])
                         )
                     );
                 };
@@ -357,7 +357,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // $imgurl = str_replace("% %", "-", "https://content.fantacalcio.it/web/campioncini/small/".$nome_giocatore_pulito.".png");
                 array_push($giocatori, array(
                     "id"=>($row["id"]),
-                    "nome"=>($row["nome"]),
+                    "nome"=>utf8_encode($row["nome"]),
                     "ruolo"=>$row["ruolo"],
                     "squadra_breve"=>$row["squadra_breve"],
                     "costo"=>$row["costo"],
@@ -499,7 +499,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                
                 array_push($giocatori, array(
                     "id"=>$row["idgiocatore"],
-                    "nome"=>($row["nome"]),
+                    "nome"=>utf8_encode($row["nome"]),
                     "squadra_breve"=>($row["squadra_breve"]),
                     "ruolo"=>($row["ruolo"]),
                     "imgurl"=>$imgurl,
@@ -523,6 +523,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     "quo"=>($row["quotazione"]),
                     )
                 );
+                
             };
             $response = array(
                 'result' => "true",
@@ -554,7 +555,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             while($row = $result->fetch_assoc()){
                 array_push($prossimi, array(
                     "ordine"=>$row["ordine"],
-                    "nome"=>$row["nome"],
+                    "nome"=>utf8_encode($row["nome"]),
                     "squadra"=>$row["squadra"],
                     "costo"=>$row["costo"],
                     )
