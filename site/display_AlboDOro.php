@@ -12,7 +12,7 @@ $(document).ready(function(){
     );
 });
 </script>
-<h2>Albo D'oro</h2>
+<h2>Albo D'oro</h2> 
 
 <div class="albodoro" id="tabs">
 	<ul>
